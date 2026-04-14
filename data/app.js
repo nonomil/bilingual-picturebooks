@@ -48,6 +48,8 @@ const App = {
       }
     });
   },
+
+  selectStory(id) {
     this.currentStory = STORIES.find(s => s.id === id);
     this.currentPage = 0;
     this.currentView = 'reader';
