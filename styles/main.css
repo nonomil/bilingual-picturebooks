@@ -140,17 +140,20 @@ body {
 }
 #rate-display { font-weight: 700; font-size: 0.9rem; min-width: 32px; text-align: center; }
 
-/* Story image */
+/* Story image - sticky at top */
 .story-image-container {
   width: 100%;
   max-height: 280px;
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--highlight);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 #story-image {
   width: 100%;
@@ -166,6 +169,9 @@ body {
   padding: 24px 20px;
   margin-bottom: 16px;
   box-shadow: var(--shadow);
+  overflow-y: auto;
+  max-height: calc(55vh - 280px);
+  scroll-behavior: smooth;
 }
 .en-text {
   font-size: 1.35rem;
@@ -198,6 +204,8 @@ body {
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 20px;
+  overflow-y: auto;
+  max-height: 130px;
 }
 .key-word {
   background: var(--accent2);
@@ -207,6 +215,12 @@ body {
   font-size: 1.35rem;
   white-space: nowrap;
   cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.key-word.active {
+  background: var(--highlight);
+  color: #E65100;
+  transform: scale(1.08);
 }
 .phonetic { color: #8D6E63; margin: 0 2px; }
 
