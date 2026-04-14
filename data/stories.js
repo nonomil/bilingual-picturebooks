@@ -34,7 +34,7 @@ const STORIES = [
     title: 'Steve vs The Wither',
     titleZh: '史蒂夫大战凋零',
     category: '我的世界',
-    cover: 'images/covers/cover-minecraft.jpg',
+    cover: 'images/covers/cover-snake.jpg',
     pages: [
       { img: 'images/minecraft/page-1.jpg', en: 'Steve lived in a quiet village. He was a builder, a miner, and a dreamer.', zh: '史蒂夫住在一个安静的村庄里。他是一个建造者，一个矿工，也是一个梦想家。', keys: [{ w: 'village', p: '/ˈvɪlɪdʒ/', zh: '村庄' }, { w: 'builder', p: '/ˈbɪldər/', zh: '建造者' }, { w: 'dreamer', p: '/ˈdriːmər/', zh: '梦想家' }] },
       { img: 'images/minecraft/page-2.jpg', en: 'One day, the sky turned dark. A terrible roar shook the ground. The Wither was coming.', zh: '有一天，天空变暗了。可怕的咆哮震动了大地。凋零来了。', keys: [{ w: 'terrible', p: '/ˈterəbl/', zh: '可怕的' }, { w: 'roar', p: '/rɔːr/', zh: '咆哮' }, { w: 'ground', p: '/ɡraʊnd/', zh: '大地' }] },
@@ -63,7 +63,7 @@ const STORIES = [
     title: 'The Very Hungry Little Snake',
     titleZh: '好饿的小蛇',
     category: '宫西达也',
-    cover: 'images/covers/cover-snake.jpg',
+    cover: 'images/covers/cover-minecraft.jpg',
     pages: [
       { img: 'images/snake/page-1.jpg', en: 'The Very Hungry Little Snake', zh: '好饿的小蛇', keys: [{ w: 'hungry', p: '/ˈhʌŋɡri/', zh: '好饿的' }, { w: 'snake', p: '/sneɪk/', zh: '小蛇' }] },
       { img: 'images/snake/page-2.jpg', en: 'A little snake wiggles and wiggles along the path on a sunny morning.', zh: '一个阳光明媚的早晨，小蛇一扭一扭地在小路上散步。', keys: [{ w: 'wiggle', p: '/ˈwɪɡl/', zh: '一扭一扭地' }, { w: 'path', p: '/pæθ/', zh: '小路' }, { w: 'sunny', p: '/ˈsʌni/', zh: '阳光明媚的' }] },
