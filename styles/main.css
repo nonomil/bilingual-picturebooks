@@ -198,11 +198,21 @@ body {
   border-top: 1px dashed #EEE;
 }
 
-.zh-text .zh-char.active, .zh-text .zh-word.active {
+.zh-text .zh-char.active, .zh-text .zh-word.active, .zh-text .zh-chunk.active {
   background: var(--highlight);
   color: #222;
   border-radius: 3px;
   padding: 0 1px;
+}
+
+.zh-text .zh-chunk {
+  display: inline;
+}
+
+.zh-text .zh-chunk.active {
+  background: var(--highlight);
+  color: #222;
+  border-radius: 3px;
 }
 
 /* Key Words - inline inside text-area */
