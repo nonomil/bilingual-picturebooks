@@ -241,9 +241,19 @@ const App = {
       });
     };
 
-    // 1. English — time-driven word highlight starts immediately
-    nextEnWord();
-    TTS.speak(p.en, 'en-US', this.rate, null, null).then(async () => {
+    // 1. English — time-driven word highlight, waits for TTS onstart event
+    let enHighlightStarted = false;
+    const startEnHighlight = () => {
+      if (enHighlightStarted || !this.speaking) return;
+      enHighlightStarted = true;
+      nextEnWord();
+    };
+    // Fallback in case onstart doesn't fire reliably
+    const enFallbackTimer = setTimeout(startEnHighlight, 600);
+    TTS.speak(p.en, 'en-US', this.rate, null, null, () => {
+      clearTimeout(enFallbackTimer);
+      startEnHighlight();
+    }).then(async () => {
       // 2. Chinese — speak each punctuation-delimited chunk, then key words
       if (!this.speaking) return;
       await speakNextChunk();

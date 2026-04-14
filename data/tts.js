@@ -45,7 +45,7 @@ const TTS = {
     return best || this.voices.find(v => v.lang.startsWith(lang.split('-')[0])) || this.voices[0];
   },
 
-  speak(text, lang = 'en-US', rate = 1, onWord, onEnd) {
+  speak(text, lang = 'en-US', rate = 1, onWord, onEnd, onStart) {
     this.stop();
     return new Promise((resolve) => {
       const utterance = new SpeechSynthesisUtterance(text);
@@ -53,6 +53,7 @@ const TTS = {
       utterance.lang = lang;
       utterance.rate = rate;
       if (onWord) utterance.onboundary = (e) => { if (e.name === 'word') onWord(e.charIndex, text.length); };
+      utterance.onstart = () => { if (onStart) onStart(); };
       utterance.onend = () => { this.isSpeaking = false; if (onEnd) onEnd(); resolve(); };
       utterance.onerror = () => { this.isSpeaking = false; if (onEnd) onEnd(); resolve(); };
       this.currentUtterance = utterance;
