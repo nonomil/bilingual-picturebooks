@@ -163,17 +163,22 @@ const App = {
       this.wordMap.forEach(item => { if (item.el) item.el.classList.remove('active'); });
     };
 
-    // Build key words TTS text: "garden, 花园. bright, 明亮的. cheerful, 开心的."
-    const keysText = p.keys.map(k => `${k.w} ${k.zh}`).join('. ') + '.';
+    //朗读顺序：英文句子 → 中文句子 → 英文单词 → 中文单词
+    // Build key words TTS: English then Chinese
+    const keysEn = p.keys.map(k => k.w).join('. ') + '.';
+    const keysZh = p.keys.map(k => k.zh).join('。') + '。';
 
-    // 1. Speak English
+    // 1. Speak English sentence
     TTS.speak(p.en, 'en-US', this.rate, highlight, null).then(() => {
       cleanup();
-      // 2. Speak Key Words
-      return TTS.speak(keysText, 'en-US', this.rate * 0.85, null, null);
+      // 2. Speak Chinese sentence
+      return TTS.speak(p.zh, 'zh-CN', this.rate, null, null);
     }).then(() => {
-      // 3. Speak Chinese
-      return TTS.speak(p.zh, 'zh-CN', this.rate, null, () => {
+      // 3. Speak key English words
+      return TTS.speak(keysEn, 'en-US', this.rate * 0.85, null, null);
+    }).then(() => {
+      // 4. Speak key Chinese words
+      return TTS.speak(keysZh, 'zh-CN', this.rate * 0.85, null, () => {
         this.speaking = false;
         document.getElementById('play-btn').textContent = '▶ 朗读';
         if (this.autoPage && this.currentPage < s.pages.length - 1) {
