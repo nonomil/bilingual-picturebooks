@@ -176,7 +176,6 @@ const App = {
     const enContainer = document.getElementById('en-text-container');
     this.buildWordMap(p.en, enContainer);
     this.buildKeyWordMap(document.getElementById('keys-row'));
-    const zhChars = p.zh.split('');
 
     const scrollActiveIntoView = (el) => {
       if (!el) return;
@@ -198,51 +197,53 @@ const App = {
     };
 
         // Split Chinese text by punctuation for sentence-level highlighting
-    // Each chunk = text between/including major punctuation marks
     const splitByPunct = (text) => {
-      // Split on 。！？；：, keep the punctuation as part of preceding chunk
       const parts = text.split(/(?<=[。！？；：])/);
       return parts.filter(p => p.trim().length > 0);
     };
 
     const zhChunks = splitByPunct(p.zh);
-    // Wrap each chunk in a span for highlighting
     const zhContainer = document.getElementById('zh-text-container');
     const zhChunkEls = zhChunks.map((chunk, i) => {
-      const id = 'zhc-' + i;
-      return `<span class="zh-chunk" id="${id}">${chunk}</span>`;
+      return `<span class="zh-chunk" id="zhc-${i}">${chunk}</span>`;
     }).join('');
     zhContainer.innerHTML = zhChunkEls;
 
     let zhChunkIdx = 0;
-    const highlightNextZhChunk = () => {
-      if (!this.speaking || zhChunkIdx >= zhChunks.length) return;
+    const highlightZhChunk = (idx) => {
       this.clearAllHighlights();
-      const el = document.getElementById('zhc-' + zhChunkIdx);
+      const el = document.getElementById('zhc-' + idx);
       if (el) { el.classList.add('active'); scrollActiveIntoView(el); }
-      zhChunkIdx++;
+    };
+
+    // Speak Chinese chunks one by one, each chunk's onEnd drives the next
+    // Returns a Promise that resolves when all chunks are done
+    const speakNextChunk = () => {
+      return new Promise((resolve) => {
+        const advance = () => {
+          if (!this.speaking || zhChunkIdx >= zhChunks.length) { resolve(); return; }
+          highlightZhChunk(zhChunkIdx);
+          const chunkText = zhChunks[zhChunkIdx];
+          zhChunkIdx++;
+          TTS.speak(chunkText, 'zh-CN', this.rate, null, () => {
+            if (!this.speaking) { resolve(); return; }
+            if (zhChunkIdx >= zhChunks.length) { resolve(); return; }
+            advance();
+          });
+        };
+        advance();
+      });
     };
 
     // 1. English — time-driven word highlight starts immediately
     nextEnWord();
-    TTS.speak(p.en, 'en-US', this.rate, null, null).then(() => {
-      // 2. Chinese — onboundary event drives chunk-by-chunk highlight
+    TTS.speak(p.en, 'en-US', this.rate, null, null).then(async () => {
+      // 2. Chinese — speak each punctuation-delimited chunk, then key words
       if (!this.speaking) return;
-      zhChunkIdx = 0;
-      highlightNextZhChunk();
-      // onboundary fires at each sentence/phrase boundary in Chinese
-      return TTS.speak(p.zh, 'zh-CN', this.rate, null, (event) => {
-        if (!this.speaking) return;
-        if (event.name === 'sentence' || event.name === 'phrase' || (event.name === 'boundary' && event.charIndex !== undefined)) {
-          if (zhChunkIdx < zhChunks.length) {
-            highlightNextZhChunk();
-          }
-        }
-      });
-    }).then(() => {
-      // 3 & 4. Key words
+      await speakNextChunk();
       if (!this.speaking) return;
-      return this.speakKeysOneByOne(p.keys);
+      // 3. Key words
+      await this.speakKeysOneByOne(p.keys);
     });
   },
 
