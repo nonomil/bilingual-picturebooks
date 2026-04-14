@@ -178,14 +178,11 @@ const App = {
     this.buildKeyWordMap(document.getElementById('keys-row'));
     const zhChars = p.zh.split('');
 
-    const scrollIntoView = (el) => {
+    const scrollActiveIntoView = (el) => {
       if (!el) return;
-      const area = document.getElementById('text-area');
-      const elBottom = el.getBoundingClientRect().bottom;
-      const areaBottom = area.getBoundingClientRect().bottom;
-      if (elBottom > areaBottom - 60) {
-        area.scrollTop += elBottom - areaBottom + 80;
-      }
+      requestAnimationFrame(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
     };
 
     let enIdx = 0;
@@ -193,7 +190,7 @@ const App = {
       if (!this.speaking || enIdx >= this.wordMap.length) return;
       this.clearAllHighlights();
       const el = this.wordMap[enIdx] && this.wordMap[enIdx].el;
-      if (el) { el.classList.add('active'); scrollIntoView(el); }
+      if (el) { el.classList.add('active'); scrollActiveIntoView(el); }
       enIdx++;
       if (enIdx < this.wordMap.length) {
         this.highlightTimer = setTimeout(nextEnWord, Math.max(180, 350 / this.rate));
@@ -205,7 +202,7 @@ const App = {
       if (!this.speaking || zhIdx >= zhChars.length) return;
       this.clearAllHighlights();
       const el = document.getElementById('zhc-' + zhIdx);
-      if (el) { el.classList.add('active'); scrollIntoView(el); }
+      if (el) { el.classList.add('active'); scrollActiveIntoView(el); }
       zhIdx++;
       if (zhIdx < zhChars.length) {
         this.highlightTimer = setTimeout(nextZhChar, Math.max(150, 280 / this.rate));
