@@ -82,6 +82,7 @@ const App = {
     if (this.highlightTimer) { clearTimeout(this.highlightTimer); this.highlightTimer = null; }
     this.wordMap.forEach(item => { if (item.el) item.el.classList.remove('active'); });
     this.keyWordMap.forEach(item => { if (item.el) item.el.classList.remove('active'); });
+    document.querySelectorAll('.zh-char.active').forEach(el => el.classList.remove('active'));
   },
 
   renderReader() {
@@ -93,6 +94,9 @@ const App = {
     const keysHtml = p.keys.map((k, i) =>
       `<span class="key-word" id="key-${i}" onclick="App.speakKey(${i})"><b>${k.w}</b> <span class="phonetic">${k.p}</span> ${k.zh}</span>`
     ).join('');
+
+    // Wrap each Chinese char in a span for highlighting
+    const zhHtml = p.zh.split('').map((c, i) => `<span class="zh-char" id="zhc-${i}">${c}</span>`).join('');
 
     document.getElementById('app').innerHTML = `
       <div class="reader">
@@ -116,7 +120,7 @@ const App = {
 
         <div class="text-area" id="text-area">
           <div class="en-text" id="en-text-container">${this.wrapWords(p.en)}</div>
-          <div class="zh-text" id="zh-text">${p.zh}</div>
+          <div class="zh-text" id="zh-text">${zhHtml}</div>
           <div class="keys-row" id="keys-row">${keysHtml}</div>
         </div>
 
@@ -172,47 +176,52 @@ const App = {
     const enContainer = document.getElementById('en-text-container');
     this.buildWordMap(p.en, enContainer);
     this.buildKeyWordMap(document.getElementById('keys-row'));
+    const zhChars = p.zh.split('');
 
-    // Auto-scroll helpers
-    const scrollActiveWordIntoView = () => {
-      const active = document.querySelector('.word.active');
+    // Scroll active element into view
+    const scrollActiveIntoView = () => {
+      const active = document.querySelector('.word.active, .zh-char.active');
       if (active) {
-        const textArea = document.getElementById('text-area');
-        const wordBottom = active.getBoundingClientRect().bottom;
-        const areaBottom = textArea.getBoundingClientRect().bottom;
-        if (wordBottom > areaBottom - 60) {
-          textArea.scrollTop += wordBottom - areaBottom + 80;
+        const area = document.getElementById('text-area');
+        const elBottom = active.getBoundingClientRect().bottom;
+        const areaBottom = area.getBoundingClientRect().bottom;
+        if (elBottom > areaBottom - 60) {
+          area.scrollTop += elBottom - areaBottom + 80;
         }
       }
     };
 
-    // Highlight word by index using time-based estimation
-    // Average English word spoken at ~400ms at rate=1
-    const highlightWordByIndex = (idx) => {
-      this.clearAllHighlights();
-      if (idx >= 0 && idx < this.wordMap.length) {
-        const el = this.wordMap[idx].el;
+    // English: map TTS charIndex → word span via wordMap
+    const onEnWord = (charIndex) => {
+      const idx = this.wordMap.findIndex((item, i, arr) =>
+        i < arr.length - 1
+          ? (charIndex >= item.start && charIndex < arr[i + 1].start)
+          : (charIndex >= item.start)
+      );
+      if (idx >= 0) {
+        this.clearAllHighlights();
+        const el = this.wordMap[idx] && this.wordMap[idx].el;
         if (el) el.classList.add('active');
-        // Schedule next word
-        if (idx < this.wordMap.length - 1) {
-          const delay = 350 / this.rate;
-          this.highlightTimer = setTimeout(() => {
-            highlightWordByIndex(idx + 1);
-            scrollActiveWordIntoView();
-          }, delay);
-        }
+        scrollActiveIntoView();
       }
     };
 
-    // TTS 朗读顺序：英文句子 → 中文句子 → 英文单词 → 中文单词
-    // 英文单词 + 中文翻译交替进行，一组一组读
+    // Chinese: TTS onboundary fires per character (charIndex = char position)
+    const onZhBoundary = (charIndex) => {
+      if (charIndex >= 0 && charIndex < zhChars.length) {
+        this.clearAllHighlights();
+        const el = document.getElementById('zhc-' + charIndex);
+        if (el) el.classList.add('active');
+        scrollActiveIntoView();
+      }
+    };
 
-    // 1. English sentence
-    TTS.speak(p.en, 'en-US', this.rate, null, null).then(() => {
-      // 2. Chinese sentence
-      return TTS.speak(p.zh, 'zh-CN', this.rate, null, null);
+    // 1. English sentence — onEnWord drives word-by-word highlight
+    TTS.speak(p.en, 'en-US', this.rate, onEnWord, null).then(() => {
+      // 2. Chinese sentence — onZhBoundary drives char-by-char highlight
+      return TTS.speak(p.zh, 'zh-CN', this.rate, onZhBoundary, null);
     }).then(() => {
-      // 3 & 4. Key words one pair at a time
+      // 3 & 4. Key words
       return this.speakKeysOneByOne(p.keys);
     });
   },

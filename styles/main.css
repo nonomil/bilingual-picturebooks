@@ -198,6 +198,13 @@ body {
   border-top: 1px dashed #EEE;
 }
 
+.zh-text .zh-char.active {
+  background: var(--highlight);
+  color: #222;
+  border-radius: 3px;
+  padding: 0 1px;
+}
+
 /* Key Words - inline inside text-area */
 .keys-row {
   display: flex;
