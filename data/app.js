@@ -96,7 +96,7 @@ const App = {
         </div>
 
         <div class="keys-area" id="keys-area">
-          ${p.keys.map(k => `<span class="key-word"><b>${k.w}</b> <span class="phonetic">${k.p}</span> ${k.zh}</span>`).join('')}
+          ${p.keys.map((k, i) => `<span class="key-word" onclick="App.speakKey(${i})"><b>${k.w}</b> <span class="phonetic">${k.p}</span> ${k.zh}</span>`).join('')}
         </div>
 
         <div class="controls">
@@ -163,15 +163,31 @@ const App = {
       this.wordMap.forEach(item => { if (item.el) item.el.classList.remove('active'); });
     };
 
-    TTS.speak(p.en, 'en-US', this.rate, highlight, null).then(cleanup);
+    // Build key words TTS text: "garden, 花园. bright, 明亮的. cheerful, 开心的."
+    const keysText = p.keys.map(k => `${k.w} ${k.zh}`).join('. ') + '.';
 
-    TTS.speak(p.zh, 'zh-CN', this.rate, null, () => {
-      this.speaking = false;
-      document.getElementById('play-btn').textContent = '▶ 朗读';
-      if (this.autoPage && this.currentPage < s.pages.length - 1) {
-        setTimeout(() => this.nextPage(), 800);
-      }
+    // 1. Speak English
+    TTS.speak(p.en, 'en-US', this.rate, highlight, null).then(() => {
+      cleanup();
+      // 2. Speak Key Words
+      return TTS.speak(keysText, 'en-US', this.rate * 0.85, null, null);
+    }).then(() => {
+      // 3. Speak Chinese
+      return TTS.speak(p.zh, 'zh-CN', this.rate, null, () => {
+        this.speaking = false;
+        document.getElementById('play-btn').textContent = '▶ 朗读';
+        if (this.autoPage && this.currentPage < s.pages.length - 1) {
+          setTimeout(() => this.nextPage(), 800);
+        }
+      });
     });
+  },
+
+  // Speak a single key word on click
+  speakKey(idx) {
+    const p = this.currentStory.pages[this.currentPage];
+    const k = p.keys[idx];
+    if (k) TTS.speak(`${k.w}，${k.zh}`, 'zh-CN', this.rate, null, null);
   },
 
   prevPage() {

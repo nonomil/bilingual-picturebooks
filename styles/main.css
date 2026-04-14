@@ -204,8 +204,9 @@ body {
   color: #5D4037;
   border-radius: 20px;
   padding: 5px 12px;
-  font-size: 0.8rem;
+  font-size: 1.35rem;
   white-space: nowrap;
+  cursor: pointer;
 }
 .phonetic { color: #8D6E63; margin: 0 2px; }
 
