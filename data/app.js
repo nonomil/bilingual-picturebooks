@@ -22,75 +22,29 @@ const App = {
   },
 
   renderHome() {
-    // Group stories by category
-    const catMap = {};
-    STORIES.forEach(s => {
-      if (!catMap[s.category]) catMap[s.category] = [];
-      catMap[s.category].push(s);
-    });
-    const cats = Object.entries(catMap);
-
     this.currentView = 'home';
     document.getElementById('app').innerHTML = `
       <div class="home">
         <h1 class="home-title">📚 双语绘本朗读</h1>
         <div class="category-grid" id="home-grid">
-          ${cats.map(([cat, stories]) => {
-            if (stories.length === 1) {
-              const s = stories[0];
-              return `<div class="category-card" data-story-id="${s.id}">
-                <img class="card-cover" src="${s.cover}" alt="${s.title}" onerror="this.style.display='none'">
-                <div class="card-info">
-                  <div class="card-category">${s.category}</div>
-                  <div class="card-title">${s.title}</div>
-                  <div class="card-title-zh">${s.titleZh}</div>
-                  <div class="card-pages">${s.pages.length} 页</div>
-                </div>
-              </div>`;
-            } else {
-              return `<div class="category-card multi" data-category="${cat}">
-                <div class="multi-covers">
-                  ${stories.map(s => `<img class="card-cover" src="${s.cover}" alt="${s.title}" onerror="this.style.display='none'">`).join('')}
-                </div>
-                <div class="card-info">
-                  <div class="card-category">${cat}</div>
-                  <div class="card-title">${stories.length} 个故事 · 点击展开</div>
-                  <div class="card-title-zh">${stories.map(s => s.titleZh).join(' · ')}</div>
-                </div>
-                <div class="multi-story-list" id="list-${cat.replace(/ /g,'_')}">
-                  ${stories.map(s => `<div class="story-choice" data-story-id="${s.id}">▶ ${s.titleZh} <span class="story-choice-en">${s.title}</span><span class="story-choice-pages">${s.pages.length}页</span></div>`).join('')}
-                </div>
-              </div>`;
-            }
-          }).join('')}
+          ${STORIES.map(s => `
+            <div class="category-card" data-story-id="${s.id}">
+              <img class="card-cover" src="${s.cover}" alt="${s.title}" onerror="this.style.display='none'">
+              <div class="card-info">
+                <div class="card-category">${s.category}</div>
+                <div class="card-title">${s.title}</div>
+                <div class="card-title-zh">${s.titleZh}</div>
+                <div class="card-pages">${s.pages.length} 页</div>
+              </div>
+            </div>
+          `).join('')}
         </div>
       </div>
     `;
-
-    // Event delegation
     document.getElementById('home-grid').addEventListener('click', e => {
       const card = e.target.closest('.category-card');
-      if (!card) return;
-      if (card.classList.contains('multi')) {
-        const cat = card.dataset.category;
-        const id = 'list-' + cat.replace(/ /g, '_');
-        const list = document.getElementById(id);
-        if (list) {
-          const hidden = list.style.display === 'none' || list.style.display === '';
-          list.style.display = hidden ? 'block' : 'none';
-        }
-      } else {
-        const storyId = card.dataset.storyId;
-        if (storyId) this.selectStory(storyId);
-      }
-    });
-
-    document.getElementById('home-grid').addEventListener('click', e => {
-      const choice = e.target.closest('.story-choice');
-      if (choice) {
-        e.stopPropagation();
-        const storyId = choice.dataset.storyId;
-        if (storyId) this.selectStory(storyId);
+      if (card && card.dataset.storyId) {
+        this.selectStory(card.dataset.storyId);
       }
     });
   },
