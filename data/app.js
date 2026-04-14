@@ -6,9 +6,9 @@ const App = {
   rate: 1,
   autoPage: true,
   speaking: false,
-  // Word timing maps
   wordMap: [],
-  keyWordMap: [],  // For Key Words section
+  keyWordMap: [],
+  highlightTimer: null,
 
   init() {
     TTS.init().then(() => {
@@ -66,45 +66,33 @@ const App = {
     });
   },
 
-  // Build key-word map: each entry is one key word (English or Chinese)
   buildKeyWordMap(containerEl) {
     const spans = containerEl ? containerEl.querySelectorAll('.key-word') : [];
     this.keyWordMap = [];
-    spans.forEach((el, i) => {
-      this.keyWordMap.push({ el });
-    });
+    spans.forEach((el, i) => { this.keyWordMap.push({ el }); });
   },
 
-  // Highlight key word by index (used for sequential key TTS)
   highlightKeyWord(idx) {
     this.keyWordMap.forEach((item, i) => {
       if (item.el) item.el.classList.toggle('active', i === idx);
     });
   },
 
-  // Clear all key word highlights
-  clearKeyHighlights() {
+  clearAllHighlights() {
+    if (this.highlightTimer) { clearTimeout(this.highlightTimer); this.highlightTimer = null; }
+    this.wordMap.forEach(item => { if (item.el) item.el.classList.remove('active'); });
     this.keyWordMap.forEach(item => { if (item.el) item.el.classList.remove('active'); });
-  },
-
-  // Scroll word into view if needed (keep highlighted line near top of text area)
-  scrollWordIntoView(el) {
-    if (!el) return;
-    const textArea = document.getElementById('text-area');
-    if (!textArea) return;
-    const areaTop = textArea.getBoundingClientRect().top;
-    const wordTop = el.getBoundingClientRect().top;
-    const lineHeight = parseFloat(getComputedStyle(textArea).lineHeight) || 30;
-    if (wordTop > areaTop + lineHeight * 2) {
-      const delta = wordTop - areaTop - lineHeight;
-      textArea.scrollTop += delta;
-    }
   },
 
   renderReader() {
     const s = this.currentStory;
     const p = s.pages[this.currentPage];
     const total = s.pages.length;
+
+    // Build key words HTML for inline display
+    const keysHtml = p.keys.map((k, i) =>
+      `<span class="key-word" id="key-${i}" onclick="App.speakKey(${i})"><b>${k.w}</b> <span class="phonetic">${k.p}</span> ${k.zh}</span>`
+    ).join('');
 
     document.getElementById('app').innerHTML = `
       <div class="reader">
@@ -129,10 +117,7 @@ const App = {
         <div class="text-area" id="text-area">
           <div class="en-text" id="en-text-container">${this.wrapWords(p.en)}</div>
           <div class="zh-text" id="zh-text">${p.zh}</div>
-        </div>
-
-        <div class="keys-area" id="keys-area">
-          ${p.keys.map((k, i) => `<span class="key-word" id="key-${i}"><b>${k.w}</b> <span class="phonetic">${k.p}</span> ${k.zh}</span>`).join('')}
+          <div class="keys-row" id="keys-row">${keysHtml}</div>
         </div>
 
         <div class="controls">
@@ -152,7 +137,6 @@ const App = {
     }
   },
 
-  // Wrap each word in a span, preserving spaces
   wrapWords(text) {
     return text.split(' ').map(w => `<span class="word">${w}</span>`).join(' ');
   },
@@ -172,6 +156,7 @@ const App = {
     if (this.speaking) {
       TTS.stop();
       this.speaking = false;
+      this.clearAllHighlights();
       document.getElementById('play-btn').textContent = '▶ 朗读';
     } else {
       await this.startReading();
@@ -184,57 +169,63 @@ const App = {
     this.speaking = true;
     document.getElementById('play-btn').textContent = '⏸ 停止';
 
-    // Build English word map + set up scroll observer
     const enContainer = document.getElementById('en-text-container');
     this.buildWordMap(p.en, enContainer);
-    this.buildKeyWordMap(document.getElementById('keys-area'));
+    this.buildKeyWordMap(document.getElementById('keys-row'));
 
-    // Observe active word changes to auto-scroll
-    let lastActive = null;
-    const observer = new MutationObserver(() => {
+    // Auto-scroll helpers
+    const scrollActiveWordIntoView = () => {
       const active = document.querySelector('.word.active');
-      if (active && active !== lastActive) {
-        lastActive = active;
-        this.scrollWordIntoView(active);
+      if (active) {
+        const textArea = document.getElementById('text-area');
+        const wordBottom = active.getBoundingClientRect().bottom;
+        const areaBottom = textArea.getBoundingClientRect().bottom;
+        if (wordBottom > areaBottom - 60) {
+          textArea.scrollTop += wordBottom - areaBottom + 80;
+        }
       }
-    });
-    observer.observe(enContainer, { attributes: true, attributeFilter: ['class'], subtree: true });
-
-    // English sentence: word-by-word highlight with charIndex
-    const highlight = (charIndex) => {
-      this.wordMap.forEach(item => {
-        if (item.el) item.el.classList.toggle('active', charIndex >= item.start && charIndex < item.end);
-      });
     };
-    const cleanupEn = () => {
-      this.wordMap.forEach(item => { if (item.el) item.el.classList.remove('active'); });
+
+    // Highlight word by index using time-based estimation
+    // Average English word spoken at ~400ms at rate=1
+    const highlightWordByIndex = (idx) => {
+      this.clearAllHighlights();
+      if (idx >= 0 && idx < this.wordMap.length) {
+        const el = this.wordMap[idx].el;
+        if (el) el.classList.add('active');
+        // Schedule next word
+        if (idx < this.wordMap.length - 1) {
+          const delay = 350 / this.rate;
+          this.highlightTimer = setTimeout(() => {
+            highlightWordByIndex(idx + 1);
+            scrollActiveWordIntoView();
+          }, delay);
+        }
+      }
     };
 
     // TTS 朗读顺序：英文句子 → 中文句子 → 英文单词 → 中文单词
-    // 每个英文单词单独朗读，配对其中文翻译
+    // 英文单词 + 中文翻译交替进行，一组一组读
 
-    // 1. English sentence with word-by-word highlight
-    TTS.speak(p.en, 'en-US', this.rate, highlight, null).then(() => {
-      cleanupEn();
+    // 1. English sentence
+    TTS.speak(p.en, 'en-US', this.rate, null, null).then(() => {
       // 2. Chinese sentence
       return TTS.speak(p.zh, 'zh-CN', this.rate, null, null);
     }).then(() => {
-      // 3 & 4. Key words: English + Chinese, one pair at a time
+      // 3 & 4. Key words one pair at a time
       return this.speakKeysOneByOne(p.keys);
     });
   },
 
-  // Speak keys one pair at a time: "word" then its Chinese translation
-  // Then move to the next pair
+  // Speak keys: each key = English word then its Chinese translation
   speakKeysOneByOne(keys) {
     return new Promise((resolve) => {
       if (!keys || keys.length === 0) { resolve(); return; }
       let i = 0;
       const next = () => {
         if (i >= keys.length) {
-          this.clearKeyHighlights();
+          this.clearAllHighlights();
           resolve();
-          // After all keys done, stop
           this.speaking = false;
           document.getElementById('play-btn').textContent = '▶ 朗读';
           const s = this.currentStory;
@@ -244,14 +235,12 @@ const App = {
           return;
         }
         const k = keys[i];
-        // Highlight current key word
         this.highlightKeyWord(i);
-        // Scroll key area to show active key
         const keyEl = document.getElementById('key-' + i);
         if (keyEl) keyEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         // Speak English word
         TTS.speak(k.w, 'en-US', this.rate * 0.85, null, null).then(() => {
-          // Then speak its Chinese
+          // Then Chinese
           return TTS.speak(k.zh, 'zh-CN', this.rate * 0.85, null, null);
         }).then(() => {
           i++;
@@ -262,7 +251,6 @@ const App = {
     });
   },
 
-  // Speak a single key word on click
   speakKey(idx) {
     const p = this.currentStory.pages[this.currentPage];
     const k = p.keys[idx];
@@ -270,6 +258,7 @@ const App = {
   },
 
   prevPage() {
+    this.clearAllHighlights();
     TTS.stop();
     this.speaking = false;
     if (this.currentPage > 0) {
@@ -279,6 +268,7 @@ const App = {
   },
 
   nextPage() {
+    this.clearAllHighlights();
     TTS.stop();
     this.speaking = false;
     const s = this.currentStory;
@@ -289,6 +279,7 @@ const App = {
   },
 
   goPage(idx) {
+    this.clearAllHighlights();
     TTS.stop();
     this.speaking = false;
     this.currentPage = idx;

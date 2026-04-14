@@ -162,7 +162,7 @@ body {
   max-height: 280px;
 }
 
-/* Text area */
+/* Text area - single big box: English sentence + Chinese + key words inline */
 .text-area {
   background: white;
   border-radius: var(--radius);
@@ -170,7 +170,7 @@ body {
   margin-bottom: 16px;
   box-shadow: var(--shadow);
   overflow-y: auto;
-  max-height: calc(55vh - 280px);
+  max-height: calc(100vh - 340px);
   scroll-behavior: smooth;
 }
 .en-text {
@@ -198,24 +198,22 @@ body {
   border-top: 1px dashed #EEE;
 }
 
-/* Key Words */
-.keys-area {
+/* Key Words - inline inside text-area */
+.keys-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-  overflow-y: auto;
-  max-height: 130px;
+  gap: 6px;
+  padding-top: 12px;
 }
 .key-word {
   background: var(--accent2);
   color: #5D4037;
   border-radius: 20px;
-  padding: 5px 12px;
-  font-size: 1.35rem;
-  white-space: nowrap;
+  padding: 3px 10px;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+  display: inline;
 }
 .key-word.active {
   background: var(--highlight);
