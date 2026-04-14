@@ -79,6 +79,34 @@ body {
 .card-title-zh { font-size: 0.9rem; color: var(--text-light); margin-bottom: 6px; }
 .card-pages { font-size: 0.8rem; color: var(--text-light); }
 
+/* Multi-story category card */
+.category-card.multi { flex-direction: column; align-items: stretch; gap: 12px; }
+.multi-covers {
+  display: flex;
+  gap: 8px;
+}
+.multi-covers .card-cover {
+  width: 140px;
+  height: 94px;
+}
+.multi-story-list {
+  border-top: 2px solid var(--border);
+  padding-top: 10px;
+  margin-top: 4px;
+}
+.story-choice {
+  padding: 8px 4px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: background 0.15s;
+}
+.story-choice:hover { background: var(--highlight); }
+.story-choice-en { font-size: 0.8rem; color: var(--text-light); margin-left: 6px; }
+.story-choice-pages { font-size: 0.75rem; color: var(--accent); margin-left: 6px; }
+
 /* READER */
 .reader {
   display: flex;
