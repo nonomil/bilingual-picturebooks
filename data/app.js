@@ -120,7 +120,7 @@ const App = {
 
         <div class="text-area" id="text-area">
           <div class="en-text" id="en-text-container">${this.wrapWords(p.en)}</div>
-          <div class="zh-text" id="zh-text-container">${p.zh}</div>
+          <div class="zh-text" id="zh-text-container">${zhHtml}</div>
           <div class="keys-row" id="keys-row">${keysHtml}</div>
         </div>
 
@@ -176,35 +176,7 @@ const App = {
     const enContainer = document.getElementById('en-text-container');
     this.buildWordMap(p.en, enContainer);
     this.buildKeyWordMap(document.getElementById('keys-row'));
-    // Segment Chinese text into 2-3 char word groups for phrase highlighting
-    const segmentZh = (text) => {
-      const result = [];
-      const skip = new Set(['，', '。', '！', '？', '、', '；', '：', '"', '"', '（', '）', '【', '】', '…', '—', '～', '·', ' ', '\n']);
-      let i = 0;
-      while (i < text.length) {
-        const ch = text[i];
-        if (skip.has(ch)) { i++; continue; } // skip punctuation, handled separately
-        // Try 3-char word
-        if (i + 3 <= text.length && !skip.has(text[i + 3 - 1])) {
-          result.push(text.slice(i, i + 3)); i += 3;
-        } else {
-          result.push(text.slice(i, i + 2)); i += 2;
-        }
-      }
-      return result;
-    };
-
-    const zhWords = segmentZh(p.zh);
-    const zhWordEls = [];
-    // Build span for each Chinese word chunk
-    const zhContainer = document.getElementById('zh-text-container');
-    zhContainer.innerHTML = zhWords.map((w, i) => {
-      const id = 'zhc-' + i;
-      zhWordEls.push({ id, text: w, el: null });
-      return `<span class="zh-word" id="${id}">${w}</span>`;
-    }).join('');
-    // Capture element refs after innerHTML set
-    zhWordEls.forEach(item => { item.el = document.getElementById(item.id); });
+    const zhChars = p.zh.split('');
 
     const scrollActiveIntoView = (el) => {
       if (!el) return;
@@ -226,14 +198,14 @@ const App = {
     };
 
     let zhIdx = 0;
-    const nextZhWord = () => {
-      if (!this.speaking || zhIdx >= zhWords.length) return;
+    const nextZhChar = () => {
+      if (!this.speaking || zhIdx >= zhChars.length) return;
       this.clearAllHighlights();
-      const item = zhWordEls[zhIdx];
-      if (item && item.el) { item.el.classList.add('active'); scrollActiveIntoView(item.el); }
+      const el = document.getElementById('zhc-' + zhIdx);
+      if (el) { el.classList.add('active'); scrollActiveIntoView(el); }
       zhIdx++;
-      if (zhIdx < zhWords.length) {
-        this.highlightTimer = setTimeout(nextZhWord, Math.max(150, 380 / this.rate));
+      if (zhIdx < zhChars.length) {
+        this.highlightTimer = setTimeout(nextZhChar, Math.max(80, 150 / this.rate));
       }
     };
 
