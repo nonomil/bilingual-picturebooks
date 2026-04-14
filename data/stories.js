@@ -5,7 +5,7 @@ const STORIES = [
     title: 'The Brave Pea Shooter',
     titleZh: '勇敢的豌豆射手',
     category: '植物大战僵尸',
-    cover: 'https://miaoda.feishu.cn/aily/api/v1/files/static/88bb1a3cf0774625839f59850247e6cf_ve_miaoda',
+    cover: 'images/covers/cover-pea-shooter.jpg',
     pages: [
       { img: 'images/pea-shooter/page-1.jpg', en: 'In a bright, sunny garden lived a tiny green Pea Shooter named Pip. He had big round eyes, a cheerful smile, and a little leaf on his head. Pip loved his garden home more than anything in the world.', zh: '在一个明亮、阳光灿烂的花园里，住着一只绿色的小豌豆射手，名叫皮皮。他有一双圆圆的大眼睛，一个开心的笑容，头顶上还有一片小叶子。皮皮爱他的花园家园胜过世界上的一切。', keys: [{ w: 'garden', p: '/ˈɡɑːrdn/', zh: '花园' }, { w: 'bright', p: '/braɪt/', zh: '明亮的' }, { w: 'cheerful', p: '/ˈtʃɪrfl/', zh: '开心的' }] },
       { img: 'images/pea-shooter/page-2.jpg', en: 'One sunny morning, Pip decided to take a walk along the cobblestone path. The flowers waved at him as he passed. Butterflies danced around his head.', zh: '一个阳光明媚的早晨，皮皮决定沿着鹅卵石小路散步。花朵们在他经过时向他挥手，蝴蝶在他头顶翩翩起舞。', keys: [{ w: 'cobblestone', p: '/ˈkɑːblstoʊn/', zh: '鹅卵石' }, { w: 'path', p: '/pæθ/', zh: '小路' }, { w: 'butterfly', p: '/ˈbʌtərflaɪ/', zh: '蝴蝶' }] },
@@ -34,7 +34,7 @@ const STORIES = [
     title: 'Steve vs The Wither',
     titleZh: '史蒂夫大战凋零',
     category: '我的世界',
-    cover: 'https://miaoda.feishu.cn/aily/api/v1/files/static/a6193d226b8a4aaaa2fbb77b258bd5f2_ve_miaoda',
+    cover: 'images/covers/cover-minecraft.jpg',
     pages: [
       { img: 'images/minecraft/page-1.jpg', en: 'Steve lived in a quiet village. He was a builder, a miner, and a dreamer.', zh: '史蒂夫住在一个安静的村庄里。他是一个建造者，一个矿工，也是一个梦想家。', keys: [{ w: 'village', p: '/ˈvɪlɪdʒ/', zh: '村庄' }, { w: 'builder', p: '/ˈbɪldər/', zh: '建造者' }, { w: 'dreamer', p: '/ˈdriːmər/', zh: '梦想家' }] },
       { img: 'images/minecraft/page-2.jpg', en: 'One day, the sky turned dark. A terrible roar shook the ground. The Wither was coming.', zh: '有一天，天空变暗了。可怕的咆哮震动了大地。凋零来了。', keys: [{ w: 'terrible', p: '/ˈterəbl/', zh: '可怕的' }, { w: 'roar', p: '/rɔːr/', zh: '咆哮' }, { w: 'ground', p: '/ɡraʊnd/', zh: '大地' }] },
@@ -63,7 +63,7 @@ const STORIES = [
     title: 'The Very Hungry Little Snake',
     titleZh: '好饿的小蛇',
     category: '宫西达也',
-    cover: 'https://miaoda.feishu.cn/aily/api/v1/files/static/263d0c112cc24fab86410304c8ea76b8_ve_miaoda',
+    cover: 'images/covers/cover-snake.jpg',
     pages: [
       { img: 'images/snake/page-1.jpg', en: 'The Very Hungry Little Snake', zh: '好饿的小蛇', keys: [{ w: 'hungry', p: '/ˈhʌŋɡri/', zh: '好饿的' }, { w: 'snake', p: '/sneɪk/', zh: '小蛇' }] },
       { img: 'images/snake/page-2.jpg', en: 'A little snake wiggles and wiggles along the path on a sunny morning.', zh: '一个阳光明媚的早晨，小蛇一扭一扭地在小路上散步。', keys: [{ w: 'wiggle', p: '/ˈwɪɡl/', zh: '一扭一扭地' }, { w: 'path', p: '/pæθ/', zh: '小路' }, { w: 'sunny', p: '/ˈsʌni/', zh: '阳光明媚的' }] },

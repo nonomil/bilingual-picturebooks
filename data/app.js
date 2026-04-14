@@ -178,50 +178,51 @@ const App = {
     this.buildKeyWordMap(document.getElementById('keys-row'));
     const zhChars = p.zh.split('');
 
-    // Scroll active element into view
-    const scrollActiveIntoView = () => {
-      const active = document.querySelector('.word.active, .zh-char.active');
-      if (active) {
-        const area = document.getElementById('text-area');
-        const elBottom = active.getBoundingClientRect().bottom;
-        const areaBottom = area.getBoundingClientRect().bottom;
-        if (elBottom > areaBottom - 60) {
-          area.scrollTop += elBottom - areaBottom + 80;
-        }
+    const scrollIntoView = (el) => {
+      if (!el) return;
+      const area = document.getElementById('text-area');
+      const elBottom = el.getBoundingClientRect().bottom;
+      const areaBottom = area.getBoundingClientRect().bottom;
+      if (elBottom > areaBottom - 60) {
+        area.scrollTop += elBottom - areaBottom + 80;
       }
     };
 
-    // English: map TTS charIndex → word span via wordMap
-    const onEnWord = (charIndex) => {
-      const idx = this.wordMap.findIndex((item, i, arr) =>
-        i < arr.length - 1
-          ? (charIndex >= item.start && charIndex < arr[i + 1].start)
-          : (charIndex >= item.start)
-      );
-      if (idx >= 0) {
-        this.clearAllHighlights();
-        const el = this.wordMap[idx] && this.wordMap[idx].el;
-        if (el) el.classList.add('active');
-        scrollActiveIntoView();
+    let enIdx = 0;
+    const nextEnWord = () => {
+      if (!this.speaking || enIdx >= this.wordMap.length) return;
+      this.clearAllHighlights();
+      const el = this.wordMap[enIdx] && this.wordMap[enIdx].el;
+      if (el) { el.classList.add('active'); scrollIntoView(el); }
+      enIdx++;
+      if (enIdx < this.wordMap.length) {
+        this.highlightTimer = setTimeout(nextEnWord, Math.max(180, 350 / this.rate));
       }
     };
 
-    // Chinese: TTS onboundary fires per character (charIndex = char position)
-    const onZhBoundary = (charIndex) => {
-      if (charIndex >= 0 && charIndex < zhChars.length) {
-        this.clearAllHighlights();
-        const el = document.getElementById('zhc-' + charIndex);
-        if (el) el.classList.add('active');
-        scrollActiveIntoView();
+    let zhIdx = 0;
+    const nextZhChar = () => {
+      if (!this.speaking || zhIdx >= zhChars.length) return;
+      this.clearAllHighlights();
+      const el = document.getElementById('zhc-' + zhIdx);
+      if (el) { el.classList.add('active'); scrollIntoView(el); }
+      zhIdx++;
+      if (zhIdx < zhChars.length) {
+        this.highlightTimer = setTimeout(nextZhChar, Math.max(150, 280 / this.rate));
       }
     };
 
-    // 1. English sentence — onEnWord drives word-by-word highlight
-    TTS.speak(p.en, 'en-US', this.rate, onEnWord, null).then(() => {
-      // 2. Chinese sentence — onZhBoundary drives char-by-char highlight
-      return TTS.speak(p.zh, 'zh-CN', this.rate, onZhBoundary, null);
+    // 1. English — speak + immediate time-driven highlighting
+    nextEnWord();
+    TTS.speak(p.en, 'en-US', this.rate, null, null).then(() => {
+      // 2. Chinese — speak + time-driven char highlighting
+      if (!this.speaking) return;
+      zhIdx = 0;
+      nextZhChar();
+      return TTS.speak(p.zh, 'zh-CN', this.rate, null, null);
     }).then(() => {
       // 3 & 4. Key words
+      if (!this.speaking) return;
       return this.speakKeysOneByOne(p.keys);
     });
   },
