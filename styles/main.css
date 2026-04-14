@@ -198,7 +198,7 @@ body {
   border-top: 1px dashed #EEE;
 }
 
-.zh-text .zh-char.active {
+.zh-text .zh-char.active, .zh-text .zh-word.active {
   background: var(--highlight);
   color: #222;
   border-radius: 3px;
