@@ -1,11 +1,13 @@
 // Main app logic for Bilingual Picture Book Reader
 const App = {
-  currentView: 'home',   // home | story | reader
+  currentView: 'home',
   currentStory: null,
   currentPage: 0,
   rate: 1,
   autoPage: true,
   speaking: false,
+  // Word timing map: [{start, end, el}]
+  wordMap: [],
 
   init() {
     TTS.init().then(() => {
@@ -47,6 +49,22 @@ const App = {
     this.renderReader();
   },
 
+  // Build character-offset map for word highlighting
+  buildWordMap(text, containerEl) {
+    const words = text.split(' ');
+    this.wordMap = [];
+    let charPos = 0;
+    const els = containerEl.querySelectorAll('.word');
+    words.forEach((w, i) => {
+      this.wordMap.push({
+        start: charPos,
+        end: charPos + w.length,
+        el: els[i] || null
+      });
+      charPos += w.length + 1; // +1 for space
+    });
+  },
+
   renderReader() {
     const s = this.currentStory;
     const p = s.pages[this.currentPage];
@@ -68,11 +86,12 @@ const App = {
         </div>
 
         <div class="story-image-container" id="story-image-container">
-          ${s.cover ? `<img id="story-image" src="${s.cover}" alt="story" onerror="this.parentElement.style.background='#FFF0E0'">` : ''}
+          ${p.img ? `<img id="story-image" src="${p.img}" alt="story scene">` :
+            (s.cover ? `<img id="story-image" src="${s.cover}" alt="story" onerror="this.parentElement.style.background='#FFF0E0'">` : '')}
         </div>
 
         <div class="text-area" id="text-area">
-          <div class="en-text" id="en-text">${this.highlightText(p.en)}</div>
+          <div class="en-text" id="en-text-container">${this.wrapWords(p.en)}</div>
           <div class="zh-text" id="zh-text">${p.zh}</div>
         </div>
 
@@ -97,7 +116,8 @@ const App = {
     }
   },
 
-  highlightText(text) {
+  // Wrap each word in a span, preserving spaces
+  wrapWords(text) {
     return text.split(' ').map(w => `<span class="word">${w}</span>`).join(' ');
   },
 
@@ -122,23 +142,30 @@ const App = {
     }
   },
 
-  async startReading() {
+  startReading() {
     const s = this.currentStory;
     const p = s.pages[this.currentPage];
     this.speaking = true;
     document.getElementById('play-btn').textContent = '⏸ 停止';
 
-    const enWords = document.querySelectorAll('#en-text .word');
+    // Build word map after DOM is ready
+    const enContainer = document.getElementById('en-text-container');
+    this.buildWordMap(p.en, enContainer);
 
-    await TTS.speak(p.en, 'en-US', this.rate, (idx, len) => {
-      const progress = idx / len;
-      const wordIndex = Math.floor(progress * enWords.length);
-      enWords.forEach((w, i) => w.classList.toggle('active', i === wordIndex));
-    }, null);
+    // Highlight word based on character offset from TTS
+    const highlight = (charIndex) => {
+      this.wordMap.forEach(item => {
+        if (item.el) item.el.classList.toggle('active', charIndex >= item.start && charIndex < item.end);
+      });
+    };
 
-    enWords.forEach(w => w.classList.remove('active'));
+    const cleanup = () => {
+      this.wordMap.forEach(item => { if (item.el) item.el.classList.remove('active'); });
+    };
 
-    await TTS.speak(p.zh, 'zh-CN', this.rate, null, () => {
+    TTS.speak(p.en, 'en-US', this.rate, highlight, null).then(cleanup);
+
+    TTS.speak(p.zh, 'zh-CN', this.rate, null, () => {
       this.speaking = false;
       document.getElementById('play-btn').textContent = '▶ 朗读';
       if (this.autoPage && this.currentPage < s.pages.length - 1) {
@@ -147,7 +174,7 @@ const App = {
     });
   },
 
-  async prevPage() {
+  prevPage() {
     TTS.stop();
     this.speaking = false;
     if (this.currentPage > 0) {
@@ -156,7 +183,7 @@ const App = {
     }
   },
 
-  async nextPage() {
+  nextPage() {
     TTS.stop();
     this.speaking = false;
     const s = this.currentStory;
@@ -166,7 +193,7 @@ const App = {
     }
   },
 
-  async goPage(idx) {
+  goPage(idx) {
     TTS.stop();
     this.speaking = false;
     this.currentPage = idx;
