@@ -1,0 +1,25 @@
+{
+  "name": "bilingual-picturebooks",
+  "version": "1.0.0",
+  "description": "> A delightful bilingual story reading app for children — featuring three classic stories with word-by-word highlighting, TTS narration, and auto-page turning.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nonomil/bilingual-picturebooks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nonomil/bilingual-picturebooks/issues"
+  },
+  "homepage": "https://github.com/nonomil/bilingual-picturebooks#readme",
+  "dependencies": {
+    "@capacitor/android": "^8.3.1",
+    "@capacitor/cli": "^8.3.1",
+    "@capacitor/core": "^8.3.1"
+  }
+}

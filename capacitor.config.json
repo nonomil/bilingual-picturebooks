@@ -1,0 +1,8 @@
+{
+  "appId": "com.bilingual.picturebooks",
+  "appName": "双语绘本",
+  "webDir": "public",
+  "plugins": {
+    "TTS": {}
+  }
+}
