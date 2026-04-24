@@ -106,7 +106,8 @@ public class TTSPlugin extends Plugin implements TextToSpeech.OnInitListener {
     public void speak(PluginCall call) {
         String text = call.getString("text", "");
         String lang = call.getString("lang", "en-US");
-        float rate = (float) call.getDouble("rate", 1.0);
+        double rateVal = call.getDouble("rate", 1.0);
+        float rate = (float) rateVal;
 
         if (!isInitialized) {
             call.reject("TTS not initialized");
