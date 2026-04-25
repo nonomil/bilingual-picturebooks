@@ -264,6 +264,90 @@ body {
   transform: scale(1.08);
 }
 .phonetic { color: #8D6E63; margin: 0 2px; }
+.key-phrase {
+  background: #E8F5E9;
+  color: #2E7D32;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+  display: inline;
+  margin-left: 4px;
+}
+.key-phrase:active {
+  background: #C8E6C9;
+  transform: scale(1.05);
+}
+.phrases-row {
+  padding-top: 6px;
+}
+
+/* TTS Prompt Dialog */
+.tts-prompt-dialog {
+  background: white;
+  border-radius: 20px;
+  padding: 28px 24px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+.tts-prompt-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+.tts-prompt-dialog h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+.tts-prompt-dialog p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+.tts-prompt-dialog ul {
+  text-align: left;
+  padding-left: 20px;
+  margin: 12px 0;
+}
+.tts-prompt-dialog ul li {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 6px 0;
+}
+.tts-prompt-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+.tts-btn-install {
+  flex: 1;
+  display: block;
+  padding: 12px;
+  background: #2196F3;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.tts-btn-later {
+  padding: 12px 20px;
+  background: #f5f5f5;
+  color: #666;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.tts-prompt-hint {
+  font-size: 0.75rem !important;
+  color: #999 !important;
+  margin-top: 12px !important;
+}
 
 /* Controls */
 .controls {

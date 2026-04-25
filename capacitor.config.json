@@ -1,7 +1,10 @@
 {
   "appId": "com.bilingual.picturebooks",
   "appName": "双语绘本",
-  "webDir": "public",
+  "server": {
+    "url": "https://nonomil.github.io/bilingual-picturebooks/",
+    "androidScheme": "https"
+  },
   "plugins": {
     "TTS": {}
   }
