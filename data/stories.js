@@ -1,4 +1,3 @@
-// Stories data - bilingual picture books
 const STORIES = [
   {
     "id": "snake",
@@ -403,313 +402,313 @@ const STORIES = [
     "cover": "images/covers/cover-block-battle.jpg",
     "pages": [
       {
-        "img": "",
+        "img": "images/block-battle/page-1.jpg",
         "en": "This is a story about Block Battle. Two friends had an exciting match using all kinds of block weapons!",
         "zh": "这是一个关于方块对战的故事。两个小伙伴用各种方块武器展开了一场精彩的比赛！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-2.jpg",
         "en": "Let's play Block Battle!\n\n🇨🇳 来玩方块大战吧！\n\n• battle /ˈbætl/ — 大战\n• block /blɑːk/ — 方块\n• arena /əˈriːnə/ — 竞技场\n\n• Let's play — 我们来玩吧\n• Block Battle — 方块大战",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-3.jpg",
         "en": "I'll pick a cube with stealth skill!\n\n🇨🇳 我选个带隐身技能的方块！\n\n• stealth /stelθ/ — 隐身\n• skill /skɪl/ — 技能\n• choose /tʃuːz/ — 选择\n\n• stealth skill — 隐身技能\n• pick a cube — 选一个方块",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-4.jpg",
         "en": "I'll build a three-layer obsidian shield!\n\n🇨🇳 我先造个三层黑曜石盾牌！\n\n• obsidian /əbˈsɪdiən/ — 黑曜石\n• shield /ʃiːld/ — 盾牌\n• layer /ˈleɪər/ — 层\n\n• three-layer — 三层\n• obsidian shield — 黑曜石盾牌",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-5.jpg",
         "en": "Obsidian is super hard, normal attacks can't break it!\n\n🇨🇳 黑曜石超硬，一般攻击打不破！\n\n• super /ˈsuːpər/ — 超级\n• attack /əˈtæk/ — 攻击\n• break /breɪk/ — 打破\n\n• super hard — 超硬\n• can't break it — 打不破",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-6.jpg",
         "en": "Watch this! I ride a sword with evil attack!\n\n🇨🇳 看我的，我骑了一把带邪恶攻击的剑！\n\n• sword /sɔːrd/ — 剑\n• evil /ˈiːvəl/ — 邪恶\n• ride /raɪd/ — 骑\n\n• evil attack — 邪恶攻击\n• ride a sword — 骑一把剑",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-7.jpg",
         "en": "The obsidian shield got crushed flat!\n\n🇨🇳 黑曜石盾牌被一下打扁了！\n\n• crush /krʌʃ/ — 压碎\n• flat /flæt/ — 扁的\n• smash /smæʃ/ — 砸碎\n\n• crushed flat — 打扁了\n• in one hit — 一下就",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-8.jpg",
         "en": "I'll build a laser-shooting turret!\n\n🇨🇳 我要造个会发射激光的炮塔！\n\n• laser /ˈleɪzər/ — 激光\n• turret /ˈtɜːrət/ — 炮塔\n• shoot /ʃuːt/ — 发射\n\n• laser turret — 激光炮塔\n• shoot laser — 发射激光",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-9.jpg",
         "en": "Look at my super giant hammer!\n\n🇨🇳 看我的超级大锤子王！\n\n• hammer /ˈhæmər/ — 锤子\n• giant /ˈdʒaɪənt/ — 巨大的\n• swing /swɪŋ/ — 挥舞\n\n• giant hammer — 巨大的锤子\n• Hammer King — 锤子王",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-10.jpg",
         "en": "The turret got smashed into pieces!\n\n🇨🇳 炮塔直接被锤成碎片！\n\n• pieces /ˈpiːsɪz/ — 碎片\n• destroy /dɪˈstrɔɪ/ — 摧毁\n• explode /ɪkˈsploʊd/ — 爆炸\n\n• into pieces — 成碎片\n• smashed into — 被砸成",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-11.jpg",
         "en": "I'll build a flying mechanical fortress!\n\n🇨🇳 我要造一个会飞的机械堡垒！\n\n• fortress /ˈfɔːrtrəs/ — 堡垒\n• mechanical /məˈkænɪkəl/ — 机械的\n• flying /ˈflaɪɪŋ/ — 飞行的\n\n• flying fortress — 飞行堡垒",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-12.jpg",
         "en": "This hammer weighs 1,500 blocks!\n\n🇨🇳 这锤子有1500个方块那么重！\n\n• weigh /weɪ/ — 重\n• heavy /ˈhevi/ — 重的\n• ton /tʌn/ — 吨\n\n• weighs 1,500 — 重1500\n• super weapon — 超级武器",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-13.jpg",
         "en": "The fortress got smashed and can't move!\n\n🇨🇳 机械堡垒被砸得动弹不得了！\n\n• stuck /stʌk/ — 卡住的\n• trap /træp/ — 困住\n• collapse /kəˈlæps/ — 倒塌\n\n• can't move — 动弹不得",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-14.jpg",
         "en": "Look at my mechanical hand!\n\n🇨🇳 看我的机械手！\n\n• grab /ɡræb/ — 抓住\n• extend /ɪkˈstend/ — 伸出\n• mechanical /məˈkænɪkəl/ — 机械的\n\n• mechanical hand — 机械手\n• reach out — 伸出来",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-15.jpg",
         "en": "The mechanical hand weighs 700!\n\n🇨🇳 机械手有700那么重！\n\n• weight /weɪt/ — 重量\n• powerful /ˈpaʊərfəl/ — 强大的\n• grip /ɡrɪp/ — 抓力\n\n• weighs 700 — 重700",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-16.jpg",
         "en": "I'll use the hammer to launch you into the sky!\n\n🇨🇳 我用锤子一敲，你就飞到天上去了！\n\n• launch /lɔːntʃ/ — 发射\n• clever /ˈklevər/ — 聪明的\n• plan /plæn/ — 计划\n\n• launch into the sky — 飞上天\n• clever plan — 聪明的计划",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-17.jpg",
         "en": "BANG! The hammer strikes the ground!\n\n🇨🇳 哐当！锤子猛击地面！\n\n• strike /straɪk/ — 击打\n• ground /ɡraʊnd/ — 地面\n• shockwave /ˈʃɑːkweɪv/ — 冲击波\n\n• strike the ground — 猛击地面\n• sound wave — 声波",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-18.jpg",
         "en": "Flying into the sky like a cannonball!\n\n🇨🇳 像小炮弹一样飞上了天！\n\n• cannonball /ˈkænənbɔːl/ — 炮弹\n• soar /sɔːr/ — 翱翔\n• fly /flaɪ/ — 飞\n\n• like a cannonball — 像炮弹一样",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-19.jpg",
         "en": "Let the mechanical hand place blocks for me!\n\n🇨🇳 让机械手帮我放方块！\n\n• lazy /ˈleɪzi/ — 懒的\n• sleep /sliːp/ — 睡觉\n• place /pleɪs/ — 放置\n\n• lazy — 懒惰的\n• place blocks — 放方块",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-20.jpg",
         "en": "I'll just lie here and sleep peacefully!\n\n🇨🇳 我就躺在这里睡觉！\n\n• peaceful /ˈpiːsfl/ — 平静的\n• snore /snɔːr/ — 打呼噜\n• rest /rest/ — 休息\n\n• lie down — 躺下\n• sleep peacefully — 安稳睡觉",
         "zh": "",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-21.jpg",
         "en": "The adventure never ends! Let's play again!",
         "zh": "冒险永不止步！我们再来一场吧！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-22.jpg",
         "en": "battle /ˈbætl/ 大战，start a battle 开始一场大战\narena /əˈriːnə/ 竞技场，colorful arena 彩色竞技场\nready /ˈredi/ 准备好的，get ready 准备好",
         "zh": "两个小方块勇士在彩色的竞技场面对面，准备玩一个超酷的游戏——方块大战！他们每个人都要建造自己强大的武器。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-23.jpg",
         "en": "stealth /stelθ/ 隐身，stealth skill 隐身技能\ndisappear /ˌdɪsəˈpɪr/ 消失，disappear into thin air 消失在空气中",
         "zh": "勇士选了一个带隐身技能的方块！它身上发出神秘的蓝色光芒，慢慢消失在空气中。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-24.jpg",
         "en": "obsidian /əbˈsɪdiən/ 黑曜石\nshield /ʃiːld/ 盾牌，build a shield 造一个盾牌\nlayer /ˈleɪər/ 层，three-layer 三层",
         "zh": "一个巨大的三层黑曜石盾牌从地面升起，散发着火山能量。一般攻击根本打不破！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-25.jpg",
         "en": "sword /sɔːrd/ 剑\nevil /ˈiːvəl/ 邪恶的，evil attack 邪恶攻击\ncrash /kræʃ/ 猛撞，come crashing down 猛砸下来",
         "zh": "勇士跳上一把巨大的暗紫色之剑。带着邪恶的攻击力，猛砸向盾牌！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-26.jpg",
         "en": "crush /krʌʃ/ 压碎，crushed flat 被砸扁\nshard /ʃɑːrd/ 碎片\nfirework /ˈfaɪərwɜːrk/ 烟花",
         "zh": "黑曜石盾牌被彻底砸扁了！碎片像烟花一样四处飞溅。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-27.jpg",
         "en": "laser /ˈleɪzər/ 激光\ncharge /tʃɑːrdʒ/ 充能\ndodge /dɑːdʒ/ 躲闪",
         "zh": "一个高科技炮塔升起，充能着明亮的红色激光束。你怎么躲？",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-28.jpg",
         "en": "hammer /ˈhæmər/ 锤子\ngiant /ˈdʒaɪənt/ 巨大的\nlegendary /ˈledʒənderi/ 传说的",
         "zh": "勇士挥舞着一把巨大的金色锤子。这就是传说中的锤子王——最强的武器！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-29.jpg",
         "en": "swing /swɪŋ/ 挥舞，one swing 一下挥舞\nboom /buːm/ 轰隆声\ntiny /ˈtaɪni/ 微小的",
         "zh": "激光炮塔被大锤一挥就砸成了碎片！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-30.jpg",
         "en": "fortress /ˈfɔːrtrəs/ 堡垒\nmechanical /məˈkænɪkəl/ 机械的\nunbeatable /ʌnˈbiːtəbl/ 不可战胜的",
         "zh": "一个带着翅膀的巨大堡垒升上天空。看起来不可战胜！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-31.jpg",
         "en": "weigh /weɪ/ 重（动词）\nweight /weɪt/ 重量（名词）\nimmense /ɪˈmens/ 巨大的",
         "zh": "这锤子有1500个方块那么重！堡垒在巨大的重量下颤抖，几乎飞不动了！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-32.jpg",
         "en": "extend /ɪkˈstend/ 伸出\nreach /riːtʃ/ 伸向，reach for 伸向\nincredible /ɪnˈkredəbl/ 惊人的",
         "zh": "一只巨大的金属手臂从地面伸出，以惊人的力量向堡垒抓去。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-33.jpg",
         "en": "clever /ˈklevər/ 聪明的\nsound wave /saʊnd weɪv/ 声波\nlaunch /lɔːntʃ/ 发射，弹飞",
         "zh": "勇士想到了一个聪明的计划！如果锤子砸到地面，声波把敌人弹飞到天上呢？",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-34.jpg",
         "en": "strike /straɪk/ 击打\nforce /fɔːrs/ 力量\nshockwave /ˈʃɑːkweɪv/ 冲击波",
         "zh": "锤子以惊人的力量猛击地面！巨大的冲击波向四面八方扩散。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-35.jpg",
         "en": "cannonball /ˈkænənbɔːl/ 炮弹\nhigh /haɪ/ 高高地\nover /ˈoʊvər/ 结束",
         "zh": "像一颗炮弹一样，敌人飞上了高高的天空！对战结束了！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-36.jpg",
         "en": "lazy /ˈleɪzi/ 懒惰的\ncomfortably /ˈkʌmftəbli/ 舒服地\nfall asleep /fɔːl əˈsliːp/ 入睡",
         "zh": "为什么要放方块？让机械手帮我放！勇士舒服地躺下来，睡着了。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-37.jpg",
         "en": "The adventure never ends! Let us play again!",
         "zh": "冒险永不止步！我们再来一场吧！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-38.jpg",
         "en": "warrior /ˈwɔːriər/ 勇士，a brave warrior 一个勇敢的勇士\narena /əˈriːnə/ 竞技场，colorful arena 彩色竞技场\ncount down /kaʊnt daʊn/ 倒数",
         "zh": "一个阳光明媚的下午，两个最好的朋友——一个披着红披风的小勇士和一个聪明的建造师——在彩色的竞技场面对面站着。今天就是他们期待已久的日子：方块大战！每个人都要设计自己的武器，比比谁最强。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-39.jpg",
         "en": "stealth /stelθ/ 隐身，stealth skill 隐身技能\ndisappear /ˌdɪsəˈpɪr/ 消失，disappear into thin air 消失在空气中\nconfused /kənˈfjuːzd/ 困惑的",
         "zh": "建造师笑着说：'我选一个带隐身技能的方块！'突然，他全身开始发出神秘的蓝色光芒。慢慢地，他消失在了空气中！'现在你看不到我了！'他的声音从四面八方传来。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-40.jpg",
         "en": "obsidian /əbˈsɪdiən/ 黑曜石\nshield /ʃiːld/ 盾牌，build a shield 造一个盾牌\nmaterial /məˈtɪriəl/ 材料",
         "zh": "建造师重新出现了，立刻开始工作。'我要造一个三层黑曜石盾牌！'他骄傲地宣布。一块一块地，一个巨大的黑色盾牌从地面升起。黑曜石是方块世界最坚硬的材料之一。'一般攻击根本打不破这个！'他笑着说。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-41.jpg",
         "en": "sword /sɔːrd/ 剑\nevil /ˈiːvəl/ 邪恶的，evil attack 邪恶攻击\nlightning /ˈlaɪtnɪŋ/ 闪电",
         "zh": "勇士一点也不担心。'看我的！'他大喊，跳上了一把漂浮在空中的巨大暗紫色之剑。剑上覆盖着邪恶能量，闪着暗紫色的闪电。'有这个邪恶攻击力，你的盾牌什么都不算！'勇士全速飞向盾牌。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-42.jpg",
         "en": "crush /krʌʃ/ 压碎，crushed flat 被砸扁\nshard /ʃɑːrd/ 碎片\nimpossible /ɪmˈpɑːsəbl/ 不可能的",
         "zh": "哐当！邪恶之剑以惊人的力量撞上黑曜石盾牌。让所有人吃惊的是，传说中坚不可摧的盾牌被彻底砸扁了——像一张煎饼！黑曜石碎片像烟花一样四处飞溅。'不可能！'建造师惊呼，盯着被拍扁的盾牌残骸。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-43.jpg",
         "en": "laser /ˈleɪzər/ 激光\nturret /ˈtɜːrət/ 炮塔\ndodge /dɑːdʒ/ 躲闪",
         "zh": "建造师不肯认输。'好，比就比！'他迅速组装了一个高科技激光炮塔。炮塔嗡嗡地启动了，充能着明亮的红色激光束，照亮了整个竞技场。'看你躲不躲得过这个！'他咧嘴笑着，直接瞄准了勇士。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-44.jpg",
         "en": "hammer /ˈhæmər/ 锤子\nenormous /ɪˈnɔːrməs/ 巨大的\nsecret weapon /ˈsiːkrət ˈwepən/ 秘密武器",
         "zh": "勇士大笑，掏出了他的秘密武器——一把巨大的金色锤子，叫做锤子王。这是任何人见过的最大的锤子，闪耀着金光。'你觉得一个小激光就能挡住我？'他说着，把锤子高高举过头顶。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-45.jpg",
         "en": "swing /swɪŋ/ 挥舞，one mighty swing 有力的一挥\nscrap /skræp/ 废铁，a pile of scrap 一堆废铁\nshock /ʃɑːk/ 震惊",
         "zh": "只一挥，轰！金色锤子砸在激光炮塔上，把它砸成了碎片！齿轮、电线和金属零件四处飞溅。建造师震惊地盯着炮塔变成的那堆废铁。'这锤子也太太太强了！'他小声说。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-46.jpg",
         "en": "fortress /ˈfɔːrtrəs/ 堡垒\nmechanical /məˈkænɪkəl/ 机械的\nunbeatable /ʌnˈbiːtəbl/ 不可战胜的",
         "zh": "建造师还有一招。'我要造一个飞行的机械堡垒！'一个带着巨大翅膀的结构从地面升起，飞上了天空。它装着厚厚的金属板，看起来真的不可战胜。'你打不到会飞的东西！'建造师在空中大喊。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-47.jpg",
         "en": "weigh /weɪ/ 重（动词）\nweight /weɪt/ 重量（名词）\nimmense /ɪˈmens/ 巨大的",
         "zh": "但勇士有一个更疯狂的主意。他拿出了最重的武器——一把重达1500个方块的锤子！当他举起它时，整个竞技场都在颤抖。飞行堡垒在巨大的重量下剧烈摇晃，几乎飞不动了。'这是我的超级武器！'勇士咧嘴笑道。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-48.jpg",
         "en": "extend /ɪkˈstend/ 伸出\ngrab /ɡræb/ 抓住\nstretch /stretʃ/ 伸展",
         "zh": "建造师快没招了，但他突然想起了一件事。'等等！我还有我的机械手！'一只巨大的金属手臂从地面伸出，伸向高空中的堡垒。它重700个方块，什么都能抓住。'这只手够强壮，能把你的堡垒抓碎！'他喊道。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-49.jpg",
         "en": "clever /ˈklevər/ 聪明的\nshockwave /ˈʃɑːkweɪv/ 冲击波\nbrilliant /ˈbrɪliənt/ 绝妙的",
         "zh": "勇士看着伸向自己的机械手，使劲思考。然后他的眼睛亮了。'我有一个聪明的计划！'他对自己说。'如果我用锤子砸地面，声波产生的冲击力就会把你弹飞到天上——我就赢了！'这是一个绝妙的主意。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-50.jpg",
         "en": "strike /straɪk/ 击打\nimpact /ˈɪmpækt/ 撞击\necho /ˈekoʊ/ 回荡",
         "zh": "勇士把巨大的锤子高高举起，猛砸向地面。哐当！撞击力太大了，整个竞技场像地震一样摇晃。巨大的冲击波向四面八方扩散，把灰尘和方块都吹上了天。声音回荡在整个大地上。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-51.jpg",
         "en": "cannonball /ˈkænənbɔːl/ 炮弹\ntumble /ˈtʌmbl/ 翻滚\namazed /əˈmeɪzd/ 惊讶的",
         "zh": "就像勇士计划的那样，建造师像一颗炮弹一样被弹飞上了天！他越飞越高，在云层中旋转翻滚。'我在飞！'他尖叫着，又害怕又惊讶。对战结束了——勇士用聪明的计谋赢了！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/block-battle/page-52.jpg",
         "en": "lazy /ˈleɪzi/ 懒惰的\ncomfortably /ˈkʌmftəbli/ 舒服地\nsnore /snɔːr/ 打呼噜",
         "zh": "大胜之后，勇士觉得很累。'我为什么还要继续放方块？'他打了个哈欠。'让机械手帮我干活吧！'他舒服地躺在一个柔软的方块上，闭上眼睛，很快就睡着了。机械手还在一块一块地放方块，勇士在一旁安静地打着呼噜。",
         "keys": []
@@ -766,85 +765,85 @@ const STORIES = [
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-8.jpg",
         "en": "",
         "zh": "裂纹像蜘蛛网一样在水晶星球上蔓延。豆豆大吃一惊！他大喊他美丽的星球要碎了。水晶外壳一点一点地开始碎裂。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-9.jpg",
         "en": "",
         "zh": "但是豆豆有办法！他派出成百上千个小小的修复无人机。嗡嗡嗡！它们飞到裂缝处开始修复星球。豆豆骄傲地说他的无人机会修好一切！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-10.jpg",
         "en": "",
         "zh": "现在豆豆有一个超级惊喜！水晶星球变形成为一只巨大的星际巨鲸！它又大又闪亮，有着水晶鱼鳍和巨大的嘴巴。豆豆大笑着说他的星球可以变形！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-11.jpg",
         "en": "",
         "zh": "星际巨鲸张开超级大的嘴巴，要把小星的小星星吸进来！呼！星星们开始飞向巨鲸的嘴巴。豆豆喊着让星星进入他的能量熔炉！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-12.jpg",
         "en": "",
         "zh": "小星有了最棒的主意！他抓起一瓶银河系沐浴露，塞进炸药，用一个迷你打火机点燃。他把满是泡泡的炸弹扔向星际巨鲸！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-13.jpg",
         "en": "",
         "zh": "轰！银河系沐浴露炸弹爆炸了！星际巨鲸现在满身都是泡泡！噗噗噗！黑烟从它的水晶身体上升起。豆豆大叫他全身都是泡沫！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-14.jpg",
         "en": "",
         "zh": "别担心！豆豆也有秘密武器，超小的纳米修复机器人！它们小到根本看不见。它们在星际巨鲸周围飞速修复。豆豆说他的纳米机器人会救他！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-15.jpg",
         "en": "",
         "zh": "但是小星没有停下！他制作了终极炸弹，整个宇宙中最大最强的炸弹！它发出明亮的红光，连周围的星星都在震动。他喊着这是他的最后一击！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-16.jpg",
         "en": "",
         "zh": "轰隆！终极炸弹击中了星际巨鲸，噗！什么都不剩了！连一小块碎片都没有。豆豆的星球完全消失了。豆豆小声说太厉害了。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-17.jpg",
         "en": "",
         "zh": "但是豆豆是个坚强的小机器人！他收集太空中漂浮的所有废铁，建造了一个全新的星球！虽然没有以前那么闪亮，但它是用爱和决心建造的。",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-18.jpg",
         "en": "",
         "zh": "小星拿起一个保护盾想送给豆豆。但是哎呀！他扔得太用力，盾牌直接飞向了豆豆！然后他赶紧又来了一个报废攻击！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-19.jpg",
         "en": "",
         "zh": "咔嚓！盾牌碎成碎片，新星球变成了一堆废铁。豆豆举起他的小机器人手臂投降了！他说小星的炸弹太厉害了，他认输！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-20.jpg",
         "en": "",
         "zh": "虽然他们打了一场史诗级的大战，但小星和豆豆还是最好的朋友！他们互相击掌，一起大笑，喊着这是最好玩的星球大战游戏！",
         "keys": []
       },
       {
-        "img": "",
+        "img": "images/star-wars/page-21.jpg",
         "en": "",
         "zh": "小星看着星星，有了新主意。他跟豆豆说下次去火星吧！豆豆的眼睛兴奋地发亮，喊着火星我们来了！",
         "keys": []
@@ -931,7 +930,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-5.jpg",
         "en": "\"I choose the Bubble Gun! Bang bang bang!\" Countless colorful bubbles flew toward Doudou.",
         "zh": "\"我选泡泡枪！砰砰砰！\"无数彩色泡泡飞向豆豆。",
         "keys": [
@@ -953,7 +952,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-6.jpg",
         "en": "\"My Stinky Bombs already turned you into a stinker!\" Doudou laughed triumphantly.",
         "zh": "\"我的臭臭炮弹早就把你打成臭臭了！\"豆豆得意地大笑。",
         "keys": [
@@ -975,7 +974,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-7.jpg",
         "en": "\"Soap Attack! Scrub scrub scrub! All clean!\" Doudou washed Doubao squeaky clean.",
         "zh": "\"肥皂武装！擦呀擦！洗完啦！\"豆豆用巨大的肥皂把豆包洗得干干净净。",
         "keys": [
@@ -997,7 +996,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-8.jpg",
         "en": "\"My Robot Vacuum Tank is here!\" Mechanical arms stretched out, sweeping everywhere.",
         "zh": "\"我的扫地机器人战车来啦！\"机械臂伸出，四处清扫。",
         "keys": [
@@ -1019,7 +1018,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-9.jpg",
         "en": "\"Robot Vacuum enters Angry Mode!\" The battle grew more and more intense.",
         "zh": "\"扫地机器人进入愤怒模式！\"对战越来越激烈。",
         "keys": [
@@ -1041,7 +1040,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-10.jpg",
         "en": "\"Look at my Flying Shield! Tracking bullets, right through Doubao's tank!\"",
         "zh": "\"看我的飞翔盾牌！追踪子弹，穿过豆包的坦克！\"",
         "keys": [
@@ -1063,7 +1062,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-11.jpg",
         "en": "\"Okay okay, you win this time!\" Doubao laughed. \"Let's still be best friends!\"",
         "zh": "\"好吧好吧，这次算你厉害！\"豆包笑着说。\"那我们还是做好朋友吧！\"",
         "keys": [
@@ -1080,7 +1079,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-12.jpg",
         "en": "A loud crash came from the kitchen! \"Oh no! Mom said we need to bake a cake today!\"",
         "zh": "厨房传来一声巨响！\"完了完了，妈妈说今天要做蛋糕！\"",
         "keys": [
@@ -1102,7 +1101,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-13.jpg",
         "en": "\"Doubao, switch to Kitchen Agent Mode!\" Doudou put on a chef's hat and apron.",
         "zh": "\"豆包，变成厨房特工模式！\"豆豆戴上厨师帽，系上围裙。",
         "keys": [
@@ -1124,7 +1123,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-14.jpg",
         "en": "Doudou accidentally flung the entire bag of flour into the air, like a winter wonderland!",
         "zh": "豆豆不小心把整袋面粉甩到了空中，像冬天的童话世界！",
         "keys": [
@@ -1146,7 +1145,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-15.jpg",
         "en": "The mixer spun too fast, sending batter flying everywhere like a fountain!",
         "zh": "搅拌器转得太快了，面糊像喷泉一样飞溅得到处都是！",
         "keys": [
@@ -1168,7 +1167,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-16.jpg",
         "en": "Doubao secretly added laundry detergent to the batter — giant colorful bubbles started flooding the kitchen!",
         "zh": "豆包偷偷往面糊里加了洗衣液——巨大的彩色泡泡开始淹没厨房！",
         "keys": [
@@ -1190,7 +1189,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-17.jpg",
         "en": "The giant bubbles lifted Doudou and Doubao all the way to the ceiling!",
         "zh": "巨大的泡泡把豆豆和豆包一直飘到了天花板上！",
         "keys": [
@@ -1212,7 +1211,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-18.jpg",
         "en": "\"Activate Anti-Bubble System!\" Doubao popped the bubbles one by one for a safe landing.",
         "zh": "\"启动反泡泡系统！\"豆包一个个戳破了泡泡，安全着陆。",
         "keys": [
@@ -1234,7 +1233,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-19.jpg",
         "en": "\"MY KITCHEN!!!\" Mom stood at the door, flames shooting from her eyes!",
         "zh": "\"我的厨房！！！\"妈妈站在门口，眼睛里冒着火！",
         "keys": [
