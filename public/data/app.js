@@ -238,32 +238,29 @@ const App = {
 
     // Test if audio exists — play with highlights
     const tryAudioPlayback = async () => {
-      try {
-        const resp = await fetch(enAudioUrl, { method: 'HEAD' });
-        if (resp.ok) {
-          // 预加载音频避免浏览器自动播放策略阻止
-          const enBlob = await (await fetch(enAudioUrl)).blob();
-          const zhResp = await fetch(zhAudioUrl, { method: 'HEAD' });
-          let zhBlob = null;
-          if (zhResp.ok) zhBlob = await zhResp.blob();
-
-          // 英文高亮 + 播放
-          nextEnWord();
-          await TTS.speakAudio(URL.createObjectURL(enBlob));
-          if (!this.speaking) return;
-
-          // 中文高亮 + 播放
-          if (zhBlob) {
-            highlightZhChunk(0);
-            await TTS.speakAudio(URL.createObjectURL(zhBlob));
+      // 只在 APK（Capacitor）环境下使用预生成音频
+      // 网页版使用 Web Speech API，效果更好
+      if (window.Capacitor) {
+        try {
+          const resp = await fetch(enAudioUrl, { method: 'HEAD' });
+          if (resp.ok) {
+            const enBlob = await (await fetch(enAudioUrl)).blob();
+            const zhResp = await fetch(zhAudioUrl, { method: 'HEAD' });
+            let zhBlob = null;
+            if (zhResp.ok) zhBlob = await zhResp.blob();
+            nextEnWord();
+            await TTS.speakAudio(URL.createObjectURL(enBlob));
             if (!this.speaking) return;
+            if (zhBlob) {
+              highlightZhChunk(0);
+              await TTS.speakAudio(URL.createObjectURL(zhBlob));
+              if (!this.speaking) return;
+            }
+            await this.speakKeysOneByOne(p.keys);
+            return true;
           }
-
-          // 重点单词
-          await this.speakKeysOneByOne(p.keys);
-          return true;
-        }
-      } catch (e) {}
+        } catch (e) {}
+      }
       return false;
     };
 
