@@ -281,9 +281,10 @@ const App = {
     // 先尝试音频，失败则用 TTS
     // 2. Chinese — speak each punctuation-delimited chunk
     const speakNextChunk = async () => {
-      if (zhChunkIdx >= zhChunks.length) return;
+      if (zhChunkIdx >= zhChunks.length || !this.speaking) return;
       highlightZhChunk(zhChunkIdx);
-      await TTS.speak(zhChunks[zhChunkIdx], 'zh-CN', this.rate * 0.85, null, null);
+      // Use _speakWeb directly to avoid stop() canceling the chain
+      await TTS._speakWeb(zhChunks[zhChunkIdx], 'zh-CN', this.rate * 0.85);
       zhChunkIdx++;
       if (zhChunkIdx < zhChunks.length && this.speaking) {
         await speakNextChunk();
@@ -341,8 +342,8 @@ const App = {
         if (keyEl) keyEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         // Speak English word
         TTS.speak(k.w, 'en-US', this.rate * 0.85, null, null).then(() => {
-          // Then Chinese
-          return TTS.speak(k.zh, 'zh-CN', this.rate * 0.85, null, null);
+          // Then Chinese (use _speakWeb to avoid stop() canceling)
+          return TTS._speakWeb(k.zh, 'zh-CN', this.rate * 0.85);
         }).then(() => {
           i++;
           next();
