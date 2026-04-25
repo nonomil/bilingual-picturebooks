@@ -1185,7 +1185,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-2.jpg",
-        "en": "determined /dɪˈtɜːrmɪnd/ 坚定的",
+        "en": "Steve lived in a quiet village. He was a builder, a miner, and a dreamer.",
         "zh": "史蒂夫住在一个安静的村庄里。他是一个建造者，一个矿工，也是一个梦想家。",
         "keys": [
           {
@@ -1231,7 +1231,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-3.jpg",
-        "en": "ground /ɡraʊnd/ 大地",
+        "en": "One day, the sky turned dark. A terrible roar shook the ground. The Wither was coming.",
         "zh": "有一天，天空变暗了。可怕的咆哮震动了大地。凋零来了。",
         "keys": [
           {
@@ -1277,7 +1277,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-4.jpg",
-        "en": "airplane /ˈerpleɪn/ 飞机",
+        "en": "Steve said he needed to fight from the sky. He began to build an airplane.",
         "zh": "\"我需要从天空战斗它，\"史蒂夫说。他开始建造一个从来没有人见过的东西——一架飞机。",
         "keys": [
           {
@@ -1323,7 +1323,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-5.jpg",
-        "en": "attach /əˈtætʃ/ 安装",
+        "en": "Day and night, Steve worked on his airplane. He hammered iron and attached big propellers.",
         "zh": "日日夜夜，史蒂夫在他的飞机上工作。他锤打铁器，弯曲木材，安装巨大的螺旋桨。",
         "keys": [
           {
@@ -1369,7 +1369,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-6.jpg",
-        "en": "knight /naɪt/ 骑士",
+        "en": "Finally it was done. A beautiful red biplane, shining in the sunlight. Steve called it Sky Knight.",
         "zh": "终于，它完成了。一架美丽的红色双翼飞机，在阳光下闪闪发光。史蒂夫叫它\"天空骑士\"。",
         "keys": [
           {
@@ -1415,7 +1415,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-7.jpg",
-        "en": "goggles /ˈɡɑːɡlz/ 护目镜",
+        "en": "The villagers gathered to watch. Steve put on his goggles and climbed into the cockpit.",
         "zh": "村民们聚在一起观看。史蒂夫戴上护目镜，爬进驾驶舱。",
         "keys": [
           {
@@ -1461,7 +1461,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-8.jpg",
-        "en": "engine /ˈendʒɪn/ 引擎",
+        "en": "The engine roared. The propeller spun faster and faster. Then Steve was flying!",
         "zh": "引擎轰鸣。螺旋桨越转越快。然后，史蒂夫飞起来了！",
         "keys": [
           {
@@ -1507,7 +1507,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-9.jpg",
-        "en": "landscape /ˈlændskeɪp/ 风景",
+        "en": "Up in the sky, everything looked different. The world was big and beautiful.",
         "zh": "在天空中，一切看起来都不一样了。世界很大很美。史蒂夫感觉像鸟一样自由。",
         "keys": [
           {
@@ -1553,7 +1553,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-10.jpg",
-        "en": "control /kənˈtroʊl/ 控制",
+        "en": "But soon the sky grew dark again. Purple clouds swirled ahead. Steve gripped the controls tightly.",
         "zh": "但很快，天空又变暗了。紫色的云在前方旋转。史蒂夫紧紧握住操纵杆。",
         "keys": [
           {
@@ -1599,7 +1599,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-11.jpg",
-        "en": "creature /ˈkriːtʃər/ 生物",
+        "en": "Then he saw it - the Wither. A giant creature with three heads and glowing blue eyes.",
         "zh": "然后他看到了——凋零。一个巨大的生物，有三个头，发出蓝色光芒的眼睛，黑暗的力量在它周围旋转。",
         "keys": [
           {
@@ -1645,7 +1645,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-12.jpg",
-        "en": "dodge /dɑːdʒ/ 闪避",
+        "en": "The Wither shot explosive skulls at Steve! He swerved left, then right. BOOM! BOOM!",
         "zh": "凋零向史蒂夫射出爆炸骷髅头！他向左转，然后向右转。轰！轰！天空中满是爆炸。",
         "keys": [
           {
@@ -1686,7 +1686,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-13.jpg",
-        "en": "straight /streɪt/ 直直地",
+        "en": "One skull came straight at him! Steve flipped his plane upside down and zoomed past it.",
         "zh": "一个骷髅头直冲他而来！史蒂夫把飞机翻了过来，从它旁边飞过。好险！",
         "keys": [
           {
@@ -1727,7 +1727,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-14.jpg",
-        "en": "special /ˈspeʃl/ 特殊的",
+        "en": "I need to fight back! Steve grabbed his enchanted bow with special arrows of light.",
         "zh": "\"我需要反击！\"史蒂夫拿起他的附魔弓。他有特殊的箭——光之箭。",
         "keys": [
           {
@@ -1773,7 +1773,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-15.jpg",
-        "en": "shooting star /ˈʃuːtɪŋ stɑːr/ 流星",
+        "en": "Steve aimed carefully. He fired! Golden arrows streaked through the dark sky like shooting stars.",
         "zh": "史蒂夫仔细瞄准。他射箭了！金色的箭像流星一样划过黑暗的天空。",
         "keys": [
           {
@@ -1819,7 +1819,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-16.jpg",
-        "en": "scream /skriːm/ 尖叫",
+        "en": "HIT! The arrow struck the Wither head. It screamed in pain! Blue sparks flew everywhere.",
         "zh": "命中！箭射中了凋零的第一个头。它痛苦地尖叫！蓝色火花四处飞溅。",
         "keys": [
           {
@@ -1860,7 +1860,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-17.jpg",
-        "en": "direction /dəˈrekʃn/ 方向",
+        "en": "The Wither was furious! It grew bigger and shot skulls in every direction.",
         "zh": "凋零暴怒了！它变得更大，向四面八方射出骷髅头。天空变成了战场。",
         "keys": [
           {
@@ -1901,7 +1901,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-18.jpg",
-        "en": "give up /ɡɪv ʌp/ 放弃",
+        "en": "CRASH! A skull hit Steve wing. Smoke poured out. But Steve did not give up.",
         "zh": "砰！一个骷髅头击中了史蒂夫的机翼。烟冒了出来。飞机摇晃着。但史蒂夫没有放弃。",
         "keys": [
           {
@@ -1947,7 +1947,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-19.jpg",
-        "en": "village /ˈvɪlɪdʒ/ 村庄",
+        "en": "Steve stood up in his cockpit. He had one arrow left - his strongest one.",
         "zh": "史蒂夫在驾驶舱里站起来。他只剩一支箭了——他最强的一支。\"这是为了我的村庄！\"",
         "keys": [
           {
@@ -1988,7 +1988,7 @@ const STORIES = [
       },
       {
         "img": "images/minecraft/page-20.jpg",
-        "en": "epic /ˈepɪk/ 史诗般的",
+        "en": "He fired! The golden arrow split into three beams and hit all three heads at once!",
         "zh": "他射箭了！金色的箭笔直飞去。它分裂成三束光，同时击中了三个头！",
         "keys": [
           {
@@ -2089,7 +2089,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-2.jpg",
-        "en": "Let's play Block Battle!\n\n🇨🇳 来玩方块大战吧！\n\n• battle /ˈbætl/ — 大战\n• block /blɑːk/ — 方块\n• arena /əˈriːnə/ — 竞技场\n\n• Let's play — 我们来玩吧\n• Block Battle — 方块大战",
+        "en": "Let us play Block Battle!",
         "zh": "",
         "keys": [
           {
@@ -2125,7 +2125,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-3.jpg",
-        "en": "I'll pick a cube with stealth skill!\n\n🇨🇳 我选个带隐身技能的方块！\n\n• stealth /stelθ/ — 隐身\n• skill /skɪl/ — 技能\n• choose /tʃuːz/ — 选择\n\n• stealth skill — 隐身技能\n• pick a cube — 选一个方块",
+        "en": "I will pick a cube with the stealth skill!",
         "zh": "",
         "keys": [
           {
@@ -2166,7 +2166,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-4.jpg",
-        "en": "I'll build a three-layer obsidian shield!\n\n🇨🇳 我先造个三层黑曜石盾牌！\n\n• obsidian /əbˈsɪdiən/ — 黑曜石\n• shield /ʃiːld/ — 盾牌\n• layer /ˈleɪər/ — 层\n\n• three-layer — 三层\n• obsidian shield — 黑曜石盾牌",
+        "en": "I will build a three-layer obsidian shield!",
         "zh": "",
         "keys": [
           {
@@ -2207,7 +2207,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-5.jpg",
-        "en": "Obsidian is super hard, normal attacks can't break it!\n\n🇨🇳 黑曜石超硬，一般攻击打不破！\n\n• super /ˈsuːpər/ — 超级\n• attack /əˈtæk/ — 攻击\n• break /breɪk/ — 打破\n\n• super hard — 超硬\n• can't break it — 打不破",
+        "en": "Obsidian is super hard. Normal attacks cannot break it!",
         "zh": "",
         "keys": [
           {
@@ -2248,7 +2248,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-6.jpg",
-        "en": "Watch this! I ride a sword with evil attack!\n\n🇨🇳 看我的，我骑了一把带邪恶攻击的剑！\n\n• sword /sɔːrd/ — 剑\n• evil /ˈiːvəl/ — 邪恶\n• ride /raɪd/ — 骑\n\n• evil attack — 邪恶攻击\n• ride a sword — 骑一把剑",
+        "en": "Watch this! I ride a sword with evil attack!",
         "zh": "",
         "keys": [
           {
@@ -2289,7 +2289,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-7.jpg",
-        "en": "The obsidian shield got crushed flat!\n\n🇨🇳 黑曜石盾牌被一下打扁了！\n\n• crush /krʌʃ/ — 压碎\n• flat /flæt/ — 扁的\n• smash /smæʃ/ — 砸碎\n\n• crushed flat — 打扁了\n• in one hit — 一下就",
+        "en": "The obsidian shield got crushed flat!",
         "zh": "",
         "keys": [
           {
@@ -2330,7 +2330,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-8.jpg",
-        "en": "I'll build a laser-shooting turret!\n\n🇨🇳 我要造个会发射激光的炮塔！\n\n• laser /ˈleɪzər/ — 激光\n• turret /ˈtɜːrət/ — 炮塔\n• shoot /ʃuːt/ — 发射\n\n• laser turret — 激光炮塔\n• shoot laser — 发射激光",
+        "en": "I will build a laser-shooting turret!",
         "zh": "",
         "keys": [
           {
@@ -2371,7 +2371,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-9.jpg",
-        "en": "Look at my super giant hammer!\n\n🇨🇳 看我的超级大锤子王！\n\n• hammer /ˈhæmər/ — 锤子\n• giant /ˈdʒaɪənt/ — 巨大的\n• swing /swɪŋ/ — 挥舞\n\n• giant hammer — 巨大的锤子\n• Hammer King — 锤子王",
+        "en": "Look at my super giant hammer!",
         "zh": "",
         "keys": [
           {
@@ -2412,7 +2412,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-10.jpg",
-        "en": "The turret got smashed into pieces!\n\n🇨🇳 炮塔直接被锤成碎片！\n\n• pieces /ˈpiːsɪz/ — 碎片\n• destroy /dɪˈstrɔɪ/ — 摧毁\n• explode /ɪkˈsploʊd/ — 爆炸\n\n• into pieces — 成碎片\n• smashed into — 被砸成",
+        "en": "The turret got smashed into pieces!",
         "zh": "",
         "keys": [
           {
@@ -2453,7 +2453,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-11.jpg",
-        "en": "I'll build a flying mechanical fortress!\n\n🇨🇳 我要造一个会飞的机械堡垒！\n\n• fortress /ˈfɔːrtrəs/ — 堡垒\n• mechanical /məˈkænɪkəl/ — 机械的\n• flying /ˈflaɪɪŋ/ — 飞行的\n\n• flying fortress — 飞行堡垒",
+        "en": "I will build a flying mechanical fortress!",
         "zh": "",
         "keys": [
           {
@@ -2494,7 +2494,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-12.jpg",
-        "en": "This hammer weighs 1,500 blocks!\n\n🇨🇳 这锤子有1500个方块那么重！\n\n• weigh /weɪ/ — 重\n• heavy /ˈhevi/ — 重的\n• ton /tʌn/ — 吨\n\n• weighs 1,500 — 重1500\n• super weapon — 超级武器",
+        "en": "This hammer weighs 1,500 blocks!",
         "zh": "",
         "keys": [
           {
@@ -2535,7 +2535,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-13.jpg",
-        "en": "The fortress got smashed and can't move!\n\n🇨🇳 机械堡垒被砸得动弹不得了！\n\n• stuck /stʌk/ — 卡住的\n• trap /træp/ — 困住\n• collapse /kəˈlæps/ — 倒塌\n\n• can't move — 动弹不得",
+        "en": "The fortress got smashed and cannot move!",
         "zh": "",
         "keys": [
           {
@@ -2576,7 +2576,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-14.jpg",
-        "en": "Look at my mechanical hand!\n\n🇨🇳 看我的机械手！\n\n• grab /ɡræb/ — 抓住\n• extend /ɪkˈstend/ — 伸出\n• mechanical /məˈkænɪkəl/ — 机械的\n\n• mechanical hand — 机械手\n• reach out — 伸出来",
+        "en": "Look at my mechanical hand!",
         "zh": "",
         "keys": [
           {
@@ -2617,7 +2617,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-15.jpg",
-        "en": "The mechanical hand weighs 700!\n\n🇨🇳 机械手有700那么重！\n\n• weight /weɪt/ — 重量\n• powerful /ˈpaʊərfəl/ — 强大的\n• grip /ɡrɪp/ — 抓力\n\n• weighs 700 — 重700",
+        "en": "The mechanical hand weighs 700!",
         "zh": "",
         "keys": [
           {
@@ -2658,7 +2658,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-16.jpg",
-        "en": "I'll use the hammer to launch you into the sky!\n\n🇨🇳 我用锤子一敲，你就飞到天上去了！\n\n• launch /lɔːntʃ/ — 发射\n• clever /ˈklevər/ — 聪明的\n• plan /plæn/ — 计划\n\n• launch into the sky — 飞上天\n• clever plan — 聪明的计划",
+        "en": "I will use the hammer to launch you into the sky!",
         "zh": "",
         "keys": [
           {
@@ -2699,7 +2699,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-17.jpg",
-        "en": "BANG! The hammer strikes the ground!\n\n🇨🇳 哐当！锤子猛击地面！\n\n• strike /straɪk/ — 击打\n• ground /ɡraʊnd/ — 地面\n• shockwave /ˈʃɑːkweɪv/ — 冲击波\n\n• strike the ground — 猛击地面\n• sound wave — 声波",
+        "en": "BANG! The hammer strikes the ground!",
         "zh": "",
         "keys": [
           {
@@ -2740,7 +2740,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-18.jpg",
-        "en": "Flying into the sky like a cannonball!\n\n🇨🇳 像小炮弹一样飞上了天！\n\n• cannonball /ˈkænənbɔːl/ — 炮弹\n• soar /sɔːr/ — 翱翔\n• fly /flaɪ/ — 飞\n\n• like a cannonball — 像炮弹一样",
+        "en": "Flying into the sky like a cannonball!",
         "zh": "",
         "keys": [
           {
@@ -2781,7 +2781,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-19.jpg",
-        "en": "Let the mechanical hand place blocks for me!\n\n🇨🇳 让机械手帮我放方块！\n\n• lazy /ˈleɪzi/ — 懒的\n• sleep /sliːp/ — 睡觉\n• place /pleɪs/ — 放置\n\n• lazy — 懒惰的\n• place blocks — 放方块",
+        "en": "Let the mechanical hand place blocks for me!",
         "zh": "",
         "keys": [
           {
@@ -2822,7 +2822,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-20.jpg",
-        "en": "I'll just lie here and sleep peacefully!\n\n🇨🇳 我就躺在这里睡觉！\n\n• peaceful /ˈpiːsfl/ — 平静的\n• snore /snɔːr/ — 打呼噜\n• rest /rest/ — 休息\n\n• lie down — 躺下\n• sleep peacefully — 安稳睡觉",
+        "en": "I will just lie here and sleep peacefully!",
         "zh": "",
         "keys": [
           {
@@ -2863,7 +2863,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-21.jpg",
-        "en": "The adventure never ends! Let's play again!",
+        "en": "The adventure never ends! Let us play again!",
         "zh": "冒险永不止步！我们再来一场吧！",
         "keys": [
           {
@@ -2900,7 +2900,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-22.jpg",
-        "en": "battle /ˈbætl/ 大战，start a battle 开始一场大战\narena /əˈriːnə/ 竞技场，colorful arena 彩色竞技场\nready /ˈredi/ 准备好的，get ready 准备好",
+        "en": "battle - start a new battle in the colorful arena!",
         "zh": "两个小方块勇士在彩色的竞技场面对面，准备玩一个超酷的游戏——方块大战！他们每个人都要建造自己强大的武器。",
         "keys": [
           {
@@ -2936,7 +2936,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-23.jpg",
-        "en": "stealth /stelθ/ 隐身，stealth skill 隐身技能\ndisappear /ˌdɪsəˈpɪr/ 消失，disappear into thin air 消失在空气中",
+        "en": "stealth - disappear into thin air with stealth skill!",
         "zh": "勇士选了一个带隐身技能的方块！它身上发出神秘的蓝色光芒，慢慢消失在空气中。",
         "keys": [
           {
@@ -2967,7 +2967,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-24.jpg",
-        "en": "obsidian /əbˈsɪdiən/ 黑曜石\nshield /ʃiːld/ 盾牌，build a shield 造一个盾牌\nlayer /ˈleɪər/ 层，three-layer 三层",
+        "en": "obsidian - build a strong shield with obsidian layers!",
         "zh": "一个巨大的三层黑曜石盾牌从地面升起，散发着火山能量。一般攻击根本打不破！",
         "keys": [
           {
@@ -3003,7 +3003,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-25.jpg",
-        "en": "sword /sɔːrd/ 剑\nevil /ˈiːvəl/ 邪恶的，evil attack 邪恶攻击\ncrash /kræʃ/ 猛撞，come crashing down 猛砸下来",
+        "en": "sword - ride a sword with evil attack power!",
         "zh": "勇士跳上一把巨大的暗紫色之剑。带着邪恶的攻击力，猛砸向盾牌！",
         "keys": [
           {
@@ -3039,7 +3039,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-26.jpg",
-        "en": "crush /krʌʃ/ 压碎，crushed flat 被砸扁\nshard /ʃɑːrd/ 碎片\nfirework /ˈfaɪərwɜːrk/ 烟花",
+        "en": "crush - the shield was crushed flat into shards!",
         "zh": "黑曜石盾牌被彻底砸扁了！碎片像烟花一样四处飞溅。",
         "keys": [
           {
@@ -3075,7 +3075,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-27.jpg",
-        "en": "laser /ˈleɪzər/ 激光\ncharge /tʃɑːrdʒ/ 充能\ndodge /dɑːdʒ/ 躲闪",
+        "en": "laser - charge and dodge the laser beams!",
         "zh": "一个高科技炮塔升起，充能着明亮的红色激光束。你怎么躲？",
         "keys": [
           {
@@ -3111,7 +3111,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-28.jpg",
-        "en": "hammer /ˈhæmər/ 锤子\ngiant /ˈdʒaɪənt/ 巨大的\nlegendary /ˈledʒənderi/ 传说的",
+        "en": "hammer - one swing of the giant legendary hammer!",
         "zh": "勇士挥舞着一把巨大的金色锤子。这就是传说中的锤子王——最强的武器！",
         "keys": [
           {
@@ -3147,7 +3147,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-29.jpg",
-        "en": "swing /swɪŋ/ 挥舞，one swing 一下挥舞\nboom /buːm/ 轰隆声\ntiny /ˈtaɪni/ 微小的",
+        "en": "swing - one mighty swing smashed everything tiny!",
         "zh": "激光炮塔被大锤一挥就砸成了碎片！",
         "keys": [
           {
@@ -3183,7 +3183,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-30.jpg",
-        "en": "fortress /ˈfɔːrtrəs/ 堡垒\nmechanical /məˈkænɪkəl/ 机械的\nunbeatable /ʌnˈbiːtəbl/ 不可战胜的",
+        "en": "fortress - a mechanical flying fortress, unbeatable!",
         "zh": "一个带着翅膀的巨大堡垒升上天空。看起来不可战胜！",
         "keys": [
           {
@@ -3219,7 +3219,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-31.jpg",
-        "en": "weigh /weɪ/ 重（动词）\nweight /weɪt/ 重量（名词）\nimmense /ɪˈmens/ 巨大的",
+        "en": "weigh - the immense mechanical hand has great weight!",
         "zh": "这锤子有1500个方块那么重！堡垒在巨大的重量下颤抖，几乎飞不动了！",
         "keys": [
           {
@@ -3255,7 +3255,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-32.jpg",
-        "en": "extend /ɪkˈstend/ 伸出\nreach /riːtʃ/ 伸向，reach for 伸向\nincredible /ɪnˈkredəbl/ 惊人的",
+        "en": "extend - reach out with incredible extendable arms!",
         "zh": "一只巨大的金属手臂从地面伸出，以惊人的力量向堡垒抓去。",
         "keys": [
           {
@@ -3291,7 +3291,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-33.jpg",
-        "en": "clever /ˈklevər/ 聪明的\nsound wave /saʊnd weɪv/ 声波\nlaunch /lɔːntʃ/ 发射，弹飞",
+        "en": "clever - a clever plan using sound wave to launch!",
         "zh": "勇士想到了一个聪明的计划！如果锤子砸到地面，声波把敌人弹飞到天上呢？",
         "keys": [
           {
@@ -3327,7 +3327,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-34.jpg",
-        "en": "strike /straɪk/ 击打\nforce /fɔːrs/ 力量\nshockwave /ˈʃɑːkweɪv/ 冲击波",
+        "en": "strike - the hammer strike sends a huge shockwave!",
         "zh": "锤子以惊人的力量猛击地面！巨大的冲击波向四面八方扩散。",
         "keys": [
           {
@@ -3363,7 +3363,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-35.jpg",
-        "en": "cannonball /ˈkænənbɔːl/ 炮弹\nhigh /haɪ/ 高高地\nover /ˈoʊvər/ 结束",
+        "en": "cannonball - fly high over the arena like a cannonball!",
         "zh": "像一颗炮弹一样，敌人飞上了高高的天空！对战结束了！",
         "keys": [
           {
@@ -3399,7 +3399,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-36.jpg",
-        "en": "lazy /ˈleɪzi/ 懒惰的\ncomfortably /ˈkʌmftəbli/ 舒服地\nfall asleep /fɔːl əˈsliːp/ 入睡",
+        "en": "lazy - fall asleep comfortably after the big battle!",
         "zh": "为什么要放方块？让机械手帮我放！勇士舒服地躺下来，睡着了。",
         "keys": [
           {
@@ -3435,7 +3435,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-37.jpg",
-        "en": "The adventure never ends! Let us play again!",
+        "en": "The second round begins! A brave warrior returns to the arena.",
         "zh": "冒险永不止步！我们再来一场吧！",
         "keys": [
           {
@@ -3467,7 +3467,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-38.jpg",
-        "en": "warrior /ˈwɔːriər/ 勇士，a brave warrior 一个勇敢的勇士\narena /əˈriːnə/ 竞技场，colorful arena 彩色竞技场\ncount down /kaʊnt daʊn/ 倒数",
+        "en": "stealth - disappear with stealth skill, very confused!",
         "zh": "一个阳光明媚的下午，两个最好的朋友——一个披着红披风的小勇士和一个聪明的建造师——在彩色的竞技场面对面站着。今天就是他们期待已久的日子：方块大战！每个人都要设计自己的武器，比比谁最强。",
         "keys": [
           {
@@ -3503,7 +3503,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-39.jpg",
-        "en": "stealth /stelθ/ 隐身，stealth skill 隐身技能\ndisappear /ˌdɪsəˈpɪr/ 消失，disappear into thin air 消失在空气中\nconfused /kənˈfjuːzd/ 困惑的",
+        "en": "obsidian - build a shield with super hard obsidian material!",
         "zh": "建造师笑着说：'我选一个带隐身技能的方块！'突然，他全身开始发出神秘的蓝色光芒。慢慢地，他消失在了空气中！'现在你看不到我了！'他的声音从四面八方传来。",
         "keys": [
           {
@@ -3539,7 +3539,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-40.jpg",
-        "en": "obsidian /əbˈsɪdiən/ 黑曜石\nshield /ʃiːld/ 盾牌，build a shield 造一个盾牌\nmaterial /məˈtɪriəl/ 材料",
+        "en": "evil - ride a sword with evil attack and purple lightning!",
         "zh": "建造师重新出现了，立刻开始工作。'我要造一个三层黑曜石盾牌！'他骄傲地宣布。一块一块地，一个巨大的黑色盾牌从地面升起。黑曜石是方块世界最坚硬的材料之一。'一般攻击根本打不破这个！'他笑着说。",
         "keys": [
           {
@@ -3575,7 +3575,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-41.jpg",
-        "en": "sword /sɔːrd/ 剑\nevil /ˈiːvəl/ 邪恶的，evil attack 邪恶攻击\nlightning /ˈlaɪtnɪŋ/ 闪电",
+        "en": "impossible - the obsidian shield cannot be broken!",
         "zh": "勇士一点也不担心。'看我的！'他大喊，跳上了一把漂浮在空中的巨大暗紫色之剑。剑上覆盖着邪恶能量，闪着暗紫色的闪电。'有这个邪恶攻击力，你的盾牌什么都不算！'勇士全速飞向盾牌。",
         "keys": [
           {
@@ -3611,7 +3611,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-42.jpg",
-        "en": "crush /krʌʃ/ 压碎，crushed flat 被砸扁\nshard /ʃɑːrd/ 碎片\nimpossible /ɪmˈpɑːsəbl/ 不可能的",
+        "en": "laser - a high-tech turret that shoots laser beams!",
         "zh": "哐当！邪恶之剑以惊人的力量撞上黑曜石盾牌。让所有人吃惊的是，传说中坚不可摧的盾牌被彻底砸扁了——像一张煎饼！黑曜石碎片像烟花一样四处飞溅。'不可能！'建造师惊呼，盯着被拍扁的盾牌残骸。",
         "keys": [
           {
@@ -3647,7 +3647,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-43.jpg",
-        "en": "laser /ˈleɪzər/ 激光\nturret /ˈtɜːrət/ 炮塔\ndodge /dɑːdʒ/ 躲闪",
+        "en": "enormous - the enormous hammer is the secret weapon!",
         "zh": "建造师不肯认输。'好，比就比！'他迅速组装了一个高科技激光炮塔。炮塔嗡嗡地启动了，充能着明亮的红色激光束，照亮了整个竞技场。'看你躲不躲得过这个！'他咧嘴笑着，直接瞄准了勇士。",
         "keys": [
           {
@@ -3683,7 +3683,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-44.jpg",
-        "en": "hammer /ˈhæmər/ 锤子\nenormous /ɪˈnɔːrməs/ 巨大的\nsecret weapon /ˈsiːkrət ˈwepən/ 秘密武器",
+        "en": "fortress - a mechanical flying fortress, unbeatable!",
         "zh": "勇士大笑，掏出了他的秘密武器——一把巨大的金色锤子，叫做锤子王。这是任何人见过的最大的锤子，闪耀着金光。'你觉得一个小激光就能挡住我？'他说着，把锤子高高举过头顶。",
         "keys": [
           {
@@ -3719,7 +3719,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-45.jpg",
-        "en": "swing /swɪŋ/ 挥舞，one mighty swing 有力的一挥\nscrap /skræp/ 废铁，a pile of scrap 一堆废铁\nshock /ʃɑːk/ 震惊",
+        "en": "swing - one mighty swing of the scrap hammer!",
         "zh": "只一挥，轰！金色锤子砸在激光炮塔上，把它砸成了碎片！齿轮、电线和金属零件四处飞溅。建造师震惊地盯着炮塔变成的那堆废铁。'这锤子也太太太强了！'他小声说。",
         "keys": [
           {
@@ -3761,7 +3761,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-46.jpg",
-        "en": "fortress /ˈfɔːrtrəs/ 堡垒\nmechanical /məˈkænɪkəl/ 机械的\nunbeatable /ʌnˈbiːtəbl/ 不可战胜的",
+        "en": "fortress - the mechanical fortress looks unbeatable!",
         "zh": "建造师还有一招。'我要造一个飞行的机械堡垒！'一个带着巨大翅膀的结构从地面升起，飞上了天空。它装着厚厚的金属板，看起来真的不可战胜。'你打不到会飞的东西！'建造师在空中大喊。",
         "keys": [
           {
@@ -3803,7 +3803,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-47.jpg",
-        "en": "weigh /weɪ/ 重（动词）\nweight /weɪt/ 重量（名词）\nimmense /ɪˈmens/ 巨大的",
+        "en": "weigh - the hammer weighs 1,500 blocks, immense!",
         "zh": "但勇士有一个更疯狂的主意。他拿出了最重的武器——一把重达1500个方块的锤子！当他举起它时，整个竞技场都在颤抖。飞行堡垒在巨大的重量下剧烈摇晃，几乎飞不动了。'这是我的超级武器！'勇士咧嘴笑道。",
         "keys": [
           {
@@ -3845,7 +3845,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-48.jpg",
-        "en": "extend /ɪkˈstend/ 伸出\ngrab /ɡræb/ 抓住\nstretch /stretʃ/ 伸展",
+        "en": "extend - extend and grab with incredible stretching arms!",
         "zh": "建造师快没招了，但他突然想起了一件事。'等等！我还有我的机械手！'一只巨大的金属手臂从地面伸出，伸向高空中的堡垒。它重700个方块，什么都能抓住。'这只手够强壮，能把你的堡垒抓碎！'他喊道。",
         "keys": [
           {
@@ -3887,7 +3887,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-49.jpg",
-        "en": "clever /ˈklevər/ 聪明的\nshockwave /ˈʃɑːkweɪv/ 冲击波\nbrilliant /ˈbrɪliənt/ 绝妙的",
+        "en": "clever - a brilliant clever plan with a shockwave!",
         "zh": "勇士看着伸向自己的机械手，使劲思考。然后他的眼睛亮了。'我有一个聪明的计划！'他对自己说。'如果我用锤子砸地面，声波产生的冲击力就会把你弹飞到天上——我就赢了！'这是一个绝妙的主意。",
         "keys": [
           {
@@ -3929,7 +3929,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-50.jpg",
-        "en": "strike /straɪk/ 击打\nimpact /ˈɪmpækt/ 撞击\necho /ˈekoʊ/ 回荡",
+        "en": "strike - the hammer strike has incredible impact!",
         "zh": "勇士把巨大的锤子高高举起，猛砸向地面。哐当！撞击力太大了，整个竞技场像地震一样摇晃。巨大的冲击波向四面八方扩散，把灰尘和方块都吹上了天。声音回荡在整个大地上。",
         "keys": [
           {
@@ -3971,7 +3971,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-51.jpg",
-        "en": "cannonball /ˈkænənbɔːl/ 炮弹\ntumble /ˈtʌmbl/ 翻滚\namazed /əˈmeɪzd/ 惊讶的",
+        "en": "cannonball - tumble through the sky like a cannonball, amazed!",
         "zh": "就像勇士计划的那样，建造师像一颗炮弹一样被弹飞上了天！他越飞越高，在云层中旋转翻滚。'我在飞！'他尖叫着，又害怕又惊讶。对战结束了——勇士用聪明的计谋赢了！",
         "keys": [
           {
@@ -4013,7 +4013,7 @@ const STORIES = [
       },
       {
         "img": "images/block-battle/page-52.jpg",
-        "en": "lazy /ˈleɪzi/ 懒惰的\ncomfortably /ˈkʌmftəbli/ 舒服地\nsnore /snɔːr/ 打呼噜",
+        "en": "lazy - sleep comfortably and snore after the battle!",
         "zh": "大胜之后，勇士觉得很累。'我为什么还要继续放方块？'他打了个哈欠。'让机械手帮我干活吧！'他舒服地躺在一个柔软的方块上，闭上眼睛，很快就睡着了。机械手还在一块一块地放方块，勇士在一旁安静地打着呼噜。",
         "keys": [
           {
