@@ -4,10 +4,6 @@ on:
   push:
     branches: [release/android]
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version (e.g. 1.0.1, leave empty to auto-increment)'
-        required: false
 
 jobs:
   build:
@@ -19,8 +15,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
     - name: Setup Node.js 22
       uses: actions/setup-node@v4
@@ -39,6 +33,14 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Prepare local assets (images + audio for APK)
+      run: |
+        mkdir -p public/images public/audio
+        cp -r images/* public/images/
+        cp -r audio/* public/audio/
+        echo "Images: $(find public/images -name '*.jpg' | wc -l)"
+        echo "Audio: $(find public/audio -name '*.mp3' | wc -l)"
+
     - name: Sync Capacitor
       run: npx cap sync android
 
@@ -52,8 +54,7 @@ jobs:
           VERSION="${{ github.event.inputs.version }}"
         else
           LATEST=$(git tag --list 'v*' --sort=-v:refname | head -1)
-          if [ -z "$LATEST" ]; then
-            VERSION="1.0.0"
+          if [ -z "$LATEST" ]; then VERSION="1.0.0"
           else
             MAJOR=$(echo $LATEST | sed 's/v//' | cut -d. -f1)
             MINOR=$(echo $LATEST | sed 's/v//' | cut -d. -f2)
@@ -64,17 +65,15 @@ jobs:
         fi
         echo "version=$VERSION" >> $GITHUB_OUTPUT
         echo "tag=v$VERSION" >> $GITHUB_OUTPUT
-        echo "Building version: $VERSION"
 
-    - name: Update version in project
+    - name: Update version
       run: |
-        npm version ${{ steps.version.outputs.version }} --no-git-tag-version
         MAJOR=$(echo ${{ steps.version.outputs.version }} | cut -d. -f1)
         MINOR=$(echo ${{ steps.version.outputs.version }} | cut -d. -f2)
         PATCH=$(echo ${{ steps.version.outputs.version }} | cut -d. -f3)
         VERSION_CODE=$((MAJOR * 10000 + MINOR * 100 + PATCH))
-        sed -i 's/versionName "[^"]*"/versionName "${{ steps.version.outputs.version }}"/' android/app/build.gradle
-        sed -i 's/versionCode [0-9]*/versionCode '$VERSION_CODE'/' android/app/build.gradle
+        sed -i "s/versionName \".*\"/versionName \"${{ steps.version.outputs.version }}\"/" android/app/build.gradle
+        sed -i "s/versionCode [0-9]*/versionCode $VERSION_CODE/" android/app/build.gradle
 
     - name: Build signed APK
       working-directory: android
@@ -118,17 +117,9 @@ jobs:
 
           ### ✨ Features
           - 12 本双语绘本（237 页）
-          - 重点单词 + 词组
-          - 预生成音频（edge-tts 晓晓/云希音色）
-          - 系统 TTS 回退
-          - 离线音频播放
-
-          ### 📥 安装说明
-          1. 下载 APK 直接安装（可覆盖旧版本）
-          2. 推荐安装微软语音引擎（可选）
-
-          ### 🔗 在线版本
-          https://nonomil.github.io/bilingual-picturebooks/
+          - 重点单词 + 词组高亮
+          - 本地打包图片和音频（离线可用）
+          - 系统 TTS 朗读 + edge-tts 预生成音频
         files: bilingual-picturebooks-${{ needs.build.outputs.version }}.apk
         draft: false
         prerelease: false
