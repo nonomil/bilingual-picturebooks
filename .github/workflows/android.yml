@@ -69,10 +69,13 @@ jobs:
       run: |
         # Update package.json
         npm version ${{ steps.version.outputs.version }} --no-git-tag-version
-        # Update Android versionName
+        # Update Android versionName and versionCode
+        # versionCode = MAJOR*10000 + MINOR*100 + PATCH (must be ascending for upgrades)
+        MAJOR=$(echo ${{ steps.version.outputs.version }} | cut -d. -f1)
+        MINOR=$(echo ${{ steps.version.outputs.version }} | cut -d. -f2)
+        PATCH=$(echo ${{ steps.version.outputs.version }} | cut -d. -f3)
+        VERSION_CODE=$((MAJOR * 10000 + MINOR * 100 + PATCH))
         sed -i 's/versionName "[^"]*"/versionName "${{ steps.version.outputs.version }}"/' android/app/build.gradle
-        # Update Android versionCode (use timestamp-based)
-        VERSION_CODE=$(date +%s)
         sed -i 's/versionCode [0-9]*/versionCode '$VERSION_CODE'/' android/app/build.gradle
 
     - name: Build APK
