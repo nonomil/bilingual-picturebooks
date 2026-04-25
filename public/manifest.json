@@ -1,0 +1,14 @@
+{
+  "name": "双语绘本朗读",
+  "short_name": "双语绘本",
+  "description": "12本双语绘本，重点单词高亮朗读",
+  "start_url": "/bilingual-picturebooks/",
+  "display": "standalone",
+  "background_color": "#fff8f0",
+  "theme_color": "#ff6b35",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
