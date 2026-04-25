@@ -26,6 +26,18 @@ const STORIES = [
             "p": "/ˈsʌni/",
             "zh": "阳光明媚的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "a bright, sunny morning",
+              "zh": "一个阳光明媚的早晨"
+            },
+            {
+              "en": "wriggle along the path",
+              "zh": "在小路上一扭一扭地走"
+            }
+          ]
         ]
       },
       {
@@ -48,6 +60,22 @@ const STORIES = [
             "p": "/dɪˈlɪʃəs/",
             "zh": "好吃的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "a round red apple",
+              "zh": "一个圆圆的红苹果"
+            },
+            {
+              "en": "What do you think he will do?",
+              "zh": "你猜他会怎么做？"
+            },
+            {
+              "en": "Yum, so delicious",
+              "zh": "真好吃"
+            }
+          ]
         ]
       },
       {
@@ -65,6 +93,22 @@ const STORIES = [
             "p": "/ˈjeloʊ/",
             "zh": "黄色的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "the next day",
+              "zh": "第二天"
+            },
+            {
+              "en": "a curved yellow banana",
+              "zh": "一根弯弯的黄香蕉"
+            },
+            {
+              "en": "the hungry little snake",
+              "zh": "好饿的小蛇"
+            }
+          ]
         ]
       },
       {
@@ -77,6 +121,22 @@ const STORIES = [
             "p": "/traɪˈæŋɡjələr/",
             "zh": "三角形的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "the third day",
+              "zh": "第三天"
+            },
+            {
+              "en": "a triangular rice ball",
+              "zh": "一个三角形的小饭团"
+            },
+            {
+              "en": "What do you think he will do?",
+              "zh": "你猜他会怎么做？"
+            }
+          ]
         ]
       },
       {
@@ -99,6 +159,22 @@ const STORIES = [
             "p": "/ˈpɜːrpl/",
             "zh": "紫色的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "the fourth day",
+              "zh": "第四天"
+            },
+            {
+              "en": "a big bunch of purple grapes",
+              "zh": "一大串紫色的葡萄"
+            },
+            {
+              "en": "Yum, so delicious",
+              "zh": "真好吃"
+            }
+          ]
         ]
       },
       {
@@ -116,6 +192,22 @@ const STORIES = [
             "p": "/ˈpɔɪnti/",
             "zh": "尖尖的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "the fifth day",
+              "zh": "第五天"
+            },
+            {
+              "en": "a spiky pineapple",
+              "zh": "一个尖尖的菠萝"
+            },
+            {
+              "en": "the hungry little snake",
+              "zh": "好饿的小蛇"
+            }
+          ]
         ]
       },
       {
@@ -138,6 +230,22 @@ const STORIES = [
             "p": "/ˈteɪsti/",
             "zh": "好吃的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "many red apples on the tree",
+              "zh": "树上有许多红苹果"
+            },
+            {
+              "en": "climb up the tree",
+              "zh": "爬上树"
+            },
+            {
+              "en": "open his big mouth",
+              "zh": "张开大嘴"
+            }
+          ]
         ]
       }
     ]
@@ -179,6 +287,22 @@ const STORIES = [
             "p": "/ˈɡɑːrdən/",
             "zh": "花园"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "a bright, sunny garden",
+              "zh": "一个明亮、阳光灿烂的花园"
+            },
+            {
+              "en": "a tiny green Pea Shooter named Pip",
+              "zh": "一只名叫皮皮的绿色小豌豆射手"
+            },
+            {
+              "en": "loved his garden home more than anything in the world",
+              "zh": "爱他的花园家园胜过世界上的一切"
+            }
+          ]
         ]
       },
       {
@@ -211,6 +335,22 @@ const STORIES = [
             "p": "/ˈwʌndərfəl/",
             "zh": "美好的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "take a walk along the cobblestone path",
+              "zh": "沿着鹅卵石小路散步"
+            },
+            {
+              "en": "The flowers waved at him",
+              "zh": "花朵们向他挥手"
+            },
+            {
+              "en": "What a wonderful day for a walk!",
+              "zh": "散步的好天气！"
+            }
+          ]
         ]
       },
       {
@@ -243,6 +383,22 @@ const STORIES = [
             "p": "/ˈwɪspər/",
             "zh": "低语"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "the most beautiful part of the garden",
+              "zh": "花园中最美丽的地方"
+            },
+            {
+              "en": "Tall sunflowers stood like guards",
+              "zh": "高高的向日葵像卫兵一样站着"
+            },
+            {
+              "en": "I love my garden so much",
+              "zh": "我太爱我的花园了"
+            }
+          ]
         ]
       },
       {
@@ -274,6 +430,20 @@ const STORIES = [
             "w": "worry",
             "p": "/ˈwɜːri/",
             "zh": "担心"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a strange sound",
+            "zh": "一个奇怪的声音"
+          },
+          {
+            "en": "the ground began to shake",
+            "zh": "地面开始震动"
+          },
+          {
+            "en": "dark clouds rolled in from nowhere",
+            "zh": "乌云不知从哪里涌了上来"
           }
         ]
       },
@@ -307,6 +477,20 @@ const STORIES = [
             "p": "/ˈtrembəl/",
             "zh": "颤抖"
           }
+        ],
+        "phrases": [
+          {
+            "en": "from behind the bushes",
+            "zh": "从灌木丛后面"
+          },
+          {
+            "en": "a scary zombie",
+            "zh": "一个可怕的僵尸"
+          },
+          {
+            "en": "closer and closer",
+            "zh": "越来越近"
+          }
         ]
       },
       {
@@ -338,6 +522,20 @@ const STORIES = [
             "w": "bully",
             "p": "/ˈbʊli/",
             "zh": "恶霸"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "I must be brave",
+            "zh": "我必须勇敢"
+          },
+          {
+            "en": "fired green peas at the zombie",
+            "zh": "向僵尸发射绿色豌豆"
+          },
+          {
+            "en": "like tiny green bullets",
+            "zh": "像绿色的小子弹一样"
           }
         ]
       },
@@ -371,6 +569,20 @@ const STORIES = [
             "p": "/frʌˈstreɪʃən/",
             "zh": "沮丧"
           }
+        ],
+        "phrases": [
+          {
+            "en": "bounced right off the traffic cone",
+            "zh": "直接从路障上弹开了"
+          },
+          {
+            "en": "didn't even slow down",
+            "zh": "甚至没有放慢脚步"
+          },
+          {
+            "en": "break through that cone",
+            "zh": "打穿那个路障"
+          }
         ]
       },
       {
@@ -402,6 +614,20 @@ const STORIES = [
             "w": "pant",
             "p": "/pænt/",
             "zh": "喘气"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "ran as fast as his little legs could carry him",
+            "zh": "拼命地跑"
+          },
+          {
+            "en": "looking for help",
+            "zh": "寻找帮助"
+          },
+          {
+            "en": "find someone who can help me",
+            "zh": "找到能帮我的人"
           }
         ]
       },
@@ -435,6 +661,20 @@ const STORIES = [
             "p": "/smaɪl/",
             "zh": "微笑"
           }
+        ],
+        "phrases": [
+          {
+            "en": "best friend",
+            "zh": "最好的朋友"
+          },
+          {
+            "en": "bright golden petals",
+            "zh": "明亮金色的花瓣"
+          },
+          {
+            "en": "a warm, kind smile",
+            "zh": "温暖善良的笑容"
+          }
         ]
       },
       {
@@ -466,6 +706,20 @@ const STORIES = [
             "w": "confused",
             "p": "/kənˈfjuːzd/",
             "zh": "困惑的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "Don't worry",
+            "zh": "别担心"
+          },
+          {
+            "en": "exactly what to do",
+            "zh": "完全知道该怎么办"
+          },
+          {
+            "en": "someone very special",
+            "zh": "一个非常特别的人"
           }
         ]
       },
@@ -499,6 +753,20 @@ const STORIES = [
             "p": "/ˈenərdʒi/",
             "zh": "能量"
           }
+        ],
+        "phrases": [
+          {
+            "en": "lifted her face to the sky",
+            "zh": "把脸朝向天空"
+          },
+          {
+            "en": "began to glow brighter and brighter",
+            "zh": "开始越来越亮地发光"
+          },
+          {
+            "en": "collect enough sunlight energy",
+            "zh": "收集足够的阳光能量"
+          }
         ]
       },
       {
@@ -530,6 +798,20 @@ const STORIES = [
             "w": "warmth",
             "p": "/wɔːrmθ/",
             "zh": "温暖"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "golden orbs of sunlight",
+            "zh": "金色的阳光球"
+          },
+          {
+            "en": "sparkled like tiny suns",
+            "zh": "像小太阳一样闪耀"
+          },
+          {
+            "en": "filling the air with warmth",
+            "zh": "让空气中充满温暖"
           }
         ]
       },
@@ -563,6 +845,20 @@ const STORIES = [
             "p": "/ɜːrdʒ/",
             "zh": "催促"
           }
+        ],
+        "phrases": [
+          {
+            "en": "getting closer",
+            "zh": "越来越近"
+          },
+          {
+            "en": "at the edge of the garden",
+            "zh": "在花园的边缘"
+          },
+          {
+            "en": "The zombie is almost here",
+            "zh": "僵尸马上就到了"
+          }
         ]
       },
       {
@@ -594,6 +890,20 @@ const STORIES = [
             "w": "special",
             "p": "/ˈspeʃl/",
             "zh": "特别的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a big pile of golden sunlight orbs",
+            "zh": "一大堆金色阳光球"
+          },
+          {
+            "en": "had enough energy",
+            "zh": "有足够的能量"
+          },
+          {
+            "en": "our special friend",
+            "zh": "我们特别的朋友"
           }
         ]
       },
@@ -627,6 +937,20 @@ const STORIES = [
             "p": "/kræk/",
             "zh": "裂开"
           }
+        ],
+        "phrases": [
+          {
+            "en": "gathered all the golden light together",
+            "zh": "把所有金色的光聚在一起"
+          },
+          {
+            "en": "whispered magical words",
+            "zh": "低声念着魔法咒语"
+          },
+          {
+            "en": "the ground rumble",
+            "zh": "地面发出隆隆声"
+          }
         ]
       },
       {
@@ -658,6 +982,20 @@ const STORIES = [
             "w": "flame",
             "p": "/fleɪm/",
             "zh": "火焰"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "burst from the soil",
+            "zh": "从土壤中冲了出来"
+          },
+          {
+            "en": "on fire",
+            "zh": "全身着火"
+          },
+          {
+            "en": "Flames shot from his body",
+            "zh": "火焰从他的身体喷射出来"
           }
         ]
       },
@@ -691,6 +1029,20 @@ const STORIES = [
             "p": "/ˈθretn/",
             "zh": "威胁"
           }
+        ],
+        "phrases": [
+          {
+            "en": "his eyes blazed with anger",
+            "zh": "他的眼睛因愤怒而燃烧"
+          },
+          {
+            "en": "erupted everywhere",
+            "zh": "到处喷发"
+          },
+          {
+            "en": "threaten my garden",
+            "zh": "威胁我的花园"
+          }
         ]
       },
       {
@@ -723,6 +1075,20 @@ const STORIES = [
             "p": "/smoʊk/",
             "zh": "烟雾"
           }
+        ],
+        "phrases": [
+          {
+            "en": "took a deep breath",
+            "zh": "深吸一口气"
+          },
+          {
+            "en": "a massive wave of fire",
+            "zh": "巨大的火焰波"
+          },
+          {
+            "en": "disappeared in a puff of smoke",
+            "zh": "在一缕烟雾中消失了"
+          }
         ]
       },
       {
@@ -754,6 +1120,20 @@ const STORIES = [
             "w": "sank",
             "p": "/sæŋk/",
             "zh": "下沉"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "cheered happily",
+            "zh": "开心地欢呼"
+          },
+          {
+            "en": "safe once more",
+            "zh": "再次安全了"
+          },
+          {
+            "en": "sank back into the ground",
+            "zh": "慢慢沉回地面"
           }
         ]
       }
@@ -791,6 +1171,16 @@ const STORIES = [
             "p": "/ˈwɪðər/",
             "zh": "凋零"
           }
+        ],
+        "phrases": [
+          {
+            "en": "Steve vs The Wither",
+            "zh": "史蒂夫大战凋零"
+          },
+          {
+            "en": "Sky Knight",
+            "zh": "天空骑士"
+          }
         ]
       },
       {
@@ -822,6 +1212,20 @@ const STORIES = [
             "w": "village",
             "p": "/ˈvɪlɪdʒ/",
             "zh": "村庄"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "quiet village",
+            "zh": "安静的村庄"
+          },
+          {
+            "en": "a builder, a miner, and a dreamer",
+            "zh": "一个建造者、一个矿工和一个梦想家"
+          },
+          {
+            "en": "determined",
+            "zh": "坚定的"
           }
         ]
       },
@@ -855,6 +1259,20 @@ const STORIES = [
             "p": "/ʃeɪk/",
             "zh": "震动"
           }
+        ],
+        "phrases": [
+          {
+            "en": "the sky turned dark",
+            "zh": "天空变暗了"
+          },
+          {
+            "en": "shook the ground",
+            "zh": "震动了大地"
+          },
+          {
+            "en": "The Wither came",
+            "zh": "凋零来了"
+          }
         ]
       },
       {
@@ -886,6 +1304,20 @@ const STORIES = [
             "w": "seen",
             "p": "/siːn/",
             "zh": "见过的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "fight it from the sky",
+            "zh": "从天空中与它战斗"
+          },
+          {
+            "en": "began to build",
+            "zh": "开始建造"
+          },
+          {
+            "en": "an airplane",
+            "zh": "一架飞机"
           }
         ]
       },
@@ -919,6 +1351,20 @@ const STORIES = [
             "p": "/prəˈpelər/",
             "zh": "螺旋桨"
           }
+        ],
+        "phrases": [
+          {
+            "en": "work on his plane",
+            "zh": "制造他的飞机"
+          },
+          {
+            "en": "hammer the metal",
+            "zh": "敲打金属"
+          },
+          {
+            "en": "attach the huge propeller",
+            "zh": "安装巨大的螺旋桨"
+          }
         ]
       },
       {
@@ -950,6 +1396,20 @@ const STORIES = [
             "w": "sunlight",
             "p": "/ˈsʌnlaɪt/",
             "zh": "阳光"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a beautiful red biplane",
+            "zh": "一架美丽的红色双翼飞机"
+          },
+          {
+            "en": "shine in the sun",
+            "zh": "在阳光下闪耀"
+          },
+          {
+            "en": "Sky Knight",
+            "zh": "天空骑士"
           }
         ]
       },
@@ -983,6 +1443,20 @@ const STORIES = [
             "p": "/ˈkɑːkpɪt/",
             "zh": "驾驶舱"
           }
+        ],
+        "phrases": [
+          {
+            "en": "gather together to watch",
+            "zh": "聚在一起观看"
+          },
+          {
+            "en": "put on his goggles",
+            "zh": "戴上护目镜"
+          },
+          {
+            "en": "climb into the cockpit",
+            "zh": "爬进驾驶舱"
+          }
         ]
       },
       {
@@ -1014,6 +1488,20 @@ const STORIES = [
             "w": "fly",
             "p": "/flaɪ/",
             "zh": "飞"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "the engine roared",
+            "zh": "引擎轰鸣"
+          },
+          {
+            "en": "spin faster and faster",
+            "zh": "越转越快"
+          },
+          {
+            "en": "fly up into the air",
+            "zh": "飞上天空"
           }
         ]
       },
@@ -1047,6 +1535,20 @@ const STORIES = [
             "p": "/friː/",
             "zh": "自由的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "look different in the sky",
+            "zh": "在天空中看起来不一样"
+          },
+          {
+            "en": "big and beautiful world",
+            "zh": "广阔而美丽的世界"
+          },
+          {
+            "en": "feel free like a bird",
+            "zh": "像鸟一样自由"
+          }
         ]
       },
       {
@@ -1078,6 +1580,20 @@ const STORIES = [
             "w": "ahead",
             "p": "/əˈhed/",
             "zh": "前方"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "the sky grew dark",
+            "zh": "天空变暗了"
+          },
+          {
+            "en": "hold the controls tightly",
+            "zh": "紧紧握住操纵杆"
+          },
+          {
+            "en": "purple clouds swirled ahead",
+            "zh": "前方紫色云团翻涌"
           }
         ]
       },
@@ -1111,6 +1627,20 @@ const STORIES = [
             "p": "/ˈpaʊər/",
             "zh": "力量"
           }
+        ],
+        "phrases": [
+          {
+            "en": "a giant creature",
+            "zh": "一个巨大的生物"
+          },
+          {
+            "en": "three heads",
+            "zh": "三个头"
+          },
+          {
+            "en": "dark power swirled around it",
+            "zh": "黑暗的力量在它周围旋转"
+          }
         ]
       },
       {
@@ -1138,6 +1668,20 @@ const STORIES = [
             "p": "/tɜːrn/",
             "zh": "转向"
           }
+        ],
+        "phrases": [
+          {
+            "en": "shoot explosive skulls",
+            "zh": "发射爆炸骷髅头"
+          },
+          {
+            "en": "turn left and right",
+            "zh": "向左转再向右转"
+          },
+          {
+            "en": "the sky was full of explosions",
+            "zh": "天空中满是爆炸"
+          }
         ]
       },
       {
@@ -1164,6 +1708,20 @@ const STORIES = [
             "w": "past",
             "p": "/pæst/",
             "zh": "经过"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "come straight at him",
+            "zh": "直冲他而来"
+          },
+          {
+            "en": "flip the plane over",
+            "zh": "把飞机翻过来"
+          },
+          {
+            "en": "fly past it",
+            "zh": "从它旁边飞过"
           }
         ]
       },
@@ -1197,6 +1755,20 @@ const STORIES = [
             "p": "/ˈæroʊ/",
             "zh": "箭"
           }
+        ],
+        "phrases": [
+          {
+            "en": "fight back",
+            "zh": "反击"
+          },
+          {
+            "en": "enchanted bow",
+            "zh": "附魔弓"
+          },
+          {
+            "en": "special arrows",
+            "zh": "特殊的箭"
+          }
         ]
       },
       {
@@ -1229,6 +1801,20 @@ const STORIES = [
             "p": "/skaɪ/",
             "zh": "天空"
           }
+        ],
+        "phrases": [
+          {
+            "en": "shooting star",
+            "zh": "流星"
+          },
+          {
+            "en": "aim carefully",
+            "zh": "仔细瞄准"
+          },
+          {
+            "en": "across the dark sky",
+            "zh": "划过黑暗的天空"
+          }
         ]
       },
       {
@@ -1256,6 +1842,20 @@ const STORIES = [
             "p": "/spɑːrk/",
             "zh": "火花"
           }
+        ],
+        "phrases": [
+          {
+            "en": "painful scream",
+            "zh": "痛苦地尖叫"
+          },
+          {
+            "en": "hit the first head",
+            "zh": "击中了第一个头"
+          },
+          {
+            "en": "blue sparks fly everywhere",
+            "zh": "蓝色火花四处飞溅"
+          }
         ]
       },
       {
@@ -1282,6 +1882,20 @@ const STORIES = [
             "w": "bigger",
             "p": "/ˈbɪɡər/",
             "zh": "更大的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "in all directions",
+            "zh": "向四面八方"
+          },
+          {
+            "en": "became bigger",
+            "zh": "变得更大"
+          },
+          {
+            "en": "the sky became a battlefield",
+            "zh": "天空变成了战场"
           }
         ]
       },
@@ -1315,6 +1929,20 @@ const STORIES = [
             "p": "/hɪt/",
             "zh": "击中"
           }
+        ],
+        "phrases": [
+          {
+            "en": "give up",
+            "zh": "放弃"
+          },
+          {
+            "en": "hit Steve's wing",
+            "zh": "击中了史蒂夫的机翼"
+          },
+          {
+            "en": "the plane shook",
+            "zh": "飞机摇晃着"
+          }
         ]
       },
       {
@@ -1341,6 +1969,20 @@ const STORIES = [
             "w": "last",
             "p": "/læst/",
             "zh": "最后的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "my village",
+            "zh": "我的村庄"
+          },
+          {
+            "en": "only one arrow left",
+            "zh": "只剩一支箭了"
+          },
+          {
+            "en": "stand up in the cockpit",
+            "zh": "在驾驶舱里站起来"
           }
         ]
       },
@@ -1373,6 +2015,20 @@ const STORIES = [
             "w": "simultaneously",
             "p": "/ˌsaɪmlˈteɪniəsli/",
             "zh": "同时地"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "split into three beams of light",
+            "zh": "分裂成三束光"
+          },
+          {
+            "en": "hit the three heads at the same time",
+            "zh": "同时击中了三个头"
+          },
+          {
+            "en": "straight ahead",
+            "zh": "笔直飞去"
           }
         ]
       }
@@ -1415,6 +2071,20 @@ const STORIES = [
             "p": "/ˈwepən/",
             "zh": "武器"
           }
+        ],
+        "phrases": [
+          {
+            "en": "a story about Block Battle",
+            "zh": "一个关于方块对战的故事"
+          },
+          {
+            "en": "two friends",
+            "zh": "两个小伙伴"
+          },
+          {
+            "en": "all kinds of block weapons",
+            "zh": "各种方块武器"
+          }
         ]
       },
       {
@@ -1435,6 +2105,20 @@ const STORIES = [
           {
             "w": "arena",
             "p": "/əˈriːnə/",
+            "zh": "竞技场"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "Let's play Block Battle",
+            "zh": "来玩方块大战吧"
+          },
+          {
+            "en": "Block Battle",
+            "zh": "方块大战"
+          },
+          {
+            "en": "battle arena",
             "zh": "竞技场"
           }
         ]
@@ -1464,6 +2148,20 @@ const STORIES = [
             "p": "/kjuːb/",
             "zh": "立方体；方块"
           }
+        ],
+        "phrases": [
+          {
+            "en": "pick a cube",
+            "zh": "选一个方块"
+          },
+          {
+            "en": "stealth skill",
+            "zh": "隐身技能"
+          },
+          {
+            "en": "I'll pick a cube with stealth skill",
+            "zh": "我选个带隐身技能的方块"
+          }
         ]
       },
       {
@@ -1490,6 +2188,20 @@ const STORIES = [
             "w": "build",
             "p": "/bɪld/",
             "zh": "建造"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "three-layer obsidian shield",
+            "zh": "三层黑曜石盾牌"
+          },
+          {
+            "en": "build a shield",
+            "zh": "造个盾牌"
+          },
+          {
+            "en": "obsidian shield",
+            "zh": "黑曜石盾牌"
           }
         ]
       },
@@ -1518,6 +2230,20 @@ const STORIES = [
             "p": "/hɑːrd/",
             "zh": "坚硬的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "super hard",
+            "zh": "超硬"
+          },
+          {
+            "en": "normal attacks",
+            "zh": "一般攻击"
+          },
+          {
+            "en": "can't break it",
+            "zh": "打不破"
+          }
         ]
       },
       {
@@ -1544,6 +2270,20 @@ const STORIES = [
             "w": "watch",
             "p": "/wɑːtʃ/",
             "zh": "看"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "Watch this",
+            "zh": "看我的"
+          },
+          {
+            "en": "ride a sword",
+            "zh": "骑一把剑"
+          },
+          {
+            "en": "evil attack",
+            "zh": "邪恶攻击"
           }
         ]
       },
@@ -1572,6 +2312,20 @@ const STORIES = [
             "p": "/hɪt/",
             "zh": "击打"
           }
+        ],
+        "phrases": [
+          {
+            "en": "obsidian shield",
+            "zh": "黑曜石盾牌"
+          },
+          {
+            "en": "crushed flat",
+            "zh": "打扁了"
+          },
+          {
+            "en": "got crushed flat",
+            "zh": "被打扁了"
+          }
         ]
       },
       {
@@ -1598,6 +2352,20 @@ const STORIES = [
             "w": "build",
             "p": "/bɪld/",
             "zh": "建造"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "laser-shooting turret",
+            "zh": "会发射激光的炮塔"
+          },
+          {
+            "en": "build a turret",
+            "zh": "造一个炮塔"
+          },
+          {
+            "en": "shoot laser",
+            "zh": "发射激光"
           }
         ]
       },
@@ -1626,6 +2394,20 @@ const STORIES = [
             "p": "/ˈsuːpər/",
             "zh": "超级"
           }
+        ],
+        "phrases": [
+          {
+            "en": "super giant hammer",
+            "zh": "超级大锤"
+          },
+          {
+            "en": "giant hammer",
+            "zh": "巨大的锤子"
+          },
+          {
+            "en": "Look at my hammer",
+            "zh": "看我的锤子"
+          }
         ]
       },
       {
@@ -1652,6 +2434,20 @@ const STORIES = [
             "w": "smash",
             "p": "/smæʃ/",
             "zh": "猛砸"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "smashed into pieces",
+            "zh": "被砸成碎片"
+          },
+          {
+            "en": "into pieces",
+            "zh": "成碎片"
+          },
+          {
+            "en": "The turret got smashed",
+            "zh": "炮塔被砸了"
           }
         ]
       },
@@ -1680,6 +2476,20 @@ const STORIES = [
             "p": "/bɪld/",
             "zh": "建造"
           }
+        ],
+        "phrases": [
+          {
+            "en": "flying mechanical fortress",
+            "zh": "会飞的机械堡垒"
+          },
+          {
+            "en": "build a fortress",
+            "zh": "造一个堡垒"
+          },
+          {
+            "en": "flying fortress",
+            "zh": "飞行堡垒"
+          }
         ]
       },
       {
@@ -1706,6 +2516,20 @@ const STORIES = [
             "w": "weapon",
             "p": "/ˈwepən/",
             "zh": "武器"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "weighs 1,500 blocks",
+            "zh": "重达1500个方块"
+          },
+          {
+            "en": "This hammer weighs",
+            "zh": "这把锤子重量有"
+          },
+          {
+            "en": "super weapon",
+            "zh": "超级武器"
           }
         ]
       },
@@ -1734,6 +2558,20 @@ const STORIES = [
             "p": "/kəˈlæps/",
             "zh": "倒塌"
           }
+        ],
+        "phrases": [
+          {
+            "en": "got smashed",
+            "zh": "被砸了"
+          },
+          {
+            "en": "can't move",
+            "zh": "动弹不得"
+          },
+          {
+            "en": "smashed and can't move",
+            "zh": "被砸得动不了"
+          }
         ]
       },
       {
@@ -1760,6 +2598,20 @@ const STORIES = [
             "w": "extend",
             "p": "/ɪkˈstend/",
             "zh": "伸出"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "mechanical hand",
+            "zh": "机械手"
+          },
+          {
+            "en": "Look at my mechanical hand",
+            "zh": "看我的机械手"
+          },
+          {
+            "en": "reach out",
+            "zh": "伸出来"
           }
         ]
       },
@@ -1788,6 +2640,20 @@ const STORIES = [
             "p": "/ɡrɪp/",
             "zh": "抓力"
           }
+        ],
+        "phrases": [
+          {
+            "en": "mechanical hand",
+            "zh": "机械手"
+          },
+          {
+            "en": "weighs 700",
+            "zh": "重700"
+          },
+          {
+            "en": "powerful grip",
+            "zh": "强大的抓力"
+          }
         ]
       },
       {
@@ -1814,6 +2680,20 @@ const STORIES = [
             "w": "plan",
             "p": "/plæn/",
             "zh": "计划"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "launch you into the sky",
+            "zh": "把你发射到天上"
+          },
+          {
+            "en": "use the hammer",
+            "zh": "用锤子"
+          },
+          {
+            "en": "clever plan",
+            "zh": "聪明的计划"
           }
         ]
       },
@@ -1842,6 +2722,20 @@ const STORIES = [
             "p": "/ˈʃɑːkweɪv/",
             "zh": "冲击波"
           }
+        ],
+        "phrases": [
+          {
+            "en": "strike the ground",
+            "zh": "猛击地面"
+          },
+          {
+            "en": "the hammer strikes",
+            "zh": "锤子猛击"
+          },
+          {
+            "en": "sound wave",
+            "zh": "声波"
+          }
         ]
       },
       {
@@ -1868,6 +2762,20 @@ const STORIES = [
             "w": "sky",
             "p": "/skaɪ/",
             "zh": "天空"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "flying into the sky",
+            "zh": "飞向天空"
+          },
+          {
+            "en": "like a cannonball",
+            "zh": "像炮弹一样"
+          },
+          {
+            "en": "soar into the sky",
+            "zh": "翱翔天空"
           }
         ]
       },
@@ -1896,6 +2804,20 @@ const STORIES = [
             "p": "/ˈleɪzi/",
             "zh": "懒的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "mechanical hand",
+            "zh": "机械手"
+          },
+          {
+            "en": "place blocks",
+            "zh": "放方块"
+          },
+          {
+            "en": "place blocks for me",
+            "zh": "帮我放方块"
+          }
         ]
       },
       {
@@ -1922,6 +2844,20 @@ const STORIES = [
             "w": "rest",
             "p": "/rest/",
             "zh": "休息"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "lie here",
+            "zh": "躺在这里"
+          },
+          {
+            "en": "sleep peacefully",
+            "zh": "安稳睡觉"
+          },
+          {
+            "en": "lie down and rest",
+            "zh": "躺下休息"
           }
         ]
       },
@@ -1950,6 +2886,16 @@ const STORIES = [
             "p": "/əˈɡen/",
             "zh": "再一次"
           }
+        ],
+        "phrases": [
+          {
+            "en": "the adventure never ends",
+            "zh": "冒险永不止步"
+          },
+          {
+            "en": "play again",
+            "zh": "再玩一次"
+          }
         ]
       },
       {
@@ -1972,6 +2918,20 @@ const STORIES = [
             "p": "/ˈredi/",
             "zh": "准备好的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "start a battle",
+            "zh": "开始一场大战"
+          },
+          {
+            "en": "colorful arena",
+            "zh": "彩色竞技场"
+          },
+          {
+            "en": "get ready",
+            "zh": "准备好"
+          }
         ]
       },
       {
@@ -1988,6 +2948,20 @@ const STORIES = [
             "w": "disappear",
             "p": "/ˌdɪsəˈpɪr/",
             "zh": "消失"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "stealth skill",
+            "zh": "隐身技能"
+          },
+          {
+            "en": "disappear into thin air",
+            "zh": "消失在空气中"
+          },
+          {
+            "en": "mysterious blue light",
+            "zh": "神秘的蓝色光芒"
           }
         ]
       },
@@ -2011,6 +2985,20 @@ const STORIES = [
             "p": "/ˈleɪər/",
             "zh": "层"
           }
+        ],
+        "phrases": [
+          {
+            "en": "build a shield",
+            "zh": "造一个盾牌"
+          },
+          {
+            "en": "three-layer obsidian shield",
+            "zh": "三层黑曜石盾牌"
+          },
+          {
+            "en": "volcanic energy",
+            "zh": "火山能量"
+          }
         ]
       },
       {
@@ -2032,6 +3020,20 @@ const STORIES = [
             "w": "crash",
             "p": "/kræʃ/",
             "zh": "猛撞"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "evil attack",
+            "zh": "邪恶攻击"
+          },
+          {
+            "en": "come crashing down",
+            "zh": "猛砸下来"
+          },
+          {
+            "en": "a huge dark purple sword",
+            "zh": "一把巨大的暗紫色之剑"
           }
         ]
       },
@@ -2055,6 +3057,20 @@ const STORIES = [
             "p": "/ˈfaɪərwɜːrk/",
             "zh": "烟花"
           }
+        ],
+        "phrases": [
+          {
+            "en": "crushed flat",
+            "zh": "被砸扁"
+          },
+          {
+            "en": "shards like fireworks",
+            "zh": "像烟花一样的碎片"
+          },
+          {
+            "en": "fly everywhere",
+            "zh": "四处飞溅"
+          }
         ]
       },
       {
@@ -2076,6 +3092,20 @@ const STORIES = [
             "w": "dodge",
             "p": "/dɑːdʒ/",
             "zh": "躲闪"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "charge a bright red laser",
+            "zh": "给明亮的红色激光充能"
+          },
+          {
+            "en": "high-tech turret",
+            "zh": "高科技炮塔"
+          },
+          {
+            "en": "dodge the laser",
+            "zh": "躲闪激光"
           }
         ]
       },
@@ -2099,6 +3129,20 @@ const STORIES = [
             "p": "/ˈledʒənderi/",
             "zh": "传说的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "a giant golden hammer",
+            "zh": "一把巨大的金色锤子"
+          },
+          {
+            "en": "legendary hammer king",
+            "zh": "传说中的锤子王"
+          },
+          {
+            "en": "the strongest weapon",
+            "zh": "最强的武器"
+          }
         ]
       },
       {
@@ -2120,6 +3164,20 @@ const STORIES = [
             "w": "tiny",
             "p": "/ˈtaɪni/",
             "zh": "微小的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "one swing",
+            "zh": "一下挥舞"
+          },
+          {
+            "en": "smashed into pieces",
+            "zh": "砸成了碎片"
+          },
+          {
+            "en": "with a boom",
+            "zh": "伴随着轰隆声"
           }
         ]
       },
@@ -2143,6 +3201,20 @@ const STORIES = [
             "p": "/ʌnˈbiːtəbl/",
             "zh": "不可战胜的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "a giant fortress",
+            "zh": "一个巨大的堡垒"
+          },
+          {
+            "en": "mechanical wings",
+            "zh": "机械翅膀"
+          },
+          {
+            "en": "looked unbeatable",
+            "zh": "看起来不可战胜"
+          }
         ]
       },
       {
@@ -2164,6 +3236,20 @@ const STORIES = [
             "w": "immense",
             "p": "/ɪˈmens/",
             "zh": "巨大的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "weigh 1500 blocks",
+            "zh": "重达1500个方块"
+          },
+          {
+            "en": "immense weight",
+            "zh": "巨大的重量"
+          },
+          {
+            "en": "almost unable to fly",
+            "zh": "几乎飞不动了"
           }
         ]
       },
@@ -2187,6 +3273,20 @@ const STORIES = [
             "p": "/ɪnˈkredəbl/",
             "zh": "惊人的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "extend from the ground",
+            "zh": "从地面伸出"
+          },
+          {
+            "en": "reach for the fortress",
+            "zh": "伸向堡垒"
+          },
+          {
+            "en": "incredible power",
+            "zh": "惊人的力量"
+          }
         ]
       },
       {
@@ -2208,6 +3308,20 @@ const STORIES = [
             "w": "launch",
             "p": "/lɔːntʃ/",
             "zh": "发射；弹飞"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a clever plan",
+            "zh": "一个聪明的计划"
+          },
+          {
+            "en": "sound wave",
+            "zh": "声波"
+          },
+          {
+            "en": "launch the enemy into the sky",
+            "zh": "把敌人弹飞到天上"
           }
         ]
       },
@@ -2231,6 +3345,20 @@ const STORIES = [
             "p": "/ˈʃɑːkweɪv/",
             "zh": "冲击波"
           }
+        ],
+        "phrases": [
+          {
+            "en": "strike the ground",
+            "zh": "击打地面"
+          },
+          {
+            "en": "with incredible force",
+            "zh": "以惊人的力量"
+          },
+          {
+            "en": "a huge shockwave",
+            "zh": "巨大的冲击波"
+          }
         ]
       },
       {
@@ -2252,6 +3380,20 @@ const STORIES = [
             "w": "over",
             "p": "/ˈoʊvər/",
             "zh": "结束"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "like a cannonball",
+            "zh": "像一颗炮弹一样"
+          },
+          {
+            "en": "high in the sky",
+            "zh": "高高的天空"
+          },
+          {
+            "en": "the battle is over",
+            "zh": "对战结束了"
           }
         ]
       },
@@ -2275,6 +3417,20 @@ const STORIES = [
             "p": "/fɔːl əˈsliːp/",
             "zh": "入睡"
           }
+        ],
+        "phrases": [
+          {
+            "en": "let the robotic arm do it",
+            "zh": "让机械手帮我放"
+          },
+          {
+            "en": "lie down comfortably",
+            "zh": "舒服地躺下来"
+          },
+          {
+            "en": "fall asleep",
+            "zh": "睡着了"
+          }
         ]
       },
       {
@@ -2297,6 +3453,16 @@ const STORIES = [
             "p": "/əˈɡen/",
             "zh": "再次"
           }
+        ],
+        "phrases": [
+          {
+            "en": "The adventure never ends",
+            "zh": "冒险永不止步"
+          },
+          {
+            "en": "play again",
+            "zh": "再来一场"
+          }
         ]
       },
       {
@@ -2317,6 +3483,20 @@ const STORIES = [
           {
             "w": "count down",
             "p": "/kaʊnt daʊn/",
+            "zh": "倒数"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a brave warrior",
+            "zh": "一个勇敢的勇士"
+          },
+          {
+            "en": "colorful arena",
+            "zh": "彩色竞技场"
+          },
+          {
+            "en": "count down",
             "zh": "倒数"
           }
         ]
@@ -2341,6 +3521,20 @@ const STORIES = [
             "p": "/kənˈfjuːzd/",
             "zh": "困惑的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "stealth skill",
+            "zh": "隐身技能"
+          },
+          {
+            "en": "disappear into thin air",
+            "zh": "消失在空气中"
+          },
+          {
+            "en": "feel confused",
+            "zh": "感到困惑"
+          }
         ]
       },
       {
@@ -2362,6 +3556,20 @@ const STORIES = [
             "w": "material",
             "p": "/məˈtɪriəl/",
             "zh": "材料"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "obsidian shield",
+            "zh": "黑曜石盾牌"
+          },
+          {
+            "en": "build a shield",
+            "zh": "造一个盾牌"
+          },
+          {
+            "en": "hard material",
+            "zh": "坚硬的材料"
           }
         ]
       },
@@ -2385,6 +3593,20 @@ const STORIES = [
             "p": "/ˈlaɪtnɪŋ/",
             "zh": "闪电"
           }
+        ],
+        "phrases": [
+          {
+            "en": "giant sword",
+            "zh": "巨大的剑"
+          },
+          {
+            "en": "evil attack",
+            "zh": "邪恶攻击"
+          },
+          {
+            "en": "purple lightning",
+            "zh": "紫色闪电"
+          }
         ]
       },
       {
@@ -2406,6 +3628,20 @@ const STORIES = [
             "w": "impossible",
             "p": "/ɪmˈpɑːsəbl/",
             "zh": "不可能的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "crushed flat",
+            "zh": "被砸扁"
+          },
+          {
+            "en": "obsidian shards",
+            "zh": "黑曜石碎片"
+          },
+          {
+            "en": "That's impossible",
+            "zh": "那不可能"
           }
         ]
       },
@@ -2429,6 +3665,20 @@ const STORIES = [
             "p": "/dɑːdʒ/",
             "zh": "躲闪"
           }
+        ],
+        "phrases": [
+          {
+            "en": "laser turret",
+            "zh": "激光炮塔"
+          },
+          {
+            "en": "bright red laser beam",
+            "zh": "明亮的红色激光束"
+          },
+          {
+            "en": "dodge this",
+            "zh": "躲过这个"
+          }
         ]
       },
       {
@@ -2450,6 +3700,20 @@ const STORIES = [
             "w": "secret weapon",
             "p": "/ˈsiːkrət ˈwepən/",
             "zh": "秘密武器"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "secret weapon",
+            "zh": "秘密武器"
+          },
+          {
+            "en": "enormous golden hammer",
+            "zh": "巨大的金色锤子"
+          },
+          {
+            "en": "raise the hammer high",
+            "zh": "把锤子高高举起"
           }
         ]
       },
@@ -2473,6 +3737,26 @@ const STORIES = [
             "p": "/ʃɑːk/",
             "zh": "震惊"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "one mighty swing",
+              "zh": "有力的一挥"
+            }
+          ],
+          [
+            {
+              "en": "a pile of scrap",
+              "zh": "一堆废铁"
+            }
+          ],
+          [
+            {
+              "en": "in shock",
+              "zh": "震惊地"
+            }
+          ]
         ]
       },
       {
@@ -2495,6 +3779,26 @@ const STORIES = [
             "p": "/ʌnˈbiːtəbl/",
             "zh": "不可战胜的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "mechanical fortress",
+              "zh": "机械堡垒"
+            }
+          ],
+          [
+            {
+              "en": "flying fortress",
+              "zh": "飞行堡垒"
+            }
+          ],
+          [
+            {
+              "en": "look unbeatable",
+              "zh": "看起来不可战胜"
+            }
+          ]
         ]
       },
       {
@@ -2517,6 +3821,26 @@ const STORIES = [
             "p": "/ɪˈmens/",
             "zh": "巨大的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "weigh 1500 blocks",
+              "zh": "重达1500个方块"
+            }
+          ],
+          [
+            {
+              "en": "the immense weight",
+              "zh": "巨大的重量"
+            }
+          ],
+          [
+            {
+              "en": "the heaviest weapon",
+              "zh": "最重的武器"
+            }
+          ]
         ]
       },
       {
@@ -2539,6 +3863,26 @@ const STORIES = [
             "p": "/stretʃ/",
             "zh": "伸展"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "extend from the ground",
+              "zh": "从地面伸出"
+            }
+          ],
+          [
+            {
+              "en": "grab the fortress",
+              "zh": "抓住堡垒"
+            }
+          ],
+          [
+            {
+              "en": "stretch into the sky",
+              "zh": "伸向高空"
+            }
+          ]
         ]
       },
       {
@@ -2561,6 +3905,26 @@ const STORIES = [
             "p": "/ˈbrɪliənt/",
             "zh": "绝妙的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "a clever plan",
+              "zh": "一个聪明的计划"
+            }
+          ],
+          [
+            {
+              "en": "shockwave from the ground",
+              "zh": "来自地面的冲击波"
+            }
+          ],
+          [
+            {
+              "en": "a brilliant idea",
+              "zh": "一个绝妙的主意"
+            }
+          ]
         ]
       },
       {
@@ -2583,6 +3947,26 @@ const STORIES = [
             "p": "/ˈekoʊ/",
             "zh": "回荡"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "strike the ground",
+              "zh": "击打地面"
+            }
+          ],
+          [
+            {
+              "en": "the impact was huge",
+              "zh": "撞击力巨大"
+            }
+          ],
+          [
+            {
+              "en": "echo across the land",
+              "zh": "回荡在整个大地上"
+            }
+          ]
         ]
       },
       {
@@ -2605,6 +3989,26 @@ const STORIES = [
             "p": "/əˈmeɪzd/",
             "zh": "惊讶的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "like a cannonball",
+              "zh": "像一颗炮弹一样"
+            }
+          ],
+          [
+            {
+              "en": "spin and tumble",
+              "zh": "旋转翻滚"
+            }
+          ],
+          [
+            {
+              "en": "scared and amazed",
+              "zh": "又害怕又惊讶"
+            }
+          ]
         ]
       },
       {
@@ -2637,6 +4041,26 @@ const STORIES = [
             "p": "/blɑːk/",
             "zh": "方块"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "feel lazy",
+              "zh": "觉得懒洋洋的"
+            }
+          ],
+          [
+            {
+              "en": "lie comfortably",
+              "zh": "舒服地躺着"
+            }
+          ],
+          [
+            {
+              "en": "snore quietly",
+              "zh": "安静地打呼噜"
+            }
+          ]
         ]
       }
     ]
@@ -2678,6 +4102,26 @@ const STORIES = [
             "p": "/ədˈventʃər/",
             "zh": "冒险"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "a distant galaxy",
+              "zh": "遥远的星系"
+            }
+          ],
+          [
+            {
+              "en": "a shiny blue spaceship",
+              "zh": "闪亮的蓝色飞船"
+            }
+          ],
+          [
+            {
+              "en": "the greatest adventure",
+              "zh": "最伟大的冒险"
+            }
+          ]
         ]
       },
       {
@@ -2710,6 +4154,26 @@ const STORIES = [
             "p": "/səˈraʊndɪŋ/",
             "zh": "周围的"
           }
+        ],
+        "phrases": [
+          [
+            {
+              "en": "twinkling stars",
+              "zh": "一闪一闪的小星星"
+            }
+          ],
+          [
+            {
+              "en": "like little diamonds",
+              "zh": "像小钻石一样"
+            }
+          ],
+          [
+            {
+              "en": "which way to go",
+              "zh": "该往哪边走"
+            }
+          ]
         ]
       },
       {
@@ -2741,6 +4205,20 @@ const STORIES = [
             "w": "smile",
             "p": "/smaɪl/",
             "zh": "微笑"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a round little robot",
+            "zh": "一个圆滚滚的小机器人"
+          },
+          {
+            "en": "glowing eyes",
+            "zh": "发光的眼睛"
+          },
+          {
+            "en": "play a planet battle game",
+            "zh": "一起玩星球大战"
           }
         ]
       },
@@ -2774,6 +4252,20 @@ const STORIES = [
             "p": "/ˈbætl/",
             "zh": "大战"
           }
+        ],
+        "phrases": [
+          {
+            "en": "design his own planet",
+            "zh": "设计他自己的星球"
+          },
+          {
+            "en": "the best planet ever",
+            "zh": "最棒的星球"
+          },
+          {
+            "en": "the battle is about to begin",
+            "zh": "大战即将开始"
+          }
         ]
       },
       {
@@ -2805,6 +4297,20 @@ const STORIES = [
             "w": "laser",
             "p": "/ˈleɪzər/",
             "zh": "激光"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a magnificent crystal energy planet",
+            "zh": "一颗壮观的水晶能量星球"
+          },
+          {
+            "en": "a transparent crystal shell",
+            "zh": "透明的水晶外壳"
+          },
+          {
+            "en": "fire a super-powerful laser cannon",
+            "zh": "发射超强激光炮"
           }
         ]
       },
@@ -2838,6 +4344,20 @@ const STORIES = [
             "p": "/dɑːdʒ/",
             "zh": "躲开"
           }
+        ],
+        "phrases": [
+          {
+            "en": "a bright laser beam",
+            "zh": "一道明亮的激光"
+          },
+          {
+            "en": "light up the whole galaxy",
+            "zh": "照亮整个星系"
+          },
+          {
+            "en": "try to dodge it",
+            "zh": "试着躲开它"
+          }
         ]
       },
       {
@@ -2869,6 +4389,20 @@ const STORIES = [
             "w": "crack",
             "p": "/kræk/",
             "zh": "裂纹"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "throw a tiny crystal bomb",
+            "zh": "扔出一颗小小的水晶炸弹"
+          },
+          {
+            "en": "hit the planet's surface",
+            "zh": "击中星球表面"
+          },
+          {
+            "en": "a huge crack in the crystal shell",
+            "zh": "水晶外壳上的一道大裂纹"
           }
         ]
       },
@@ -2902,6 +4436,20 @@ const STORIES = [
             "p": "/ʃel/",
             "zh": "外壳"
           }
+        ],
+        "phrases": [
+          {
+            "en": "spread like a spider web",
+            "zh": "像蜘蛛网一样蔓延"
+          },
+          {
+            "en": "be shocked",
+            "zh": "大吃一惊"
+          },
+          {
+            "en": "begin to shatter little by little",
+            "zh": "一点一点地开始碎裂"
+          }
         ]
       },
       {
@@ -2933,6 +4481,20 @@ const STORIES = [
             "w": "fix",
             "p": "/fɪks/",
             "zh": "修好"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "hundreds of tiny repair drones",
+            "zh": "成百上千个小小的修复无人机"
+          },
+          {
+            "en": "fly to the cracks",
+            "zh": "飞到裂缝处"
+          },
+          {
+            "en": "fix everything",
+            "zh": "修好一切"
           }
         ]
       },
@@ -2966,6 +4528,20 @@ const STORIES = [
             "p": "/weɪl/",
             "zh": "鲸鱼"
           }
+        ],
+        "phrases": [
+          {
+            "en": "a super surprise",
+            "zh": "一个超级惊喜"
+          },
+          {
+            "en": "transform into a giant space whale",
+            "zh": "变形成为一只巨大的星际巨鲸"
+          },
+          {
+            "en": "crystal fins and a huge mouth",
+            "zh": "水晶鱼鳍和巨大的嘴巴"
+          }
         ]
       },
       {
@@ -2997,6 +4573,20 @@ const STORIES = [
             "w": "furnace",
             "p": "/ˈfɜːrnɪs/",
             "zh": "熔炉"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "open its enormous mouth",
+            "zh": "张开超级大的嘴巴"
+          },
+          {
+            "en": "suck in the little stars",
+            "zh": "把小星星吸进来"
+          },
+          {
+            "en": "an energy furnace",
+            "zh": "能量熔炉"
           }
         ]
       },
@@ -3030,6 +4620,20 @@ const STORIES = [
             "p": "/bɑːm/",
             "zh": "炸弹"
           }
+        ],
+        "phrases": [
+          {
+            "en": "the best idea",
+            "zh": "最棒的主意"
+          },
+          {
+            "en": "a bottle of galaxy body wash",
+            "zh": "一瓶银河系沐浴露"
+          },
+          {
+            "en": "throw the bubbly bomb",
+            "zh": "扔出满是泡泡的炸弹"
+          }
         ]
       },
       {
@@ -3061,6 +4665,20 @@ const STORIES = [
             "w": "foam",
             "p": "/foʊm/",
             "zh": "泡沫"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "galaxy bath bomb",
+            "zh": "银河系沐浴露炸弹"
+          },
+          {
+            "en": "covered in bubbles",
+            "zh": "满身都是泡泡"
+          },
+          {
+            "en": "black smoke rose up",
+            "zh": "黑烟升起"
           }
         ]
       },
@@ -3094,6 +4712,20 @@ const STORIES = [
             "p": "/ˈroʊbɑːt/",
             "zh": "机器人"
           }
+        ],
+        "phrases": [
+          {
+            "en": "secret weapon",
+            "zh": "秘密武器"
+          },
+          {
+            "en": "tiny nano repair robots",
+            "zh": "超小的纳米修复机器人"
+          },
+          {
+            "en": "repair at high speed",
+            "zh": "飞速修复"
+          }
         ]
       },
       {
@@ -3125,6 +4757,20 @@ const STORIES = [
             "w": "final",
             "p": "/ˈfaɪnəl/",
             "zh": "最后的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "ultimate bomb",
+            "zh": "终极炸弹"
+          },
+          {
+            "en": "the biggest and strongest bomb",
+            "zh": "最大最强的炸弹"
+          },
+          {
+            "en": "his final strike",
+            "zh": "他的最后一击"
           }
         ]
       },
@@ -3158,6 +4804,20 @@ const STORIES = [
             "p": "/əˈmeɪzɪŋ/",
             "zh": "太厉害的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "hit the space whale",
+            "zh": "击中了星际巨鲸"
+          },
+          {
+            "en": "nothing was left",
+            "zh": "什么都不剩了"
+          },
+          {
+            "en": "completely disappeared",
+            "zh": "完全消失了"
+          }
         ]
       },
       {
@@ -3189,6 +4849,20 @@ const STORIES = [
             "w": "determination",
             "p": "/dɪˌtɜːrmɪˈneɪʃən/",
             "zh": "决心"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a tough little robot",
+            "zh": "一个坚强的小机器人"
+          },
+          {
+            "en": "floating scrap metal",
+            "zh": "漂浮的废铁"
+          },
+          {
+            "en": "built with love and determination",
+            "zh": "用爱和决心建造的"
           }
         ]
       },
@@ -3222,6 +4896,20 @@ const STORIES = [
             "p": "/əˈtæk/",
             "zh": "攻击"
           }
+        ],
+        "phrases": [
+          {
+            "en": "protective shield",
+            "zh": "保护盾"
+          },
+          {
+            "en": "threw it too hard",
+            "zh": "扔得太用力"
+          },
+          {
+            "en": "scrap attack",
+            "zh": "报废攻击"
+          }
         ]
       },
       {
@@ -3252,6 +4940,20 @@ const STORIES = [
           {
             "w": "defeat",
             "p": "/dɪˈfiːt/",
+            "zh": "认输"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "shattered into pieces",
+            "zh": "碎成碎片"
+          },
+          {
+            "en": "a pile of scrap metal",
+            "zh": "一堆废铁"
+          },
+          {
+            "en": "give up",
             "zh": "认输"
           }
         ]
@@ -3286,6 +4988,20 @@ const STORIES = [
             "p": "/ˈplænɪt/",
             "zh": "星球"
           }
+        ],
+        "phrases": [
+          {
+            "en": "an epic battle",
+            "zh": "一场史诗级的大战"
+          },
+          {
+            "en": "best friends",
+            "zh": "最好的朋友"
+          },
+          {
+            "en": "the most fun planet battle game",
+            "zh": "最好玩的星球大战游戏"
+          }
         ]
       },
       {
@@ -3317,6 +5033,20 @@ const STORIES = [
             "w": "glow",
             "p": "/ɡloʊ/",
             "zh": "发亮"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a new idea",
+            "zh": "新主意"
+          },
+          {
+            "en": "next time, let's go to Mars",
+            "zh": "下次去火星吧"
+          },
+          {
+            "en": "Mars, here we come",
+            "zh": "火星我们来了"
           }
         ]
       }
@@ -3359,6 +5089,16 @@ const STORIES = [
             "p": "/hoʊm/",
             "zh": "家"
           }
+        ],
+        "phrases": [
+          {
+            "en": "great chore robot battle",
+            "zh": "家务机器人大战"
+          },
+          {
+            "en": "Doudou and Doubao",
+            "zh": "豆豆和豆包"
+          }
         ]
       },
       {
@@ -3380,6 +5120,20 @@ const STORIES = [
             "w": "battle",
             "p": "/ˈbætl/",
             "zh": "大战"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "little boy named Doudou",
+            "zh": "名叫豆豆的小男孩"
+          },
+          {
+            "en": "round robot friend",
+            "zh": "圆滚滚的机器人朋友"
+          },
+          {
+            "en": "the story of",
+            "zh": "关于……的故事"
           }
         ]
       },
@@ -3403,6 +5157,16 @@ const STORIES = [
             "p": "/ˈbætl/",
             "zh": "战斗"
           }
+        ],
+        "phrases": [
+          {
+            "en": "playing the Great Chore Battle",
+            "zh": "玩家庭杂务大战"
+          },
+          {
+            "en": "announced excitedly",
+            "zh": "兴奋地宣布"
+          }
         ]
       },
       {
@@ -3424,6 +5188,16 @@ const STORIES = [
             "w": "glow",
             "p": "/ɡloʊ/",
             "zh": "发光"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "Behold my Stinky Shield",
+            "zh": "看我的臭臭护盾"
+          },
+          {
+            "en": "glowing with green light",
+            "zh": "发着绿色光芒"
           }
         ]
       },
@@ -3447,6 +5221,20 @@ const STORIES = [
             "p": "/ˈkʌlərfl/",
             "zh": "彩色的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "I choose the Bubble Gun",
+            "zh": "我选泡泡枪"
+          },
+          {
+            "en": "countless colorful bubbles",
+            "zh": "无数彩色泡泡"
+          },
+          {
+            "en": "flew toward Doudou",
+            "zh": "飞向豆豆"
+          }
         ]
       },
       {
@@ -3468,6 +5256,20 @@ const STORIES = [
             "w": "stinker",
             "p": "/ˈstɪŋkər/",
             "zh": "臭家伙"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "My Stinky Bombs",
+            "zh": "我的臭臭炮弹"
+          },
+          {
+            "en": "turned you into a stinker",
+            "zh": "把你变成臭臭鬼"
+          },
+          {
+            "en": "laughed triumphantly",
+            "zh": "得意地大笑"
           }
         ]
       },
@@ -3491,6 +5293,20 @@ const STORIES = [
             "p": "/ˈdʒaɪənt/",
             "zh": "巨大的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "Soap Attack",
+            "zh": "肥皂攻击"
+          },
+          {
+            "en": "scrub scrub scrub",
+            "zh": "擦呀擦呀擦"
+          },
+          {
+            "en": "squeaky clean",
+            "zh": "干干净净"
+          }
         ]
       },
       {
@@ -3512,6 +5328,20 @@ const STORIES = [
             "w": "stretch",
             "p": "/stretʃ/",
             "zh": "伸展"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "Robot Vacuum Tank",
+            "zh": "扫地机器人战车"
+          },
+          {
+            "en": "Mechanical arms stretched out",
+            "zh": "机械臂伸展开来"
+          },
+          {
+            "en": "sweeping everywhere",
+            "zh": "四处清扫"
           }
         ]
       },
@@ -3535,6 +5365,16 @@ const STORIES = [
             "p": "/ˈfleksəbl/",
             "zh": "灵活的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "enters Angry Mode",
+            "zh": "进入愤怒模式"
+          },
+          {
+            "en": "grew more and more intense",
+            "zh": "变得越来越激烈"
+          }
         ]
       },
       {
@@ -3557,6 +5397,20 @@ const STORIES = [
             "p": "/ʌnˈliːʃ/",
             "zh": "释放"
           }
+        ],
+        "phrases": [
+          {
+            "en": "my Flying Shield",
+            "zh": "我的飞翔盾牌"
+          },
+          {
+            "en": "Tracking bullets",
+            "zh": "追踪子弹"
+          },
+          {
+            "en": "right through Doubao's tank",
+            "zh": "直接穿过豆包的坦克"
+          }
         ]
       },
       {
@@ -3573,6 +5427,20 @@ const STORIES = [
             "w": "victory",
             "p": "/ˈvɪktəri/",
             "zh": "胜利"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "you win this time",
+            "zh": "这次你赢了"
+          },
+          {
+            "en": "Let's still be best friends",
+            "zh": "我们还是做好朋友吧"
+          },
+          {
+            "en": "laughed",
+            "zh": "笑着说"
           }
         ]
       },
@@ -3596,6 +5464,20 @@ const STORIES = [
             "p": "/ˈkɪtʃɪn/",
             "zh": "厨房"
           }
+        ],
+        "phrases": [
+          {
+            "en": "a loud crash",
+            "zh": "一声巨响"
+          },
+          {
+            "en": "bake a cake",
+            "zh": "做蛋糕"
+          },
+          {
+            "en": "came from the kitchen",
+            "zh": "从厨房传来"
+          }
         ]
       },
       {
@@ -3617,6 +5499,20 @@ const STORIES = [
             "w": "agent",
             "p": "/ˈeɪdʒənt/",
             "zh": "特工"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "Kitchen Agent Mode",
+            "zh": "厨房特工模式"
+          },
+          {
+            "en": "put on a chef's hat",
+            "zh": "戴上厨师帽"
+          },
+          {
+            "en": "put on an apron",
+            "zh": "系上围裙"
           }
         ]
       },
@@ -3640,6 +5536,16 @@ const STORIES = [
             "p": "/flɪŋ/",
             "zh": "甩，抛"
           }
+        ],
+        "phrases": [
+          {
+            "en": "accidentally flung the entire bag of flour into the air",
+            "zh": "不小心把整袋面粉甩到了空中"
+          },
+          {
+            "en": "like a winter wonderland",
+            "zh": "像冬天的童话世界"
+          }
         ]
       },
       {
@@ -3661,6 +5567,20 @@ const STORIES = [
             "w": "fountain",
             "p": "/ˈfaʊntən/",
             "zh": "喷泉"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "spun too fast",
+            "zh": "转得太快了"
+          },
+          {
+            "en": "sending batter flying everywhere",
+            "zh": "让面糊飞溅得到处都是"
+          },
+          {
+            "en": "like a fountain",
+            "zh": "像喷泉一样"
           }
         ]
       },
@@ -3684,6 +5604,20 @@ const STORIES = [
             "p": "/flʌd/",
             "zh": "淹没"
           }
+        ],
+        "phrases": [
+          {
+            "en": "secretly added laundry detergent to the batter",
+            "zh": "偷偷往面糊里加了洗衣液"
+          },
+          {
+            "en": "giant colorful bubbles",
+            "zh": "巨大的彩色泡泡"
+          },
+          {
+            "en": "flooding the kitchen",
+            "zh": "淹没厨房"
+          }
         ]
       },
       {
@@ -3705,6 +5639,20 @@ const STORIES = [
             "w": "translucent",
             "p": "/trænsˈluːsnt/",
             "zh": "半透明的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "giant bubbles",
+            "zh": "巨大的泡泡"
+          },
+          {
+            "en": "lifted Doudou and Doubao",
+            "zh": "把豆豆和豆包托了起来"
+          },
+          {
+            "en": "all the way to the ceiling",
+            "zh": "一直到天花板上"
           }
         ]
       },
@@ -3728,6 +5676,20 @@ const STORIES = [
             "p": "/ˈlændɪŋ/",
             "zh": "着陆"
           }
+        ],
+        "phrases": [
+          {
+            "en": "Activate Anti-Bubble System",
+            "zh": "启动反泡泡系统"
+          },
+          {
+            "en": "popped the bubbles one by one",
+            "zh": "一个个戳破泡泡"
+          },
+          {
+            "en": "for a safe landing",
+            "zh": "为了安全着陆"
+          }
         ]
       },
       {
@@ -3750,6 +5712,20 @@ const STORIES = [
             "p": "/drəˈmætɪk/",
             "zh": "戏剧性的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "stood at the door",
+            "zh": "站在门口"
+          },
+          {
+            "en": "flames shooting from her eyes",
+            "zh": "眼睛里冒着火"
+          },
+          {
+            "en": "My kitchen",
+            "zh": "我的厨房"
+          }
         ]
       },
       {
@@ -3771,6 +5747,20 @@ const STORIES = [
             "w": "lopsided",
             "p": "/ˌlɑːpˈsaɪdɪd/",
             "zh": "歪歪扭扭的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "transformed into a Super Cleaning Robot",
+            "zh": "变成了超级清洁机器人"
+          },
+          {
+            "en": "polished the kitchen",
+            "zh": "把厨房打扫干净"
+          },
+          {
+            "en": "sparkling clean",
+            "zh": "闪闪发亮"
           }
         ]
       }
@@ -3813,6 +5803,20 @@ const STORIES = [
             "p": "/neɪmd/",
             "zh": "名叫"
           }
+        ],
+        "phrases": [
+          {
+            "en": "in a beautiful valley",
+            "zh": "在一片美丽的山谷里"
+          },
+          {
+            "en": "a brave little tank",
+            "zh": "一辆勇敢的小坦克"
+          },
+          {
+            "en": "named Little Steel",
+            "zh": "名叫小钢"
+          }
         ]
       },
       {
@@ -3844,6 +5848,20 @@ const STORIES = [
             "w": "together",
             "p": "/təˈɡeðər/",
             "zh": "一起"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "Welcome to Tank Town",
+            "zh": "欢迎来到坦克小镇"
+          },
+          {
+            "en": "all kinds of tanks",
+            "zh": "各种各样的坦克"
+          },
+          {
+            "en": "live happily together",
+            "zh": "快乐地生活在一起"
           }
         ]
       },
@@ -3877,6 +5895,20 @@ const STORIES = [
             "p": "/bɪɡ/",
             "zh": "大的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "the smallest tank in town",
+            "zh": "镇上最小的坦克"
+          },
+          {
+            "en": "a tiny cannon",
+            "zh": "小小的炮管"
+          },
+          {
+            "en": "a big heart",
+            "zh": "一颗大大的心"
+          }
         ]
       },
       {
@@ -3908,6 +5940,20 @@ const STORIES = [
             "w": "brave",
             "p": "/breɪv/",
             "zh": "勇敢的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "I want to be a hero",
+            "zh": "我要成为英雄"
+          },
+          {
+            "en": "practiced his brave face",
+            "zh": "练习勇敢的表情"
+          },
+          {
+            "en": "in the mirror every day",
+            "zh": "每天对着镜子"
           }
         ]
       },
@@ -3941,6 +5987,20 @@ const STORIES = [
             "p": "/reɪs/",
             "zh": "竞赛"
           }
+        ],
+        "phrases": [
+          {
+            "en": "Every year",
+            "zh": "每年"
+          },
+          {
+            "en": "held the Brave Contest",
+            "zh": "举办勇士大赛"
+          },
+          {
+            "en": "a big adventure race",
+            "zh": "一场大型冒险比赛"
+          }
         ]
       },
       {
@@ -3967,6 +6027,20 @@ const STORIES = [
             "w": "little",
             "p": "/ˈlɪtl/",
             "zh": "小的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "I’m joining",
+            "zh": "我要参加"
+          },
+          {
+            "en": "The big tanks all laughed",
+            "zh": "大坦克们都笑了"
+          },
+          {
+            "en": "Little you",
+            "zh": "小小的你"
           }
         ]
       },
@@ -4000,6 +6074,20 @@ const STORIES = [
             "p": "/ˈbreɪvɪst/",
             "zh": "最勇敢的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "patted Little Steel gently",
+            "zh": "轻轻拍了拍小钢"
+          },
+          {
+            "en": "A true hero",
+            "zh": "真正的英雄"
+          },
+          {
+            "en": "not the biggest, but the bravest",
+            "zh": "不是最大的，而是最勇敢的"
+          }
         ]
       },
       {
@@ -4026,6 +6114,20 @@ const STORIES = [
             "w": "best friend",
             "p": "/best frend/",
             "zh": "最好的朋友"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "teamed up with his best friends",
+            "zh": "和他最好的朋友组队"
+          },
+          {
+            "en": "steady Big Iron",
+            "zh": "稳重的大铁"
+          },
+          {
+            "en": "fast Lightning",
+            "zh": "快速的闪电"
           }
         ]
       },
@@ -4054,6 +6156,20 @@ const STORIES = [
             "p": "/ˈmaʊntən/",
             "zh": "高山"
           }
+        ],
+        "phrases": [
+          {
+            "en": "The race was on",
+            "zh": "比赛开始了"
+          },
+          {
+            "en": "cross the desert",
+            "zh": "穿越沙漠"
+          },
+          {
+            "en": "climb the mountain",
+            "zh": "爬上山顶"
+          }
         ]
       },
       {
@@ -4080,6 +6196,20 @@ const STORIES = [
             "w": "worry",
             "p": "/ˈwɜːri/",
             "zh": "担心"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "so hot",
+            "zh": "非常热"
+          },
+          {
+            "en": "got stuck in the sand",
+            "zh": "陷进沙子里"
+          },
+          {
+            "en": "Don’t worry, I’ll help",
+            "zh": "别急，我来帮你"
           }
         ]
       },
@@ -4113,6 +6243,20 @@ const STORIES = [
             "p": "/pæθ/",
             "zh": "小路"
           }
+        ],
+        "phrases": [
+          {
+            "en": "full of big trees",
+            "zh": "到处是大树"
+          },
+          {
+            "en": "Follow me",
+            "zh": "跟我来"
+          },
+          {
+            "en": "zipped through the narrow paths",
+            "zh": "快速穿过狭窄的小路"
+          }
         ]
       },
       {
@@ -4144,6 +6288,20 @@ const STORIES = [
             "w": "worried",
             "p": "/ˈwɜːrid/",
             "zh": "担心的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "blocked the way",
+            "zh": "挡住了去路"
+          },
+          {
+            "en": "There was no bridge",
+            "zh": "没有桥"
+          },
+          {
+            "en": "How do we cross?",
+            "zh": "怎么过去呢？"
           }
         ]
       },
@@ -4177,6 +6335,20 @@ const STORIES = [
             "p": "/meɪk/",
             "zh": "制作；搭建"
           }
+        ],
+        "phrases": [
+          {
+            "en": "I have an idea",
+            "zh": "我有办法"
+          },
+          {
+            "en": "pointed at a fallen tree",
+            "zh": "指着倒下的大树"
+          },
+          {
+            "en": "make a bridge",
+            "zh": "搭一座桥"
+          }
         ]
       },
       {
@@ -4208,6 +6380,20 @@ const STORIES = [
             "w": "safely",
             "p": "/ˈseɪfli/",
             "zh": "安全地"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "The log bridge held",
+            "zh": "树桥很稳"
+          },
+          {
+            "en": "went first",
+            "zh": "先过"
+          },
+          {
+            "en": "crossed carefully and safely",
+            "zh": "小心翼翼地安全过了河"
           }
         ]
       },
@@ -4241,6 +6427,20 @@ const STORIES = [
             "p": "/wɪn/",
             "zh": "获胜"
           }
+        ],
+        "phrases": [
+          {
+            "en": "blocked the path with big rocks",
+            "zh": "用大石头挡住了路"
+          },
+          {
+            "en": "Near the top",
+            "zh": "快到山顶了"
+          },
+          {
+            "en": "You can’t win now",
+            "zh": "你们赢不了啦"
+          }
         ]
       },
       {
@@ -4267,6 +6467,20 @@ const STORIES = [
             "w": "under",
             "p": "/ˈʌndər/",
             "zh": "在……下面"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "There’s a gap under the rocks",
+            "zh": "石头下面有缝隙"
+          },
+          {
+            "en": "I’m the smallest",
+            "zh": "我最小"
+          },
+          {
+            "en": "squeeze through",
+            "zh": "钻过去"
           }
         ]
       },
@@ -4300,6 +6514,20 @@ const STORIES = [
             "p": "/wʌn/",
             "zh": "赢了"
           }
+        ],
+        "phrases": [
+          {
+            "en": "reached the top first",
+            "zh": "第一个到达山顶"
+          },
+          {
+            "en": "grabbed the golden flag",
+            "zh": "拿到了金色旗帜"
+          },
+          {
+            "en": "We won",
+            "zh": "我们赢了"
+          }
         ]
       },
       {
@@ -4321,6 +6549,20 @@ const STORIES = [
             "w": "cried",
             "p": "/kraɪd/",
             "zh": "喊；哭喊"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "On the way down",
+            "zh": "下山路上"
+          },
+          {
+            "en": "was trapped in a landslide",
+            "zh": "被困在滑坡里"
+          },
+          {
+            "en": "Help me",
+            "zh": "救命"
           }
         ]
       },
@@ -4353,6 +6595,20 @@ const STORIES = [
             "w": "saved",
             "p": "/seɪvd/",
             "zh": "救出；拯救"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "pulled with a rope",
+            "zh": "用绳子拉"
+          },
+          {
+            "en": "moved rocks",
+            "zh": "搬石头"
+          },
+          {
+            "en": "Together, they saved Red Thunder",
+            "zh": "大家一起救出了红雷"
           }
         ]
       }
@@ -4395,6 +6651,20 @@ const STORIES = [
             "p": "/tæŋks/",
             "zh": "坦克"
           }
+        ],
+        "phrases": [
+          {
+            "en": "In the world of blocks",
+            "zh": "在方块的世界里"
+          },
+          {
+            "en": "had a big dream",
+            "zh": "有一个大梦想"
+          },
+          {
+            "en": "to build tanks",
+            "zh": "造坦克"
+          }
         ]
       },
       {
@@ -4426,6 +6696,20 @@ const STORIES = [
             "w": "armor",
             "p": "/ˈɑːrmər/",
             "zh": "装甲；护甲"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "worked for days",
+            "zh": "捣鼓了好几天"
+          },
+          {
+            "en": "placing blocks one by one",
+            "zh": "一个方块一个方块地拼"
+          },
+          {
+            "en": "thick iron armor",
+            "zh": "厚重的铁甲"
           }
         ]
       },
@@ -4459,6 +6743,16 @@ const STORIES = [
             "p": "/fæst/",
             "zh": "快速地；快的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "zooms across the plains",
+            "zh": "飞快地穿过平原"
+          },
+          {
+            "en": "light tank",
+            "zh": "轻型坦克"
+          }
         ]
       },
       {
@@ -4490,6 +6784,20 @@ const STORIES = [
             "w": "trails",
             "p": "/treɪlz/",
             "zh": "尾迹；痕迹"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "missile tank",
+            "zh": "导弹坦克"
+          },
+          {
+            "en": "fiery trails",
+            "zh": "火焰轨迹"
+          },
+          {
+            "en": "fly high",
+            "zh": "高高飞起"
           }
         ]
       },
@@ -4523,6 +6831,16 @@ const STORIES = [
             "p": "/ˈlɔːŋɡər/",
             "zh": "更久"
           }
+        ],
+        "phrases": [
+          {
+            "en": "lined up in the garage",
+            "zh": "整齐地停在车库里"
+          },
+          {
+            "en": "could not wait any longer",
+            "zh": "迫不及待了"
+          }
         ]
       },
       {
@@ -4554,6 +6872,20 @@ const STORIES = [
             "w": "skeletons",
             "p": "/ˈskelɪtənz/",
             "zh": "骷髅"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "drove the heavy tank straight to",
+            "zh": "开着重型坦克直奔"
+          },
+          {
+            "en": "monster nest",
+            "zh": "怪物窝"
+          },
+          {
+            "en": "were everywhere",
+            "zh": "到处都是"
           }
         ]
       },
@@ -4587,6 +6919,20 @@ const STORIES = [
             "p": "/ˈsætɪsfaɪɪŋ/",
             "zh": "令人满足的；解压的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "One shot from the cannon",
+            "zh": "大炮一发射击"
+          },
+          {
+            "en": "went flying everywhere",
+            "zh": "被炸得到处飞"
+          },
+          {
+            "en": "So satisfying",
+            "zh": "太解压了"
+          }
         ]
       },
       {
@@ -4618,6 +6964,16 @@ const STORIES = [
             "w": "near",
             "p": "/nɪr/",
             "zh": "靠近"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "charged right through",
+            "zh": "直接冲了过去"
+          },
+          {
+            "en": "could not get anywhere near it",
+            "zh": "根本近不了身"
           }
         ]
       },
@@ -4651,6 +7007,20 @@ const STORIES = [
             "p": "/tæŋk/",
             "zh": "坦克"
           }
+        ],
+        "phrases": [
+          {
+            "en": "In no time",
+            "zh": "没过多久"
+          },
+          {
+            "en": "was cleared",
+            "zh": "被清理干净了"
+          },
+          {
+            "en": "cheered inside the tank",
+            "zh": "在坦克里欢呼"
+          }
         ]
       },
       {
@@ -4678,6 +7048,16 @@ const STORIES = [
             "p": "/ˈiːziər/",
             "zh": "更容易的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "No more hiding with a sword",
+            "zh": "再也不用拿着剑躲躲藏藏了"
+          },
+          {
+            "en": "make everything so much easier",
+            "zh": "让一切都变得轻松多了"
+          }
         ]
       },
       {
@@ -4704,6 +7084,20 @@ const STORIES = [
             "w": "beginning",
             "p": "/bɪˈɡɪnɪŋ/",
             "zh": "开始"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "Achievement unlocked",
+            "zh": "成就解锁"
+          },
+          {
+            "en": "felt so proud",
+            "zh": "感到非常自豪"
+          },
+          {
+            "en": "just the beginning",
+            "zh": "才刚刚开始"
           }
         ]
       }
@@ -4746,6 +7140,16 @@ const STORIES = [
             "p": "/ˈkænənz/",
             "zh": "大炮"
           }
+        ],
+        "phrases": [
+          {
+            "en": "special tank base",
+            "zh": "特殊的坦克基地"
+          },
+          {
+            "en": "with walls, turrets, and redstone cannons",
+            "zh": "有围墙、炮台和红石大炮"
+          }
         ]
       },
       {
@@ -4777,6 +7181,20 @@ const STORIES = [
             "w": "missile",
             "p": "/ˈmɪsaɪl/",
             "zh": "导弹"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "parked neatly",
+            "zh": "整整齐齐停放"
+          },
+          {
+            "en": "ready for action",
+            "zh": "随时待命"
+          },
+          {
+            "en": "missile tanks",
+            "zh": "导弹坦克"
           }
         ]
       },
@@ -4810,6 +7228,20 @@ const STORIES = [
             "p": "/ˈsniːkɪŋ/",
             "zh": "偷偷潜入"
           }
+        ],
+        "phrases": [
+          {
+            "en": "surrounded the base",
+            "zh": "包围了基地"
+          },
+          {
+            "en": "stop any monsters from sneaking in",
+            "zh": "防止怪物偷偷潜入"
+          },
+          {
+            "en": "Redstone cannons",
+            "zh": "红石大炮"
+          }
         ]
       },
       {
@@ -4841,6 +7273,20 @@ const STORIES = [
             "w": "darkness",
             "p": "/ˈdɑːrknəs/",
             "zh": "黑暗"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "Night fell",
+            "zh": "夜幕降临"
+          },
+          {
+            "en": "a huge wave of monsters",
+            "zh": "一大群怪物"
+          },
+          {
+            "en": "appeared from the darkness",
+            "zh": "从黑暗中出现"
           }
         ]
       },
@@ -4874,6 +7320,20 @@ const STORIES = [
             "p": "/ˈskeri/",
             "zh": "可怕的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "Among them were",
+            "zh": "其中还有"
+          },
+          {
+            "en": "big, tough, and super scary",
+            "zh": "又大又强壮，还超级可怕"
+          },
+          {
+            "en": "Warden Sentinels",
+            "zh": "循声守卫"
+          }
         ]
       },
       {
@@ -4900,6 +7360,16 @@ const STORIES = [
             "w": "engine",
             "p": "/ˈendʒɪn/",
             "zh": "引擎"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "jumped into the nearest tank",
+            "zh": "跳进最近的坦克"
+          },
+          {
+            "en": "started the engine",
+            "zh": "发动引擎"
           }
         ]
       },
@@ -4933,6 +7403,20 @@ const STORIES = [
             "p": "/ˈbætl/",
             "zh": "战斗"
           }
+        ],
+        "phrases": [
+          {
+            "en": "Luckily",
+            "zh": "幸运的是"
+          },
+          {
+            "en": "were nearby",
+            "zh": "就在附近"
+          },
+          {
+            "en": "joined the battle",
+            "zh": "加入战斗"
+          }
         ]
       },
       {
@@ -4959,6 +7443,20 @@ const STORIES = [
             "w": "tough",
             "p": "/tʌf/",
             "zh": "坚硬的；强悍的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "blocked the front",
+            "zh": "挡在前面"
+          },
+          {
+            "en": "taking all the hits",
+            "zh": "扛下所有攻击"
+          },
+          {
+            "en": "What a tough guy",
+            "zh": "真是个硬汉"
           }
         ]
       },
@@ -4987,6 +7485,20 @@ const STORIES = [
             "p": "/skrætʃt/",
             "zh": "刮伤；轻微伤到"
           }
+        ],
+        "phrases": [
+          {
+            "en": "too much health",
+            "zh": "血量太厚"
+          },
+          {
+            "en": "Normal cannonballs",
+            "zh": "普通炮弹"
+          },
+          {
+            "en": "barely scratched it",
+            "zh": "几乎伤不到它"
+          }
         ]
       },
       {
@@ -5013,6 +7525,20 @@ const STORIES = [
             "w": "half",
             "p": "/hæf/",
             "zh": "一半"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "switch to the missile tank",
+            "zh": "换成导弹坦克"
+          },
+          {
+            "en": "took away half its health",
+            "zh": "打掉了它一半血量"
+          },
+          {
+            "en": "One missile",
+            "zh": "一发导弹"
           }
         ]
       },
@@ -5041,6 +7567,20 @@ const STORIES = [
             "p": "/ˈʃuː.tɪŋ/",
             "zh": "射击"
           }
+        ],
+        "phrases": [
+          {
+            "en": "were surrounding them",
+            "zh": "正在包围他们"
+          },
+          {
+            "en": "back up and keep shooting",
+            "zh": "边后退边继续射击"
+          },
+          {
+            "en": "Time to back up",
+            "zh": "该后退了"
+          }
         ]
       },
       {
@@ -5068,6 +7608,20 @@ const STORIES = [
             "p": "/ˈdæm.ɪdʒ/",
             "zh": "伤害"
           }
+        ],
+        "phrases": [
+          {
+            "en": "thick armor",
+            "zh": "厚厚的装甲"
+          },
+          {
+            "en": "handle the damage",
+            "zh": "扛住伤害"
+          },
+          {
+            "en": "fight back",
+            "zh": "打回去"
+          }
         ]
       },
       {
@@ -5094,6 +7648,16 @@ const STORIES = [
             "w": "saved",
             "p": "/seɪvd/",
             "zh": "拯救；保住"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "worked together perfectly",
+            "zh": "完美配合"
+          },
+          {
+            "en": "The base was saved",
+            "zh": "守住了阵地"
           }
         ]
       }
@@ -5131,6 +7695,20 @@ const STORIES = [
             "p": "/faɪt/",
             "zh": "战斗"
           }
+        ],
+        "phrases": [
+          {
+            "en": "Regular monsters",
+            "zh": "普通怪物"
+          },
+          {
+            "en": "too easy now",
+            "zh": "现在太简单了"
+          },
+          {
+            "en": "a real boss fight",
+            "zh": "真正的BOSS战"
+          }
         ]
       },
       {
@@ -5157,6 +7735,20 @@ const STORIES = [
             "w": "powerful",
             "p": "/ˈpaʊ.ər.fəl/",
             "zh": "强大的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "arranged soul sand and skulls",
+            "zh": "摆好灵魂沙和骷髅头"
+          },
+          {
+            "en": "The Wither was summoned",
+            "zh": "凋零被召唤出来了"
+          },
+          {
+            "en": "super powerful",
+            "zh": "超级强大"
           }
         ]
       },
@@ -5185,6 +7777,20 @@ const STORIES = [
             "p": "/ˈwɪð.ər/",
             "zh": "凋零"
           }
+        ],
+        "phrases": [
+          {
+            "en": "not enough",
+            "zh": "根本不够"
+          },
+          {
+            "en": "The Wither's bombs",
+            "zh": "凋零的炸弹"
+          },
+          {
+            "en": "too powerful",
+            "zh": "太猛了"
+          }
         ]
       },
       {
@@ -5211,6 +7817,16 @@ const STORIES = [
             "w": "base",
             "p": "/beɪs/",
             "zh": "基地；阵地"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "losing health fast",
+            "zh": "掉血超快"
+          },
+          {
+            "en": "Run back to the base",
+            "zh": "赶紧跑回阵地"
           }
         ]
       },
@@ -5239,6 +7855,16 @@ const STORIES = [
             "p": "/fɔːrm/",
             "zh": "组成；形成"
           }
+        ],
+        "phrases": [
+          {
+            "en": "bring out ALL the tanks",
+            "zh": "把所有坦克都开出来"
+          },
+          {
+            "en": "A tank army was forming",
+            "zh": "组成坦克大军"
+          }
         ]
       },
       {
@@ -5265,6 +7891,20 @@ const STORIES = [
             "w": "Wither",
             "p": "/ˈwɪðər/",
             "zh": "凋零"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "surrounded the Wither",
+            "zh": "把凋零围了起来"
+          },
+          {
+            "en": "aimed and fired",
+            "zh": "瞄准并开火"
+          },
+          {
+            "en": "Every tank",
+            "zh": "所有坦克"
           }
         ]
       },
@@ -5298,6 +7938,20 @@ const STORIES = [
             "p": "/bloʊ/",
             "zh": "打击；攻击"
           }
+        ],
+        "phrases": [
+          {
+            "en": "Heavy tanks",
+            "zh": "重型坦克"
+          },
+          {
+            "en": "blocked the front",
+            "zh": "挡在正面"
+          },
+          {
+            "en": "absorbing devastating blows",
+            "zh": "扛住猛烈攻击"
+          }
         ]
       },
       {
@@ -5329,6 +7983,20 @@ const STORIES = [
             "w": "hit",
             "p": "/hɪt/",
             "zh": "攻击；击中"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "Light tanks",
+            "zh": "轻型坦克"
+          },
+          {
+            "en": "zoomed around the sides",
+            "zh": "绕到侧面快速移动"
+          },
+          {
+            "en": "from every angle",
+            "zh": "从各个角度"
           }
         ]
       },
@@ -5362,6 +8030,16 @@ const STORIES = [
             "p": "/ˈdæmɪdʒ/",
             "zh": "伤害"
           }
+        ],
+        "phrases": [
+          {
+            "en": "fired from far away",
+            "zh": "在远处发射"
+          },
+          {
+            "en": "massive damage",
+            "zh": "巨大伤害"
+          }
         ]
       },
       {
@@ -5389,6 +8067,20 @@ const STORIES = [
             "p": "/buːm/",
             "zh": "轰响；爆炸声"
           }
+        ],
+        "phrases": [
+          {
+            "en": "joined in",
+            "zh": "也加入进来"
+          },
+          {
+            "en": "redstone cannons",
+            "zh": "红石大炮"
+          },
+          {
+            "en": "Boom boom boom",
+            "zh": "轰轰轰"
+          }
         ]
       },
       {
@@ -5414,6 +8106,20 @@ const STORIES = [
           {
             "w": "victory",
             "p": "/ˈvɪktəri/",
+            "zh": "胜利"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a long hard fight",
+            "zh": "漫长而艰难的战斗"
+          },
+          {
+            "en": "finally fell",
+            "zh": "终于倒下了"
+          },
+          {
+            "en": "Victory",
             "zh": "胜利"
           }
         ]
@@ -5443,6 +8149,20 @@ const STORIES = [
             "p": "/əˈmeɪzɪŋ/",
             "zh": "令人惊叹的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "Nether Star dropped",
+            "zh": "掉落了下界之星"
+          },
+          {
+            "en": "Time to build",
+            "zh": "是时候建造了"
+          },
+          {
+            "en": "even more amazing",
+            "zh": "更厉害的"
+          }
         ]
       },
       {
@@ -5470,6 +8190,20 @@ const STORIES = [
             "p": "/dɪˈstrɔɪ/",
             "zh": "摧毁"
           }
+        ],
+        "phrases": [
+          {
+            "en": "Next up",
+            "zh": "下一步"
+          },
+          {
+            "en": "super tank",
+            "zh": "超级坦克"
+          },
+          {
+            "en": "triple-layer armor",
+            "zh": "三层护甲"
+          }
         ]
       }
     ]
@@ -5491,6 +8225,20 @@ const STORIES = [
             "p": "/ˈvɪlɪdʒ/",
             "zh": "村庄，青山，勇敢，动手"
           }
+        ],
+        "phrases": [
+          {
+            "en": "surrounded by green hills",
+            "zh": "被青山环绕"
+          },
+          {
+            "en": "a brave little kid",
+            "zh": "一个勇敢的小孩"
+          },
+          {
+            "en": "loved building things",
+            "zh": "喜欢动手做东西"
+          }
         ]
       },
       {
@@ -5502,6 +8250,20 @@ const STORIES = [
             "w": "workshop",
             "p": "/ˈwɜːrkʃɑːp/",
             "zh": "工坊，秘密，坦克，蔬菜"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "Inside the workshop",
+            "zh": "在工坊里"
+          },
+          {
+            "en": "building something amazing",
+            "zh": "在制造了不起的东西"
+          },
+          {
+            "en": "made entirely of vegetables",
+            "zh": "完全由蔬菜制成"
           }
         ]
       },
@@ -5515,6 +8277,20 @@ const STORIES = [
             "p": "/ˈʃʊɡərkeɪn/",
             "zh": "甘蔗，炮管，甜，糖果"
           }
+        ],
+        "phrases": [
+          {
+            "en": "hollow sugarcane tube",
+            "zh": "空心甘蔗管"
+          },
+          {
+            "en": "cannon barrel",
+            "zh": "炮管"
+          },
+          {
+            "en": "smelled sweet like candy",
+            "zh": "闻起来像糖果一样甜"
+          }
         ]
       },
       {
@@ -5526,6 +8302,20 @@ const STORIES = [
             "w": "potato",
             "p": "/pəˈteɪtoʊ/",
             "zh": "土豆，地雷，糖浆，金色"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "potato mines",
+            "zh": "土豆雷"
+          },
+          {
+            "en": "loaded into the back of the tank",
+            "zh": "装进坦克后部"
+          },
+          {
+            "en": "coated in sticky golden syrup",
+            "zh": "裹着黏糊糊的金色糖浆"
           }
         ]
       },
@@ -5539,6 +8329,20 @@ const STORIES = [
             "p": "/ˈpʌpi/",
             "zh": "小狗，背心，烟雾弹，兴奋"
           }
+        ],
+        "phrases": [
+          {
+            "en": "special tiny harness",
+            "zh": "特别的小背心"
+          },
+          {
+            "en": "pockets for smoke bombs",
+            "zh": "装烟雾弹的口袋"
+          },
+          {
+            "en": "wagged its tail excitedly",
+            "zh": "兴奋地摇着尾巴"
+          }
         ]
       },
       {
@@ -5550,6 +8354,20 @@ const STORIES = [
             "w": "pumpkin",
             "p": "/ˈpʌmpkɪn/",
             "zh": "南瓜，炮弹，魔法种子，分裂"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "hollow pumpkin shells",
+            "zh": "掏空的南瓜壳"
+          },
+          {
+            "en": "magic growing seeds",
+            "zh": "魔法生长种子"
+          },
+          {
+            "en": "multiply forever",
+            "zh": "无限分裂繁殖"
           }
         ]
       },
@@ -5563,6 +8381,20 @@ const STORIES = [
             "p": "/kəmˈpliːt/",
             "zh": "完工，准备，坦克，武器"
           }
+        ],
+        "phrases": [
+          {
+            "en": "sugarcane tank",
+            "zh": "甘蔗坦克"
+          },
+          {
+            "en": "sugarcane cannon",
+            "zh": "甘蔗炮"
+          },
+          {
+            "en": "pumpkin bomb bay",
+            "zh": "南瓜弹仓"
+          }
         ]
       },
       {
@@ -5574,6 +8406,20 @@ const STORIES = [
             "w": "alarm",
             "p": "/əˈlɑːrm/",
             "zh": "警报，敌人，坦克，逼近"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a loud alarm echoed through the village",
+            "zh": "警报声响彻整个村庄"
+          },
+          {
+            "en": "enemy tanks were approaching",
+            "zh": "敌人的坦克正在逼近"
+          },
+          {
+            "en": "from the east",
+            "zh": "从东边"
           }
         ]
       },
@@ -5587,6 +8433,20 @@ const STORIES = [
             "p": "/ˈɛnəmi/",
             "zh": "敌人，入侵，钢铁坦克，可怕"
           }
+        ],
+        "phrases": [
+          {
+            "en": "big steel tanks",
+            "zh": "巨大的钢铁坦克"
+          },
+          {
+            "en": "rolled into the village",
+            "zh": "开进了村庄"
+          },
+          {
+            "en": "scaring everyone away",
+            "zh": "把大家都吓跑了"
+          }
         ]
       },
       {
@@ -5599,6 +8459,20 @@ const STORIES = [
             "p": "/tʃɑːrdʒ/",
             "zh": "出击，保护，引擎，勇敢"
           }
+        ],
+        "phrases": [
+          {
+            "en": "protect our home",
+            "zh": "保护我们的家"
+          },
+          {
+            "en": "jumped into the sugarcane tank",
+            "zh": "跳进甘蔗坦克"
+          },
+          {
+            "en": "started the engine",
+            "zh": "发动了引擎"
+          }
         ]
       },
       {
@@ -5610,6 +8484,20 @@ const STORIES = [
             "w": "syrup",
             "p": "/ˈsɪrəp/",
             "zh": "糖浆，发射，黏糊糊，履带"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "sticky syrup bomb",
+            "zh": "黏糊糊的糖浆弹"
+          },
+          {
+            "en": "fired a sticky syrup bomb",
+            "zh": "发射了一发黏糊糊的糖浆弹"
+          },
+          {
+            "en": "enemy tank's tracks",
+            "zh": "敌人坦克的履带"
           }
         ]
       },
@@ -5643,6 +8531,20 @@ const STORIES = [
             "p": "/ɡluː/",
             "zh": "粘住"
           }
+        ],
+        "phrases": [
+          {
+            "en": "rapid fire button",
+            "zh": "连射按钮"
+          },
+          {
+            "en": "syrup bombs flew everywhere",
+            "zh": "糖浆弹四处飞射"
+          },
+          {
+            "en": "gluing enemy tanks to the ground",
+            "zh": "把敌人坦克粘在地上"
+          }
         ]
       },
       {
@@ -5654,6 +8556,20 @@ const STORIES = [
             "w": "puppy",
             "p": "/ˈpʌpi/",
             "zh": "小狗，偷偷，烟雾弹，敌人"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "pink smoke bomb",
+            "zh": "粉色烟雾弹"
+          },
+          {
+            "en": "sneaked out",
+            "zh": "偷偷溜出去"
+          },
+          {
+            "en": "between the enemy tanks' legs",
+            "zh": "在敌人坦克腿之间"
           }
         ]
       },
@@ -5667,6 +8583,20 @@ const STORIES = [
             "p": "/smoʊk/",
             "zh": "烟雾，粉色，爆炸，看不见"
           }
+        ],
+        "phrases": [
+          {
+            "en": "thick pink smoke",
+            "zh": "浓厚的粉色烟雾"
+          },
+          {
+            "en": "filled the battlefield",
+            "zh": "笼罩了整个战场"
+          },
+          {
+            "en": "couldn't see anything",
+            "zh": "什么也看不见"
+          }
         ]
       },
       {
@@ -5678,6 +8608,20 @@ const STORIES = [
             "w": "commander",
             "p": "/commander/",
             "zh": "队长，巨型坦克，冲破，烟雾"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "enemy commander tank",
+            "zh": "敌人队长坦克"
+          },
+          {
+            "en": "three times bigger than the others",
+            "zh": "比其他坦克大三倍"
+          },
+          {
+            "en": "pushed through the smoke",
+            "zh": "冲破了烟雾"
           }
         ]
       },
@@ -5691,6 +8635,20 @@ const STORIES = [
             "p": "/ˈpʌmpkɪn/",
             "zh": "南瓜，炮弹，红色按钮，终极"
           }
+        ],
+        "phrases": [
+          {
+            "en": "pumpkin bomb",
+            "zh": "南瓜弹"
+          },
+          {
+            "en": "pressed the big red button",
+            "zh": "按下大红色按钮"
+          },
+          {
+            "en": "on the dashboard",
+            "zh": "在仪表盘上"
+          }
         ]
       },
       {
@@ -5702,6 +8660,20 @@ const STORIES = [
             "w": "pumpkin",
             "p": "/ˈpʌmpkɪn/",
             "zh": "南瓜，发射，旋转，天空"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "giant glowing pumpkin bomb",
+            "zh": "巨大发光的南瓜炮弹"
+          },
+          {
+            "en": "launched from the cannon",
+            "zh": "从炮管发射出去"
+          },
+          {
+            "en": "spinning through the sky",
+            "zh": "旋转着飞向天空"
           }
         ]
       },
@@ -5735,6 +8707,20 @@ const STORIES = [
             "p": "/træp/",
             "zh": "困住"
           }
+        ],
+        "phrases": [
+          {
+            "en": "hit the commander tank",
+            "zh": "命中了队长坦克"
+          },
+          {
+            "en": "exploded into a giant pumpkin shell",
+            "zh": "炸开变成巨大的南瓜壳"
+          },
+          {
+            "en": "trapping it completely",
+            "zh": "把它完全困住"
+          }
         ]
       },
       {
@@ -5746,6 +8732,20 @@ const STORIES = [
             "w": "magic",
             "p": "/ˈmædʒɪk/",
             "zh": "魔法，发芽，分裂，成千上万"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "something incredible happened",
+            "zh": "不可思议的事情发生了"
+          },
+          {
+            "en": "magic seeds sprouted",
+            "zh": "魔法种子发芽了"
+          },
+          {
+            "en": "then thousands",
+            "zh": "然后变成几千个"
           }
         ]
       },
@@ -5759,6 +8759,20 @@ const STORIES = [
             "p": "/vaɪnz/",
             "zh": "藤蔓，缠绕，闪电，敌人"
           }
+        ],
+        "phrases": [
+          {
+            "en": "thick green pumpkin vines",
+            "zh": "粗壮的绿色南瓜藤蔓"
+          },
+          {
+            "en": "faster than lightning",
+            "zh": "比闪电还快"
+          },
+          {
+            "en": "wrapping around every enemy tank",
+            "zh": "缠住每一辆敌人坦克"
+          }
         ]
       },
       {
@@ -5770,6 +8784,20 @@ const STORIES = [
             "w": "surrender",
             "p": "/səˈrɛndər/",
             "zh": "投降，白旗，蔬菜，厉害"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "waved a white flag",
+            "zh": "挥舞白旗"
+          },
+          {
+            "en": "We give up",
+            "zh": "我们认输了"
+          },
+          {
+            "en": "too powerful",
+            "zh": "太厉害了"
           }
         ]
       }
@@ -5812,6 +8840,20 @@ const STORIES = [
             "p": "/ˈmɪʃən/",
             "zh": "任务"
           }
+        ],
+        "phrases": [
+          {
+            "en": "mysterious black tank",
+            "zh": "神秘的黑色坦克"
+          },
+          {
+            "en": "turn invisible",
+            "zh": "变得隐形"
+          },
+          {
+            "en": "secret mission",
+            "zh": "秘密任务"
+          }
         ]
       },
       {
@@ -5843,6 +8885,20 @@ const STORIES = [
             "w": "crystal",
             "p": "/ˈkrɪstl/",
             "zh": "水晶"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "sneaky enemy trucks",
+            "zh": "偷偷摸摸的敌人卡车"
+          },
+          {
+            "en": "glowing energy crystals",
+            "zh": "发光的能量水晶"
+          },
+          {
+            "en": "hidden on the mountain top",
+            "zh": "藏在山顶上"
           }
         ]
       },
@@ -5876,6 +8932,20 @@ const STORIES = [
             "p": "/ɪnˈvɪzəbl/",
             "zh": "隐形的"
           }
+        ],
+        "phrases": [
+          {
+            "en": "glowing blue button",
+            "zh": "发光的蓝色按钮"
+          },
+          {
+            "en": "becomes completely invisible",
+            "zh": "变得完全透明"
+          },
+          {
+            "en": "the kid presses",
+            "zh": "小孩按下"
+          }
         ]
       },
       {
@@ -5907,6 +8977,20 @@ const STORIES = [
             "w": "notice",
             "p": "/ˈnoʊtɪs/",
             "zh": "注意到"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "follows the enemy convoy silently",
+            "zh": "悄悄跟着敌人车队"
+          },
+          {
+            "en": "invisible tank",
+            "zh": "隐身坦克"
+          },
+          {
+            "en": "not even the guard dogs notice it",
+            "zh": "连警戒狗都没发现它"
           }
         ]
       },
@@ -5940,6 +9024,20 @@ const STORIES = [
             "p": "/ˈwɑːtʃtaʊər/",
             "zh": "瞭望塔"
           }
+        ],
+        "phrases": [
+          {
+            "en": "reaches the enemy camp",
+            "zh": "到达敌人营地"
+          },
+          {
+            "en": "guards everywhere",
+            "zh": "到处都是卫兵"
+          },
+          {
+            "en": "tall watchtowers",
+            "zh": "高高的瞭望塔"
+          }
         ]
       },
       {
@@ -5971,6 +9069,20 @@ const STORIES = [
             "w": "confusion",
             "p": "/kənˈfjuːʒn/",
             "zh": "混乱"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "appear around the enemy camp",
+            "zh": "出现在敌人营地周围"
+          },
+          {
+            "en": "panic in confusion",
+            "zh": "惊慌失措，乱成一团"
+          },
+          {
+            "en": "fake tanks",
+            "zh": "幻影坦克"
           }
         ]
       },
@@ -6004,6 +9116,20 @@ const STORIES = [
             "p": "/skriːn/",
             "zh": "屏幕"
           }
+        ],
+        "phrases": [
+          {
+            "en": "fly-sized cameras",
+            "zh": "像苍蝇一样小的摄像头"
+          },
+          {
+            "en": "send back live video",
+            "zh": "传回实时画面"
+          },
+          {
+            "en": "enemy tanks",
+            "zh": "敌人坦克"
+          }
         ]
       },
       {
@@ -6035,6 +9161,20 @@ const STORIES = [
             "w": "core",
             "p": "/kɔːr/",
             "zh": "核心"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "throws a special dart",
+            "zh": "投出一枚特殊飞镖"
+          },
+          {
+            "en": "flies straight into",
+            "zh": "径直飞入"
+          },
+          {
+            "en": "energy core",
+            "zh": "能量核心"
           }
         ]
       },
@@ -6068,6 +9208,20 @@ const STORIES = [
             "p": "/kəmˈpliːtli/",
             "zh": "彻底地"
           }
+        ],
+        "phrases": [
+          {
+            "en": "hits the core",
+            "zh": "击中核心"
+          },
+          {
+            "en": "power shuts down completely",
+            "zh": "动力彻底关闭"
+          },
+          {
+            "en": "enemy truck",
+            "zh": "敌人卡车"
+          }
         ]
       },
       {
@@ -6099,6 +9253,20 @@ const STORIES = [
             "w": "boxes",
             "p": "/ˈbɑːksɪz/",
             "zh": "盒子"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "A magnetic claw reaches out",
+            "zh": "一只磁力爪伸出来"
+          },
+          {
+            "en": "zips the crystal boxes",
+            "zh": "嗖地一下抓走水晶箱"
+          },
+          {
+            "en": "invisible tank",
+            "zh": "隐身坦克"
           }
         ]
       },
@@ -6132,6 +9300,16 @@ const STORIES = [
             "p": "/ɡoʊ/",
             "zh": "剩下"
           }
+        ],
+        "phrases": [
+          {
+            "en": "grabs the second crystal",
+            "zh": "抓住第二个水晶"
+          },
+          {
+            "en": "Two down, one to go",
+            "zh": "两个到手，还差一个"
+          }
         ]
       },
       {
@@ -6163,6 +9341,20 @@ const STORIES = [
             "w": "alarm",
             "p": "/əˈlɑːm/",
             "zh": "警报"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "spots the floating crystals",
+            "zh": "发现漂浮的水晶"
+          },
+          {
+            "en": "sounds the alarm",
+            "zh": "拉响警报"
+          },
+          {
+            "en": "last enemy truck",
+            "zh": "最后一辆敌人卡车"
           }
         ]
       },
@@ -6196,6 +9388,20 @@ const STORIES = [
             "p": "/spiːd/",
             "zh": "速度"
           }
+        ],
+        "phrases": [
+          {
+            "en": "chases the invisible tank",
+            "zh": "追赶隐身坦克"
+          },
+          {
+            "en": "through the forest",
+            "zh": "穿过森林"
+          },
+          {
+            "en": "at full speed",
+            "zh": "全速地"
+          }
         ]
       },
       {
@@ -6227,6 +9433,20 @@ const STORIES = [
             "w": "galaxy",
             "p": "/ˈɡæləksi/",
             "zh": "银河系；星系"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "An explosion sends Doubao flying",
+            "zh": "一场爆炸把豆包炸飞了"
+          },
+          {
+            "en": "higher than the whole galaxy",
+            "zh": "比整个银河系还高"
+          },
+          {
+            "en": "Doubao the robot",
+            "zh": "机器人豆包"
           }
         ]
       },
@@ -6260,6 +9480,20 @@ const STORIES = [
             "p": "/daʊn/",
             "zh": "向下"
           }
+        ],
+        "phrases": [
+          {
+            "en": "falls back down like a shooting star",
+            "zh": "像流星一样落下来"
+          },
+          {
+            "en": "yelling all the way",
+            "zh": "一路尖叫"
+          },
+          {
+            "en": "like a shooting star",
+            "zh": "像流星一样"
+          }
         ]
       },
       {
@@ -6291,6 +9525,20 @@ const STORIES = [
             "w": "bottom",
             "p": "/ˈbɒtəm/",
             "zh": "屁股；底部"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "lands on the ground with a big BUMP",
+            "zh": "砰地坐到地上"
+          },
+          {
+            "en": "my bottom hurts",
+            "zh": "我的屁股好疼"
+          },
+          {
+            "en": "falls on his bottom",
+            "zh": "摔了个屁股蹲"
           }
         ]
       },
@@ -6324,6 +9572,20 @@ const STORIES = [
             "p": "/ˈenəmi/",
             "zh": "敌人"
           }
+        ],
+        "phrases": [
+          {
+            "en": "accidentally falls right in front of the enemy truck",
+            "zh": "正好摔在敌人卡车前面"
+          },
+          {
+            "en": "screeches to a halt",
+            "zh": "急刹车停了下来"
+          },
+          {
+            "en": "right in front of the enemy truck",
+            "zh": "就在敌人卡车前面"
+          }
         ]
       },
       {
@@ -6355,6 +9617,20 @@ const STORIES = [
             "w": "crystal",
             "p": "/ˈkrɪstl/",
             "zh": "水晶"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "while the truck is stopped",
+            "zh": "趁卡车停下"
+          },
+          {
+            "en": "quickly grabs the last crystal",
+            "zh": "迅速抓走了最后一个水晶"
+          },
+          {
+            "en": "the magnetic claw",
+            "zh": "磁力爪"
           }
         ]
       },
@@ -6388,6 +9664,20 @@ const STORIES = [
             "p": "/ˈfaɪtɪŋ/",
             "zh": "战斗"
           }
+        ],
+        "phrases": [
+          {
+            "en": "has a bouncy bottom pad",
+            "zh": "有弹性缓冲垫"
+          },
+          {
+            "en": "springs right back up",
+            "zh": "一下子就弹了起来"
+          },
+          {
+            "en": "ready to keep fighting",
+            "zh": "准备继续战斗"
+          }
         ]
       },
       {
@@ -6420,6 +9710,20 @@ const STORIES = [
             "p": "/faɪnd/",
             "zh": "找到"
           }
+        ],
+        "phrases": [
+          {
+            "en": "activates full stealth",
+            "zh": "开启全隐身模式"
+          },
+          {
+            "en": "vanishes completely",
+            "zh": "彻底消失"
+          },
+          {
+            "en": "can't find it",
+            "zh": "找不到它了"
+          }
         ]
       },
       {
@@ -6451,6 +9755,20 @@ const STORIES = [
             "w": "home",
             "p": "/həʊm/",
             "zh": "家；基地"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "carries the crystals home safely",
+            "zh": "安全地把水晶带回基地"
+          },
+          {
+            "en": "riding on top as a lookout",
+            "zh": "坐在上面当侦查员"
+          },
+          {
+            "en": "the invisible tank",
+            "zh": "隐身坦克"
           }
         ]
       }

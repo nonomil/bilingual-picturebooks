@@ -100,6 +100,10 @@ const App = {
     const keysHtml = p.keys.map((k, i) =>
       `<span class="key-word" id="key-${i}" onclick="App.speakKey(${i})"><b>${k.w}</b> <span class="phonetic">${k.p}</span> ${k.zh}</span>`
     ).join('');
+    const phrases = p.phrases || [];
+    const phrasesHtml = phrases.length > 0 ? phrases.map((ph, i) =>
+      `<span class="key-phrase" id="phrase-${i}" onclick="App.speakPhrase(${i})"><b>${ph.en}</b> ${ph.zh}</span>`
+    ).join('') : '';
 
     // Wrap each Chinese char in a span for highlighting
     const zhHtml = p.zh.split('').map((c, i) => `<span class="zh-char" id="zhc-${i}">${c}</span>`).join('');
@@ -128,6 +132,7 @@ const App = {
           <div class="en-text" id="en-text-container">${this.wrapWords(p.en)}</div>
           <div class="zh-text" id="zh-text-container">${zhHtml}</div>
           <div class="keys-row" id="keys-row">${keysHtml}</div>
+          ${phrasesHtml ? `<div class="phrases-row" id="phrases-row">${phrasesHtml}</div>` : ''}
         </div>
 
         <div class="controls">
@@ -301,6 +306,12 @@ const App = {
     const p = this.currentStory.pages[this.currentPage];
     const k = p.keys[idx];
     if (k) TTS.speak(`${k.w}，${k.zh}`, 'zh-CN', this.rate, null, null);
+  },
+
+  speakPhrase(idx) {
+    const p = this.currentStory.pages[this.currentPage];
+    const ph = (p.phrases || [])[idx];
+    if (ph) TTS.speak(`${ph.en}，${ph.zh}`, 'zh-CN', this.rate, null, null);
   },
 
   prevPage() {

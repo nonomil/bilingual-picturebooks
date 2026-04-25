@@ -264,6 +264,24 @@ body {
   transform: scale(1.08);
 }
 .phonetic { color: #8D6E63; margin: 0 2px; }
+.key-phrase {
+  background: #E8F5E9;
+  color: #2E7D32;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+  display: inline;
+  margin-left: 4px;
+}
+.key-phrase:active {
+  background: #C8E6C9;
+  transform: scale(1.05);
+}
+.phrases-row {
+  padding-top: 6px;
+}
 
 /* Controls */
 .controls {
