@@ -238,30 +238,44 @@ const App = {
 
     // Test if audio exists — play with highlights
     const tryAudioPlayback = async () => {
-      // 只在 APK（Capacitor）环境下使用预生成音频
-      // 网页版使用 Web Speech API，效果更好
-      if (window.Capacitor) {
-        try {
-          const resp = await fetch(enAudioUrl, { method: 'HEAD' });
-          if (resp.ok) {
-            const enBlob = await (await fetch(enAudioUrl)).blob();
-            const zhResp = await fetch(zhAudioUrl, { method: 'HEAD' });
-            let zhBlob = null;
-            if (zhResp.ok) zhBlob = await zhResp.blob();
-            nextEnWord();
-            await TTS.speakAudio(URL.createObjectURL(enBlob));
-            if (!this.speaking) return;
-            if (zhBlob) {
-              highlightZhChunk(0);
-              await TTS.speakAudio(URL.createObjectURL(zhBlob));
-              if (!this.speaking) return;
-            }
-            await this.speakKeysOneByOne(p.keys);
-            return true;
-          }
-        } catch (e) {}
+      // 检测是否需要音频回退：TTS 不可用 或 APK 环境
+      const ttsOk = window.speechSynthesis || (window.Capacitor && window.Capacitor.Plugins?.TTS);
+      const useAudio = !ttsOk || window.Capacitor;
+      if (!useAudio) return false;
+
+      try {
+        const resp = await fetch(enAudioUrl, { method: 'HEAD' });
+        if (!resp.ok) return false;
+
+        // 在用户交互上下文中创建 AudioContext，绕过自动播放限制
+        const actx = new (window.AudioContext || window.webkitAudioContext)();
+        const playBlob = async (blob) => {
+          const buf = await blob.arrayBuffer();
+          const audioBuf = await actx.decodeAudioData(buf);
+          const src = actx.createBufferSource();
+          src.buffer = audioBuf;
+          src.connect(actx.destination);
+          return new Promise((resolve) => { src.onended = resolve; src.start(0); });
+        };
+
+        const enBlob = await (await fetch(enAudioUrl)).blob();
+        nextEnWord();
+        await playBlob(enBlob);
+        if (!this.speaking) return;
+
+        const zhResp = await fetch(zhAudioUrl, { method: 'HEAD' });
+        if (zhResp.ok) {
+          const zhBlob = await zhResp.blob();
+          highlightZhChunk(0);
+          await playBlob(zhBlob);
+          if (!this.speaking) return;
+        }
+
+        await this.speakKeysOneByOne(p.keys);
+        return true;
+      } catch (e) {
+        return false;
       }
-      return false;
     };
 
     // 先尝试音频，失败则用 TTS
