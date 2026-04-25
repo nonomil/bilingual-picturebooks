@@ -5060,7 +5060,7 @@ const STORIES = [
     "cover": "images/covers/cover-robot-battle.jpg",
     "pages": [
       {
-        "img": "images/robot-battle/page-1.jpg",
+        "img": "images/covers/cover-robot-battle.jpg",
         "en": "Doudou and Doubao's Great Chore Robot Battle",
         "zh": "豆豆和豆包的家务机器人大战 | Doudou and Doubao's Great Chore Robot Battle",
         "keys": [
