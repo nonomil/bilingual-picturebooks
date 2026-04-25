@@ -2,6 +2,7 @@
 const TTS = {
   voices: [],
   currentUtterance: null,
+  zhVoiceName: localStorage.getItem('zhVoiceName') || '',
   isSpeaking: false,
   useNative: true, // 优先使用 Android 原生 TTS
 
@@ -138,6 +139,11 @@ const TTS = {
 
   pickVoice(lang) {
     if (!this.voices.length) return null;
+    // 优先使用用户选择的中文语音
+    if (lang.startsWith('zh') && this.zhVoiceName) {
+      const saved = this.voices.find(v => v.name === this.zhVoiceName);
+      if (saved) return saved;
+    }
     const priorities = [
       { match: /Google.*zh/i, factor: 1 },
       { match: /Microsoft.*Mandarin/i, factor: 2 },

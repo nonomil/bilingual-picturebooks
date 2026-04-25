@@ -9,6 +9,7 @@ const App = {
   wordMap: [],
   keyWordMap: [],
   highlightTimer: null,
+  audioMode: localStorage.getItem('audioMode') || 'auto',  // auto, tts, audio
 
   init() {
     TTS.init().then(() => {
@@ -25,7 +26,7 @@ const App = {
     this.currentView = 'home';
     document.getElementById('app').innerHTML = `
       <div class="home">
-        <h1 class="home-title">📚 双语绘本朗读</h1>
+        <h1 class="home-title">📚 双语绘本朗读 <span class="settings-btn" onclick="App.showSettings()" title="设置">⚙️</span></h1>
         <div class="category-grid" id="home-grid">
           ${STORIES.map(s => `
             <div class="category-card" data-story-id="${s.id}">
@@ -167,6 +168,65 @@ const App = {
     this.renderHome();
   },
 
+  showSettings() {
+    const overlay = document.createElement('div');
+    overlay.className = 'settings-overlay';
+    overlay.innerHTML = `
+      <div class="settings-panel">
+        <h2>⚙️ 设置</h2>
+        <div class="setting-group">
+          <label>🔊 朗读模式</label>
+          <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="audioMode" value="auto" ${this.audioMode==='auto'?'checked':''}> 自动（推荐）</label>
+            <label class="radio-label"><input type="radio" name="audioMode" value="tts" ${this.audioMode==='tts'?'checked':''}> 浏览器 TTS</label>
+            <label class="radio-label"><input type="radio" name="audioMode" value="audio" ${this.audioMode==='audio'?'checked':''}> 内置音频</label>
+          </div>
+          <p class="setting-hint">自动：有音频用音频，无音频用 TTS</p>
+        </div>
+        <div class="setting-group">
+          <label>🗣️ 中文语音</label>
+          <select id="zhVoiceSelect" class="voice-select"></select>
+          <p class="setting-hint">选择更自然的中文语音</p>
+        </div>
+        <button class="settings-save" onclick="App.saveSettings()">保存</button>
+        <button class="settings-close" onclick="this.closest('.settings-overlay').remove()">关闭</button>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+
+    // Populate voice list
+    const select = document.getElementById('zhVoiceSelect');
+    const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+    const zhVoices = voices.filter(v => v.lang.startsWith('zh'));
+    if (zhVoices.length === 0) {
+      select.innerHTML = '<option>未检测到中文语音</option>';
+    } else {
+      const saved = localStorage.getItem('zhVoiceName');
+      zhVoices.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.name;
+        opt.textContent = `${v.name} (${v.lang})`;
+        if (v.name === saved) opt.selected = true;
+        select.appendChild(opt);
+      });
+    }
+  },
+
+  saveSettings() {
+    const mode = document.querySelector('input[name="audioMode"]:checked');
+    if (mode) {
+      this.audioMode = mode.value;
+      localStorage.setItem('audioMode', this.audioMode);
+    }
+    const voiceSelect = document.getElementById('zhVoiceSelect');
+    if (voiceSelect && voiceSelect.value !== '未检测到中文语音') {
+      localStorage.setItem('zhVoiceName', voiceSelect.value);
+      TTS.zhVoiceName = voiceSelect.value;
+    }
+    document.querySelector('.settings-overlay').remove();
+  },
+
   adjustSpeed(delta) {
     this.rate = Math.max(0.5, Math.min(2, this.rate + delta));
     document.getElementById('rate-display').textContent = this.rate + 'x';
@@ -238,10 +298,16 @@ const App = {
 
     // Test if audio exists — play with highlights
     const tryAudioPlayback = async () => {
-      // 检测是否需要音频回退：TTS 不可用 或 APK 环境
-      const ttsOk = window.speechSynthesis || (window.Capacitor && window.Capacitor.Plugins?.TTS);
-      const useAudio = !ttsOk || window.Capacitor;
-      if (!useAudio) return false;
+      const mode = App.audioMode;
+      // audio: 强制用音频 | tts: 强制用 TTS | auto: 有音频用音频
+      if (mode === 'tts') return false;
+      if (mode === 'audio' || window.Capacitor) {
+        // 强制音频或APK环境
+      } else {
+        // auto: 有音频且TTS不可用时才用音频
+        const ttsOk = window.speechSynthesis;
+        if (ttsOk) return false;
+      }
 
       try {
         const resp = await fetch(enAudioUrl, { method: 'HEAD' });
