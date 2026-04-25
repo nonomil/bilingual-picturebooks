@@ -4,7 +4,7 @@ const App = {
   currentStory: null,
   currentPage: 0,
   rate: 1,
-  autoPage: true,
+  autoPage: false,
   speaking: false,
   wordMap: [],
   keyWordMap: [],
