@@ -1255,7 +1255,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "",
+        "img": "images/robot-battle/page-20.jpg",
         "en": "Doubao transformed into a Super Cleaning Robot and polished the kitchen sparkling clean!",
         "zh": "豆包变成了超级清洁机器人，把厨房打扫得闪闪发亮！",
         "keys": [
