@@ -22,6 +22,8 @@ const TTS = {
           if (this._pendingEnd) this._pendingEnd();
           if (this._pendingResolve) { this._pendingResolve(); this._pendingResolve = null; }
         });
+        // 检测微软语音引擎
+        this.checkMicrosoftTTS(plugin);
         resolve();
         return;
       }
@@ -179,5 +181,54 @@ const TTS = {
   async speakPage(enText, zhText, rate = 1, onWord, onPageEnd) {
     await this.speak(enText, 'en-US', rate, onWord, null);
     await this.speak(zhText, 'zh-CN', rate, null, onPageEnd);
+  },
+
+  // 检测并提示安装微软语音引擎
+  async checkMicrosoftTTS(plugin) {
+    if (!plugin || !plugin.getTTSInfo) return;
+    try {
+      const info = await plugin.getTTSInfo();
+      if (!info.hasMicrosoftTTS) {
+        this._showTTSDialog();
+      }
+    } catch (e) {
+      console.warn('TTS info check failed:', e);
+    }
+  },
+
+  _showTTSDialog() {
+    // 检查是否已经提示过（每天最多一次）
+    const lastPrompt = localStorage.getItem('tts_prompt_date');
+    const today = new Date().toDateString();
+    if (lastPrompt === today) return;
+
+    const overlay = document.createElement('div');
+    overlay.id = 'tts-prompt-overlay';
+    overlay.innerHTML = `
+      <div class="tts-prompt-dialog">
+        <div class="tts-prompt-icon">🔊</div>
+        <h3>安装高品质语音引擎</h3>
+        <p>推荐安装<strong>微软语音引擎</strong>，获得更自然的朗读效果：</p>
+        <ul>
+          <li>晓晓、云希、晓伊、云扬等音色</li>
+          <li>完全免费，无限量使用</li>
+          <li>离线可用，不消耗流量</li>
+        </ul>
+        <div class="tts-prompt-buttons">
+          <a href="https://play.google.com/store/apps/details?id=com.microsoft.tts" target="_blank" class="tts-btn-install">
+            📥 前往安装
+          </a>
+          <button class="tts-btn-later" id="tts-later">稍后再说</button>
+        </div>
+        <p class="tts-prompt-hint">安装后重启 App 即可自动生效</p>
+      </div>
+    `;
+    overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;';
+    document.body.appendChild(overlay);
+
+    document.getElementById('tts-later').onclick = () => {
+      localStorage.setItem('tts_prompt_date', today);
+      overlay.remove();
+    };
   }
 };
