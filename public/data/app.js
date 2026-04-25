@@ -100,7 +100,7 @@ const App = {
     const keysHtml = p.keys.map((k, i) =>
       `<span class="key-word" id="key-${i}" onclick="App.speakKey(${i})"><b>${k.w}</b> <span class="phonetic">${k.p}</span> ${k.zh}</span>`
     ).join('');
-    const phrases = p.phrases || [];
+    const phrases = (p.phrases || []).filter(ph => ph.en && ph.zh);
     const phrasesHtml = phrases.length > 0 ? phrases.map((ph, i) =>
       `<span class="key-phrase" id="phrase-${i}" onclick="App.speakPhrase(${i})"><b>${ph.en}</b> ${ph.zh}</span>`
     ).join('') : '';
