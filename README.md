@@ -1,6 +1,6 @@
 # 📚 双语绘本朗读 Bilingual Picture Book Reader
 
-> A delightful bilingual story reading app for children — featuring three classic stories with word-by-word highlighting, TTS narration, and auto-page turning.
+> A delightful bilingual story reading app for children — featuring 12 picture books with word-by-word highlighting, TTS narration, key vocabulary & phrases, and auto-page turning.
 
 🌐 **Live Demo**: https://nonomil.github.io/bilingual-picturebooks/
 
@@ -10,18 +10,20 @@
 
 | # | Title | Feishu |
 |---|-------|--------|
-| 1 | 🐍 好饿的小蛇 The Very Hungry Little Snake | [Wiki](https://zcnr5y1k0s0o.feishu.cn/wiki/AyRmwubXfiym7vkAAiTcELqLncf) |
-| 2 | 🌱 勇敢的豌豆射手 The Brave Pea Shooter | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/DzW7dOrm3ozY2Hx03FIcXCH0n8b) |
-| 3 | ⛏️ 史蒂夫大战凋零 Steve vs The Wither | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/LQSAd5z0Vo12KlxIISScKOP1nDb) |
-| 4 | 🧱 方块大战 Block Battle | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/CkF8d5KsJooEZyxFj4kc4274nZc) |
-| 5 | 🚀 星球大战 Star Wars | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/ANn7dk0z3oPO71xFwt5cHmDQnrd) |
-| 6 | 🤖 豆豆和豆包的家务机器人大战 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/FunpdhNVPoGRMMxvQ2kc7OaonNc) |
-| 7 | 🔥 勇敢的小坦克 The Brave Little Tank | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/DjfZdIhi7oZGk1x90YfcTv5MnW6) |
-| 8 | 🔫 坦克大战·第一册 Tank Battles Book 1 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/IQEsdGiSkokIqdxBReIcCBZBnvc) |
-| 9 | 🔫 坦克大战·第二册 Tank Battles Book 2 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/JY2wd5PQDoZ6Rxx3FmkcVHW3nJf) |
-| 10 | 🔫 坦克大战·第三册 Tank Battles Book 3 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/VZFXdWHYfoty0SxaxrNcW0BGnxd) |
-| 11 | 🌾 甘蔗坦克大作战 Sugarcane Tank Battle | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/DPlOdYAzLoYgtYxTVZ7cBhgOnTb) |
-| 12 | 🫥 隐身战车奇袭 Invisible Tank Mission | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/LzOVdCSQkoEuovxO7sAcLWg8nSf) |
+| # | Category | Title | Pages | Feishu |
+|---|----------|-------|-------|--------|
+| 1 | 📖 经典绘本 | 好饿的小蛇 The Very Hungry Little Snake | 7 | [Wiki](https://zcnr5y1k0s0o.feishu.cn/wiki/AyRmwubXfiym7vkAAiTcELqLncf) |
+| 2 | 🌱 植物大战僵尸 | 勇敢的豌豆射手 The Brave Pea Shooter | 19 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/DzW7dOrm3ozY2Hx03FIcXCH0n8b) |
+| 3 | ⛏️ 我的世界 | 史蒂夫大战凋零 Steve vs The Wither | 20 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/LQSAd5z0Vo12KlxIISScKOP1nDb) |
+| 4 | 🧱 我的世界 | 方块大战 Block Battle | 52 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/CkF8d5KsJooEZyxFj4kc4274nZc) |
+| 5 | 🚀 科幻冒险 | 星球大战 Star Wars | 21 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/ANn7dk0z3oPO71xFwt5cHmDQnrd) |
+| 6 | 🤖 科幻冒险 | 豆豆和豆包的家务机器人大战 | 20 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/FunpdhNVPoGRMMxvQ2kc7OaonNc) |
+| 7 | 🔥 我的世界 | 勇敢的小坦克 The Brave Little Tank | 19 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/DjfZdIhi7oZGk1x90YfcTv5MnW6) |
+| 8 | 🔫 我的世界 | 坦克大战·第一册 Tank Battles Book 1 | 11 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/IQEsdGiSkokIqdxBReIcCBZBnvc) |
+| 9 | 🔫 我的世界 | 坦克大战·第二册 Tank Battles Book 2 | 13 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/JY2wd5PQDoZ6Rxx3FmkcVHW3nJf) |
+| 10 | 🔫 我的世界 | 坦克大战·第三册 Tank Battles Book 3 | 13 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/VZFXdWHYfoty0SxaxrNcW0BGnxd) |
+| 11 | 🌾 我的世界 | 甘蔗坦克大作战 Sugarcane Tank Battle | 21 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/DPlOdYAzLoYgtYxTVZ7cBhgOnTb) |
+| 12 | 🫥 我的世界 | 隐身战车奇袭 Invisible Tank Mission | 21 | [Doc](https://zcnr5y1k0s0o.feishu.cn/docx/LzOVdCSQkoEuovxO7sAcLWg8nSf) |
 
 ---
 
@@ -30,7 +32,7 @@
 - **🔤 Word-by-Word Highlighting** — Current word highlighted in warm orange while TTS reads
 - **🔊 TTS Narration** — English + Chinese narration via Web Speech API (Google → Microsoft → Chrome voices)
 - **📄 Auto Page Turning** — Automatically advances to next page after reading
-- **🎯 Key Words** — Each page shows English word + phonetic symbol + Chinese meaning
+- **🎯 Key Words & Phrases** — Each page shows English vocabulary (word + phonetic + Chinese) and key phrases
 - **🐢 Speed Control** — Adjustable reading speed from 0.5× to 2×
 - **👶 Child-Friendly UI** — Large buttons, rounded corners, warm cream background (#FFF8F0)
 - **📱 Responsive** — Works on mobile, tablet, and desktop
@@ -126,7 +128,7 @@ Then add the story to the top of `STORIES` array in `data/stories.js`.
 ## 🔑 Key Design Decisions
 
 - **No build step** — Zero dependencies, zero npm, pure browser-native code
-- **No external image hosting** — Story images served from feishu CDN in data file
+- **AI-generated illustrations** — All images generated via GPT Image API
 - **No localStorage** — Keeps it simple and stateless
 - **Single HTML file** — Easy to deploy anywhere with just static hosting
 
