@@ -189,9 +189,33 @@ const App = {
     this.speaking = true;
     document.getElementById('play-btn').textContent = '⏸ 停止';
 
+    // 尝试播放预生成音频（优先）
+    const pageIdx = this.currentPage + 1;
+    const storyId = s.id;
+    const enAudioUrl = `audio/${storyId}/page-${pageIdx}-en.mp3`;
+    const zhAudioUrl = `audio/${storyId}/page-${pageIdx}-zh.mp3`;
     const enContainer = document.getElementById('en-text-container');
     this.buildWordMap(p.en, enContainer);
     this.buildKeyWordMap(document.getElementById('keys-row'));
+
+    // Test if en audio exists
+    const tryAudioPlayback = async () => {
+      try {
+        const resp = await fetch(enAudioUrl, { method: 'HEAD' });
+        if (resp.ok) {
+          // 播放英文音频
+          await TTS.speakAudio(enAudioUrl);
+          if (!this.speaking) return;
+          // 播放中文音频
+          await TTS.speakAudio(zhAudioUrl);
+          if (!this.speaking) return;
+          // 播放重点单词
+          await this.speakKeysOneByOne(p.keys);
+          return true; // used audio
+        }
+      } catch (e) {}
+      return false; // fall back to TTS
+    };
 
     const scrollActiveIntoView = (el) => {
       if (!el) return;
@@ -251,6 +275,10 @@ const App = {
       });
     };
 
+    // 先尝试音频，失败则用 TTS
+    tryAudioPlayback().then(usedAudio => {
+      if (usedAudio || !this.speaking) return;
+      // TTS fallback
     // 1. English — time-driven word highlight, waits for TTS onstart event
     let enHighlightStarted = false;
     const startEnHighlight = () => {

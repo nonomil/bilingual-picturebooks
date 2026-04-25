@@ -161,6 +161,11 @@ const TTS = {
   },
 
   stop() {
+    // 停止音频播放
+    if (this._currentAudio) {
+      this._currentAudio.pause();
+      this._currentAudio = null;
+    }
     // 停止 Capacitor TTS
     const plugin = this.getTTSPlugin();
     if (plugin && plugin.stop) {
@@ -181,6 +186,31 @@ const TTS = {
   async speakPage(enText, zhText, rate = 1, onWord, onPageEnd) {
     await this.speak(enText, 'en-US', rate, onWord, null);
     await this.speak(zhText, 'zh-CN', rate, null, onPageEnd);
+  },
+
+  // 播放预生成的音频文件（edge-tts 生成的 MP3）
+  speakAudio(url, onEnd) {
+    return new Promise((resolve) => {
+      const audio = new Audio(url);
+      this.isSpeaking = true;
+      this._currentAudio = audio;
+      audio.onended = () => {
+        this.isSpeaking = false;
+        this._currentAudio = null;
+        if (onEnd) onEnd();
+        resolve();
+      };
+      audio.onerror = () => {
+        this.isSpeaking = false;
+        this._currentAudio = null;
+        resolve();
+      };
+      audio.play().catch(() => {
+        this.isSpeaking = false;
+        this._currentAudio = null;
+        resolve();
+      });
+    });
   },
 
   // 检测并提示安装微软语音引擎
