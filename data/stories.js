@@ -153,115 +153,609 @@ const STORIES = [
         "img": "images/pea-shooter/page-1.jpg",
         "en": "In a bright, sunny garden lived a tiny green Pea Shooter named Pip. He had big round eyes, a cheerful smile, and a little leaf on his head. Pip loved his garden home more than anything in the world.\n\nEvery morning, Pip would stretch his leaves and say, \"Today is going to be a great day!\"",
         "zh": "在一个明亮、阳光灿烂的花园里，住着一只绿色的小豌豆射手，名叫皮皮。他有一双圆圆的大眼睛，一个开心的笑容，头顶上还有一片小叶子。皮皮爱他的花园家园胜过世界上的一切。\n\n每天早上，皮皮都会伸伸他的叶子说：“今天一定会是个好日子！”",
-        "keys": []
+        "keys": [
+          {
+            "w": "bright",
+            "p": "/braɪt/",
+            "zh": "明亮的"
+          },
+          {
+            "w": "sunny",
+            "p": "/ˈsʌni/",
+            "zh": "阳光充足的"
+          },
+          {
+            "w": "tiny",
+            "p": "/ˈtaɪni/",
+            "zh": "微小的"
+          },
+          {
+            "w": "cheerful",
+            "p": "/ˈtʃɪəfəl/",
+            "zh": "快乐的"
+          },
+          {
+            "w": "garden",
+            "p": "/ˈɡɑːrdən/",
+            "zh": "花园"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-2.jpg",
         "en": "One sunny morning, Pip decided to take a walk along the cobblestone path. The flowers waved at him as he passed. Butterflies danced around his head.\n\n\"What a wonderful day for a walk!\" Pip cheered, hopping along the path.",
         "zh": "一个阳光明媚的早晨，皮皮决定沿着鹅卵石小路散步。花朵们在他经过时向他挥手，蝴蝶在他头顶翩翩起舞。\n\n“散步的好天气！”皮皮欢呼着，沿着小路蹦蹦跳跳。",
-        "keys": []
+        "keys": [
+          {
+            "w": "decide",
+            "p": "/dɪˈsaɪd/",
+            "zh": "决定"
+          },
+          {
+            "w": "cobblestone",
+            "p": "/ˈkɑːbəls.toʊn/",
+            "zh": "鹅卵石的"
+          },
+          {
+            "w": "path",
+            "p": "/pæθ/",
+            "zh": "小路"
+          },
+          {
+            "w": "butterfly",
+            "p": "/ˈbʌtərflaɪ/",
+            "zh": "蝴蝶"
+          },
+          {
+            "w": "wonderful",
+            "p": "/ˈwʌndərfəl/",
+            "zh": "美好的"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-3.jpg",
         "en": "Pip walked through the most beautiful part of the garden. Tall sunflowers stood like guards. Colorful mushrooms dotted the ground. Bees hummed happy songs.\n\n\"I love my garden so much,\" Pip whispered happily.",
         "zh": "皮皮走过花园中最美丽的地方。高高的向日葵像卫兵一样站着，五颜六色的蘑菇点缀着地面，蜜蜂哼着快乐的歌。\n\n“我太爱我的花园了，”皮皮幸福地低语。",
-        "keys": []
+        "keys": [
+          {
+            "w": "beautiful",
+            "p": "/ˈbjuːtəfəl/",
+            "zh": "美丽的"
+          },
+          {
+            "w": "sunflower",
+            "p": "/ˈsʌnˌflaʊər/",
+            "zh": "向日葵"
+          },
+          {
+            "w": "guard",
+            "p": "/ɡɑːrd/",
+            "zh": "卫兵"
+          },
+          {
+            "w": "mushroom",
+            "p": "/ˈmʌʃruːm/",
+            "zh": "蘑菇"
+          },
+          {
+            "w": "whisper",
+            "p": "/ˈwɪspər/",
+            "zh": "低语"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-4.jpg",
         "en": "Suddenly, Pip heard a strange sound. THUMP. THUMP. THUMP. The ground began to shake. Dark clouds rolled in from nowhere.\n\n\"W-what was that?\" Pip's eyes grew wide with worry.",
         "zh": "突然，皮皮听到了一个奇怪的声音。咚。咚。咚。地面开始震动，乌云不知从哪里涌了上来。\n\n“那…那是什么？”皮皮的眼睛因担心而睁大了。",
-        "keys": []
+        "keys": [
+          {
+            "w": "suddenly",
+            "p": "/ˈsʌdənli/",
+            "zh": "突然地"
+          },
+          {
+            "w": "strange",
+            "p": "/streɪndʒ/",
+            "zh": "奇怪的"
+          },
+          {
+            "w": "shake",
+            "p": "/ʃeɪk/",
+            "zh": "震动"
+          },
+          {
+            "w": "cloud",
+            "p": "/klaʊd/",
+            "zh": "云"
+          },
+          {
+            "w": "worry",
+            "p": "/ˈwɜːri/",
+            "zh": "担心"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-5.jpg",
         "en": "From behind the bushes stumbled a scary zombie! It had an orange traffic cone on its head and moved very slowly. But it kept coming closer and closer!\n\n\"A ZOMBIE!\" Pip gasped. His little body trembled with fear.",
         "zh": "从灌木丛后面踉跄地走出一个可怕的僵尸！它头上戴着一个橙色的路障，走得很慢，但一直越来越近！\n\n“僵尸！”皮皮倒吸一口气，他的小身体因恐惧而颤抖。",
-        "keys": []
+        "keys": [
+          {
+            "w": "bush",
+            "p": "/bʊʃ/",
+            "zh": "灌木丛"
+          },
+          {
+            "w": "stumble",
+            "p": "/ˈstʌmbəl/",
+            "zh": "踉跄而行"
+          },
+          {
+            "w": "scary",
+            "p": "/ˈskeri/",
+            "zh": "可怕的"
+          },
+          {
+            "w": "zombie",
+            "p": "/ˈzɑːmbi/",
+            "zh": "僵尸"
+          },
+          {
+            "w": "tremble",
+            "p": "/ˈtrembəl/",
+            "zh": "颤抖"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-6.jpg",
         "en": "\"I must be brave!\" Pip shouted. He puffed up his cheeks and fired green peas at the zombie. PEW! PEW! PEW!\n\nThe peas flew through the air like tiny green bullets. \"Take THAT, you big bully!\"",
         "zh": "“我必须勇敢！”皮皮大喊。他鼓起腮帮子，向僵尸发射绿色豌豆。噗！噗！噗！\n\n豌豆像绿色的小子弹一样飞过空中。“接招吧，你这个大坏蛋！”",
-        "keys": []
+        "keys": [
+          {
+            "w": "brave",
+            "p": "/breɪv/",
+            "zh": "勇敢的"
+          },
+          {
+            "w": "shout",
+            "p": "/ʃaʊt/",
+            "zh": "大喊"
+          },
+          {
+            "w": "fire",
+            "p": "/ˈfaɪər/",
+            "zh": "发射"
+          },
+          {
+            "w": "pea",
+            "p": "/piː/",
+            "zh": "豌豆"
+          },
+          {
+            "w": "bully",
+            "p": "/ˈbʊli/",
+            "zh": "恶霸"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-7.jpg",
         "en": "But something terrible happened. The peas bounced right off the traffic cone! BING! BONG! PING! The zombie didn't even slow down.\n\n\"Oh no! My peas can't break through that cone!\" Pip cried in frustration.",
         "zh": "但可怕的事情发生了。豌豆直接从路障上弹开了！叮！当！乒！僵尸甚至没有放慢脚步。\n\n“哦不！我的豌豆打不穿那个路障！”皮皮沮丧地哭了。",
-        "keys": []
+        "keys": [
+          {
+            "w": "terrible",
+            "p": "/ˈterəbəl/",
+            "zh": "可怕的"
+          },
+          {
+            "w": "bounce",
+            "p": "/baʊns/",
+            "zh": "弹开"
+          },
+          {
+            "w": "traffic cone",
+            "p": "/ˈtræfɪk koʊn/",
+            "zh": "路障锥"
+          },
+          {
+            "w": "slow",
+            "p": "/sloʊ/",
+            "zh": "减慢"
+          },
+          {
+            "w": "frustration",
+            "p": "/frʌˈstreɪʃən/",
+            "zh": "沮丧"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-8.jpg",
         "en": "Pip turned and ran as fast as his little legs could carry him. He zoomed past Cherry Bombs and Potato Mines, looking for help.\n\n\"I need to find someone who can help me!\" Pip panted as he ran.",
         "zh": "皮皮转身拼命地跑。他飞速经过樱桃炸弹和土豆地雷，到处寻找帮助。\n\n“我需要找到能帮我的人！”皮皮一边跑一边喘气。",
-        "keys": []
+        "keys": [
+          {
+            "w": "turn",
+            "p": "/tɜːrn/",
+            "zh": "转身"
+          },
+          {
+            "w": "zoom",
+            "p": "/zuːm/",
+            "zh": "飞速移动"
+          },
+          {
+            "w": "mine",
+            "p": "/maɪn/",
+            "zh": "地雷"
+          },
+          {
+            "w": "help",
+            "p": "/help/",
+            "zh": "帮助"
+          },
+          {
+            "w": "pant",
+            "p": "/pænt/",
+            "zh": "喘气"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-9.jpg",
         "en": "Then Pip found his best friend — Sunny the Sunflower! Sunny had bright golden petals and a warm, kind smile. She always made everyone feel better.\n\n\"Sunny! I need your help! There's a zombie coming!\" Pip cried.",
         "zh": "然后皮皮找到了他最好的朋友——向日葵小阳！小阳有明亮金色的花瓣和温暖善良的笑容，她总是让每个人感觉好起来。\n\n“小阳！我需要你的帮助！有僵尸来了！”皮皮哭着说。",
-        "keys": []
+        "keys": [
+          {
+            "w": "friend",
+            "p": "/frend/",
+            "zh": "朋友"
+          },
+          {
+            "w": "golden",
+            "p": "/ˈɡoʊldən/",
+            "zh": "金色的"
+          },
+          {
+            "w": "petal",
+            "p": "/ˈpetəl/",
+            "zh": "花瓣"
+          },
+          {
+            "w": "kind",
+            "p": "/kaɪnd/",
+            "zh": "善良的"
+          },
+          {
+            "w": "smile",
+            "p": "/smaɪl/",
+            "zh": "微笑"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-10.jpg",
         "en": "Sunny listened carefully and nodded. \"Don't worry, Pip. I know exactly what to do. We need to call someone very special — someone very HOT!\"\n\n\"Hot?\" Pip asked, confused. \"Who could help us with a zombie?\"",
         "zh": "小阳仔细听着，点了点头。“别担心，皮皮。我完全知道该怎么办。我们需要叫一个非常特别的人——一个非常火热的人！”\n\n“火热？”皮皮疑惑地问，“谁能帮我们对付僵尸？”",
-        "keys": []
+        "keys": [
+          {
+            "w": "carefully",
+            "p": "/ˈkerfəli/",
+            "zh": "仔细地"
+          },
+          {
+            "w": "exactly",
+            "p": "/ɪɡˈzæktli/",
+            "zh": "确切地"
+          },
+          {
+            "w": "special",
+            "p": "/ˈspeʃəl/",
+            "zh": "特别的"
+          },
+          {
+            "w": "hot",
+            "p": "/hɑːt/",
+            "zh": "火热的"
+          },
+          {
+            "w": "confused",
+            "p": "/kənˈfjuːzd/",
+            "zh": "困惑的"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-11.jpg",
         "en": "Sunny closed her eyes and lifted her face to the sky. Her golden petals began to glow brighter and brighter. Magical golden sparkles swirled around her.\n\n\"I need to collect enough sunlight energy first,\" Sunny explained. The whole garden seemed to light up!",
         "zh": "小阳闭上眼睛，把脸朝向天空。她金色的花瓣开始越来越亮地发光，神奇的金色火花围绕着她旋转。\n\n“我需要先收集足够的阳光能量，”小阳解释道。整个花园似乎都亮了起来！",
-        "keys": []
+        "keys": [
+          {
+            "w": "petal",
+            "p": "/ˈpetl/",
+            "zh": "花瓣"
+          },
+          {
+            "w": "glow",
+            "p": "/ɡloʊ/",
+            "zh": "发光"
+          },
+          {
+            "w": "sparkle",
+            "p": "/ˈspɑːrkl/",
+            "zh": "火花；闪耀"
+          },
+          {
+            "w": "swirl",
+            "p": "/swɜːrl/",
+            "zh": "旋转"
+          },
+          {
+            "w": "energy",
+            "p": "/ˈenərdʒi/",
+            "zh": "能量"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-12.jpg",
         "en": "One by one, beautiful golden orbs of sunlight floated from Sunny's petals. They sparkled like tiny suns, filling the air with warmth.\n\n\"Wow!\" Pip gasped. \"That's the most beautiful thing I've ever seen!\"",
         "zh": "一颗又一颗美丽的金色阳光球从小阳的花瓣中飘出。它们像小太阳一样闪耀，让空气中充满了温暖。\n\n“哇！”皮皮惊叹道，“这是我见过的最美丽的东西！”",
-        "keys": []
+        "keys": [
+          {
+            "w": "orb",
+            "p": "/ɔːrb/",
+            "zh": "球体；光球"
+          },
+          {
+            "w": "float",
+            "p": "/floʊt/",
+            "zh": "漂浮"
+          },
+          {
+            "w": "sparkle",
+            "p": "/ˈspɑːrkl/",
+            "zh": "闪耀"
+          },
+          {
+            "w": "tiny",
+            "p": "/ˈtaɪni/",
+            "zh": "微小的"
+          },
+          {
+            "w": "warmth",
+            "p": "/wɔːrmθ/",
+            "zh": "温暖"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-13.jpg",
         "en": "But the zombie was getting closer! It was now at the edge of the garden. Sunny glowed even brighter, producing more and more sunlight.\n\n\"Hurry, Sunny!\" Pip urged. \"The zombie is almost here!\"",
         "zh": "但僵尸越来越近了！它现在已经到了花园的边缘。小阳发出更亮的光，产生越来越多的阳光。\n\n“快点，小阳！”皮皮催促道，“僵尸马上就到了！”",
-        "keys": []
+        "keys": [
+          {
+            "w": "zombie",
+            "p": "/ˈzɑːmbi/",
+            "zh": "僵尸"
+          },
+          {
+            "w": "edge",
+            "p": "/edʒ/",
+            "zh": "边缘"
+          },
+          {
+            "w": "produce",
+            "p": "/prəˈduːs/",
+            "zh": "产生"
+          },
+          {
+            "w": "brighter",
+            "p": "/ˈbraɪtər/",
+            "zh": "更明亮的"
+          },
+          {
+            "w": "urge",
+            "p": "/ɜːrdʒ/",
+            "zh": "催促"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-14.jpg",
         "en": "Finally, a big pile of golden sunlight orbs gathered on the ground. Pip and Sunny cheered! They had enough energy now.\n\n\"We did it!\" Sunny smiled. \"Now, let me call our special friend...\"",
         "zh": "终于，一大堆金色阳光球聚集在地面上。皮皮和小阳欢呼起来！他们现在有足够的能量了。\n\n“我们做到了！”小阳微笑着说，“现在，让我叫我们特别的朋友...”",
-        "keys": []
+        "keys": [
+          {
+            "w": "finally",
+            "p": "/ˈfaɪnəli/",
+            "zh": "终于"
+          },
+          {
+            "w": "pile",
+            "p": "/paɪl/",
+            "zh": "一堆"
+          },
+          {
+            "w": "gather",
+            "p": "/ˈɡæðər/",
+            "zh": "聚集"
+          },
+          {
+            "w": "cheer",
+            "p": "/tʃɪr/",
+            "zh": "欢呼"
+          },
+          {
+            "w": "special",
+            "p": "/ˈspeʃl/",
+            "zh": "特别的"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-15.jpg",
         "en": "Sunny gathered all the golden light together. She whispered magical words that made the ground rumble. The earth began to shake and crack.\n\n\"Who's coming?\" Pip asked nervously, clutching Sunny's stem.",
         "zh": "小阳把所有金色的光聚在一起，她低声念着魔法咒语，让地面发出隆隆声。大地开始震动和裂开。\n\n“谁要来了？”皮皮紧张地问，紧紧抓住小阳的茎。",
-        "keys": []
+        "keys": [
+          {
+            "w": "whisper",
+            "p": "/ˈwɪspər/",
+            "zh": "低声说"
+          },
+          {
+            "w": "rumble",
+            "p": "/ˈrʌmbl/",
+            "zh": "隆隆作响"
+          },
+          {
+            "w": "earth",
+            "p": "/ɜːrθ/",
+            "zh": "大地"
+          },
+          {
+            "w": "shake",
+            "p": "/ʃeɪk/",
+            "zh": "震动"
+          },
+          {
+            "w": "crack",
+            "p": "/kræk/",
+            "zh": "裂开"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-16.jpg",
         "en": "CRACK! BOOM! A GIANT red Jalapeno burst from the soil! He was enormous, fierce, and ON FIRE! Flames shot from his body like a volcano.\n\n\"WHO DARED TO WAKE ME UP?!\" Jalapeno roared. Pip stared in amazement.",
         "zh": "裂开！轰！一个巨大的红色火爆辣椒从土壤中冲了出来！他巨大、凶猛，而且全身着火！火焰像火山一样从他的身体喷射出来。\n\n“谁敢把我叫醒？！”火爆辣椒咆哮道。皮皮惊呆了。",
-        "keys": []
+        "keys": [
+          {
+            "w": "giant",
+            "p": "/ˈdʒaɪənt/",
+            "zh": "巨大的"
+          },
+          {
+            "w": "burst",
+            "p": "/bɜːrst/",
+            "zh": "冲出；爆发"
+          },
+          {
+            "w": "soil",
+            "p": "/sɔɪl/",
+            "zh": "土壤"
+          },
+          {
+            "w": "fierce",
+            "p": "/fɪrs/",
+            "zh": "凶猛的"
+          },
+          {
+            "w": "flame",
+            "p": "/fleɪm/",
+            "zh": "火焰"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-17.jpg",
         "en": "Jalapeno saw the zombie and his eyes blazed with anger. Red and orange flames erupted everywhere! The entire garden lit up in fiery colors.\n\n\"THAT zombie dared to threaten my garden? NOT ON MY WATCH!\" Jalapeno fumed.",
         "zh": "火爆辣椒看到了僵尸，他的眼睛因愤怒而燃烧。红色和橙色的火焰到处喷发！整个花园被火热的颜色照亮了。\n\n“那个僵尸敢威胁我的花园？绝不允许！”火爆辣椒怒气冲冲地说。",
-        "keys": []
+        "keys": [
+          {
+            "w": "blaze",
+            "p": "/bleɪz/",
+            "zh": "熊熊燃烧"
+          },
+          {
+            "w": "anger",
+            "p": "/ˈæŋɡər/",
+            "zh": "愤怒"
+          },
+          {
+            "w": "erupt",
+            "p": "/ɪˈrʌpt/",
+            "zh": "喷发"
+          },
+          {
+            "w": "entire",
+            "p": "/ɪnˈtaɪər/",
+            "zh": "整个的"
+          },
+          {
+            "w": "threaten",
+            "p": "/ˈθretn/",
+            "zh": "威胁"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-18.jpg",
         "en": "Jalapeno took a deep breath and WHOOSH — a massive wave of fire hit the Conehead Zombie! The traffic cone melted like butter. The zombie screamed and disappeared in a puff of smoke.\n\n\"AND STAY OUT!\" Jalapeno shouted triumphantly.",
         "zh": "火爆辣椒深吸一口气，呼——巨大的火焰波击中了路障僵尸！路障像黄油一样融化了。僵尸尖叫一声，在一缕烟雾中消失了。\n\n“滚远点！”火爆辣椒得意地喊道。",
-        "keys": []
+        "keys": [
+          {
+            "w": "massive",
+            "p": "/ˈmæsɪv/",
+            "zh": "巨大的"
+          },
+          {
+            "w": "wave",
+            "p": "/weɪv/",
+            "zh": "波浪；波"
+          },
+          {
+            "w": "melt",
+            "p": "/melt/",
+            "zh": "融化"
+          },
+          {
+            "w": "scream",
+            "p": "/skriːm/",
+            "zh": "尖叫"
+          },
+          {
+            "w": "smoke",
+            "p": "/smoʊk/",
+            "zh": "烟雾"
+          }
+        ]
       },
       {
         "img": "images/pea-shooter/page-19.jpg",
         "en": "Pip and Sunny cheered happily! Where the zombie had been, there was only a small puff of smoke. The garden was safe once more.\n\nJalapeno smiled, gave a thumbs up, and slowly sank back into the ground. \"Anytime, friends. Anytime.\"",
         "zh": "皮皮和小阳开心地欢呼！僵尸原来在的地方，只剩下一个小小的烟雾。花园再次安全了。\n\n火爆辣椒微笑着，竖起大拇指，慢慢沉回地面。“随时效劳，朋友们。”",
-        "keys": []
+        "keys": [
+          {
+            "w": "cheer",
+            "p": "/tʃɪr/",
+            "zh": "欢呼"
+          },
+          {
+            "w": "safe",
+            "p": "/seɪf/",
+            "zh": "安全的"
+          },
+          {
+            "w": "thumbs up",
+            "p": "/ˌθʌmz ˈʌp/",
+            "zh": "竖起大拇指"
+          },
+          {
+            "w": "slowly",
+            "p": "/ˈsloʊli/",
+            "zh": "慢慢地"
+          },
+          {
+            "w": "sank",
+            "p": "/sæŋk/",
+            "zh": "下沉"
+          }
+        ]
       }
     ]
   },
@@ -276,121 +770,611 @@ const STORIES = [
         "img": "images/minecraft/page-1.jpg",
         "en": "🛩️ Steve vs The Wither — Sky Knight",
         "zh": "史蒂夫大战凋零 — 天空骑士",
-        "keys": []
+        "keys": [
+          {
+            "w": "sky",
+            "p": "/skaɪ/",
+            "zh": "天空"
+          },
+          {
+            "w": "knight",
+            "p": "/naɪt/",
+            "zh": "骑士"
+          },
+          {
+            "w": "Steve",
+            "p": "/stiːv/",
+            "zh": "史蒂夫"
+          },
+          {
+            "w": "Wither",
+            "p": "/ˈwɪðər/",
+            "zh": "凋零"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-2.jpg",
         "en": "determined /dɪˈtɜːrmɪnd/ 坚定的",
         "zh": "史蒂夫住在一个安静的村庄里。他是一个建造者，一个矿工，也是一个梦想家。",
-        "keys": []
+        "keys": [
+          {
+            "w": "determined",
+            "p": "/dɪˈtɜːrmɪnd/",
+            "zh": "坚定的"
+          },
+          {
+            "w": "builder",
+            "p": "/ˈbɪldər/",
+            "zh": "建造者"
+          },
+          {
+            "w": "miner",
+            "p": "/ˈmaɪnər/",
+            "zh": "矿工"
+          },
+          {
+            "w": "dreamer",
+            "p": "/ˈdriːmər/",
+            "zh": "梦想家"
+          },
+          {
+            "w": "village",
+            "p": "/ˈvɪlɪdʒ/",
+            "zh": "村庄"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-3.jpg",
         "en": "ground /ɡraʊnd/ 大地",
         "zh": "有一天，天空变暗了。可怕的咆哮震动了大地。凋零来了。",
-        "keys": []
+        "keys": [
+          {
+            "w": "ground",
+            "p": "/ɡraʊnd/",
+            "zh": "大地"
+          },
+          {
+            "w": "sky",
+            "p": "/skaɪ/",
+            "zh": "天空"
+          },
+          {
+            "w": "dark",
+            "p": "/dɑːrk/",
+            "zh": "黑暗的"
+          },
+          {
+            "w": "roar",
+            "p": "/rɔːr/",
+            "zh": "咆哮"
+          },
+          {
+            "w": "shake",
+            "p": "/ʃeɪk/",
+            "zh": "震动"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-4.jpg",
         "en": "airplane /ˈerpleɪn/ 飞机",
         "zh": "\"我需要从天空战斗它，\"史蒂夫说。他开始建造一个从来没有人见过的东西——一架飞机。",
-        "keys": []
+        "keys": [
+          {
+            "w": "airplane",
+            "p": "/ˈerpleɪn/",
+            "zh": "飞机"
+          },
+          {
+            "w": "fight",
+            "p": "/faɪt/",
+            "zh": "战斗"
+          },
+          {
+            "w": "sky",
+            "p": "/skaɪ/",
+            "zh": "天空"
+          },
+          {
+            "w": "build",
+            "p": "/bɪld/",
+            "zh": "建造"
+          },
+          {
+            "w": "seen",
+            "p": "/siːn/",
+            "zh": "见过的"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-5.jpg",
         "en": "attach /əˈtætʃ/ 安装",
         "zh": "日日夜夜，史蒂夫在他的飞机上工作。他锤打铁器，弯曲木材，安装巨大的螺旋桨。",
-        "keys": []
+        "keys": [
+          {
+            "w": "attach",
+            "p": "/əˈtætʃ/",
+            "zh": "安装"
+          },
+          {
+            "w": "hammer",
+            "p": "/ˈhæmər/",
+            "zh": "锤打"
+          },
+          {
+            "w": "bend",
+            "p": "/bend/",
+            "zh": "弯曲"
+          },
+          {
+            "w": "wood",
+            "p": "/wʊd/",
+            "zh": "木材"
+          },
+          {
+            "w": "propeller",
+            "p": "/prəˈpelər/",
+            "zh": "螺旋桨"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-6.jpg",
         "en": "knight /naɪt/ 骑士",
         "zh": "终于，它完成了。一架美丽的红色双翼飞机，在阳光下闪闪发光。史蒂夫叫它\"天空骑士\"。",
-        "keys": []
+        "keys": [
+          {
+            "w": "knight",
+            "p": "/naɪt/",
+            "zh": "骑士"
+          },
+          {
+            "w": "finally",
+            "p": "/ˈfaɪnəli/",
+            "zh": "终于"
+          },
+          {
+            "w": "beautiful",
+            "p": "/ˈbjuːtɪfəl/",
+            "zh": "美丽的"
+          },
+          {
+            "w": "red",
+            "p": "/red/",
+            "zh": "红色的"
+          },
+          {
+            "w": "sunlight",
+            "p": "/ˈsʌnlaɪt/",
+            "zh": "阳光"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-7.jpg",
         "en": "goggles /ˈɡɑːɡlz/ 护目镜",
         "zh": "村民们聚在一起观看。史蒂夫戴上护目镜，爬进驾驶舱。",
-        "keys": []
+        "keys": [
+          {
+            "w": "goggles",
+            "p": "/ˈɡɑːɡlz/",
+            "zh": "护目镜"
+          },
+          {
+            "w": "villager",
+            "p": "/ˈvɪlɪdʒər/",
+            "zh": "村民"
+          },
+          {
+            "w": "gather",
+            "p": "/ˈɡæðər/",
+            "zh": "聚集"
+          },
+          {
+            "w": "watch",
+            "p": "/wɑːtʃ/",
+            "zh": "观看"
+          },
+          {
+            "w": "cockpit",
+            "p": "/ˈkɑːkpɪt/",
+            "zh": "驾驶舱"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-8.jpg",
         "en": "engine /ˈendʒɪn/ 引擎",
         "zh": "引擎轰鸣。螺旋桨越转越快。然后，史蒂夫飞起来了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "engine",
+            "p": "/ˈendʒɪn/",
+            "zh": "引擎"
+          },
+          {
+            "w": "roar",
+            "p": "/rɔːr/",
+            "zh": "轰鸣"
+          },
+          {
+            "w": "propeller",
+            "p": "/prəˈpelər/",
+            "zh": "螺旋桨"
+          },
+          {
+            "w": "faster",
+            "p": "/ˈfæstər/",
+            "zh": "更快地"
+          },
+          {
+            "w": "fly",
+            "p": "/flaɪ/",
+            "zh": "飞"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-9.jpg",
         "en": "landscape /ˈlændskeɪp/ 风景",
         "zh": "在天空中，一切看起来都不一样了。世界很大很美。史蒂夫感觉像鸟一样自由。",
-        "keys": []
+        "keys": [
+          {
+            "w": "landscape",
+            "p": "/ˈlændskeɪp/",
+            "zh": "风景"
+          },
+          {
+            "w": "sky",
+            "p": "/skaɪ/",
+            "zh": "天空"
+          },
+          {
+            "w": "world",
+            "p": "/wɜːrld/",
+            "zh": "世界"
+          },
+          {
+            "w": "beautiful",
+            "p": "/ˈbjuːtɪfəl/",
+            "zh": "美丽的"
+          },
+          {
+            "w": "free",
+            "p": "/friː/",
+            "zh": "自由的"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-10.jpg",
         "en": "control /kənˈtroʊl/ 控制",
         "zh": "但很快，天空又变暗了。紫色的云在前方旋转。史蒂夫紧紧握住操纵杆。",
-        "keys": []
+        "keys": [
+          {
+            "w": "control",
+            "p": "/kənˈtroʊl/",
+            "zh": "控制"
+          },
+          {
+            "w": "dark",
+            "p": "/dɑːrk/",
+            "zh": "黑暗的"
+          },
+          {
+            "w": "purple",
+            "p": "/ˈpɜːrpl/",
+            "zh": "紫色的"
+          },
+          {
+            "w": "cloud",
+            "p": "/klaʊd/",
+            "zh": "云"
+          },
+          {
+            "w": "ahead",
+            "p": "/əˈhed/",
+            "zh": "前方"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-11.jpg",
         "en": "creature /ˈkriːtʃər/ 生物",
         "zh": "然后他看到了——凋零。一个巨大的生物，有三个头，发出蓝色光芒的眼睛，黑暗的力量在它周围旋转。",
-        "keys": []
+        "keys": [
+          {
+            "w": "creature",
+            "p": "/ˈkriːtʃər/",
+            "zh": "生物"
+          },
+          {
+            "w": "giant",
+            "p": "/ˈdʒaɪənt/",
+            "zh": "巨大的"
+          },
+          {
+            "w": "head",
+            "p": "/hed/",
+            "zh": "头"
+          },
+          {
+            "w": "glow",
+            "p": "/ɡloʊ/",
+            "zh": "发光"
+          },
+          {
+            "w": "power",
+            "p": "/ˈpaʊər/",
+            "zh": "力量"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-12.jpg",
         "en": "dodge /dɑːdʒ/ 闪避",
         "zh": "凋零向史蒂夫射出爆炸骷髅头！他向左转，然后向右转。轰！轰！天空中满是爆炸。",
-        "keys": []
+        "keys": [
+          {
+            "w": "dodge",
+            "p": "/dɑːdʒ/",
+            "zh": "闪避"
+          },
+          {
+            "w": "explosion",
+            "p": "/ɪkˈsploʊʒn/",
+            "zh": "爆炸"
+          },
+          {
+            "w": "skull",
+            "p": "/skʌl/",
+            "zh": "骷髅头"
+          },
+          {
+            "w": "turn",
+            "p": "/tɜːrn/",
+            "zh": "转向"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-13.jpg",
         "en": "straight /streɪt/ 直直地",
         "zh": "一个骷髅头直冲他而来！史蒂夫把飞机翻了过来，从它旁边飞过。好险！",
-        "keys": []
+        "keys": [
+          {
+            "w": "straight",
+            "p": "/streɪt/",
+            "zh": "直直地"
+          },
+          {
+            "w": "plane",
+            "p": "/pleɪn/",
+            "zh": "飞机"
+          },
+          {
+            "w": "flip",
+            "p": "/flɪp/",
+            "zh": "翻转"
+          },
+          {
+            "w": "past",
+            "p": "/pæst/",
+            "zh": "经过"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-14.jpg",
         "en": "special /ˈspeʃl/ 特殊的",
         "zh": "\"我需要反击！\"史蒂夫拿起他的附魔弓。他有特殊的箭——光之箭。",
-        "keys": []
+        "keys": [
+          {
+            "w": "special",
+            "p": "/ˈspeʃl/",
+            "zh": "特殊的"
+          },
+          {
+            "w": "attack",
+            "p": "/əˈtæk/",
+            "zh": "反击"
+          },
+          {
+            "w": "enchanted",
+            "p": "/ɪnˈtʃæntɪd/",
+            "zh": "附魔的"
+          },
+          {
+            "w": "bow",
+            "p": "/boʊ/",
+            "zh": "弓"
+          },
+          {
+            "w": "arrow",
+            "p": "/ˈæroʊ/",
+            "zh": "箭"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-15.jpg",
         "en": "shooting star /ˈʃuːtɪŋ stɑːr/ 流星",
         "zh": "史蒂夫仔细瞄准。他射箭了！金色的箭像流星一样划过黑暗的天空。",
-        "keys": []
+        "keys": [
+          {
+            "w": "shooting star",
+            "p": "/ˈʃuːtɪŋ stɑːr/",
+            "zh": "流星"
+          },
+          {
+            "w": "aim",
+            "p": "/eɪm/",
+            "zh": "瞄准"
+          },
+          {
+            "w": "golden",
+            "p": "/ˈɡoʊldən/",
+            "zh": "金色的"
+          },
+          {
+            "w": "dark",
+            "p": "/dɑːrk/",
+            "zh": "黑暗的"
+          },
+          {
+            "w": "sky",
+            "p": "/skaɪ/",
+            "zh": "天空"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-16.jpg",
         "en": "scream /skriːm/ 尖叫",
         "zh": "命中！箭射中了凋零的第一个头。它痛苦地尖叫！蓝色火花四处飞溅。",
-        "keys": []
+        "keys": [
+          {
+            "w": "scream",
+            "p": "/skriːm/",
+            "zh": "尖叫"
+          },
+          {
+            "w": "hit",
+            "p": "/hɪt/",
+            "zh": "击中"
+          },
+          {
+            "w": "pain",
+            "p": "/peɪn/",
+            "zh": "疼痛"
+          },
+          {
+            "w": "spark",
+            "p": "/spɑːrk/",
+            "zh": "火花"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-17.jpg",
         "en": "direction /dəˈrekʃn/ 方向",
         "zh": "凋零暴怒了！它变得更大，向四面八方射出骷髅头。天空变成了战场。",
-        "keys": []
+        "keys": [
+          {
+            "w": "direction",
+            "p": "/dəˈrekʃn/",
+            "zh": "方向"
+          },
+          {
+            "w": "furious",
+            "p": "/ˈfjʊriəs/",
+            "zh": "狂怒的"
+          },
+          {
+            "w": "battlefield",
+            "p": "/ˈbætlfiːld/",
+            "zh": "战场"
+          },
+          {
+            "w": "bigger",
+            "p": "/ˈbɪɡər/",
+            "zh": "更大的"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-18.jpg",
         "en": "give up /ɡɪv ʌp/ 放弃",
         "zh": "砰！一个骷髅头击中了史蒂夫的机翼。烟冒了出来。飞机摇晃着。但史蒂夫没有放弃。",
-        "keys": []
+        "keys": [
+          {
+            "w": "give up",
+            "p": "/ɡɪv ʌp/",
+            "zh": "放弃"
+          },
+          {
+            "w": "wing",
+            "p": "/wɪŋ/",
+            "zh": "机翼"
+          },
+          {
+            "w": "smoke",
+            "p": "/smoʊk/",
+            "zh": "烟"
+          },
+          {
+            "w": "shake",
+            "p": "/ʃeɪk/",
+            "zh": "摇晃"
+          },
+          {
+            "w": "hit",
+            "p": "/hɪt/",
+            "zh": "击中"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-19.jpg",
         "en": "village /ˈvɪlɪdʒ/ 村庄",
         "zh": "史蒂夫在驾驶舱里站起来。他只剩一支箭了——他最强的一支。\"这是为了我的村庄！\"",
-        "keys": []
+        "keys": [
+          {
+            "w": "village",
+            "p": "/ˈvɪlɪdʒ/",
+            "zh": "村庄"
+          },
+          {
+            "w": "cockpit",
+            "p": "/ˈkɑːkpɪt/",
+            "zh": "驾驶舱"
+          },
+          {
+            "w": "strongest",
+            "p": "/ˈstrɔːŋɡɪst/",
+            "zh": "最强的"
+          },
+          {
+            "w": "last",
+            "p": "/læst/",
+            "zh": "最后的"
+          }
+        ]
       },
       {
         "img": "images/minecraft/page-20.jpg",
         "en": "epic /ˈepɪk/ 史诗般的",
         "zh": "他射箭了！金色的箭笔直飞去。它分裂成三束光，同时击中了三个头！",
-        "keys": []
+        "keys": [
+          {
+            "w": "epic",
+            "p": "/ˈepɪk/",
+            "zh": "史诗般的"
+          },
+          {
+            "w": "split",
+            "p": "/splɪt/",
+            "zh": "分裂"
+          },
+          {
+            "w": "beam",
+            "p": "/biːm/",
+            "zh": "光束"
+          },
+          {
+            "w": "directly",
+            "p": "/dəˈrektli/",
+            "zh": "笔直地"
+          },
+          {
+            "w": "simultaneously",
+            "p": "/ˌsaɪmlˈteɪniəsli/",
+            "zh": "同时地"
+          }
+        ]
       }
     ]
   },
@@ -405,313 +1389,1255 @@ const STORIES = [
         "img": "images/block-battle/page-1.jpg",
         "en": "This is a story about Block Battle. Two friends had an exciting match using all kinds of block weapons!",
         "zh": "这是一个关于方块对战的故事。两个小伙伴用各种方块武器展开了一场精彩的比赛！",
-        "keys": []
+        "keys": [
+          {
+            "w": "story",
+            "p": "/ˈstɔːri/",
+            "zh": "故事"
+          },
+          {
+            "w": "friend",
+            "p": "/frend/",
+            "zh": "朋友"
+          },
+          {
+            "w": "exciting",
+            "p": "/ɪkˈsaɪtɪŋ/",
+            "zh": "精彩的"
+          },
+          {
+            "w": "match",
+            "p": "/mætʃ/",
+            "zh": "比赛"
+          },
+          {
+            "w": "weapon",
+            "p": "/ˈwepən/",
+            "zh": "武器"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-2.jpg",
         "en": "Let's play Block Battle!\n\n🇨🇳 来玩方块大战吧！\n\n• battle /ˈbætl/ — 大战\n• block /blɑːk/ — 方块\n• arena /əˈriːnə/ — 竞技场\n\n• Let's play — 我们来玩吧\n• Block Battle — 方块大战",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "battle",
+            "p": "/ˈbætl/",
+            "zh": "大战"
+          },
+          {
+            "w": "block",
+            "p": "/blɑːk/",
+            "zh": "方块"
+          },
+          {
+            "w": "arena",
+            "p": "/əˈriːnə/",
+            "zh": "竞技场"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-3.jpg",
         "en": "I'll pick a cube with stealth skill!\n\n🇨🇳 我选个带隐身技能的方块！\n\n• stealth /stelθ/ — 隐身\n• skill /skɪl/ — 技能\n• choose /tʃuːz/ — 选择\n\n• stealth skill — 隐身技能\n• pick a cube — 选一个方块",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "stealth",
+            "p": "/stelθ/",
+            "zh": "隐身"
+          },
+          {
+            "w": "skill",
+            "p": "/skɪl/",
+            "zh": "技能"
+          },
+          {
+            "w": "choose",
+            "p": "/tʃuːz/",
+            "zh": "选择"
+          },
+          {
+            "w": "cube",
+            "p": "/kjuːb/",
+            "zh": "立方体；方块"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-4.jpg",
         "en": "I'll build a three-layer obsidian shield!\n\n🇨🇳 我先造个三层黑曜石盾牌！\n\n• obsidian /əbˈsɪdiən/ — 黑曜石\n• shield /ʃiːld/ — 盾牌\n• layer /ˈleɪər/ — 层\n\n• three-layer — 三层\n• obsidian shield — 黑曜石盾牌",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "obsidian",
+            "p": "/əbˈsɪdiən/",
+            "zh": "黑曜石"
+          },
+          {
+            "w": "shield",
+            "p": "/ʃiːld/",
+            "zh": "盾牌"
+          },
+          {
+            "w": "layer",
+            "p": "/ˈleɪər/",
+            "zh": "层"
+          },
+          {
+            "w": "build",
+            "p": "/bɪld/",
+            "zh": "建造"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-5.jpg",
         "en": "Obsidian is super hard, normal attacks can't break it!\n\n🇨🇳 黑曜石超硬，一般攻击打不破！\n\n• super /ˈsuːpər/ — 超级\n• attack /əˈtæk/ — 攻击\n• break /breɪk/ — 打破\n\n• super hard — 超硬\n• can't break it — 打不破",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "super",
+            "p": "/ˈsuːpər/",
+            "zh": "超级"
+          },
+          {
+            "w": "attack",
+            "p": "/əˈtæk/",
+            "zh": "攻击"
+          },
+          {
+            "w": "break",
+            "p": "/breɪk/",
+            "zh": "打破"
+          },
+          {
+            "w": "hard",
+            "p": "/hɑːrd/",
+            "zh": "坚硬的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-6.jpg",
         "en": "Watch this! I ride a sword with evil attack!\n\n🇨🇳 看我的，我骑了一把带邪恶攻击的剑！\n\n• sword /sɔːrd/ — 剑\n• evil /ˈiːvəl/ — 邪恶\n• ride /raɪd/ — 骑\n\n• evil attack — 邪恶攻击\n• ride a sword — 骑一把剑",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "sword",
+            "p": "/sɔːrd/",
+            "zh": "剑"
+          },
+          {
+            "w": "evil",
+            "p": "/ˈiːvəl/",
+            "zh": "邪恶"
+          },
+          {
+            "w": "ride",
+            "p": "/raɪd/",
+            "zh": "骑"
+          },
+          {
+            "w": "watch",
+            "p": "/wɑːtʃ/",
+            "zh": "看"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-7.jpg",
         "en": "The obsidian shield got crushed flat!\n\n🇨🇳 黑曜石盾牌被一下打扁了！\n\n• crush /krʌʃ/ — 压碎\n• flat /flæt/ — 扁的\n• smash /smæʃ/ — 砸碎\n\n• crushed flat — 打扁了\n• in one hit — 一下就",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "crush",
+            "p": "/krʌʃ/",
+            "zh": "压碎"
+          },
+          {
+            "w": "flat",
+            "p": "/flæt/",
+            "zh": "扁的"
+          },
+          {
+            "w": "smash",
+            "p": "/smæʃ/",
+            "zh": "砸碎"
+          },
+          {
+            "w": "hit",
+            "p": "/hɪt/",
+            "zh": "击打"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-8.jpg",
         "en": "I'll build a laser-shooting turret!\n\n🇨🇳 我要造个会发射激光的炮塔！\n\n• laser /ˈleɪzər/ — 激光\n• turret /ˈtɜːrət/ — 炮塔\n• shoot /ʃuːt/ — 发射\n\n• laser turret — 激光炮塔\n• shoot laser — 发射激光",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "laser",
+            "p": "/ˈleɪzər/",
+            "zh": "激光"
+          },
+          {
+            "w": "turret",
+            "p": "/ˈtɜːrət/",
+            "zh": "炮塔"
+          },
+          {
+            "w": "shoot",
+            "p": "/ʃuːt/",
+            "zh": "发射"
+          },
+          {
+            "w": "build",
+            "p": "/bɪld/",
+            "zh": "建造"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-9.jpg",
         "en": "Look at my super giant hammer!\n\n🇨🇳 看我的超级大锤子王！\n\n• hammer /ˈhæmər/ — 锤子\n• giant /ˈdʒaɪənt/ — 巨大的\n• swing /swɪŋ/ — 挥舞\n\n• giant hammer — 巨大的锤子\n• Hammer King — 锤子王",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "hammer",
+            "p": "/ˈhæmər/",
+            "zh": "锤子"
+          },
+          {
+            "w": "giant",
+            "p": "/ˈdʒaɪənt/",
+            "zh": "巨大的"
+          },
+          {
+            "w": "swing",
+            "p": "/swɪŋ/",
+            "zh": "挥舞"
+          },
+          {
+            "w": "super",
+            "p": "/ˈsuːpər/",
+            "zh": "超级"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-10.jpg",
         "en": "The turret got smashed into pieces!\n\n🇨🇳 炮塔直接被锤成碎片！\n\n• pieces /ˈpiːsɪz/ — 碎片\n• destroy /dɪˈstrɔɪ/ — 摧毁\n• explode /ɪkˈsploʊd/ — 爆炸\n\n• into pieces — 成碎片\n• smashed into — 被砸成",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "pieces",
+            "p": "/ˈpiːsɪz/",
+            "zh": "碎片"
+          },
+          {
+            "w": "destroy",
+            "p": "/dɪˈstrɔɪ/",
+            "zh": "摧毁"
+          },
+          {
+            "w": "explode",
+            "p": "/ɪkˈsploʊd/",
+            "zh": "爆炸"
+          },
+          {
+            "w": "smash",
+            "p": "/smæʃ/",
+            "zh": "猛砸"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-11.jpg",
         "en": "I'll build a flying mechanical fortress!\n\n🇨🇳 我要造一个会飞的机械堡垒！\n\n• fortress /ˈfɔːrtrəs/ — 堡垒\n• mechanical /məˈkænɪkəl/ — 机械的\n• flying /ˈflaɪɪŋ/ — 飞行的\n\n• flying fortress — 飞行堡垒",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "fortress",
+            "p": "/ˈfɔːrtrəs/",
+            "zh": "堡垒"
+          },
+          {
+            "w": "mechanical",
+            "p": "/məˈkænɪkəl/",
+            "zh": "机械的"
+          },
+          {
+            "w": "flying",
+            "p": "/ˈflaɪɪŋ/",
+            "zh": "飞行的"
+          },
+          {
+            "w": "build",
+            "p": "/bɪld/",
+            "zh": "建造"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-12.jpg",
         "en": "This hammer weighs 1,500 blocks!\n\n🇨🇳 这锤子有1500个方块那么重！\n\n• weigh /weɪ/ — 重\n• heavy /ˈhevi/ — 重的\n• ton /tʌn/ — 吨\n\n• weighs 1,500 — 重1500\n• super weapon — 超级武器",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "hammer",
+            "p": "/ˈhæmər/",
+            "zh": "锤子"
+          },
+          {
+            "w": "weigh",
+            "p": "/weɪ/",
+            "zh": "重；称重"
+          },
+          {
+            "w": "heavy",
+            "p": "/ˈhevi/",
+            "zh": "重的"
+          },
+          {
+            "w": "weapon",
+            "p": "/ˈwepən/",
+            "zh": "武器"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-13.jpg",
         "en": "The fortress got smashed and can't move!\n\n🇨🇳 机械堡垒被砸得动弹不得了！\n\n• stuck /stʌk/ — 卡住的\n• trap /træp/ — 困住\n• collapse /kəˈlæps/ — 倒塌\n\n• can't move — 动弹不得",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "fortress",
+            "p": "/ˈfɔːrtrəs/",
+            "zh": "堡垒"
+          },
+          {
+            "w": "smashed",
+            "p": "/smæʃt/",
+            "zh": "被砸碎的"
+          },
+          {
+            "w": "stuck",
+            "p": "/stʌk/",
+            "zh": "卡住的"
+          },
+          {
+            "w": "collapse",
+            "p": "/kəˈlæps/",
+            "zh": "倒塌"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-14.jpg",
         "en": "Look at my mechanical hand!\n\n🇨🇳 看我的机械手！\n\n• grab /ɡræb/ — 抓住\n• extend /ɪkˈstend/ — 伸出\n• mechanical /məˈkænɪkəl/ — 机械的\n\n• mechanical hand — 机械手\n• reach out — 伸出来",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "mechanical",
+            "p": "/məˈkænɪkəl/",
+            "zh": "机械的"
+          },
+          {
+            "w": "hand",
+            "p": "/hænd/",
+            "zh": "手"
+          },
+          {
+            "w": "grab",
+            "p": "/ɡræb/",
+            "zh": "抓住"
+          },
+          {
+            "w": "extend",
+            "p": "/ɪkˈstend/",
+            "zh": "伸出"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-15.jpg",
         "en": "The mechanical hand weighs 700!\n\n🇨🇳 机械手有700那么重！\n\n• weight /weɪt/ — 重量\n• powerful /ˈpaʊərfəl/ — 强大的\n• grip /ɡrɪp/ — 抓力\n\n• weighs 700 — 重700",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "mechanical",
+            "p": "/məˈkænɪkəl/",
+            "zh": "机械的"
+          },
+          {
+            "w": "weight",
+            "p": "/weɪt/",
+            "zh": "重量"
+          },
+          {
+            "w": "powerful",
+            "p": "/ˈpaʊərfəl/",
+            "zh": "强大的"
+          },
+          {
+            "w": "grip",
+            "p": "/ɡrɪp/",
+            "zh": "抓力"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-16.jpg",
         "en": "I'll use the hammer to launch you into the sky!\n\n🇨🇳 我用锤子一敲，你就飞到天上去了！\n\n• launch /lɔːntʃ/ — 发射\n• clever /ˈklevər/ — 聪明的\n• plan /plæn/ — 计划\n\n• launch into the sky — 飞上天\n• clever plan — 聪明的计划",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "hammer",
+            "p": "/ˈhæmər/",
+            "zh": "锤子"
+          },
+          {
+            "w": "launch",
+            "p": "/lɔːntʃ/",
+            "zh": "发射"
+          },
+          {
+            "w": "clever",
+            "p": "/ˈklevər/",
+            "zh": "聪明的"
+          },
+          {
+            "w": "plan",
+            "p": "/plæn/",
+            "zh": "计划"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-17.jpg",
         "en": "BANG! The hammer strikes the ground!\n\n🇨🇳 哐当！锤子猛击地面！\n\n• strike /straɪk/ — 击打\n• ground /ɡraʊnd/ — 地面\n• shockwave /ˈʃɑːkweɪv/ — 冲击波\n\n• strike the ground — 猛击地面\n• sound wave — 声波",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "bang",
+            "p": "/bæŋ/",
+            "zh": "砰"
+          },
+          {
+            "w": "strike",
+            "p": "/straɪk/",
+            "zh": "击打"
+          },
+          {
+            "w": "ground",
+            "p": "/ɡraʊnd/",
+            "zh": "地面"
+          },
+          {
+            "w": "shockwave",
+            "p": "/ˈʃɑːkweɪv/",
+            "zh": "冲击波"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-18.jpg",
         "en": "Flying into the sky like a cannonball!\n\n🇨🇳 像小炮弹一样飞上了天！\n\n• cannonball /ˈkænənbɔːl/ — 炮弹\n• soar /sɔːr/ — 翱翔\n• fly /flaɪ/ — 飞\n\n• like a cannonball — 像炮弹一样",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "cannonball",
+            "p": "/ˈkænənbɔːl/",
+            "zh": "炮弹"
+          },
+          {
+            "w": "soar",
+            "p": "/sɔːr/",
+            "zh": "翱翔"
+          },
+          {
+            "w": "fly",
+            "p": "/flaɪ/",
+            "zh": "飞"
+          },
+          {
+            "w": "sky",
+            "p": "/skaɪ/",
+            "zh": "天空"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-19.jpg",
         "en": "Let the mechanical hand place blocks for me!\n\n🇨🇳 让机械手帮我放方块！\n\n• lazy /ˈleɪzi/ — 懒的\n• sleep /sliːp/ — 睡觉\n• place /pleɪs/ — 放置\n\n• lazy — 懒惰的\n• place blocks — 放方块",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "mechanical",
+            "p": "/məˈkænɪkəl/",
+            "zh": "机械的"
+          },
+          {
+            "w": "place",
+            "p": "/pleɪs/",
+            "zh": "放置"
+          },
+          {
+            "w": "block",
+            "p": "/blɑːk/",
+            "zh": "方块"
+          },
+          {
+            "w": "lazy",
+            "p": "/ˈleɪzi/",
+            "zh": "懒的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-20.jpg",
         "en": "I'll just lie here and sleep peacefully!\n\n🇨🇳 我就躺在这里睡觉！\n\n• peaceful /ˈpiːsfl/ — 平静的\n• snore /snɔːr/ — 打呼噜\n• rest /rest/ — 休息\n\n• lie down — 躺下\n• sleep peacefully — 安稳睡觉",
         "zh": "",
-        "keys": []
+        "keys": [
+          {
+            "w": "lie",
+            "p": "/laɪ/",
+            "zh": "躺"
+          },
+          {
+            "w": "sleep",
+            "p": "/sliːp/",
+            "zh": "睡觉"
+          },
+          {
+            "w": "peaceful",
+            "p": "/ˈpiːsfl/",
+            "zh": "平静的"
+          },
+          {
+            "w": "rest",
+            "p": "/rest/",
+            "zh": "休息"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-21.jpg",
         "en": "The adventure never ends! Let's play again!",
         "zh": "冒险永不止步！我们再来一场吧！",
-        "keys": []
+        "keys": [
+          {
+            "w": "adventure",
+            "p": "/ədˈventʃər/",
+            "zh": "冒险"
+          },
+          {
+            "w": "never",
+            "p": "/ˈnevər/",
+            "zh": "从不；永不"
+          },
+          {
+            "w": "ends",
+            "p": "/endz/",
+            "zh": "结束"
+          },
+          {
+            "w": "again",
+            "p": "/əˈɡen/",
+            "zh": "再一次"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-22.jpg",
         "en": "battle /ˈbætl/ 大战，start a battle 开始一场大战\narena /əˈriːnə/ 竞技场，colorful arena 彩色竞技场\nready /ˈredi/ 准备好的，get ready 准备好",
         "zh": "两个小方块勇士在彩色的竞技场面对面，准备玩一个超酷的游戏——方块大战！他们每个人都要建造自己强大的武器。",
-        "keys": []
+        "keys": [
+          {
+            "w": "battle",
+            "p": "/ˈbætl/",
+            "zh": "大战"
+          },
+          {
+            "w": "arena",
+            "p": "/əˈriːnə/",
+            "zh": "竞技场"
+          },
+          {
+            "w": "ready",
+            "p": "/ˈredi/",
+            "zh": "准备好的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-23.jpg",
         "en": "stealth /stelθ/ 隐身，stealth skill 隐身技能\ndisappear /ˌdɪsəˈpɪr/ 消失，disappear into thin air 消失在空气中",
         "zh": "勇士选了一个带隐身技能的方块！它身上发出神秘的蓝色光芒，慢慢消失在空气中。",
-        "keys": []
+        "keys": [
+          {
+            "w": "stealth",
+            "p": "/stelθ/",
+            "zh": "隐身"
+          },
+          {
+            "w": "disappear",
+            "p": "/ˌdɪsəˈpɪr/",
+            "zh": "消失"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-24.jpg",
         "en": "obsidian /əbˈsɪdiən/ 黑曜石\nshield /ʃiːld/ 盾牌，build a shield 造一个盾牌\nlayer /ˈleɪər/ 层，three-layer 三层",
         "zh": "一个巨大的三层黑曜石盾牌从地面升起，散发着火山能量。一般攻击根本打不破！",
-        "keys": []
+        "keys": [
+          {
+            "w": "obsidian",
+            "p": "/əbˈsɪdiən/",
+            "zh": "黑曜石"
+          },
+          {
+            "w": "shield",
+            "p": "/ʃiːld/",
+            "zh": "盾牌"
+          },
+          {
+            "w": "layer",
+            "p": "/ˈleɪər/",
+            "zh": "层"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-25.jpg",
         "en": "sword /sɔːrd/ 剑\nevil /ˈiːvəl/ 邪恶的，evil attack 邪恶攻击\ncrash /kræʃ/ 猛撞，come crashing down 猛砸下来",
         "zh": "勇士跳上一把巨大的暗紫色之剑。带着邪恶的攻击力，猛砸向盾牌！",
-        "keys": []
+        "keys": [
+          {
+            "w": "sword",
+            "p": "/sɔːrd/",
+            "zh": "剑"
+          },
+          {
+            "w": "evil",
+            "p": "/ˈiːvəl/",
+            "zh": "邪恶的"
+          },
+          {
+            "w": "crash",
+            "p": "/kræʃ/",
+            "zh": "猛撞"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-26.jpg",
         "en": "crush /krʌʃ/ 压碎，crushed flat 被砸扁\nshard /ʃɑːrd/ 碎片\nfirework /ˈfaɪərwɜːrk/ 烟花",
         "zh": "黑曜石盾牌被彻底砸扁了！碎片像烟花一样四处飞溅。",
-        "keys": []
+        "keys": [
+          {
+            "w": "crush",
+            "p": "/krʌʃ/",
+            "zh": "压碎"
+          },
+          {
+            "w": "shard",
+            "p": "/ʃɑːrd/",
+            "zh": "碎片"
+          },
+          {
+            "w": "firework",
+            "p": "/ˈfaɪərwɜːrk/",
+            "zh": "烟花"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-27.jpg",
         "en": "laser /ˈleɪzər/ 激光\ncharge /tʃɑːrdʒ/ 充能\ndodge /dɑːdʒ/ 躲闪",
         "zh": "一个高科技炮塔升起，充能着明亮的红色激光束。你怎么躲？",
-        "keys": []
+        "keys": [
+          {
+            "w": "laser",
+            "p": "/ˈleɪzər/",
+            "zh": "激光"
+          },
+          {
+            "w": "charge",
+            "p": "/tʃɑːrdʒ/",
+            "zh": "充能"
+          },
+          {
+            "w": "dodge",
+            "p": "/dɑːdʒ/",
+            "zh": "躲闪"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-28.jpg",
         "en": "hammer /ˈhæmər/ 锤子\ngiant /ˈdʒaɪənt/ 巨大的\nlegendary /ˈledʒənderi/ 传说的",
         "zh": "勇士挥舞着一把巨大的金色锤子。这就是传说中的锤子王——最强的武器！",
-        "keys": []
+        "keys": [
+          {
+            "w": "hammer",
+            "p": "/ˈhæmər/",
+            "zh": "锤子"
+          },
+          {
+            "w": "giant",
+            "p": "/ˈdʒaɪənt/",
+            "zh": "巨大的"
+          },
+          {
+            "w": "legendary",
+            "p": "/ˈledʒənderi/",
+            "zh": "传说的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-29.jpg",
         "en": "swing /swɪŋ/ 挥舞，one swing 一下挥舞\nboom /buːm/ 轰隆声\ntiny /ˈtaɪni/ 微小的",
         "zh": "激光炮塔被大锤一挥就砸成了碎片！",
-        "keys": []
+        "keys": [
+          {
+            "w": "swing",
+            "p": "/swɪŋ/",
+            "zh": "挥舞"
+          },
+          {
+            "w": "boom",
+            "p": "/buːm/",
+            "zh": "轰隆声"
+          },
+          {
+            "w": "tiny",
+            "p": "/ˈtaɪni/",
+            "zh": "微小的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-30.jpg",
         "en": "fortress /ˈfɔːrtrəs/ 堡垒\nmechanical /məˈkænɪkəl/ 机械的\nunbeatable /ʌnˈbiːtəbl/ 不可战胜的",
         "zh": "一个带着翅膀的巨大堡垒升上天空。看起来不可战胜！",
-        "keys": []
+        "keys": [
+          {
+            "w": "fortress",
+            "p": "/ˈfɔːrtrəs/",
+            "zh": "堡垒"
+          },
+          {
+            "w": "mechanical",
+            "p": "/məˈkænɪkəl/",
+            "zh": "机械的"
+          },
+          {
+            "w": "unbeatable",
+            "p": "/ʌnˈbiːtəbl/",
+            "zh": "不可战胜的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-31.jpg",
         "en": "weigh /weɪ/ 重（动词）\nweight /weɪt/ 重量（名词）\nimmense /ɪˈmens/ 巨大的",
         "zh": "这锤子有1500个方块那么重！堡垒在巨大的重量下颤抖，几乎飞不动了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "weigh",
+            "p": "/weɪ/",
+            "zh": "重（动词）"
+          },
+          {
+            "w": "weight",
+            "p": "/weɪt/",
+            "zh": "重量（名词）"
+          },
+          {
+            "w": "immense",
+            "p": "/ɪˈmens/",
+            "zh": "巨大的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-32.jpg",
         "en": "extend /ɪkˈstend/ 伸出\nreach /riːtʃ/ 伸向，reach for 伸向\nincredible /ɪnˈkredəbl/ 惊人的",
         "zh": "一只巨大的金属手臂从地面伸出，以惊人的力量向堡垒抓去。",
-        "keys": []
+        "keys": [
+          {
+            "w": "extend",
+            "p": "/ɪkˈstend/",
+            "zh": "伸出"
+          },
+          {
+            "w": "reach",
+            "p": "/riːtʃ/",
+            "zh": "伸向"
+          },
+          {
+            "w": "incredible",
+            "p": "/ɪnˈkredəbl/",
+            "zh": "惊人的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-33.jpg",
         "en": "clever /ˈklevər/ 聪明的\nsound wave /saʊnd weɪv/ 声波\nlaunch /lɔːntʃ/ 发射，弹飞",
         "zh": "勇士想到了一个聪明的计划！如果锤子砸到地面，声波把敌人弹飞到天上呢？",
-        "keys": []
+        "keys": [
+          {
+            "w": "clever",
+            "p": "/ˈklevər/",
+            "zh": "聪明的"
+          },
+          {
+            "w": "sound wave",
+            "p": "/saʊnd weɪv/",
+            "zh": "声波"
+          },
+          {
+            "w": "launch",
+            "p": "/lɔːntʃ/",
+            "zh": "发射；弹飞"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-34.jpg",
         "en": "strike /straɪk/ 击打\nforce /fɔːrs/ 力量\nshockwave /ˈʃɑːkweɪv/ 冲击波",
         "zh": "锤子以惊人的力量猛击地面！巨大的冲击波向四面八方扩散。",
-        "keys": []
+        "keys": [
+          {
+            "w": "strike",
+            "p": "/straɪk/",
+            "zh": "击打"
+          },
+          {
+            "w": "force",
+            "p": "/fɔːrs/",
+            "zh": "力量"
+          },
+          {
+            "w": "shockwave",
+            "p": "/ˈʃɑːkweɪv/",
+            "zh": "冲击波"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-35.jpg",
         "en": "cannonball /ˈkænənbɔːl/ 炮弹\nhigh /haɪ/ 高高地\nover /ˈoʊvər/ 结束",
         "zh": "像一颗炮弹一样，敌人飞上了高高的天空！对战结束了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "cannonball",
+            "p": "/ˈkænənbɔːl/",
+            "zh": "炮弹"
+          },
+          {
+            "w": "high",
+            "p": "/haɪ/",
+            "zh": "高高地"
+          },
+          {
+            "w": "over",
+            "p": "/ˈoʊvər/",
+            "zh": "结束"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-36.jpg",
         "en": "lazy /ˈleɪzi/ 懒惰的\ncomfortably /ˈkʌmftəbli/ 舒服地\nfall asleep /fɔːl əˈsliːp/ 入睡",
         "zh": "为什么要放方块？让机械手帮我放！勇士舒服地躺下来，睡着了。",
-        "keys": []
+        "keys": [
+          {
+            "w": "lazy",
+            "p": "/ˈleɪzi/",
+            "zh": "懒惰的"
+          },
+          {
+            "w": "comfortably",
+            "p": "/ˈkʌmftəbli/",
+            "zh": "舒服地"
+          },
+          {
+            "w": "fall asleep",
+            "p": "/fɔːl əˈsliːp/",
+            "zh": "入睡"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-37.jpg",
         "en": "The adventure never ends! Let us play again!",
         "zh": "冒险永不止步！我们再来一场吧！",
-        "keys": []
+        "keys": [
+          {
+            "w": "adventure",
+            "p": "/ədˈventʃər/",
+            "zh": "冒险"
+          },
+          {
+            "w": "never",
+            "p": "/ˈnevər/",
+            "zh": "从不；永不"
+          },
+          {
+            "w": "again",
+            "p": "/əˈɡen/",
+            "zh": "再次"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-38.jpg",
         "en": "warrior /ˈwɔːriər/ 勇士，a brave warrior 一个勇敢的勇士\narena /əˈriːnə/ 竞技场，colorful arena 彩色竞技场\ncount down /kaʊnt daʊn/ 倒数",
         "zh": "一个阳光明媚的下午，两个最好的朋友——一个披着红披风的小勇士和一个聪明的建造师——在彩色的竞技场面对面站着。今天就是他们期待已久的日子：方块大战！每个人都要设计自己的武器，比比谁最强。",
-        "keys": []
+        "keys": [
+          {
+            "w": "warrior",
+            "p": "/ˈwɔːriər/",
+            "zh": "勇士"
+          },
+          {
+            "w": "arena",
+            "p": "/əˈriːnə/",
+            "zh": "竞技场"
+          },
+          {
+            "w": "count down",
+            "p": "/kaʊnt daʊn/",
+            "zh": "倒数"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-39.jpg",
         "en": "stealth /stelθ/ 隐身，stealth skill 隐身技能\ndisappear /ˌdɪsəˈpɪr/ 消失，disappear into thin air 消失在空气中\nconfused /kənˈfjuːzd/ 困惑的",
         "zh": "建造师笑着说：'我选一个带隐身技能的方块！'突然，他全身开始发出神秘的蓝色光芒。慢慢地，他消失在了空气中！'现在你看不到我了！'他的声音从四面八方传来。",
-        "keys": []
+        "keys": [
+          {
+            "w": "stealth",
+            "p": "/stelθ/",
+            "zh": "隐身"
+          },
+          {
+            "w": "disappear",
+            "p": "/ˌdɪsəˈpɪr/",
+            "zh": "消失"
+          },
+          {
+            "w": "confused",
+            "p": "/kənˈfjuːzd/",
+            "zh": "困惑的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-40.jpg",
         "en": "obsidian /əbˈsɪdiən/ 黑曜石\nshield /ʃiːld/ 盾牌，build a shield 造一个盾牌\nmaterial /məˈtɪriəl/ 材料",
         "zh": "建造师重新出现了，立刻开始工作。'我要造一个三层黑曜石盾牌！'他骄傲地宣布。一块一块地，一个巨大的黑色盾牌从地面升起。黑曜石是方块世界最坚硬的材料之一。'一般攻击根本打不破这个！'他笑着说。",
-        "keys": []
+        "keys": [
+          {
+            "w": "obsidian",
+            "p": "/əbˈsɪdiən/",
+            "zh": "黑曜石"
+          },
+          {
+            "w": "shield",
+            "p": "/ʃiːld/",
+            "zh": "盾牌"
+          },
+          {
+            "w": "material",
+            "p": "/məˈtɪriəl/",
+            "zh": "材料"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-41.jpg",
         "en": "sword /sɔːrd/ 剑\nevil /ˈiːvəl/ 邪恶的，evil attack 邪恶攻击\nlightning /ˈlaɪtnɪŋ/ 闪电",
         "zh": "勇士一点也不担心。'看我的！'他大喊，跳上了一把漂浮在空中的巨大暗紫色之剑。剑上覆盖着邪恶能量，闪着暗紫色的闪电。'有这个邪恶攻击力，你的盾牌什么都不算！'勇士全速飞向盾牌。",
-        "keys": []
+        "keys": [
+          {
+            "w": "sword",
+            "p": "/sɔːrd/",
+            "zh": "剑"
+          },
+          {
+            "w": "evil",
+            "p": "/ˈiːvəl/",
+            "zh": "邪恶的"
+          },
+          {
+            "w": "lightning",
+            "p": "/ˈlaɪtnɪŋ/",
+            "zh": "闪电"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-42.jpg",
         "en": "crush /krʌʃ/ 压碎，crushed flat 被砸扁\nshard /ʃɑːrd/ 碎片\nimpossible /ɪmˈpɑːsəbl/ 不可能的",
         "zh": "哐当！邪恶之剑以惊人的力量撞上黑曜石盾牌。让所有人吃惊的是，传说中坚不可摧的盾牌被彻底砸扁了——像一张煎饼！黑曜石碎片像烟花一样四处飞溅。'不可能！'建造师惊呼，盯着被拍扁的盾牌残骸。",
-        "keys": []
+        "keys": [
+          {
+            "w": "crush",
+            "p": "/krʌʃ/",
+            "zh": "压碎"
+          },
+          {
+            "w": "shard",
+            "p": "/ʃɑːrd/",
+            "zh": "碎片"
+          },
+          {
+            "w": "impossible",
+            "p": "/ɪmˈpɑːsəbl/",
+            "zh": "不可能的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-43.jpg",
         "en": "laser /ˈleɪzər/ 激光\nturret /ˈtɜːrət/ 炮塔\ndodge /dɑːdʒ/ 躲闪",
         "zh": "建造师不肯认输。'好，比就比！'他迅速组装了一个高科技激光炮塔。炮塔嗡嗡地启动了，充能着明亮的红色激光束，照亮了整个竞技场。'看你躲不躲得过这个！'他咧嘴笑着，直接瞄准了勇士。",
-        "keys": []
+        "keys": [
+          {
+            "w": "laser",
+            "p": "/ˈleɪzər/",
+            "zh": "激光"
+          },
+          {
+            "w": "turret",
+            "p": "/ˈtɜːrət/",
+            "zh": "炮塔"
+          },
+          {
+            "w": "dodge",
+            "p": "/dɑːdʒ/",
+            "zh": "躲闪"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-44.jpg",
         "en": "hammer /ˈhæmər/ 锤子\nenormous /ɪˈnɔːrməs/ 巨大的\nsecret weapon /ˈsiːkrət ˈwepən/ 秘密武器",
         "zh": "勇士大笑，掏出了他的秘密武器——一把巨大的金色锤子，叫做锤子王。这是任何人见过的最大的锤子，闪耀着金光。'你觉得一个小激光就能挡住我？'他说着，把锤子高高举过头顶。",
-        "keys": []
+        "keys": [
+          {
+            "w": "hammer",
+            "p": "/ˈhæmər/",
+            "zh": "锤子"
+          },
+          {
+            "w": "enormous",
+            "p": "/ɪˈnɔːrməs/",
+            "zh": "巨大的"
+          },
+          {
+            "w": "secret weapon",
+            "p": "/ˈsiːkrət ˈwepən/",
+            "zh": "秘密武器"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-45.jpg",
         "en": "swing /swɪŋ/ 挥舞，one mighty swing 有力的一挥\nscrap /skræp/ 废铁，a pile of scrap 一堆废铁\nshock /ʃɑːk/ 震惊",
         "zh": "只一挥，轰！金色锤子砸在激光炮塔上，把它砸成了碎片！齿轮、电线和金属零件四处飞溅。建造师震惊地盯着炮塔变成的那堆废铁。'这锤子也太太太强了！'他小声说。",
-        "keys": []
+        "keys": [
+          {
+            "w": "swing",
+            "p": "/swɪŋ/",
+            "zh": "挥舞"
+          },
+          {
+            "w": "scrap",
+            "p": "/skræp/",
+            "zh": "废铁"
+          },
+          {
+            "w": "shock",
+            "p": "/ʃɑːk/",
+            "zh": "震惊"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-46.jpg",
         "en": "fortress /ˈfɔːrtrəs/ 堡垒\nmechanical /məˈkænɪkəl/ 机械的\nunbeatable /ʌnˈbiːtəbl/ 不可战胜的",
         "zh": "建造师还有一招。'我要造一个飞行的机械堡垒！'一个带着巨大翅膀的结构从地面升起，飞上了天空。它装着厚厚的金属板，看起来真的不可战胜。'你打不到会飞的东西！'建造师在空中大喊。",
-        "keys": []
+        "keys": [
+          {
+            "w": "fortress",
+            "p": "/ˈfɔːrtrəs/",
+            "zh": "堡垒"
+          },
+          {
+            "w": "mechanical",
+            "p": "/məˈkænɪkəl/",
+            "zh": "机械的"
+          },
+          {
+            "w": "unbeatable",
+            "p": "/ʌnˈbiːtəbl/",
+            "zh": "不可战胜的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-47.jpg",
         "en": "weigh /weɪ/ 重（动词）\nweight /weɪt/ 重量（名词）\nimmense /ɪˈmens/ 巨大的",
         "zh": "但勇士有一个更疯狂的主意。他拿出了最重的武器——一把重达1500个方块的锤子！当他举起它时，整个竞技场都在颤抖。飞行堡垒在巨大的重量下剧烈摇晃，几乎飞不动了。'这是我的超级武器！'勇士咧嘴笑道。",
-        "keys": []
+        "keys": [
+          {
+            "w": "weigh",
+            "p": "/weɪ/",
+            "zh": "重（动词）"
+          },
+          {
+            "w": "weight",
+            "p": "/weɪt/",
+            "zh": "重量"
+          },
+          {
+            "w": "immense",
+            "p": "/ɪˈmens/",
+            "zh": "巨大的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-48.jpg",
         "en": "extend /ɪkˈstend/ 伸出\ngrab /ɡræb/ 抓住\nstretch /stretʃ/ 伸展",
         "zh": "建造师快没招了，但他突然想起了一件事。'等等！我还有我的机械手！'一只巨大的金属手臂从地面伸出，伸向高空中的堡垒。它重700个方块，什么都能抓住。'这只手够强壮，能把你的堡垒抓碎！'他喊道。",
-        "keys": []
+        "keys": [
+          {
+            "w": "extend",
+            "p": "/ɪkˈstend/",
+            "zh": "伸出"
+          },
+          {
+            "w": "grab",
+            "p": "/ɡræb/",
+            "zh": "抓住"
+          },
+          {
+            "w": "stretch",
+            "p": "/stretʃ/",
+            "zh": "伸展"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-49.jpg",
         "en": "clever /ˈklevər/ 聪明的\nshockwave /ˈʃɑːkweɪv/ 冲击波\nbrilliant /ˈbrɪliənt/ 绝妙的",
         "zh": "勇士看着伸向自己的机械手，使劲思考。然后他的眼睛亮了。'我有一个聪明的计划！'他对自己说。'如果我用锤子砸地面，声波产生的冲击力就会把你弹飞到天上——我就赢了！'这是一个绝妙的主意。",
-        "keys": []
+        "keys": [
+          {
+            "w": "clever",
+            "p": "/ˈklevər/",
+            "zh": "聪明的"
+          },
+          {
+            "w": "shockwave",
+            "p": "/ˈʃɑːkweɪv/",
+            "zh": "冲击波"
+          },
+          {
+            "w": "brilliant",
+            "p": "/ˈbrɪliənt/",
+            "zh": "绝妙的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-50.jpg",
         "en": "strike /straɪk/ 击打\nimpact /ˈɪmpækt/ 撞击\necho /ˈekoʊ/ 回荡",
         "zh": "勇士把巨大的锤子高高举起，猛砸向地面。哐当！撞击力太大了，整个竞技场像地震一样摇晃。巨大的冲击波向四面八方扩散，把灰尘和方块都吹上了天。声音回荡在整个大地上。",
-        "keys": []
+        "keys": [
+          {
+            "w": "strike",
+            "p": "/straɪk/",
+            "zh": "击打"
+          },
+          {
+            "w": "impact",
+            "p": "/ˈɪmpækt/",
+            "zh": "撞击"
+          },
+          {
+            "w": "echo",
+            "p": "/ˈekoʊ/",
+            "zh": "回荡"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-51.jpg",
         "en": "cannonball /ˈkænənbɔːl/ 炮弹\ntumble /ˈtʌmbl/ 翻滚\namazed /əˈmeɪzd/ 惊讶的",
         "zh": "就像勇士计划的那样，建造师像一颗炮弹一样被弹飞上了天！他越飞越高，在云层中旋转翻滚。'我在飞！'他尖叫着，又害怕又惊讶。对战结束了——勇士用聪明的计谋赢了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "cannonball",
+            "p": "/ˈkænənbɔːl/",
+            "zh": "炮弹"
+          },
+          {
+            "w": "tumble",
+            "p": "/ˈtʌmbl/",
+            "zh": "翻滚"
+          },
+          {
+            "w": "amazed",
+            "p": "/əˈmeɪzd/",
+            "zh": "惊讶的"
+          }
+        ]
       },
       {
         "img": "images/block-battle/page-52.jpg",
         "en": "lazy /ˈleɪzi/ 懒惰的\ncomfortably /ˈkʌmftəbli/ 舒服地\nsnore /snɔːr/ 打呼噜",
         "zh": "大胜之后，勇士觉得很累。'我为什么还要继续放方块？'他打了个哈欠。'让机械手帮我干活吧！'他舒服地躺在一个柔软的方块上，闭上眼睛，很快就睡着了。机械手还在一块一块地放方块，勇士在一旁安静地打着呼噜。",
-        "keys": []
+        "keys": [
+          {
+            "w": "lazy",
+            "p": "/ˈleɪzi/",
+            "zh": "懒惰的"
+          },
+          {
+            "w": "comfortably",
+            "p": "/ˈkʌmftəbli/",
+            "zh": "舒服地"
+          },
+          {
+            "w": "snore",
+            "p": "/snɔːr/",
+            "zh": "打呼噜"
+          },
+          {
+            "w": "yawn",
+            "p": "/jɔːn/",
+            "zh": "打哈欠"
+          },
+          {
+            "w": "block",
+            "p": "/blɑːk/",
+            "zh": "方块"
+          }
+        ]
       }
     ]
   },
@@ -726,127 +2652,673 @@ const STORIES = [
         "img": "images/star-wars/page-1.jpg",
         "en": "",
         "zh": "在一个遥远的星系里，勇敢的小宇航员小星驾驶着他闪亮的蓝色飞船穿越星空。今天，他即将迎来人生中最伟大的冒险！",
-        "keys": []
+        "keys": [
+          {
+            "w": "galaxy",
+            "p": "/ˈɡæləksi/",
+            "zh": "星系"
+          },
+          {
+            "w": "astronaut",
+            "p": "/ˈæstrənɔːt/",
+            "zh": "宇航员"
+          },
+          {
+            "w": "spaceship",
+            "p": "/ˈspeɪsʃɪp/",
+            "zh": "飞船"
+          },
+          {
+            "w": "starry",
+            "p": "/ˈstɑːri/",
+            "zh": "布满星星的"
+          },
+          {
+            "w": "adventure",
+            "p": "/ədˈventʃər/",
+            "zh": "冒险"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-2.jpg",
         "en": "",
         "zh": "小星飞过一闪一闪的小星星。它们像撒落在黑暗天空中的小钻石一样闪烁。他看着周围美丽的星球，想该往哪边走。",
-        "keys": []
+        "keys": [
+          {
+            "w": "twinkle",
+            "p": "/ˈtwɪŋkəl/",
+            "zh": "闪烁"
+          },
+          {
+            "w": "diamond",
+            "p": "/ˈdaɪəmənd/",
+            "zh": "钻石"
+          },
+          {
+            "w": "darkness",
+            "p": "/ˈdɑːrknəs/",
+            "zh": "黑暗"
+          },
+          {
+            "w": "planet",
+            "p": "/ˈplænɪt/",
+            "zh": "星球"
+          },
+          {
+            "w": "surrounding",
+            "p": "/səˈraʊndɪŋ/",
+            "zh": "周围的"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-3.jpg",
         "en": "",
         "zh": "突然，一个圆滚滚的小机器人飘了过来！他叫豆豆，有着发光的眼睛和弹弹的身体。他微笑着问小星想不想一起玩星球大战。",
-        "keys": []
+        "keys": [
+          {
+            "w": "suddenly",
+            "p": "/ˈsʌdənli/",
+            "zh": "突然地"
+          },
+          {
+            "w": "robot",
+            "p": "/ˈroʊbɑːt/",
+            "zh": "机器人"
+          },
+          {
+            "w": "glowing",
+            "p": "/ˈɡloʊɪŋ/",
+            "zh": "发光的"
+          },
+          {
+            "w": "float",
+            "p": "/floʊt/",
+            "zh": "漂浮"
+          },
+          {
+            "w": "smile",
+            "p": "/smaɪl/",
+            "zh": "微笑"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-4.jpg",
         "en": "",
         "zh": "好呀！我们来玩！小星说。豆豆开始设计他自己的星球，这将是最棒的星球！小星也准备好了他的特殊武器。大战即将开始！",
-        "keys": []
+        "keys": [
+          {
+            "w": "design",
+            "p": "/dɪˈzaɪn/",
+            "zh": "设计"
+          },
+          {
+            "w": "planet",
+            "p": "/ˈplænɪt/",
+            "zh": "星球"
+          },
+          {
+            "w": "special",
+            "p": "/ˈspeʃəl/",
+            "zh": "特殊的"
+          },
+          {
+            "w": "weapon",
+            "p": "/ˈwepən/",
+            "zh": "武器"
+          },
+          {
+            "w": "battle",
+            "p": "/ˈbætl/",
+            "zh": "大战"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-5.jpg",
         "en": "",
         "zh": "豆豆创造了一颗壮观的水晶能量星球！它的外壳是透明的水晶，能吸收恒星的能量。他骄傲地说这是他的水晶星球，能发射超强激光炮！",
-        "keys": []
+        "keys": [
+          {
+            "w": "create",
+            "p": "/kriˈeɪt/",
+            "zh": "创造"
+          },
+          {
+            "w": "crystal",
+            "p": "/ˈkrɪstl/",
+            "zh": "水晶"
+          },
+          {
+            "w": "transparent",
+            "p": "/trænsˈperənt/",
+            "zh": "透明的"
+          },
+          {
+            "w": "absorb",
+            "p": "/əbˈzɔːrb/",
+            "zh": "吸收"
+          },
+          {
+            "w": "laser",
+            "p": "/ˈleɪzər/",
+            "zh": "激光"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-6.jpg",
         "en": "",
         "zh": "嗖！水晶星球发射出一道明亮的激光！激光太强了，照亮了整个星系。豆豆开心地大笑，叫小星躲开试试！",
-        "keys": []
+        "keys": [
+          {
+            "w": "bright",
+            "p": "/braɪt/",
+            "zh": "明亮的"
+          },
+          {
+            "w": "laser",
+            "p": "/ˈleɪzər/",
+            "zh": "激光"
+          },
+          {
+            "w": "powerful",
+            "p": "/ˈpaʊərfəl/",
+            "zh": "强大的"
+          },
+          {
+            "w": "light up",
+            "p": "/laɪt ʌp/",
+            "zh": "照亮"
+          },
+          {
+            "w": "dodge",
+            "p": "/dɑːdʒ/",
+            "zh": "躲开"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-7.jpg",
         "en": "",
         "zh": "但是小星非常聪明！他朝水晶星球扔出一颗小小的水晶炸弹。轰！炸弹击中了星球表面，在水晶外壳上炸出了一道大裂纹！",
-        "keys": []
+        "keys": [
+          {
+            "w": "smart",
+            "p": "/smɑːrt/",
+            "zh": "聪明的"
+          },
+          {
+            "w": "throw",
+            "p": "/θroʊ/",
+            "zh": "扔"
+          },
+          {
+            "w": "bomb",
+            "p": "/bɑːm/",
+            "zh": "炸弹"
+          },
+          {
+            "w": "surface",
+            "p": "/ˈsɜːrfɪs/",
+            "zh": "表面"
+          },
+          {
+            "w": "crack",
+            "p": "/kræk/",
+            "zh": "裂纹"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-8.jpg",
         "en": "",
         "zh": "裂纹像蜘蛛网一样在水晶星球上蔓延。豆豆大吃一惊！他大喊他美丽的星球要碎了。水晶外壳一点一点地开始碎裂。",
-        "keys": []
+        "keys": [
+          {
+            "w": "spread",
+            "p": "/spred/",
+            "zh": "蔓延"
+          },
+          {
+            "w": "spiderweb",
+            "p": "/ˈspaɪdərweb/",
+            "zh": "蜘蛛网"
+          },
+          {
+            "w": "shocked",
+            "p": "/ʃɑːkt/",
+            "zh": "震惊的"
+          },
+          {
+            "w": "shatter",
+            "p": "/ˈʃætər/",
+            "zh": "碎裂"
+          },
+          {
+            "w": "shell",
+            "p": "/ʃel/",
+            "zh": "外壳"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-9.jpg",
         "en": "",
         "zh": "但是豆豆有办法！他派出成百上千个小小的修复无人机。嗡嗡嗡！它们飞到裂缝处开始修复星球。豆豆骄傲地说他的无人机会修好一切！",
-        "keys": []
+        "keys": [
+          {
+            "w": "repair",
+            "p": "/rɪˈper/",
+            "zh": "修复"
+          },
+          {
+            "w": "drone",
+            "p": "/droʊn/",
+            "zh": "无人机"
+          },
+          {
+            "w": "thousands",
+            "p": "/ˈθaʊzəndz/",
+            "zh": "成千上万"
+          },
+          {
+            "w": "crack",
+            "p": "/kræk/",
+            "zh": "裂缝"
+          },
+          {
+            "w": "fix",
+            "p": "/fɪks/",
+            "zh": "修好"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-10.jpg",
         "en": "",
         "zh": "现在豆豆有一个超级惊喜！水晶星球变形成为一只巨大的星际巨鲸！它又大又闪亮，有着水晶鱼鳍和巨大的嘴巴。豆豆大笑着说他的星球可以变形！",
-        "keys": []
+        "keys": [
+          {
+            "w": "surprise",
+            "p": "/sərˈpraɪz/",
+            "zh": "惊喜"
+          },
+          {
+            "w": "transform",
+            "p": "/trænsˈfɔːrm/",
+            "zh": "变形"
+          },
+          {
+            "w": "gigantic",
+            "p": "/dʒaɪˈɡæntɪk/",
+            "zh": "巨大的"
+          },
+          {
+            "w": "interstellar",
+            "p": "/ˌɪntərˈstelər/",
+            "zh": "星际的"
+          },
+          {
+            "w": "whale",
+            "p": "/weɪl/",
+            "zh": "鲸鱼"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-11.jpg",
         "en": "",
         "zh": "星际巨鲸张开超级大的嘴巴，要把小星的小星星吸进来！呼！星星们开始飞向巨鲸的嘴巴。豆豆喊着让星星进入他的能量熔炉！",
-        "keys": []
+        "keys": [
+          {
+            "w": "mouth",
+            "p": "/maʊθ/",
+            "zh": "嘴巴"
+          },
+          {
+            "w": "suck",
+            "p": "/sʌk/",
+            "zh": "吸入"
+          },
+          {
+            "w": "star",
+            "p": "/stɑːr/",
+            "zh": "星星"
+          },
+          {
+            "w": "energy",
+            "p": "/ˈenərdʒi/",
+            "zh": "能量"
+          },
+          {
+            "w": "furnace",
+            "p": "/ˈfɜːrnɪs/",
+            "zh": "熔炉"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-12.jpg",
         "en": "",
         "zh": "小星有了最棒的主意！他抓起一瓶银河系沐浴露，塞进炸药，用一个迷你打火机点燃。他把满是泡泡的炸弹扔向星际巨鲸！",
-        "keys": []
+        "keys": [
+          {
+            "w": "idea",
+            "p": "/aɪˈdiːə/",
+            "zh": "主意"
+          },
+          {
+            "w": "galaxy",
+            "p": "/ˈɡæləksi/",
+            "zh": "银河系"
+          },
+          {
+            "w": "lighter",
+            "p": "/ˈlaɪtər/",
+            "zh": "打火机"
+          },
+          {
+            "w": "ignite",
+            "p": "/ɪɡˈnaɪt/",
+            "zh": "点燃"
+          },
+          {
+            "w": "bomb",
+            "p": "/bɑːm/",
+            "zh": "炸弹"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-13.jpg",
         "en": "",
         "zh": "轰！银河系沐浴露炸弹爆炸了！星际巨鲸现在满身都是泡泡！噗噗噗！黑烟从它的水晶身体上升起。豆豆大叫他全身都是泡沫！",
-        "keys": []
+        "keys": [
+          {
+            "w": "explode",
+            "p": "/ɪkˈsploʊd/",
+            "zh": "爆炸"
+          },
+          {
+            "w": "bubble",
+            "p": "/ˈbʌbəl/",
+            "zh": "泡泡"
+          },
+          {
+            "w": "smoke",
+            "p": "/smoʊk/",
+            "zh": "黑烟"
+          },
+          {
+            "w": "crystal",
+            "p": "/ˈkrɪstl/",
+            "zh": "水晶"
+          },
+          {
+            "w": "foam",
+            "p": "/foʊm/",
+            "zh": "泡沫"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-14.jpg",
         "en": "",
         "zh": "别担心！豆豆也有秘密武器，超小的纳米修复机器人！它们小到根本看不见。它们在星际巨鲸周围飞速修复。豆豆说他的纳米机器人会救他！",
-        "keys": []
+        "keys": [
+          {
+            "w": "secret",
+            "p": "/ˈsiːkrət/",
+            "zh": "秘密的"
+          },
+          {
+            "w": "weapon",
+            "p": "/ˈwepən/",
+            "zh": "武器"
+          },
+          {
+            "w": "nano",
+            "p": "/ˈnænoʊ/",
+            "zh": "纳米的"
+          },
+          {
+            "w": "repair",
+            "p": "/rɪˈper/",
+            "zh": "修复"
+          },
+          {
+            "w": "robot",
+            "p": "/ˈroʊbɑːt/",
+            "zh": "机器人"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-15.jpg",
         "en": "",
         "zh": "但是小星没有停下！他制作了终极炸弹，整个宇宙中最大最强的炸弹！它发出明亮的红光，连周围的星星都在震动。他喊着这是他的最后一击！",
-        "keys": []
+        "keys": [
+          {
+            "w": "ultimate",
+            "p": "/ˈʌltɪmət/",
+            "zh": "终极的"
+          },
+          {
+            "w": "universe",
+            "p": "/ˈjuːnɪvɜːrs/",
+            "zh": "宇宙"
+          },
+          {
+            "w": "glow",
+            "p": "/ɡloʊ/",
+            "zh": "发光"
+          },
+          {
+            "w": "bright",
+            "p": "/braɪt/",
+            "zh": "明亮的"
+          },
+          {
+            "w": "final",
+            "p": "/ˈfaɪnəl/",
+            "zh": "最后的"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-16.jpg",
         "en": "",
         "zh": "轰隆！终极炸弹击中了星际巨鲸，噗！什么都不剩了！连一小块碎片都没有。豆豆的星球完全消失了。豆豆小声说太厉害了。",
-        "keys": []
+        "keys": [
+          {
+            "w": "hit",
+            "p": "/hɪt/",
+            "zh": "击中"
+          },
+          {
+            "w": "nothing",
+            "p": "/ˈnʌθɪŋ/",
+            "zh": "什么都没有"
+          },
+          {
+            "w": "fragment",
+            "p": "/ˈfræɡmənt/",
+            "zh": "碎片"
+          },
+          {
+            "w": "disappear",
+            "p": "/ˌdɪsəˈpɪr/",
+            "zh": "消失"
+          },
+          {
+            "w": "amazing",
+            "p": "/əˈmeɪzɪŋ/",
+            "zh": "太厉害的"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-17.jpg",
         "en": "",
         "zh": "但是豆豆是个坚强的小机器人！他收集太空中漂浮的所有废铁，建造了一个全新的星球！虽然没有以前那么闪亮，但它是用爱和决心建造的。",
-        "keys": []
+        "keys": [
+          {
+            "w": "strong",
+            "p": "/strɔːŋ/",
+            "zh": "坚强的"
+          },
+          {
+            "w": "collect",
+            "p": "/kəˈlekt/",
+            "zh": "收集"
+          },
+          {
+            "w": "floating",
+            "p": "/ˈfloʊtɪŋ/",
+            "zh": "漂浮的"
+          },
+          {
+            "w": "build",
+            "p": "/bɪld/",
+            "zh": "建造"
+          },
+          {
+            "w": "determination",
+            "p": "/dɪˌtɜːrmɪˈneɪʃən/",
+            "zh": "决心"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-18.jpg",
         "en": "",
         "zh": "小星拿起一个保护盾想送给豆豆。但是哎呀！他扔得太用力，盾牌直接飞向了豆豆！然后他赶紧又来了一个报废攻击！",
-        "keys": []
+        "keys": [
+          {
+            "w": "shield",
+            "p": "/ʃiːld/",
+            "zh": "盾牌"
+          },
+          {
+            "w": "protect",
+            "p": "/prəˈtekt/",
+            "zh": "保护"
+          },
+          {
+            "w": "throw",
+            "p": "/θroʊ/",
+            "zh": "扔"
+          },
+          {
+            "w": "directly",
+            "p": "/dəˈrektli/",
+            "zh": "直接地"
+          },
+          {
+            "w": "attack",
+            "p": "/əˈtæk/",
+            "zh": "攻击"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-19.jpg",
         "en": "",
         "zh": "咔嚓！盾牌碎成碎片，新星球变成了一堆废铁。豆豆举起他的小机器人手臂投降了！他说小星的炸弹太厉害了，他认输！",
-        "keys": []
+        "keys": [
+          {
+            "w": "shatter",
+            "p": "/ˈʃætər/",
+            "zh": "碎裂"
+          },
+          {
+            "w": "piece",
+            "p": "/piːs/",
+            "zh": "碎片"
+          },
+          {
+            "w": "scrap",
+            "p": "/skræp/",
+            "zh": "废铁"
+          },
+          {
+            "w": "surrender",
+            "p": "/səˈrendər/",
+            "zh": "投降"
+          },
+          {
+            "w": "defeat",
+            "p": "/dɪˈfiːt/",
+            "zh": "认输"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-20.jpg",
         "en": "",
         "zh": "虽然他们打了一场史诗级的大战，但小星和豆豆还是最好的朋友！他们互相击掌，一起大笑，喊着这是最好玩的星球大战游戏！",
-        "keys": []
+        "keys": [
+          {
+            "w": "epic",
+            "p": "/ˈepɪk/",
+            "zh": "史诗般的"
+          },
+          {
+            "w": "battle",
+            "p": "/ˈbætl/",
+            "zh": "战斗"
+          },
+          {
+            "w": "best friends",
+            "p": "/best frendz/",
+            "zh": "最好的朋友"
+          },
+          {
+            "w": "high-five",
+            "p": "/ˌhaɪ ˈfaɪv/",
+            "zh": "击掌"
+          },
+          {
+            "w": "planet",
+            "p": "/ˈplænɪt/",
+            "zh": "星球"
+          }
+        ]
       },
       {
         "img": "images/star-wars/page-21.jpg",
         "en": "",
         "zh": "小星看着星星，有了新主意。他跟豆豆说下次去火星吧！豆豆的眼睛兴奋地发亮，喊着火星我们来了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "star",
+            "p": "/stɑːr/",
+            "zh": "星星"
+          },
+          {
+            "w": "idea",
+            "p": "/aɪˈdiːə/",
+            "zh": "主意"
+          },
+          {
+            "w": "Mars",
+            "p": "/mɑːrz/",
+            "zh": "火星"
+          },
+          {
+            "w": "excited",
+            "p": "/ɪkˈsaɪtɪd/",
+            "zh": "兴奋的"
+          },
+          {
+            "w": "glow",
+            "p": "/ɡloʊ/",
+            "zh": "发亮"
+          }
+        ]
       }
     ]
   },
@@ -861,7 +3333,33 @@ const STORIES = [
         "img": "images/robot-battle/page-1.jpg",
         "en": "",
         "zh": "豆豆和豆包的家务机器人大战 | Doudou and Doubao's Great Chore Robot Battle",
-        "keys": []
+        "keys": [
+          {
+            "w": "chore",
+            "p": "/tʃɔːr/",
+            "zh": "家务"
+          },
+          {
+            "w": "robot",
+            "p": "/ˈroʊbɑːt/",
+            "zh": "机器人"
+          },
+          {
+            "w": "battle",
+            "p": "/ˈbætl/",
+            "zh": "大战"
+          },
+          {
+            "w": "great",
+            "p": "/ɡreɪt/",
+            "zh": "伟大的"
+          },
+          {
+            "w": "home",
+            "p": "/hoʊm/",
+            "zh": "家"
+          }
+        ]
       },
       {
         "img": "images/robot-battle/page-2.jpg",
@@ -1289,115 +3787,574 @@ const STORIES = [
         "img": "images/brave-tank/page-1.jpg",
         "en": "In a beautiful valley, there lived a brave little tank named Little Steel.",
         "zh": "在一片美丽的山谷里，住着一辆勇敢的小坦克，名叫小钢。",
-        "keys": []
+        "keys": [
+          {
+            "w": "beautiful",
+            "p": "/ˈbjuːtɪfəl/",
+            "zh": "美丽的"
+          },
+          {
+            "w": "valley",
+            "p": "/ˈvæli/",
+            "zh": "山谷"
+          },
+          {
+            "w": "brave",
+            "p": "/breɪv/",
+            "zh": "勇敢的"
+          },
+          {
+            "w": "tank",
+            "p": "/tæŋk/",
+            "zh": "坦克"
+          },
+          {
+            "w": "named",
+            "p": "/neɪmd/",
+            "zh": "名叫"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-2.jpg",
         "en": "Welcome to Tank Town, where all kinds of tanks live happily together!",
         "zh": "欢迎来到坦克小镇，各种各样的坦克快乐地生活在这里！",
-        "keys": []
+        "keys": [
+          {
+            "w": "welcome",
+            "p": "/ˈwelkəm/",
+            "zh": "欢迎"
+          },
+          {
+            "w": "town",
+            "p": "/taʊn/",
+            "zh": "小镇"
+          },
+          {
+            "w": "kinds",
+            "p": "/kaɪndz/",
+            "zh": "种类"
+          },
+          {
+            "w": "live",
+            "p": "/lɪv/",
+            "zh": "生活"
+          },
+          {
+            "w": "together",
+            "p": "/təˈɡeðər/",
+            "zh": "一起"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-3.jpg",
         "en": "Little Steel was the smallest tank in town, with a tiny cannon and a big heart.",
         "zh": "小钢是镇上最小的坦克，炮管短短的，却有一颗大大的心。",
-        "keys": []
+        "keys": [
+          {
+            "w": "smallest",
+            "p": "/ˈsmɔːlɪst/",
+            "zh": "最小的"
+          },
+          {
+            "w": "tiny",
+            "p": "/ˈtaɪni/",
+            "zh": "极小的"
+          },
+          {
+            "w": "cannon",
+            "p": "/ˈkænən/",
+            "zh": "炮管"
+          },
+          {
+            "w": "heart",
+            "p": "/hɑːrt/",
+            "zh": "心"
+          },
+          {
+            "w": "big",
+            "p": "/bɪɡ/",
+            "zh": "大的"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-4.jpg",
         "en": "“I want to be a hero!” Little Steel practiced his brave face in the mirror every day.",
         "zh": "“我要成为英雄！”小钢每天都对着镜子练习勇敢的表情。",
-        "keys": []
+        "keys": [
+          {
+            "w": "hero",
+            "p": "/ˈhɪroʊ/",
+            "zh": "英雄"
+          },
+          {
+            "w": "practice",
+            "p": "/ˈpræktɪs/",
+            "zh": "练习"
+          },
+          {
+            "w": "mirror",
+            "p": "/ˈmɪrər/",
+            "zh": "镜子"
+          },
+          {
+            "w": "every day",
+            "p": "/ˈevri deɪ/",
+            "zh": "每天"
+          },
+          {
+            "w": "brave",
+            "p": "/breɪv/",
+            "zh": "勇敢的"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-5.jpg",
         "en": "Every year, Tank Town held the Brave Contest — a big adventure race!",
         "zh": "坦克小镇每年都会举办勇士大赛——一场大型冒险比赛！",
-        "keys": []
+        "keys": [
+          {
+            "w": "year",
+            "p": "/jɪr/",
+            "zh": "年"
+          },
+          {
+            "w": "held",
+            "p": "/held/",
+            "zh": "举办"
+          },
+          {
+            "w": "contest",
+            "p": "/ˈkɑːntest/",
+            "zh": "比赛"
+          },
+          {
+            "w": "adventure",
+            "p": "/ədˈventʃər/",
+            "zh": "冒险"
+          },
+          {
+            "w": "race",
+            "p": "/reɪs/",
+            "zh": "竞赛"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-6.jpg",
         "en": "“I’m joining!” said Little Steel. The big tanks all laughed. “You? Little you?”",
         "zh": "“我要参加！”小钢说。大坦克们都笑了。“你？小小的你？”",
-        "keys": []
+        "keys": [
+          {
+            "w": "join",
+            "p": "/dʒɔɪn/",
+            "zh": "参加"
+          },
+          {
+            "w": "laughed",
+            "p": "/læft/",
+            "zh": "笑了"
+          },
+          {
+            "w": "big",
+            "p": "/bɪɡ/",
+            "zh": "大的"
+          },
+          {
+            "w": "little",
+            "p": "/ˈlɪtl/",
+            "zh": "小的"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-7.jpg",
         "en": "Grandpa Armor patted Little Steel gently. “A true hero is not the biggest, but the bravest.”",
         "zh": "铁甲爷爷轻轻拍了拍小钢。“真正的英雄不是最大的，而是最勇敢的。”",
-        "keys": []
+        "keys": [
+          {
+            "w": "grandpa",
+            "p": "/ˈɡrændpɑː/",
+            "zh": "爷爷"
+          },
+          {
+            "w": "gently",
+            "p": "/ˈdʒentli/",
+            "zh": "轻轻地"
+          },
+          {
+            "w": "true",
+            "p": "/truː/",
+            "zh": "真正的"
+          },
+          {
+            "w": "biggest",
+            "p": "/ˈbɪɡɪst/",
+            "zh": "最大的"
+          },
+          {
+            "w": "bravest",
+            "p": "/ˈbreɪvɪst/",
+            "zh": "最勇敢的"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-8.jpg",
         "en": "Little Steel teamed up with his best friends — steady Big Iron and fast Lightning!",
         "zh": "小钢找到了最好的朋友——稳重的大铁和快速的闪电，组成了一支队伍！",
-        "keys": []
+        "keys": [
+          {
+            "w": "teamed up",
+            "p": "/tiːmd ʌp/",
+            "zh": "组队；合作"
+          },
+          {
+            "w": "steady",
+            "p": "/ˈstedi/",
+            "zh": "稳重的；稳定的"
+          },
+          {
+            "w": "lightning",
+            "p": "/ˈlaɪtnɪŋ/",
+            "zh": "闪电"
+          },
+          {
+            "w": "best friend",
+            "p": "/best frend/",
+            "zh": "最好的朋友"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-9.jpg",
         "en": "The race was on! Teams had to cross the desert, the forest, and climb the mountain!",
         "zh": "比赛开始了！队伍要穿越沙漠、森林，还要爬上山顶！",
-        "keys": []
+        "keys": [
+          {
+            "w": "race",
+            "p": "/reɪs/",
+            "zh": "比赛"
+          },
+          {
+            "w": "cross",
+            "p": "/krɔːs/",
+            "zh": "穿越；横过"
+          },
+          {
+            "w": "desert",
+            "p": "/ˈdezərt/",
+            "zh": "沙漠"
+          },
+          {
+            "w": "mountain",
+            "p": "/ˈmaʊntən/",
+            "zh": "高山"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-10.jpg",
         "en": "The desert was so hot! Big Iron got stuck in the sand. “Don’t worry, I’ll help!”",
         "zh": "沙漠好热！大铁陷进沙子里了。“别急，我来帮你！”",
-        "keys": []
+        "keys": [
+          {
+            "w": "hot",
+            "p": "/hɑːt/",
+            "zh": "炎热的"
+          },
+          {
+            "w": "stuck",
+            "p": "/stʌk/",
+            "zh": "卡住的；陷住的"
+          },
+          {
+            "w": "sand",
+            "p": "/sænd/",
+            "zh": "沙子"
+          },
+          {
+            "w": "worry",
+            "p": "/ˈwɜːri/",
+            "zh": "担心"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-11.jpg",
         "en": "The forest was full of big trees. “Follow me!” Lightning zipped through the narrow paths.",
         "zh": "森林里到处是大树。“跟我来！”闪电灵活地穿过小路。",
-        "keys": []
+        "keys": [
+          {
+            "w": "forest",
+            "p": "/ˈfɔːrɪst/",
+            "zh": "森林"
+          },
+          {
+            "w": "follow",
+            "p": "/ˈfɑːloʊ/",
+            "zh": "跟随"
+          },
+          {
+            "w": "zipped",
+            "p": "/zɪpt/",
+            "zh": "快速移动"
+          },
+          {
+            "w": "narrow",
+            "p": "/ˈnæroʊ/",
+            "zh": "狭窄的"
+          },
+          {
+            "w": "path",
+            "p": "/pæθ/",
+            "zh": "小路"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-12.jpg",
         "en": "A wide river blocked the way! There was no bridge. “How do we cross?” everyone worried.",
         "zh": "一条大河挡住了去路！没有桥。“怎么过去呢？”大家都愁了。",
-        "keys": []
+        "keys": [
+          {
+            "w": "river",
+            "p": "/ˈrɪvər/",
+            "zh": "河流"
+          },
+          {
+            "w": "blocked",
+            "p": "/blɑːkt/",
+            "zh": "堵住了"
+          },
+          {
+            "w": "bridge",
+            "p": "/brɪdʒ/",
+            "zh": "桥"
+          },
+          {
+            "w": "cross",
+            "p": "/krɔːs/",
+            "zh": "穿过"
+          },
+          {
+            "w": "worried",
+            "p": "/ˈwɜːrid/",
+            "zh": "担心的"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-13.jpg",
         "en": "“I have an idea!” Little Steel pointed at a fallen tree. “We can make a bridge!”",
         "zh": "“我有办法！”小钢指着倒下的大树。“我们可以搭一座桥！”",
-        "keys": []
+        "keys": [
+          {
+            "w": "idea",
+            "p": "/aɪˈdiːə/",
+            "zh": "主意；想法"
+          },
+          {
+            "w": "pointed",
+            "p": "/ˈpɔɪntɪd/",
+            "zh": "指着"
+          },
+          {
+            "w": "fallen",
+            "p": "/ˈfɔːlən/",
+            "zh": "倒下的"
+          },
+          {
+            "w": "tree",
+            "p": "/triː/",
+            "zh": "树"
+          },
+          {
+            "w": "make",
+            "p": "/meɪk/",
+            "zh": "制作；搭建"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-14.jpg",
         "en": "The log bridge held! Big Iron went first, then Lightning zoomed across. Little Steel crossed carefully and safely.",
         "zh": "树桥很稳！大铁先过，闪电忮地跑过，小钢小心翼翼地安全过了河。",
-        "keys": []
+        "keys": [
+          {
+            "w": "log",
+            "p": "/lɔːɡ/",
+            "zh": "原木；木头"
+          },
+          {
+            "w": "held",
+            "p": "/held/",
+            "zh": "支撑住；稳固"
+          },
+          {
+            "w": "zoomed",
+            "p": "/zuːmd/",
+            "zh": "飞快移动"
+          },
+          {
+            "w": "carefully",
+            "p": "/ˈkerfəli/",
+            "zh": "小心地"
+          },
+          {
+            "w": "safely",
+            "p": "/ˈseɪfli/",
+            "zh": "安全地"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-15.jpg",
         "en": "Near the top, Red Thunder’s team blocked the path with big rocks! “You can’t win now!”",
         "zh": "快到山顶了！红雷的队伍用大石头挡住了路！“你们赢不了啦！”",
-        "keys": []
+        "keys": [
+          {
+            "w": "top",
+            "p": "/tɑːp/",
+            "zh": "顶部；山顶"
+          },
+          {
+            "w": "blocked",
+            "p": "/blɑːkt/",
+            "zh": "阻挡"
+          },
+          {
+            "w": "path",
+            "p": "/pæθ/",
+            "zh": "道路；小路"
+          },
+          {
+            "w": "rocks",
+            "p": "/rɑːks/",
+            "zh": "岩石"
+          },
+          {
+            "w": "win",
+            "p": "/wɪn/",
+            "zh": "获胜"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-16.jpg",
         "en": "“There’s a gap under the rocks! I’m the smallest — I can squeeze through!” said Little Steel.",
         "zh": "“石头下面有缝隙！我最小，我可以钻过去！”小钢说。",
-        "keys": []
+        "keys": [
+          {
+            "w": "gap",
+            "p": "/ɡæp/",
+            "zh": "缝隙；空隙"
+          },
+          {
+            "w": "smallest",
+            "p": "/ˈsmɔːləst/",
+            "zh": "最小的"
+          },
+          {
+            "w": "squeeze through",
+            "p": "/skwiːz θruː/",
+            "zh": "挤过去"
+          },
+          {
+            "w": "under",
+            "p": "/ˈʌndər/",
+            "zh": "在……下面"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-17.jpg",
         "en": "Little Steel reached the top first and grabbed the golden flag! “We won!”",
         "zh": "小钢第一个到达山顶，拿到了金色旗帜！“我们赢了！”",
-        "keys": []
+        "keys": [
+          {
+            "w": "reached",
+            "p": "/riːtʃt/",
+            "zh": "到达"
+          },
+          {
+            "w": "grabbed",
+            "p": "/ɡræbd/",
+            "zh": "抓住"
+          },
+          {
+            "w": "golden",
+            "p": "/ˈɡoʊldən/",
+            "zh": "金色的"
+          },
+          {
+            "w": "flag",
+            "p": "/flæɡ/",
+            "zh": "旗帜"
+          },
+          {
+            "w": "won",
+            "p": "/wʌn/",
+            "zh": "赢了"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-18.jpg",
         "en": "On the way down, Red Thunder was trapped in a landslide! “Help me!” he cried.",
         "zh": "下山路上，红雷被困在滑坡里！“救命！”他喊道。",
-        "keys": []
+        "keys": [
+          {
+            "w": "trapped",
+            "p": "/træpt/",
+            "zh": "被困住的"
+          },
+          {
+            "w": "landslide",
+            "p": "/ˈlændslaɪd/",
+            "zh": "滑坡；山体滑坡"
+          },
+          {
+            "w": "cried",
+            "p": "/kraɪd/",
+            "zh": "喊；哭喊"
+          }
+        ]
       },
       {
         "img": "images/brave-tank/page-19.jpg",
         "en": "Big Iron pulled with a rope, Lightning moved rocks, and Little Steel pushed from below. Together, they saved Red Thunder!",
         "zh": "大铁用绳子拉，闪电搬石头，小钢从下面顶。大家一起救出了红雷！",
-        "keys": []
+        "keys": [
+          {
+            "w": "rope",
+            "p": "/roʊp/",
+            "zh": "绳子"
+          },
+          {
+            "w": "moved",
+            "p": "/muːvd/",
+            "zh": "搬动；移动"
+          },
+          {
+            "w": "pushed",
+            "p": "/pʊʃt/",
+            "zh": "推"
+          },
+          {
+            "w": "together",
+            "p": "/təˈɡeðər/",
+            "zh": "一起"
+          },
+          {
+            "w": "saved",
+            "p": "/seɪvd/",
+            "zh": "救出；拯救"
+          }
+        ]
       }
     ]
   },
@@ -1412,67 +4369,343 @@ const STORIES = [
         "img": "images/tank-1/page-1.jpg",
         "en": "In the world of blocks, a player had a big dream — to build tanks!",
         "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！",
-        "keys": []
+        "keys": [
+          {
+            "w": "world",
+            "p": "/wɝːld/",
+            "zh": "世界"
+          },
+          {
+            "w": "player",
+            "p": "/ˈpleɪər/",
+            "zh": "玩家"
+          },
+          {
+            "w": "dream",
+            "p": "/driːm/",
+            "zh": "梦想"
+          },
+          {
+            "w": "build",
+            "p": "/bɪld/",
+            "zh": "建造"
+          },
+          {
+            "w": "tanks",
+            "p": "/tæŋks/",
+            "zh": "坦克"
+          }
+        ]
       },
       {
         "img": "images/tank-1/page-2.jpg",
         "en": "He worked for days, placing blocks one by one. First, a heavy tank with thick iron armor!",
         "zh": "他捣鼓了好几天，一个方块一个方块地拼。第一辆，是皮糙肉厚的重型坦克！",
-        "keys": []
+        "keys": [
+          {
+            "w": "placing",
+            "p": "/ˈpleɪsɪŋ/",
+            "zh": "放置"
+          },
+          {
+            "w": "heavy",
+            "p": "/ˈhevi/",
+            "zh": "沉重的；重型的"
+          },
+          {
+            "w": "thick",
+            "p": "/θɪk/",
+            "zh": "厚的"
+          },
+          {
+            "w": "iron",
+            "p": "/ˈaɪərn/",
+            "zh": "铁"
+          },
+          {
+            "w": "armor",
+            "p": "/ˈɑːrmər/",
+            "zh": "装甲；护甲"
+          }
+        ]
       },
       {
         "img": "images/tank-1/page-3.jpg",
         "en": "Then a light tank that zooms across the plains super fast!",
         "zh": "然后是一辆轻型坦克，在平原上跑起来飞快！",
-        "keys": []
+        "keys": [
+          {
+            "w": "light",
+            "p": "/laɪt/",
+            "zh": "轻的"
+          },
+          {
+            "w": "zooms",
+            "p": "/zuːmz/",
+            "zh": "疾驰；飞速移动"
+          },
+          {
+            "w": "across",
+            "p": "/əˈkrɔːs/",
+            "zh": "穿过"
+          },
+          {
+            "w": "plains",
+            "p": "/pleɪnz/",
+            "zh": "平原"
+          },
+          {
+            "w": "fast",
+            "p": "/fæst/",
+            "zh": "快速地；快的"
+          }
+        ]
       },
       {
         "img": "images/tank-1/page-4.jpg",
         "en": "And finally, a missile tank! When it fires, the missiles fly high with fiery trails!",
         "zh": "最后还造了一辆导弹坦克！发射的时候导弹拖着火焰飞出去，超炫酷！",
-        "keys": []
+        "keys": [
+          {
+            "w": "finally",
+            "p": "/ˈfaɪnəli/",
+            "zh": "最后"
+          },
+          {
+            "w": "missile",
+            "p": "/ˈmɪsəl/",
+            "zh": "导弹"
+          },
+          {
+            "w": "fires",
+            "p": "/ˈfaɪərz/",
+            "zh": "发射"
+          },
+          {
+            "w": "fiery",
+            "p": "/ˈfaɪəri/",
+            "zh": "火焰般的"
+          },
+          {
+            "w": "trails",
+            "p": "/treɪlz/",
+            "zh": "尾迹；痕迹"
+          }
+        ]
       },
       {
         "img": "images/tank-1/page-5.jpg",
         "en": "All three tanks lined up in the garage. The player could not wait any longer!",
         "zh": "三辆坦克停在车库里整整齐齐。他迫不及待要开出去浪了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "lined up",
+            "p": "/laɪnd ʌp/",
+            "zh": "排成一排"
+          },
+          {
+            "w": "garage",
+            "p": "/ɡəˈrɑːʒ/",
+            "zh": "车库"
+          },
+          {
+            "w": "player",
+            "p": "/ˈpleɪər/",
+            "zh": "玩家"
+          },
+          {
+            "w": "wait",
+            "p": "/weɪt/",
+            "zh": "等待"
+          },
+          {
+            "w": "longer",
+            "p": "/ˈlɔːŋɡər/",
+            "zh": "更久"
+          }
+        ]
       },
       {
         "img": "images/tank-1/page-6.jpg",
         "en": "He drove the heavy tank straight to the monster nest. Zombies and skeletons were everywhere!",
         "zh": "他开着重型坦克直接冲到怪物窝旁边。到处都是僵尸和骷髅！",
-        "keys": []
+        "keys": [
+          {
+            "w": "drove",
+            "p": "/droʊv/",
+            "zh": "驾驶"
+          },
+          {
+            "w": "straight",
+            "p": "/streɪt/",
+            "zh": "径直地"
+          },
+          {
+            "w": "monster",
+            "p": "/ˈmɑːnstər/",
+            "zh": "怪物"
+          },
+          {
+            "w": "nest",
+            "p": "/nest/",
+            "zh": "巢穴"
+          },
+          {
+            "w": "skeletons",
+            "p": "/ˈskelɪtənz/",
+            "zh": "骷髅"
+          }
+        ]
       },
       {
         "img": "images/tank-1/page-7.jpg",
         "en": "BOOM! One shot from the cannon and monsters went flying everywhere! So satisfying!",
         "zh": "轰！一炮下去怪物直接炸飞一大片，太解压了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "shot",
+            "p": "/ʃɑːt/",
+            "zh": "射击；一炮"
+          },
+          {
+            "w": "cannon",
+            "p": "/ˈkænən/",
+            "zh": "大炮"
+          },
+          {
+            "w": "monsters",
+            "p": "/ˈmɑːnstərz/",
+            "zh": "怪物"
+          },
+          {
+            "w": "flying",
+            "p": "/ˈflaɪɪŋ/",
+            "zh": "飞；飞散"
+          },
+          {
+            "w": "satisfying",
+            "p": "/ˈsætɪsfaɪɪŋ/",
+            "zh": "令人满足的；解压的"
+          }
+        ]
       },
       {
         "img": "images/tank-1/page-8.jpg",
         "en": "The heavy tank charged right through! Monsters could not get anywhere near it!",
         "zh": "坦克横冲直撞！怪物根本近不了身！",
-        "keys": []
+        "keys": [
+          {
+            "w": "charged",
+            "p": "/tʃɑːrdʒd/",
+            "zh": "冲锋；猛冲"
+          },
+          {
+            "w": "through",
+            "p": "/θruː/",
+            "zh": "穿过"
+          },
+          {
+            "w": "monsters",
+            "p": "/ˈmɑːnstərz/",
+            "zh": "怪物"
+          },
+          {
+            "w": "anywhere",
+            "p": "/ˈeniwer/",
+            "zh": "任何地方"
+          },
+          {
+            "w": "near",
+            "p": "/nɪr/",
+            "zh": "靠近"
+          }
+        ]
       },
       {
         "img": "images/tank-1/page-9.jpg",
         "en": "In no time, the whole monster nest was cleared. The player cheered inside the tank!",
         "zh": "几下就把整片怪物窝清干净了，他在坦克里开心地欢呼！",
-        "keys": []
+        "keys": [
+          {
+            "w": "monster",
+            "p": "/ˈmɒnstər/",
+            "zh": "怪物"
+          },
+          {
+            "w": "nest",
+            "p": "/nest/",
+            "zh": "窝；巢穴"
+          },
+          {
+            "w": "cleared",
+            "p": "/klɪrd/",
+            "zh": "清理干净的"
+          },
+          {
+            "w": "player",
+            "p": "/ˈpleɪər/",
+            "zh": "玩家"
+          },
+          {
+            "w": "tank",
+            "p": "/tæŋk/",
+            "zh": "坦克"
+          }
+        ]
       },
       {
         "img": "images/tank-1/page-10.jpg",
         "en": "No more hiding with a sword! Tanks make everything so much easier!",
         "zh": "再也不用拿剑躲躲藏藏了！有坦克就是不一样！",
-        "keys": []
+        "keys": [
+          {
+            "w": "hiding",
+            "p": "/ˈhaɪdɪŋ/",
+            "zh": "躲藏"
+          },
+          {
+            "w": "sword",
+            "p": "/sɔːrd/",
+            "zh": "剑"
+          },
+          {
+            "w": "tank",
+            "p": "/tæŋk/",
+            "zh": "坦克"
+          },
+          {
+            "w": "easier",
+            "p": "/ˈiːziər/",
+            "zh": "更容易的"
+          }
+        ]
       },
       {
         "img": "images/tank-1/page-11.jpg",
         "en": "Achievement unlocked! The player felt so proud. But this was just the beginning...",
         "zh": "成就感直接拉满！但这只是开始...",
-        "keys": []
+        "keys": [
+          {
+            "w": "achievement",
+            "p": "/əˈtʃiːvmənt/",
+            "zh": "成就"
+          },
+          {
+            "w": "unlocked",
+            "p": "/ʌnˈlɒkt/",
+            "zh": "解锁的"
+          },
+          {
+            "w": "proud",
+            "p": "/praʊd/",
+            "zh": "自豪的"
+          },
+          {
+            "w": "beginning",
+            "p": "/bɪˈɡɪnɪŋ/",
+            "zh": "开始"
+          }
+        ]
       }
     ]
   },
@@ -1487,79 +4720,382 @@ const STORIES = [
         "img": "images/tank-2/page-1.jpg",
         "en": "The player built a special tank base with walls, turrets, and redstone cannons!",
         "zh": "他专门建了一个坦克阵地，有围墙、炮台，还有红石大炮！",
-        "keys": []
+        "keys": [
+          {
+            "w": "built",
+            "p": "/bɪlt/",
+            "zh": "建造了"
+          },
+          {
+            "w": "special",
+            "p": "/ˈspeʃəl/",
+            "zh": "特别的"
+          },
+          {
+            "w": "base",
+            "p": "/beɪs/",
+            "zh": "基地；阵地"
+          },
+          {
+            "w": "turrets",
+            "p": "/ˈtɜːrɪts/",
+            "zh": "炮塔"
+          },
+          {
+            "w": "cannons",
+            "p": "/ˈkænənz/",
+            "zh": "大炮"
+          }
+        ]
       },
       {
         "img": "images/tank-2/page-2.jpg",
         "en": "All the tanks were parked neatly. Heavy, light, and missile tanks ready for action!",
         "zh": "所有坦克整整齐齐停在里面。重型、轻型、导弹坦克随时待命！",
-        "keys": []
+        "keys": [
+          {
+            "w": "parked",
+            "p": "/pɑːrkt/",
+            "zh": "停放的"
+          },
+          {
+            "w": "neatly",
+            "p": "/ˈniːtli/",
+            "zh": "整齐地"
+          },
+          {
+            "w": "heavy",
+            "p": "/ˈhevi/",
+            "zh": "重型的；沉重的"
+          },
+          {
+            "w": "light",
+            "p": "/laɪt/",
+            "zh": "轻型的"
+          },
+          {
+            "w": "missile",
+            "p": "/ˈmɪsaɪl/",
+            "zh": "导弹"
+          }
+        ]
       },
       {
         "img": "images/tank-2/page-3.jpg",
         "en": "Redstone cannons surrounded the base to stop any monsters from sneaking in!",
         "zh": "阵地周围摆满了红石大炮，防止怪物偷袭！",
-        "keys": []
+        "keys": [
+          {
+            "w": "surrounded",
+            "p": "/səˈraʊndɪd/",
+            "zh": "包围"
+          },
+          {
+            "w": "base",
+            "p": "/beɪs/",
+            "zh": "基地；阵地"
+          },
+          {
+            "w": "stop",
+            "p": "/stɒp/",
+            "zh": "阻止"
+          },
+          {
+            "w": "monsters",
+            "p": "/ˈmɒnstərz/",
+            "zh": "怪物们"
+          },
+          {
+            "w": "sneaking",
+            "p": "/ˈsniːkɪŋ/",
+            "zh": "偷偷潜入"
+          }
+        ]
       },
       {
         "img": "images/tank-2/page-4.jpg",
         "en": "Night fell. A huge wave of monsters appeared from the darkness!",
         "zh": "夜幕降临。一大群怪物从黑暗中涌了出来！",
-        "keys": []
+        "keys": [
+          {
+            "w": "night",
+            "p": "/naɪt/",
+            "zh": "夜晚"
+          },
+          {
+            "w": "huge",
+            "p": "/hjuːdʒ/",
+            "zh": "巨大的"
+          },
+          {
+            "w": "wave",
+            "p": "/weɪv/",
+            "zh": "一大群；波浪"
+          },
+          {
+            "w": "appeared",
+            "p": "/əˈpɪrd/",
+            "zh": "出现了"
+          },
+          {
+            "w": "darkness",
+            "p": "/ˈdɑːrknəs/",
+            "zh": "黑暗"
+          }
+        ]
       },
       {
         "img": "images/tank-2/page-5.jpg",
         "en": "Among them were Warden Sentinels — big, tough, and super scary!",
         "zh": "怪物里面还有几只循声守卫，又大又凶，超可怕！",
-        "keys": []
+        "keys": [
+          {
+            "w": "among",
+            "p": "/əˈmʌŋ/",
+            "zh": "在……中间"
+          },
+          {
+            "w": "Warden",
+            "p": "/ˈwɔːrdən/",
+            "zh": "守卫者"
+          },
+          {
+            "w": "Sentinels",
+            "p": "/ˈsentɪnlz/",
+            "zh": "哨兵；守卫"
+          },
+          {
+            "w": "tough",
+            "p": "/tʌf/",
+            "zh": "强悍的"
+          },
+          {
+            "w": "scary",
+            "p": "/ˈskeri/",
+            "zh": "可怕的"
+          }
+        ]
       },
       {
         "img": "images/tank-2/page-6.jpg",
         "en": "The player jumped into the nearest tank and started the engine!",
         "zh": "他赶紧跳进最近的坦克，发动引擎！",
-        "keys": []
+        "keys": [
+          {
+            "w": "jumped",
+            "p": "/dʒʌmpt/",
+            "zh": "跳进"
+          },
+          {
+            "w": "nearest",
+            "p": "/ˈnɪrɪst/",
+            "zh": "最近的"
+          },
+          {
+            "w": "started",
+            "p": "/ˈstɑːrtɪd/",
+            "zh": "启动了"
+          },
+          {
+            "w": "engine",
+            "p": "/ˈendʒɪn/",
+            "zh": "引擎"
+          }
+        ]
       },
       {
         "img": "images/tank-2/page-7.jpg",
         "en": "Luckily, Iron Golems were nearby and joined the battle!",
         "zh": "还好旁边有铁傀儡，马上加入战斗！",
-        "keys": []
+        "keys": [
+          {
+            "w": "luckily",
+            "p": "/ˈlʌkɪli/",
+            "zh": "幸运地"
+          },
+          {
+            "w": "Iron",
+            "p": "/ˈaɪərn/",
+            "zh": "铁"
+          },
+          {
+            "w": "Golems",
+            "p": "/ˈɡoʊləmz/",
+            "zh": "傀儡"
+          },
+          {
+            "w": "nearby",
+            "p": "/ˌnɪrˈbaɪ/",
+            "zh": "附近的"
+          },
+          {
+            "w": "battle",
+            "p": "/ˈbætl/",
+            "zh": "战斗"
+          }
+        ]
       },
       {
         "img": "images/tank-2/page-8.jpg",
         "en": "Iron Golem blocked the front, taking all the hits. What a tough guy!",
         "zh": "铁傀儡在前面扛伤害，什么打过来都不怕。太硬了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "blocked",
+            "p": "/blɒkt/",
+            "zh": "阻挡"
+          },
+          {
+            "w": "front",
+            "p": "/frʌnt/",
+            "zh": "前面"
+          },
+          {
+            "w": "hits",
+            "p": "/hɪts/",
+            "zh": "攻击；打击"
+          },
+          {
+            "w": "tough",
+            "p": "/tʌf/",
+            "zh": "坚硬的；强悍的"
+          }
+        ]
       },
       {
         "img": "images/tank-2/page-9.jpg",
         "en": "The Warden Sentinel had too much health! Normal cannonballs barely scratched it!",
         "zh": "循声守卫血太厚，普通炮弹根本打不动！",
-        "keys": []
+        "keys": [
+          {
+            "w": "health",
+            "p": "/helθ/",
+            "zh": "生命值；健康"
+          },
+          {
+            "w": "normal",
+            "p": "/ˈnɔːr.məl/",
+            "zh": "普通的"
+          },
+          {
+            "w": "cannonballs",
+            "p": "/ˈkæn.ən.bɔːlz/",
+            "zh": "炮弹"
+          },
+          {
+            "w": "scratched",
+            "p": "/skrætʃt/",
+            "zh": "刮伤；轻微伤到"
+          }
+        ]
       },
       {
         "img": "images/tank-2/page-10.jpg",
         "en": "Quick, switch to the missile tank! One missile took away half its health!",
         "zh": "赶紧换导弹坦克！一发导弹下去直接打掉大半血！",
-        "keys": []
+        "keys": [
+          {
+            "w": "switch",
+            "p": "/swɪtʃ/",
+            "zh": "切换"
+          },
+          {
+            "w": "missile",
+            "p": "/ˈmɪs.aɪl/",
+            "zh": "导弹"
+          },
+          {
+            "w": "tank",
+            "p": "/tæŋk/",
+            "zh": "坦克"
+          },
+          {
+            "w": "half",
+            "p": "/hæf/",
+            "zh": "一半"
+          }
+        ]
       },
       {
         "img": "images/tank-2/page-11.jpg",
         "en": "Monsters were surrounding them! Time to back up and keep shooting!",
         "zh": "差点被怪物包围！赶紧操控坦克边退边射击！",
-        "keys": []
+        "keys": [
+          {
+            "w": "monsters",
+            "p": "/ˈmɒn.stərz/",
+            "zh": "怪物"
+          },
+          {
+            "w": "surrounding",
+            "p": "/səˈraʊn.dɪŋ/",
+            "zh": "包围"
+          },
+          {
+            "w": "back up",
+            "p": "/bæk ʌp/",
+            "zh": "后退"
+          },
+          {
+            "w": "shooting",
+            "p": "/ˈʃuː.tɪŋ/",
+            "zh": "射击"
+          }
+        ]
       },
       {
         "img": "images/tank-2/page-12.jpg",
         "en": "Thanks to the tank's thick armor, it could handle the damage while fighting back!",
         "zh": "靠着坦克厚厚的装甲硬扛伤害，一边扛一边打回去！",
-        "keys": []
+        "keys": [
+          {
+            "w": "thick",
+            "p": "/θɪk/",
+            "zh": "厚的"
+          },
+          {
+            "w": "armor",
+            "p": "/ˈɑːr.mər/",
+            "zh": "装甲"
+          },
+          {
+            "w": "handle",
+            "p": "/ˈhæn.dəl/",
+            "zh": "承受；应对"
+          },
+          {
+            "w": "damage",
+            "p": "/ˈdæm.ɪdʒ/",
+            "zh": "伤害"
+          }
+        ]
       },
       {
         "img": "images/tank-2/page-13.jpg",
         "en": "The Iron Golem and tank worked together perfectly. The base was saved!",
         "zh": "铁傀儡和坦克完美配合，终于守住了阵地！",
-        "keys": []
+        "keys": [
+          {
+            "w": "worked together",
+            "p": "/wɜːrkt təˈɡeð.ər/",
+            "zh": "合作"
+          },
+          {
+            "w": "perfectly",
+            "p": "/ˈpɜːr.fɪkt.li/",
+            "zh": "完美地"
+          },
+          {
+            "w": "base",
+            "p": "/beɪs/",
+            "zh": "基地；阵地"
+          },
+          {
+            "w": "saved",
+            "p": "/seɪvd/",
+            "zh": "拯救；保住"
+          }
+        ]
       }
     ]
   },
@@ -1574,79 +5110,367 @@ const STORIES = [
         "img": "images/tank-3/page-1.jpg",
         "en": "Regular monsters were too easy now. It was time for a real boss fight!",
         "zh": "普通怪物太简单了，是时候挑战真正的BOSS了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "regular",
+            "p": "/ˈreɡ.jə.lər/",
+            "zh": "普通的"
+          },
+          {
+            "w": "easy",
+            "p": "/ˈiː.zi/",
+            "zh": "容易的"
+          },
+          {
+            "w": "boss",
+            "p": "/bɒs/",
+            "zh": "BOSS；首领"
+          },
+          {
+            "w": "fight",
+            "p": "/faɪt/",
+            "zh": "战斗"
+          }
+        ]
       },
       {
         "img": "images/tank-3/page-2.jpg",
         "en": "Soul sand and skulls arranged. The Wither was summoned! Three heads, super powerful!",
         "zh": "摆好灵魂沙和骷髅头，凋零被召唤出来了！三个脑袋，超级强大！",
-        "keys": []
+        "keys": [
+          {
+            "w": "arranged",
+            "p": "/əˈreɪndʒd/",
+            "zh": "摆放好；排列好"
+          },
+          {
+            "w": "summoned",
+            "p": "/ˈsʌm.ənd/",
+            "zh": "召唤"
+          },
+          {
+            "w": "heads",
+            "p": "/hedz/",
+            "zh": "头；脑袋"
+          },
+          {
+            "w": "powerful",
+            "p": "/ˈpaʊ.ər.fəl/",
+            "zh": "强大的"
+          }
+        ]
       },
       {
         "img": "images/tank-3/page-3.jpg",
         "en": "One tank was not enough! The Wither's bombs were too powerful!",
         "zh": "一辆坦克根本不够！凋零的炸弹太猛了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "enough",
+            "p": "/ɪˈnʌf/",
+            "zh": "足够的"
+          },
+          {
+            "w": "bombs",
+            "p": "/bɒmz/",
+            "zh": "炸弹"
+          },
+          {
+            "w": "powerful",
+            "p": "/ˈpaʊ.ər.fəl/",
+            "zh": "强大的"
+          },
+          {
+            "w": "Wither",
+            "p": "/ˈwɪð.ər/",
+            "zh": "凋零"
+          }
+        ]
       },
       {
         "img": "images/tank-3/page-4.jpg",
         "en": "The tank was losing health fast. Run back to the base!",
         "zh": "坦克掉血超快，差点被打爆！赶紧跑回阵地！",
-        "keys": []
+        "keys": [
+          {
+            "w": "losing",
+            "p": "/ˈluː.zɪŋ/",
+            "zh": "失去；减少"
+          },
+          {
+            "w": "health",
+            "p": "/helθ/",
+            "zh": "生命值；健康"
+          },
+          {
+            "w": "fast",
+            "p": "/fæst/",
+            "zh": "快速地"
+          },
+          {
+            "w": "base",
+            "p": "/beɪs/",
+            "zh": "基地；阵地"
+          }
+        ]
       },
       {
         "img": "images/tank-3/page-5.jpg",
         "en": "Time to bring out ALL the tanks! A tank army was forming!",
         "zh": "把所有造好的坦克都开出来，组成坦克大军！",
-        "keys": []
+        "keys": [
+          {
+            "w": "tank",
+            "p": "/tæŋk/",
+            "zh": "坦克"
+          },
+          {
+            "w": "army",
+            "p": "/ˈɑːrmi/",
+            "zh": "军队；大军"
+          },
+          {
+            "w": "bring out",
+            "p": "/brɪŋ aʊt/",
+            "zh": "拿出；开出来"
+          },
+          {
+            "w": "form",
+            "p": "/fɔːrm/",
+            "zh": "组成；形成"
+          }
+        ]
       },
       {
         "img": "images/tank-3/page-6.jpg",
         "en": "The tank army surrounded the Wither. Every tank aimed and fired!",
         "zh": "坦克大军把凋零围了起来，所有坦克一起开火！",
-        "keys": []
+        "keys": [
+          {
+            "w": "surround",
+            "p": "/səˈraʊnd/",
+            "zh": "包围"
+          },
+          {
+            "w": "aim",
+            "p": "/eɪm/",
+            "zh": "瞄准"
+          },
+          {
+            "w": "fire",
+            "p": "/ˈfaɪər/",
+            "zh": "开火；发射"
+          },
+          {
+            "w": "Wither",
+            "p": "/ˈwɪðər/",
+            "zh": "凋零"
+          }
+        ]
       },
       {
         "img": "images/tank-3/page-7.jpg",
         "en": "Heavy tanks blocked the front, absorbing the Wither's devastating blows!",
         "zh": "重型坦克在正面扛伤害，挡住凋零的猛烈攻击！",
-        "keys": []
+        "keys": [
+          {
+            "w": "heavy",
+            "p": "/ˈhevi/",
+            "zh": "重的；重型的"
+          },
+          {
+            "w": "block",
+            "p": "/blɑːk/",
+            "zh": "阻挡"
+          },
+          {
+            "w": "absorb",
+            "p": "/əbˈzɔːrb/",
+            "zh": "吸收；承受"
+          },
+          {
+            "w": "devastating",
+            "p": "/ˈdevəsteɪtɪŋ/",
+            "zh": "毁灭性的"
+          },
+          {
+            "w": "blow",
+            "p": "/bloʊ/",
+            "zh": "打击；攻击"
+          }
+        ]
       },
       {
         "img": "images/tank-3/page-8.jpg",
         "en": "Light tanks zoomed around the sides, hitting the Wither from every angle!",
         "zh": "轻型坦克绕到侧面，从各个角度攻击凋零！",
-        "keys": []
+        "keys": [
+          {
+            "w": "light",
+            "p": "/laɪt/",
+            "zh": "轻的；轻型的"
+          },
+          {
+            "w": "zoom",
+            "p": "/zuːm/",
+            "zh": "快速移动"
+          },
+          {
+            "w": "side",
+            "p": "/saɪd/",
+            "zh": "侧面"
+          },
+          {
+            "w": "angle",
+            "p": "/ˈæŋɡəl/",
+            "zh": "角度"
+          },
+          {
+            "w": "hit",
+            "p": "/hɪt/",
+            "zh": "攻击；击中"
+          }
+        ]
       },
       {
         "img": "images/tank-3/page-9.jpg",
         "en": "Missile tanks fired from far away. Each missile dealt massive damage!",
         "zh": "导弹坦克在远处发射，每发导弹都造成巨大伤害！",
-        "keys": []
+        "keys": [
+          {
+            "w": "missile",
+            "p": "/ˈmɪsəl/",
+            "zh": "导弹"
+          },
+          {
+            "w": "far away",
+            "p": "/fɑːr əˈweɪ/",
+            "zh": "远处"
+          },
+          {
+            "w": "deal",
+            "p": "/diːl/",
+            "zh": "造成（伤害）"
+          },
+          {
+            "w": "massive",
+            "p": "/ˈmæsɪv/",
+            "zh": "巨大的"
+          },
+          {
+            "w": "damage",
+            "p": "/ˈdæmɪdʒ/",
+            "zh": "伤害"
+          }
+        ]
       },
       {
         "img": "images/tank-3/page-10.jpg",
         "en": "Even the redstone cannons joined in! Boom boom boom!",
         "zh": "连红石大炮也不停开火！轰轰轰！",
-        "keys": []
+        "keys": [
+          {
+            "w": "redstone",
+            "p": "/ˈredstoʊn/",
+            "zh": "红石"
+          },
+          {
+            "w": "cannon",
+            "p": "/ˈkænən/",
+            "zh": "大炮"
+          },
+          {
+            "w": "join in",
+            "p": "/dʒɔɪn ɪn/",
+            "zh": "加入"
+          },
+          {
+            "w": "boom",
+            "p": "/buːm/",
+            "zh": "轰响；爆炸声"
+          }
+        ]
       },
       {
         "img": "images/tank-3/page-11.jpg",
         "en": "After a long hard fight, the Wither finally fell! Victory!",
         "zh": "打了好久好久，凋零终于被打败了！胜利！",
-        "keys": []
+        "keys": [
+          {
+            "w": "fight",
+            "p": "/faɪt/",
+            "zh": "战斗"
+          },
+          {
+            "w": "finally",
+            "p": "/ˈfaɪnəli/",
+            "zh": "终于"
+          },
+          {
+            "w": "fall",
+            "p": "/fɔːl/",
+            "zh": "倒下；失败"
+          },
+          {
+            "w": "victory",
+            "p": "/ˈvɪktəri/",
+            "zh": "胜利"
+          }
+        ]
       },
       {
         "img": "images/tank-3/page-12.jpg",
         "en": "A Nether Star dropped! Time to build something even more amazing!",
         "zh": "掉落了下界之星！是时候造更厉害的东西了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "Nether Star",
+            "p": "/ˈneðər stɑːr/",
+            "zh": "下界之星"
+          },
+          {
+            "w": "drop",
+            "p": "/drɑːp/",
+            "zh": "掉落"
+          },
+          {
+            "w": "build",
+            "p": "/bɪld/",
+            "zh": "建造"
+          },
+          {
+            "w": "amazing",
+            "p": "/əˈmeɪzɪŋ/",
+            "zh": "令人惊叹的"
+          }
+        ]
       },
       {
         "img": "images/tank-3/page-13.jpg",
         "en": "Next up: a super tank with triple-layer armor that nothing can destroy!",
         "zh": "下一步：造一辆三层加厚护甲的超级坦克，谁也打不动！",
-        "keys": []
+        "keys": [
+          {
+            "w": "super",
+            "p": "/ˈsuːpər/",
+            "zh": "超级的"
+          },
+          {
+            "w": "triple-layer",
+            "p": "/ˌtrɪpəl ˈleɪər/",
+            "zh": "三层的"
+          },
+          {
+            "w": "armor",
+            "p": "/ˈɑːrmər/",
+            "zh": "护甲；装甲"
+          },
+          {
+            "w": "destroy",
+            "p": "/dɪˈstrɔɪ/",
+            "zh": "摧毁"
+          }
+        ]
       }
     ]
   },
@@ -1793,7 +5617,33 @@ const STORIES = [
         "img": "images/sugarcane-tank/page-12.jpg",
         "en": "The kid pressed the rapid fire button and syrup bombs flew everywhere, gluing enemy tanks to the ground!",
         "zh": "小孩按下连射按钮，糖浆弹四处飞射，把敌人坦克全部粘在了地上！",
-        "keys": []
+        "keys": [
+          {
+            "w": "rapid",
+            "p": "/ˈræpɪd/",
+            "zh": "快速的"
+          },
+          {
+            "w": "syrup",
+            "p": "/ˈsɪrəp/",
+            "zh": "糖浆"
+          },
+          {
+            "w": "bomb",
+            "p": "/bɑːm/",
+            "zh": "炸弹"
+          },
+          {
+            "w": "button",
+            "p": "/ˈbʌtn/",
+            "zh": "按钮"
+          },
+          {
+            "w": "glue",
+            "p": "/ɡluː/",
+            "zh": "粘住"
+          }
+        ]
       },
       {
         "img": "images/sugarcane-tank/page-13.jpg",
@@ -1859,7 +5709,33 @@ const STORIES = [
         "img": "images/sugarcane-tank/page-18.jpg",
         "en": "The pumpkin bomb hit the commander tank and exploded into a giant pumpkin shell, trapping it completely!",
         "zh": "南瓜弹命中了队长坦克，炸开变成巨大的南瓜壳，把敌人整个包住了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "pumpkin",
+            "p": "/ˈpʌmpkɪn/",
+            "zh": "南瓜"
+          },
+          {
+            "w": "commander",
+            "p": "/kəˈmændər/",
+            "zh": "指挥官"
+          },
+          {
+            "w": "explode",
+            "p": "/ɪkˈsploʊd/",
+            "zh": "爆炸"
+          },
+          {
+            "w": "shell",
+            "p": "/ʃel/",
+            "zh": "壳"
+          },
+          {
+            "w": "trap",
+            "p": "/træp/",
+            "zh": "困住"
+          }
+        ]
       },
       {
         "img": "images/sugarcane-tank/page-19.jpg",
@@ -1910,127 +5786,673 @@ const STORIES = [
         "img": "images/invisible-tank/page-1.jpg",
         "en": "A mysterious black tank that can turn invisible, ready for a secret mission.",
         "zh": "一辆神秘的黑色坦克，可以变得完全透明，准备执行秘密任务。",
-        "keys": []
+        "keys": [
+          {
+            "w": "mysterious",
+            "p": "/mɪˈstɪriəs/",
+            "zh": "神秘的"
+          },
+          {
+            "w": "black",
+            "p": "/blæk/",
+            "zh": "黑色的"
+          },
+          {
+            "w": "invisible",
+            "p": "/ɪnˈvɪzəbəl/",
+            "zh": "隐形的；看不见的"
+          },
+          {
+            "w": "secret",
+            "p": "/ˈsiːkrət/",
+            "zh": "秘密的"
+          },
+          {
+            "w": "mission",
+            "p": "/ˈmɪʃən/",
+            "zh": "任务"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-2.jpg",
         "en": "Sneaky enemy trucks steal the glowing energy crystals hidden on the mountain top.",
         "zh": "偷偷摸摸的敌人卡车把藏在山顶的发光能量水晶偷走了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "sneaky",
+            "p": "/ˈsniːki/",
+            "zh": "鬼鬼祟祟的"
+          },
+          {
+            "w": "enemy",
+            "p": "/ˈenəmi/",
+            "zh": "敌人"
+          },
+          {
+            "w": "glowing",
+            "p": "/ˈɡloʊɪŋ/",
+            "zh": "发光的"
+          },
+          {
+            "w": "energy",
+            "p": "/ˈenərdʒi/",
+            "zh": "能量"
+          },
+          {
+            "w": "crystal",
+            "p": "/ˈkrɪstl/",
+            "zh": "水晶"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-3.jpg",
         "en": "The kid presses the glowing blue button — whoosh! The tank becomes completely invisible!",
         "zh": "小孩按下发光的蓝色按钮——嗖！坦克变得完全透明了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "press",
+            "p": "/pres/",
+            "zh": "按下"
+          },
+          {
+            "w": "button",
+            "p": "/ˈbʌtn/",
+            "zh": "按钮"
+          },
+          {
+            "w": "tank",
+            "p": "/tæŋk/",
+            "zh": "坦克"
+          },
+          {
+            "w": "completely",
+            "p": "/kəmˈpliːtli/",
+            "zh": "完全地"
+          },
+          {
+            "w": "invisible",
+            "p": "/ɪnˈvɪzəbl/",
+            "zh": "隐形的"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-4.jpg",
         "en": "The invisible tank follows the enemy convoy silently, not even the guard dogs notice it.",
         "zh": "隐身坦克悄悄跟在敌人车队后面，连敌人的侦查狗都没发现。",
-        "keys": []
+        "keys": [
+          {
+            "w": "follows",
+            "p": "/ˈfɑːloʊz/",
+            "zh": "跟随"
+          },
+          {
+            "w": "convoy",
+            "p": "/ˈkɑːnvɔɪ/",
+            "zh": "车队"
+          },
+          {
+            "w": "silently",
+            "p": "/ˈsaɪləntli/",
+            "zh": "悄无声息地"
+          },
+          {
+            "w": "guard",
+            "p": "/ɡɑːrd/",
+            "zh": "守卫"
+          },
+          {
+            "w": "notice",
+            "p": "/ˈnoʊtɪs/",
+            "zh": "注意到"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-5.jpg",
         "en": "The invisible tank reaches the enemy camp. There are guards everywhere and tall watchtowers!",
         "zh": "隐身坦克到达敌人营地。到处都是卫兵和高高的瞭望塔！",
-        "keys": []
+        "keys": [
+          {
+            "w": "reaches",
+            "p": "/ˈriːtʃɪz/",
+            "zh": "到达"
+          },
+          {
+            "w": "camp",
+            "p": "/kæmp/",
+            "zh": "营地"
+          },
+          {
+            "w": "guards",
+            "p": "/ɡɑːrdz/",
+            "zh": "卫兵"
+          },
+          {
+            "w": "everywhere",
+            "p": "/ˈevriwer/",
+            "zh": "到处"
+          },
+          {
+            "w": "watchtower",
+            "p": "/ˈwɑːtʃtaʊər/",
+            "zh": "瞭望塔"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-6.jpg",
         "en": "Twenty fake tanks appear around the enemy camp and the soldiers panic in confusion!",
         "zh": "敌人营地周围突然出现了二十辆一模一样的幻影坦克，士兵们吓得四处张望！",
-        "keys": []
+        "keys": [
+          {
+            "w": "fake",
+            "p": "/feɪk/",
+            "zh": "假的"
+          },
+          {
+            "w": "appear",
+            "p": "/əˈpɪr/",
+            "zh": "出现"
+          },
+          {
+            "w": "soldier",
+            "p": "/ˈsoʊldʒər/",
+            "zh": "士兵"
+          },
+          {
+            "w": "panic",
+            "p": "/ˈpænɪk/",
+            "zh": "惊慌"
+          },
+          {
+            "w": "confusion",
+            "p": "/kənˈfjuːʒn/",
+            "zh": "混乱"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-7.jpg",
         "en": "Tiny fly-sized cameras zip over to the enemy tanks and send back live video to the kid's screen.",
         "zh": "像苍蝇一样小的微型摄像头飞到敌人坦克上，把画面传回屏幕。",
-        "keys": []
+        "keys": [
+          {
+            "w": "tiny",
+            "p": "/ˈtaɪni/",
+            "zh": "极小的"
+          },
+          {
+            "w": "camera",
+            "p": "/ˈkæmərə/",
+            "zh": "摄像头"
+          },
+          {
+            "w": "zip",
+            "p": "/zɪp/",
+            "zh": "飞速移动"
+          },
+          {
+            "w": "enemy",
+            "p": "/ˈenəmi/",
+            "zh": "敌人"
+          },
+          {
+            "w": "screen",
+            "p": "/skriːn/",
+            "zh": "屏幕"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-8.jpg",
         "en": "The kid throws a special dart that flies straight into the enemy truck's energy core!",
         "zh": "小孩投出飞镖，精准命中敌人卡车的能量核心！",
-        "keys": []
+        "keys": [
+          {
+            "w": "special",
+            "p": "/ˈspeʃl/",
+            "zh": "特殊的"
+          },
+          {
+            "w": "dart",
+            "p": "/dɑːrt/",
+            "zh": "飞镖"
+          },
+          {
+            "w": "straight",
+            "p": "/streɪt/",
+            "zh": "笔直地"
+          },
+          {
+            "w": "truck",
+            "p": "/trʌk/",
+            "zh": "卡车"
+          },
+          {
+            "w": "core",
+            "p": "/kɔːr/",
+            "zh": "核心"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-9.jpg",
         "en": "The dart hits the core — BOOM! The enemy truck's power shuts down completely!",
         "zh": "飞镖命中核心——轰！敌人卡车的动力彻底熄火了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "hits",
+            "p": "/hɪts/",
+            "zh": "击中"
+          },
+          {
+            "w": "power",
+            "p": "/ˈpaʊər/",
+            "zh": "动力"
+          },
+          {
+            "w": "shuts",
+            "p": "/ʃʌts/",
+            "zh": "关闭"
+          },
+          {
+            "w": "down",
+            "p": "/daʊn/",
+            "zh": "停止"
+          },
+          {
+            "w": "completely",
+            "p": "/kəmˈpliːtli/",
+            "zh": "彻底地"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-10.jpg",
         "en": "A magnetic claw reaches out and zips the crystal boxes right into the invisible tank.",
         "zh": "磁力抓取爪伸出，嗖地一下把能量水晶吸了过来！",
-        "keys": []
+        "keys": [
+          {
+            "w": "magnetic",
+            "p": "/mæɡˈnetɪk/",
+            "zh": "磁性的"
+          },
+          {
+            "w": "claw",
+            "p": "/klɔː/",
+            "zh": "爪"
+          },
+          {
+            "w": "reaches",
+            "p": "/ˈriːtʃɪz/",
+            "zh": "伸出"
+          },
+          {
+            "w": "crystal",
+            "p": "/ˈkrɪstl/",
+            "zh": "水晶"
+          },
+          {
+            "w": "boxes",
+            "p": "/ˈbɑːksɪz/",
+            "zh": "盒子"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-11.jpg",
         "en": "The magnetic claw grabs the second crystal too! Two down, one to go!",
         "zh": "磁力爪又抓到了第二个水晶！两个到手，还差一个！",
-        "keys": []
+        "keys": [
+          {
+            "w": "grabs",
+            "p": "/ɡræbz/",
+            "zh": "抓住"
+          },
+          {
+            "w": "second",
+            "p": "/ˈsekənd/",
+            "zh": "第二的"
+          },
+          {
+            "w": "crystal",
+            "p": "/ˈkrɪstl/",
+            "zh": "水晶"
+          },
+          {
+            "w": "down",
+            "p": "/daʊn/",
+            "zh": "搞定"
+          },
+          {
+            "w": "go",
+            "p": "/ɡoʊ/",
+            "zh": "剩下"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-12.jpg",
         "en": "The last enemy truck spots the floating crystals and sounds the alarm! WHEE-OOH WHEE-OOH!",
         "zh": "最后一辆敌人卡车发现了飘浮的水晶，拉响了警报！呜——呜——！",
-        "keys": []
+        "keys": [
+          {
+            "w": "enemy",
+            "p": "/ˈenəmi/",
+            "zh": "敌人"
+          },
+          {
+            "w": "truck",
+            "p": "/trʌk/",
+            "zh": "卡车"
+          },
+          {
+            "w": "spots",
+            "p": "/spɒts/",
+            "zh": "发现"
+          },
+          {
+            "w": "floating",
+            "p": "/ˈfləʊtɪŋ/",
+            "zh": "漂浮的"
+          },
+          {
+            "w": "alarm",
+            "p": "/əˈlɑːm/",
+            "zh": "警报"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-13.jpg",
         "en": "The enemy truck chases the invisible tank through the forest at full speed!",
         "zh": "敌人卡车全速追赶隐身坦克，在森林里疯狂穿梭！",
-        "keys": []
+        "keys": [
+          {
+            "w": "chases",
+            "p": "/ˈtʃeɪsɪz/",
+            "zh": "追赶"
+          },
+          {
+            "w": "invisible",
+            "p": "/ɪnˈvɪzəbl/",
+            "zh": "隐形的"
+          },
+          {
+            "w": "tank",
+            "p": "/tæŋk/",
+            "zh": "坦克"
+          },
+          {
+            "w": "forest",
+            "p": "/ˈfɒrɪst/",
+            "zh": "森林"
+          },
+          {
+            "w": "speed",
+            "p": "/spiːd/",
+            "zh": "速度"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-14.jpg",
         "en": "An explosion sends Doubao the robot flying higher than the whole galaxy!",
         "zh": "一阵爆炸把豆包炸飞了，豆包飞得比银河系还高！",
-        "keys": []
+        "keys": [
+          {
+            "w": "explosion",
+            "p": "/ɪkˈspləʊʒən/",
+            "zh": "爆炸"
+          },
+          {
+            "w": "robot",
+            "p": "/ˈrəʊbɒt/",
+            "zh": "机器人"
+          },
+          {
+            "w": "flying",
+            "p": "/ˈflaɪɪŋ/",
+            "zh": "飞行；飞起来"
+          },
+          {
+            "w": "higher",
+            "p": "/ˈhaɪə(r)/",
+            "zh": "更高地"
+          },
+          {
+            "w": "galaxy",
+            "p": "/ˈɡæləksi/",
+            "zh": "银河系；星系"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-15.jpg",
         "en": "Doubao falls back down like a shooting star, yelling all the way!",
         "zh": "豆包像流星一样落下来，一路尖叫！",
-        "keys": []
+        "keys": [
+          {
+            "w": "falls",
+            "p": "/fɔːlz/",
+            "zh": "掉落"
+          },
+          {
+            "w": "shooting",
+            "p": "/ˈʃuːtɪŋ/",
+            "zh": "飞射的"
+          },
+          {
+            "w": "star",
+            "p": "/stɑː(r)/",
+            "zh": "星星；流星"
+          },
+          {
+            "w": "yelling",
+            "p": "/ˈjelɪŋ/",
+            "zh": "大叫"
+          },
+          {
+            "w": "down",
+            "p": "/daʊn/",
+            "zh": "向下"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-16.jpg",
         "en": "Doubao lands on the ground with a big BUMP and says 'Ouch, my bottom hurts!'",
         "zh": "豆包砰地坐到地上，哎呀，屁股好疼啊，摔了个屁股蹲！",
-        "keys": []
+        "keys": [
+          {
+            "w": "lands",
+            "p": "/lændz/",
+            "zh": "着地"
+          },
+          {
+            "w": "ground",
+            "p": "/ɡraʊnd/",
+            "zh": "地面"
+          },
+          {
+            "w": "bump",
+            "p": "/bʌmp/",
+            "zh": "砰的一声"
+          },
+          {
+            "w": "ouch",
+            "p": "/aʊtʃ/",
+            "zh": "哎哟"
+          },
+          {
+            "w": "bottom",
+            "p": "/ˈbɒtəm/",
+            "zh": "屁股；底部"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-17.jpg",
         "en": "Doubao accidentally falls right in front of the enemy truck! The truck screeches to a halt!",
         "zh": "豆包正好摔在敌人卡车前面！卡车急刹车停了下来！",
-        "keys": []
+        "keys": [
+          {
+            "w": "accidentally",
+            "p": "/ˌæksɪˈdentəli/",
+            "zh": "意外地"
+          },
+          {
+            "w": "front",
+            "p": "/frʌnt/",
+            "zh": "前面"
+          },
+          {
+            "w": "screeches",
+            "p": "/skriːtʃɪz/",
+            "zh": "发出刺耳刹车声"
+          },
+          {
+            "w": "halt",
+            "p": "/hɔːlt/",
+            "zh": "停止"
+          },
+          {
+            "w": "enemy",
+            "p": "/ˈenəmi/",
+            "zh": "敌人"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-18.jpg",
         "en": "While the truck is stopped, the magnetic claw quickly grabs the last crystal!",
         "zh": "趁卡车停下，磁力爪迅速抓走了最后一个水晶！",
-        "keys": []
+        "keys": [
+          {
+            "w": "stopped",
+            "p": "/stɒpt/",
+            "zh": "停下的"
+          },
+          {
+            "w": "magnetic",
+            "p": "/mæɡˈnetɪk/",
+            "zh": "磁性的"
+          },
+          {
+            "w": "claw",
+            "p": "/klɔː/",
+            "zh": "爪子"
+          },
+          {
+            "w": "quickly",
+            "p": "/ˈkwɪkli/",
+            "zh": "迅速地"
+          },
+          {
+            "w": "crystal",
+            "p": "/ˈkrɪstl/",
+            "zh": "水晶"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-19.jpg",
         "en": "Doubao has a bouncy bottom pad and springs right back up, ready to keep fighting!",
         "zh": "豆包有弹性缓冲垫，一下子就弹了起来，继续战斗！",
-        "keys": []
+        "keys": [
+          {
+            "w": "bouncy",
+            "p": "/ˈbaʊnsi/",
+            "zh": "有弹性的"
+          },
+          {
+            "w": "pad",
+            "p": "/pæd/",
+            "zh": "垫子"
+          },
+          {
+            "w": "springs",
+            "p": "/sprɪŋz/",
+            "zh": "弹起"
+          },
+          {
+            "w": "ready",
+            "p": "/ˈredi/",
+            "zh": "准备好的"
+          },
+          {
+            "w": "fighting",
+            "p": "/ˈfaɪtɪŋ/",
+            "zh": "战斗"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-20.jpg",
         "en": "The invisible tank activates full stealth and vanishes completely! The enemy trucks can't find it!",
         "zh": "隐身坦克开启全隐身模式，彻底消失！敌人卡车找不到它了！",
-        "keys": []
+        "keys": [
+          {
+            "w": "activates",
+            "p": "/ˈæktɪveɪts/",
+            "zh": "启动"
+          },
+          {
+            "w": "stealth",
+            "p": "/stelθ/",
+            "zh": "隐身；潜行"
+          },
+          {
+            "w": "vanishes",
+            "p": "/ˈvænɪʃɪz/",
+            "zh": "消失"
+          },
+          {
+            "w": "completely",
+            "p": "/kəmˈpliːtli/",
+            "zh": "完全地"
+          },
+          {
+            "w": "find",
+            "p": "/faɪnd/",
+            "zh": "找到"
+          }
+        ]
       },
       {
         "img": "images/invisible-tank/page-21.jpg",
         "en": "The invisible tank carries the crystals home safely, with Doubao riding on top as a lookout.",
         "zh": "隐身坦克带着水晶安全回到基地，豆包坐在坦克顶上当侦查员。",
-        "keys": []
+        "keys": [
+          {
+            "w": "carries",
+            "p": "/ˈkæriz/",
+            "zh": "运送"
+          },
+          {
+            "w": "safely",
+            "p": "/ˈseɪfli/",
+            "zh": "安全地"
+          },
+          {
+            "w": "riding",
+            "p": "/ˈraɪdɪŋ/",
+            "zh": "乘坐"
+          },
+          {
+            "w": "lookout",
+            "p": "/ˈlʊkaʊt/",
+            "zh": "侦查员；警戒者"
+          },
+          {
+            "w": "home",
+            "p": "/həʊm/",
+            "zh": "家；基地"
+          }
+        ]
       }
     ]
   }
