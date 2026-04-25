@@ -198,25 +198,6 @@ const App = {
     this.buildWordMap(p.en, enContainer);
     this.buildKeyWordMap(document.getElementById('keys-row'));
 
-    // Test if en audio exists
-    const tryAudioPlayback = async () => {
-      try {
-        const resp = await fetch(enAudioUrl, { method: 'HEAD' });
-        if (resp.ok) {
-          // 播放英文音频
-          await TTS.speakAudio(enAudioUrl);
-          if (!this.speaking) return;
-          // 播放中文音频
-          await TTS.speakAudio(zhAudioUrl);
-          if (!this.speaking) return;
-          // 播放重点单词
-          await this.speakKeysOneByOne(p.keys);
-          return true; // used audio
-        }
-      } catch (e) {}
-      return false; // fall back to TTS
-    };
-
     const scrollActiveIntoView = (el) => {
       if (!el) return;
       requestAnimationFrame(() => {
@@ -236,7 +217,6 @@ const App = {
       }
     };
 
-        // Split Chinese text by punctuation for sentence-level highlighting
     const splitByPunct = (text) => {
       const parts = text.split(/(?<=[。！？；：])/);
       return parts.filter(p => p.trim().length > 0);
@@ -256,23 +236,22 @@ const App = {
       if (el) { el.classList.add('active'); scrollActiveIntoView(el); }
     };
 
-    // Speak Chinese chunks one by one, each chunk's onEnd drives the next
-    // Returns a Promise that resolves when all chunks are done
-    const speakNextChunk = () => {
-      return new Promise((resolve) => {
-        const advance = () => {
-          if (!this.speaking || zhChunkIdx >= zhChunks.length) { resolve(); return; }
-          highlightZhChunk(zhChunkIdx);
-          const chunkText = zhChunks[zhChunkIdx];
-          zhChunkIdx++;
-          TTS.speak(chunkText, 'zh-CN', this.rate, null, () => {
-            if (!this.speaking) { resolve(); return; }
-            if (zhChunkIdx >= zhChunks.length) { resolve(); return; }
-            advance();
-          });
-        };
-        advance();
-      });
+    // Test if audio exists — play with highlights
+    const tryAudioPlayback = async () => {
+      try {
+        const resp = await fetch(enAudioUrl, { method: 'HEAD' });
+        if (resp.ok) {
+          nextEnWord();
+          await TTS.speakAudio(enAudioUrl);
+          if (!this.speaking) return;
+          highlightZhChunk(0);
+          await TTS.speakAudio(zhAudioUrl);
+          if (!this.speaking) return;
+          await this.speakKeysOneByOne(p.keys);
+          return true;
+        }
+      } catch (e) {}
+      return false;
     };
 
     // 先尝试音频，失败则用 TTS
