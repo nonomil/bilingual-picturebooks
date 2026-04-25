@@ -276,9 +276,7 @@ const App = {
     };
 
     // 先尝试音频，失败则用 TTS
-    tryAudioPlayback().then(usedAudio => {
-      if (usedAudio || !this.speaking) return;
-      // TTS fallback
+    const doTTS = () => {
     // 1. English — time-driven word highlight, waits for TTS onstart event
     let enHighlightStarted = false;
     const startEnHighlight = () => {
@@ -298,6 +296,11 @@ const App = {
       if (!this.speaking) return;
       // 3. Key words
       await this.speakKeysOneByOne(p.keys);
+    });
+    };
+    tryAudioPlayback().then(usedAudio => {
+      if (usedAudio || !this.speaking) return;
+      doTTS();
     });
   },
 
