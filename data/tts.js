@@ -8,9 +8,20 @@ const TTS = {
   init() {
     return new Promise((resolve) => {
       // 检查 Capacitor 插件是否可用
-      if (window.TTSPlugin) {
+      if (this.isCapacitorTTS()) {
         console.log('Using Capacitor TTS Plugin');
-        // 初始化成功
+        const plugin = this.getTTSPlugin();
+        // 监听 TTS 完成事件
+        plugin.addListener('ttsFinish', () => {
+          this.isSpeaking = false;
+          if (this._pendingEnd) this._pendingEnd();
+          if (this._pendingResolve) { this._pendingResolve(); this._pendingResolve = null; }
+        });
+        plugin.addListener('ttsError', () => {
+          this.isSpeaking = false;
+          if (this._pendingEnd) this._pendingEnd();
+          if (this._pendingResolve) { this._pendingResolve(); this._pendingResolve = null; }
+        });
         resolve();
         return;
       }
@@ -66,26 +77,19 @@ const TTS = {
       return new Promise((resolve) => {
         if (onStart) onStart();
         this.isSpeaking = true;
-        
-        // 调用 Capacitor TTS 插件
+        this._pendingEnd = onEnd;
+        this._pendingResolve = resolve;
+
         plugin.speak({
           text: text,
           lang: lang,
           rate: rate
-        }).then(() => {
-          // TTS 开始成功
         }).catch((err) => {
           console.error('TTS speak error:', err);
+          this.isSpeaking = false;
+          if (onEnd) onEnd();
+          resolve();
         });
-        
-        // 超时保护
-        setTimeout(() => {
-          if (this.isSpeaking) {
-            this.isSpeaking = false;
-            if (onEnd) onEnd();
-            resolve();
-          }
-        }, Math.max(3000, text.length * 100));
       });
     }
     
