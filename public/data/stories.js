@@ -7,7 +7,7 @@ const STORIES = [
     "cover": "images/covers/cover-snake.jpg",
     "pages": [
       {
-        "img": "images/snake/page-1.jpg",
+        "img": "images/covers/cover-snake.jpg",
         "en": "One sunny morning, a little snake wiggled along the path.",
         "zh": "一个阳光明媚的早晨，小蛇一扭一扭地在小路上散步。",
         "keys": [
@@ -5774,7 +5774,7 @@ const STORIES = [
     "cover": "images/covers/cover-brave-tank.jpg",
     "pages": [
       {
-        "img": "images/brave-tank/page-1.jpg",
+        "img": "images/covers/cover-brave-tank.jpg",
         "en": "In a beautiful valley, there lived a brave little tank named Little Steel.",
         "zh": "在一片美丽的山谷里，住着一辆勇敢的小坦克，名叫小钢。",
         "keys": [
