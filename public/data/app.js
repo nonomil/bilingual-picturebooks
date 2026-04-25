@@ -279,6 +279,17 @@ const App = {
     };
 
     // 先尝试音频，失败则用 TTS
+    // 2. Chinese — speak each punctuation-delimited chunk
+    const speakNextChunk = async () => {
+      if (zhChunkIdx >= zhChunks.length) return;
+      highlightZhChunk(zhChunkIdx);
+      await TTS.speak(zhChunks[zhChunkIdx], 'zh-CN', this.rate * 0.85, null, null);
+      zhChunkIdx++;
+      if (zhChunkIdx < zhChunks.length && this.speaking) {
+        await speakNextChunk();
+      }
+    };
+
     const doTTS = () => {
     // 1. English — time-driven word highlight, waits for TTS onstart event
     let enHighlightStarted = false;
