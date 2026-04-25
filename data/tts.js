@@ -196,6 +196,15 @@ const TTS = {
     }
   },
 
+  // 检测 TTS 是否真正可用
+  isAvailable() {
+    return !!(
+      window.speechSynthesis ||
+      (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TTS) ||
+      (window.AndroidTTS && typeof window.AndroidTTS.speak === 'function')
+    );
+  },
+
   _showTTSDialog() {
     // 检查是否已经提示过（每天最多一次）
     const lastPrompt = localStorage.getItem('tts_prompt_date');

@@ -148,7 +148,12 @@ const App = {
     `;
 
     if (this.autoPage) {
-      setTimeout(() => this.startReading(), 500);
+      // 延迟检测 TTS 是否真正可用（避免 WebView 加载远程页面时 TTS 未就绪导致飞速翻页）
+      setTimeout(() => {
+        if (TTS.isAvailable && TTS.isAvailable()) {
+          this.startReading();
+        }
+      }, 500);
     }
   },
 
