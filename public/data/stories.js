@@ -1147,7 +1147,7 @@ const STORIES = [
     "cover": "images/covers/cover-minecraft.jpg",
     "pages": [
       {
-        "img": "images/minecraft/page-1.jpg",
+        "img": "images/minecraft/page-2.jpg",
         "en": "🛩️ Steve vs The Wither — Sky Knight",
         "zh": "史蒂夫大战凋零 — 天空骑士",
         "keys": [
@@ -1184,7 +1184,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-2.jpg",
+        "img": "images/minecraft/page-3.jpg",
         "en": "Steve lived in a quiet village. He was a builder, a miner, and a dreamer.",
         "zh": "史蒂夫住在一个安静的村庄里。他是一个建造者，一个矿工，也是一个梦想家。",
         "keys": [
@@ -1230,7 +1230,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-3.jpg",
+        "img": "images/minecraft/page-4.jpg",
         "en": "One day, the sky turned dark. A terrible roar shook the ground. The Wither was coming.",
         "zh": "有一天，天空变暗了。可怕的咆哮震动了大地。凋零来了。",
         "keys": [
@@ -1276,7 +1276,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-4.jpg",
+        "img": "images/minecraft/page-5.jpg",
         "en": "Steve said he needed to fight from the sky. He began to build an airplane.",
         "zh": "\"我需要从天空战斗它，\"史蒂夫说。他开始建造一个从来没有人见过的东西——一架飞机。",
         "keys": [
@@ -1322,7 +1322,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-5.jpg",
+        "img": "images/minecraft/page-6.jpg",
         "en": "Day and night, Steve worked on his airplane. He hammered iron and attached big propellers.",
         "zh": "日日夜夜，史蒂夫在他的飞机上工作。他锤打铁器，弯曲木材，安装巨大的螺旋桨。",
         "keys": [
@@ -1368,7 +1368,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-6.jpg",
+        "img": "images/minecraft/page-7.jpg",
         "en": "Finally it was done. A beautiful red biplane, shining in the sunlight. Steve called it Sky Knight.",
         "zh": "终于，它完成了。一架美丽的红色双翼飞机，在阳光下闪闪发光。史蒂夫叫它\"天空骑士\"。",
         "keys": [
@@ -1414,7 +1414,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-7.jpg",
+        "img": "images/minecraft/page-8.jpg",
         "en": "The villagers gathered to watch. Steve put on his goggles and climbed into the cockpit.",
         "zh": "村民们聚在一起观看。史蒂夫戴上护目镜，爬进驾驶舱。",
         "keys": [
@@ -1460,7 +1460,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-8.jpg",
+        "img": "images/minecraft/page-9.jpg",
         "en": "The engine roared. The propeller spun faster and faster. Then Steve was flying!",
         "zh": "引擎轰鸣。螺旋桨越转越快。然后，史蒂夫飞起来了！",
         "keys": [
@@ -1506,7 +1506,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-9.jpg",
+        "img": "images/minecraft/page-10.jpg",
         "en": "Up in the sky, everything looked different. The world was big and beautiful.",
         "zh": "在天空中，一切看起来都不一样了。世界很大很美。史蒂夫感觉像鸟一样自由。",
         "keys": [
@@ -1552,7 +1552,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-10.jpg",
+        "img": "images/minecraft/page-11.jpg",
         "en": "But soon the sky grew dark again. Purple clouds swirled ahead. Steve gripped the controls tightly.",
         "zh": "但很快，天空又变暗了。紫色的云在前方旋转。史蒂夫紧紧握住操纵杆。",
         "keys": [
@@ -1598,7 +1598,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-11.jpg",
+        "img": "images/minecraft/page-12.jpg",
         "en": "Then he saw it - the Wither. A giant creature with three heads and glowing blue eyes.",
         "zh": "然后他看到了——凋零。一个巨大的生物，有三个头，发出蓝色光芒的眼睛，黑暗的力量在它周围旋转。",
         "keys": [
@@ -1644,7 +1644,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-12.jpg",
+        "img": "images/minecraft/page-13.jpg",
         "en": "The Wither shot explosive skulls at Steve! He swerved left, then right. BOOM! BOOM!",
         "zh": "凋零向史蒂夫射出爆炸骷髅头！他向左转，然后向右转。轰！轰！天空中满是爆炸。",
         "keys": [
@@ -1685,7 +1685,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-13.jpg",
+        "img": "images/minecraft/page-14.jpg",
         "en": "One skull came straight at him! Steve flipped his plane upside down and zoomed past it.",
         "zh": "一个骷髅头直冲他而来！史蒂夫把飞机翻了过来，从它旁边飞过。好险！",
         "keys": [
@@ -1726,7 +1726,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-14.jpg",
+        "img": "images/minecraft/page-15.jpg",
         "en": "I need to fight back! Steve grabbed his enchanted bow with special arrows of light.",
         "zh": "\"我需要反击！\"史蒂夫拿起他的附魔弓。他有特殊的箭——光之箭。",
         "keys": [
@@ -1772,7 +1772,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-15.jpg",
+        "img": "images/minecraft/page-16.jpg",
         "en": "Steve aimed carefully. He fired! Golden arrows streaked through the dark sky like shooting stars.",
         "zh": "史蒂夫仔细瞄准。他射箭了！金色的箭像流星一样划过黑暗的天空。",
         "keys": [
@@ -1818,7 +1818,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-16.jpg",
+        "img": "images/minecraft/page-17.jpg",
         "en": "HIT! The arrow struck the Wither head. It screamed in pain! Blue sparks flew everywhere.",
         "zh": "命中！箭射中了凋零的第一个头。它痛苦地尖叫！蓝色火花四处飞溅。",
         "keys": [
@@ -1859,7 +1859,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-17.jpg",
+        "img": "images/minecraft/page-18.jpg",
         "en": "The Wither was furious! It grew bigger and shot skulls in every direction.",
         "zh": "凋零暴怒了！它变得更大，向四面八方射出骷髅头。天空变成了战场。",
         "keys": [
@@ -1900,7 +1900,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-18.jpg",
+        "img": "images/minecraft/page-19.jpg",
         "en": "CRASH! A skull hit Steve wing. Smoke poured out. But Steve did not give up.",
         "zh": "砰！一个骷髅头击中了史蒂夫的机翼。烟冒了出来。飞机摇晃着。但史蒂夫没有放弃。",
         "keys": [
@@ -1946,7 +1946,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/minecraft/page-19.jpg",
+        "img": "images/minecraft/page-20.jpg",
         "en": "Steve stood up in his cockpit. He had one arrow left - his strongest one.",
         "zh": "史蒂夫在驾驶舱里站起来。他只剩一支箭了——他最强的一支。\"这是为了我的村庄！\"",
         "keys": [
@@ -5060,7 +5060,7 @@ const STORIES = [
     "cover": "images/covers/cover-robot-battle.jpg",
     "pages": [
       {
-        "img": "images/covers/cover-robot-battle.jpg",
+        "img": "images/robot-battle/page-2.jpg",
         "en": "Doudou and Doubao's Great Chore Robot Battle",
         "zh": "豆豆和豆包的家务机器人大战 | Doudou and Doubao's Great Chore Robot Battle",
         "keys": [
@@ -5102,7 +5102,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-2.jpg",
+        "img": "images/robot-battle/page-3.jpg",
         "en": "This is the story of a little boy named Doudou and his round robot friend Doubao.",
         "zh": "这是关于小男孩豆豆和他的圆滚滚机器人朋友豆包的故事。",
         "keys": [
@@ -5138,7 +5138,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-3.jpg",
+        "img": "images/robot-battle/page-4.jpg",
         "en": "\"Today we're playing the Great Chore Battle!\" Doudou announced excitedly.",
         "zh": "\"今天我们来玩家务大战！\"豆豆兴奋地宣布。",
         "keys": [
@@ -5170,7 +5170,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-4.jpg",
+        "img": "images/robot-battle/page-5.jpg",
         "en": "\"Behold my Stinky Shield!\" Doudou raised a shield glowing with green light.",
         "zh": "\"看我的臭臭护盾！\"豆豆举起一面发着绿色光芒的盾牌。",
         "keys": [
@@ -5202,7 +5202,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-5.jpg",
+        "img": "images/robot-battle/page-6.jpg",
         "en": "\"I choose the Bubble Gun! Bang bang bang!\" Countless colorful bubbles flew toward Doudou.",
         "zh": "\"我选泡泡枪！砰砰砰！\"无数彩色泡泡飞向豆豆。",
         "keys": [
@@ -5238,7 +5238,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-6.jpg",
+        "img": "images/robot-battle/page-7.jpg",
         "en": "\"My Stinky Bombs already turned you into a stinker!\" Doudou laughed triumphantly.",
         "zh": "\"我的臭臭炮弹早就把你打成臭臭了！\"豆豆得意地大笑。",
         "keys": [
@@ -5274,7 +5274,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-7.jpg",
+        "img": "images/robot-battle/page-8.jpg",
         "en": "\"Soap Attack! Scrub scrub scrub! All clean!\" Doudou washed Doubao squeaky clean.",
         "zh": "\"肥皂武装！擦呀擦！洗完啦！\"豆豆用巨大的肥皂把豆包洗得干干净净。",
         "keys": [
@@ -5310,7 +5310,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-8.jpg",
+        "img": "images/robot-battle/page-9.jpg",
         "en": "\"My Robot Vacuum Tank is here!\" Mechanical arms stretched out, sweeping everywhere.",
         "zh": "\"我的扫地机器人战车来啦！\"机械臂伸出，四处清扫。",
         "keys": [
@@ -5346,7 +5346,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-9.jpg",
+        "img": "images/robot-battle/page-10.jpg",
         "en": "\"Robot Vacuum enters Angry Mode!\" The battle grew more and more intense.",
         "zh": "\"扫地机器人进入愤怒模式！\"对战越来越激烈。",
         "keys": [
@@ -5378,7 +5378,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-10.jpg",
+        "img": "images/robot-battle/page-11.jpg",
         "en": "\"Look at my Flying Shield! Tracking bullets, right through Doubao's tank!\"",
         "zh": "\"看我的飞翔盾牌！追踪子弹，穿过豆包的坦克！\"",
         "keys": [
@@ -5414,7 +5414,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-11.jpg",
+        "img": "images/robot-battle/page-12.jpg",
         "en": "\"Okay okay, you win this time!\" Doubao laughed. \"Let's still be best friends!\"",
         "zh": "\"好吧好吧，这次算你厉害！\"豆包笑着说。\"那我们还是做好朋友吧！\"",
         "keys": [
@@ -5445,7 +5445,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-12.jpg",
+        "img": "images/robot-battle/page-13.jpg",
         "en": "A loud crash came from the kitchen! \"Oh no! Mom said we need to bake a cake today!\"",
         "zh": "厨房传来一声巨响！\"完了完了，妈妈说今天要做蛋糕！\"",
         "keys": [
@@ -5481,7 +5481,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-13.jpg",
+        "img": "images/robot-battle/page-14.jpg",
         "en": "\"Doubao, switch to Kitchen Agent Mode!\" Doudou put on a chef's hat and apron.",
         "zh": "\"豆包，变成厨房特工模式！\"豆豆戴上厨师帽，系上围裙。",
         "keys": [
@@ -5517,7 +5517,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-14.jpg",
+        "img": "images/robot-battle/page-15.jpg",
         "en": "Doudou accidentally flung the entire bag of flour into the air, like a winter wonderland!",
         "zh": "豆豆不小心把整袋面粉甩到了空中，像冬天的童话世界！",
         "keys": [
@@ -5549,7 +5549,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-15.jpg",
+        "img": "images/robot-battle/page-16.jpg",
         "en": "The mixer spun too fast, sending batter flying everywhere like a fountain!",
         "zh": "搅拌器转得太快了，面糊像喷泉一样飞溅得到处都是！",
         "keys": [
@@ -5585,7 +5585,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-16.jpg",
+        "img": "images/robot-battle/page-17.jpg",
         "en": "Doubao secretly added laundry detergent to the batter — giant colorful bubbles started flooding the kitchen!",
         "zh": "豆包偷偷往面糊里加了洗衣液——巨大的彩色泡泡开始淹没厨房！",
         "keys": [
@@ -5621,7 +5621,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-17.jpg",
+        "img": "images/robot-battle/page-18.jpg",
         "en": "The giant bubbles lifted Doudou and Doubao all the way to the ceiling!",
         "zh": "巨大的泡泡把豆豆和豆包一直飘到了天花板上！",
         "keys": [
@@ -5657,7 +5657,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-18.jpg",
+        "img": "images/robot-battle/page-19.jpg",
         "en": "\"Activate Anti-Bubble System!\" Doubao popped the bubbles one by one for a safe landing.",
         "zh": "\"启动反泡泡系统！\"豆包一个个戳破了泡泡，安全着陆。",
         "keys": [
@@ -5693,7 +5693,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/robot-battle/page-19.jpg",
+        "img": "images/robot-battle/page-20.jpg",
         "en": "\"MY KITCHEN!!!\" Mom stood at the door, flames shooting from her eyes!",
         "zh": "\"我的厨房！！！\"妈妈站在门口，眼睛里冒着火！",
         "keys": [
@@ -5774,7 +5774,7 @@ const STORIES = [
     "cover": "images/covers/cover-brave-tank.jpg",
     "pages": [
       {
-        "img": "images/covers/cover-brave-tank.jpg",
+        "img": "images/brave-tank/page-2.jpg",
         "en": "In a beautiful valley, there lived a brave little tank named Little Steel.",
         "zh": "在一片美丽的山谷里，住着一辆勇敢的小坦克，名叫小钢。",
         "keys": [
@@ -5820,7 +5820,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-2.jpg",
+        "img": "images/brave-tank/page-3.jpg",
         "en": "Welcome to Tank Town, where all kinds of tanks live happily together!",
         "zh": "欢迎来到坦克小镇，各种各样的坦克快乐地生活在这里！",
         "keys": [
@@ -5866,7 +5866,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-3.jpg",
+        "img": "images/brave-tank/page-4.jpg",
         "en": "Little Steel was the smallest tank in town, with a tiny cannon and a big heart.",
         "zh": "小钢是镇上最小的坦克，炮管短短的，却有一颗大大的心。",
         "keys": [
@@ -5912,7 +5912,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-4.jpg",
+        "img": "images/brave-tank/page-5.jpg",
         "en": "“I want to be a hero!” Little Steel practiced his brave face in the mirror every day.",
         "zh": "“我要成为英雄！”小钢每天都对着镜子练习勇敢的表情。",
         "keys": [
@@ -5958,7 +5958,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-5.jpg",
+        "img": "images/brave-tank/page-6.jpg",
         "en": "Every year, Tank Town held the Brave Contest — a big adventure race!",
         "zh": "坦克小镇每年都会举办勇士大赛——一场大型冒险比赛！",
         "keys": [
@@ -6004,7 +6004,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-6.jpg",
+        "img": "images/brave-tank/page-7.jpg",
         "en": "“I’m joining!” said Little Steel. The big tanks all laughed. “You? Little you?”",
         "zh": "“我要参加！”小钢说。大坦克们都笑了。“你？小小的你？”",
         "keys": [
@@ -6045,7 +6045,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-7.jpg",
+        "img": "images/brave-tank/page-8.jpg",
         "en": "Grandpa Armor patted Little Steel gently. “A true hero is not the biggest, but the bravest.”",
         "zh": "铁甲爷爷轻轻拍了拍小钢。“真正的英雄不是最大的，而是最勇敢的。”",
         "keys": [
@@ -6091,7 +6091,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-8.jpg",
+        "img": "images/brave-tank/page-9.jpg",
         "en": "Little Steel teamed up with his best friends — steady Big Iron and fast Lightning!",
         "zh": "小钢找到了最好的朋友——稳重的大铁和快速的闪电，组成了一支队伍！",
         "keys": [
@@ -6132,7 +6132,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-9.jpg",
+        "img": "images/brave-tank/page-10.jpg",
         "en": "The race was on! Teams had to cross the desert, the forest, and climb the mountain!",
         "zh": "比赛开始了！队伍要穿越沙漠、森林，还要爬上山顶！",
         "keys": [
@@ -6173,7 +6173,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-10.jpg",
+        "img": "images/brave-tank/page-11.jpg",
         "en": "The desert was so hot! Big Iron got stuck in the sand. “Don’t worry, I’ll help!”",
         "zh": "沙漠好热！大铁陷进沙子里了。“别急，我来帮你！”",
         "keys": [
@@ -6214,7 +6214,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-11.jpg",
+        "img": "images/brave-tank/page-12.jpg",
         "en": "The forest was full of big trees. “Follow me!” Lightning zipped through the narrow paths.",
         "zh": "森林里到处是大树。“跟我来！”闪电灵活地穿过小路。",
         "keys": [
@@ -6260,7 +6260,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-12.jpg",
+        "img": "images/brave-tank/page-13.jpg",
         "en": "A wide river blocked the way! There was no bridge. “How do we cross?” everyone worried.",
         "zh": "一条大河挡住了去路！没有桥。“怎么过去呢？”大家都愁了。",
         "keys": [
@@ -6306,7 +6306,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-13.jpg",
+        "img": "images/brave-tank/page-14.jpg",
         "en": "“I have an idea!” Little Steel pointed at a fallen tree. “We can make a bridge!”",
         "zh": "“我有办法！”小钢指着倒下的大树。“我们可以搭一座桥！”",
         "keys": [
@@ -6352,7 +6352,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-14.jpg",
+        "img": "images/brave-tank/page-15.jpg",
         "en": "The log bridge held! Big Iron went first, then Lightning zoomed across. Little Steel crossed carefully and safely.",
         "zh": "树桥很稳！大铁先过，闪电忮地跑过，小钢小心翼翼地安全过了河。",
         "keys": [
@@ -6398,7 +6398,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-15.jpg",
+        "img": "images/brave-tank/page-16.jpg",
         "en": "Near the top, Red Thunder’s team blocked the path with big rocks! “You can’t win now!”",
         "zh": "快到山顶了！红雷的队伍用大石头挡住了路！“你们赢不了啦！”",
         "keys": [
@@ -6444,7 +6444,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-16.jpg",
+        "img": "images/brave-tank/page-17.jpg",
         "en": "“There’s a gap under the rocks! I’m the smallest — I can squeeze through!” said Little Steel.",
         "zh": "“石头下面有缝隙！我最小，我可以钻过去！”小钢说。",
         "keys": [
@@ -6485,7 +6485,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-17.jpg",
+        "img": "images/brave-tank/page-18.jpg",
         "en": "Little Steel reached the top first and grabbed the golden flag! “We won!”",
         "zh": "小钢第一个到达山顶，拿到了金色旗帜！“我们赢了！”",
         "keys": [
@@ -6531,7 +6531,7 @@ const STORIES = [
         ]
       },
       {
-        "img": "images/brave-tank/page-18.jpg",
+        "img": "images/brave-tank/page-19.jpg",
         "en": "On the way down, Red Thunder was trapped in a landslide! “Help me!” he cried.",
         "zh": "下山路上，红雷被困在滑坡里！“救命！”他喊道。",
         "keys": [
