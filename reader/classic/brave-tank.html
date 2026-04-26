@@ -8,93 +8,141 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Nunito', sans-serif; background:#fffdf5; 
-         min-height:100vh; display:flex; flex-direction:column; align-items:center; }
+  html, body { height:100%; }
+  body { font-family: 'Nunito', sans-serif; background:#1a1a2e; 
+         display:flex; flex-direction:column; overflow:hidden; }
 
-  .reader-wrap { max-width:800px; width:100%; padding:16px; }
+  /* 顶部导航 */
+  .top-nav { position:fixed; top:0; left:0; right:0; z-index:100;
+             background:rgba(26,26,46,.95); backdrop-filter:blur(10px);
+             padding:12px 20px; display:flex; align-items:center; justify-content:space-between;
+             border-bottom:1px solid rgba(255,255,255,.1); }
+  .top-nav .title { color:#fff; font-size:18px; font-weight:600; }
+  .top-nav .back-btn { color:#fff; text-decoration:none; font-size:14px;
+                       opacity:.8; transition:opacity .2s; }
+  .top-nav .back-btn:hover { opacity:1; }
 
-  .page-img { width:100%; border-radius:16px; 
-              box-shadow:0 4px 20px rgba(0,0,0,.12); display:block; }
+  /* 主内容区 */
+  .main-content { flex:1; display:flex; flex-direction:column; 
+                  padding:70px 20px 180px; overflow-y:auto; }
 
-  .text-area { margin-top:16px; padding:16px; 
-               background:#fff; border-radius:12px;
-               box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  /* 全幅图片 */
+  .full-img-wrap { width:100%; max-width:700px; margin:0 auto 20px; }
+  .full-img { width:100%; border-radius:16px; 
+              box-shadow:0 8px 32px rgba(0,0,0,.3); display:block; }
 
-  .en-sentence { font-size:22px; line-height:1.8; color:#333; font-family:'Nunito',sans-serif; }
+  /* 文本区域 */
+  .text-section { max-width:700px; margin:0 auto; width:100%; }
+  .en-text { font-size:20px; line-height:1.8; color:#fff; 
+             background:rgba(255,255,255,.1); padding:16px; 
+             border-radius:12px; margin-bottom:12px; }
   .word { cursor:pointer; border-radius:4px; padding:0 2px;
-          transition: background .15s; font-family:'Nunito',sans-serif; }
-  .word:hover { background:#fff3b0; }
-  .word.speaking { background:#ffd166; }
+          transition: background .15s; display:inline; }
+  .word:hover { background:#ffd166; color:#000; }
+  .word.speaking { background:#ff6b6b; color:#fff; }
 
-  .word-tip { display:inline-block; font-size:13px; color:#888;
-              background:#f8f8f8; border-radius:6px;
-              padding:2px 8px; margin-left:4px; }
+  .zh-text { font-size:17px; color:rgba(255,255,255,.8); 
+             background:rgba(255,255,255,.05); padding:12px 16px; 
+             border-radius:10px; margin-bottom:16px; }
 
-  .zh-sentence { font-size:18px; color:#555; margin-top:14px; font-family:'Nunito',sans-serif; }
+  /* 词组区域 */
+  .phrase-section { margin-top:16px; }
+  .phrase-section .label { font-size:13px; color:#ffd166; margin-bottom:8px; }
+  .phrase-row { display:flex; flex-wrap:wrap; gap:8px; }
+  .phrase-card { background:rgba(255,209,102,.15); border:1px solid rgba(255,209,102,.3);
+                 border-radius:20px; padding:6px 14px; font-size:14px;
+                 cursor:pointer; transition:all .15s; }
+  .phrase-card:hover { background:rgba(255,209,102,.3); transform:scale(1.02); }
+  .phrase-card .pen { color:#ffd166; margin-right:6px; }
+  .phrase-card .pzh { color:rgba(255,255,255,.7); margin-left:6px; }
 
-  .vocab-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:16px; }
-  .vocab-card { background:#f8f9fa; border-radius:10px; 
-                padding:10px 14px; cursor:pointer;
-                transition: all .15s; min-width:180px; }
-  .vocab-card:hover { transform:scale(1.02); box-shadow:0 4px 12px rgba(0,0,0,.1); background:#fff; }
-  .vocab-card .vw { font-size:16px; font-weight:bold; color:#2980b9; margin-right:6px; }
-  .vocab-card .vp { font-size:13px; color:#888; }
-  .vocab-card .vz { font-size:14px; color:#555; }
-  .vocab-card .v-line { display:flex; align-items:baseline; gap:8px; margin-top:2px; }
-  .vocab-card .vph { font-size:12px; color:#666; border-top:1px solid #eee; margin-top:6px; padding-top:4px; }
-  .vocab-card .vph-en { color:#2980b9; }
+  /* 词汇卡片 - 底部悬浮 */
+  .vocab-bar { position:fixed; bottom:0; left:0; right:0; 
+               background:rgba(15,15,30,.98); backdrop-filter:blur(10px);
+               border-top:1px solid rgba(255,255,255,.1);
+               padding:16px 20px; max-height:160px; overflow-y:auto; }
+  .vocab-bar .bar-title { font-size:13px; color:#888; margin-bottom:10px; }
+  .vocab-row { display:flex; flex-wrap:wrap; gap:10px; }
+  .vocab-card { background:rgba(255,255,255,.08); border-radius:10px; 
+                padding:8px 12px; cursor:pointer;
+                transition: all .15s; min-width:150px; flex:1 1 calc(50% - 10px); }
+  .vocab-card:hover { background:rgba(255,255,255,.15); transform:scale(1.02); }
+  .vocab-card .vw { font-size:15px; font-weight:700; color:#4ecdc4; margin-right:6px; }
+  .vocab-card .vp { font-size:12px; color:#888; }
+  .vocab-card .vz { font-size:14px; color:#fff; margin-top:2px; }
+  .vocab-card .v-line { display:flex; align-items:baseline; gap:6px; }
 
-  .nav { display:flex; align-items:center; justify-content:space-between;
-         margin-top:20px; padding-bottom:24px; }
-  .nav-btn { background:#ff9f43; color:#fff; border:none;
-             border-radius:50px; padding:10px 28px; font-size:18px;
-             cursor:pointer; transition: opacity .15s; }
-  .nav-btn:disabled { opacity:.35; }
-  .page-indicator { font-size:16px; color:#aaa; }
+  /* 底部导航 */
+  .bottom-nav { position:fixed; bottom:160px; left:0; right:0;
+                display:flex; align-items:center; justify-content:space-between;
+                padding:0 20px; pointer-events:none; }
+  .nav-btn { background:rgba(255,255,255,.15); color:#fff; border:none;
+             border-radius:50px; padding:12px 24px; font-size:16px;
+             cursor:pointer; transition: all .15s; pointer-events:auto;
+             backdrop-filter:blur(10px); }
+  .nav-btn:hover { background:rgba(255,255,255,.25); }
+  .nav-btn:disabled { opacity:.3; pointer-events:none; }
+  .page-indicator { color:rgba(255,255,255,.6); font-size:14px; }
 
-  .progress-bar { width:100%; height:6px; background:#eee;
-                  border-radius:3px; margin-top:8px; }
-  .progress-fill { height:100%; background:#ff9f43; 
-                   border-radius:3px; transition:width .3s; }
+  /* 速度控制 */
+  .speed-bar { position:fixed; bottom:170px; right:20px;
+               background:rgba(0,0,0,.6); border-radius:20px; padding:6px 12px;
+               display:flex; align-items:center; gap:8px; z-index:50; }
+  .speed-bar label { color:#888; font-size:12px; }
+  .speed-bar select { background:rgba(255,255,255,.1); color:#fff; 
+                      border:none; border-radius:12px; padding:4px 8px; font-size:12px; }
 
-  .read-btn { background:#54a0ff; color:#fff; border:none;
-              border-radius:50px; padding:8px 16px; font-size:14px;
-              cursor:pointer; margin-right:8px; }
-  .read-btn:hover { background:#2980b9; }
-  .speed-select { background:#fff; color:#333; border:1px solid #ddd;
-                  border-radius:20px; padding:6px 12px; font-size:13px;
-                  cursor:pointer; margin-right:8px; }
-  .speed-select:hover { background:#f5f5f5; }
-
-  h2 { text-align:center; color:#e17055; margin:16px 0 8px; font-size:22px }
-  h2 small { display:block; font-size:16px; color:#888; font-weight:400; margin-top:4px; }
-  .unit-tag { text-align:center; color:#888; font-size:14px; margin-bottom:8px; }
+  .read-fab { position:fixed; bottom:220px; right:20px;
+              width:56px; height:56px; border-radius:50%;
+              background:linear-gradient(135deg, #ff6b6b, #ff8e53);
+              border:none; color:#fff; font-size:24px; cursor:pointer;
+              box-shadow:0 4px 20px rgba(255,107,107,.4);
+              z-index:50; transition:transform .2s; }
+  .read-fab:hover { transform:scale(1.1); }
 </style>
 </head>
 <body>
-<div class="reader-wrap">
-  <div class="unit-tag">Unit 1</div>
-  <h2>The Brave Little Tank<small>勇敢的小坦克</small></h2>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-  <div id="pageArea" style="margin-top:16px"></div>
-  <div class="nav">
-    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <button class="read-btn" onclick="readCurrent()">🔊 朗读</button>
-      <span class="page-indicator" id="pageIndicator"></span>
+  <nav class="top-nav">
+    <a href="../../" class="back-btn">← 返回首页</a>
+    <span class="title">The Brave Little Tank</span>
+    <span></span>
+  </nav>
+
+  <div class="main-content">
+    <div class="full-img-wrap">
+      <img class="full-img" id="pageImg" src="" alt="">
     </div>
-    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
+    <div class="text-section">
+      <div class="en-text" id="enText"></div>
+      <div class="zh-text" id="zhText"></div>
+      <div class="phrase-section" id="phraseSection">
+        <div class="label">📚 词组</div>
+        <div class="phrase-row" id="phraseRow"></div>
+      </div>
+    </div>
   </div>
-  
-  <div id="speedControl" style="text-align:center;margin-top:12px;display:none;">
-    <label style="color:#888;font-size:13px;">语速：</label>
-    <select class="speed-select" id="speedSelect" onchange="changeSpeed()">
+
+  <div class="vocab-bar">
+    <div class="bar-title">💡 重点词汇（点击发音）</div>
+    <div class="vocab-row" id="vocabRow"></div>
+  </div>
+
+  <div class="speed-bar">
+    <label>语速</label>
+    <select id="speedSelect" onchange="changeSpeed()">
       <option value="0.7">慢速</option>
       <option value="1" selected>常速</option>
       <option value="1.3">快速</option>
     </select>
   </div>
-</div>
+
+  <button class="read-fab" onclick="readCurrent()">🔊</button>
+
+  <div class="bottom-nav">
+    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
+    <span class="page-indicator" id="pageIndicator"></span>
+    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
+  </div>
 
 <script>
 const PAGES = [{"img": "images/brave-tank/brave-tank/page-2.jpg", "en": "In a beautiful valley, there lived a brave little tank named Little Steel.", "zh": "在一片美丽的山谷里，住着一辆勇敢的小坦克，名叫小钢。", "keys": [{"w": "beautiful", "p": "/ˈbjuːtɪfəl/", "zh": "美丽的"}], "phrases": [{"en": "in a beautiful valley", "zh": "在一片美丽的山谷里"}]}, {"img": "images/brave-tank/brave-tank/page-3.jpg", "en": "Welcome to Tank Town, where all kinds of tanks live happily together!", "zh": "欢迎来到坦克小镇，各种各样的坦克快乐地生活在这里！", "keys": [{"w": "welcome", "p": "/ˈwelkəm/", "zh": "欢迎"}], "phrases": [{"en": "Welcome to Tank Town", "zh": "欢迎来到坦克小镇"}]}, {"img": "images/brave-tank/brave-tank/page-4.jpg", "en": "Little Steel was the smallest tank in town, with a tiny cannon and a big heart.", "zh": "小钢是镇上最小的坦克，炮管短短的，却有一颗大大的心。", "keys": [{"w": "smallest", "p": "/ˈsmɔːlɪst/", "zh": "最小的"}], "phrases": [{"en": "the smallest tank in town", "zh": "镇上最小的坦克"}]}, {"img": "images/brave-tank/brave-tank/page-5.jpg", "en": "“I want to be a hero!” Little Steel practiced his brave face in the mirror every day.", "zh": "“我要成为英雄！”小钢每天都对着镜子练习勇敢的表情。", "keys": [{"w": "hero", "p": "/ˈhɪroʊ/", "zh": "英雄"}], "phrases": [{"en": "I want to be a hero", "zh": "我要成为英雄"}]}, {"img": "images/brave-tank/brave-tank/page-6.jpg", "en": "Every year, Tank Town held the Brave Contest — a big adventure race!", "zh": "坦克小镇每年都会举办勇士大赛——一场大型冒险比赛！", "keys": [{"w": "year", "p": "/jɪr/", "zh": "年"}], "phrases": [{"en": "Every year", "zh": "每年"}]}, {"img": "images/brave-tank/brave-tank/page-7.jpg", "en": "“I’m joining!” said Little Steel. The big tanks all laughed. “You? Little you?”", "zh": "“我要参加！”小钢说。大坦克们都笑了。“你？小小的你？”", "keys": [{"w": "join", "p": "/dʒɔɪn/", "zh": "参加"}], "phrases": [{"en": "I’m joining", "zh": "我要参加"}]}, {"img": "images/brave-tank/brave-tank/page-8.jpg", "en": "Grandpa Armor patted Little Steel gently. “A true hero is not the biggest, but the bravest.”", "zh": "铁甲爷爷轻轻拍了拍小钢。“真正的英雄不是最大的，而是最勇敢的。”", "keys": [{"w": "grandpa", "p": "/ˈɡrændpɑː/", "zh": "爷爷"}], "phrases": [{"en": "patted Little Steel gently", "zh": "轻轻拍了拍小钢"}]}, {"img": "images/brave-tank/brave-tank/page-9.jpg", "en": "Little Steel teamed up with his best friends — steady Big Iron and fast Lightning!", "zh": "小钢找到了最好的朋友——稳重的大铁和快速的闪电，组成了一支队伍！", "keys": [{"w": "teamed up", "p": "/tiːmd ʌp/", "zh": "组队；合作"}], "phrases": [{"en": "teamed up with his best friends", "zh": "和他最好的朋友组队"}]}, {"img": "images/brave-tank/brave-tank/page-10.jpg", "en": "The race was on! Teams had to cross the desert, the forest, and climb the mountain!", "zh": "比赛开始了！队伍要穿越沙漠、森林，还要爬上山顶！", "keys": [{"w": "race", "p": "/reɪs/", "zh": "比赛"}], "phrases": [{"en": "The race was on", "zh": "比赛开始了"}]}, {"img": "images/brave-tank/brave-tank/page-11.jpg", "en": "The desert was so hot! Big Iron got stuck in the sand. “Don’t worry, I’ll help!”", "zh": "沙漠好热！大铁陷进沙子里了。“别急，我来帮你！”", "keys": [{"w": "hot", "p": "/hɑːt/", "zh": "炎热的"}], "phrases": [{"en": "so hot", "zh": "非常热"}]}, {"img": "images/brave-tank/brave-tank/page-12.jpg", "en": "The forest was full of big trees. “Follow me!” Lightning zipped through the narrow paths.", "zh": "森林里到处是大树。“跟我来！”闪电灵活地穿过小路。", "keys": [{"w": "forest", "p": "/ˈfɔːrɪst/", "zh": "森林"}], "phrases": [{"en": "full of big trees", "zh": "到处是大树"}]}, {"img": "images/brave-tank/brave-tank/page-13.jpg", "en": "A wide river blocked the way! There was no bridge. “How do we cross?” everyone worried.", "zh": "一条大河挡住了去路！没有桥。“怎么过去呢？”大家都愁了。", "keys": [{"w": "river", "p": "/ˈrɪvər/", "zh": "河流"}], "phrases": [{"en": "blocked the way", "zh": "挡住了去路"}]}, {"img": "images/brave-tank/brave-tank/page-14.jpg", "en": "“I have an idea!” Little Steel pointed at a fallen tree. “We can make a bridge!”", "zh": "“我有办法！”小钢指着倒下的大树。“我们可以搭一座桥！”", "keys": [{"w": "idea", "p": "/aɪˈdiːə/", "zh": "主意；想法"}], "phrases": [{"en": "I have an idea", "zh": "我有办法"}]}, {"img": "images/brave-tank/brave-tank/page-15.jpg", "en": "The log bridge held! Big Iron went first, then Lightning zoomed across. Little Steel crossed carefully and safely.", "zh": "树桥很稳！大铁先过，闪电忮地跑过，小钢小心翼翼地安全过了河。", "keys": [{"w": "log", "p": "/lɔːɡ/", "zh": "原木；木头"}], "phrases": [{"en": "The log bridge held", "zh": "树桥很稳"}]}, {"img": "images/brave-tank/brave-tank/page-16.jpg", "en": "Near the top, Red Thunder’s team blocked the path with big rocks! “You can’t win now!”", "zh": "快到山顶了！红雷的队伍用大石头挡住了路！“你们赢不了啦！”", "keys": [{"w": "top", "p": "/tɑːp/", "zh": "顶部；山顶"}], "phrases": [{"en": "blocked the path with big rocks", "zh": "用大石头挡住了路"}]}, {"img": "images/brave-tank/brave-tank/page-17.jpg", "en": "“There’s a gap under the rocks! I’m the smallest — I can squeeze through!” said Little Steel.", "zh": "“石头下面有缝隙！我最小，我可以钻过去！”小钢说。", "keys": [{"w": "gap", "p": "/ɡæp/", "zh": "缝隙；空隙"}], "phrases": [{"en": "There’s a gap under the rocks", "zh": "石头下面有缝隙"}]}, {"img": "images/brave-tank/brave-tank/page-18.jpg", "en": "Little Steel reached the top first and grabbed the golden flag! “We won!”", "zh": "小钢第一个到达山顶，拿到了金色旗帜！“我们赢了！”", "keys": [{"w": "reached", "p": "/riːtʃt/", "zh": "到达"}], "phrases": [{"en": "reached the top first", "zh": "第一个到达山顶"}]}, {"img": "images/brave-tank/brave-tank/page-19.jpg", "en": "On the way down, Red Thunder was trapped in a landslide! “Help me!” he cried.", "zh": "下山路上，红雷被困在滑坡里！“救命！”他喊道。", "keys": [{"w": "trapped", "p": "/træpt/", "zh": "被困住的"}], "phrases": [{"en": "On the way down", "zh": "下山路上"}]}, {"img": "images/brave-tank/brave-tank/page-19.jpg", "en": "Big Iron pulled with a rope, Lightning moved rocks, and Little Steel pushed from below. Together, they saved Red Thunder!", "zh": "大铁用绳子拉，闪电搬石头，小钢从下面顶。大家一起救出了红雷！", "keys": [{"w": "rope", "p": "/roʊp/", "zh": "绳子"}], "phrases": [{"en": "pulled with a rope", "zh": "用绳子拉"}]}];
@@ -111,7 +159,6 @@ function getVoice(lang) {
   if (!voices.length) return null;
   
   if (lang === 'zh') {
-    // 中文：优先 Xiaoxiao（温暖女声）, Yunxi（阳光男声）
     const preferred = ['Xiaoxiao', 'Yunxi', 'Yunyang', 'Yunjian'];
     for (const p of preferred) {
       const v = voices.find(vo => vo.lang.startsWith('zh') && vo.name.includes(p));
@@ -119,7 +166,6 @@ function getVoice(lang) {
     }
     return voices.find(vo => vo.lang.startsWith('zh')) || null;
   } else {
-    // 英文：优先自然声音
     const preferred = ['Google', 'Microsoft', 'Samantha', 'Daniel', 'Karen', 'Apple', 'Amazon'];
     for (const p of preferred) {
       const v = voices.find(vo => vo.lang.startsWith('en') && vo.name.includes(p));
@@ -131,29 +177,44 @@ function getVoice(lang) {
 
 function renderPage(i) {
   const p = PAGES[i];
-  const words = p.en.split(' ').map((w, idx) =>
-    `<span class="word" id="w${idx}" onclick="showWordTip(this,'${w.replace(/'/g, "\\'")}')">${w}</span>`
-  ).join(' ');
-
+  
+  // 图片
+  document.getElementById('pageImg').src = '../../' + p.img;
+  
+  // 英文句子 - 单词可点击
+  const words = p.en.split(' ').map((w, idx) => {
+    const clean = w.replace(/[.,!?':;]/g, '');
+    return `<span class="word" onclick="speakWord('${clean}', this)">${w}</span>`;
+  }).join(' ');
+  document.getElementById('enText').innerHTML = words;
+  
+  // 中文
+  document.getElementById('zhText').textContent = p.zh;
+  
+  // 词组
+  const phrases = p.phrases || [];
+  if (phrases.length > 0) {
+    document.getElementById('phraseSection').style.display = 'block';
+    document.getElementById('phraseRow').innerHTML = phrases.map(ph => 
+      `<div class="phrase-card" onclick="speakPhrase('${ph.en.replace(/'/g, "\\'")}')">
+        <span class="pen">${ph.en}</span>
+        <span class="pzh">${ph.zh}</span>
+      </div>`
+    ).join('');
+  } else {
+    document.getElementById('phraseSection').style.display = 'none';
+  }
+  
+  // 词汇卡片
   const vocabCards = (p.keys || []).map(k =>
-    `<div class="vocab-card" onclick="speakWord('${k.w}')">
-      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span><span class="vz">${k.zh}</span></div>
-      <div class="vph"><span class="vph-en">${k.ph || k.w}</span> ${k.ph ? k.zh : ''}</div>
+    `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
+      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span></div>
+      <div class="vz">${k.zh}</div>
     </div>`
   ).join('');
-
-  // 如果没有ph字段，用中文解释代替
-  const vocabPhrases = (p.keys || []).map(k => k.ph || k.zh).join(', ');
-
-  document.getElementById('pageArea').innerHTML = `
-    <img class="page-img" src="../../${p.img}" alt="page ${i+1}" onerror="this.style.display='none'">
-    <div class="text-area">
-      <div class="en-sentence">${words}</div>
-      <div class="zh-sentence">${p.zh}</div>
-      <div class="vocab-row">${vocabCards}</div>
-    </div>`;
-
-  document.getElementById('progressFill').style.width = `${(i+1)/PAGES.length*100}%`;
+  document.getElementById('vocabRow').innerHTML = vocabCards;
+  
+  // 指示器
   document.getElementById('pageIndicator').textContent = `${i+1} / ${PAGES.length}`;
   document.getElementById('prevBtn').disabled = i === 0;
   document.getElementById('nextBtn').disabled = i === PAGES.length - 1;
@@ -163,65 +224,52 @@ function changePage(dir) {
   synth.cancel();
   cur = Math.max(0, Math.min(PAGES.length - 1, cur + dir));
   renderPage(cur);
+  window.scrollTo(0, 0);
 }
 
-// 随机高亮朗读
-let highlightTimer = null;
-let highlightRunning = false;
-
-function startRandomHighlight(wordCount, duration) {
-  highlightRunning = true;
-  const interval = duration / wordCount;
-  let idx = 0;
-  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-
-  function next() {
-    if (!highlightRunning) return;
-    document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-    if (wordCount > 0) {
-      const el = document.getElementById('w' + idx);
-      if (el) el.classList.add('speaking');
-    }
-    idx++;
-    if (idx < wordCount) {
-      highlightTimer = setTimeout(next, interval);
-    } else {
-      setTimeout(() => {
-        document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-        highlightRunning = false;
-      }, 500);
-    }
+// 点击单词发音
+function speakWord(word, el) {
+  synth.cancel();
+  if (el) {
+    document.querySelectorAll('.word').forEach(w => w.classList.remove('speaking'));
+    el.classList.add('speaking');
   }
-  next();
+  const utt = new SpeechSynthesisUtterance(word);
+  utt.lang = 'en-US';
+  utt.rate = currentSpeed * 0.9;
+  const v = getVoice('en');
+  if (v) utt.voice = v;
+  utt.onend = () => { if (el) el.classList.remove('speaking'); };
+  synth.speak(utt);
 }
 
+// 词组发音
+function speakPhrase(phrase) {
+  synth.cancel();
+  const utt = new SpeechSynthesisUtterance(phrase);
+  utt.lang = 'en-US';
+  utt.rate = currentSpeed;
+  const v = getVoice('en');
+  if (v) utt.voice = v;
+  synth.speak(utt);
+}
+
+// 整句朗读
 function readCurrent() {
   synth.cancel();
-  highlightRunning = false;
-  if (highlightTimer) clearTimeout(highlightTimer);
-  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-
   const p = PAGES[cur];
   
-  // 先读英文整句
   const enUtt = new SpeechSynthesisUtterance(p.en);
   enUtt.lang = 'en-US';
   enUtt.rate = currentSpeed;
-  enUtt.pitch = 1.0;
   const enVoice = getVoice('en');
   if (enVoice) enUtt.voice = enVoice;
   
-  // 估算朗读时间用于高亮
-  const estEnDuration = p.en.split(' ').length * 400; // ms per word
-  enUtt.onstart = () => startRandomHighlight(p.en.split(' ').length, estEnDuration * currentSpeed);
   enUtt.onend = () => {
-    highlightRunning = false;
-    // 再读中文
     if (p.zh) {
       const zhUtt = new SpeechSynthesisUtterance(p.zh);
       zhUtt.lang = 'zh-CN';
       zhUtt.rate = currentSpeed;
-      zhUtt.pitch = 1.0;
       const zhVoice = getVoice('zh');
       if (zhVoice) zhUtt.voice = zhVoice;
       synth.speak(zhUtt);
@@ -230,38 +278,18 @@ function readCurrent() {
   synth.speak(enUtt);
 }
 
-function showWordTip(el, word) {
-  speakWord(word);
-  if (el.querySelector('.word-tip')) { el.querySelector('.word-tip').remove(); return; }
-  const p = PAGES[cur];
-  const key = (p.keys || []).find(k => k.w.toLowerCase() === word.toLowerCase().replace(/[.,!?']/g,''));
-  if (key) {
-    const tip = document.createElement('span');
-    tip.className = 'word-tip';
-    tip.textContent = `${key.p} ${key.zh}`;
-    el.appendChild(tip);
-  }
-}
-
-function speakWord(word) {
-  synth.cancel();
-  highlightRunning = false;
-  const utt = new SpeechSynthesisUtterance(word);
-  utt.lang = 'en-US';
-  utt.rate = currentSpeed * 0.8;
-  const v = getVoice('en');
-  if (v) utt.voice = v;
-  synth.speak(utt);
-}
+// 键盘导航
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') changePage(-1);
+  if (e.key === 'ArrowRight') changePage(1);
+});
 
 renderPage(0);
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    // Load voices then auto-read
-    if (synth.getVoices().length > 0) readCurrent();
-    else synth.onvoiceschanged = () => setTimeout(readCurrent, 500);
-  }, 800);
-});
+// 页面加载后自动朗读
+setTimeout(() => {
+  if (synth.getVoices().length > 0) readCurrent();
+  else synth.onvoiceschanged = () => setTimeout(readCurrent, 500);
+}, 800);
 </script>
 </body>
 </html>
