@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steve vs The Wither — 游戏版</title>
+<style>
+  body { font-family:'Nunito','Comic Sans MS',cursive; background:#1a1a2e;
+         min-height:100vh; display:flex; align-items:center; justify-content:center;
+         overflow:hidden; }
+
+  .starfield { position:fixed; inset:0; pointer-events:none; }
+
+  .game-card { background:#16213e; border-radius:24px;
+               padding:32px; max-width:700px; width:92%;
+               border:2px solid #0f3460; position:relative; z-index:1; }
+
+  .top-bar { display:flex; justify-content:space-between; 
+             align-items:center; margin-bottom:24px; }
+  .star-display { font-size:28px; }
+  .unit-title { color:#e2b96f; font-size:18px; }
+
+  .stage-title { color:#a8e6cf; font-size:22px; 
+                 margin-bottom:20px; text-align:center; }
+
+  .options-grid { display:grid; grid-template-columns:1fr 1fr;
+                  gap:16px; margin-top:16px; }
+  .opt-btn { background:#0f3460; color:#e2e2e2; border:2px solid #1a4a80;
+             border-radius:16px; padding:20px; font-size:18px; cursor:pointer;
+             transition: all .2s; text-align:center; }
+  .opt-btn:hover { border-color:#e2b96f; transform:scale(1.03); }
+  .opt-btn.correct { background:#2ecc71; border-color:#27ae60; color:#fff; }
+  .opt-btn.wrong   { background:#e74c3c; border-color:#c0392b; color:#fff; }
+
+  .drag-area { display:flex; gap:32px; justify-content:center; margin-top:24px; }
+  .drag-words { display:flex; flex-direction:column; gap:12px; }
+  .drag-item  { background:#0f3460; color:#e2e2e2; border-radius:12px;
+                padding:12px 24px; cursor:grab; font-size:18px;
+                border:2px solid transparent; transition:.2s; }
+  .drag-item:hover { border-color:#e2b96f; }
+  .drop-zones { display:flex; flex-direction:column; gap:12px; }
+  .drop-zone  { background:#0a2844; border:2px dashed #1a4a80;
+                border-radius:12px; padding:12px 24px; min-width:100px;
+                font-size:28px; text-align:center; }
+  .drop-zone.matched { border-color:#2ecc71; background:#0d3b1e; }
+
+  @keyframes starPop {
+    0%   { transform:scale(0) rotate(-20deg); opacity:0; }
+    60%  { transform:scale(1.3) rotate(10deg); opacity:1; }
+    100% { transform:scale(1) rotate(0); opacity:1; }
+  }
+  .star-pop { animation: starPop .5s ease-out forwards; }
+
+  .finish-page { text-align:center; }
+  .big-stars    { font-size:60px; letter-spacing:8px; }
+  .finish-msg   { color:#a8e6cf; font-size:22px; margin:20px 0; }
+  .next-unit-btn{ background:#e2b96f; color:#1a1a2e; border:none;
+                  border-radius:50px; padding:14px 40px; font-size:20px;
+                  cursor:pointer; font-weight:bold; margin-top:16px; }
+
+  .story-intro { text-align:center; margin-bottom:20px; }
+  .story-intro img { max-width:200px; border-radius:12px; margin:10px 0; }
+  .story-intro p { color:#e2e2e2; font-size:16px; line-height:1.6; }
+
+  h3 { color:#e17055; margin-bottom:16px; }
+</style>
+</head>
+<body>
+<canvas class="starfield" id="starCanvas"></canvas>
+<div class="game-card">
+  <div class="top-bar">
+    <div class="unit-title">Steve vs The Wither</div>
+    <div class="star-display"><span id="starCount">⭐ 0</span></div>
+  </div>
+  <div id="stageArea"></div>
+</div>
+
+<script>
+const STORY = {"id": "minecraft", "title": "Steve vs The Wither", "titleZh": "史蒂夫大战凋零", "category": "我的世界", "cover": "images/covers/cover-minecraft.jpg", "pages": [{"img": "images/minecraft/page-2.jpg", "en": "🛩️ Steve vs The Wither — Sky Knight", "zh": "史蒂夫大战凋零 — 天空骑士", "keys": [{"w": "sky", "p": "/skaɪ/", "zh": "天空"}], "phrases": [{"en": "Steve vs The Wither", "zh": "史蒂夫大战凋零"}]}, {"img": "images/minecraft/page-3.jpg", "en": "Steve lived in a quiet village. He was a builder, a miner, and a dreamer.", "zh": "史蒂夫住在一个安静的村庄里。他是一个建造者，一个矿工，也是一个梦想家。", "keys": [{"w": "determined", "p": "/dɪˈtɜːrmɪnd/", "zh": "坚定的"}], "phrases": [{"en": "quiet village", "zh": "安静的村庄"}]}, {"img": "images/minecraft/page-4.jpg", "en": "One day, the sky turned dark. A terrible roar shook the ground. The Wither was coming.", "zh": "有一天，天空变暗了。可怕的咆哮震动了大地。凋零来了。", "keys": [{"w": "ground", "p": "/ɡraʊnd/", "zh": "大地"}], "phrases": [{"en": "the sky turned dark", "zh": "天空变暗了"}]}, {"img": "images/minecraft/page-5.jpg", "en": "Steve said he needed to fight from the sky. He began to build an airplane.", "zh": "\"我需要从天空战斗它，\"史蒂夫说。他开始建造一个从来没有人见过的东西——一架飞机。", "keys": [{"w": "airplane", "p": "/ˈerpleɪn/", "zh": "飞机"}], "phrases": [{"en": "fight it from the sky", "zh": "从天空中与它战斗"}]}, {"img": "images/minecraft/page-6.jpg", "en": "Day and night, Steve worked on his airplane. He hammered iron and attached big propellers.", "zh": "日日夜夜，史蒂夫在他的飞机上工作。他锤打铁器，弯曲木材，安装巨大的螺旋桨。", "keys": [{"w": "attach", "p": "/əˈtætʃ/", "zh": "安装"}], "phrases": [{"en": "work on his plane", "zh": "制造他的飞机"}]}, {"img": "images/minecraft/page-7.jpg", "en": "Finally it was done. A beautiful red biplane, shining in the sunlight. Steve called it Sky Knight.", "zh": "终于，它完成了。一架美丽的红色双翼飞机，在阳光下闪闪发光。史蒂夫叫它\"天空骑士\"。", "keys": [{"w": "knight", "p": "/naɪt/", "zh": "骑士"}], "phrases": [{"en": "a beautiful red biplane", "zh": "一架美丽的红色双翼飞机"}]}, {"img": "images/minecraft/page-8.jpg", "en": "The villagers gathered to watch. Steve put on his goggles and climbed into the cockpit.", "zh": "村民们聚在一起观看。史蒂夫戴上护目镜，爬进驾驶舱。", "keys": [{"w": "goggles", "p": "/ˈɡɑːɡlz/", "zh": "护目镜"}], "phrases": [{"en": "gather together to watch", "zh": "聚在一起观看"}]}, {"img": "images/minecraft/page-9.jpg", "en": "The engine roared. The propeller spun faster and faster. Then Steve was flying!", "zh": "引擎轰鸣。螺旋桨越转越快。然后，史蒂夫飞起来了！", "keys": [{"w": "engine", "p": "/ˈendʒɪn/", "zh": "引擎"}], "phrases": [{"en": "the engine roared", "zh": "引擎轰鸣"}]}, {"img": "images/minecraft/page-10.jpg", "en": "Up in the sky, everything looked different. The world was big and beautiful.", "zh": "在天空中，一切看起来都不一样了。世界很大很美。史蒂夫感觉像鸟一样自由。", "keys": [{"w": "landscape", "p": "/ˈlændskeɪp/", "zh": "风景"}], "phrases": [{"en": "look different in the sky", "zh": "在天空中看起来不一样"}]}, {"img": "images/minecraft/page-11.jpg", "en": "But soon the sky grew dark again. Purple clouds swirled ahead. Steve gripped the controls tightly.", "zh": "但很快，天空又变暗了。紫色的云在前方旋转。史蒂夫紧紧握住操纵杆。", "keys": [{"w": "control", "p": "/kənˈtroʊl/", "zh": "控制"}], "phrases": [{"en": "the sky grew dark", "zh": "天空变暗了"}]}, {"img": "images/minecraft/page-12.jpg", "en": "Then he saw it - the Wither. A giant creature with three heads and glowing blue eyes.", "zh": "然后他看到了——凋零。一个巨大的生物，有三个头，发出蓝色光芒的眼睛，黑暗的力量在它周围旋转。", "keys": [{"w": "creature", "p": "/ˈkriːtʃər/", "zh": "生物"}], "phrases": [{"en": "a giant creature", "zh": "一个巨大的生物"}]}, {"img": "images/minecraft/page-13.jpg", "en": "The Wither shot explosive skulls at Steve! He swerved left, then right. BOOM! BOOM!", "zh": "凋零向史蒂夫射出爆炸骷髅头！他向左转，然后向右转。轰！轰！天空中满是爆炸。", "keys": [{"w": "dodge", "p": "/dɑːdʒ/", "zh": "闪避"}], "phrases": [{"en": "shoot explosive skulls", "zh": "发射爆炸骷髅头"}]}, {"img": "images/minecraft/page-14.jpg", "en": "One skull came straight at him! Steve flipped his plane upside down and zoomed past it.", "zh": "一个骷髅头直冲他而来！史蒂夫把飞机翻了过来，从它旁边飞过。好险！", "keys": [{"w": "straight", "p": "/streɪt/", "zh": "直直地"}], "phrases": [{"en": "come straight at him", "zh": "直冲他而来"}]}, {"img": "images/minecraft/page-15.jpg", "en": "I need to fight back! Steve grabbed his enchanted bow with special arrows of light.", "zh": "\"我需要反击！\"史蒂夫拿起他的附魔弓。他有特殊的箭——光之箭。", "keys": [{"w": "special", "p": "/ˈspeʃl/", "zh": "特殊的"}], "phrases": [{"en": "fight back", "zh": "反击"}]}, {"img": "images/minecraft/page-16.jpg", "en": "Steve aimed carefully. He fired! Golden arrows streaked through the dark sky like shooting stars.", "zh": "史蒂夫仔细瞄准。他射箭了！金色的箭像流星一样划过黑暗的天空。", "keys": [{"w": "shooting star", "p": "/ˈʃuːtɪŋ stɑːr/", "zh": "流星"}], "phrases": [{"en": "shooting star", "zh": "流星"}]}, {"img": "images/minecraft/page-17.jpg", "en": "HIT! The arrow struck the Wither head. It screamed in pain! Blue sparks flew everywhere.", "zh": "命中！箭射中了凋零的第一个头。它痛苦地尖叫！蓝色火花四处飞溅。", "keys": [{"w": "scream", "p": "/skriːm/", "zh": "尖叫"}], "phrases": [{"en": "painful scream", "zh": "痛苦地尖叫"}]}, {"img": "images/minecraft/page-18.jpg", "en": "The Wither was furious! It grew bigger and shot skulls in every direction.", "zh": "凋零暴怒了！它变得更大，向四面八方射出骷髅头。天空变成了战场。", "keys": [{"w": "direction", "p": "/dəˈrekʃn/", "zh": "方向"}], "phrases": [{"en": "in all directions", "zh": "向四面八方"}]}, {"img": "images/minecraft/page-19.jpg", "en": "CRASH! A skull hit Steve wing. Smoke poured out. But Steve did not give up.", "zh": "砰！一个骷髅头击中了史蒂夫的机翼。烟冒了出来。飞机摇晃着。但史蒂夫没有放弃。", "keys": [{"w": "give up", "p": "/ɡɪv ʌp/", "zh": "放弃"}], "phrases": [{"en": "give up", "zh": "放弃"}]}, {"img": "images/minecraft/page-20.jpg", "en": "Steve stood up in his cockpit. He had one arrow left - his strongest one.", "zh": "史蒂夫在驾驶舱里站起来。他只剩一支箭了——他最强的一支。\"这是为了我的村庄！\"", "keys": [{"w": "village", "p": "/ˈvɪlɪdʒ/", "zh": "村庄"}], "phrases": [{"en": "my village", "zh": "我的村庄"}]}, {"img": "images/minecraft/page-20.jpg", "en": "He fired! The golden arrow split into three beams and hit all three heads at once!", "zh": "他射箭了！金色的箭笔直飞去。它分裂成三束光，同时击中了三个头！", "keys": [{"w": "epic", "p": "/ˈepɪk/", "zh": "史诗般的"}], "phrases": [{"en": "split into three beams of light", "zh": "分裂成三束光"}]}]};
+let stars = 0, stage = 0;
+
+// 星星背景
+const canvas = document.getElementById('starCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+for(let i=0;i<120;i++){
+  ctx.fillStyle=`rgba(255,255,255,${Math.random()*0.6+0.1})`;
+  ctx.beginPath();
+  ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height,
+          Math.random()*1.5+0.5, 0, Math.PI*2);
+  ctx.fill();
+}
+
+function addStar(n=1){
+  stars += n;
+  const el = document.getElementById('starCount');
+  el.textContent = `⭐ ${stars}`;
+  el.classList.remove('star-pop');
+  void el.offsetWidth;
+  el.classList.add('star-pop');
+}
+
+const STAGES = [renderIntro, renderListenSelect, renderDragMatch, renderSentenceBuild, renderFinish];
+
+function nextStage(){ stage++; if(stage<STAGES.length) STAGES[stage](); }
+
+// 故事介绍页
+function renderIntro(){
+  document.getElementById('stageArea').innerHTML = `
+    <div class="story-intro">
+      <h3>Steve vs The Wither</h3>
+<img src="/${STORY.cover}" alt="cover">
+      <p>和史蒂夫大战凋零一起学英语吧！</p>
+      <button class="next-unit-btn" onclick="nextStage()" style="margin-top:20px">开始游戏 →</button>
+    </div>`;
+}
+
+// 关卡1：听音选图
+function renderListenSelect(){
+  const vocab = STORY.unitVocab.slice(0,5);
+  const q = vocab[Math.floor(Math.random()*vocab.length)];
+  const opts = shuffle([q, ...vocab.filter(v=>v.w!==q.w).slice(0,3)]);
+  speakWord(q.w);
+
+  document.getElementById('stageArea').innerHTML = `
+    <div class="stage-title">🎧 听一听，选出正确的图片！</div>
+    <div style="text-align:center;margin:12px 0">
+      <button onclick="speakWord('${q.w}')" 
+              style="background:#0f3460;color:#e2e2e2;border:none;border-radius:50px;
+                     padding:10px 24px;font-size:18px;cursor:pointer">
+        🔊 再听一次
+      </button>
+    </div>
+    <div class="options-grid">
+      ${opts.map(o=>`
+        <button class="opt-btn" onclick="checkAnswer(this,'${o.w}','${q.w}')">
+          <div style="font-size:40px">${wordToEmoji(o.w)}</div>
+          <div style="margin-top:8px;font-size:14px;color:#aaa">${o.zh}</div>
+        </button>
+      `).join('')}
+    </div>`;
+}
+
+function checkAnswer(btn, chosen, correct){
+  document.querySelectorAll('.opt-btn').forEach(b=>b.onclick=null);
+  if(chosen===correct){
+    btn.classList.add('correct');
+    addStar(1);
+    setTimeout(nextStage, 1200);
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.opt-btn').forEach(b=>{
+      if(b.textContent.includes(wordToEmoji(correct))) b.classList.add('correct');
+    });
+    setTimeout(nextStage, 1800);
+  }
+}
+
+// 关卡2：拖拽配对
+function renderDragMatch(){
+  const pairs = STORY.unitVocab.slice(0,3);
+  document.getElementById('stageArea').innerHTML = `
+    <div class="stage-title">✋ 拖一拖，把单词和图片配对！</div>
+    <div class="drag-area">
+      <div class="drag-words" id="dragWords">
+        ${shuffle([...pairs]).map(p=>`
+          <div class="drag-item" draggable="true" 
+               data-word="${p.w}"
+               ondragstart="dragStart(event,'${p.w}')">
+            ${p.w}
+          </div>
+        `).join('')}
+      </div>
+      <div class="drop-zones">
+        ${pairs.map(p=>`
+          <div class="drop-zone" 
+               data-target="${p.w}"
+               ondragover="event.preventDefault()"
+               ondrop="dragDrop(event,'${p.w}')">
+            ${wordToEmoji(p.w)}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div id="dragMsg" style="text-align:center;color:#a8e6cf;margin-top:16px;font-size:18px"></div>`;
+}
+
+let matched = 0;
+function dragStart(e, word){ e.dataTransfer.setData('word', word); }
+function dragDrop(e, target){
+  const word = e.dataTransfer.getData('word');
+  const zone = e.currentTarget;
+  if(word === target && !zone.classList.contains('matched')){
+    zone.classList.add('matched');
+    zone.innerHTML = `${wordToEmoji(target)}<br><span style="font-size:14px;color:#2ecc71">${word}</span>`;
+    document.querySelector(`[data-word="${word}"]`)?.remove();
+    addStar(1); matched++;
+    if(matched >= 3){ matched=0; setTimeout(nextStage,800); }
+  }
+}
+
+// 关卡3：看图造句
+function renderSentenceBuild(){
+  const vocab = STORY.unitVocab.slice(0,5);
+  const target = vocab[Math.floor(Math.random()*vocab.length)];
+  const distractors = shuffle(vocab.filter(v=>v.w!==target.w)).slice(0,3);
+  const choices = shuffle([target, ...distractors]);
+
+  document.getElementById('stageArea').innerHTML = `
+    <div class="stage-title">✏️ 看图，选词填空！</div>
+    <div style="text-align:center;font-size:60px;margin:12px 0">${wordToEmoji(target.w)}</div>
+    <div style="text-align:center;color:#e2e2e2;font-size:22px;margin:12px 0">
+      I have one ___ .
+    </div>
+    <div class="options-grid">
+      ${choices.map(c=>`
+        <button class="opt-btn" onclick="checkAnswer(this,'${c.w}','${target.w}')">
+          ${c.w}
+        </button>
+      `).join('')}
+    </div>`;
+}
+
+// 完成页
+function renderFinish(){
+  const allStars = Math.min(stars, 3);
+  document.getElementById('stageArea').innerHTML = `
+    <div class="finish-page">
+      <div class="big-stars">${'⭐'.repeat(allStars)}${'☆'.repeat(3-allStars)}</div>
+      <div class="finish-msg">太棒了！你得了 ${stars} 颗星！</div>
+      <div style="color:#a8e6cf;font-size:16px;margin-bottom:20px">
+        ${stars>=3?'满分！你已经掌握这个单元了！':'继续加油，再挑战一次吧！'}
+      </div>
+      <button class="next-unit-btn" onclick="location.href='../../index.html'">
+        🏠 回到主页
+      </button>
+      ${stars<3?`
+      <br><button class="next-unit-btn" style="background:#54a0ff;margin-top:12px"
+                  onclick="location.reload()">
+        🔄 再玩一次
+      </button>`:''}
+    </div>`;
+}
+
+// 工具函数
+function speakWord(word){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(word);
+  u.lang='en-GB'; u.rate=0.7;
+  speechSynthesis.speak(u);
+}
+
+function shuffle(arr){ return arr.sort(()=>Math.random()-.5); }
+
+function wordToEmoji(w){
+  const map = {
+    car:'🚗', duck:'🦆', ball:'⚽', frog:'🐸', rabbit:'🐰',
+    cat:'🐱', dog:'🐶', bird:'🐦', fish:'🐟', tree:'🌳',
+    apple:'🍎', book:'📚', pen:'✏️', bag:'👜', hat:'🎩',
+    red:'🔴', yellow:'🟡', blue:'🔵', green:'🟢', pink:'🩷'
+  };
+  return map[w.toLowerCase()] || '❓';
+}
+
+// 启动
+STAGES[0]();
+</script>
+</body>
+</html>
