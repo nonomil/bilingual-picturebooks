@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chore Robot Battle — 游戏版</title>
+<style>
+  body { font-family:'Nunito','Comic Sans MS',cursive; background:#1a1a2e;
+         min-height:100vh; display:flex; align-items:center; justify-content:center;
+         overflow:hidden; }
+
+  .starfield { position:fixed; inset:0; pointer-events:none; }
+
+  .game-card { background:#16213e; border-radius:24px;
+               padding:32px; max-width:700px; width:92%;
+               border:2px solid #0f3460; position:relative; z-index:1; }
+
+  .top-bar { display:flex; justify-content:space-between; 
+             align-items:center; margin-bottom:24px; }
+  .star-display { font-size:28px; }
+  .unit-title { color:#e2b96f; font-size:18px; }
+
+  .stage-title { color:#a8e6cf; font-size:22px; 
+                 margin-bottom:20px; text-align:center; }
+
+  .options-grid { display:grid; grid-template-columns:1fr 1fr;
+                  gap:16px; margin-top:16px; }
+  .opt-btn { background:#0f3460; color:#e2e2e2; border:2px solid #1a4a80;
+             border-radius:16px; padding:20px; font-size:18px; cursor:pointer;
+             transition: all .2s; text-align:center; }
+  .opt-btn:hover { border-color:#e2b96f; transform:scale(1.03); }
+  .opt-btn.correct { background:#2ecc71; border-color:#27ae60; color:#fff; }
+  .opt-btn.wrong   { background:#e74c3c; border-color:#c0392b; color:#fff; }
+
+  .drag-area { display:flex; gap:32px; justify-content:center; margin-top:24px; }
+  .drag-words { display:flex; flex-direction:column; gap:12px; }
+  .drag-item  { background:#0f3460; color:#e2e2e2; border-radius:12px;
+                padding:12px 24px; cursor:grab; font-size:18px;
+                border:2px solid transparent; transition:.2s; }
+  .drag-item:hover { border-color:#e2b96f; }
+  .drop-zones { display:flex; flex-direction:column; gap:12px; }
+  .drop-zone  { background:#0a2844; border:2px dashed #1a4a80;
+                border-radius:12px; padding:12px 24px; min-width:100px;
+                font-size:28px; text-align:center; }
+  .drop-zone.matched { border-color:#2ecc71; background:#0d3b1e; }
+
+  @keyframes starPop {
+    0%   { transform:scale(0) rotate(-20deg); opacity:0; }
+    60%  { transform:scale(1.3) rotate(10deg); opacity:1; }
+    100% { transform:scale(1) rotate(0); opacity:1; }
+  }
+  .star-pop { animation: starPop .5s ease-out forwards; }
+
+  .finish-page { text-align:center; }
+  .big-stars    { font-size:60px; letter-spacing:8px; }
+  .finish-msg   { color:#a8e6cf; font-size:22px; margin:20px 0; }
+  .next-unit-btn{ background:#e2b96f; color:#1a1a2e; border:none;
+                  border-radius:50px; padding:14px 40px; font-size:20px;
+                  cursor:pointer; font-weight:bold; margin-top:16px; }
+
+  .story-intro { text-align:center; margin-bottom:20px; }
+  .story-intro img { max-width:200px; border-radius:12px; margin:10px 0; }
+  .story-intro p { color:#e2e2e2; font-size:16px; line-height:1.6; }
+
+  h3 { color:#e17055; margin-bottom:16px; }
+</style>
+</head>
+<body>
+<canvas class="starfield" id="starCanvas"></canvas>
+<div class="game-card">
+  <div class="top-bar">
+    <div class="unit-title">Chore Robot Battle</div>
+    <div class="star-display"><span id="starCount">⭐ 0</span></div>
+  </div>
+  <div id="stageArea"></div>
+</div>
+
+<script>
+const STORY = {"id": "robot-battle", "title": "Chore Robot Battle", "titleZh": "家务机器人大战", "category": "原创", "cover": "images/covers/cover-robot-battle.jpg", "pages": [{"img": "images/robot-battle/page-2.jpg", "en": "Doudou and Doubao's Great Chore Robot Battle", "zh": "豆豆和豆包的家务机器人大战 | Doudou and Doubao's Great Chore Robot Battle", "keys": [{"w": "chore", "p": "/tʃɔːr/", "zh": "家务"}], "phrases": [{"en": "great chore robot battle", "zh": "家务机器人大战"}]}, {"img": "images/robot-battle/page-3.jpg", "en": "This is the story of a little boy named Doudou and his round robot friend Doubao.", "zh": "这是关于小男孩豆豆和他的圆滚滚机器人朋友豆包的故事。", "keys": [{"w": "chore", "p": "/tʃɔːr/", "zh": "家务"}], "phrases": [{"en": "little boy named Doudou", "zh": "名叫豆豆的小男孩"}]}, {"img": "images/robot-battle/page-4.jpg", "en": "\"Today we're playing the Great Chore Battle!\" Doudou announced excitedly.", "zh": "\"今天我们来玩家务大战！\"豆豆兴奋地宣布。", "keys": [{"w": "announce", "p": "/əˈnaʊns/", "zh": "宣布"}], "phrases": [{"en": "playing the Great Chore Battle", "zh": "玩家庭杂务大战"}]}, {"img": "images/robot-battle/page-5.jpg", "en": "\"Behold my Stinky Shield!\" Doudou raised a shield glowing with green light.", "zh": "\"看我的臭臭护盾！\"豆豆举起一面发着绿色光芒的盾牌。", "keys": [{"w": "shield", "p": "/ʃiːld/", "zh": "盾牌"}], "phrases": [{"en": "Behold my Stinky Shield", "zh": "看我的臭臭护盾"}]}, {"img": "images/robot-battle/page-6.jpg", "en": "\"I choose the Bubble Gun! Bang bang bang!\" Countless colorful bubbles flew toward Doudou.", "zh": "\"我选泡泡枪！砰砰砰！\"无数彩色泡泡飞向豆豆。", "keys": [{"w": "bubble", "p": "/ˈbʌbl/", "zh": "泡泡"}], "phrases": [{"en": "I choose the Bubble Gun", "zh": "我选泡泡枪"}]}, {"img": "images/robot-battle/page-7.jpg", "en": "\"My Stinky Bombs already turned you into a stinker!\" Doudou laughed triumphantly.", "zh": "\"我的臭臭炮弹早就把你打成臭臭了！\"豆豆得意地大笑。", "keys": [{"w": "bomb", "p": "/bɑːm/", "zh": "炸弹"}], "phrases": [{"en": "My Stinky Bombs", "zh": "我的臭臭炮弹"}]}, {"img": "images/robot-battle/page-8.jpg", "en": "\"Soap Attack! Scrub scrub scrub! All clean!\" Doudou washed Doubao squeaky clean.", "zh": "\"肥皂武装！擦呀擦！洗完啦！\"豆豆用巨大的肥皂把豆包洗得干干净净。", "keys": [{"w": "scrub", "p": "/skrʌb/", "zh": "擦洗"}], "phrases": [{"en": "Soap Attack", "zh": "肥皂攻击"}]}, {"img": "images/robot-battle/page-9.jpg", "en": "\"My Robot Vacuum Tank is here!\" Mechanical arms stretched out, sweeping everywhere.", "zh": "\"我的扫地机器人战车来啦！\"机械臂伸出，四处清扫。", "keys": [{"w": "vacuum", "p": "/ˈvækjuːm/", "zh": "吸尘器"}], "phrases": [{"en": "Robot Vacuum Tank", "zh": "扫地机器人战车"}]}, {"img": "images/robot-battle/page-10.jpg", "en": "\"Robot Vacuum enters Angry Mode!\" The battle grew more and more intense.", "zh": "\"扫地机器人进入愤怒模式！\"对战越来越激烈。", "keys": [{"w": "intense", "p": "/ɪnˈtens/", "zh": "激烈的"}], "phrases": [{"en": "enters Angry Mode", "zh": "进入愤怒模式"}]}, {"img": "images/robot-battle/page-11.jpg", "en": "\"Look at my Flying Shield! Tracking bullets, right through Doubao's tank!\"", "zh": "\"看我的飞翔盾牌！追踪子弹，穿过豆包的坦克！\"", "keys": [{"w": "ultimate", "p": "/ˈʌltɪmət/", "zh": "终极的"}], "phrases": [{"en": "my Flying Shield", "zh": "我的飞翔盾牌"}]}, {"img": "images/robot-battle/page-12.jpg", "en": "\"Okay okay, you win this time!\" Doubao laughed. \"Let's still be best friends!\"", "zh": "\"好吧好吧，这次算你厉害！\"豆包笑着说。\"那我们还是做好朋友吧！\"", "keys": [{"w": "sparkle", "p": "/ˈspɑːrkl/", "zh": "闪耀"}], "phrases": [{"en": "you win this time", "zh": "这次你赢了"}]}, {"img": "images/robot-battle/page-13.jpg", "en": "A loud crash came from the kitchen! \"Oh no! Mom said we need to bake a cake today!\"", "zh": "厨房传来一声巨响！\"完了完了，妈妈说今天要做蛋糕！\"", "keys": [{"w": "crash", "p": "/kræʃ/", "zh": "巨响，碰撞声"}], "phrases": [{"en": "a loud crash", "zh": "一声巨响"}]}, {"img": "images/robot-battle/page-14.jpg", "en": "\"Doubao, switch to Kitchen Agent Mode!\" Doudou put on a chef's hat and apron.", "zh": "\"豆包，变成厨房特工模式！\"豆豆戴上厨师帽，系上围裙。", "keys": [{"w": "chef", "p": "/ʃef/", "zh": "厨师"}], "phrases": [{"en": "Kitchen Agent Mode", "zh": "厨房特工模式"}]}, {"img": "images/robot-battle/page-15.jpg", "en": "Doudou accidentally flung the entire bag of flour into the air, like a winter wonderland!", "zh": "豆豆不小心把整袋面粉甩到了空中，像冬天的童话世界！", "keys": [{"w": "flour", "p": "/ˈflaʊər/", "zh": "面粉"}], "phrases": [{"en": "accidentally flung the entire bag of flour into the air", "zh": "不小心把整袋面粉甩到了空中"}]}, {"img": "images/robot-battle/page-16.jpg", "en": "The mixer spun too fast, sending batter flying everywhere like a fountain!", "zh": "搅拌器转得太快了，面糊像喷泉一样飞溅得到处都是！", "keys": [{"w": "mixer", "p": "/ˈmɪksər/", "zh": "搅拌器"}], "phrases": [{"en": "spun too fast", "zh": "转得太快了"}]}, {"img": "images/robot-battle/page-17.jpg", "en": "Doubao secretly added laundry detergent to the batter — giant colorful bubbles started flooding the kitchen!", "zh": "豆包偷偷往面糊里加了洗衣液——巨大的彩色泡泡开始淹没厨房！", "keys": [{"w": "detergent", "p": "/dɪˈtɜːrdʒənt/", "zh": "洗涤剂"}], "phrases": [{"en": "secretly added laundry detergent to the batter", "zh": "偷偷往面糊里加了洗衣液"}]}, {"img": "images/robot-battle/page-18.jpg", "en": "The giant bubbles lifted Doudou and Doubao all the way to the ceiling!", "zh": "巨大的泡泡把豆豆和豆包一直飘到了天花板上！", "keys": [{"w": "lift", "p": "/lɪft/", "zh": "举起，飘起"}], "phrases": [{"en": "giant bubbles", "zh": "巨大的泡泡"}]}, {"img": "images/robot-battle/page-19.jpg", "en": "\"Activate Anti-Bubble System!\" Doubao popped the bubbles one by one for a safe landing.", "zh": "\"启动反泡泡系统！\"豆包一个个戳破了泡泡，安全着陆。", "keys": [{"w": "activate", "p": "/ˈæktɪveɪt/", "zh": "激活"}], "phrases": [{"en": "Activate Anti-Bubble System", "zh": "启动反泡泡系统"}]}, {"img": "images/robot-battle/page-20.jpg", "en": "\"MY KITCHEN!!!\" Mom stood at the door, flames shooting from her eyes!", "zh": "\"我的厨房！！！\"妈妈站在门口，眼睛里冒着火！", "keys": [{"w": "devastated", "p": "/ˈdevəsteɪtɪd/", "zh": "一片狼藉的"}], "phrases": [{"en": "stood at the door", "zh": "站在门口"}]}, {"img": "images/robot-battle/page-20.jpg", "en": "Doubao transformed into a Super Cleaning Robot and polished the kitchen sparkling clean!", "zh": "豆包变成了超级清洁机器人，把厨房打扫得闪闪发亮！", "keys": [{"w": "transform", "p": "/trænsˈfɔːrm/", "zh": "变形，转变"}], "phrases": [{"en": "transformed into a Super Cleaning Robot", "zh": "变成了超级清洁机器人"}]}]};
+let stars = 0, stage = 0;
+
+// 星星背景
+const canvas = document.getElementById('starCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+for(let i=0;i<120;i++){
+  ctx.fillStyle=`rgba(255,255,255,${Math.random()*0.6+0.1})`;
+  ctx.beginPath();
+  ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height,
+          Math.random()*1.5+0.5, 0, Math.PI*2);
+  ctx.fill();
+}
+
+function addStar(n=1){
+  stars += n;
+  const el = document.getElementById('starCount');
+  el.textContent = `⭐ ${stars}`;
+  el.classList.remove('star-pop');
+  void el.offsetWidth;
+  el.classList.add('star-pop');
+}
+
+const STAGES = [renderIntro, renderListenSelect, renderDragMatch, renderSentenceBuild, renderFinish];
+
+function nextStage(){ stage++; if(stage<STAGES.length) STAGES[stage](); }
+
+// 故事介绍页
+function renderIntro(){
+  document.getElementById('stageArea').innerHTML = `
+    <div class="story-intro">
+      <h3>Chore Robot Battle</h3>
+<img src="/${STORY.cover}" alt="cover">
+      <p>和家务机器人大战一起学英语吧！</p>
+      <button class="next-unit-btn" onclick="nextStage()" style="margin-top:20px">开始游戏 →</button>
+    </div>`;
+}
+
+// 关卡1：听音选图
+function renderListenSelect(){
+  const vocab = STORY.unitVocab.slice(0,5);
+  const q = vocab[Math.floor(Math.random()*vocab.length)];
+  const opts = shuffle([q, ...vocab.filter(v=>v.w!==q.w).slice(0,3)]);
+  speakWord(q.w);
+
+  document.getElementById('stageArea').innerHTML = `
+    <div class="stage-title">🎧 听一听，选出正确的图片！</div>
+    <div style="text-align:center;margin:12px 0">
+      <button onclick="speakWord('${q.w}')" 
+              style="background:#0f3460;color:#e2e2e2;border:none;border-radius:50px;
+                     padding:10px 24px;font-size:18px;cursor:pointer">
+        🔊 再听一次
+      </button>
+    </div>
+    <div class="options-grid">
+      ${opts.map(o=>`
+        <button class="opt-btn" onclick="checkAnswer(this,'${o.w}','${q.w}')">
+          <div style="font-size:40px">${wordToEmoji(o.w)}</div>
+          <div style="margin-top:8px;font-size:14px;color:#aaa">${o.zh}</div>
+        </button>
+      `).join('')}
+    </div>`;
+}
+
+function checkAnswer(btn, chosen, correct){
+  document.querySelectorAll('.opt-btn').forEach(b=>b.onclick=null);
+  if(chosen===correct){
+    btn.classList.add('correct');
+    addStar(1);
+    setTimeout(nextStage, 1200);
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.opt-btn').forEach(b=>{
+      if(b.textContent.includes(wordToEmoji(correct))) b.classList.add('correct');
+    });
+    setTimeout(nextStage, 1800);
+  }
+}
+
+// 关卡2：拖拽配对
+function renderDragMatch(){
+  const pairs = STORY.unitVocab.slice(0,3);
+  document.getElementById('stageArea').innerHTML = `
+    <div class="stage-title">✋ 拖一拖，把单词和图片配对！</div>
+    <div class="drag-area">
+      <div class="drag-words" id="dragWords">
+        ${shuffle([...pairs]).map(p=>`
+          <div class="drag-item" draggable="true" 
+               data-word="${p.w}"
+               ondragstart="dragStart(event,'${p.w}')">
+            ${p.w}
+          </div>
+        `).join('')}
+      </div>
+      <div class="drop-zones">
+        ${pairs.map(p=>`
+          <div class="drop-zone" 
+               data-target="${p.w}"
+               ondragover="event.preventDefault()"
+               ondrop="dragDrop(event,'${p.w}')">
+            ${wordToEmoji(p.w)}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div id="dragMsg" style="text-align:center;color:#a8e6cf;margin-top:16px;font-size:18px"></div>`;
+}
+
+let matched = 0;
+function dragStart(e, word){ e.dataTransfer.setData('word', word); }
+function dragDrop(e, target){
+  const word = e.dataTransfer.getData('word');
+  const zone = e.currentTarget;
+  if(word === target && !zone.classList.contains('matched')){
+    zone.classList.add('matched');
+    zone.innerHTML = `${wordToEmoji(target)}<br><span style="font-size:14px;color:#2ecc71">${word}</span>`;
+    document.querySelector(`[data-word="${word}"]`)?.remove();
+    addStar(1); matched++;
+    if(matched >= 3){ matched=0; setTimeout(nextStage,800); }
+  }
+}
+
+// 关卡3：看图造句
+function renderSentenceBuild(){
+  const vocab = STORY.unitVocab.slice(0,5);
+  const target = vocab[Math.floor(Math.random()*vocab.length)];
+  const distractors = shuffle(vocab.filter(v=>v.w!==target.w)).slice(0,3);
+  const choices = shuffle([target, ...distractors]);
+
+  document.getElementById('stageArea').innerHTML = `
+    <div class="stage-title">✏️ 看图，选词填空！</div>
+    <div style="text-align:center;font-size:60px;margin:12px 0">${wordToEmoji(target.w)}</div>
+    <div style="text-align:center;color:#e2e2e2;font-size:22px;margin:12px 0">
+      I have one ___ .
+    </div>
+    <div class="options-grid">
+      ${choices.map(c=>`
+        <button class="opt-btn" onclick="checkAnswer(this,'${c.w}','${target.w}')">
+          ${c.w}
+        </button>
+      `).join('')}
+    </div>`;
+}
+
+// 完成页
+function renderFinish(){
+  const allStars = Math.min(stars, 3);
+  document.getElementById('stageArea').innerHTML = `
+    <div class="finish-page">
+      <div class="big-stars">${'⭐'.repeat(allStars)}${'☆'.repeat(3-allStars)}</div>
+      <div class="finish-msg">太棒了！你得了 ${stars} 颗星！</div>
+      <div style="color:#a8e6cf;font-size:16px;margin-bottom:20px">
+        ${stars>=3?'满分！你已经掌握这个单元了！':'继续加油，再挑战一次吧！'}
+      </div>
+      <button class="next-unit-btn" onclick="location.href='../../index.html'">
+        🏠 回到主页
+      </button>
+      ${stars<3?`
+      <br><button class="next-unit-btn" style="background:#54a0ff;margin-top:12px"
+                  onclick="location.reload()">
+        🔄 再玩一次
+      </button>`:''}
+    </div>`;
+}
+
+// 工具函数
+function speakWord(word){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(word);
+  u.lang='en-GB'; u.rate=0.7;
+  speechSynthesis.speak(u);
+}
+
+function shuffle(arr){ return arr.sort(()=>Math.random()-.5); }
+
+function wordToEmoji(w){
+  const map = {
+    car:'🚗', duck:'🦆', ball:'⚽', frog:'🐸', rabbit:'🐰',
+    cat:'🐱', dog:'🐶', bird:'🐦', fish:'🐟', tree:'🌳',
+    apple:'🍎', book:'📚', pen:'✏️', bag:'👜', hat:'🎩',
+    red:'🔴', yellow:'🟡', blue:'🔵', green:'🟢', pink:'🩷'
+  };
+  return map[w.toLowerCase()] || '❓';
+}
+
+// 启动
+STAGES[0]();
+</script>
+</body>
+</html>
