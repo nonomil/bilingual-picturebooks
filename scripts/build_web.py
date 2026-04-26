@@ -74,8 +74,8 @@ def build(story_id=None):
             pages_fixed.append(pg)
         pages_json = json.dumps(pages_fixed, ensure_ascii=False)
         
-        # 计算游戏页面相对路径（从 reader/{cat}/ 到 game/{cat}/）
-        game_rel = f'../game/{cat}/{sid}.html'
+        # 计算游戏页面相对路径（从 public/reader/{cat}/ 到 public/game/{cat}/）
+        game_rel = f'../../game/{cat}/{sid}.html'
         
         # 朗读版 - 用 ## 包裹占位符避免和 JS 模板冲突
         r = tmpl_r.replace('{{STORY_TITLE}}', title)

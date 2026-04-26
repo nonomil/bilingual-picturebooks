@@ -241,7 +241,7 @@
 </head>
 <body>
   <nav class="top-nav">
-    <a href="../../" class="back-btn">← 返回首页</a>
+    <a href="../../../" class="back-btn">← 返回首页</a>
     <span class="title">{{STORY_TITLE}}</span>
     <span class="spacer"></span>
   </nav>
@@ -344,7 +344,7 @@ function renderPage(i) {
   updatePlayBtn(false);
 
   // Image
-  document.getElementById('pageImg').src = '../../' + p.img;
+  document.getElementById('pageImg').src = '../../../' + p.img;
 
   // Page info
   document.getElementById('pageInfo').textContent = `第 ${i+1} 页，共 ${PAGES.length} 页`;
