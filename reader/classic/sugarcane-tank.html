@@ -32,14 +32,15 @@
 
   .zh-sentence { font-size:18px; color:#555; margin-top:14px; font-family:'Nunito',sans-serif; }
 
-  .vocab-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
-  .vocab-card { background:#e8f4fd; border-radius:8px; 
-                padding:6px 12px; cursor:pointer;
-                transition: transform .15s; }
-  .vocab-card:hover { transform:scale(1.05); }
-  .vocab-card .vw { font-size:16px; font-weight:bold; color:#1a5276; }
+  .vocab-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:16px; }
+  .vocab-card { background:#f8f9fa; border-radius:10px; 
+                padding:10px 14px; cursor:pointer;
+                transition: all .15s; min-width:140px; }
+  .vocab-card:hover { transform:scale(1.02); box-shadow:0 4px 12px rgba(0,0,0,.1); background:#fff; }
+  .vocab-card .vw { font-size:16px; font-weight:bold; color:#2980b9; }
   .vocab-card .vp { font-size:12px; color:#888; }
   .vocab-card .vz { font-size:14px; color:#555; margin-top:2px; }
+  .vocab-card .vph { font-size:12px; color:#666; border-top:1px solid #eee; margin-top:6px; padding-top:4px; }
 
   .nav { display:flex; align-items:center; justify-content:space-between;
          margin-top:20px; padding-bottom:24px; }
@@ -118,9 +119,15 @@ function renderPage(i) {
 
   const vocabCards = (p.keys || []).map(k =>
     `<div class="vocab-card" onclick="speakWord('${k.w}')">
-      <div class="vw">${k.w}</div><div class="vp">${k.p}</div><div class="vz">${k.zh}</div>
+      <div class="vw">${k.w}</div>
+      <div class="vp">${k.p}</div>
+      <div class="vz">${k.zh}</div>
+      <div class="vph">${k.ph || ''}</div>
     </div>`
   ).join('');
+
+  // 如果没有ph字段，用中文解释代替
+  const vocabPhrases = (p.keys || []).map(k => k.ph || k.zh).join(', ');
 
   document.getElementById('pageArea').innerHTML = `
     <img class="page-img" src="../../${p.img}" alt="page ${i+1}" onerror="this.style.background='#eee';this.style.minHeight='300px'">
