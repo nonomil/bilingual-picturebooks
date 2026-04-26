@@ -126,8 +126,8 @@
     `).join('');
     document.getElementById('storyfunGrid').innerHTML = storyfunHtml || '<p style="color:#888">暂无 StoryFun 内容</p>';
     
-    // 渲染经典绘本
-    const classicStories = STORIES.filter(s => s.category === 'classic');
+    // 渲染经典绘本（非 StoryFun 的都是经典绘本）
+    const classicStories = STORIES.filter(s => s.category !== 'storyfun');
     const classicHtml = classicStories.map(s => `
       <div class="story-card">
         <img class="story-cover" src="${s.cover || 'images/covers/' + s.id + '.jpg'}" alt="${s.title}" 
