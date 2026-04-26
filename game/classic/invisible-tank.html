@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invisible Tank Mission — 游戏版</title>
+<style>
+  body { font-family:'Nunito','Comic Sans MS',cursive; background:#1a1a2e;
+         min-height:100vh; display:flex; align-items:center; justify-content:center;
+         overflow:hidden; }
+
+  .starfield { position:fixed; inset:0; pointer-events:none; }
+
+  .game-card { background:#16213e; border-radius:24px;
+               padding:32px; max-width:700px; width:92%;
+               border:2px solid #0f3460; position:relative; z-index:1; }
+
+  .top-bar { display:flex; justify-content:space-between; 
+             align-items:center; margin-bottom:24px; }
+  .star-display { font-size:28px; }
+  .unit-title { color:#e2b96f; font-size:18px; }
+
+  .stage-title { color:#a8e6cf; font-size:22px; 
+                 margin-bottom:20px; text-align:center; }
+
+  .options-grid { display:grid; grid-template-columns:1fr 1fr;
+                  gap:16px; margin-top:16px; }
+  .opt-btn { background:#0f3460; color:#e2e2e2; border:2px solid #1a4a80;
+             border-radius:16px; padding:20px; font-size:18px; cursor:pointer;
+             transition: all .2s; text-align:center; }
+  .opt-btn:hover { border-color:#e2b96f; transform:scale(1.03); }
+  .opt-btn.correct { background:#2ecc71; border-color:#27ae60; color:#fff; }
+  .opt-btn.wrong   { background:#e74c3c; border-color:#c0392b; color:#fff; }
+
+  .drag-area { display:flex; gap:32px; justify-content:center; margin-top:24px; }
+  .drag-words { display:flex; flex-direction:column; gap:12px; }
+  .drag-item  { background:#0f3460; color:#e2e2e2; border-radius:12px;
+                padding:12px 24px; cursor:grab; font-size:18px;
+                border:2px solid transparent; transition:.2s; }
+  .drag-item:hover { border-color:#e2b96f; }
+  .drop-zones { display:flex; flex-direction:column; gap:12px; }
+  .drop-zone  { background:#0a2844; border:2px dashed #1a4a80;
+                border-radius:12px; padding:12px 24px; min-width:100px;
+                font-size:28px; text-align:center; }
+  .drop-zone.matched { border-color:#2ecc71; background:#0d3b1e; }
+
+  @keyframes starPop {
+    0%   { transform:scale(0) rotate(-20deg); opacity:0; }
+    60%  { transform:scale(1.3) rotate(10deg); opacity:1; }
+    100% { transform:scale(1) rotate(0); opacity:1; }
+  }
+  .star-pop { animation: starPop .5s ease-out forwards; }
+
+  .finish-page { text-align:center; }
+  .big-stars    { font-size:60px; letter-spacing:8px; }
+  .finish-msg   { color:#a8e6cf; font-size:22px; margin:20px 0; }
+  .next-unit-btn{ background:#e2b96f; color:#1a1a2e; border:none;
+                  border-radius:50px; padding:14px 40px; font-size:20px;
+                  cursor:pointer; font-weight:bold; margin-top:16px; }
+
+  .story-intro { text-align:center; margin-bottom:20px; }
+  .story-intro img { max-width:200px; border-radius:12px; margin:10px 0; }
+  .story-intro p { color:#e2e2e2; font-size:16px; line-height:1.6; }
+
+  h3 { color:#e17055; margin-bottom:16px; }
+</style>
+</head>
+<body>
+<canvas class="starfield" id="starCanvas"></canvas>
+<div class="game-card">
+  <div class="top-bar">
+    <div class="unit-title">Invisible Tank Mission</div>
+    <div class="star-display"><span id="starCount">⭐ 0</span></div>
+  </div>
+  <div id="stageArea"></div>
+</div>
+
+<script>
+const STORY = {"id": "invisible-tank", "title": "Invisible Tank Mission", "titleZh": "隐身战车奇袭", "category": "我的世界", "cover": "images/covers/cover-invisible-tank.jpg", "pages": [{"img": "images/invisible-tank/page-1.jpg", "en": "A mysterious black tank that can turn invisible, ready for a secret mission.", "zh": "一辆神秘的黑色坦克，可以变得完全透明，准备执行秘密任务。", "keys": [{"w": "mysterious", "p": "/mɪˈstɪriəs/", "zh": "神秘的"}], "phrases": [{"en": "mysterious black tank", "zh": "神秘的黑色坦克"}]}, {"img": "images/invisible-tank/page-2.jpg", "en": "Sneaky enemy trucks steal the glowing energy crystals hidden on the mountain top.", "zh": "偷偷摸摸的敌人卡车把藏在山顶的发光能量水晶偷走了！", "keys": [{"w": "sneaky", "p": "/ˈsniːki/", "zh": "鬼鬼祟祟的"}], "phrases": [{"en": "sneaky enemy trucks", "zh": "偷偷摸摸的敌人卡车"}]}, {"img": "images/invisible-tank/page-3.jpg", "en": "The kid presses the glowing blue button — whoosh! The tank becomes completely invisible!", "zh": "小孩按下发光的蓝色按钮——嗖！坦克变得完全透明了！", "keys": [{"w": "press", "p": "/pres/", "zh": "按下"}], "phrases": [{"en": "glowing blue button", "zh": "发光的蓝色按钮"}]}, {"img": "images/invisible-tank/page-4.jpg", "en": "The invisible tank follows the enemy convoy silently, not even the guard dogs notice it.", "zh": "隐身坦克悄悄跟在敌人车队后面，连敌人的侦查狗都没发现。", "keys": [{"w": "follows", "p": "/ˈfɑːloʊz/", "zh": "跟随"}], "phrases": [{"en": "follows the enemy convoy silently", "zh": "悄悄跟着敌人车队"}]}, {"img": "images/invisible-tank/page-5.jpg", "en": "The invisible tank reaches the enemy camp. There are guards everywhere and tall watchtowers!", "zh": "隐身坦克到达敌人营地。到处都是卫兵和高高的瞭望塔！", "keys": [{"w": "reaches", "p": "/ˈriːtʃɪz/", "zh": "到达"}], "phrases": [{"en": "reaches the enemy camp", "zh": "到达敌人营地"}]}, {"img": "images/invisible-tank/page-6.jpg", "en": "Twenty fake tanks appear around the enemy camp and the soldiers panic in confusion!", "zh": "敌人营地周围突然出现了二十辆一模一样的幻影坦克，士兵们吓得四处张望！", "keys": [{"w": "fake", "p": "/feɪk/", "zh": "假的"}], "phrases": [{"en": "appear around the enemy camp", "zh": "出现在敌人营地周围"}]}, {"img": "images/invisible-tank/page-7.jpg", "en": "Tiny fly-sized cameras zip over to the enemy tanks and send back live video to the kid's screen.", "zh": "像苍蝇一样小的微型摄像头飞到敌人坦克上，把画面传回屏幕。", "keys": [{"w": "tiny", "p": "/ˈtaɪni/", "zh": "极小的"}], "phrases": [{"en": "fly-sized cameras", "zh": "像苍蝇一样小的摄像头"}]}, {"img": "images/invisible-tank/page-8.jpg", "en": "The kid throws a special dart that flies straight into the enemy truck's energy core!", "zh": "小孩投出飞镖，精准命中敌人卡车的能量核心！", "keys": [{"w": "special", "p": "/ˈspeʃl/", "zh": "特殊的"}], "phrases": [{"en": "throws a special dart", "zh": "投出一枚特殊飞镖"}]}, {"img": "images/invisible-tank/page-9.jpg", "en": "The dart hits the core — BOOM! The enemy truck's power shuts down completely!", "zh": "飞镖命中核心——轰！敌人卡车的动力彻底熄火了！", "keys": [{"w": "hits", "p": "/hɪts/", "zh": "击中"}], "phrases": [{"en": "hits the core", "zh": "击中核心"}]}, {"img": "images/invisible-tank/page-10.jpg", "en": "A magnetic claw reaches out and zips the crystal boxes right into the invisible tank.", "zh": "磁力抓取爪伸出，嗖地一下把能量水晶吸了过来！", "keys": [{"w": "magnetic", "p": "/mæɡˈnetɪk/", "zh": "磁性的"}], "phrases": [{"en": "A magnetic claw reaches out", "zh": "一只磁力爪伸出来"}]}, {"img": "images/invisible-tank/page-11.jpg", "en": "The magnetic claw grabs the second crystal too! Two down, one to go!", "zh": "磁力爪又抓到了第二个水晶！两个到手，还差一个！", "keys": [{"w": "grabs", "p": "/ɡræbz/", "zh": "抓住"}], "phrases": [{"en": "grabs the second crystal", "zh": "抓住第二个水晶"}]}, {"img": "images/invisible-tank/page-12.jpg", "en": "The last enemy truck spots the floating crystals and sounds the alarm! WHEE-OOH WHEE-OOH!", "zh": "最后一辆敌人卡车发现了飘浮的水晶，拉响了警报！呜——呜——！", "keys": [{"w": "enemy", "p": "/ˈenəmi/", "zh": "敌人"}], "phrases": [{"en": "spots the floating crystals", "zh": "发现漂浮的水晶"}]}, {"img": "images/invisible-tank/page-13.jpg", "en": "The enemy truck chases the invisible tank through the forest at full speed!", "zh": "敌人卡车全速追赶隐身坦克，在森林里疯狂穿梭！", "keys": [{"w": "chases", "p": "/ˈtʃeɪsɪz/", "zh": "追赶"}], "phrases": [{"en": "chases the invisible tank", "zh": "追赶隐身坦克"}]}, {"img": "images/invisible-tank/page-14.jpg", "en": "An explosion sends Doubao the robot flying higher than the whole galaxy!", "zh": "一阵爆炸把豆包炸飞了，豆包飞得比银河系还高！", "keys": [{"w": "explosion", "p": "/ɪkˈspləʊʒən/", "zh": "爆炸"}], "phrases": [{"en": "An explosion sends Doubao flying", "zh": "一场爆炸把豆包炸飞了"}]}, {"img": "images/invisible-tank/page-15.jpg", "en": "Doubao falls back down like a shooting star, yelling all the way!", "zh": "豆包像流星一样落下来，一路尖叫！", "keys": [{"w": "falls", "p": "/fɔːlz/", "zh": "掉落"}], "phrases": [{"en": "falls back down like a shooting star", "zh": "像流星一样落下来"}]}, {"img": "images/invisible-tank/page-16.jpg", "en": "Doubao lands on the ground with a big BUMP and says 'Ouch, my bottom hurts!'", "zh": "豆包砰地坐到地上，哎呀，屁股好疼啊，摔了个屁股蹲！", "keys": [{"w": "lands", "p": "/lændz/", "zh": "着地"}], "phrases": [{"en": "lands on the ground with a big BUMP", "zh": "砰地坐到地上"}]}, {"img": "images/invisible-tank/page-17.jpg", "en": "Doubao accidentally falls right in front of the enemy truck! The truck screeches to a halt!", "zh": "豆包正好摔在敌人卡车前面！卡车急刹车停了下来！", "keys": [{"w": "accidentally", "p": "/ˌæksɪˈdentəli/", "zh": "意外地"}], "phrases": [{"en": "accidentally falls right in front of the enemy truck", "zh": "正好摔在敌人卡车前面"}]}, {"img": "images/invisible-tank/page-18.jpg", "en": "While the truck is stopped, the magnetic claw quickly grabs the last crystal!", "zh": "趁卡车停下，磁力爪迅速抓走了最后一个水晶！", "keys": [{"w": "stopped", "p": "/stɒpt/", "zh": "停下的"}], "phrases": [{"en": "while the truck is stopped", "zh": "趁卡车停下"}]}, {"img": "images/invisible-tank/page-19.jpg", "en": "Doubao has a bouncy bottom pad and springs right back up, ready to keep fighting!", "zh": "豆包有弹性缓冲垫，一下子就弹了起来，继续战斗！", "keys": [{"w": "bouncy", "p": "/ˈbaʊnsi/", "zh": "有弹性的"}], "phrases": [{"en": "has a bouncy bottom pad", "zh": "有弹性缓冲垫"}]}, {"img": "images/invisible-tank/page-20.jpg", "en": "The invisible tank activates full stealth and vanishes completely! The enemy trucks can't find it!", "zh": "隐身坦克开启全隐身模式，彻底消失！敌人卡车找不到它了！", "keys": [{"w": "activates", "p": "/ˈæktɪveɪts/", "zh": "启动"}], "phrases": [{"en": "activates full stealth", "zh": "开启全隐身模式"}]}, {"img": "images/invisible-tank/page-21.jpg", "en": "The invisible tank carries the crystals home safely, with Doubao riding on top as a lookout.", "zh": "隐身坦克带着水晶安全回到基地，豆包坐在坦克顶上当侦查员。", "keys": [{"w": "carries", "p": "/ˈkæriz/", "zh": "运送"}], "phrases": [{"en": "carries the crystals home safely", "zh": "安全地把水晶带回基地"}]}]};
+let stars = 0, stage = 0;
+
+// 星星背景
+const canvas = document.getElementById('starCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+for(let i=0;i<120;i++){
+  ctx.fillStyle=`rgba(255,255,255,${Math.random()*0.6+0.1})`;
+  ctx.beginPath();
+  ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height,
+          Math.random()*1.5+0.5, 0, Math.PI*2);
+  ctx.fill();
+}
+
+function addStar(n=1){
+  stars += n;
+  const el = document.getElementById('starCount');
+  el.textContent = `⭐ ${stars}`;
+  el.classList.remove('star-pop');
+  void el.offsetWidth;
+  el.classList.add('star-pop');
+}
+
+const STAGES = [renderIntro, renderListenSelect, renderDragMatch, renderSentenceBuild, renderFinish];
+
+function nextStage(){ stage++; if(stage<STAGES.length) STAGES[stage](); }
+
+// 故事介绍页
+function renderIntro(){
+  document.getElementById('stageArea').innerHTML = `
+    <div class="story-intro">
+      <h3>Invisible Tank Mission</h3>
+<img src="/${STORY.cover}" alt="cover">
+      <p>和隐身战车奇袭一起学英语吧！</p>
+      <button class="next-unit-btn" onclick="nextStage()" style="margin-top:20px">开始游戏 →</button>
+    </div>`;
+}
+
+// 关卡1：听音选图
+function renderListenSelect(){
+  const vocab = STORY.unitVocab.slice(0,5);
+  const q = vocab[Math.floor(Math.random()*vocab.length)];
+  const opts = shuffle([q, ...vocab.filter(v=>v.w!==q.w).slice(0,3)]);
+  speakWord(q.w);
+
+  document.getElementById('stageArea').innerHTML = `
+    <div class="stage-title">🎧 听一听，选出正确的图片！</div>
+    <div style="text-align:center;margin:12px 0">
+      <button onclick="speakWord('${q.w}')" 
+              style="background:#0f3460;color:#e2e2e2;border:none;border-radius:50px;
+                     padding:10px 24px;font-size:18px;cursor:pointer">
+        🔊 再听一次
+      </button>
+    </div>
+    <div class="options-grid">
+      ${opts.map(o=>`
+        <button class="opt-btn" onclick="checkAnswer(this,'${o.w}','${q.w}')">
+          <div style="font-size:40px">${wordToEmoji(o.w)}</div>
+          <div style="margin-top:8px;font-size:14px;color:#aaa">${o.zh}</div>
+        </button>
+      `).join('')}
+    </div>`;
+}
+
+function checkAnswer(btn, chosen, correct){
+  document.querySelectorAll('.opt-btn').forEach(b=>b.onclick=null);
+  if(chosen===correct){
+    btn.classList.add('correct');
+    addStar(1);
+    setTimeout(nextStage, 1200);
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.opt-btn').forEach(b=>{
+      if(b.textContent.includes(wordToEmoji(correct))) b.classList.add('correct');
+    });
+    setTimeout(nextStage, 1800);
+  }
+}
+
+// 关卡2：拖拽配对
+function renderDragMatch(){
+  const pairs = STORY.unitVocab.slice(0,3);
+  document.getElementById('stageArea').innerHTML = `
+    <div class="stage-title">✋ 拖一拖，把单词和图片配对！</div>
+    <div class="drag-area">
+      <div class="drag-words" id="dragWords">
+        ${shuffle([...pairs]).map(p=>`
+          <div class="drag-item" draggable="true" 
+               data-word="${p.w}"
+               ondragstart="dragStart(event,'${p.w}')">
+            ${p.w}
+          </div>
+        `).join('')}
+      </div>
+      <div class="drop-zones">
+        ${pairs.map(p=>`
+          <div class="drop-zone" 
+               data-target="${p.w}"
+               ondragover="event.preventDefault()"
+               ondrop="dragDrop(event,'${p.w}')">
+            ${wordToEmoji(p.w)}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div id="dragMsg" style="text-align:center;color:#a8e6cf;margin-top:16px;font-size:18px"></div>`;
+}
+
+let matched = 0;
+function dragStart(e, word){ e.dataTransfer.setData('word', word); }
+function dragDrop(e, target){
+  const word = e.dataTransfer.getData('word');
+  const zone = e.currentTarget;
+  if(word === target && !zone.classList.contains('matched')){
+    zone.classList.add('matched');
+    zone.innerHTML = `${wordToEmoji(target)}<br><span style="font-size:14px;color:#2ecc71">${word}</span>`;
+    document.querySelector(`[data-word="${word}"]`)?.remove();
+    addStar(1); matched++;
+    if(matched >= 3){ matched=0; setTimeout(nextStage,800); }
+  }
+}
+
+// 关卡3：看图造句
+function renderSentenceBuild(){
+  const vocab = STORY.unitVocab.slice(0,5);
+  const target = vocab[Math.floor(Math.random()*vocab.length)];
+  const distractors = shuffle(vocab.filter(v=>v.w!==target.w)).slice(0,3);
+  const choices = shuffle([target, ...distractors]);
+
+  document.getElementById('stageArea').innerHTML = `
+    <div class="stage-title">✏️ 看图，选词填空！</div>
+    <div style="text-align:center;font-size:60px;margin:12px 0">${wordToEmoji(target.w)}</div>
+    <div style="text-align:center;color:#e2e2e2;font-size:22px;margin:12px 0">
+      I have one ___ .
+    </div>
+    <div class="options-grid">
+      ${choices.map(c=>`
+        <button class="opt-btn" onclick="checkAnswer(this,'${c.w}','${target.w}')">
+          ${c.w}
+        </button>
+      `).join('')}
+    </div>`;
+}
+
+// 完成页
+function renderFinish(){
+  const allStars = Math.min(stars, 3);
+  document.getElementById('stageArea').innerHTML = `
+    <div class="finish-page">
+      <div class="big-stars">${'⭐'.repeat(allStars)}${'☆'.repeat(3-allStars)}</div>
+      <div class="finish-msg">太棒了！你得了 ${stars} 颗星！</div>
+      <div style="color:#a8e6cf;font-size:16px;margin-bottom:20px">
+        ${stars>=3?'满分！你已经掌握这个单元了！':'继续加油，再挑战一次吧！'}
+      </div>
+      <button class="next-unit-btn" onclick="location.href='../../index.html'">
+        🏠 回到主页
+      </button>
+      ${stars<3?`
+      <br><button class="next-unit-btn" style="background:#54a0ff;margin-top:12px"
+                  onclick="location.reload()">
+        🔄 再玩一次
+      </button>`:''}
+    </div>`;
+}
+
+// 工具函数
+function speakWord(word){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(word);
+  u.lang='en-GB'; u.rate=0.7;
+  speechSynthesis.speak(u);
+}
+
+function shuffle(arr){ return arr.sort(()=>Math.random()-.5); }
+
+function wordToEmoji(w){
+  const map = {
+    car:'🚗', duck:'🦆', ball:'⚽', frog:'🐸', rabbit:'🐰',
+    cat:'🐱', dog:'🐶', bird:'🐦', fish:'🐟', tree:'🌳',
+    apple:'🍎', book:'📚', pen:'✏️', bag:'👜', hat:'🎩',
+    red:'🔴', yellow:'🟡', blue:'🔵', green:'🟢', pink:'🩷'
+  };
+  return map[w.toLowerCase()] || '❓';
+}
+
+// 启动
+STAGES[0]();
+</script>
+</body>
+</html>
