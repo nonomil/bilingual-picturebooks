@@ -41,9 +41,21 @@
   .word:hover { background:#ffd166; color:#000; }
   .word.speaking { background:#ff6b6b; color:#fff; }
 
-  .zh-text { font-size:17px; color:rgba(255,255,255,.8); 
-             background:rgba(255,255,255,.05); padding:12px 16px; 
-             border-radius:10px; margin-bottom:16px; }
+.zh-text { font-size:17px; color:rgba(255,255,255,.8); 
+            background:rgba(255,255,255,.05); padding:12px 16px; 
+            border-radius:10px; margin-bottom:16px; }
+
+  /* 词汇区域 */
+  .vocab-section { margin-top:16px; }
+  .vocab-section .label { font-size:13px; color:#4ecdc4; margin-bottom:8px; }
+  .vocab-row { display:flex; flex-wrap:wrap; gap:8px; }
+  .vocab-card { background:rgba(78,205,196,.15); border:1px solid rgba(78,205,196,.3);
+                border-radius:20px; padding:6px 14px; font-size:14px;
+                cursor:pointer; transition:all .15s; }
+  .vocab-card:hover { background:rgba(78,205,196,.3); transform:scale(1.02); }
+  .vocab-card .vw { font-weight:700; color:#4ecdc4; margin-right:6px; }
+  .vocab-card .vp { font-size:12px; color:#888; }
+  .vocab-card .vz { margin-left:6px; color:rgba(255,255,255,.7); }
 
   /* 词组区域 */
   .phrase-section { margin-top:16px; }
@@ -115,6 +127,14 @@
     <div class="text-section">
       <div class="en-text" id="enText"></div>
       <div class="zh-text" id="zhText"></div>
+      
+      <!-- 词汇区域 -->
+      <div class="vocab-section" id="vocabSection" style="display:none;">
+        <div class="label">💡 单词</div>
+        <div class="vocab-row" id="vocabRow"></div>
+      </div>
+      
+      <!-- 词组区域 -->
       <div class="phrase-section" id="phraseSection">
         <div class="label">📚 词组</div>
         <div class="phrase-row" id="phraseRow"></div>
@@ -191,8 +211,23 @@ function renderPage(i) {
   // 中文
   document.getElementById('zhText').textContent = p.zh;
   
-  // 词组
+  // 词汇（如果有）放在词组前面
+  const keys = p.keys || [];
   const phrases = p.phrases || [];
+  
+  // 先显示词汇
+  if (keys.length > 0) {
+    document.getElementById('vocabSection').style.display = 'block';
+    document.getElementById('vocabRow').innerHTML = keys.map(k =>
+      `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
+        <span class="vw">${k.w}</span> <span class="vp">${k.p}</span> <span class="vz">${k.zh}</span>
+      </div>`
+    ).join('');
+  } else {
+    document.getElementById('vocabSection').style.display = 'none';
+  }
+  
+  // 词组
   if (phrases.length > 0) {
     document.getElementById('phraseSection').style.display = 'block';
     document.getElementById('phraseRow').innerHTML = phrases.map(ph => 
@@ -204,15 +239,6 @@ function renderPage(i) {
   } else {
     document.getElementById('phraseSection').style.display = 'none';
   }
-  
-  // 词汇卡片
-  const vocabCards = (p.keys || []).map(k =>
-    `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
-      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span></div>
-      <div class="vz">${k.zh}</div>
-    </div>`
-  ).join('');
-  document.getElementById('vocabRow').innerHTML = vocabCards;
   
   // 指示器
   document.getElementById('pageIndicator').textContent = `${i+1} / ${PAGES.length}`;
