@@ -4,23 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Block Battle — 朗读版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Nunito', 'Comic Sans MS', cursive; background:#fffdf5; 
+  body { font-family: 'Nunito', sans-serif; background:#fffdf5; 
          min-height:100vh; display:flex; flex-direction:column; align-items:center; }
 
   .reader-wrap { max-width:800px; width:100%; padding:16px; }
 
   .page-img { width:100%; border-radius:16px; 
-              box-shadow:0 4px 20px rgba(0,0,0,.12); }
+              box-shadow:0 4px 20px rgba(0,0,0,.12); display:block; }
 
   .text-area { margin-top:16px; padding:16px; 
                background:#fff; border-radius:12px;
                box-shadow:0 2px 8px rgba(0,0,0,.08); }
 
-  .en-sentence { font-size:24px; line-height:1.8; color:#333; }
+  .en-sentence { font-size:22px; line-height:1.8; color:#333; font-family:'Nunito',sans-serif; }
   .word { cursor:pointer; border-radius:4px; padding:0 2px;
-          transition: background .15s; }
+          transition: background .15s; font-family:'Nunito',sans-serif; }
   .word:hover { background:#fff3b0; }
   .word.speaking { background:#ffd166; }
 
@@ -28,10 +30,7 @@
               background:#f8f8f8; border-radius:6px;
               padding:2px 8px; margin-left:4px; }
 
-  .zh-sentence { font-size:18px; color:#666; margin-top:12px;
-                 cursor:pointer; }
-  .zh-sentence.hidden { filter:blur(8px); user-select:none; }
-  .zh-sentence.hidden:hover { filter:blur(4px); }
+  .zh-sentence { font-size:18px; color:#555; margin-top:14px; font-family:'Nunito',sans-serif; }
 
   .vocab-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
   .vocab-card { background:#e8f4fd; border-radius:8px; 
@@ -61,13 +60,14 @@
   .read-btn:hover { background:#2980b9; }
 
   h2 { text-align:center; color:#e17055; margin:16px 0 8px; font-size:22px }
+  h2 small { display:block; font-size:16px; color:#888; font-weight:400; margin-top:4px; }
   .unit-tag { text-align:center; color:#888; font-size:14px; margin-bottom:8px; }
 </style>
 </head>
 <body>
 <div class="reader-wrap">
   <div class="unit-tag">Unit 1</div>
-  <h2>Block Battle<br><small>方块大战</small></h2>
+  <h2>Block Battle<small>方块大战</small></h2>
   <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
   <div id="pageArea" style="margin-top:16px"></div>
   <div class="nav">
@@ -88,7 +88,7 @@ const synth = window.speechSynthesis;
 function renderPage(i) {
   const p = PAGES[i];
   const words = p.en.split(' ').map((w, idx) =>
-    `<span class="word" id="w${idx}" onclick="showWordTip(this,'${w.replace(/'/g, "\\'")}'">${w}</span>`
+    `<span class="word" id="w${idx}" onclick="showWordTip(this,'${w.replace(/'/g, "\\'")}')">${w}</span>`
   ).join(' ');
 
   const vocabCards = (p.keys || []).map(k =>
@@ -98,12 +98,10 @@ function renderPage(i) {
   ).join('');
 
   document.getElementById('pageArea').innerHTML = `
-    <img class="page-img" src="../../${p.img}" alt="page ${i+1}">
+    <img class="page-img" src="${p.img}" alt="page ${i+1}" onerror="this.style.background='#eee';this.style.minHeight='300px'">
     <div class="text-area">
       <div class="en-sentence">${words}</div>
-      <div class="zh-sentence hidden" id="zhSent" onclick="this.classList.toggle('hidden')">
-        ${p.zh}&nbsp;<span style="font-size:12px;color:#bbb">（点击查看翻译）</span>
-      </div>
+      <div class="zh-sentence">${p.zh}</div>
       <div class="vocab-row">${vocabCards}</div>
     </div>`;
 
