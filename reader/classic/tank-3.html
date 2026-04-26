@@ -41,9 +41,21 @@
   .word:hover { background:#ffd166; color:#000; }
   .word.speaking { background:#ff6b6b; color:#fff; }
 
-  .zh-text { font-size:17px; color:rgba(255,255,255,.8); 
-             background:rgba(255,255,255,.05); padding:12px 16px; 
-             border-radius:10px; margin-bottom:16px; }
+.zh-text { font-size:17px; color:rgba(255,255,255,.8); 
+            background:rgba(255,255,255,.05); padding:12px 16px; 
+            border-radius:10px; margin-bottom:16px; }
+
+  /* 词汇区域 */
+  .vocab-section { margin-top:16px; }
+  .vocab-section .label { font-size:13px; color:#4ecdc4; margin-bottom:8px; }
+  .vocab-row { display:flex; flex-wrap:wrap; gap:8px; }
+  .vocab-card { background:rgba(78,205,196,.15); border:1px solid rgba(78,205,196,.3);
+                border-radius:20px; padding:6px 14px; font-size:14px;
+                cursor:pointer; transition:all .15s; }
+  .vocab-card:hover { background:rgba(78,205,196,.3); transform:scale(1.02); }
+  .vocab-card .vw { font-weight:700; color:#4ecdc4; margin-right:6px; }
+  .vocab-card .vp { font-size:12px; color:#888; }
+  .vocab-card .vz { margin-left:6px; color:rgba(255,255,255,.7); }
 
   /* 词组区域 */
   .phrase-section { margin-top:16px; }
@@ -115,6 +127,14 @@
     <div class="text-section">
       <div class="en-text" id="enText"></div>
       <div class="zh-text" id="zhText"></div>
+      
+      <!-- 词汇区域 -->
+      <div class="vocab-section" id="vocabSection" style="display:none;">
+        <div class="label">💡 单词</div>
+        <div class="vocab-row" id="vocabRow"></div>
+      </div>
+      
+      <!-- 词组区域 -->
       <div class="phrase-section" id="phraseSection">
         <div class="label">📚 词组</div>
         <div class="phrase-row" id="phraseRow"></div>
@@ -145,7 +165,7 @@
   </div>
 
 <script>
-const PAGES = [{"img": "images/tank-3/tank-3/page-1.jpg", "en": "Regular monsters were too easy now. It was time for a real boss fight!", "zh": "普通怪物太简单了，是时候挑战真正的BOSS了！", "keys": [{"w": "regular", "p": "/ˈreɡ.jə.lər/", "zh": "普通的"}], "phrases": [{"en": "Regular monsters", "zh": "普通怪物"}]}, {"img": "images/tank-3/tank-3/page-2.jpg", "en": "Soul sand and skulls arranged. The Wither was summoned! Three heads, super powerful!", "zh": "摆好灵魂沙和骷髅头，凋零被召唤出来了！三个脑袋，超级强大！", "keys": [{"w": "arranged", "p": "/əˈreɪndʒd/", "zh": "摆放好；排列好"}], "phrases": [{"en": "arranged soul sand and skulls", "zh": "摆好灵魂沙和骷髅头"}]}, {"img": "images/tank-3/tank-3/page-3.jpg", "en": "One tank was not enough! The Wither's bombs were too powerful!", "zh": "一辆坦克根本不够！凋零的炸弹太猛了！", "keys": [{"w": "enough", "p": "/ɪˈnʌf/", "zh": "足够的"}], "phrases": [{"en": "not enough", "zh": "根本不够"}]}, {"img": "images/tank-3/tank-3/page-4.jpg", "en": "The tank was losing health fast. Run back to the base!", "zh": "坦克掉血超快，差点被打爆！赶紧跑回阵地！", "keys": [{"w": "losing", "p": "/ˈluː.zɪŋ/", "zh": "失去；减少"}], "phrases": [{"en": "losing health fast", "zh": "掉血超快"}]}, {"img": "images/tank-3/tank-3/page-5.jpg", "en": "Time to bring out ALL the tanks! A tank army was forming!", "zh": "把所有造好的坦克都开出来，组成坦克大军！", "keys": [{"w": "tank", "p": "/tæŋk/", "zh": "坦克"}], "phrases": [{"en": "bring out ALL the tanks", "zh": "把所有坦克都开出来"}]}, {"img": "images/tank-3/tank-3/page-6.jpg", "en": "The tank army surrounded the Wither. Every tank aimed and fired!", "zh": "坦克大军把凋零围了起来，所有坦克一起开火！", "keys": [{"w": "surround", "p": "/səˈraʊnd/", "zh": "包围"}], "phrases": [{"en": "surrounded the Wither", "zh": "把凋零围了起来"}]}, {"img": "images/tank-3/tank-3/page-7.jpg", "en": "Heavy tanks blocked the front, absorbing the Wither's devastating blows!", "zh": "重型坦克在正面扛伤害，挡住凋零的猛烈攻击！", "keys": [{"w": "heavy", "p": "/ˈhevi/", "zh": "重的；重型的"}], "phrases": [{"en": "Heavy tanks", "zh": "重型坦克"}]}, {"img": "images/tank-3/tank-3/page-8.jpg", "en": "Light tanks zoomed around the sides, hitting the Wither from every angle!", "zh": "轻型坦克绕到侧面，从各个角度攻击凋零！", "keys": [{"w": "light", "p": "/laɪt/", "zh": "轻的；轻型的"}], "phrases": [{"en": "Light tanks", "zh": "轻型坦克"}]}, {"img": "images/tank-3/tank-3/page-9.jpg", "en": "Missile tanks fired from far away. Each missile dealt massive damage!", "zh": "导弹坦克在远处发射，每发导弹都造成巨大伤害！", "keys": [{"w": "missile", "p": "/ˈmɪsəl/", "zh": "导弹"}], "phrases": [{"en": "fired from far away", "zh": "在远处发射"}]}, {"img": "images/tank-3/tank-3/page-10.jpg", "en": "Even the redstone cannons joined in! Boom boom boom!", "zh": "连红石大炮也不停开火！轰轰轰！", "keys": [{"w": "redstone", "p": "/ˈredstoʊn/", "zh": "红石"}], "phrases": [{"en": "joined in", "zh": "也加入进来"}]}, {"img": "images/tank-3/tank-3/page-11.jpg", "en": "After a long hard fight, the Wither finally fell! Victory!", "zh": "打了好久好久，凋零终于被打败了！胜利！", "keys": [{"w": "fight", "p": "/faɪt/", "zh": "战斗"}], "phrases": [{"en": "a long hard fight", "zh": "漫长而艰难的战斗"}]}, {"img": "images/tank-3/tank-3/page-12.jpg", "en": "A Nether Star dropped! Time to build something even more amazing!", "zh": "掉落了下界之星！是时候造更厉害的东西了！", "keys": [{"w": "Nether Star", "p": "/ˈneðər stɑːr/", "zh": "下界之星"}], "phrases": [{"en": "Nether Star dropped", "zh": "掉落了下界之星"}]}, {"img": "images/tank-3/tank-3/page-13.jpg", "en": "Next up: a super tank with triple-layer armor that nothing can destroy!", "zh": "下一步：造一辆三层加厚护甲的超级坦克，谁也打不动！", "keys": [{"w": "super", "p": "/ˈsuːpər/", "zh": "超级的"}], "phrases": [{"en": "Next up", "zh": "下一步"}]}];
+const PAGES = [{"img": "images/tank-3/page-1.jpg", "en": "Regular monsters were too easy now. It was time for a real boss fight!", "zh": "普通怪物太简单了，是时候挑战真正的BOSS了！", "keys": [{"w": "regular", "p": "/ˈreɡ.jə.lər/", "zh": "普通的"}], "phrases": [{"en": "Regular monsters", "zh": "普通怪物"}]}, {"img": "images/tank-3/page-2.jpg", "en": "Soul sand and skulls arranged. The Wither was summoned! Three heads, super powerful!", "zh": "摆好灵魂沙和骷髅头，凋零被召唤出来了！三个脑袋，超级强大！", "keys": [{"w": "arranged", "p": "/əˈreɪndʒd/", "zh": "摆放好；排列好"}], "phrases": [{"en": "arranged soul sand and skulls", "zh": "摆好灵魂沙和骷髅头"}]}, {"img": "images/tank-3/page-3.jpg", "en": "One tank was not enough! The Wither's bombs were too powerful!", "zh": "一辆坦克根本不够！凋零的炸弹太猛了！", "keys": [{"w": "enough", "p": "/ɪˈnʌf/", "zh": "足够的"}], "phrases": [{"en": "not enough", "zh": "根本不够"}]}, {"img": "images/tank-3/page-4.jpg", "en": "The tank was losing health fast. Run back to the base!", "zh": "坦克掉血超快，差点被打爆！赶紧跑回阵地！", "keys": [{"w": "losing", "p": "/ˈluː.zɪŋ/", "zh": "失去；减少"}], "phrases": [{"en": "losing health fast", "zh": "掉血超快"}]}, {"img": "images/tank-3/page-5.jpg", "en": "Time to bring out ALL the tanks! A tank army was forming!", "zh": "把所有造好的坦克都开出来，组成坦克大军！", "keys": [{"w": "tank", "p": "/tæŋk/", "zh": "坦克"}], "phrases": [{"en": "bring out ALL the tanks", "zh": "把所有坦克都开出来"}]}, {"img": "images/tank-3/page-6.jpg", "en": "The tank army surrounded the Wither. Every tank aimed and fired!", "zh": "坦克大军把凋零围了起来，所有坦克一起开火！", "keys": [{"w": "surround", "p": "/səˈraʊnd/", "zh": "包围"}], "phrases": [{"en": "surrounded the Wither", "zh": "把凋零围了起来"}]}, {"img": "images/tank-3/page-7.jpg", "en": "Heavy tanks blocked the front, absorbing the Wither's devastating blows!", "zh": "重型坦克在正面扛伤害，挡住凋零的猛烈攻击！", "keys": [{"w": "heavy", "p": "/ˈhevi/", "zh": "重的；重型的"}], "phrases": [{"en": "Heavy tanks", "zh": "重型坦克"}]}, {"img": "images/tank-3/page-8.jpg", "en": "Light tanks zoomed around the sides, hitting the Wither from every angle!", "zh": "轻型坦克绕到侧面，从各个角度攻击凋零！", "keys": [{"w": "light", "p": "/laɪt/", "zh": "轻的；轻型的"}], "phrases": [{"en": "Light tanks", "zh": "轻型坦克"}]}, {"img": "images/tank-3/page-9.jpg", "en": "Missile tanks fired from far away. Each missile dealt massive damage!", "zh": "导弹坦克在远处发射，每发导弹都造成巨大伤害！", "keys": [{"w": "missile", "p": "/ˈmɪsəl/", "zh": "导弹"}], "phrases": [{"en": "fired from far away", "zh": "在远处发射"}]}, {"img": "images/tank-3/page-10.jpg", "en": "Even the redstone cannons joined in! Boom boom boom!", "zh": "连红石大炮也不停开火！轰轰轰！", "keys": [{"w": "redstone", "p": "/ˈredstoʊn/", "zh": "红石"}], "phrases": [{"en": "joined in", "zh": "也加入进来"}]}, {"img": "images/tank-3/page-11.jpg", "en": "After a long hard fight, the Wither finally fell! Victory!", "zh": "打了好久好久，凋零终于被打败了！胜利！", "keys": [{"w": "fight", "p": "/faɪt/", "zh": "战斗"}], "phrases": [{"en": "a long hard fight", "zh": "漫长而艰难的战斗"}]}, {"img": "images/tank-3/page-12.jpg", "en": "A Nether Star dropped! Time to build something even more amazing!", "zh": "掉落了下界之星！是时候造更厉害的东西了！", "keys": [{"w": "Nether Star", "p": "/ˈneðər stɑːr/", "zh": "下界之星"}], "phrases": [{"en": "Nether Star dropped", "zh": "掉落了下界之星"}]}, {"img": "images/tank-3/page-13.jpg", "en": "Next up: a super tank with triple-layer armor that nothing can destroy!", "zh": "下一步：造一辆三层加厚护甲的超级坦克，谁也打不动！", "keys": [{"w": "super", "p": "/ˈsuːpər/", "zh": "超级的"}], "phrases": [{"en": "Next up", "zh": "下一步"}]}];
 let cur = 0;
 let currentSpeed = 1;
 const synth = window.speechSynthesis;
@@ -191,8 +211,23 @@ function renderPage(i) {
   // 中文
   document.getElementById('zhText').textContent = p.zh;
   
-  // 词组
+  // 词汇（如果有）放在词组前面
+  const keys = p.keys || [];
   const phrases = p.phrases || [];
+  
+  // 先显示词汇
+  if (keys.length > 0) {
+    document.getElementById('vocabSection').style.display = 'block';
+    document.getElementById('vocabRow').innerHTML = keys.map(k =>
+      `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
+        <span class="vw">${k.w}</span> <span class="vp">${k.p}</span> <span class="vz">${k.zh}</span>
+      </div>`
+    ).join('');
+  } else {
+    document.getElementById('vocabSection').style.display = 'none';
+  }
+  
+  // 词组
   if (phrases.length > 0) {
     document.getElementById('phraseSection').style.display = 'block';
     document.getElementById('phraseRow').innerHTML = phrases.map(ph => 
@@ -204,15 +239,6 @@ function renderPage(i) {
   } else {
     document.getElementById('phraseSection').style.display = 'none';
   }
-  
-  // 词汇卡片
-  const vocabCards = (p.keys || []).map(k =>
-    `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
-      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span></div>
-      <div class="vz">${k.zh}</div>
-    </div>`
-  ).join('');
-  document.getElementById('vocabRow').innerHTML = vocabCards;
   
   // 指示器
   document.getElementById('pageIndicator').textContent = `${i+1} / ${PAGES.length}`;
