@@ -146,7 +146,7 @@ function renderPage(i) {
   const vocabPhrases = (p.keys || []).map(k => k.ph || k.zh).join(', ');
 
   document.getElementById('pageArea').innerHTML = `
-    <img class="page-img" src="${p.img}" alt="page ${i+1}" onerror="this.style.display='none'">
+    <img class="page-img" src="../../../${p.img}" alt="page ${i+1}" onerror="this.style.display='none'">
     <div class="text-area">
       <div class="en-sentence">${words}</div>
       <div class="zh-sentence">${p.zh}</div>
