@@ -41,9 +41,21 @@
   .word:hover { background:#ffd166; color:#000; }
   .word.speaking { background:#ff6b6b; color:#fff; }
 
-  .zh-text { font-size:17px; color:rgba(255,255,255,.8); 
-             background:rgba(255,255,255,.05); padding:12px 16px; 
-             border-radius:10px; margin-bottom:16px; }
+.zh-text { font-size:17px; color:rgba(255,255,255,.8); 
+            background:rgba(255,255,255,.05); padding:12px 16px; 
+            border-radius:10px; margin-bottom:16px; }
+
+  /* 词汇区域 */
+  .vocab-section { margin-top:16px; }
+  .vocab-section .label { font-size:13px; color:#4ecdc4; margin-bottom:8px; }
+  .vocab-row { display:flex; flex-wrap:wrap; gap:8px; }
+  .vocab-card { background:rgba(78,205,196,.15); border:1px solid rgba(78,205,196,.3);
+                border-radius:20px; padding:6px 14px; font-size:14px;
+                cursor:pointer; transition:all .15s; }
+  .vocab-card:hover { background:rgba(78,205,196,.3); transform:scale(1.02); }
+  .vocab-card .vw { font-weight:700; color:#4ecdc4; margin-right:6px; }
+  .vocab-card .vp { font-size:12px; color:#888; }
+  .vocab-card .vz { margin-left:6px; color:rgba(255,255,255,.7); }
 
   /* 词组区域 */
   .phrase-section { margin-top:16px; }
@@ -115,6 +127,14 @@
     <div class="text-section">
       <div class="en-text" id="enText"></div>
       <div class="zh-text" id="zhText"></div>
+      
+      <!-- 词汇区域 -->
+      <div class="vocab-section" id="vocabSection" style="display:none;">
+        <div class="label">💡 单词</div>
+        <div class="vocab-row" id="vocabRow"></div>
+      </div>
+      
+      <!-- 词组区域 -->
       <div class="phrase-section" id="phraseSection">
         <div class="label">📚 词组</div>
         <div class="phrase-row" id="phraseRow"></div>
@@ -145,7 +165,7 @@
   </div>
 
 <script>
-const PAGES = [{"img": "images/tank-2/tank-2/page-1.jpg", "en": "The player built a special tank base with walls, turrets, and redstone cannons!", "zh": "他专门建了一个坦克阵地，有围墙、炮台，还有红石大炮！", "keys": [{"w": "built", "p": "/bɪlt/", "zh": "建造了"}], "phrases": [{"en": "special tank base", "zh": "特殊的坦克基地"}]}, {"img": "images/tank-2/tank-2/page-2.jpg", "en": "All the tanks were parked neatly. Heavy, light, and missile tanks ready for action!", "zh": "所有坦克整整齐齐停在里面。重型、轻型、导弹坦克随时待命！", "keys": [{"w": "parked", "p": "/pɑːrkt/", "zh": "停放的"}], "phrases": [{"en": "parked neatly", "zh": "整整齐齐停放"}]}, {"img": "images/tank-2/tank-2/page-3.jpg", "en": "Redstone cannons surrounded the base to stop any monsters from sneaking in!", "zh": "阵地周围摆满了红石大炮，防止怪物偷袭！", "keys": [{"w": "surrounded", "p": "/səˈraʊndɪd/", "zh": "包围"}], "phrases": [{"en": "surrounded the base", "zh": "包围了基地"}]}, {"img": "images/tank-2/tank-2/page-4.jpg", "en": "Night fell. A huge wave of monsters appeared from the darkness!", "zh": "夜幕降临。一大群怪物从黑暗中涌了出来！", "keys": [{"w": "night", "p": "/naɪt/", "zh": "夜晚"}], "phrases": [{"en": "Night fell", "zh": "夜幕降临"}]}, {"img": "images/tank-2/tank-2/page-5.jpg", "en": "Among them were Warden Sentinels — big, tough, and super scary!", "zh": "怪物里面还有几只循声守卫，又大又凶，超可怕！", "keys": [{"w": "among", "p": "/əˈmʌŋ/", "zh": "在……中间"}], "phrases": [{"en": "Among them were", "zh": "其中还有"}]}, {"img": "images/tank-2/tank-2/page-6.jpg", "en": "The player jumped into the nearest tank and started the engine!", "zh": "他赶紧跳进最近的坦克，发动引擎！", "keys": [{"w": "jumped", "p": "/dʒʌmpt/", "zh": "跳进"}], "phrases": [{"en": "jumped into the nearest tank", "zh": "跳进最近的坦克"}]}, {"img": "images/tank-2/tank-2/page-7.jpg", "en": "Luckily, Iron Golems were nearby and joined the battle!", "zh": "还好旁边有铁傀儡，马上加入战斗！", "keys": [{"w": "luckily", "p": "/ˈlʌkɪli/", "zh": "幸运地"}], "phrases": [{"en": "Luckily", "zh": "幸运的是"}]}, {"img": "images/tank-2/tank-2/page-8.jpg", "en": "Iron Golem blocked the front, taking all the hits. What a tough guy!", "zh": "铁傀儡在前面扛伤害，什么打过来都不怕。太硬了！", "keys": [{"w": "blocked", "p": "/blɒkt/", "zh": "阻挡"}], "phrases": [{"en": "blocked the front", "zh": "挡在前面"}]}, {"img": "images/tank-2/tank-2/page-9.jpg", "en": "The Warden Sentinel had too much health! Normal cannonballs barely scratched it!", "zh": "循声守卫血太厚，普通炮弹根本打不动！", "keys": [{"w": "health", "p": "/helθ/", "zh": "生命值；健康"}], "phrases": [{"en": "too much health", "zh": "血量太厚"}]}, {"img": "images/tank-2/tank-2/page-10.jpg", "en": "Quick, switch to the missile tank! One missile took away half its health!", "zh": "赶紧换导弹坦克！一发导弹下去直接打掉大半血！", "keys": [{"w": "switch", "p": "/swɪtʃ/", "zh": "切换"}], "phrases": [{"en": "switch to the missile tank", "zh": "换成导弹坦克"}]}, {"img": "images/tank-2/tank-2/page-11.jpg", "en": "Monsters were surrounding them! Time to back up and keep shooting!", "zh": "差点被怪物包围！赶紧操控坦克边退边射击！", "keys": [{"w": "monsters", "p": "/ˈmɒn.stərz/", "zh": "怪物"}], "phrases": [{"en": "were surrounding them", "zh": "正在包围他们"}]}, {"img": "images/tank-2/tank-2/page-12.jpg", "en": "Thanks to the tank's thick armor, it could handle the damage while fighting back!", "zh": "靠着坦克厚厚的装甲硬扛伤害，一边扛一边打回去！", "keys": [{"w": "thick", "p": "/θɪk/", "zh": "厚的"}], "phrases": [{"en": "thick armor", "zh": "厚厚的装甲"}]}, {"img": "images/tank-2/tank-2/page-13.jpg", "en": "The Iron Golem and tank worked together perfectly. The base was saved!", "zh": "铁傀儡和坦克完美配合，终于守住了阵地！", "keys": [{"w": "worked together", "p": "/wɜːrkt təˈɡeð.ər/", "zh": "合作"}], "phrases": [{"en": "worked together perfectly", "zh": "完美配合"}]}];
+const PAGES = [{"img": "images/tank-2/page-1.jpg", "en": "The player built a special tank base with walls, turrets, and redstone cannons!", "zh": "他专门建了一个坦克阵地，有围墙、炮台，还有红石大炮！", "keys": [{"w": "built", "p": "/bɪlt/", "zh": "建造了"}], "phrases": [{"en": "special tank base", "zh": "特殊的坦克基地"}]}, {"img": "images/tank-2/page-2.jpg", "en": "All the tanks were parked neatly. Heavy, light, and missile tanks ready for action!", "zh": "所有坦克整整齐齐停在里面。重型、轻型、导弹坦克随时待命！", "keys": [{"w": "parked", "p": "/pɑːrkt/", "zh": "停放的"}], "phrases": [{"en": "parked neatly", "zh": "整整齐齐停放"}]}, {"img": "images/tank-2/page-3.jpg", "en": "Redstone cannons surrounded the base to stop any monsters from sneaking in!", "zh": "阵地周围摆满了红石大炮，防止怪物偷袭！", "keys": [{"w": "surrounded", "p": "/səˈraʊndɪd/", "zh": "包围"}], "phrases": [{"en": "surrounded the base", "zh": "包围了基地"}]}, {"img": "images/tank-2/page-4.jpg", "en": "Night fell. A huge wave of monsters appeared from the darkness!", "zh": "夜幕降临。一大群怪物从黑暗中涌了出来！", "keys": [{"w": "night", "p": "/naɪt/", "zh": "夜晚"}], "phrases": [{"en": "Night fell", "zh": "夜幕降临"}]}, {"img": "images/tank-2/page-5.jpg", "en": "Among them were Warden Sentinels — big, tough, and super scary!", "zh": "怪物里面还有几只循声守卫，又大又凶，超可怕！", "keys": [{"w": "among", "p": "/əˈmʌŋ/", "zh": "在……中间"}], "phrases": [{"en": "Among them were", "zh": "其中还有"}]}, {"img": "images/tank-2/page-6.jpg", "en": "The player jumped into the nearest tank and started the engine!", "zh": "他赶紧跳进最近的坦克，发动引擎！", "keys": [{"w": "jumped", "p": "/dʒʌmpt/", "zh": "跳进"}], "phrases": [{"en": "jumped into the nearest tank", "zh": "跳进最近的坦克"}]}, {"img": "images/tank-2/page-7.jpg", "en": "Luckily, Iron Golems were nearby and joined the battle!", "zh": "还好旁边有铁傀儡，马上加入战斗！", "keys": [{"w": "luckily", "p": "/ˈlʌkɪli/", "zh": "幸运地"}], "phrases": [{"en": "Luckily", "zh": "幸运的是"}]}, {"img": "images/tank-2/page-8.jpg", "en": "Iron Golem blocked the front, taking all the hits. What a tough guy!", "zh": "铁傀儡在前面扛伤害，什么打过来都不怕。太硬了！", "keys": [{"w": "blocked", "p": "/blɒkt/", "zh": "阻挡"}], "phrases": [{"en": "blocked the front", "zh": "挡在前面"}]}, {"img": "images/tank-2/page-9.jpg", "en": "The Warden Sentinel had too much health! Normal cannonballs barely scratched it!", "zh": "循声守卫血太厚，普通炮弹根本打不动！", "keys": [{"w": "health", "p": "/helθ/", "zh": "生命值；健康"}], "phrases": [{"en": "too much health", "zh": "血量太厚"}]}, {"img": "images/tank-2/page-10.jpg", "en": "Quick, switch to the missile tank! One missile took away half its health!", "zh": "赶紧换导弹坦克！一发导弹下去直接打掉大半血！", "keys": [{"w": "switch", "p": "/swɪtʃ/", "zh": "切换"}], "phrases": [{"en": "switch to the missile tank", "zh": "换成导弹坦克"}]}, {"img": "images/tank-2/page-11.jpg", "en": "Monsters were surrounding them! Time to back up and keep shooting!", "zh": "差点被怪物包围！赶紧操控坦克边退边射击！", "keys": [{"w": "monsters", "p": "/ˈmɒn.stərz/", "zh": "怪物"}], "phrases": [{"en": "were surrounding them", "zh": "正在包围他们"}]}, {"img": "images/tank-2/page-12.jpg", "en": "Thanks to the tank's thick armor, it could handle the damage while fighting back!", "zh": "靠着坦克厚厚的装甲硬扛伤害，一边扛一边打回去！", "keys": [{"w": "thick", "p": "/θɪk/", "zh": "厚的"}], "phrases": [{"en": "thick armor", "zh": "厚厚的装甲"}]}, {"img": "images/tank-2/page-13.jpg", "en": "The Iron Golem and tank worked together perfectly. The base was saved!", "zh": "铁傀儡和坦克完美配合，终于守住了阵地！", "keys": [{"w": "worked together", "p": "/wɜːrkt təˈɡeð.ər/", "zh": "合作"}], "phrases": [{"en": "worked together perfectly", "zh": "完美配合"}]}];
 let cur = 0;
 let currentSpeed = 1;
 const synth = window.speechSynthesis;
@@ -191,8 +211,23 @@ function renderPage(i) {
   // 中文
   document.getElementById('zhText').textContent = p.zh;
   
-  // 词组
+  // 词汇（如果有）放在词组前面
+  const keys = p.keys || [];
   const phrases = p.phrases || [];
+  
+  // 先显示词汇
+  if (keys.length > 0) {
+    document.getElementById('vocabSection').style.display = 'block';
+    document.getElementById('vocabRow').innerHTML = keys.map(k =>
+      `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
+        <span class="vw">${k.w}</span> <span class="vp">${k.p}</span> <span class="vz">${k.zh}</span>
+      </div>`
+    ).join('');
+  } else {
+    document.getElementById('vocabSection').style.display = 'none';
+  }
+  
+  // 词组
   if (phrases.length > 0) {
     document.getElementById('phraseSection').style.display = 'block';
     document.getElementById('phraseRow').innerHTML = phrases.map(ph => 
@@ -204,15 +239,6 @@ function renderPage(i) {
   } else {
     document.getElementById('phraseSection').style.display = 'none';
   }
-  
-  // 词汇卡片
-  const vocabCards = (p.keys || []).map(k =>
-    `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
-      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span></div>
-      <div class="vz">${k.zh}</div>
-    </div>`
-  ).join('');
-  document.getElementById('vocabRow').innerHTML = vocabCards;
   
   // 指示器
   document.getElementById('pageIndicator').textContent = `${i+1} / ${PAGES.length}`;
