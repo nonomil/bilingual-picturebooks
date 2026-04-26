@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block Battle — 游戏版</title>
+<style>
+  body { font-family:'Nunito','Comic Sans MS',cursive; background:#1a1a2e;
+         min-height:100vh; display:flex; align-items:center; justify-content:center;
+         overflow:hidden; }
+
+  .starfield { position:fixed; inset:0; pointer-events:none; }
+
+  .game-card { background:#16213e; border-radius:24px;
+               padding:32px; max-width:700px; width:92%;
+               border:2px solid #0f3460; position:relative; z-index:1; }
+
+  .top-bar { display:flex; justify-content:space-between; 
+             align-items:center; margin-bottom:24px; }
+  .star-display { font-size:28px; }
+  .unit-title { color:#e2b96f; font-size:18px; }
+
+  .stage-title { color:#a8e6cf; font-size:22px; 
+                 margin-bottom:20px; text-align:center; }
+
+  .options-grid { display:grid; grid-template-columns:1fr 1fr;
+                  gap:16px; margin-top:16px; }
+  .opt-btn { background:#0f3460; color:#e2e2e2; border:2px solid #1a4a80;
+             border-radius:16px; padding:20px; font-size:18px; cursor:pointer;
+             transition: all .2s; text-align:center; }
+  .opt-btn:hover { border-color:#e2b96f; transform:scale(1.03); }
+  .opt-btn.correct { background:#2ecc71; border-color:#27ae60; color:#fff; }
+  .opt-btn.wrong   { background:#e74c3c; border-color:#c0392b; color:#fff; }
+
+  .drag-area { display:flex; gap:32px; justify-content:center; margin-top:24px; }
+  .drag-words { display:flex; flex-direction:column; gap:12px; }
+  .drag-item  { background:#0f3460; color:#e2e2e2; border-radius:12px;
+                padding:12px 24px; cursor:grab; font-size:18px;
+                border:2px solid transparent; transition:.2s; }
+  .drag-item:hover { border-color:#e2b96f; }
+  .drop-zones { display:flex; flex-direction:column; gap:12px; }
+  .drop-zone  { background:#0a2844; border:2px dashed #1a4a80;
+                border-radius:12px; padding:12px 24px; min-width:100px;
+                font-size:28px; text-align:center; }
+  .drop-zone.matched { border-color:#2ecc71; background:#0d3b1e; }
+
+  @keyframes starPop {
+    0%   { transform:scale(0) rotate(-20deg); opacity:0; }
+    60%  { transform:scale(1.3) rotate(10deg); opacity:1; }
+    100% { transform:scale(1) rotate(0); opacity:1; }
+  }
+  .star-pop { animation: starPop .5s ease-out forwards; }
+
+  .finish-page { text-align:center; }
+  .big-stars    { font-size:60px; letter-spacing:8px; }
+  .finish-msg   { color:#a8e6cf; font-size:22px; margin:20px 0; }
+  .next-unit-btn{ background:#e2b96f; color:#1a1a2e; border:none;
+                  border-radius:50px; padding:14px 40px; font-size:20px;
+                  cursor:pointer; font-weight:bold; margin-top:16px; }
+
+  .story-intro { text-align:center; margin-bottom:20px; }
+  .story-intro img { max-width:200px; border-radius:12px; margin:10px 0; }
+  .story-intro p { color:#e2e2e2; font-size:16px; line-height:1.6; }
+
+  h3 { color:#e17055; margin-bottom:16px; }
+</style>
+</head>
+<body>
+<canvas class="starfield" id="starCanvas"></canvas>
+<div class="game-card">
+  <div class="top-bar">
+    <div class="unit-title">Block Battle</div>
+    <div class="star-display"><span id="starCount">⭐ 0</span></div>
+  </div>
+  <div id="stageArea"></div>
+</div>
+
+<script>
+const STORY = {"id": "block-battle", "title": "Block Battle", "titleZh": "方块大战", "category": "我的世界", "cover": "images/covers/cover-block-battle.jpg", "pages": [{"img": "images/block-battle/page-1.jpg", "en": "This is a story about Block Battle. Two friends had an exciting match using all kinds of block weapons!", "zh": "这是一个关于方块对战的故事。两个小伙伴用各种方块武器展开了一场精彩的比赛！", "keys": [{"w": "story", "p": "/ˈstɔːri/", "zh": "故事"}], "phrases": [{"en": "a story about Block Battle", "zh": "一个关于方块对战的故事"}]}, {"img": "images/block-battle/page-2.jpg", "en": "Let us play Block Battle!", "zh": "", "keys": [{"w": "battle", "p": "/ˈbætl/", "zh": "大战"}], "phrases": [{"en": "Let's play Block Battle", "zh": "来玩方块大战吧"}]}, {"img": "images/block-battle/page-3.jpg", "en": "I will pick a cube with the stealth skill!", "zh": "", "keys": [{"w": "stealth", "p": "/stelθ/", "zh": "隐身"}], "phrases": [{"en": "pick a cube", "zh": "选一个方块"}]}, {"img": "images/block-battle/page-4.jpg", "en": "I will build a three-layer obsidian shield!", "zh": "", "keys": [{"w": "obsidian", "p": "/əbˈsɪdiən/", "zh": "黑曜石"}], "phrases": [{"en": "three-layer obsidian shield", "zh": "三层黑曜石盾牌"}]}, {"img": "images/block-battle/page-5.jpg", "en": "Obsidian is super hard. Normal attacks cannot break it!", "zh": "", "keys": [{"w": "super", "p": "/ˈsuːpər/", "zh": "超级"}], "phrases": [{"en": "super hard", "zh": "超硬"}]}, {"img": "images/block-battle/page-6.jpg", "en": "Watch this! I ride a sword with evil attack!", "zh": "", "keys": [{"w": "sword", "p": "/sɔːrd/", "zh": "剑"}], "phrases": [{"en": "Watch this", "zh": "看我的"}]}, {"img": "images/block-battle/page-7.jpg", "en": "The obsidian shield got crushed flat!", "zh": "", "keys": [{"w": "crush", "p": "/krʌʃ/", "zh": "压碎"}], "phrases": [{"en": "obsidian shield", "zh": "黑曜石盾牌"}]}, {"img": "images/block-battle/page-8.jpg", "en": "I will build a laser-shooting turret!", "zh": "", "keys": [{"w": "laser", "p": "/ˈleɪzər/", "zh": "激光"}], "phrases": [{"en": "laser-shooting turret", "zh": "会发射激光的炮塔"}]}, {"img": "images/block-battle/page-9.jpg", "en": "Look at my super giant hammer!", "zh": "", "keys": [{"w": "hammer", "p": "/ˈhæmər/", "zh": "锤子"}], "phrases": [{"en": "super giant hammer", "zh": "超级大锤"}]}, {"img": "images/block-battle/page-10.jpg", "en": "The turret got smashed into pieces!", "zh": "", "keys": [{"w": "pieces", "p": "/ˈpiːsɪz/", "zh": "碎片"}], "phrases": [{"en": "smashed into pieces", "zh": "被砸成碎片"}]}, {"img": "images/block-battle/page-11.jpg", "en": "I will build a flying mechanical fortress!", "zh": "", "keys": [{"w": "fortress", "p": "/ˈfɔːrtrəs/", "zh": "堡垒"}], "phrases": [{"en": "flying mechanical fortress", "zh": "会飞的机械堡垒"}]}, {"img": "images/block-battle/page-12.jpg", "en": "This hammer weighs 1,500 blocks!", "zh": "", "keys": [{"w": "hammer", "p": "/ˈhæmər/", "zh": "锤子"}], "phrases": [{"en": "weighs 1,500 blocks", "zh": "重达1500个方块"}]}, {"img": "images/block-battle/page-13.jpg", "en": "The fortress got smashed and cannot move!", "zh": "", "keys": [{"w": "fortress", "p": "/ˈfɔːrtrəs/", "zh": "堡垒"}], "phrases": [{"en": "got smashed", "zh": "被砸了"}]}, {"img": "images/block-battle/page-14.jpg", "en": "Look at my mechanical hand!", "zh": "", "keys": [{"w": "mechanical", "p": "/məˈkænɪkəl/", "zh": "机械的"}], "phrases": [{"en": "mechanical hand", "zh": "机械手"}]}, {"img": "images/block-battle/page-15.jpg", "en": "The mechanical hand weighs 700!", "zh": "", "keys": [{"w": "mechanical", "p": "/məˈkænɪkəl/", "zh": "机械的"}], "phrases": [{"en": "mechanical hand", "zh": "机械手"}]}, {"img": "images/block-battle/page-16.jpg", "en": "I will use the hammer to launch you into the sky!", "zh": "", "keys": [{"w": "hammer", "p": "/ˈhæmər/", "zh": "锤子"}], "phrases": [{"en": "launch you into the sky", "zh": "把你发射到天上"}]}, {"img": "images/block-battle/page-17.jpg", "en": "BANG! The hammer strikes the ground!", "zh": "", "keys": [{"w": "bang", "p": "/bæŋ/", "zh": "砰"}], "phrases": [{"en": "strike the ground", "zh": "猛击地面"}]}, {"img": "images/block-battle/page-18.jpg", "en": "Flying into the sky like a cannonball!", "zh": "", "keys": [{"w": "cannonball", "p": "/ˈkænənbɔːl/", "zh": "炮弹"}], "phrases": [{"en": "flying into the sky", "zh": "飞向天空"}]}, {"img": "images/block-battle/page-19.jpg", "en": "Let the mechanical hand place blocks for me!", "zh": "", "keys": [{"w": "mechanical", "p": "/məˈkænɪkəl/", "zh": "机械的"}], "phrases": [{"en": "mechanical hand", "zh": "机械手"}]}, {"img": "images/block-battle/page-20.jpg", "en": "I will just lie here and sleep peacefully!", "zh": "", "keys": [{"w": "lie", "p": "/laɪ/", "zh": "躺"}], "phrases": [{"en": "lie here", "zh": "躺在这里"}]}, {"img": "images/block-battle/page-21.jpg", "en": "The adventure never ends! Let us play again!", "zh": "冒险永不止步！我们再来一场吧！", "keys": [{"w": "adventure", "p": "/ədˈventʃər/", "zh": "冒险"}], "phrases": [{"en": "the adventure never ends", "zh": "冒险永不止步"}]}, {"img": "images/block-battle/page-22.jpg", "en": "battle - start a new battle in the colorful arena!", "zh": "两个小方块勇士在彩色的竞技场面对面，准备玩一个超酷的游戏——方块大战！他们每个人都要建造自己强大的武器。", "keys": [{"w": "battle", "p": "/ˈbætl/", "zh": "大战"}], "phrases": [{"en": "start a battle", "zh": "开始一场大战"}]}, {"img": "images/block-battle/page-23.jpg", "en": "stealth - disappear into thin air with stealth skill!", "zh": "勇士选了一个带隐身技能的方块！它身上发出神秘的蓝色光芒，慢慢消失在空气中。", "keys": [{"w": "stealth", "p": "/stelθ/", "zh": "隐身"}], "phrases": [{"en": "stealth skill", "zh": "隐身技能"}]}, {"img": "images/block-battle/page-24.jpg", "en": "obsidian - build a strong shield with obsidian layers!", "zh": "一个巨大的三层黑曜石盾牌从地面升起，散发着火山能量。一般攻击根本打不破！", "keys": [{"w": "obsidian", "p": "/əbˈsɪdiən/", "zh": "黑曜石"}], "phrases": [{"en": "build a shield", "zh": "造一个盾牌"}]}, {"img": "images/block-battle/page-25.jpg", "en": "sword - ride a sword with evil attack power!", "zh": "勇士跳上一把巨大的暗紫色之剑。带着邪恶的攻击力，猛砸向盾牌！", "keys": [{"w": "sword", "p": "/sɔːrd/", "zh": "剑"}], "phrases": [{"en": "evil attack", "zh": "邪恶攻击"}]}, {"img": "images/block-battle/page-26.jpg", "en": "crush - the shield was crushed flat into shards!", "zh": "黑曜石盾牌被彻底砸扁了！碎片像烟花一样四处飞溅。", "keys": [{"w": "crush", "p": "/krʌʃ/", "zh": "压碎"}], "phrases": [{"en": "crushed flat", "zh": "被砸扁"}]}, {"img": "images/block-battle/page-27.jpg", "en": "laser - charge and dodge the laser beams!", "zh": "一个高科技炮塔升起，充能着明亮的红色激光束。你怎么躲？", "keys": [{"w": "laser", "p": "/ˈleɪzər/", "zh": "激光"}], "phrases": [{"en": "charge a bright red laser", "zh": "给明亮的红色激光充能"}]}, {"img": "images/block-battle/page-28.jpg", "en": "hammer - one swing of the giant legendary hammer!", "zh": "勇士挥舞着一把巨大的金色锤子。这就是传说中的锤子王——最强的武器！", "keys": [{"w": "hammer", "p": "/ˈhæmər/", "zh": "锤子"}], "phrases": [{"en": "a giant golden hammer", "zh": "一把巨大的金色锤子"}]}, {"img": "images/block-battle/page-29.jpg", "en": "swing - one mighty swing smashed everything tiny!", "zh": "激光炮塔被大锤一挥就砸成了碎片！", "keys": [{"w": "swing", "p": "/swɪŋ/", "zh": "挥舞"}], "phrases": [{"en": "one swing", "zh": "一下挥舞"}]}, {"img": "images/block-battle/page-30.jpg", "en": "fortress - a mechanical flying fortress, unbeatable!", "zh": "一个带着翅膀的巨大堡垒升上天空。看起来不可战胜！", "keys": [{"w": "fortress", "p": "/ˈfɔːrtrəs/", "zh": "堡垒"}], "phrases": [{"en": "a giant fortress", "zh": "一个巨大的堡垒"}]}, {"img": "images/block-battle/page-31.jpg", "en": "weigh - the immense mechanical hand has great weight!", "zh": "这锤子有1500个方块那么重！堡垒在巨大的重量下颤抖，几乎飞不动了！", "keys": [{"w": "weigh", "p": "/weɪ/", "zh": "重（动词）"}], "phrases": [{"en": "weigh 1500 blocks", "zh": "重达1500个方块"}]}, {"img": "images/block-battle/page-32.jpg", "en": "extend - reach out with incredible extendable arms!", "zh": "一只巨大的金属手臂从地面伸出，以惊人的力量向堡垒抓去。", "keys": [{"w": "extend", "p": "/ɪkˈstend/", "zh": "伸出"}], "phrases": [{"en": "extend from the ground", "zh": "从地面伸出"}]}, {"img": "images/block-battle/page-33.jpg", "en": "clever - a clever plan using sound wave to launch!", "zh": "勇士想到了一个聪明的计划！如果锤子砸到地面，声波把敌人弹飞到天上呢？", "keys": [{"w": "clever", "p": "/ˈklevər/", "zh": "聪明的"}], "phrases": [{"en": "a clever plan", "zh": "一个聪明的计划"}]}, {"img": "images/block-battle/page-34.jpg", "en": "strike - the hammer strike sends a huge shockwave!", "zh": "锤子以惊人的力量猛击地面！巨大的冲击波向四面八方扩散。", "keys": [{"w": "strike", "p": "/straɪk/", "zh": "击打"}], "phrases": [{"en": "strike the ground", "zh": "击打地面"}]}, {"img": "images/block-battle/page-35.jpg", "en": "cannonball - fly high over the arena like a cannonball!", "zh": "像一颗炮弹一样，敌人飞上了高高的天空！对战结束了！", "keys": [{"w": "cannonball", "p": "/ˈkænənbɔːl/", "zh": "炮弹"}], "phrases": [{"en": "like a cannonball", "zh": "像一颗炮弹一样"}]}, {"img": "images/block-battle/page-36.jpg", "en": "lazy - fall asleep comfortably after the big battle!", "zh": "为什么要放方块？让机械手帮我放！勇士舒服地躺下来，睡着了。", "keys": [{"w": "lazy", "p": "/ˈleɪzi/", "zh": "懒惰的"}], "phrases": [{"en": "let the robotic arm do it", "zh": "让机械手帮我放"}]}, {"img": "images/block-battle/page-37.jpg", "en": "The second round begins! A brave warrior returns to the arena.", "zh": "冒险永不止步！我们再来一场吧！", "keys": [{"w": "adventure", "p": "/ədˈventʃər/", "zh": "冒险"}], "phrases": [{"en": "The adventure never ends", "zh": "冒险永不止步"}]}, {"img": "images/block-battle/page-38.jpg", "en": "stealth - disappear with stealth skill, very confused!", "zh": "一个阳光明媚的下午，两个最好的朋友——一个披着红披风的小勇士和一个聪明的建造师——在彩色的竞技场面对面站着。今天就是他们期待已久的日子：方块大战！每个人都要设计自己的武器，比比谁最强。", "keys": [{"w": "warrior", "p": "/ˈwɔːriər/", "zh": "勇士"}], "phrases": [{"en": "a brave warrior", "zh": "一个勇敢的勇士"}]}, {"img": "images/block-battle/page-39.jpg", "en": "obsidian - build a shield with super hard obsidian material!", "zh": "建造师笑着说：'我选一个带隐身技能的方块！'突然，他全身开始发出神秘的蓝色光芒。慢慢地，他消失在了空气中！'现在你看不到我了！'他的声音从四面八方传来。", "keys": [{"w": "stealth", "p": "/stelθ/", "zh": "隐身"}], "phrases": [{"en": "stealth skill", "zh": "隐身技能"}]}, {"img": "images/block-battle/page-40.jpg", "en": "evil - ride a sword with evil attack and purple lightning!", "zh": "建造师重新出现了，立刻开始工作。'我要造一个三层黑曜石盾牌！'他骄傲地宣布。一块一块地，一个巨大的黑色盾牌从地面升起。黑曜石是方块世界最坚硬的材料之一。'一般攻击根本打不破这个！'他笑着说。", "keys": [{"w": "obsidian", "p": "/əbˈsɪdiən/", "zh": "黑曜石"}], "phrases": [{"en": "obsidian shield", "zh": "黑曜石盾牌"}]}, {"img": "images/block-battle/page-41.jpg", "en": "impossible - the obsidian shield cannot be broken!", "zh": "勇士一点也不担心。'看我的！'他大喊，跳上了一把漂浮在空中的巨大暗紫色之剑。剑上覆盖着邪恶能量，闪着暗紫色的闪电。'有这个邪恶攻击力，你的盾牌什么都不算！'勇士全速飞向盾牌。", "keys": [{"w": "sword", "p": "/sɔːrd/", "zh": "剑"}], "phrases": [{"en": "giant sword", "zh": "巨大的剑"}]}, {"img": "images/block-battle/page-42.jpg", "en": "laser - a high-tech turret that shoots laser beams!", "zh": "哐当！邪恶之剑以惊人的力量撞上黑曜石盾牌。让所有人吃惊的是，传说中坚不可摧的盾牌被彻底砸扁了——像一张煎饼！黑曜石碎片像烟花一样四处飞溅。'不可能！'建造师惊呼，盯着被拍扁的盾牌残骸。", "keys": [{"w": "crush", "p": "/krʌʃ/", "zh": "压碎"}], "phrases": [{"en": "crushed flat", "zh": "被砸扁"}]}, {"img": "images/block-battle/page-43.jpg", "en": "enormous - the enormous hammer is the secret weapon!", "zh": "建造师不肯认输。'好，比就比！'他迅速组装了一个高科技激光炮塔。炮塔嗡嗡地启动了，充能着明亮的红色激光束，照亮了整个竞技场。'看你躲不躲得过这个！'他咧嘴笑着，直接瞄准了勇士。", "keys": [{"w": "laser", "p": "/ˈleɪzər/", "zh": "激光"}], "phrases": [{"en": "laser turret", "zh": "激光炮塔"}]}, {"img": "images/block-battle/page-44.jpg", "en": "fortress - a mechanical flying fortress, unbeatable!", "zh": "勇士大笑，掏出了他的秘密武器——一把巨大的金色锤子，叫做锤子王。这是任何人见过的最大的锤子，闪耀着金光。'你觉得一个小激光就能挡住我？'他说着，把锤子高高举过头顶。", "keys": [{"w": "hammer", "p": "/ˈhæmər/", "zh": "锤子"}], "phrases": [{"en": "secret weapon", "zh": "秘密武器"}]}, {"img": "images/block-battle/page-45.jpg", "en": "swing - one mighty swing of the scrap hammer!", "zh": "只一挥，轰！金色锤子砸在激光炮塔上，把它砸成了碎片！齿轮、电线和金属零件四处飞溅。建造师震惊地盯着炮塔变成的那堆废铁。'这锤子也太太太强了！'他小声说。", "keys": [{"w": "swing", "p": "/swɪŋ/", "zh": "挥舞"}], "phrases": [{"en": "one mighty swing", "zh": "有力的一挥"}]}, {"img": "images/block-battle/page-46.jpg", "en": "fortress - the mechanical fortress looks unbeatable!", "zh": "建造师还有一招。'我要造一个飞行的机械堡垒！'一个带着巨大翅膀的结构从地面升起，飞上了天空。它装着厚厚的金属板，看起来真的不可战胜。'你打不到会飞的东西！'建造师在空中大喊。", "keys": [{"w": "fortress", "p": "/ˈfɔːrtrəs/", "zh": "堡垒"}], "phrases": [{"en": "mechanical fortress", "zh": "机械堡垒"}]}, {"img": "images/block-battle/page-47.jpg", "en": "weigh - the hammer weighs 1,500 blocks, immense!", "zh": "但勇士有一个更疯狂的主意。他拿出了最重的武器——一把重达1500个方块的锤子！当他举起它时，整个竞技场都在颤抖。飞行堡垒在巨大的重量下剧烈摇晃，几乎飞不动了。'这是我的超级武器！'勇士咧嘴笑道。", "keys": [{"w": "weigh", "p": "/weɪ/", "zh": "重（动词）"}], "phrases": [{"en": "weigh 1500 blocks", "zh": "重达1500个方块"}]}, {"img": "images/block-battle/page-48.jpg", "en": "extend - extend and grab with incredible stretching arms!", "zh": "建造师快没招了，但他突然想起了一件事。'等等！我还有我的机械手！'一只巨大的金属手臂从地面伸出，伸向高空中的堡垒。它重700个方块，什么都能抓住。'这只手够强壮，能把你的堡垒抓碎！'他喊道。", "keys": [{"w": "extend", "p": "/ɪkˈstend/", "zh": "伸出"}], "phrases": [{"en": "extend from the ground", "zh": "从地面伸出"}]}, {"img": "images/block-battle/page-49.jpg", "en": "clever - a brilliant clever plan with a shockwave!", "zh": "勇士看着伸向自己的机械手，使劲思考。然后他的眼睛亮了。'我有一个聪明的计划！'他对自己说。'如果我用锤子砸地面，声波产生的冲击力就会把你弹飞到天上——我就赢了！'这是一个绝妙的主意。", "keys": [{"w": "clever", "p": "/ˈklevər/", "zh": "聪明的"}], "phrases": [{"en": "a clever plan", "zh": "一个聪明的计划"}]}, {"img": "images/block-battle/page-50.jpg", "en": "strike - the hammer strike has incredible impact!", "zh": "勇士把巨大的锤子高高举起，猛砸向地面。哐当！撞击力太大了，整个竞技场像地震一样摇晃。巨大的冲击波向四面八方扩散，把灰尘和方块都吹上了天。声音回荡在整个大地上。", "keys": [{"w": "strike", "p": "/straɪk/", "zh": "击打"}], "phrases": [{"en": "strike the ground", "zh": "击打地面"}]}, {"img": "images/block-battle/page-51.jpg", "en": "cannonball - tumble through the sky like a cannonball, amazed!", "zh": "就像勇士计划的那样，建造师像一颗炮弹一样被弹飞上了天！他越飞越高，在云层中旋转翻滚。'我在飞！'他尖叫着，又害怕又惊讶。对战结束了——勇士用聪明的计谋赢了！", "keys": [{"w": "cannonball", "p": "/ˈkænənbɔːl/", "zh": "炮弹"}], "phrases": [{"en": "like a cannonball", "zh": "像一颗炮弹一样"}]}, {"img": "images/block-battle/page-52.jpg", "en": "lazy - sleep comfortably and snore after the battle!", "zh": "大胜之后，勇士觉得很累。'我为什么还要继续放方块？'他打了个哈欠。'让机械手帮我干活吧！'他舒服地躺在一个柔软的方块上，闭上眼睛，很快就睡着了。机械手还在一块一块地放方块，勇士在一旁安静地打着呼噜。", "keys": [{"w": "lazy", "p": "/ˈleɪzi/", "zh": "懒惰的"}], "phrases": [{"en": "feel lazy", "zh": "觉得懒洋洋的"}]}]};
+let stars = 0, stage = 0;
+
+// 星星背景
+const canvas = document.getElementById('starCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+for(let i=0;i<120;i++){
+  ctx.fillStyle=`rgba(255,255,255,${Math.random()*0.6+0.1})`;
+  ctx.beginPath();
+  ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height,
+          Math.random()*1.5+0.5, 0, Math.PI*2);
+  ctx.fill();
+}
+
+function addStar(n=1){
+  stars += n;
+  const el = document.getElementById('starCount');
+  el.textContent = `⭐ ${stars}`;
+  el.classList.remove('star-pop');
+  void el.offsetWidth;
+  el.classList.add('star-pop');
+}
+
+const STAGES = [renderIntro, renderListenSelect, renderDragMatch, renderSentenceBuild, renderFinish];
+
+function nextStage(){ stage++; if(stage<STAGES.length) STAGES[stage](); }
+
+// 故事介绍页
+function renderIntro(){
+  document.getElementById('stageArea').innerHTML = `
+    <div class="story-intro">
+      <h3>Block Battle</h3>
+<img src="/${STORY.cover}" alt="cover">
+      <p>和方块大战一起学英语吧！</p>
+      <button class="next-unit-btn" onclick="nextStage()" style="margin-top:20px">开始游戏 →</button>
+    </div>`;
+}
+
+// 关卡1：听音选图
+function renderListenSelect(){
+  const vocab = STORY.unitVocab.slice(0,5);
+  const q = vocab[Math.floor(Math.random()*vocab.length)];
+  const opts = shuffle([q, ...vocab.filter(v=>v.w!==q.w).slice(0,3)]);
+  speakWord(q.w);
+
+  document.getElementById('stageArea').innerHTML = `
+    <div class="stage-title">🎧 听一听，选出正确的图片！</div>
+    <div style="text-align:center;margin:12px 0">
+      <button onclick="speakWord('${q.w}')" 
+              style="background:#0f3460;color:#e2e2e2;border:none;border-radius:50px;
+                     padding:10px 24px;font-size:18px;cursor:pointer">
+        🔊 再听一次
+      </button>
+    </div>
+    <div class="options-grid">
+      ${opts.map(o=>`
+        <button class="opt-btn" onclick="checkAnswer(this,'${o.w}','${q.w}')">
+          <div style="font-size:40px">${wordToEmoji(o.w)}</div>
+          <div style="margin-top:8px;font-size:14px;color:#aaa">${o.zh}</div>
+        </button>
+      `).join('')}
+    </div>`;
+}
+
+function checkAnswer(btn, chosen, correct){
+  document.querySelectorAll('.opt-btn').forEach(b=>b.onclick=null);
+  if(chosen===correct){
+    btn.classList.add('correct');
+    addStar(1);
+    setTimeout(nextStage, 1200);
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.opt-btn').forEach(b=>{
+      if(b.textContent.includes(wordToEmoji(correct))) b.classList.add('correct');
+    });
+    setTimeout(nextStage, 1800);
+  }
+}
+
+// 关卡2：拖拽配对
+function renderDragMatch(){
+  const pairs = STORY.unitVocab.slice(0,3);
+  document.getElementById('stageArea').innerHTML = `
+    <div class="stage-title">✋ 拖一拖，把单词和图片配对！</div>
+    <div class="drag-area">
+      <div class="drag-words" id="dragWords">
+        ${shuffle([...pairs]).map(p=>`
+          <div class="drag-item" draggable="true" 
+               data-word="${p.w}"
+               ondragstart="dragStart(event,'${p.w}')">
+            ${p.w}
+          </div>
+        `).join('')}
+      </div>
+      <div class="drop-zones">
+        ${pairs.map(p=>`
+          <div class="drop-zone" 
+               data-target="${p.w}"
+               ondragover="event.preventDefault()"
+               ondrop="dragDrop(event,'${p.w}')">
+            ${wordToEmoji(p.w)}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div id="dragMsg" style="text-align:center;color:#a8e6cf;margin-top:16px;font-size:18px"></div>`;
+}
+
+let matched = 0;
+function dragStart(e, word){ e.dataTransfer.setData('word', word); }
+function dragDrop(e, target){
+  const word = e.dataTransfer.getData('word');
+  const zone = e.currentTarget;
+  if(word === target && !zone.classList.contains('matched')){
+    zone.classList.add('matched');
+    zone.innerHTML = `${wordToEmoji(target)}<br><span style="font-size:14px;color:#2ecc71">${word}</span>`;
+    document.querySelector(`[data-word="${word}"]`)?.remove();
+    addStar(1); matched++;
+    if(matched >= 3){ matched=0; setTimeout(nextStage,800); }
+  }
+}
+
+// 关卡3：看图造句
+function renderSentenceBuild(){
+  const vocab = STORY.unitVocab.slice(0,5);
+  const target = vocab[Math.floor(Math.random()*vocab.length)];
+  const distractors = shuffle(vocab.filter(v=>v.w!==target.w)).slice(0,3);
+  const choices = shuffle([target, ...distractors]);
+
+  document.getElementById('stageArea').innerHTML = `
+    <div class="stage-title">✏️ 看图，选词填空！</div>
+    <div style="text-align:center;font-size:60px;margin:12px 0">${wordToEmoji(target.w)}</div>
+    <div style="text-align:center;color:#e2e2e2;font-size:22px;margin:12px 0">
+      I have one ___ .
+    </div>
+    <div class="options-grid">
+      ${choices.map(c=>`
+        <button class="opt-btn" onclick="checkAnswer(this,'${c.w}','${target.w}')">
+          ${c.w}
+        </button>
+      `).join('')}
+    </div>`;
+}
+
+// 完成页
+function renderFinish(){
+  const allStars = Math.min(stars, 3);
+  document.getElementById('stageArea').innerHTML = `
+    <div class="finish-page">
+      <div class="big-stars">${'⭐'.repeat(allStars)}${'☆'.repeat(3-allStars)}</div>
+      <div class="finish-msg">太棒了！你得了 ${stars} 颗星！</div>
+      <div style="color:#a8e6cf;font-size:16px;margin-bottom:20px">
+        ${stars>=3?'满分！你已经掌握这个单元了！':'继续加油，再挑战一次吧！'}
+      </div>
+      <button class="next-unit-btn" onclick="location.href='../../index.html'">
+        🏠 回到主页
+      </button>
+      ${stars<3?`
+      <br><button class="next-unit-btn" style="background:#54a0ff;margin-top:12px"
+                  onclick="location.reload()">
+        🔄 再玩一次
+      </button>`:''}
+    </div>`;
+}
+
+// 工具函数
+function speakWord(word){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(word);
+  u.lang='en-GB'; u.rate=0.7;
+  speechSynthesis.speak(u);
+}
+
+function shuffle(arr){ return arr.sort(()=>Math.random()-.5); }
+
+function wordToEmoji(w){
+  const map = {
+    car:'🚗', duck:'🦆', ball:'⚽', frog:'🐸', rabbit:'🐰',
+    cat:'🐱', dog:'🐶', bird:'🐦', fish:'🐟', tree:'🌳',
+    apple:'🍎', book:'📚', pen:'✏️', bag:'👜', hat:'🎩',
+    red:'🔴', yellow:'🟡', blue:'🔵', green:'🟢', pink:'🩷'
+  };
+  return map[w.toLowerCase()] || '❓';
+}
+
+// 启动
+STAGES[0]();
+</script>
+</body>
+</html>
