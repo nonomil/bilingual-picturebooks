@@ -8,93 +8,141 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Nunito', sans-serif; background:#fffdf5; 
-         min-height:100vh; display:flex; flex-direction:column; align-items:center; }
+  html, body { height:100%; }
+  body { font-family: 'Nunito', sans-serif; background:#1a1a2e; 
+         display:flex; flex-direction:column; overflow:hidden; }
 
-  .reader-wrap { max-width:800px; width:100%; padding:16px; }
+  /* 顶部导航 */
+  .top-nav { position:fixed; top:0; left:0; right:0; z-index:100;
+             background:rgba(26,26,46,.95); backdrop-filter:blur(10px);
+             padding:12px 20px; display:flex; align-items:center; justify-content:space-between;
+             border-bottom:1px solid rgba(255,255,255,.1); }
+  .top-nav .title { color:#fff; font-size:18px; font-weight:600; }
+  .top-nav .back-btn { color:#fff; text-decoration:none; font-size:14px;
+                       opacity:.8; transition:opacity .2s; }
+  .top-nav .back-btn:hover { opacity:1; }
 
-  .page-img { width:100%; border-radius:16px; 
-              box-shadow:0 4px 20px rgba(0,0,0,.12); display:block; }
+  /* 主内容区 */
+  .main-content { flex:1; display:flex; flex-direction:column; 
+                  padding:70px 20px 180px; overflow-y:auto; }
 
-  .text-area { margin-top:16px; padding:16px; 
-               background:#fff; border-radius:12px;
-               box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  /* 全幅图片 */
+  .full-img-wrap { width:100%; max-width:700px; margin:0 auto 20px; }
+  .full-img { width:100%; border-radius:16px; 
+              box-shadow:0 8px 32px rgba(0,0,0,.3); display:block; }
 
-  .en-sentence { font-size:22px; line-height:1.8; color:#333; font-family:'Nunito',sans-serif; }
+  /* 文本区域 */
+  .text-section { max-width:700px; margin:0 auto; width:100%; }
+  .en-text { font-size:20px; line-height:1.8; color:#fff; 
+             background:rgba(255,255,255,.1); padding:16px; 
+             border-radius:12px; margin-bottom:12px; }
   .word { cursor:pointer; border-radius:4px; padding:0 2px;
-          transition: background .15s; font-family:'Nunito',sans-serif; }
-  .word:hover { background:#fff3b0; }
-  .word.speaking { background:#ffd166; }
+          transition: background .15s; display:inline; }
+  .word:hover { background:#ffd166; color:#000; }
+  .word.speaking { background:#ff6b6b; color:#fff; }
 
-  .word-tip { display:inline-block; font-size:13px; color:#888;
-              background:#f8f8f8; border-radius:6px;
-              padding:2px 8px; margin-left:4px; }
+  .zh-text { font-size:17px; color:rgba(255,255,255,.8); 
+             background:rgba(255,255,255,.05); padding:12px 16px; 
+             border-radius:10px; margin-bottom:16px; }
 
-  .zh-sentence { font-size:18px; color:#555; margin-top:14px; font-family:'Nunito',sans-serif; }
+  /* 词组区域 */
+  .phrase-section { margin-top:16px; }
+  .phrase-section .label { font-size:13px; color:#ffd166; margin-bottom:8px; }
+  .phrase-row { display:flex; flex-wrap:wrap; gap:8px; }
+  .phrase-card { background:rgba(255,209,102,.15); border:1px solid rgba(255,209,102,.3);
+                 border-radius:20px; padding:6px 14px; font-size:14px;
+                 cursor:pointer; transition:all .15s; }
+  .phrase-card:hover { background:rgba(255,209,102,.3); transform:scale(1.02); }
+  .phrase-card .pen { color:#ffd166; margin-right:6px; }
+  .phrase-card .pzh { color:rgba(255,255,255,.7); margin-left:6px; }
 
-  .vocab-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:16px; }
-  .vocab-card { background:#f8f9fa; border-radius:10px; 
-                padding:10px 14px; cursor:pointer;
-                transition: all .15s; min-width:180px; }
-  .vocab-card:hover { transform:scale(1.02); box-shadow:0 4px 12px rgba(0,0,0,.1); background:#fff; }
-  .vocab-card .vw { font-size:16px; font-weight:bold; color:#2980b9; margin-right:6px; }
-  .vocab-card .vp { font-size:13px; color:#888; }
-  .vocab-card .vz { font-size:14px; color:#555; }
-  .vocab-card .v-line { display:flex; align-items:baseline; gap:8px; margin-top:2px; }
-  .vocab-card .vph { font-size:12px; color:#666; border-top:1px solid #eee; margin-top:6px; padding-top:4px; }
-  .vocab-card .vph-en { color:#2980b9; }
+  /* 词汇卡片 - 底部悬浮 */
+  .vocab-bar { position:fixed; bottom:0; left:0; right:0; 
+               background:rgba(15,15,30,.98); backdrop-filter:blur(10px);
+               border-top:1px solid rgba(255,255,255,.1);
+               padding:16px 20px; max-height:160px; overflow-y:auto; }
+  .vocab-bar .bar-title { font-size:13px; color:#888; margin-bottom:10px; }
+  .vocab-row { display:flex; flex-wrap:wrap; gap:10px; }
+  .vocab-card { background:rgba(255,255,255,.08); border-radius:10px; 
+                padding:8px 12px; cursor:pointer;
+                transition: all .15s; min-width:150px; flex:1 1 calc(50% - 10px); }
+  .vocab-card:hover { background:rgba(255,255,255,.15); transform:scale(1.02); }
+  .vocab-card .vw { font-size:15px; font-weight:700; color:#4ecdc4; margin-right:6px; }
+  .vocab-card .vp { font-size:12px; color:#888; }
+  .vocab-card .vz { font-size:14px; color:#fff; margin-top:2px; }
+  .vocab-card .v-line { display:flex; align-items:baseline; gap:6px; }
 
-  .nav { display:flex; align-items:center; justify-content:space-between;
-         margin-top:20px; padding-bottom:24px; }
-  .nav-btn { background:#ff9f43; color:#fff; border:none;
-             border-radius:50px; padding:10px 28px; font-size:18px;
-             cursor:pointer; transition: opacity .15s; }
-  .nav-btn:disabled { opacity:.35; }
-  .page-indicator { font-size:16px; color:#aaa; }
+  /* 底部导航 */
+  .bottom-nav { position:fixed; bottom:160px; left:0; right:0;
+                display:flex; align-items:center; justify-content:space-between;
+                padding:0 20px; pointer-events:none; }
+  .nav-btn { background:rgba(255,255,255,.15); color:#fff; border:none;
+             border-radius:50px; padding:12px 24px; font-size:16px;
+             cursor:pointer; transition: all .15s; pointer-events:auto;
+             backdrop-filter:blur(10px); }
+  .nav-btn:hover { background:rgba(255,255,255,.25); }
+  .nav-btn:disabled { opacity:.3; pointer-events:none; }
+  .page-indicator { color:rgba(255,255,255,.6); font-size:14px; }
 
-  .progress-bar { width:100%; height:6px; background:#eee;
-                  border-radius:3px; margin-top:8px; }
-  .progress-fill { height:100%; background:#ff9f43; 
-                   border-radius:3px; transition:width .3s; }
+  /* 速度控制 */
+  .speed-bar { position:fixed; bottom:170px; right:20px;
+               background:rgba(0,0,0,.6); border-radius:20px; padding:6px 12px;
+               display:flex; align-items:center; gap:8px; z-index:50; }
+  .speed-bar label { color:#888; font-size:12px; }
+  .speed-bar select { background:rgba(255,255,255,.1); color:#fff; 
+                      border:none; border-radius:12px; padding:4px 8px; font-size:12px; }
 
-  .read-btn { background:#54a0ff; color:#fff; border:none;
-              border-radius:50px; padding:8px 16px; font-size:14px;
-              cursor:pointer; margin-right:8px; }
-  .read-btn:hover { background:#2980b9; }
-  .speed-select { background:#fff; color:#333; border:1px solid #ddd;
-                  border-radius:20px; padding:6px 12px; font-size:13px;
-                  cursor:pointer; margin-right:8px; }
-  .speed-select:hover { background:#f5f5f5; }
-
-  h2 { text-align:center; color:#e17055; margin:16px 0 8px; font-size:22px }
-  h2 small { display:block; font-size:16px; color:#888; font-weight:400; margin-top:4px; }
-  .unit-tag { text-align:center; color:#888; font-size:14px; margin-bottom:8px; }
+  .read-fab { position:fixed; bottom:220px; right:20px;
+              width:56px; height:56px; border-radius:50%;
+              background:linear-gradient(135deg, #ff6b6b, #ff8e53);
+              border:none; color:#fff; font-size:24px; cursor:pointer;
+              box-shadow:0 4px 20px rgba(255,107,107,.4);
+              z-index:50; transition:transform .2s; }
+  .read-fab:hover { transform:scale(1.1); }
 </style>
 </head>
 <body>
-<div class="reader-wrap">
-  <div class="unit-tag">Unit 1</div>
-  <h2>The Brave Pea Shooter<small>勇敢的豌豆射手</small></h2>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-  <div id="pageArea" style="margin-top:16px"></div>
-  <div class="nav">
-    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <button class="read-btn" onclick="readCurrent()">🔊 朗读</button>
-      <span class="page-indicator" id="pageIndicator"></span>
+  <nav class="top-nav">
+    <a href="../../" class="back-btn">← 返回首页</a>
+    <span class="title">The Brave Pea Shooter</span>
+    <span></span>
+  </nav>
+
+  <div class="main-content">
+    <div class="full-img-wrap">
+      <img class="full-img" id="pageImg" src="" alt="">
     </div>
-    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
+    <div class="text-section">
+      <div class="en-text" id="enText"></div>
+      <div class="zh-text" id="zhText"></div>
+      <div class="phrase-section" id="phraseSection">
+        <div class="label">📚 词组</div>
+        <div class="phrase-row" id="phraseRow"></div>
+      </div>
+    </div>
   </div>
-  
-  <div id="speedControl" style="text-align:center;margin-top:12px;display:none;">
-    <label style="color:#888;font-size:13px;">语速：</label>
-    <select class="speed-select" id="speedSelect" onchange="changeSpeed()">
+
+  <div class="vocab-bar">
+    <div class="bar-title">💡 重点词汇（点击发音）</div>
+    <div class="vocab-row" id="vocabRow"></div>
+  </div>
+
+  <div class="speed-bar">
+    <label>语速</label>
+    <select id="speedSelect" onchange="changeSpeed()">
       <option value="0.7">慢速</option>
       <option value="1" selected>常速</option>
       <option value="1.3">快速</option>
     </select>
   </div>
-</div>
+
+  <button class="read-fab" onclick="readCurrent()">🔊</button>
+
+  <div class="bottom-nav">
+    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
+    <span class="page-indicator" id="pageIndicator"></span>
+    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
+  </div>
 
 <script>
 const PAGES = [{"img": "images/pea-shooter/pea-shooter/page-1.jpg", "en": "In a bright, sunny garden lived a tiny green Pea Shooter named Pip. He had big round eyes, a cheerful smile, and a little leaf on his head. Pip loved his garden home more than anything in the world.\n\nEvery morning, Pip would stretch his leaves and say, \"Today is going to be a great day!\"", "zh": "在一个明亮、阳光灿烂的花园里，住着一只绿色的小豌豆射手，名叫皮皮。他有一双圆圆的大眼睛，一个开心的笑容，头顶上还有一片小叶子。皮皮爱他的花园家园胜过世界上的一切。\n\n每天早上，皮皮都会伸伸他的叶子说：“今天一定会是个好日子！”", "keys": [{"w": "bright", "p": "/braɪt/", "zh": "明亮的"}], "phrases": [{"en": "a bright, sunny garden", "zh": "一个明亮、阳光灿烂的花园"}]}, {"img": "images/pea-shooter/pea-shooter/page-2.jpg", "en": "One sunny morning, Pip decided to take a walk along the cobblestone path. The flowers waved at him as he passed. Butterflies danced around his head.\n\n\"What a wonderful day for a walk!\" Pip cheered, hopping along the path.", "zh": "一个阳光明媚的早晨，皮皮决定沿着鹅卵石小路散步。花朵们在他经过时向他挥手，蝴蝶在他头顶翩翩起舞。\n\n“散步的好天气！”皮皮欢呼着，沿着小路蹦蹦跳跳。", "keys": [{"w": "decide", "p": "/dɪˈsaɪd/", "zh": "决定"}], "phrases": [{"en": "take a walk along the cobblestone path", "zh": "沿着鹅卵石小路散步"}]}, {"img": "images/pea-shooter/pea-shooter/page-3.jpg", "en": "Pip walked through the most beautiful part of the garden. Tall sunflowers stood like guards. Colorful mushrooms dotted the ground. Bees hummed happy songs.\n\n\"I love my garden so much,\" Pip whispered happily.", "zh": "皮皮走过花园中最美丽的地方。高高的向日葵像卫兵一样站着，五颜六色的蘑菇点缀着地面，蜜蜂哼着快乐的歌。\n\n“我太爱我的花园了，”皮皮幸福地低语。", "keys": [{"w": "beautiful", "p": "/ˈbjuːtəfəl/", "zh": "美丽的"}], "phrases": [{"en": "the most beautiful part of the garden", "zh": "花园中最美丽的地方"}]}, {"img": "images/pea-shooter/pea-shooter/page-4.jpg", "en": "Suddenly, Pip heard a strange sound. THUMP. THUMP. THUMP. The ground began to shake. Dark clouds rolled in from nowhere.\n\n\"W-what was that?\" Pip's eyes grew wide with worry.", "zh": "突然，皮皮听到了一个奇怪的声音。咚。咚。咚。地面开始震动，乌云不知从哪里涌了上来。\n\n“那…那是什么？”皮皮的眼睛因担心而睁大了。", "keys": [{"w": "suddenly", "p": "/ˈsʌdənli/", "zh": "突然地"}], "phrases": [{"en": "a strange sound", "zh": "一个奇怪的声音"}]}, {"img": "images/pea-shooter/pea-shooter/page-5.jpg", "en": "From behind the bushes stumbled a scary zombie! It had an orange traffic cone on its head and moved very slowly. But it kept coming closer and closer!\n\n\"A ZOMBIE!\" Pip gasped. His little body trembled with fear.", "zh": "从灌木丛后面踉跄地走出一个可怕的僵尸！它头上戴着一个橙色的路障，走得很慢，但一直越来越近！\n\n“僵尸！”皮皮倒吸一口气，他的小身体因恐惧而颤抖。", "keys": [{"w": "bush", "p": "/bʊʃ/", "zh": "灌木丛"}], "phrases": [{"en": "from behind the bushes", "zh": "从灌木丛后面"}]}, {"img": "images/pea-shooter/pea-shooter/page-6.jpg", "en": "\"I must be brave!\" Pip shouted. He puffed up his cheeks and fired green peas at the zombie. PEW! PEW! PEW!\n\nThe peas flew through the air like tiny green bullets. \"Take THAT, you big bully!\"", "zh": "“我必须勇敢！”皮皮大喊。他鼓起腮帮子，向僵尸发射绿色豌豆。噗！噗！噗！\n\n豌豆像绿色的小子弹一样飞过空中。“接招吧，你这个大坏蛋！”", "keys": [{"w": "brave", "p": "/breɪv/", "zh": "勇敢的"}], "phrases": [{"en": "I must be brave", "zh": "我必须勇敢"}]}, {"img": "images/pea-shooter/pea-shooter/page-7.jpg", "en": "But something terrible happened. The peas bounced right off the traffic cone! BING! BONG! PING! The zombie didn't even slow down.\n\n\"Oh no! My peas can't break through that cone!\" Pip cried in frustration.", "zh": "但可怕的事情发生了。豌豆直接从路障上弹开了！叮！当！乒！僵尸甚至没有放慢脚步。\n\n“哦不！我的豌豆打不穿那个路障！”皮皮沮丧地哭了。", "keys": [{"w": "terrible", "p": "/ˈterəbəl/", "zh": "可怕的"}], "phrases": [{"en": "bounced right off the traffic cone", "zh": "直接从路障上弹开了"}]}, {"img": "images/pea-shooter/pea-shooter/page-8.jpg", "en": "Pip turned and ran as fast as his little legs could carry him. He zoomed past Cherry Bombs and Potato Mines, looking for help.\n\n\"I need to find someone who can help me!\" Pip panted as he ran.", "zh": "皮皮转身拼命地跑。他飞速经过樱桃炸弹和土豆地雷，到处寻找帮助。\n\n“我需要找到能帮我的人！”皮皮一边跑一边喘气。", "keys": [{"w": "turn", "p": "/tɜːrn/", "zh": "转身"}], "phrases": [{"en": "ran as fast as his little legs could carry him", "zh": "拼命地跑"}]}, {"img": "images/pea-shooter/pea-shooter/page-9.jpg", "en": "Then Pip found his best friend — Sunny the Sunflower! Sunny had bright golden petals and a warm, kind smile. She always made everyone feel better.\n\n\"Sunny! I need your help! There's a zombie coming!\" Pip cried.", "zh": "然后皮皮找到了他最好的朋友——向日葵小阳！小阳有明亮金色的花瓣和温暖善良的笑容，她总是让每个人感觉好起来。\n\n“小阳！我需要你的帮助！有僵尸来了！”皮皮哭着说。", "keys": [{"w": "friend", "p": "/frend/", "zh": "朋友"}], "phrases": [{"en": "best friend", "zh": "最好的朋友"}]}, {"img": "images/pea-shooter/pea-shooter/page-10.jpg", "en": "Sunny listened carefully and nodded. \"Don't worry, Pip. I know exactly what to do. We need to call someone very special — someone very HOT!\"\n\n\"Hot?\" Pip asked, confused. \"Who could help us with a zombie?\"", "zh": "小阳仔细听着，点了点头。“别担心，皮皮。我完全知道该怎么办。我们需要叫一个非常特别的人——一个非常火热的人！”\n\n“火热？”皮皮疑惑地问，“谁能帮我们对付僵尸？”", "keys": [{"w": "carefully", "p": "/ˈkerfəli/", "zh": "仔细地"}], "phrases": [{"en": "Don't worry", "zh": "别担心"}]}, {"img": "images/pea-shooter/pea-shooter/page-11.jpg", "en": "Sunny closed her eyes and lifted her face to the sky. Her golden petals began to glow brighter and brighter. Magical golden sparkles swirled around her.\n\n\"I need to collect enough sunlight energy first,\" Sunny explained. The whole garden seemed to light up!", "zh": "小阳闭上眼睛，把脸朝向天空。她金色的花瓣开始越来越亮地发光，神奇的金色火花围绕着她旋转。\n\n“我需要先收集足够的阳光能量，”小阳解释道。整个花园似乎都亮了起来！", "keys": [{"w": "petal", "p": "/ˈpetl/", "zh": "花瓣"}], "phrases": [{"en": "lifted her face to the sky", "zh": "把脸朝向天空"}]}, {"img": "images/pea-shooter/pea-shooter/page-12.jpg", "en": "One by one, beautiful golden orbs of sunlight floated from Sunny's petals. They sparkled like tiny suns, filling the air with warmth.\n\n\"Wow!\" Pip gasped. \"That's the most beautiful thing I've ever seen!\"", "zh": "一颗又一颗美丽的金色阳光球从小阳的花瓣中飘出。它们像小太阳一样闪耀，让空气中充满了温暖。\n\n“哇！”皮皮惊叹道，“这是我见过的最美丽的东西！”", "keys": [{"w": "orb", "p": "/ɔːrb/", "zh": "球体；光球"}], "phrases": [{"en": "golden orbs of sunlight", "zh": "金色的阳光球"}]}, {"img": "images/pea-shooter/pea-shooter/page-13.jpg", "en": "But the zombie was getting closer! It was now at the edge of the garden. Sunny glowed even brighter, producing more and more sunlight.\n\n\"Hurry, Sunny!\" Pip urged. \"The zombie is almost here!\"", "zh": "但僵尸越来越近了！它现在已经到了花园的边缘。小阳发出更亮的光，产生越来越多的阳光。\n\n“快点，小阳！”皮皮催促道，“僵尸马上就到了！”", "keys": [{"w": "zombie", "p": "/ˈzɑːmbi/", "zh": "僵尸"}], "phrases": [{"en": "getting closer", "zh": "越来越近"}]}, {"img": "images/pea-shooter/pea-shooter/page-14.jpg", "en": "Finally, a big pile of golden sunlight orbs gathered on the ground. Pip and Sunny cheered! They had enough energy now.\n\n\"We did it!\" Sunny smiled. \"Now, let me call our special friend...\"", "zh": "终于，一大堆金色阳光球聚集在地面上。皮皮和小阳欢呼起来！他们现在有足够的能量了。\n\n“我们做到了！”小阳微笑着说，“现在，让我叫我们特别的朋友...”", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "终于"}], "phrases": [{"en": "a big pile of golden sunlight orbs", "zh": "一大堆金色阳光球"}]}, {"img": "images/pea-shooter/pea-shooter/page-15.jpg", "en": "Sunny gathered all the golden light together. She whispered magical words that made the ground rumble. The earth began to shake and crack.\n\n\"Who's coming?\" Pip asked nervously, clutching Sunny's stem.", "zh": "小阳把所有金色的光聚在一起，她低声念着魔法咒语，让地面发出隆隆声。大地开始震动和裂开。\n\n“谁要来了？”皮皮紧张地问，紧紧抓住小阳的茎。", "keys": [{"w": "whisper", "p": "/ˈwɪspər/", "zh": "低声说"}], "phrases": [{"en": "gathered all the golden light together", "zh": "把所有金色的光聚在一起"}]}, {"img": "images/pea-shooter/pea-shooter/page-16.jpg", "en": "CRACK! BOOM! A GIANT red Jalapeno burst from the soil! He was enormous, fierce, and ON FIRE! Flames shot from his body like a volcano.\n\n\"WHO DARED TO WAKE ME UP?!\" Jalapeno roared. Pip stared in amazement.", "zh": "裂开！轰！一个巨大的红色火爆辣椒从土壤中冲了出来！他巨大、凶猛，而且全身着火！火焰像火山一样从他的身体喷射出来。\n\n“谁敢把我叫醒？！”火爆辣椒咆哮道。皮皮惊呆了。", "keys": [{"w": "giant", "p": "/ˈdʒaɪənt/", "zh": "巨大的"}], "phrases": [{"en": "burst from the soil", "zh": "从土壤中冲了出来"}]}, {"img": "images/pea-shooter/pea-shooter/page-17.jpg", "en": "Jalapeno saw the zombie and his eyes blazed with anger. Red and orange flames erupted everywhere! The entire garden lit up in fiery colors.\n\n\"THAT zombie dared to threaten my garden? NOT ON MY WATCH!\" Jalapeno fumed.", "zh": "火爆辣椒看到了僵尸，他的眼睛因愤怒而燃烧。红色和橙色的火焰到处喷发！整个花园被火热的颜色照亮了。\n\n“那个僵尸敢威胁我的花园？绝不允许！”火爆辣椒怒气冲冲地说。", "keys": [{"w": "blaze", "p": "/bleɪz/", "zh": "熊熊燃烧"}], "phrases": [{"en": "his eyes blazed with anger", "zh": "他的眼睛因愤怒而燃烧"}]}, {"img": "images/pea-shooter/pea-shooter/page-18.jpg", "en": "Jalapeno took a deep breath and WHOOSH — a massive wave of fire hit the Conehead Zombie! The traffic cone melted like butter. The zombie screamed and disappeared in a puff of smoke.\n\n\"AND STAY OUT!\" Jalapeno shouted triumphantly.", "zh": "火爆辣椒深吸一口气，呼——巨大的火焰波击中了路障僵尸！路障像黄油一样融化了。僵尸尖叫一声，在一缕烟雾中消失了。\n\n“滚远点！”火爆辣椒得意地喊道。", "keys": [{"w": "massive", "p": "/ˈmæsɪv/", "zh": "巨大的"}], "phrases": [{"en": "took a deep breath", "zh": "深吸一口气"}]}, {"img": "images/pea-shooter/pea-shooter/page-19.jpg", "en": "Pip and Sunny cheered happily! Where the zombie had been, there was only a small puff of smoke. The garden was safe once more.\n\nJalapeno smiled, gave a thumbs up, and slowly sank back into the ground. \"Anytime, friends. Anytime.\"", "zh": "皮皮和小阳开心地欢呼！僵尸原来在的地方，只剩下一个小小的烟雾。花园再次安全了。\n\n火爆辣椒微笑着，竖起大拇指，慢慢沉回地面。“随时效劳，朋友们。”", "keys": [{"w": "cheer", "p": "/tʃɪr/", "zh": "欢呼"}], "phrases": [{"en": "cheered happily", "zh": "开心地欢呼"}]}];
@@ -111,7 +159,6 @@ function getVoice(lang) {
   if (!voices.length) return null;
   
   if (lang === 'zh') {
-    // 中文：优先 Xiaoxiao（温暖女声）, Yunxi（阳光男声）
     const preferred = ['Xiaoxiao', 'Yunxi', 'Yunyang', 'Yunjian'];
     for (const p of preferred) {
       const v = voices.find(vo => vo.lang.startsWith('zh') && vo.name.includes(p));
@@ -119,7 +166,6 @@ function getVoice(lang) {
     }
     return voices.find(vo => vo.lang.startsWith('zh')) || null;
   } else {
-    // 英文：优先自然声音
     const preferred = ['Google', 'Microsoft', 'Samantha', 'Daniel', 'Karen', 'Apple', 'Amazon'];
     for (const p of preferred) {
       const v = voices.find(vo => vo.lang.startsWith('en') && vo.name.includes(p));
@@ -131,29 +177,44 @@ function getVoice(lang) {
 
 function renderPage(i) {
   const p = PAGES[i];
-  const words = p.en.split(' ').map((w, idx) =>
-    `<span class="word" id="w${idx}" onclick="showWordTip(this,'${w.replace(/'/g, "\\'")}')">${w}</span>`
-  ).join(' ');
-
+  
+  // 图片
+  document.getElementById('pageImg').src = '../../' + p.img;
+  
+  // 英文句子 - 单词可点击
+  const words = p.en.split(' ').map((w, idx) => {
+    const clean = w.replace(/[.,!?':;]/g, '');
+    return `<span class="word" onclick="speakWord('${clean}', this)">${w}</span>`;
+  }).join(' ');
+  document.getElementById('enText').innerHTML = words;
+  
+  // 中文
+  document.getElementById('zhText').textContent = p.zh;
+  
+  // 词组
+  const phrases = p.phrases || [];
+  if (phrases.length > 0) {
+    document.getElementById('phraseSection').style.display = 'block';
+    document.getElementById('phraseRow').innerHTML = phrases.map(ph => 
+      `<div class="phrase-card" onclick="speakPhrase('${ph.en.replace(/'/g, "\\'")}')">
+        <span class="pen">${ph.en}</span>
+        <span class="pzh">${ph.zh}</span>
+      </div>`
+    ).join('');
+  } else {
+    document.getElementById('phraseSection').style.display = 'none';
+  }
+  
+  // 词汇卡片
   const vocabCards = (p.keys || []).map(k =>
-    `<div class="vocab-card" onclick="speakWord('${k.w}')">
-      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span><span class="vz">${k.zh}</span></div>
-      <div class="vph"><span class="vph-en">${k.ph || k.w}</span> ${k.ph ? k.zh : ''}</div>
+    `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
+      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span></div>
+      <div class="vz">${k.zh}</div>
     </div>`
   ).join('');
-
-  // 如果没有ph字段，用中文解释代替
-  const vocabPhrases = (p.keys || []).map(k => k.ph || k.zh).join(', ');
-
-  document.getElementById('pageArea').innerHTML = `
-    <img class="page-img" src="../../${p.img}" alt="page ${i+1}" onerror="this.style.display='none'">
-    <div class="text-area">
-      <div class="en-sentence">${words}</div>
-      <div class="zh-sentence">${p.zh}</div>
-      <div class="vocab-row">${vocabCards}</div>
-    </div>`;
-
-  document.getElementById('progressFill').style.width = `${(i+1)/PAGES.length*100}%`;
+  document.getElementById('vocabRow').innerHTML = vocabCards;
+  
+  // 指示器
   document.getElementById('pageIndicator').textContent = `${i+1} / ${PAGES.length}`;
   document.getElementById('prevBtn').disabled = i === 0;
   document.getElementById('nextBtn').disabled = i === PAGES.length - 1;
@@ -163,65 +224,52 @@ function changePage(dir) {
   synth.cancel();
   cur = Math.max(0, Math.min(PAGES.length - 1, cur + dir));
   renderPage(cur);
+  window.scrollTo(0, 0);
 }
 
-// 随机高亮朗读
-let highlightTimer = null;
-let highlightRunning = false;
-
-function startRandomHighlight(wordCount, duration) {
-  highlightRunning = true;
-  const interval = duration / wordCount;
-  let idx = 0;
-  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-
-  function next() {
-    if (!highlightRunning) return;
-    document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-    if (wordCount > 0) {
-      const el = document.getElementById('w' + idx);
-      if (el) el.classList.add('speaking');
-    }
-    idx++;
-    if (idx < wordCount) {
-      highlightTimer = setTimeout(next, interval);
-    } else {
-      setTimeout(() => {
-        document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-        highlightRunning = false;
-      }, 500);
-    }
+// 点击单词发音
+function speakWord(word, el) {
+  synth.cancel();
+  if (el) {
+    document.querySelectorAll('.word').forEach(w => w.classList.remove('speaking'));
+    el.classList.add('speaking');
   }
-  next();
+  const utt = new SpeechSynthesisUtterance(word);
+  utt.lang = 'en-US';
+  utt.rate = currentSpeed * 0.9;
+  const v = getVoice('en');
+  if (v) utt.voice = v;
+  utt.onend = () => { if (el) el.classList.remove('speaking'); };
+  synth.speak(utt);
 }
 
+// 词组发音
+function speakPhrase(phrase) {
+  synth.cancel();
+  const utt = new SpeechSynthesisUtterance(phrase);
+  utt.lang = 'en-US';
+  utt.rate = currentSpeed;
+  const v = getVoice('en');
+  if (v) utt.voice = v;
+  synth.speak(utt);
+}
+
+// 整句朗读
 function readCurrent() {
   synth.cancel();
-  highlightRunning = false;
-  if (highlightTimer) clearTimeout(highlightTimer);
-  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-
   const p = PAGES[cur];
   
-  // 先读英文整句
   const enUtt = new SpeechSynthesisUtterance(p.en);
   enUtt.lang = 'en-US';
   enUtt.rate = currentSpeed;
-  enUtt.pitch = 1.0;
   const enVoice = getVoice('en');
   if (enVoice) enUtt.voice = enVoice;
   
-  // 估算朗读时间用于高亮
-  const estEnDuration = p.en.split(' ').length * 400; // ms per word
-  enUtt.onstart = () => startRandomHighlight(p.en.split(' ').length, estEnDuration * currentSpeed);
   enUtt.onend = () => {
-    highlightRunning = false;
-    // 再读中文
     if (p.zh) {
       const zhUtt = new SpeechSynthesisUtterance(p.zh);
       zhUtt.lang = 'zh-CN';
       zhUtt.rate = currentSpeed;
-      zhUtt.pitch = 1.0;
       const zhVoice = getVoice('zh');
       if (zhVoice) zhUtt.voice = zhVoice;
       synth.speak(zhUtt);
@@ -230,38 +278,18 @@ function readCurrent() {
   synth.speak(enUtt);
 }
 
-function showWordTip(el, word) {
-  speakWord(word);
-  if (el.querySelector('.word-tip')) { el.querySelector('.word-tip').remove(); return; }
-  const p = PAGES[cur];
-  const key = (p.keys || []).find(k => k.w.toLowerCase() === word.toLowerCase().replace(/[.,!?']/g,''));
-  if (key) {
-    const tip = document.createElement('span');
-    tip.className = 'word-tip';
-    tip.textContent = `${key.p} ${key.zh}`;
-    el.appendChild(tip);
-  }
-}
-
-function speakWord(word) {
-  synth.cancel();
-  highlightRunning = false;
-  const utt = new SpeechSynthesisUtterance(word);
-  utt.lang = 'en-US';
-  utt.rate = currentSpeed * 0.8;
-  const v = getVoice('en');
-  if (v) utt.voice = v;
-  synth.speak(utt);
-}
+// 键盘导航
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') changePage(-1);
+  if (e.key === 'ArrowRight') changePage(1);
+});
 
 renderPage(0);
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    // Load voices then auto-read
-    if (synth.getVoices().length > 0) readCurrent();
-    else synth.onvoiceschanged = () => setTimeout(readCurrent, 500);
-  }, 800);
-});
+// 页面加载后自动朗读
+setTimeout(() => {
+  if (synth.getVoices().length > 0) readCurrent();
+  else synth.onvoiceschanged = () => setTimeout(readCurrent, 500);
+}, 800);
 </script>
 </body>
 </html>
