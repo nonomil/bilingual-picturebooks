@@ -4,23 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pip's Adventures — 朗读版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Nunito', 'Comic Sans MS', cursive; background:#fffdf5; 
+  body { font-family: 'Nunito', sans-serif; background:#fffdf5; 
          min-height:100vh; display:flex; flex-direction:column; align-items:center; }
 
   .reader-wrap { max-width:800px; width:100%; padding:16px; }
 
   .page-img { width:100%; border-radius:16px; 
-              box-shadow:0 4px 20px rgba(0,0,0,.12); }
+              box-shadow:0 4px 20px rgba(0,0,0,.12); display:block; }
 
   .text-area { margin-top:16px; padding:16px; 
                background:#fff; border-radius:12px;
                box-shadow:0 2px 8px rgba(0,0,0,.08); }
 
-  .en-sentence { font-size:24px; line-height:1.8; color:#333; }
+  .en-sentence { font-size:22px; line-height:1.8; color:#333; font-family:'Nunito',sans-serif; }
   .word { cursor:pointer; border-radius:4px; padding:0 2px;
-          transition: background .15s; }
+          transition: background .15s; font-family:'Nunito',sans-serif; }
   .word:hover { background:#fff3b0; }
   .word.speaking { background:#ffd166; }
 
@@ -28,10 +30,7 @@
               background:#f8f8f8; border-radius:6px;
               padding:2px 8px; margin-left:4px; }
 
-  .zh-sentence { font-size:18px; color:#666; margin-top:12px;
-                 cursor:pointer; }
-  .zh-sentence.hidden { filter:blur(8px); user-select:none; }
-  .zh-sentence.hidden:hover { filter:blur(4px); }
+  .zh-sentence { font-size:18px; color:#555; margin-top:14px; font-family:'Nunito',sans-serif; }
 
   .vocab-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
   .vocab-card { background:#e8f4fd; border-radius:8px; 
@@ -61,13 +60,14 @@
   .read-btn:hover { background:#2980b9; }
 
   h2 { text-align:center; color:#e17055; margin:16px 0 8px; font-size:22px }
+  h2 small { display:block; font-size:16px; color:#888; font-weight:400; margin-top:4px; }
   .unit-tag { text-align:center; color:#888; font-size:14px; margin-bottom:8px; }
 </style>
 </head>
 <body>
 <div class="reader-wrap">
   <div class="unit-tag">Unit 1</div>
-  <h2>Pip's Adventures<br><small>皮普的冒险</small></h2>
+  <h2>Pip's Adventures<small>皮普的冒险</small></h2>
   <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
   <div id="pageArea" style="margin-top:16px"></div>
   <div class="nav">
@@ -81,7 +81,7 @@
 </div>
 
 <script>
-const PAGES = [{"img": "images/storyfun/pips-toybox/page-1.jpg", "en": "Hello! I am Pip.", "zh": "你好！我是皮普。", "keys": [{"w": "hello", "p": "/həˈloʊ/", "zh": "你好"}]}, {"img": "images/storyfun/pips-toybox/page-2.jpg", "en": "I have a red car.", "zh": "我有一辆红色的汽车。", "keys": [{"w": "car", "p": "/kɑ:/", "zh": "汽车"}, {"w": "red", "p": "/rɛd/", "zh": "红色"}]}, {"img": "images/storyfun/pips-toybox/page-3.jpg", "en": "I have two yellow ducks.", "zh": "我有两只黄色的鸭子。", "keys": [{"w": "two", "p": "/tu:/", "zh": "二"}, {"w": "duck", "p": "/dʌk/", "zh": "鸭子"}]}, {"img": "images/storyfun/pips-toybox/page-4.jpg", "en": "I have three blue balls.", "zh": "我有三个蓝色的球。", "keys": [{"w": "three", "p": "/θri:/", "zh": "三"}, {"w": "ball", "p": "/bɔ:l/", "zh": "球"}]}, {"img": "images/storyfun/pips-toybox/page-5.jpg", "en": "I have four green frogs.", "zh": "我有四只绿色的青蛙。", "keys": [{"w": "four", "p": "/fɔ:/", "zh": "四"}, {"w": "frog", "p": "/frɒg/", "zh": "青蛙"}]}, {"img": "images/storyfun/pips-toybox/page-6.jpg", "en": "I have five pink rabbits.", "zh": "我有五只粉色的兔子。", "keys": [{"w": "five", "p": "/faɪv/", "zh": "五"}, {"w": "rabbit", "p": "/ˈræbɪt/", "zh": "兔子"}]}, {"img": "images/storyfun/pips-toybox/page-7.jpg", "en": "This is my toy box.", "zh": "这是我的玩具箱。", "keys": [{"w": "toy", "p": "/tɔɪ/", "zh": "玩具"}, {"w": "box", "p": "/bɒks/", "zh": "箱子"}]}, {"img": "images/storyfun/pips-toybox/page-8.jpg", "en": "I love my toys!", "zh": "我爱我的玩具！", "keys": [{"w": "love", "p": "/lʌv/", "zh": "爱"}]}, {"img": "images/storyfun/pips-toybox/page-9.jpg", "en": "Goodbye, toy box! See you tomorrow!", "zh": "再见，玩具箱！明天见！", "keys": [{"w": "goodbye", "p": "/gʊdˈbaɪ/", "zh": "再见"}]}, {"img": "images/storyfun/pips-toybox/page-10.jpg", "en": "The End.", "zh": "结束。", "keys": []}];
+const PAGES = [{"img": "storyfun/pips-toybox/page-1.jpg", "en": "Hello! I am Pip.", "zh": "你好！我是皮普。", "keys": [{"w": "hello", "p": "/həˈloʊ/", "zh": "你好"}]}, {"img": "storyfun/pips-toybox/page-2.jpg", "en": "I have a red car.", "zh": "我有一辆红色的汽车。", "keys": [{"w": "car", "p": "/kɑ:/", "zh": "汽车"}, {"w": "red", "p": "/rɛd/", "zh": "红色"}]}, {"img": "storyfun/pips-toybox/page-3.jpg", "en": "I have two yellow ducks.", "zh": "我有两只黄色的鸭子。", "keys": [{"w": "two", "p": "/tu:/", "zh": "二"}, {"w": "duck", "p": "/dʌk/", "zh": "鸭子"}]}, {"img": "storyfun/pips-toybox/page-4.jpg", "en": "I have three blue balls.", "zh": "我有三个蓝色的球。", "keys": [{"w": "three", "p": "/θri:/", "zh": "三"}, {"w": "ball", "p": "/bɔ:l/", "zh": "球"}]}, {"img": "storyfun/pips-toybox/page-5.jpg", "en": "I have four green frogs.", "zh": "我有四只绿色的青蛙。", "keys": [{"w": "four", "p": "/fɔ:/", "zh": "四"}, {"w": "frog", "p": "/frɒg/", "zh": "青蛙"}]}, {"img": "storyfun/pips-toybox/page-6.jpg", "en": "I have five pink rabbits.", "zh": "我有五只粉色的兔子。", "keys": [{"w": "five", "p": "/faɪv/", "zh": "五"}, {"w": "rabbit", "p": "/ˈræbɪt/", "zh": "兔子"}]}, {"img": "storyfun/pips-toybox/page-7.jpg", "en": "This is my toy box.", "zh": "这是我的玩具箱。", "keys": [{"w": "toy", "p": "/tɔɪ/", "zh": "玩具"}, {"w": "box", "p": "/bɒks/", "zh": "箱子"}]}, {"img": "storyfun/pips-toybox/page-8.jpg", "en": "I love my toys!", "zh": "我爱我的玩具！", "keys": [{"w": "love", "p": "/lʌv/", "zh": "爱"}]}, {"img": "storyfun/pips-toybox/page-9.jpg", "en": "Goodbye, toy box! See you tomorrow!", "zh": "再见，玩具箱！明天见！", "keys": [{"w": "goodbye", "p": "/gʊdˈbaɪ/", "zh": "再见"}]}, {"img": "storyfun/pips-toybox/page-10.jpg", "en": "The End.", "zh": "结束。", "keys": []}];
 let cur = 0;
 const synth = window.speechSynthesis;
 
@@ -98,12 +98,10 @@ function renderPage(i) {
   ).join('');
 
   document.getElementById('pageArea').innerHTML = `
-    <img class="page-img" src="/${p.img}" alt="page ${i+1}">
+    <img class="page-img" src="../../${p.img}" alt="page ${i+1}" onerror="this.style.background='#eee';this.style.minHeight='300px'">
     <div class="text-area">
       <div class="en-sentence">${words}</div>
-      <div class="zh-sentence hidden" id="zhSent" onclick="this.classList.toggle('hidden')">
-        ${p.zh}&nbsp;<span style="font-size:12px;color:#bbb">（点击查看翻译）</span>
-      </div>
+      <div class="zh-sentence">${p.zh}</div>
       <div class="vocab-row">${vocabCards}</div>
     </div>`;
 
