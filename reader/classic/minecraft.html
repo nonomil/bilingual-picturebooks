@@ -55,9 +55,13 @@
                    border-radius:3px; transition:width .3s; }
 
   .read-btn { background:#54a0ff; color:#fff; border:none;
-              border-radius:50px; padding:8px 20px; font-size:16px;
+              border-radius:50px; padding:8px 16px; font-size:14px;
               cursor:pointer; margin-right:8px; }
   .read-btn:hover { background:#2980b9; }
+  .speed-select { background:#fff; color:#333; border:1px solid #ddd;
+                  border-radius:20px; padding:6px 12px; font-size:13px;
+                  cursor:pointer; margin-right:8px; }
+  .speed-select:hover { background:#f5f5f5; }
 
   h2 { text-align:center; color:#e17055; margin:16px 0 8px; font-size:22px }
   h2 small { display:block; font-size:16px; color:#888; font-weight:400; margin-top:4px; }
@@ -72,8 +76,13 @@
   <div id="pageArea" style="margin-top:16px"></div>
   <div class="nav">
     <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
-    <div>
+    <div style="display:flex;align-items:center;gap:8px;">
       <button class="read-btn" onclick="readCurrent()">🔊 朗读</button>
+      <select class="speed-select" id="speedSelect" onchange="changeSpeed()">
+        <option value="0.7">慢速</option>
+        <option value="1" selected>常速</option>
+        <option value="1.3">快速</option>
+      </select>
       <span class="page-indicator" id="pageIndicator"></span>
     </div>
     <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
@@ -83,7 +92,23 @@
 <script>
 const PAGES = [{"img": "minecraft/page-2.jpg", "en": "🛩️ Steve vs The Wither — Sky Knight", "zh": "史蒂夫大战凋零 — 天空骑士", "keys": [{"w": "sky", "p": "/skaɪ/", "zh": "天空"}], "phrases": [{"en": "Steve vs The Wither", "zh": "史蒂夫大战凋零"}]}, {"img": "minecraft/page-3.jpg", "en": "Steve lived in a quiet village. He was a builder, a miner, and a dreamer.", "zh": "史蒂夫住在一个安静的村庄里。他是一个建造者，一个矿工，也是一个梦想家。", "keys": [{"w": "determined", "p": "/dɪˈtɜːrmɪnd/", "zh": "坚定的"}], "phrases": [{"en": "quiet village", "zh": "安静的村庄"}]}, {"img": "minecraft/page-4.jpg", "en": "One day, the sky turned dark. A terrible roar shook the ground. The Wither was coming.", "zh": "有一天，天空变暗了。可怕的咆哮震动了大地。凋零来了。", "keys": [{"w": "ground", "p": "/ɡraʊnd/", "zh": "大地"}], "phrases": [{"en": "the sky turned dark", "zh": "天空变暗了"}]}, {"img": "minecraft/page-5.jpg", "en": "Steve said he needed to fight from the sky. He began to build an airplane.", "zh": "\"我需要从天空战斗它，\"史蒂夫说。他开始建造一个从来没有人见过的东西——一架飞机。", "keys": [{"w": "airplane", "p": "/ˈerpleɪn/", "zh": "飞机"}], "phrases": [{"en": "fight it from the sky", "zh": "从天空中与它战斗"}]}, {"img": "minecraft/page-6.jpg", "en": "Day and night, Steve worked on his airplane. He hammered iron and attached big propellers.", "zh": "日日夜夜，史蒂夫在他的飞机上工作。他锤打铁器，弯曲木材，安装巨大的螺旋桨。", "keys": [{"w": "attach", "p": "/əˈtætʃ/", "zh": "安装"}], "phrases": [{"en": "work on his plane", "zh": "制造他的飞机"}]}, {"img": "minecraft/page-7.jpg", "en": "Finally it was done. A beautiful red biplane, shining in the sunlight. Steve called it Sky Knight.", "zh": "终于，它完成了。一架美丽的红色双翼飞机，在阳光下闪闪发光。史蒂夫叫它\"天空骑士\"。", "keys": [{"w": "knight", "p": "/naɪt/", "zh": "骑士"}], "phrases": [{"en": "a beautiful red biplane", "zh": "一架美丽的红色双翼飞机"}]}, {"img": "minecraft/page-8.jpg", "en": "The villagers gathered to watch. Steve put on his goggles and climbed into the cockpit.", "zh": "村民们聚在一起观看。史蒂夫戴上护目镜，爬进驾驶舱。", "keys": [{"w": "goggles", "p": "/ˈɡɑːɡlz/", "zh": "护目镜"}], "phrases": [{"en": "gather together to watch", "zh": "聚在一起观看"}]}, {"img": "minecraft/page-9.jpg", "en": "The engine roared. The propeller spun faster and faster. Then Steve was flying!", "zh": "引擎轰鸣。螺旋桨越转越快。然后，史蒂夫飞起来了！", "keys": [{"w": "engine", "p": "/ˈendʒɪn/", "zh": "引擎"}], "phrases": [{"en": "the engine roared", "zh": "引擎轰鸣"}]}, {"img": "minecraft/page-10.jpg", "en": "Up in the sky, everything looked different. The world was big and beautiful.", "zh": "在天空中，一切看起来都不一样了。世界很大很美。史蒂夫感觉像鸟一样自由。", "keys": [{"w": "landscape", "p": "/ˈlændskeɪp/", "zh": "风景"}], "phrases": [{"en": "look different in the sky", "zh": "在天空中看起来不一样"}]}, {"img": "minecraft/page-11.jpg", "en": "But soon the sky grew dark again. Purple clouds swirled ahead. Steve gripped the controls tightly.", "zh": "但很快，天空又变暗了。紫色的云在前方旋转。史蒂夫紧紧握住操纵杆。", "keys": [{"w": "control", "p": "/kənˈtroʊl/", "zh": "控制"}], "phrases": [{"en": "the sky grew dark", "zh": "天空变暗了"}]}, {"img": "minecraft/page-12.jpg", "en": "Then he saw it - the Wither. A giant creature with three heads and glowing blue eyes.", "zh": "然后他看到了——凋零。一个巨大的生物，有三个头，发出蓝色光芒的眼睛，黑暗的力量在它周围旋转。", "keys": [{"w": "creature", "p": "/ˈkriːtʃər/", "zh": "生物"}], "phrases": [{"en": "a giant creature", "zh": "一个巨大的生物"}]}, {"img": "minecraft/page-13.jpg", "en": "The Wither shot explosive skulls at Steve! He swerved left, then right. BOOM! BOOM!", "zh": "凋零向史蒂夫射出爆炸骷髅头！他向左转，然后向右转。轰！轰！天空中满是爆炸。", "keys": [{"w": "dodge", "p": "/dɑːdʒ/", "zh": "闪避"}], "phrases": [{"en": "shoot explosive skulls", "zh": "发射爆炸骷髅头"}]}, {"img": "minecraft/page-14.jpg", "en": "One skull came straight at him! Steve flipped his plane upside down and zoomed past it.", "zh": "一个骷髅头直冲他而来！史蒂夫把飞机翻了过来，从它旁边飞过。好险！", "keys": [{"w": "straight", "p": "/streɪt/", "zh": "直直地"}], "phrases": [{"en": "come straight at him", "zh": "直冲他而来"}]}, {"img": "minecraft/page-15.jpg", "en": "I need to fight back! Steve grabbed his enchanted bow with special arrows of light.", "zh": "\"我需要反击！\"史蒂夫拿起他的附魔弓。他有特殊的箭——光之箭。", "keys": [{"w": "special", "p": "/ˈspeʃl/", "zh": "特殊的"}], "phrases": [{"en": "fight back", "zh": "反击"}]}, {"img": "minecraft/page-16.jpg", "en": "Steve aimed carefully. He fired! Golden arrows streaked through the dark sky like shooting stars.", "zh": "史蒂夫仔细瞄准。他射箭了！金色的箭像流星一样划过黑暗的天空。", "keys": [{"w": "shooting star", "p": "/ˈʃuːtɪŋ stɑːr/", "zh": "流星"}], "phrases": [{"en": "shooting star", "zh": "流星"}]}, {"img": "minecraft/page-17.jpg", "en": "HIT! The arrow struck the Wither head. It screamed in pain! Blue sparks flew everywhere.", "zh": "命中！箭射中了凋零的第一个头。它痛苦地尖叫！蓝色火花四处飞溅。", "keys": [{"w": "scream", "p": "/skriːm/", "zh": "尖叫"}], "phrases": [{"en": "painful scream", "zh": "痛苦地尖叫"}]}, {"img": "minecraft/page-18.jpg", "en": "The Wither was furious! It grew bigger and shot skulls in every direction.", "zh": "凋零暴怒了！它变得更大，向四面八方射出骷髅头。天空变成了战场。", "keys": [{"w": "direction", "p": "/dəˈrekʃn/", "zh": "方向"}], "phrases": [{"en": "in all directions", "zh": "向四面八方"}]}, {"img": "minecraft/page-19.jpg", "en": "CRASH! A skull hit Steve wing. Smoke poured out. But Steve did not give up.", "zh": "砰！一个骷髅头击中了史蒂夫的机翼。烟冒了出来。飞机摇晃着。但史蒂夫没有放弃。", "keys": [{"w": "give up", "p": "/ɡɪv ʌp/", "zh": "放弃"}], "phrases": [{"en": "give up", "zh": "放弃"}]}, {"img": "minecraft/page-20.jpg", "en": "Steve stood up in his cockpit. He had one arrow left - his strongest one.", "zh": "史蒂夫在驾驶舱里站起来。他只剩一支箭了——他最强的一支。\"这是为了我的村庄！\"", "keys": [{"w": "village", "p": "/ˈvɪlɪdʒ/", "zh": "村庄"}], "phrases": [{"en": "my village", "zh": "我的村庄"}]}, {"img": "minecraft/page-20.jpg", "en": "He fired! The golden arrow split into three beams and hit all three heads at once!", "zh": "他射箭了！金色的箭笔直飞去。它分裂成三束光，同时击中了三个头！", "keys": [{"w": "epic", "p": "/ˈepɪk/", "zh": "史诗般的"}], "phrases": [{"en": "split into three beams of light", "zh": "分裂成三束光"}]}];
 let cur = 0;
+let currentSpeed = 1;
 const synth = window.speechSynthesis;
+
+function changeSpeed() {
+  currentSpeed = parseFloat(document.getElementById('speedSelect').value);
+}
+
+function getVoice(lang) {
+  const voices = synth.getVoices();
+  // Prefer natural voices: Google, Microsoft, Apple, Amazon
+  const preferred = ['Google', 'Microsoft', 'Apple', 'Amazon', 'Samantha', 'Daniel', 'Karen'];
+  for (const p of preferred) {
+    const v = voices.find(vo => vo.lang.startsWith(lang) && vo.name.includes(p));
+    if (v) return v;
+  }
+  return voices.find(vo => vo.lang.startsWith(lang)) || null;
+}
 
 function renderPage(i) {
   const p = PAGES[i];
@@ -117,22 +142,69 @@ function changePage(dir) {
   renderPage(cur);
 }
 
+// 随机高亮朗读
+let highlightTimer = null;
+let highlightRunning = false;
+
+function startRandomHighlight(wordCount, duration) {
+  highlightRunning = true;
+  const interval = duration / wordCount;
+  let idx = 0;
+  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+
+  function next() {
+    if (!highlightRunning) return;
+    document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+    if (wordCount > 0) {
+      const el = document.getElementById('w' + idx);
+      if (el) el.classList.add('speaking');
+    }
+    idx++;
+    if (idx < wordCount) {
+      highlightTimer = setTimeout(next, interval);
+    } else {
+      setTimeout(() => {
+        document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+        highlightRunning = false;
+      }, 500);
+    }
+  }
+  next();
+}
+
 function readCurrent() {
   synth.cancel();
+  highlightRunning = false;
+  if (highlightTimer) clearTimeout(highlightTimer);
+  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+
   const p = PAGES[cur];
-  const words = p.en.split(' ');
-  let idx = 0;
-  function speakNext() {
-    if (idx >= words.length) return;
-    document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-    const el = document.getElementById(`w${idx}`);
-    if (el) el.classList.add('speaking');
-    const utt = new SpeechSynthesisUtterance(words[idx]);
-    utt.lang = 'en-GB'; utt.rate = 0.8;
-    utt.onend = () => { idx++; speakNext(); };
-    synth.speak(utt);
-  }
-  speakNext();
+  
+  // 先读英文整句
+  const enUtt = new SpeechSynthesisUtterance(p.en);
+  enUtt.lang = 'en-US';
+  enUtt.rate = currentSpeed;
+  enUtt.pitch = 1.0;
+  const enVoice = getVoice('en');
+  if (enVoice) enUtt.voice = enVoice;
+  
+  // 估算朗读时间用于高亮
+  const estEnDuration = p.en.split(' ').length * 400; // ms per word
+  enUtt.onstart = () => startRandomHighlight(p.en.split(' ').length, estEnDuration * currentSpeed);
+  enUtt.onend = () => {
+    highlightRunning = false;
+    // 再读中文
+    if (p.zh) {
+      const zhUtt = new SpeechSynthesisUtterance(p.zh);
+      zhUtt.lang = 'zh-CN';
+      zhUtt.rate = currentSpeed;
+      zhUtt.pitch = 1.0;
+      const zhVoice = getVoice('zh');
+      if (zhVoice) zhUtt.voice = zhVoice;
+      synth.speak(zhUtt);
+    }
+  };
+  synth.speak(enUtt);
 }
 
 function showWordTip(el, word) {
@@ -150,12 +222,23 @@ function showWordTip(el, word) {
 
 function speakWord(word) {
   synth.cancel();
+  highlightRunning = false;
   const utt = new SpeechSynthesisUtterance(word);
-  utt.lang = 'en-GB'; utt.rate = 0.7;
+  utt.lang = 'en-US';
+  utt.rate = currentSpeed * 0.8;
+  const v = getVoice('en');
+  if (v) utt.voice = v;
   synth.speak(utt);
 }
 
 renderPage(0);
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    // Load voices then auto-read
+    if (synth.getVoices().length > 0) readCurrent();
+    else synth.onvoiceschanged = () => setTimeout(readCurrent, 500);
+  }, 800);
+});
 </script>
 </body>
 </html>
