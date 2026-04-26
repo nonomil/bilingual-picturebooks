@@ -8,93 +8,141 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Nunito', sans-serif; background:#fffdf5; 
-         min-height:100vh; display:flex; flex-direction:column; align-items:center; }
+  html, body { height:100%; }
+  body { font-family: 'Nunito', sans-serif; background:#1a1a2e; 
+         display:flex; flex-direction:column; overflow:hidden; }
 
-  .reader-wrap { max-width:800px; width:100%; padding:16px; }
+  /* 顶部导航 */
+  .top-nav { position:fixed; top:0; left:0; right:0; z-index:100;
+             background:rgba(26,26,46,.95); backdrop-filter:blur(10px);
+             padding:12px 20px; display:flex; align-items:center; justify-content:space-between;
+             border-bottom:1px solid rgba(255,255,255,.1); }
+  .top-nav .title { color:#fff; font-size:18px; font-weight:600; }
+  .top-nav .back-btn { color:#fff; text-decoration:none; font-size:14px;
+                       opacity:.8; transition:opacity .2s; }
+  .top-nav .back-btn:hover { opacity:1; }
 
-  .page-img { width:100%; border-radius:16px; 
-              box-shadow:0 4px 20px rgba(0,0,0,.12); display:block; }
+  /* 主内容区 */
+  .main-content { flex:1; display:flex; flex-direction:column; 
+                  padding:70px 20px 180px; overflow-y:auto; }
 
-  .text-area { margin-top:16px; padding:16px; 
-               background:#fff; border-radius:12px;
-               box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  /* 全幅图片 */
+  .full-img-wrap { width:100%; max-width:700px; margin:0 auto 20px; }
+  .full-img { width:100%; border-radius:16px; 
+              box-shadow:0 8px 32px rgba(0,0,0,.3); display:block; }
 
-  .en-sentence { font-size:22px; line-height:1.8; color:#333; font-family:'Nunito',sans-serif; }
+  /* 文本区域 */
+  .text-section { max-width:700px; margin:0 auto; width:100%; }
+  .en-text { font-size:20px; line-height:1.8; color:#fff; 
+             background:rgba(255,255,255,.1); padding:16px; 
+             border-radius:12px; margin-bottom:12px; }
   .word { cursor:pointer; border-radius:4px; padding:0 2px;
-          transition: background .15s; font-family:'Nunito',sans-serif; }
-  .word:hover { background:#fff3b0; }
-  .word.speaking { background:#ffd166; }
+          transition: background .15s; display:inline; }
+  .word:hover { background:#ffd166; color:#000; }
+  .word.speaking { background:#ff6b6b; color:#fff; }
 
-  .word-tip { display:inline-block; font-size:13px; color:#888;
-              background:#f8f8f8; border-radius:6px;
-              padding:2px 8px; margin-left:4px; }
+  .zh-text { font-size:17px; color:rgba(255,255,255,.8); 
+             background:rgba(255,255,255,.05); padding:12px 16px; 
+             border-radius:10px; margin-bottom:16px; }
 
-  .zh-sentence { font-size:18px; color:#555; margin-top:14px; font-family:'Nunito',sans-serif; }
+  /* 词组区域 */
+  .phrase-section { margin-top:16px; }
+  .phrase-section .label { font-size:13px; color:#ffd166; margin-bottom:8px; }
+  .phrase-row { display:flex; flex-wrap:wrap; gap:8px; }
+  .phrase-card { background:rgba(255,209,102,.15); border:1px solid rgba(255,209,102,.3);
+                 border-radius:20px; padding:6px 14px; font-size:14px;
+                 cursor:pointer; transition:all .15s; }
+  .phrase-card:hover { background:rgba(255,209,102,.3); transform:scale(1.02); }
+  .phrase-card .pen { color:#ffd166; margin-right:6px; }
+  .phrase-card .pzh { color:rgba(255,255,255,.7); margin-left:6px; }
 
-  .vocab-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:16px; }
-  .vocab-card { background:#f8f9fa; border-radius:10px; 
-                padding:10px 14px; cursor:pointer;
-                transition: all .15s; min-width:180px; }
-  .vocab-card:hover { transform:scale(1.02); box-shadow:0 4px 12px rgba(0,0,0,.1); background:#fff; }
-  .vocab-card .vw { font-size:16px; font-weight:bold; color:#2980b9; margin-right:6px; }
-  .vocab-card .vp { font-size:13px; color:#888; }
-  .vocab-card .vz { font-size:14px; color:#555; }
-  .vocab-card .v-line { display:flex; align-items:baseline; gap:8px; margin-top:2px; }
-  .vocab-card .vph { font-size:12px; color:#666; border-top:1px solid #eee; margin-top:6px; padding-top:4px; }
-  .vocab-card .vph-en { color:#2980b9; }
+  /* 词汇卡片 - 底部悬浮 */
+  .vocab-bar { position:fixed; bottom:0; left:0; right:0; 
+               background:rgba(15,15,30,.98); backdrop-filter:blur(10px);
+               border-top:1px solid rgba(255,255,255,.1);
+               padding:16px 20px; max-height:160px; overflow-y:auto; }
+  .vocab-bar .bar-title { font-size:13px; color:#888; margin-bottom:10px; }
+  .vocab-row { display:flex; flex-wrap:wrap; gap:10px; }
+  .vocab-card { background:rgba(255,255,255,.08); border-radius:10px; 
+                padding:8px 12px; cursor:pointer;
+                transition: all .15s; min-width:150px; flex:1 1 calc(50% - 10px); }
+  .vocab-card:hover { background:rgba(255,255,255,.15); transform:scale(1.02); }
+  .vocab-card .vw { font-size:15px; font-weight:700; color:#4ecdc4; margin-right:6px; }
+  .vocab-card .vp { font-size:12px; color:#888; }
+  .vocab-card .vz { font-size:14px; color:#fff; margin-top:2px; }
+  .vocab-card .v-line { display:flex; align-items:baseline; gap:6px; }
 
-  .nav { display:flex; align-items:center; justify-content:space-between;
-         margin-top:20px; padding-bottom:24px; }
-  .nav-btn { background:#ff9f43; color:#fff; border:none;
-             border-radius:50px; padding:10px 28px; font-size:18px;
-             cursor:pointer; transition: opacity .15s; }
-  .nav-btn:disabled { opacity:.35; }
-  .page-indicator { font-size:16px; color:#aaa; }
+  /* 底部导航 */
+  .bottom-nav { position:fixed; bottom:160px; left:0; right:0;
+                display:flex; align-items:center; justify-content:space-between;
+                padding:0 20px; pointer-events:none; }
+  .nav-btn { background:rgba(255,255,255,.15); color:#fff; border:none;
+             border-radius:50px; padding:12px 24px; font-size:16px;
+             cursor:pointer; transition: all .15s; pointer-events:auto;
+             backdrop-filter:blur(10px); }
+  .nav-btn:hover { background:rgba(255,255,255,.25); }
+  .nav-btn:disabled { opacity:.3; pointer-events:none; }
+  .page-indicator { color:rgba(255,255,255,.6); font-size:14px; }
 
-  .progress-bar { width:100%; height:6px; background:#eee;
-                  border-radius:3px; margin-top:8px; }
-  .progress-fill { height:100%; background:#ff9f43; 
-                   border-radius:3px; transition:width .3s; }
+  /* 速度控制 */
+  .speed-bar { position:fixed; bottom:170px; right:20px;
+               background:rgba(0,0,0,.6); border-radius:20px; padding:6px 12px;
+               display:flex; align-items:center; gap:8px; z-index:50; }
+  .speed-bar label { color:#888; font-size:12px; }
+  .speed-bar select { background:rgba(255,255,255,.1); color:#fff; 
+                      border:none; border-radius:12px; padding:4px 8px; font-size:12px; }
 
-  .read-btn { background:#54a0ff; color:#fff; border:none;
-              border-radius:50px; padding:8px 16px; font-size:14px;
-              cursor:pointer; margin-right:8px; }
-  .read-btn:hover { background:#2980b9; }
-  .speed-select { background:#fff; color:#333; border:1px solid #ddd;
-                  border-radius:20px; padding:6px 12px; font-size:13px;
-                  cursor:pointer; margin-right:8px; }
-  .speed-select:hover { background:#f5f5f5; }
-
-  h2 { text-align:center; color:#e17055; margin:16px 0 8px; font-size:22px }
-  h2 small { display:block; font-size:16px; color:#888; font-weight:400; margin-top:4px; }
-  .unit-tag { text-align:center; color:#888; font-size:14px; margin-bottom:8px; }
+  .read-fab { position:fixed; bottom:220px; right:20px;
+              width:56px; height:56px; border-radius:50%;
+              background:linear-gradient(135deg, #ff6b6b, #ff8e53);
+              border:none; color:#fff; font-size:24px; cursor:pointer;
+              box-shadow:0 4px 20px rgba(255,107,107,.4);
+              z-index:50; transition:transform .2s; }
+  .read-fab:hover { transform:scale(1.1); }
 </style>
 </head>
 <body>
-<div class="reader-wrap">
-  <div class="unit-tag">Unit 1</div>
-  <h2>Chore Robot Battle<small>家务机器人大战</small></h2>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-  <div id="pageArea" style="margin-top:16px"></div>
-  <div class="nav">
-    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <button class="read-btn" onclick="readCurrent()">🔊 朗读</button>
-      <span class="page-indicator" id="pageIndicator"></span>
+  <nav class="top-nav">
+    <a href="../../" class="back-btn">← 返回首页</a>
+    <span class="title">Chore Robot Battle</span>
+    <span></span>
+  </nav>
+
+  <div class="main-content">
+    <div class="full-img-wrap">
+      <img class="full-img" id="pageImg" src="" alt="">
     </div>
-    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
+    <div class="text-section">
+      <div class="en-text" id="enText"></div>
+      <div class="zh-text" id="zhText"></div>
+      <div class="phrase-section" id="phraseSection">
+        <div class="label">📚 词组</div>
+        <div class="phrase-row" id="phraseRow"></div>
+      </div>
+    </div>
   </div>
-  
-  <div id="speedControl" style="text-align:center;margin-top:12px;display:none;">
-    <label style="color:#888;font-size:13px;">语速：</label>
-    <select class="speed-select" id="speedSelect" onchange="changeSpeed()">
+
+  <div class="vocab-bar">
+    <div class="bar-title">💡 重点词汇（点击发音）</div>
+    <div class="vocab-row" id="vocabRow"></div>
+  </div>
+
+  <div class="speed-bar">
+    <label>语速</label>
+    <select id="speedSelect" onchange="changeSpeed()">
       <option value="0.7">慢速</option>
       <option value="1" selected>常速</option>
       <option value="1.3">快速</option>
     </select>
   </div>
-</div>
+
+  <button class="read-fab" onclick="readCurrent()">🔊</button>
+
+  <div class="bottom-nav">
+    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
+    <span class="page-indicator" id="pageIndicator"></span>
+    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
+  </div>
 
 <script>
 const PAGES = [{"img": "images/robot-battle/robot-battle/page-2.jpg", "en": "Doudou and Doubao's Great Chore Robot Battle", "zh": "豆豆和豆包的家务机器人大战 | Doudou and Doubao's Great Chore Robot Battle", "keys": [{"w": "chore", "p": "/tʃɔːr/", "zh": "家务"}], "phrases": [{"en": "great chore robot battle", "zh": "家务机器人大战"}]}, {"img": "images/robot-battle/robot-battle/page-3.jpg", "en": "This is the story of a little boy named Doudou and his round robot friend Doubao.", "zh": "这是关于小男孩豆豆和他的圆滚滚机器人朋友豆包的故事。", "keys": [{"w": "chore", "p": "/tʃɔːr/", "zh": "家务"}], "phrases": [{"en": "little boy named Doudou", "zh": "名叫豆豆的小男孩"}]}, {"img": "images/robot-battle/robot-battle/page-4.jpg", "en": "\"Today we're playing the Great Chore Battle!\" Doudou announced excitedly.", "zh": "\"今天我们来玩家务大战！\"豆豆兴奋地宣布。", "keys": [{"w": "announce", "p": "/əˈnaʊns/", "zh": "宣布"}], "phrases": [{"en": "playing the Great Chore Battle", "zh": "玩家庭杂务大战"}]}, {"img": "images/robot-battle/robot-battle/page-5.jpg", "en": "\"Behold my Stinky Shield!\" Doudou raised a shield glowing with green light.", "zh": "\"看我的臭臭护盾！\"豆豆举起一面发着绿色光芒的盾牌。", "keys": [{"w": "shield", "p": "/ʃiːld/", "zh": "盾牌"}], "phrases": [{"en": "Behold my Stinky Shield", "zh": "看我的臭臭护盾"}]}, {"img": "images/robot-battle/robot-battle/page-6.jpg", "en": "\"I choose the Bubble Gun! Bang bang bang!\" Countless colorful bubbles flew toward Doudou.", "zh": "\"我选泡泡枪！砰砰砰！\"无数彩色泡泡飞向豆豆。", "keys": [{"w": "bubble", "p": "/ˈbʌbl/", "zh": "泡泡"}], "phrases": [{"en": "I choose the Bubble Gun", "zh": "我选泡泡枪"}]}, {"img": "images/robot-battle/robot-battle/page-7.jpg", "en": "\"My Stinky Bombs already turned you into a stinker!\" Doudou laughed triumphantly.", "zh": "\"我的臭臭炮弹早就把你打成臭臭了！\"豆豆得意地大笑。", "keys": [{"w": "bomb", "p": "/bɑːm/", "zh": "炸弹"}], "phrases": [{"en": "My Stinky Bombs", "zh": "我的臭臭炮弹"}]}, {"img": "images/robot-battle/robot-battle/page-8.jpg", "en": "\"Soap Attack! Scrub scrub scrub! All clean!\" Doudou washed Doubao squeaky clean.", "zh": "\"肥皂武装！擦呀擦！洗完啦！\"豆豆用巨大的肥皂把豆包洗得干干净净。", "keys": [{"w": "scrub", "p": "/skrʌb/", "zh": "擦洗"}], "phrases": [{"en": "Soap Attack", "zh": "肥皂攻击"}]}, {"img": "images/robot-battle/robot-battle/page-9.jpg", "en": "\"My Robot Vacuum Tank is here!\" Mechanical arms stretched out, sweeping everywhere.", "zh": "\"我的扫地机器人战车来啦！\"机械臂伸出，四处清扫。", "keys": [{"w": "vacuum", "p": "/ˈvækjuːm/", "zh": "吸尘器"}], "phrases": [{"en": "Robot Vacuum Tank", "zh": "扫地机器人战车"}]}, {"img": "images/robot-battle/robot-battle/page-10.jpg", "en": "\"Robot Vacuum enters Angry Mode!\" The battle grew more and more intense.", "zh": "\"扫地机器人进入愤怒模式！\"对战越来越激烈。", "keys": [{"w": "intense", "p": "/ɪnˈtens/", "zh": "激烈的"}], "phrases": [{"en": "enters Angry Mode", "zh": "进入愤怒模式"}]}, {"img": "images/robot-battle/robot-battle/page-11.jpg", "en": "\"Look at my Flying Shield! Tracking bullets, right through Doubao's tank!\"", "zh": "\"看我的飞翔盾牌！追踪子弹，穿过豆包的坦克！\"", "keys": [{"w": "ultimate", "p": "/ˈʌltɪmət/", "zh": "终极的"}], "phrases": [{"en": "my Flying Shield", "zh": "我的飞翔盾牌"}]}, {"img": "images/robot-battle/robot-battle/page-12.jpg", "en": "\"Okay okay, you win this time!\" Doubao laughed. \"Let's still be best friends!\"", "zh": "\"好吧好吧，这次算你厉害！\"豆包笑着说。\"那我们还是做好朋友吧！\"", "keys": [{"w": "sparkle", "p": "/ˈspɑːrkl/", "zh": "闪耀"}], "phrases": [{"en": "you win this time", "zh": "这次你赢了"}]}, {"img": "images/robot-battle/robot-battle/page-13.jpg", "en": "A loud crash came from the kitchen! \"Oh no! Mom said we need to bake a cake today!\"", "zh": "厨房传来一声巨响！\"完了完了，妈妈说今天要做蛋糕！\"", "keys": [{"w": "crash", "p": "/kræʃ/", "zh": "巨响，碰撞声"}], "phrases": [{"en": "a loud crash", "zh": "一声巨响"}]}, {"img": "images/robot-battle/robot-battle/page-14.jpg", "en": "\"Doubao, switch to Kitchen Agent Mode!\" Doudou put on a chef's hat and apron.", "zh": "\"豆包，变成厨房特工模式！\"豆豆戴上厨师帽，系上围裙。", "keys": [{"w": "chef", "p": "/ʃef/", "zh": "厨师"}], "phrases": [{"en": "Kitchen Agent Mode", "zh": "厨房特工模式"}]}, {"img": "images/robot-battle/robot-battle/page-15.jpg", "en": "Doudou accidentally flung the entire bag of flour into the air, like a winter wonderland!", "zh": "豆豆不小心把整袋面粉甩到了空中，像冬天的童话世界！", "keys": [{"w": "flour", "p": "/ˈflaʊər/", "zh": "面粉"}], "phrases": [{"en": "accidentally flung the entire bag of flour into the air", "zh": "不小心把整袋面粉甩到了空中"}]}, {"img": "images/robot-battle/robot-battle/page-16.jpg", "en": "The mixer spun too fast, sending batter flying everywhere like a fountain!", "zh": "搅拌器转得太快了，面糊像喷泉一样飞溅得到处都是！", "keys": [{"w": "mixer", "p": "/ˈmɪksər/", "zh": "搅拌器"}], "phrases": [{"en": "spun too fast", "zh": "转得太快了"}]}, {"img": "images/robot-battle/robot-battle/page-17.jpg", "en": "Doubao secretly added laundry detergent to the batter — giant colorful bubbles started flooding the kitchen!", "zh": "豆包偷偷往面糊里加了洗衣液——巨大的彩色泡泡开始淹没厨房！", "keys": [{"w": "detergent", "p": "/dɪˈtɜːrdʒənt/", "zh": "洗涤剂"}], "phrases": [{"en": "secretly added laundry detergent to the batter", "zh": "偷偷往面糊里加了洗衣液"}]}, {"img": "images/robot-battle/robot-battle/page-18.jpg", "en": "The giant bubbles lifted Doudou and Doubao all the way to the ceiling!", "zh": "巨大的泡泡把豆豆和豆包一直飘到了天花板上！", "keys": [{"w": "lift", "p": "/lɪft/", "zh": "举起，飘起"}], "phrases": [{"en": "giant bubbles", "zh": "巨大的泡泡"}]}, {"img": "images/robot-battle/robot-battle/page-19.jpg", "en": "\"Activate Anti-Bubble System!\" Doubao popped the bubbles one by one for a safe landing.", "zh": "\"启动反泡泡系统！\"豆包一个个戳破了泡泡，安全着陆。", "keys": [{"w": "activate", "p": "/ˈæktɪveɪt/", "zh": "激活"}], "phrases": [{"en": "Activate Anti-Bubble System", "zh": "启动反泡泡系统"}]}, {"img": "images/robot-battle/robot-battle/page-20.jpg", "en": "\"MY KITCHEN!!!\" Mom stood at the door, flames shooting from her eyes!", "zh": "\"我的厨房！！！\"妈妈站在门口，眼睛里冒着火！", "keys": [{"w": "devastated", "p": "/ˈdevəsteɪtɪd/", "zh": "一片狼藉的"}], "phrases": [{"en": "stood at the door", "zh": "站在门口"}]}, {"img": "images/robot-battle/robot-battle/page-20.jpg", "en": "Doubao transformed into a Super Cleaning Robot and polished the kitchen sparkling clean!", "zh": "豆包变成了超级清洁机器人，把厨房打扫得闪闪发亮！", "keys": [{"w": "transform", "p": "/trænsˈfɔːrm/", "zh": "变形，转变"}], "phrases": [{"en": "transformed into a Super Cleaning Robot", "zh": "变成了超级清洁机器人"}]}];
@@ -111,7 +159,6 @@ function getVoice(lang) {
   if (!voices.length) return null;
   
   if (lang === 'zh') {
-    // 中文：优先 Xiaoxiao（温暖女声）, Yunxi（阳光男声）
     const preferred = ['Xiaoxiao', 'Yunxi', 'Yunyang', 'Yunjian'];
     for (const p of preferred) {
       const v = voices.find(vo => vo.lang.startsWith('zh') && vo.name.includes(p));
@@ -119,7 +166,6 @@ function getVoice(lang) {
     }
     return voices.find(vo => vo.lang.startsWith('zh')) || null;
   } else {
-    // 英文：优先自然声音
     const preferred = ['Google', 'Microsoft', 'Samantha', 'Daniel', 'Karen', 'Apple', 'Amazon'];
     for (const p of preferred) {
       const v = voices.find(vo => vo.lang.startsWith('en') && vo.name.includes(p));
@@ -131,29 +177,44 @@ function getVoice(lang) {
 
 function renderPage(i) {
   const p = PAGES[i];
-  const words = p.en.split(' ').map((w, idx) =>
-    `<span class="word" id="w${idx}" onclick="showWordTip(this,'${w.replace(/'/g, "\\'")}')">${w}</span>`
-  ).join(' ');
-
+  
+  // 图片
+  document.getElementById('pageImg').src = '../../' + p.img;
+  
+  // 英文句子 - 单词可点击
+  const words = p.en.split(' ').map((w, idx) => {
+    const clean = w.replace(/[.,!?':;]/g, '');
+    return `<span class="word" onclick="speakWord('${clean}', this)">${w}</span>`;
+  }).join(' ');
+  document.getElementById('enText').innerHTML = words;
+  
+  // 中文
+  document.getElementById('zhText').textContent = p.zh;
+  
+  // 词组
+  const phrases = p.phrases || [];
+  if (phrases.length > 0) {
+    document.getElementById('phraseSection').style.display = 'block';
+    document.getElementById('phraseRow').innerHTML = phrases.map(ph => 
+      `<div class="phrase-card" onclick="speakPhrase('${ph.en.replace(/'/g, "\\'")}')">
+        <span class="pen">${ph.en}</span>
+        <span class="pzh">${ph.zh}</span>
+      </div>`
+    ).join('');
+  } else {
+    document.getElementById('phraseSection').style.display = 'none';
+  }
+  
+  // 词汇卡片
   const vocabCards = (p.keys || []).map(k =>
-    `<div class="vocab-card" onclick="speakWord('${k.w}')">
-      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span><span class="vz">${k.zh}</span></div>
-      <div class="vph"><span class="vph-en">${k.ph || k.w}</span> ${k.ph ? k.zh : ''}</div>
+    `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
+      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span></div>
+      <div class="vz">${k.zh}</div>
     </div>`
   ).join('');
-
-  // 如果没有ph字段，用中文解释代替
-  const vocabPhrases = (p.keys || []).map(k => k.ph || k.zh).join(', ');
-
-  document.getElementById('pageArea').innerHTML = `
-    <img class="page-img" src="../../${p.img}" alt="page ${i+1}" onerror="this.style.display='none'">
-    <div class="text-area">
-      <div class="en-sentence">${words}</div>
-      <div class="zh-sentence">${p.zh}</div>
-      <div class="vocab-row">${vocabCards}</div>
-    </div>`;
-
-  document.getElementById('progressFill').style.width = `${(i+1)/PAGES.length*100}%`;
+  document.getElementById('vocabRow').innerHTML = vocabCards;
+  
+  // 指示器
   document.getElementById('pageIndicator').textContent = `${i+1} / ${PAGES.length}`;
   document.getElementById('prevBtn').disabled = i === 0;
   document.getElementById('nextBtn').disabled = i === PAGES.length - 1;
@@ -163,65 +224,52 @@ function changePage(dir) {
   synth.cancel();
   cur = Math.max(0, Math.min(PAGES.length - 1, cur + dir));
   renderPage(cur);
+  window.scrollTo(0, 0);
 }
 
-// 随机高亮朗读
-let highlightTimer = null;
-let highlightRunning = false;
-
-function startRandomHighlight(wordCount, duration) {
-  highlightRunning = true;
-  const interval = duration / wordCount;
-  let idx = 0;
-  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-
-  function next() {
-    if (!highlightRunning) return;
-    document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-    if (wordCount > 0) {
-      const el = document.getElementById('w' + idx);
-      if (el) el.classList.add('speaking');
-    }
-    idx++;
-    if (idx < wordCount) {
-      highlightTimer = setTimeout(next, interval);
-    } else {
-      setTimeout(() => {
-        document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-        highlightRunning = false;
-      }, 500);
-    }
+// 点击单词发音
+function speakWord(word, el) {
+  synth.cancel();
+  if (el) {
+    document.querySelectorAll('.word').forEach(w => w.classList.remove('speaking'));
+    el.classList.add('speaking');
   }
-  next();
+  const utt = new SpeechSynthesisUtterance(word);
+  utt.lang = 'en-US';
+  utt.rate = currentSpeed * 0.9;
+  const v = getVoice('en');
+  if (v) utt.voice = v;
+  utt.onend = () => { if (el) el.classList.remove('speaking'); };
+  synth.speak(utt);
 }
 
+// 词组发音
+function speakPhrase(phrase) {
+  synth.cancel();
+  const utt = new SpeechSynthesisUtterance(phrase);
+  utt.lang = 'en-US';
+  utt.rate = currentSpeed;
+  const v = getVoice('en');
+  if (v) utt.voice = v;
+  synth.speak(utt);
+}
+
+// 整句朗读
 function readCurrent() {
   synth.cancel();
-  highlightRunning = false;
-  if (highlightTimer) clearTimeout(highlightTimer);
-  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-
   const p = PAGES[cur];
   
-  // 先读英文整句
   const enUtt = new SpeechSynthesisUtterance(p.en);
   enUtt.lang = 'en-US';
   enUtt.rate = currentSpeed;
-  enUtt.pitch = 1.0;
   const enVoice = getVoice('en');
   if (enVoice) enUtt.voice = enVoice;
   
-  // 估算朗读时间用于高亮
-  const estEnDuration = p.en.split(' ').length * 400; // ms per word
-  enUtt.onstart = () => startRandomHighlight(p.en.split(' ').length, estEnDuration * currentSpeed);
   enUtt.onend = () => {
-    highlightRunning = false;
-    // 再读中文
     if (p.zh) {
       const zhUtt = new SpeechSynthesisUtterance(p.zh);
       zhUtt.lang = 'zh-CN';
       zhUtt.rate = currentSpeed;
-      zhUtt.pitch = 1.0;
       const zhVoice = getVoice('zh');
       if (zhVoice) zhUtt.voice = zhVoice;
       synth.speak(zhUtt);
@@ -230,38 +278,18 @@ function readCurrent() {
   synth.speak(enUtt);
 }
 
-function showWordTip(el, word) {
-  speakWord(word);
-  if (el.querySelector('.word-tip')) { el.querySelector('.word-tip').remove(); return; }
-  const p = PAGES[cur];
-  const key = (p.keys || []).find(k => k.w.toLowerCase() === word.toLowerCase().replace(/[.,!?']/g,''));
-  if (key) {
-    const tip = document.createElement('span');
-    tip.className = 'word-tip';
-    tip.textContent = `${key.p} ${key.zh}`;
-    el.appendChild(tip);
-  }
-}
-
-function speakWord(word) {
-  synth.cancel();
-  highlightRunning = false;
-  const utt = new SpeechSynthesisUtterance(word);
-  utt.lang = 'en-US';
-  utt.rate = currentSpeed * 0.8;
-  const v = getVoice('en');
-  if (v) utt.voice = v;
-  synth.speak(utt);
-}
+// 键盘导航
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') changePage(-1);
+  if (e.key === 'ArrowRight') changePage(1);
+});
 
 renderPage(0);
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    // Load voices then auto-read
-    if (synth.getVoices().length > 0) readCurrent();
-    else synth.onvoiceschanged = () => setTimeout(readCurrent, 500);
-  }, 800);
-});
+// 页面加载后自动朗读
+setTimeout(() => {
+  if (synth.getVoices().length > 0) readCurrent();
+  else synth.onvoiceschanged = () => setTimeout(readCurrent, 500);
+}, 800);
 </script>
 </body>
 </html>
