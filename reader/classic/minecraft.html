@@ -88,7 +88,7 @@ const synth = window.speechSynthesis;
 function renderPage(i) {
   const p = PAGES[i];
   const words = p.en.split(' ').map((w, idx) =>
-    `<span class="word" id="w${idx}" onclick="showWordTip(this,'${w.replace(/'/g, "\\'")}')">${w}</span>`
+    `<span class="word" id="w${idx}" onclick="showWordTip(this,'${w.replace(/'/g, "\\'")}'">${w}</span>`
   ).join(' ');
 
   const vocabCards = (p.keys || []).map(k =>
@@ -98,7 +98,7 @@ function renderPage(i) {
   ).join('');
 
   document.getElementById('pageArea').innerHTML = `
-    <img class="page-img" src="/${p.img}" alt="page ${i+1}">
+    <img class="page-img" src="../../${p.img}" alt="page ${i+1}">
     <div class="text-area">
       <div class="en-sentence">${words}</div>
       <div class="zh-sentence hidden" id="zhSent" onclick="this.classList.toggle('hidden')">
