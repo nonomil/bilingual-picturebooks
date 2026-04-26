@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tank Battles Book 2 — 朗读版</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Nunito', 'Comic Sans MS', cursive; background:#fffdf5; 
+         min-height:100vh; display:flex; flex-direction:column; align-items:center; }
+
+  .reader-wrap { max-width:800px; width:100%; padding:16px; }
+
+  .page-img { width:100%; border-radius:16px; 
+              box-shadow:0 4px 20px rgba(0,0,0,.12); }
+
+  .text-area { margin-top:16px; padding:16px; 
+               background:#fff; border-radius:12px;
+               box-shadow:0 2px 8px rgba(0,0,0,.08); }
+
+  .en-sentence { font-size:24px; line-height:1.8; color:#333; }
+  .word { cursor:pointer; border-radius:4px; padding:0 2px;
+          transition: background .15s; }
+  .word:hover { background:#fff3b0; }
+  .word.speaking { background:#ffd166; }
+
+  .word-tip { display:inline-block; font-size:13px; color:#888;
+              background:#f8f8f8; border-radius:6px;
+              padding:2px 8px; margin-left:4px; }
+
+  .zh-sentence { font-size:18px; color:#666; margin-top:12px;
+                 cursor:pointer; }
+  .zh-sentence.hidden { filter:blur(8px); user-select:none; }
+  .zh-sentence.hidden:hover { filter:blur(4px); }
+
+  .vocab-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .vocab-card { background:#e8f4fd; border-radius:8px; 
+                padding:6px 12px; cursor:pointer;
+                transition: transform .15s; }
+  .vocab-card:hover { transform:scale(1.05); }
+  .vocab-card .vw { font-size:16px; font-weight:bold; color:#1a5276; }
+  .vocab-card .vp { font-size:12px; color:#888; }
+  .vocab-card .vz { font-size:14px; color:#555; margin-top:2px; }
+
+  .nav { display:flex; align-items:center; justify-content:space-between;
+         margin-top:20px; padding-bottom:24px; }
+  .nav-btn { background:#ff9f43; color:#fff; border:none;
+             border-radius:50px; padding:10px 28px; font-size:18px;
+             cursor:pointer; transition: opacity .15s; }
+  .nav-btn:disabled { opacity:.35; }
+  .page-indicator { font-size:16px; color:#aaa; }
+
+  .progress-bar { width:100%; height:6px; background:#eee;
+                  border-radius:3px; margin-top:8px; }
+  .progress-fill { height:100%; background:#ff9f43; 
+                   border-radius:3px; transition:width .3s; }
+
+  .read-btn { background:#54a0ff; color:#fff; border:none;
+              border-radius:50px; padding:8px 20px; font-size:16px;
+              cursor:pointer; margin-right:8px; }
+  .read-btn:hover { background:#2980b9; }
+
+  h2 { text-align:center; color:#e17055; margin:16px 0 8px; font-size:22px }
+  .unit-tag { text-align:center; color:#888; font-size:14px; margin-bottom:8px; }
+</style>
+</head>
+<body>
+<div class="reader-wrap">
+  <div class="unit-tag">Unit 1</div>
+  <h2>Tank Battles Book 2<br><small>坦克大战·第二册</small></h2>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div id="pageArea" style="margin-top:16px"></div>
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
+    <div>
+      <button class="read-btn" onclick="readCurrent()">🔊 朗读</button>
+      <span class="page-indicator" id="pageIndicator"></span>
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
+  </div>
+</div>
+
+<script>
+const PAGES = [{"img": "images/tank-2/page-1.jpg", "en": "The player built a special tank base with walls, turrets, and redstone cannons!", "zh": "他专门建了一个坦克阵地，有围墙、炮台，还有红石大炮！", "keys": [{"w": "built", "p": "/bɪlt/", "zh": "建造了"}], "phrases": [{"en": "special tank base", "zh": "特殊的坦克基地"}]}, {"img": "images/tank-2/page-2.jpg", "en": "All the tanks were parked neatly. Heavy, light, and missile tanks ready for action!", "zh": "所有坦克整整齐齐停在里面。重型、轻型、导弹坦克随时待命！", "keys": [{"w": "parked", "p": "/pɑːrkt/", "zh": "停放的"}], "phrases": [{"en": "parked neatly", "zh": "整整齐齐停放"}]}, {"img": "images/tank-2/page-3.jpg", "en": "Redstone cannons surrounded the base to stop any monsters from sneaking in!", "zh": "阵地周围摆满了红石大炮，防止怪物偷袭！", "keys": [{"w": "surrounded", "p": "/səˈraʊndɪd/", "zh": "包围"}], "phrases": [{"en": "surrounded the base", "zh": "包围了基地"}]}, {"img": "images/tank-2/page-4.jpg", "en": "Night fell. A huge wave of monsters appeared from the darkness!", "zh": "夜幕降临。一大群怪物从黑暗中涌了出来！", "keys": [{"w": "night", "p": "/naɪt/", "zh": "夜晚"}], "phrases": [{"en": "Night fell", "zh": "夜幕降临"}]}, {"img": "images/tank-2/page-5.jpg", "en": "Among them were Warden Sentinels — big, tough, and super scary!", "zh": "怪物里面还有几只循声守卫，又大又凶，超可怕！", "keys": [{"w": "among", "p": "/əˈmʌŋ/", "zh": "在……中间"}], "phrases": [{"en": "Among them were", "zh": "其中还有"}]}, {"img": "images/tank-2/page-6.jpg", "en": "The player jumped into the nearest tank and started the engine!", "zh": "他赶紧跳进最近的坦克，发动引擎！", "keys": [{"w": "jumped", "p": "/dʒʌmpt/", "zh": "跳进"}], "phrases": [{"en": "jumped into the nearest tank", "zh": "跳进最近的坦克"}]}, {"img": "images/tank-2/page-7.jpg", "en": "Luckily, Iron Golems were nearby and joined the battle!", "zh": "还好旁边有铁傀儡，马上加入战斗！", "keys": [{"w": "luckily", "p": "/ˈlʌkɪli/", "zh": "幸运地"}], "phrases": [{"en": "Luckily", "zh": "幸运的是"}]}, {"img": "images/tank-2/page-8.jpg", "en": "Iron Golem blocked the front, taking all the hits. What a tough guy!", "zh": "铁傀儡在前面扛伤害，什么打过来都不怕。太硬了！", "keys": [{"w": "blocked", "p": "/blɒkt/", "zh": "阻挡"}], "phrases": [{"en": "blocked the front", "zh": "挡在前面"}]}, {"img": "images/tank-2/page-9.jpg", "en": "The Warden Sentinel had too much health! Normal cannonballs barely scratched it!", "zh": "循声守卫血太厚，普通炮弹根本打不动！", "keys": [{"w": "health", "p": "/helθ/", "zh": "生命值；健康"}], "phrases": [{"en": "too much health", "zh": "血量太厚"}]}, {"img": "images/tank-2/page-10.jpg", "en": "Quick, switch to the missile tank! One missile took away half its health!", "zh": "赶紧换导弹坦克！一发导弹下去直接打掉大半血！", "keys": [{"w": "switch", "p": "/swɪtʃ/", "zh": "切换"}], "phrases": [{"en": "switch to the missile tank", "zh": "换成导弹坦克"}]}, {"img": "images/tank-2/page-11.jpg", "en": "Monsters were surrounding them! Time to back up and keep shooting!", "zh": "差点被怪物包围！赶紧操控坦克边退边射击！", "keys": [{"w": "monsters", "p": "/ˈmɒn.stərz/", "zh": "怪物"}], "phrases": [{"en": "were surrounding them", "zh": "正在包围他们"}]}, {"img": "images/tank-2/page-12.jpg", "en": "Thanks to the tank's thick armor, it could handle the damage while fighting back!", "zh": "靠着坦克厚厚的装甲硬扛伤害，一边扛一边打回去！", "keys": [{"w": "thick", "p": "/θɪk/", "zh": "厚的"}], "phrases": [{"en": "thick armor", "zh": "厚厚的装甲"}]}, {"img": "images/tank-2/page-13.jpg", "en": "The Iron Golem and tank worked together perfectly. The base was saved!", "zh": "铁傀儡和坦克完美配合，终于守住了阵地！", "keys": [{"w": "worked together", "p": "/wɜːrkt təˈɡeð.ər/", "zh": "合作"}], "phrases": [{"en": "worked together perfectly", "zh": "完美配合"}]}];
+let cur = 0;
+const synth = window.speechSynthesis;
+
+function renderPage(i) {
+  const p = PAGES[i];
+  const words = p.en.split(' ').map((w, idx) =>
+    `<span class="word" id="w${idx}" onclick="showWordTip(this,'${w.replace(/'/g, "\\'")}')">${w}</span>`
+  ).join(' ');
+
+  const vocabCards = (p.keys || []).map(k =>
+    `<div class="vocab-card" onclick="speakWord('${k.w}')">
+      <div class="vw">${k.w}</div><div class="vp">${k.p}</div><div class="vz">${k.zh}</div>
+    </div>`
+  ).join('');
+
+  document.getElementById('pageArea').innerHTML = `
+    <img class="page-img" src="/${p.img}" alt="page ${i+1}">
+    <div class="text-area">
+      <div class="en-sentence">${words}</div>
+      <div class="zh-sentence hidden" id="zhSent" onclick="this.classList.toggle('hidden')">
+        ${p.zh}&nbsp;<span style="font-size:12px;color:#bbb">（点击查看翻译）</span>
+      </div>
+      <div class="vocab-row">${vocabCards}</div>
+    </div>`;
+
+  document.getElementById('progressFill').style.width = `${(i+1)/PAGES.length*100}%`;
+  document.getElementById('pageIndicator').textContent = `${i+1} / ${PAGES.length}`;
+  document.getElementById('prevBtn').disabled = i === 0;
+  document.getElementById('nextBtn').disabled = i === PAGES.length - 1;
+}
+
+function changePage(dir) {
+  synth.cancel();
+  cur = Math.max(0, Math.min(PAGES.length - 1, cur + dir));
+  renderPage(cur);
+}
+
+function readCurrent() {
+  synth.cancel();
+  const p = PAGES[cur];
+  const words = p.en.split(' ');
+  let idx = 0;
+  function speakNext() {
+    if (idx >= words.length) return;
+    document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+    const el = document.getElementById(`w${idx}`);
+    if (el) el.classList.add('speaking');
+    const utt = new SpeechSynthesisUtterance(words[idx]);
+    utt.lang = 'en-GB'; utt.rate = 0.8;
+    utt.onend = () => { idx++; speakNext(); };
+    synth.speak(utt);
+  }
+  speakNext();
+}
+
+function showWordTip(el, word) {
+  speakWord(word);
+  if (el.querySelector('.word-tip')) { el.querySelector('.word-tip').remove(); return; }
+  const p = PAGES[cur];
+  const key = (p.keys || []).find(k => k.w.toLowerCase() === word.toLowerCase().replace(/[.,!?']/g,''));
+  if (key) {
+    const tip = document.createElement('span');
+    tip.className = 'word-tip';
+    tip.textContent = `${key.p} ${key.zh}`;
+    el.appendChild(tip);
+  }
+}
+
+function speakWord(word) {
+  synth.cancel();
+  const utt = new SpeechSynthesisUtterance(word);
+  utt.lang = 'en-GB'; utt.rate = 0.7;
+  synth.speak(utt);
+}
+
+renderPage(0);
+</script>
+</body>
+</html>
