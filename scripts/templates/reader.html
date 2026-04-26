@@ -98,7 +98,7 @@ function renderPage(i) {
   ).join('');
 
   document.getElementById('pageArea').innerHTML = `
-    <img class="page-img" src="${p.img}" alt="page ${i+1}">
+    <img class="page-img" src="../../${p.img}" alt="page ${i+1}">
     <div class="text-area">
       <div class="en-sentence">${words}</div>
       <div class="zh-sentence hidden" id="zhSent" onclick="this.classList.toggle('hidden')">

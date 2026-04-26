@@ -80,16 +80,16 @@
 
 <script>
 const PAGES = [
-  {en:"One sunny morning, a little snake wiggled along the path.",zh:"一个阳光明媚的早晨，小蛇一扭一扭地在小路上散步。",img:"images/covers/cover-snake.jpg",keys:[{w:"wiggle",p:"/ˈwɪɡl/",zh:"一扭一扭地"}],phrases:[{en:"a bright sunny morning",zh:"一个阳光明媚的早晨"}]},
-  {en:"He saw a round, red apple. 'Guess what he did?' Crunch, crunch! So yummy!",zh:"他看到一个圆圆的红苹果"你猜他会怎么做？" 他啊呜，啊呜，真好吃！",img:"images/snake/page-2.jpg",keys:[{w:"round",p:"/raʊnd/",zh:"圆圆的"}],phrases:[{en:"a round red apple",zh:"一个圆圆的红苹果"}]},
-  {en:"The next day, the hungry little snake went for a walk again. He saw a curvy yellow banana.",zh:"第二天，好饿的小蛇又一扭一扭地去散步了。他看到一根弯弯的黄香蕉。",img:"images/snake/page-3.jpg",keys:[{w:"curvy",p:"/ˈkɜːvi/",zh:"弯弯的"}],phrases:[{en:"a yellow banana",zh:"一根黄香蕉"}]},
-  {en:"On the third day, the hungry little snake went for a walk again. He saw a sweet strawberry.",zh:"第三天，好饿的小蛇又一扭一扭地去散步了。他看到一颗甜甜的草莓。",img:"images/snake/page-4.jpg",keys:[{w:"sweet",p:"/swiːt/",zh:"甜甜的"}],phrases:[{en:"a sweet strawberry",zh:"一颗甜甜的草莓"}]},
-  {en:"On the fourth day, the hungry little snake went for a walk again. He saw a big bunch of purple grapes.",zh:"第四天，好饿的小蛇又一扭一扭地去散步了。他看到一大串紫色的葡萄。",img:"images/snake/page-5.jpg",keys:[{w:"bunch",p:"/bʌntʃ/",zh:"一串"}],phrases:[{en:"a big bunch of grapes",zh:"一大串葡萄"}]},
-  {en:"On the fifth day, the hungry little snake went for a walk again. He saw a juicy orange.",zh:"第五天，好饿的小蛇又一扭一扭地去散步了。他看到一个多汁的橙子。",img:"images/snake/page-6.jpg",keys:[{w:"juicy",p:"/ˈdʒuːsi/",zh:"多汁的"}],phrases:[{en:"a juicy orange",zh:"一个多汁的橙子"}]},
-  {en:"But now his tummy hurt! Oh no! What should he do?",zh:"可是现在他的肚子好痛！哦不！该怎么办？",img:"images/snake/page-7.jpg",keys:[{w:"tummy",p:"/ˈtʌmi/",zh:"肚子"}],phrases:[{en:"tummy hurt",zh:"肚子痛"}]},
-  {en:"He found a big green leaf. 'Guess what he did?' He ate the leaf and felt much better!",zh:"他找到一片大绿叶。"你猜他会怎么做？" 他吃了绿叶，感觉好多了！",img:"images/snake/page-8.jpg",keys:[{w:"leaf",p:"/liːf/",zh:"叶子"}],phrases:[{en:"felt much better",zh:"感觉好多了"}]},
-  {en:"The little snake was happy again. He went home to rest.",zh:"小蛇又开心起来了。他回家休息去了。",img:"images/snake/page-9.jpg",keys:[{w:"rest",p:"/rest/",zh:"休息"}],phrases:[{en:"went home",zh:"回家"}]},
-  {en:"The End. See you next time!",zh:"结束了！下次见！",img:"images/snake/page-10.jpg",keys:[],phrases:[]}
+  {en:"One sunny morning, a little snake wiggled along the path.",zh:"一个阳光明媚的早晨，小蛇一扭一扭地在小路上散步。",img:"images/snake/page-1.jpg",keys:[{w:"wiggle",p:"/ˈwɪɡl/",zh:"一扭一扭地爬行"}]},
+  {en:"He saw a round, red apple. 'Guess what he did?' Crunch, crunch! So yummy!",zh:"他看到一个圆圆的红苹果。"你猜他会怎么做？" 他啊呜，啊呜，真好吃！",img:"images/snake/page-2.jpg",keys:[{w:"round",p:"/raʊnd/",zh:"圆圆的"},{w:"crunch",p:"/krʌntʃ/",zh:"嘎嘣嘎嘣吃"}]},
+  {en:"The next day, the hungry little snake went for a walk again. He saw a curvy yellow banana.",zh:"第二天，好饿的小蛇又一扭一扭地去散步了。他看到一根弯弯的黄香蕉。",img:"images/snake/page-3.jpg",keys:[{w:"curvy",p:"/ˈkɜːvi/",zh:"弯弯的"}]},
+  {en:"On the third day, the hungry little snake went for a walk again. He saw a sweet strawberry.",zh:"第三天，好饿的小蛇又一扭一扭地去散步了。他看到一颗甜甜的草莓。",img:"images/snake/page-4.jpg",keys:[{w:"sweet",p:"/swiːt/",zh:"甜甜的"}]},
+  {en:"On the fourth day, the hungry little snake went for a walk again. He saw a big bunch of purple grapes.",zh:"第四天，好饿的小蛇又一扭一扭地去散步了。他看到一大串紫色的葡萄。",img:"images/snake/page-5.jpg",keys:[{w:"bunch",p:"/bʌntʃ/",zh:"一串"},{w:"purple",p:"/ˈpɜːpəl/",zh:"紫色的"}]},
+  {en:"On the fifth day, the hungry little snake went for a walk again. He saw a juicy orange.",zh:"第五天，好饿的小蛇又一扭一扭地去散步了。他看到一个多汁的橙子。",img:"images/snake/page-6.jpg",keys:[{w:"juicy",p:"/ˈdʒuːsi/",zh:"多汁的"}]},
+  {en:"But now his tummy hurt! Oh no! What should he do?",zh:"可是现在他的肚子好痛！哦不！该怎么办？",img:"images/snake/page-7.jpg",keys:[{w:"tummy",p:"/ˈtʌmi/",zh:"肚子"},{w:"hurt",p:"/hɜːt/",zh:"痛"}]},
+  {en:"He found a big green leaf. 'Guess what he did?' He ate the leaf and felt much better!",zh:"他找到一片大绿叶。"你猜他会怎么做？" 他吃了绿叶，感觉好多了！",img:"images/snake/page-8.jpg",keys:[{w:"leaf",p:"/liːf/",zh:"叶子"},{w:"better",p:"/ˈbetə/",zh:"好多了"}]},
+  {en:"The little snake was happy again. He went home to rest.",zh:"小蛇又开心起来了。他回家休息去了。",img:"images/snake/page-9.jpg",keys:[{w:"rest",p:"/rest/",zh:"休息"}]},
+  {en:"The End. See you next time!",zh:"结束了！下次见！",img:"images/snake/page-10.jpg",keys:[]}
 ];
 
 let cur = 0;
