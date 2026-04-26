@@ -3,114 +3,148 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>双语绘本 - Bilingual Picture Books</title>
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#ff9f43">
+  <title>📚 双语绘本朗读</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Nunito', 'Comic Sans MS', cursive; background: #fffdf5; min-height: 100vh; }
+    body { font-family: 'Nunito', sans-serif; background: #fffdf5; min-height: 100vh; }
     
-    /* Hero Section */
-    .hero { background: linear-gradient(135deg, #ff9f43 0%, #feca57 100%); 
-            padding: 48px 20px; text-align: center; color: #fff; }
-    .hero h1 { font-size: 36px; margin-bottom: 8px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
-    .hero p { font-size: 18px; opacity: 0.9; }
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #ff9f43 0%, #feca57 100%);
+      padding: 40px 20px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(255,159,67,0.3);
+    }
+    .header h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+    .header p { font-size: 16px; opacity: 0.9; }
     
-    /* Category Cards */
-    .categories { display: flex; gap: 20px; justify-content: center; padding: 32px 20px; flex-wrap: wrap; }
-    .cat-card { background: #fff; border-radius: 16px; padding: 24px 32px; 
-                box-shadow: 0 4px 16px rgba(0,0,0,0.08); text-align: center;
-                min-width: 200px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
-    .cat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-    .cat-icon { font-size: 48px; margin-bottom: 12px; }
-    .cat-title { font-size: 20px; font-weight: bold; color: #333; }
-    .cat-desc { font-size: 14px; color: #888; margin-top: 4px; }
+    /* Tabs */
+    .tabs { display: flex; justify-content: center; gap: 8px; padding: 20px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .tab { padding: 10px 24px; border-radius: 50px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; background: #f5f5f5; color: #666; transition: all 0.2s; }
+    .tab.active { background: #ff9f43; color: #fff; }
+    .tab:hover:not(.active) { background: #ffe8d6; }
     
-    /* Sections */
-    .section { padding: 24px 20px; max-width: 1200px; margin: 0 auto; }
-    .section-title { font-size: 24px; color: #e17055; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+    /* Section */
+    .section { display: none; padding: 24px 16px; max-width: 1400px; margin: 0 auto; }
+    .section.active { display: block; }
+    .section-title { font-size: 20px; color: #e17055; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
     
-    /* Story Grid */
-    .story-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
-    .story-card { background: #fff; border-radius: 12px; overflow: hidden; 
-                  box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s; }
-    .story-card:hover { transform: scale(1.02); }
-    .story-cover { width: 100%; height: 160px; object-fit: cover; background: #f0f0f0; }
-    .story-info { padding: 16px; }
-    .story-title { font-size: 16px; font-weight: bold; color: #333; margin-bottom: 4px; }
-    .story-title-zh { font-size: 14px; color: #888; }
-    .story-meta { font-size: 12px; color: #aaa; margin-top: 8px; }
-    .story-link { display: inline-block; margin-top: 12px; padding: 8px 16px; 
-                  background: #ff9f43; color: #fff; border-radius: 20px; text-decoration: none;
-                  font-size: 14px; transition: background 0.2s; }
-    .story-link:hover { background: #ff8f23; }
+    /* Masonry Grid */
+    .masonry {
+      columns: 5 200px;
+      column-gap: 16px;
+    }
+    @media (max-width: 600px) {
+      .masonry { columns: 2 160px; }
+    }
+    @media (min-width: 1200px) {
+      .masonry { columns: 5; }
+    }
     
-    /* StoryFun Special */
-    .storyfun-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-    .storyfun-card { background: #fff; border-radius: 12px; overflow: hidden; 
-                     box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 2px solid #54a0ff; }
-    .storyfun-header { background: #54a0ff; color: #fff; padding: 12px 16px; font-weight: bold; }
-    .storyfun-body { padding: 16px; }
-    .storyfun-unit { font-size: 14px; color: #54a0ff; font-weight: bold; }
-    .storyfun-title { font-size: 18px; color: #333; margin: 8px 0; }
-    .storyfun-links { display: flex; gap: 12px; margin-top: 12px; }
-    .storyfun-link { flex: 1; padding: 10px; border-radius: 8px; text-align: center; 
-                     text-decoration: none; font-size: 14px; transition: opacity 0.2s; }
+    /* Card */
+    .card {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .card-img { width: 100%; display: block; background: #f0f0f0; }
+    .card-body { padding: 12px; }
+    .card-title { font-size: 14px; font-weight: 700; color: #333; margin-bottom: 4px; line-height: 1.3; }
+    .card-title-zh { font-size: 12px; color: #888; margin-bottom: 8px; }
+    .card-links { display: flex; gap: 6px; }
+    .card-link { flex: 1; padding: 6px 8px; border-radius: 8px; text-align: center; text-decoration: none; font-size: 12px; font-weight: 600; transition: opacity 0.2s; }
+    .card-link:hover { opacity: 0.8; }
+    .card-link.reader { background: #e8f4fd; color: #2e86de; }
+    .card-link.game { background: #fce4ec; color: #e84393; }
+    .card-badge { display: inline-block; padding: 2px 8px; background: #ffe8d6; color: #e17055; border-radius: 10px; font-size: 10px; font-weight: 600; margin-bottom: 6px; }
+    
+    /* StoryFun Card */
+    .storyfun-card {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      border: 2px solid #54a0ff;
+      transition: transform 0.3s;
+    }
+    .storyfun-card:hover { transform: translateY(-4px); }
+    .storyfun-header { background: #54a0ff; color: #fff; padding: 10px 14px; font-size: 12px; font-weight: 700; }
+    .storyfun-body { padding: 12px; }
+    .storyfun-unit { font-size: 11px; color: #54a0ff; font-weight: 700; text-transform: uppercase; }
+    .storyfun-title { font-size: 15px; font-weight: 700; color: #333; margin: 4px 0; }
+    .storyfun-title-zh { font-size: 12px; color: #888; margin-bottom: 8px; }
+    .storyfun-links { display: flex; gap: 6px; }
+    .storyfun-link { flex: 1; padding: 8px; border-radius: 8px; text-align: center; text-decoration: none; font-size: 13px; font-weight: 600; }
     .storyfun-link.reader { background: #e8f4fd; color: #2e86de; }
     .storyfun-link.game { background: #fce4ec; color: #e84393; }
-    .storyfun-link:hover { opacity: 0.8; }
     
     /* Footer */
-    .footer { text-align: center; padding: 24px; color: #aaa; font-size: 14px; }
+    .footer { text-align: center; padding: 32px; color: #aaa; font-size: 13px; }
   </style>
 </head>
 <body>
-  <!-- Hero -->
-  <div class="hero">
-    <h1>📚 双语绘本阅读</h1>
-    <p>和宝宝一起读故事，学英语</p>
+  <div class="header">
+    <h1>📚 双语绘本朗读</h1>
+    <p>精选故事 · 地道英语 · 亲子共读</p>
   </div>
   
-  <!-- Category Selection -->
-  <div class="categories">
-    <div class="cat-card" onclick="document.getElementById('classic').scrollIntoView({behavior:'smooth'})">
-      <div class="cat-icon">📖</div>
-      <div class="cat-title">经典绘本</div>
-      <div class="cat-desc">12 个精彩故事</div>
-    </div>
-    <div class="cat-card" onclick="document.getElementById('storyfun').scrollIntoView({behavior:'smooth'})">
-      <div class="cat-icon">🎮</div>
-      <div class="cat-title">Story Fun</div>
-      <div class="cat-desc">互动学习教材</div>
-    </div>
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('classic')">📖 经典绘本</button>
+    <button class="tab" onclick="showTab('storyfun')">🎮 Story Fun</button>
   </div>
   
-  <!-- StoryFun Section -->
-  <div class="section" id="storyfun">
+  <div class="section active" id="classic-section">
+    <h2 class="section-title">📖 经典双语绘本</h2>
+    <div class="masonry" id="classic-grid"></div>
+  </div>
+  
+  <div class="section" id="storyfun-section">
     <h2 class="section-title">🎮 Story Fun 数字化教材</h2>
-    <div class="storyfun-grid" id="storyfunGrid">
-      <!-- 动态加载 StoryFun 内容 -->
-    </div>
+    <div class="masonry" id="storyfun-grid"></div>
   </div>
   
-  <!-- Classic Stories Section -->
-  <div class="section" id="classic">
-    <h2 class="section-title">📖 经典绘本</h2>
-    <div class="story-grid" id="classicGrid">
-      <!-- 动态加载经典绘本 -->
-    </div>
-  </div>
-  
-  <div class="footer">
-    © 2024 双语绘本 · Bilingual Picture Books
-  </div>
+  <div class="footer">© 2024 双语绘本 · Bilingual Picture Books</div>
 
   <script src="data/stories.js"></script>
   <script>
-    // 渲染 StoryFun
+    function showTab(tab) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelector(`.tab[onclick*="${tab}"]`).classList.add('active');
+      document.getElementById(tab + '-section').classList.add('active');
+    }
+    
+    // Render classic stories
+    const classicStories = STORIES.filter(s => s.category !== 'storyfun');
+    document.getElementById('classic-grid').innerHTML = classicStories.map(s => `
+      <div class="card" onclick="location.href='reader/classic/${s.id}.html'">
+        <img class="card-img" src="${s.cover || 'images/covers/' + s.id + '.jpg'}" alt="${s.title}" loading="lazy">
+        <div class="card-body">
+          <div class="card-badge">${s.category || '原创'}</div>
+          <div class="card-title">${s.title}</div>
+          <div class="card-title-zh">${s.titleZh || ''}</div>
+          <div class="card-links">
+            <a class="card-link reader" href="reader/classic/${s.id}.html" onclick="event.stopPropagation()">📖 阅读</a>
+            <a class="card-link game" href="game/classic/${s.id}.html" onclick="event.stopPropagation()">🎮 游戏</a>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    
+    // Render StoryFun
     const storyfunStories = STORIES.filter(s => s.category === 'storyfun');
-    const storyfunHtml = storyfunStories.map(s => `
+    document.getElementById('storyfun-grid').innerHTML = storyfunStories.map(s => `
       <div class="storyfun-card">
         <div class="storyfun-header">Unit ${s.unit} · ${s.cefrLevel}</div>
         <div class="storyfun-body">
@@ -124,23 +158,6 @@
         </div>
       </div>
     `).join('');
-    document.getElementById('storyfunGrid').innerHTML = storyfunHtml || '<p style="color:#888">暂无 StoryFun 内容</p>';
-    
-    // 渲染经典绘本（非 StoryFun 的都是经典绘本）
-    const classicStories = STORIES.filter(s => s.category !== 'storyfun');
-    const classicHtml = classicStories.map(s => `
-      <div class="story-card">
-        <img class="story-cover" src="${s.cover || 'images/covers/' + s.id + '.jpg'}" alt="${s.title}" 
-             onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23f0f0f0%22 width=%22100%22 height=%22100%22/><text x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23ccc%22>📖</text></svg>'">
-        <div class="story-info">
-          <div class="story-title">${s.title}</div>
-          <div class="story-title-zh">${s.titleZh || ''}</div>
-          <div class="story-meta">${s.pages?.length || 0} 页</div>
-          <a class="story-link" href="reader/classic/${s.id}.html">开始阅读 →</a>
-        </div>
-      </div>
-    `).join('');
-    document.getElementById('classicGrid').innerHTML = classicHtml;
   </script>
 </body>
 </html>
