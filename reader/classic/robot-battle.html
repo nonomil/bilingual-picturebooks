@@ -55,9 +55,13 @@
                    border-radius:3px; transition:width .3s; }
 
   .read-btn { background:#54a0ff; color:#fff; border:none;
-              border-radius:50px; padding:8px 20px; font-size:16px;
+              border-radius:50px; padding:8px 16px; font-size:14px;
               cursor:pointer; margin-right:8px; }
   .read-btn:hover { background:#2980b9; }
+  .speed-select { background:#fff; color:#333; border:1px solid #ddd;
+                  border-radius:20px; padding:6px 12px; font-size:13px;
+                  cursor:pointer; margin-right:8px; }
+  .speed-select:hover { background:#f5f5f5; }
 
   h2 { text-align:center; color:#e17055; margin:16px 0 8px; font-size:22px }
   h2 small { display:block; font-size:16px; color:#888; font-weight:400; margin-top:4px; }
@@ -72,8 +76,13 @@
   <div id="pageArea" style="margin-top:16px"></div>
   <div class="nav">
     <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
-    <div>
+    <div style="display:flex;align-items:center;gap:8px;">
       <button class="read-btn" onclick="readCurrent()">🔊 朗读</button>
+      <select class="speed-select" id="speedSelect" onchange="changeSpeed()">
+        <option value="0.7">慢速</option>
+        <option value="1" selected>常速</option>
+        <option value="1.3">快速</option>
+      </select>
       <span class="page-indicator" id="pageIndicator"></span>
     </div>
     <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
@@ -83,7 +92,23 @@
 <script>
 const PAGES = [{"img": "robot-battle/page-2.jpg", "en": "Doudou and Doubao's Great Chore Robot Battle", "zh": "豆豆和豆包的家务机器人大战 | Doudou and Doubao's Great Chore Robot Battle", "keys": [{"w": "chore", "p": "/tʃɔːr/", "zh": "家务"}], "phrases": [{"en": "great chore robot battle", "zh": "家务机器人大战"}]}, {"img": "robot-battle/page-3.jpg", "en": "This is the story of a little boy named Doudou and his round robot friend Doubao.", "zh": "这是关于小男孩豆豆和他的圆滚滚机器人朋友豆包的故事。", "keys": [{"w": "chore", "p": "/tʃɔːr/", "zh": "家务"}], "phrases": [{"en": "little boy named Doudou", "zh": "名叫豆豆的小男孩"}]}, {"img": "robot-battle/page-4.jpg", "en": "\"Today we're playing the Great Chore Battle!\" Doudou announced excitedly.", "zh": "\"今天我们来玩家务大战！\"豆豆兴奋地宣布。", "keys": [{"w": "announce", "p": "/əˈnaʊns/", "zh": "宣布"}], "phrases": [{"en": "playing the Great Chore Battle", "zh": "玩家庭杂务大战"}]}, {"img": "robot-battle/page-5.jpg", "en": "\"Behold my Stinky Shield!\" Doudou raised a shield glowing with green light.", "zh": "\"看我的臭臭护盾！\"豆豆举起一面发着绿色光芒的盾牌。", "keys": [{"w": "shield", "p": "/ʃiːld/", "zh": "盾牌"}], "phrases": [{"en": "Behold my Stinky Shield", "zh": "看我的臭臭护盾"}]}, {"img": "robot-battle/page-6.jpg", "en": "\"I choose the Bubble Gun! Bang bang bang!\" Countless colorful bubbles flew toward Doudou.", "zh": "\"我选泡泡枪！砰砰砰！\"无数彩色泡泡飞向豆豆。", "keys": [{"w": "bubble", "p": "/ˈbʌbl/", "zh": "泡泡"}], "phrases": [{"en": "I choose the Bubble Gun", "zh": "我选泡泡枪"}]}, {"img": "robot-battle/page-7.jpg", "en": "\"My Stinky Bombs already turned you into a stinker!\" Doudou laughed triumphantly.", "zh": "\"我的臭臭炮弹早就把你打成臭臭了！\"豆豆得意地大笑。", "keys": [{"w": "bomb", "p": "/bɑːm/", "zh": "炸弹"}], "phrases": [{"en": "My Stinky Bombs", "zh": "我的臭臭炮弹"}]}, {"img": "robot-battle/page-8.jpg", "en": "\"Soap Attack! Scrub scrub scrub! All clean!\" Doudou washed Doubao squeaky clean.", "zh": "\"肥皂武装！擦呀擦！洗完啦！\"豆豆用巨大的肥皂把豆包洗得干干净净。", "keys": [{"w": "scrub", "p": "/skrʌb/", "zh": "擦洗"}], "phrases": [{"en": "Soap Attack", "zh": "肥皂攻击"}]}, {"img": "robot-battle/page-9.jpg", "en": "\"My Robot Vacuum Tank is here!\" Mechanical arms stretched out, sweeping everywhere.", "zh": "\"我的扫地机器人战车来啦！\"机械臂伸出，四处清扫。", "keys": [{"w": "vacuum", "p": "/ˈvækjuːm/", "zh": "吸尘器"}], "phrases": [{"en": "Robot Vacuum Tank", "zh": "扫地机器人战车"}]}, {"img": "robot-battle/page-10.jpg", "en": "\"Robot Vacuum enters Angry Mode!\" The battle grew more and more intense.", "zh": "\"扫地机器人进入愤怒模式！\"对战越来越激烈。", "keys": [{"w": "intense", "p": "/ɪnˈtens/", "zh": "激烈的"}], "phrases": [{"en": "enters Angry Mode", "zh": "进入愤怒模式"}]}, {"img": "robot-battle/page-11.jpg", "en": "\"Look at my Flying Shield! Tracking bullets, right through Doubao's tank!\"", "zh": "\"看我的飞翔盾牌！追踪子弹，穿过豆包的坦克！\"", "keys": [{"w": "ultimate", "p": "/ˈʌltɪmət/", "zh": "终极的"}], "phrases": [{"en": "my Flying Shield", "zh": "我的飞翔盾牌"}]}, {"img": "robot-battle/page-12.jpg", "en": "\"Okay okay, you win this time!\" Doubao laughed. \"Let's still be best friends!\"", "zh": "\"好吧好吧，这次算你厉害！\"豆包笑着说。\"那我们还是做好朋友吧！\"", "keys": [{"w": "sparkle", "p": "/ˈspɑːrkl/", "zh": "闪耀"}], "phrases": [{"en": "you win this time", "zh": "这次你赢了"}]}, {"img": "robot-battle/page-13.jpg", "en": "A loud crash came from the kitchen! \"Oh no! Mom said we need to bake a cake today!\"", "zh": "厨房传来一声巨响！\"完了完了，妈妈说今天要做蛋糕！\"", "keys": [{"w": "crash", "p": "/kræʃ/", "zh": "巨响，碰撞声"}], "phrases": [{"en": "a loud crash", "zh": "一声巨响"}]}, {"img": "robot-battle/page-14.jpg", "en": "\"Doubao, switch to Kitchen Agent Mode!\" Doudou put on a chef's hat and apron.", "zh": "\"豆包，变成厨房特工模式！\"豆豆戴上厨师帽，系上围裙。", "keys": [{"w": "chef", "p": "/ʃef/", "zh": "厨师"}], "phrases": [{"en": "Kitchen Agent Mode", "zh": "厨房特工模式"}]}, {"img": "robot-battle/page-15.jpg", "en": "Doudou accidentally flung the entire bag of flour into the air, like a winter wonderland!", "zh": "豆豆不小心把整袋面粉甩到了空中，像冬天的童话世界！", "keys": [{"w": "flour", "p": "/ˈflaʊər/", "zh": "面粉"}], "phrases": [{"en": "accidentally flung the entire bag of flour into the air", "zh": "不小心把整袋面粉甩到了空中"}]}, {"img": "robot-battle/page-16.jpg", "en": "The mixer spun too fast, sending batter flying everywhere like a fountain!", "zh": "搅拌器转得太快了，面糊像喷泉一样飞溅得到处都是！", "keys": [{"w": "mixer", "p": "/ˈmɪksər/", "zh": "搅拌器"}], "phrases": [{"en": "spun too fast", "zh": "转得太快了"}]}, {"img": "robot-battle/page-17.jpg", "en": "Doubao secretly added laundry detergent to the batter — giant colorful bubbles started flooding the kitchen!", "zh": "豆包偷偷往面糊里加了洗衣液——巨大的彩色泡泡开始淹没厨房！", "keys": [{"w": "detergent", "p": "/dɪˈtɜːrdʒənt/", "zh": "洗涤剂"}], "phrases": [{"en": "secretly added laundry detergent to the batter", "zh": "偷偷往面糊里加了洗衣液"}]}, {"img": "robot-battle/page-18.jpg", "en": "The giant bubbles lifted Doudou and Doubao all the way to the ceiling!", "zh": "巨大的泡泡把豆豆和豆包一直飘到了天花板上！", "keys": [{"w": "lift", "p": "/lɪft/", "zh": "举起，飘起"}], "phrases": [{"en": "giant bubbles", "zh": "巨大的泡泡"}]}, {"img": "robot-battle/page-19.jpg", "en": "\"Activate Anti-Bubble System!\" Doubao popped the bubbles one by one for a safe landing.", "zh": "\"启动反泡泡系统！\"豆包一个个戳破了泡泡，安全着陆。", "keys": [{"w": "activate", "p": "/ˈæktɪveɪt/", "zh": "激活"}], "phrases": [{"en": "Activate Anti-Bubble System", "zh": "启动反泡泡系统"}]}, {"img": "robot-battle/page-20.jpg", "en": "\"MY KITCHEN!!!\" Mom stood at the door, flames shooting from her eyes!", "zh": "\"我的厨房！！！\"妈妈站在门口，眼睛里冒着火！", "keys": [{"w": "devastated", "p": "/ˈdevəsteɪtɪd/", "zh": "一片狼藉的"}], "phrases": [{"en": "stood at the door", "zh": "站在门口"}]}, {"img": "robot-battle/page-20.jpg", "en": "Doubao transformed into a Super Cleaning Robot and polished the kitchen sparkling clean!", "zh": "豆包变成了超级清洁机器人，把厨房打扫得闪闪发亮！", "keys": [{"w": "transform", "p": "/trænsˈfɔːrm/", "zh": "变形，转变"}], "phrases": [{"en": "transformed into a Super Cleaning Robot", "zh": "变成了超级清洁机器人"}]}];
 let cur = 0;
+let currentSpeed = 1;
 const synth = window.speechSynthesis;
+
+function changeSpeed() {
+  currentSpeed = parseFloat(document.getElementById('speedSelect').value);
+}
+
+function getVoice(lang) {
+  const voices = synth.getVoices();
+  // Prefer natural voices: Google, Microsoft, Apple, Amazon
+  const preferred = ['Google', 'Microsoft', 'Apple', 'Amazon', 'Samantha', 'Daniel', 'Karen'];
+  for (const p of preferred) {
+    const v = voices.find(vo => vo.lang.startsWith(lang) && vo.name.includes(p));
+    if (v) return v;
+  }
+  return voices.find(vo => vo.lang.startsWith(lang)) || null;
+}
 
 function renderPage(i) {
   const p = PAGES[i];
@@ -117,22 +142,69 @@ function changePage(dir) {
   renderPage(cur);
 }
 
+// 随机高亮朗读
+let highlightTimer = null;
+let highlightRunning = false;
+
+function startRandomHighlight(wordCount, duration) {
+  highlightRunning = true;
+  const interval = duration / wordCount;
+  let idx = 0;
+  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+
+  function next() {
+    if (!highlightRunning) return;
+    document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+    if (wordCount > 0) {
+      const el = document.getElementById('w' + idx);
+      if (el) el.classList.add('speaking');
+    }
+    idx++;
+    if (idx < wordCount) {
+      highlightTimer = setTimeout(next, interval);
+    } else {
+      setTimeout(() => {
+        document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+        highlightRunning = false;
+      }, 500);
+    }
+  }
+  next();
+}
+
 function readCurrent() {
   synth.cancel();
+  highlightRunning = false;
+  if (highlightTimer) clearTimeout(highlightTimer);
+  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+
   const p = PAGES[cur];
-  const words = p.en.split(' ');
-  let idx = 0;
-  function speakNext() {
-    if (idx >= words.length) return;
-    document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-    const el = document.getElementById(`w${idx}`);
-    if (el) el.classList.add('speaking');
-    const utt = new SpeechSynthesisUtterance(words[idx]);
-    utt.lang = 'en-GB'; utt.rate = 0.8;
-    utt.onend = () => { idx++; speakNext(); };
-    synth.speak(utt);
-  }
-  speakNext();
+  
+  // 先读英文整句
+  const enUtt = new SpeechSynthesisUtterance(p.en);
+  enUtt.lang = 'en-US';
+  enUtt.rate = currentSpeed;
+  enUtt.pitch = 1.0;
+  const enVoice = getVoice('en');
+  if (enVoice) enUtt.voice = enVoice;
+  
+  // 估算朗读时间用于高亮
+  const estEnDuration = p.en.split(' ').length * 400; // ms per word
+  enUtt.onstart = () => startRandomHighlight(p.en.split(' ').length, estEnDuration * currentSpeed);
+  enUtt.onend = () => {
+    highlightRunning = false;
+    // 再读中文
+    if (p.zh) {
+      const zhUtt = new SpeechSynthesisUtterance(p.zh);
+      zhUtt.lang = 'zh-CN';
+      zhUtt.rate = currentSpeed;
+      zhUtt.pitch = 1.0;
+      const zhVoice = getVoice('zh');
+      if (zhVoice) zhUtt.voice = zhVoice;
+      synth.speak(zhUtt);
+    }
+  };
+  synth.speak(enUtt);
 }
 
 function showWordTip(el, word) {
@@ -150,12 +222,23 @@ function showWordTip(el, word) {
 
 function speakWord(word) {
   synth.cancel();
+  highlightRunning = false;
   const utt = new SpeechSynthesisUtterance(word);
-  utt.lang = 'en-GB'; utt.rate = 0.7;
+  utt.lang = 'en-US';
+  utt.rate = currentSpeed * 0.8;
+  const v = getVoice('en');
+  if (v) utt.voice = v;
   synth.speak(utt);
 }
 
 renderPage(0);
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    // Load voices then auto-read
+    if (synth.getVoices().length > 0) readCurrent();
+    else synth.onvoiceschanged = () => setTimeout(readCurrent, 500);
+  }, 800);
+});
 </script>
 </body>
 </html>
