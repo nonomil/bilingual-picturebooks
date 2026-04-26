@@ -41,9 +41,21 @@
   .word:hover { background:#ffd166; color:#000; }
   .word.speaking { background:#ff6b6b; color:#fff; }
 
-  .zh-text { font-size:17px; color:rgba(255,255,255,.8); 
-             background:rgba(255,255,255,.05); padding:12px 16px; 
-             border-radius:10px; margin-bottom:16px; }
+.zh-text { font-size:17px; color:rgba(255,255,255,.8); 
+            background:rgba(255,255,255,.05); padding:12px 16px; 
+            border-radius:10px; margin-bottom:16px; }
+
+  /* 词汇区域 */
+  .vocab-section { margin-top:16px; }
+  .vocab-section .label { font-size:13px; color:#4ecdc4; margin-bottom:8px; }
+  .vocab-row { display:flex; flex-wrap:wrap; gap:8px; }
+  .vocab-card { background:rgba(78,205,196,.15); border:1px solid rgba(78,205,196,.3);
+                border-radius:20px; padding:6px 14px; font-size:14px;
+                cursor:pointer; transition:all .15s; }
+  .vocab-card:hover { background:rgba(78,205,196,.3); transform:scale(1.02); }
+  .vocab-card .vw { font-weight:700; color:#4ecdc4; margin-right:6px; }
+  .vocab-card .vp { font-size:12px; color:#888; }
+  .vocab-card .vz { margin-left:6px; color:rgba(255,255,255,.7); }
 
   /* 词组区域 */
   .phrase-section { margin-top:16px; }
@@ -115,6 +127,14 @@
     <div class="text-section">
       <div class="en-text" id="enText"></div>
       <div class="zh-text" id="zhText"></div>
+      
+      <!-- 词汇区域 -->
+      <div class="vocab-section" id="vocabSection" style="display:none;">
+        <div class="label">💡 单词</div>
+        <div class="vocab-row" id="vocabRow"></div>
+      </div>
+      
+      <!-- 词组区域 -->
       <div class="phrase-section" id="phraseSection">
         <div class="label">📚 词组</div>
         <div class="phrase-row" id="phraseRow"></div>
@@ -145,7 +165,7 @@
   </div>
 
 <script>
-const PAGES = [{"img": "images/sugarcane-tank/sugarcane-tank/page-1.jpg", "en": "In a small village surrounded by green hills, there lived a brave little kid who loved building things.", "zh": "在一个被青山环绕的小村庄里，住着一个爱动手做东西的勇敢小孩。", "keys": [{"w": "village", "p": "/ˈvɪlɪdʒ/", "zh": "村庄，青山，勇敢，动手"}], "phrases": [{"en": "surrounded by green hills", "zh": "被青山环绕"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-2.jpg", "en": "Inside the workshop, the kid had been building something amazing — a tank made entirely of vegetables!", "zh": "工坊里，小孩一直在秘密制造一件了不起的东西——一辆全蔬菜做的坦克！", "keys": [{"w": "workshop", "p": "/ˈwɜːrkʃɑːp/", "zh": "工坊，秘密，坦克，蔬菜"}], "phrases": [{"en": "Inside the workshop", "zh": "在工坊里"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-3.jpg", "en": "The kid attached a hollow sugarcane tube as the cannon barrel. It smelled sweet like candy!", "zh": "小孩把一根空心甘蔗装上去当炮管，闻起来像糖果一样甜！", "keys": [{"w": "sugarcane", "p": "/ˈʃʊɡərkeɪn/", "zh": "甘蔗，炮管，甜，糖果"}], "phrases": [{"en": "hollow sugarcane tube", "zh": "空心甘蔗管"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-4.jpg", "en": "Round brown potato mines were loaded into the back of the tank, each coated in sticky golden syrup.", "zh": "圆圆的棕色土豆雷被装进坦克后面的弹仓，每个都裹着黏糊糊的金色糖浆。", "keys": [{"w": "potato", "p": "/pəˈteɪtoʊ/", "zh": "土豆，地雷，糖浆，金色"}], "phrases": [{"en": "potato mines", "zh": "土豆雷"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-5.jpg", "en": "Little Milk got a special tiny harness with pockets for smoke bombs. The puppy wagged its tail excitedly!", "zh": "小牛奶穿上了一件特别的小背心，口袋里装着烟雾弹，小狗兴奋地摇着尾巴！", "keys": [{"w": "puppy", "p": "/ˈpʌpi/", "zh": "小狗，背心，烟雾弹，兴奋"}], "phrases": [{"en": "special tiny harness", "zh": "特别的小背心"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-6.jpg", "en": "The biggest surprise — hollow pumpkin shells filled with magic growing seeds that could multiply forever!", "zh": "最大的秘密武器——掏空的南瓜壳里装着魔法生长种子，能无限分裂繁殖！", "keys": [{"w": "pumpkin", "p": "/ˈpʌmpkɪn/", "zh": "南瓜，炮弹，魔法种子，分裂"}], "phrases": [{"en": "hollow pumpkin shells", "zh": "掏空的南瓜壳"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-7.jpg", "en": "The sugarcane tank was finally complete! It had a sugarcane cannon, potato mine launcher, and pumpkin bomb bay.", "zh": "甘蔗坦克终于完工了！它有甘蔗炮、土豆雷发射器和南瓜弹仓。", "keys": [{"w": "complete", "p": "/kəmˈpliːt/", "zh": "完工，准备，坦克，武器"}], "phrases": [{"en": "sugarcane tank", "zh": "甘蔗坦克"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-8.jpg", "en": "Suddenly, a loud alarm echoed through the village — enemy tanks were approaching from the east!", "zh": "突然，村庄响起了警报——敌人的坦克正从东边逼近！", "keys": [{"w": "alarm", "p": "/əˈlɑːrm/", "zh": "警报，敌人，坦克，逼近"}], "phrases": [{"en": "a loud alarm echoed through the village", "zh": "警报声响彻整个村庄"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-9.jpg", "en": "Ten big steel tanks rolled into the village, crushing fences and scaring everyone away.", "zh": "十辆钢铁大坦克开进了村庄，压坏了栅栏，把大家都吓跑了。", "keys": [{"w": "enemy", "p": "/ˈɛnəmi/", "zh": "敌人，入侵，钢铁坦克，可怕"}], "phrases": [{"en": "big steel tanks", "zh": "巨大的钢铁坦克"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-10.jpg", "en": "'It's time to protect our home!' The kid jumped into the sugarcane tank and started the engine.", "zh": "\"是时候保护我们的家了！\"小孩跳进甘蔗坦克，发动了引擎。", "keys": [{"w": "charge", "p": "/tʃɑːrdʒ/", "zh": "出击，保护，引擎，勇敢"}], "phrases": [{"en": "protect our home", "zh": "保护我们的家"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-11.jpg", "en": "BANG! The sugarcane cannon fired a sticky syrup bomb that splattered all over the first enemy tank's tracks!", "zh": "砰！甘蔗炮发射了一发黏糊糊的糖浆弹，糊住了第一辆敌人坦克的履带！", "keys": [{"w": "syrup", "p": "/ˈsɪrəp/", "zh": "糖浆，发射，黏糊糊，履带"}], "phrases": [{"en": "sticky syrup bomb", "zh": "黏糊糊的糖浆弹"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-12.jpg", "en": "The kid pressed the rapid fire button and syrup bombs flew everywhere, gluing enemy tanks to the ground!", "zh": "小孩按下连射按钮，糖浆弹四处飞射，把敌人坦克全部粘在了地上！", "keys": [{"w": "rapid", "p": "/ˈræpɪd/", "zh": "快速的"}], "phrases": [{"en": "rapid fire button", "zh": "连射按钮"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-13.jpg", "en": "Little Milk sneaked out with a pink smoke bomb in mouth, running between the enemy tanks' legs!", "zh": "小牛奶叼着粉色烟雾弹偷偷溜出去，在敌人坦克腿之间跑来跑去！", "keys": [{"w": "puppy", "p": "/ˈpʌpi/", "zh": "小狗，偷偷，烟雾弹，敌人"}], "phrases": [{"en": "pink smoke bomb", "zh": "粉色烟雾弹"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-14.jpg", "en": "BOOM! The smoke bomb exploded filling the battlefield with thick pink smoke. The enemies couldn't see anything!", "zh": "砰！烟雾弹炸开了，战场上到处都是粉色烟雾，敌人什么也看不见！", "keys": [{"w": "smoke", "p": "/smoʊk/", "zh": "烟雾，粉色，爆炸，看不见"}], "phrases": [{"en": "thick pink smoke", "zh": "浓厚的粉色烟雾"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-15.jpg", "en": "A huge enemy commander tank, three times bigger than the others, pushed through the smoke!", "zh": "一辆比其他坦克大三倍的敌人队长坦克冲破了烟雾！", "keys": [{"w": "commander", "p": "/commander/", "zh": "队长，巨型坦克，冲破，烟雾"}], "phrases": [{"en": "enemy commander tank", "zh": "敌人队长坦克"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-16.jpg", "en": "'Time for the pumpkin bomb!' The kid pressed the big red button on the dashboard.", "zh": "\"该用南瓜弹了！\"小孩按下仪表盘上的大红色按钮。", "keys": [{"w": "pumpkin", "p": "/ˈpʌmpkɪn/", "zh": "南瓜，炮弹，红色按钮，终极"}], "phrases": [{"en": "pumpkin bomb", "zh": "南瓜弹"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-17.jpg", "en": "WHOOSH! A giant glowing pumpkin bomb launched from the cannon, spinning through the sky!", "zh": "嗖——一颗发光的巨大南瓜炮弹从炮管飞出，旋转着飞向天空！", "keys": [{"w": "pumpkin", "p": "/ˈpʌmpkɪn/", "zh": "南瓜，发射，旋转，天空"}], "phrases": [{"en": "giant glowing pumpkin bomb", "zh": "巨大发光的南瓜炮弹"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-18.jpg", "en": "The pumpkin bomb hit the commander tank and exploded into a giant pumpkin shell, trapping it completely!", "zh": "南瓜弹命中了队长坦克，炸开变成巨大的南瓜壳，把敌人整个包住了！", "keys": [{"w": "pumpkin", "p": "/ˈpʌmpkɪn/", "zh": "南瓜"}], "phrases": [{"en": "hit the commander tank", "zh": "命中了队长坦克"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-19.jpg", "en": "Then something incredible happened — the magic seeds sprouted! One pumpkin became ten, then a hundred, then thousands!", "zh": "然后不可思议的事情发生了——魔法种子发芽了！一个南瓜变十个，再变一百个，再变几千个！", "keys": [{"w": "magic", "p": "/ˈmædʒɪk/", "zh": "魔法，发芽，分裂，成千上万"}], "phrases": [{"en": "something incredible happened", "zh": "不可思议的事情发生了"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-20.jpg", "en": "Thick green pumpkin vines grew faster than lightning, wrapping around every enemy tank, truck, and weapon!", "zh": "粗壮的绿色南瓜藤蔓长得比闪电还快，缠住了每一个敌人坦克、卡车和武器！", "keys": [{"w": "vines", "p": "/vaɪnz/", "zh": "藤蔓，缠绕，闪电，敌人"}], "phrases": [{"en": "thick green pumpkin vines", "zh": "粗壮的绿色南瓜藤蔓"}]}, {"img": "images/sugarcane-tank/sugarcane-tank/page-21.jpg", "en": "The enemy commander waved a white flag from inside the pumpkin. 'We give up! Your vegetables are too powerful!'", "zh": "敌人队长从南瓜壳里伸出白旗投降：\"我们认输了！你们的蔬菜太厉害了！\"", "keys": [{"w": "surrender", "p": "/səˈrɛndər/", "zh": "投降，白旗，蔬菜，厉害"}], "phrases": [{"en": "waved a white flag", "zh": "挥舞白旗"}]}];
+const PAGES = [{"img": "images/sugarcane-tank/page-1.jpg", "en": "In a small village surrounded by green hills, there lived a brave little kid who loved building things.", "zh": "在一个被青山环绕的小村庄里，住着一个爱动手做东西的勇敢小孩。", "keys": [{"w": "village", "p": "/ˈvɪlɪdʒ/", "zh": "村庄，青山，勇敢，动手"}], "phrases": [{"en": "surrounded by green hills", "zh": "被青山环绕"}]}, {"img": "images/sugarcane-tank/page-2.jpg", "en": "Inside the workshop, the kid had been building something amazing — a tank made entirely of vegetables!", "zh": "工坊里，小孩一直在秘密制造一件了不起的东西——一辆全蔬菜做的坦克！", "keys": [{"w": "workshop", "p": "/ˈwɜːrkʃɑːp/", "zh": "工坊，秘密，坦克，蔬菜"}], "phrases": [{"en": "Inside the workshop", "zh": "在工坊里"}]}, {"img": "images/sugarcane-tank/page-3.jpg", "en": "The kid attached a hollow sugarcane tube as the cannon barrel. It smelled sweet like candy!", "zh": "小孩把一根空心甘蔗装上去当炮管，闻起来像糖果一样甜！", "keys": [{"w": "sugarcane", "p": "/ˈʃʊɡərkeɪn/", "zh": "甘蔗，炮管，甜，糖果"}], "phrases": [{"en": "hollow sugarcane tube", "zh": "空心甘蔗管"}]}, {"img": "images/sugarcane-tank/page-4.jpg", "en": "Round brown potato mines were loaded into the back of the tank, each coated in sticky golden syrup.", "zh": "圆圆的棕色土豆雷被装进坦克后面的弹仓，每个都裹着黏糊糊的金色糖浆。", "keys": [{"w": "potato", "p": "/pəˈteɪtoʊ/", "zh": "土豆，地雷，糖浆，金色"}], "phrases": [{"en": "potato mines", "zh": "土豆雷"}]}, {"img": "images/sugarcane-tank/page-5.jpg", "en": "Little Milk got a special tiny harness with pockets for smoke bombs. The puppy wagged its tail excitedly!", "zh": "小牛奶穿上了一件特别的小背心，口袋里装着烟雾弹，小狗兴奋地摇着尾巴！", "keys": [{"w": "puppy", "p": "/ˈpʌpi/", "zh": "小狗，背心，烟雾弹，兴奋"}], "phrases": [{"en": "special tiny harness", "zh": "特别的小背心"}]}, {"img": "images/sugarcane-tank/page-6.jpg", "en": "The biggest surprise — hollow pumpkin shells filled with magic growing seeds that could multiply forever!", "zh": "最大的秘密武器——掏空的南瓜壳里装着魔法生长种子，能无限分裂繁殖！", "keys": [{"w": "pumpkin", "p": "/ˈpʌmpkɪn/", "zh": "南瓜，炮弹，魔法种子，分裂"}], "phrases": [{"en": "hollow pumpkin shells", "zh": "掏空的南瓜壳"}]}, {"img": "images/sugarcane-tank/page-7.jpg", "en": "The sugarcane tank was finally complete! It had a sugarcane cannon, potato mine launcher, and pumpkin bomb bay.", "zh": "甘蔗坦克终于完工了！它有甘蔗炮、土豆雷发射器和南瓜弹仓。", "keys": [{"w": "complete", "p": "/kəmˈpliːt/", "zh": "完工，准备，坦克，武器"}], "phrases": [{"en": "sugarcane tank", "zh": "甘蔗坦克"}]}, {"img": "images/sugarcane-tank/page-8.jpg", "en": "Suddenly, a loud alarm echoed through the village — enemy tanks were approaching from the east!", "zh": "突然，村庄响起了警报——敌人的坦克正从东边逼近！", "keys": [{"w": "alarm", "p": "/əˈlɑːrm/", "zh": "警报，敌人，坦克，逼近"}], "phrases": [{"en": "a loud alarm echoed through the village", "zh": "警报声响彻整个村庄"}]}, {"img": "images/sugarcane-tank/page-9.jpg", "en": "Ten big steel tanks rolled into the village, crushing fences and scaring everyone away.", "zh": "十辆钢铁大坦克开进了村庄，压坏了栅栏，把大家都吓跑了。", "keys": [{"w": "enemy", "p": "/ˈɛnəmi/", "zh": "敌人，入侵，钢铁坦克，可怕"}], "phrases": [{"en": "big steel tanks", "zh": "巨大的钢铁坦克"}]}, {"img": "images/sugarcane-tank/page-10.jpg", "en": "'It's time to protect our home!' The kid jumped into the sugarcane tank and started the engine.", "zh": "\"是时候保护我们的家了！\"小孩跳进甘蔗坦克，发动了引擎。", "keys": [{"w": "charge", "p": "/tʃɑːrdʒ/", "zh": "出击，保护，引擎，勇敢"}], "phrases": [{"en": "protect our home", "zh": "保护我们的家"}]}, {"img": "images/sugarcane-tank/page-11.jpg", "en": "BANG! The sugarcane cannon fired a sticky syrup bomb that splattered all over the first enemy tank's tracks!", "zh": "砰！甘蔗炮发射了一发黏糊糊的糖浆弹，糊住了第一辆敌人坦克的履带！", "keys": [{"w": "syrup", "p": "/ˈsɪrəp/", "zh": "糖浆，发射，黏糊糊，履带"}], "phrases": [{"en": "sticky syrup bomb", "zh": "黏糊糊的糖浆弹"}]}, {"img": "images/sugarcane-tank/page-12.jpg", "en": "The kid pressed the rapid fire button and syrup bombs flew everywhere, gluing enemy tanks to the ground!", "zh": "小孩按下连射按钮，糖浆弹四处飞射，把敌人坦克全部粘在了地上！", "keys": [{"w": "rapid", "p": "/ˈræpɪd/", "zh": "快速的"}], "phrases": [{"en": "rapid fire button", "zh": "连射按钮"}]}, {"img": "images/sugarcane-tank/page-13.jpg", "en": "Little Milk sneaked out with a pink smoke bomb in mouth, running between the enemy tanks' legs!", "zh": "小牛奶叼着粉色烟雾弹偷偷溜出去，在敌人坦克腿之间跑来跑去！", "keys": [{"w": "puppy", "p": "/ˈpʌpi/", "zh": "小狗，偷偷，烟雾弹，敌人"}], "phrases": [{"en": "pink smoke bomb", "zh": "粉色烟雾弹"}]}, {"img": "images/sugarcane-tank/page-14.jpg", "en": "BOOM! The smoke bomb exploded filling the battlefield with thick pink smoke. The enemies couldn't see anything!", "zh": "砰！烟雾弹炸开了，战场上到处都是粉色烟雾，敌人什么也看不见！", "keys": [{"w": "smoke", "p": "/smoʊk/", "zh": "烟雾，粉色，爆炸，看不见"}], "phrases": [{"en": "thick pink smoke", "zh": "浓厚的粉色烟雾"}]}, {"img": "images/sugarcane-tank/page-15.jpg", "en": "A huge enemy commander tank, three times bigger than the others, pushed through the smoke!", "zh": "一辆比其他坦克大三倍的敌人队长坦克冲破了烟雾！", "keys": [{"w": "commander", "p": "/commander/", "zh": "队长，巨型坦克，冲破，烟雾"}], "phrases": [{"en": "enemy commander tank", "zh": "敌人队长坦克"}]}, {"img": "images/sugarcane-tank/page-16.jpg", "en": "'Time for the pumpkin bomb!' The kid pressed the big red button on the dashboard.", "zh": "\"该用南瓜弹了！\"小孩按下仪表盘上的大红色按钮。", "keys": [{"w": "pumpkin", "p": "/ˈpʌmpkɪn/", "zh": "南瓜，炮弹，红色按钮，终极"}], "phrases": [{"en": "pumpkin bomb", "zh": "南瓜弹"}]}, {"img": "images/sugarcane-tank/page-17.jpg", "en": "WHOOSH! A giant glowing pumpkin bomb launched from the cannon, spinning through the sky!", "zh": "嗖——一颗发光的巨大南瓜炮弹从炮管飞出，旋转着飞向天空！", "keys": [{"w": "pumpkin", "p": "/ˈpʌmpkɪn/", "zh": "南瓜，发射，旋转，天空"}], "phrases": [{"en": "giant glowing pumpkin bomb", "zh": "巨大发光的南瓜炮弹"}]}, {"img": "images/sugarcane-tank/page-18.jpg", "en": "The pumpkin bomb hit the commander tank and exploded into a giant pumpkin shell, trapping it completely!", "zh": "南瓜弹命中了队长坦克，炸开变成巨大的南瓜壳，把敌人整个包住了！", "keys": [{"w": "pumpkin", "p": "/ˈpʌmpkɪn/", "zh": "南瓜"}], "phrases": [{"en": "hit the commander tank", "zh": "命中了队长坦克"}]}, {"img": "images/sugarcane-tank/page-19.jpg", "en": "Then something incredible happened — the magic seeds sprouted! One pumpkin became ten, then a hundred, then thousands!", "zh": "然后不可思议的事情发生了——魔法种子发芽了！一个南瓜变十个，再变一百个，再变几千个！", "keys": [{"w": "magic", "p": "/ˈmædʒɪk/", "zh": "魔法，发芽，分裂，成千上万"}], "phrases": [{"en": "something incredible happened", "zh": "不可思议的事情发生了"}]}, {"img": "images/sugarcane-tank/page-20.jpg", "en": "Thick green pumpkin vines grew faster than lightning, wrapping around every enemy tank, truck, and weapon!", "zh": "粗壮的绿色南瓜藤蔓长得比闪电还快，缠住了每一个敌人坦克、卡车和武器！", "keys": [{"w": "vines", "p": "/vaɪnz/", "zh": "藤蔓，缠绕，闪电，敌人"}], "phrases": [{"en": "thick green pumpkin vines", "zh": "粗壮的绿色南瓜藤蔓"}]}, {"img": "images/sugarcane-tank/page-21.jpg", "en": "The enemy commander waved a white flag from inside the pumpkin. 'We give up! Your vegetables are too powerful!'", "zh": "敌人队长从南瓜壳里伸出白旗投降：\"我们认输了！你们的蔬菜太厉害了！\"", "keys": [{"w": "surrender", "p": "/səˈrɛndər/", "zh": "投降，白旗，蔬菜，厉害"}], "phrases": [{"en": "waved a white flag", "zh": "挥舞白旗"}]}];
 let cur = 0;
 let currentSpeed = 1;
 const synth = window.speechSynthesis;
@@ -191,8 +211,23 @@ function renderPage(i) {
   // 中文
   document.getElementById('zhText').textContent = p.zh;
   
-  // 词组
+  // 词汇（如果有）放在词组前面
+  const keys = p.keys || [];
   const phrases = p.phrases || [];
+  
+  // 先显示词汇
+  if (keys.length > 0) {
+    document.getElementById('vocabSection').style.display = 'block';
+    document.getElementById('vocabRow').innerHTML = keys.map(k =>
+      `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
+        <span class="vw">${k.w}</span> <span class="vp">${k.p}</span> <span class="vz">${k.zh}</span>
+      </div>`
+    ).join('');
+  } else {
+    document.getElementById('vocabSection').style.display = 'none';
+  }
+  
+  // 词组
   if (phrases.length > 0) {
     document.getElementById('phraseSection').style.display = 'block';
     document.getElementById('phraseRow').innerHTML = phrases.map(ph => 
@@ -204,15 +239,6 @@ function renderPage(i) {
   } else {
     document.getElementById('phraseSection').style.display = 'none';
   }
-  
-  // 词汇卡片
-  const vocabCards = (p.keys || []).map(k =>
-    `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
-      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span></div>
-      <div class="vz">${k.zh}</div>
-    </div>`
-  ).join('');
-  document.getElementById('vocabRow').innerHTML = vocabCards;
   
   // 指示器
   document.getElementById('pageIndicator').textContent = `${i+1} / ${PAGES.length}`;
