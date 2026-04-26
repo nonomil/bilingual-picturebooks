@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{STORY_TITLE}} — 游戏版</title>
+<title>Tank Battles Book 3 — 游戏版</title>
 <style>
   body { font-family:'Nunito','Comic Sans MS',cursive; background:#1a1a2e;
          min-height:100vh; display:flex; align-items:center; justify-content:center;
@@ -69,14 +69,14 @@
 <canvas class="starfield" id="starCanvas"></canvas>
 <div class="game-card">
   <div class="top-bar">
-    <div class="unit-title">{{STORY_TITLE}}</div>
+    <div class="unit-title">Tank Battles Book 3</div>
     <div class="star-display"><span id="starCount">⭐ 0</span></div>
   </div>
   <div id="stageArea"></div>
 </div>
 
 <script>
-const STORY = {{STORY_JSON}};
+const STORY = {"id": "tank-3", "title": "Tank Battles Book 3", "titleZh": "坦克大战·第三册", "category": "我的世界", "cover": "images/covers/cover-tank-3.jpg", "pages": [{"img": "images/tank-3/page-1.jpg", "en": "Regular monsters were too easy now. It was time for a real boss fight!", "zh": "普通怪物太简单了，是时候挑战真正的BOSS了！", "keys": [{"w": "regular", "p": "/ˈreɡ.jə.lər/", "zh": "普通的"}], "phrases": [{"en": "Regular monsters", "zh": "普通怪物"}]}, {"img": "images/tank-3/page-2.jpg", "en": "Soul sand and skulls arranged. The Wither was summoned! Three heads, super powerful!", "zh": "摆好灵魂沙和骷髅头，凋零被召唤出来了！三个脑袋，超级强大！", "keys": [{"w": "arranged", "p": "/əˈreɪndʒd/", "zh": "摆放好；排列好"}], "phrases": [{"en": "arranged soul sand and skulls", "zh": "摆好灵魂沙和骷髅头"}]}, {"img": "images/tank-3/page-3.jpg", "en": "One tank was not enough! The Wither's bombs were too powerful!", "zh": "一辆坦克根本不够！凋零的炸弹太猛了！", "keys": [{"w": "enough", "p": "/ɪˈnʌf/", "zh": "足够的"}], "phrases": [{"en": "not enough", "zh": "根本不够"}]}, {"img": "images/tank-3/page-4.jpg", "en": "The tank was losing health fast. Run back to the base!", "zh": "坦克掉血超快，差点被打爆！赶紧跑回阵地！", "keys": [{"w": "losing", "p": "/ˈluː.zɪŋ/", "zh": "失去；减少"}], "phrases": [{"en": "losing health fast", "zh": "掉血超快"}]}, {"img": "images/tank-3/page-5.jpg", "en": "Time to bring out ALL the tanks! A tank army was forming!", "zh": "把所有造好的坦克都开出来，组成坦克大军！", "keys": [{"w": "tank", "p": "/tæŋk/", "zh": "坦克"}], "phrases": [{"en": "bring out ALL the tanks", "zh": "把所有坦克都开出来"}]}, {"img": "images/tank-3/page-6.jpg", "en": "The tank army surrounded the Wither. Every tank aimed and fired!", "zh": "坦克大军把凋零围了起来，所有坦克一起开火！", "keys": [{"w": "surround", "p": "/səˈraʊnd/", "zh": "包围"}], "phrases": [{"en": "surrounded the Wither", "zh": "把凋零围了起来"}]}, {"img": "images/tank-3/page-7.jpg", "en": "Heavy tanks blocked the front, absorbing the Wither's devastating blows!", "zh": "重型坦克在正面扛伤害，挡住凋零的猛烈攻击！", "keys": [{"w": "heavy", "p": "/ˈhevi/", "zh": "重的；重型的"}], "phrases": [{"en": "Heavy tanks", "zh": "重型坦克"}]}, {"img": "images/tank-3/page-8.jpg", "en": "Light tanks zoomed around the sides, hitting the Wither from every angle!", "zh": "轻型坦克绕到侧面，从各个角度攻击凋零！", "keys": [{"w": "light", "p": "/laɪt/", "zh": "轻的；轻型的"}], "phrases": [{"en": "Light tanks", "zh": "轻型坦克"}]}, {"img": "images/tank-3/page-9.jpg", "en": "Missile tanks fired from far away. Each missile dealt massive damage!", "zh": "导弹坦克在远处发射，每发导弹都造成巨大伤害！", "keys": [{"w": "missile", "p": "/ˈmɪsəl/", "zh": "导弹"}], "phrases": [{"en": "fired from far away", "zh": "在远处发射"}]}, {"img": "images/tank-3/page-10.jpg", "en": "Even the redstone cannons joined in! Boom boom boom!", "zh": "连红石大炮也不停开火！轰轰轰！", "keys": [{"w": "redstone", "p": "/ˈredstoʊn/", "zh": "红石"}], "phrases": [{"en": "joined in", "zh": "也加入进来"}]}, {"img": "images/tank-3/page-11.jpg", "en": "After a long hard fight, the Wither finally fell! Victory!", "zh": "打了好久好久，凋零终于被打败了！胜利！", "keys": [{"w": "fight", "p": "/faɪt/", "zh": "战斗"}], "phrases": [{"en": "a long hard fight", "zh": "漫长而艰难的战斗"}]}, {"img": "images/tank-3/page-12.jpg", "en": "A Nether Star dropped! Time to build something even more amazing!", "zh": "掉落了下界之星！是时候造更厉害的东西了！", "keys": [{"w": "Nether Star", "p": "/ˈneðər stɑːr/", "zh": "下界之星"}], "phrases": [{"en": "Nether Star dropped", "zh": "掉落了下界之星"}]}, {"img": "images/tank-3/page-13.jpg", "en": "Next up: a super tank with triple-layer armor that nothing can destroy!", "zh": "下一步：造一辆三层加厚护甲的超级坦克，谁也打不动！", "keys": [{"w": "super", "p": "/ˈsuːpər/", "zh": "超级的"}], "phrases": [{"en": "Next up", "zh": "下一步"}]}]};
 let stars = 0, stage = 0;
 
 // 星星背景
@@ -108,9 +108,9 @@ function nextStage(){ stage++; if(stage<STAGES.length) STAGES[stage](); }
 function renderIntro(){
   document.getElementById('stageArea').innerHTML = `
     <div class="story-intro">
-      <h3>{{STORY_TITLE}}</h3>
+      <h3>Tank Battles Book 3</h3>
 <img src="/${STORY.cover}" alt="cover">
-      <p>{{STORY_INTRO}}</p>
+      <p>和坦克大战·第三册一起学英语吧！</p>
       <button class="next-unit-btn" onclick="nextStage()" style="margin-top:20px">开始游戏 →</button>
     </div>`;
 }

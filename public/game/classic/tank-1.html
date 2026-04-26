@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Very Hungry Little Snake — 游戏版</title>
+<title>Tank Battles Book 1 — 游戏版</title>
 <style>
   body { font-family:'Nunito','Comic Sans MS',cursive; background:#1a1a2e;
          min-height:100vh; display:flex; align-items:center; justify-content:center;
@@ -61,28 +61,22 @@
   .story-intro { text-align:center; margin-bottom:20px; }
   .story-intro img { max-width:200px; border-radius:12px; margin:10px 0; }
   .story-intro p { color:#e2e2e2; font-size:16px; line-height:1.6; }
+
+  h3 { color:#e17055; margin-bottom:16px; }
 </style>
 </head>
 <body>
 <canvas class="starfield" id="starCanvas"></canvas>
 <div class="game-card">
   <div class="top-bar">
-    <div class="unit-title">🐍 The Very Hungry Little Snake</div>
+    <div class="unit-title">Tank Battles Book 1</div>
     <div class="star-display"><span id="starCount">⭐ 0</span></div>
   </div>
   <div id="stageArea"></div>
 </div>
 
 <script>
-const VOCAB = [
-  {w:"apple",zh:"苹果",emoji:"🍎"},
-  {w:"banana",zh:"香蕉",emoji:"🍌"},
-  {w:"strawberry",zh:"草莓",emoji:"🍓"},
-  {w:"grapes",zh:"葡萄",emoji:"🍇"},
-  {w:"orange",zh:"橙子",emoji:"🍊"},
-  {w:"leaf",zh:"叶子",emoji:"🍃"}
-];
-
+const STORY = {"id": "tank-1", "title": "Tank Battles Book 1", "titleZh": "坦克大战·第一册", "category": "我的世界", "cover": "images/covers/cover-tank-1.jpg", "pages": [{"img": "images/tank-1/page-1.jpg", "en": "In the world of blocks, a player had a big dream — to build tanks!", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}]}, {"img": "images/tank-1/page-2.jpg", "en": "He worked for days, placing blocks one by one. First, a heavy tank with thick iron armor!", "zh": "他捣鼓了好几天，一个方块一个方块地拼。第一辆，是皮糙肉厚的重型坦克！", "keys": [{"w": "placing", "p": "/ˈpleɪsɪŋ/", "zh": "放置"}], "phrases": [{"en": "worked for days", "zh": "捣鼓了好几天"}]}, {"img": "images/tank-1/page-3.jpg", "en": "Then a light tank that zooms across the plains super fast!", "zh": "然后是一辆轻型坦克，在平原上跑起来飞快！", "keys": [{"w": "light", "p": "/laɪt/", "zh": "轻的"}], "phrases": [{"en": "zooms across the plains", "zh": "飞快地穿过平原"}]}, {"img": "images/tank-1/page-4.jpg", "en": "And finally, a missile tank! When it fires, the missiles fly high with fiery trails!", "zh": "最后还造了一辆导弹坦克！发射的时候导弹拖着火焰飞出去，超炫酷！", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "最后"}], "phrases": [{"en": "missile tank", "zh": "导弹坦克"}]}, {"img": "images/tank-1/page-5.jpg", "en": "All three tanks lined up in the garage. The player could not wait any longer!", "zh": "三辆坦克停在车库里整整齐齐。他迫不及待要开出去浪了！", "keys": [{"w": "lined up", "p": "/laɪnd ʌp/", "zh": "排成一排"}], "phrases": [{"en": "lined up in the garage", "zh": "整齐地停在车库里"}]}, {"img": "images/tank-1/page-6.jpg", "en": "He drove the heavy tank straight to the monster nest. Zombies and skeletons were everywhere!", "zh": "他开着重型坦克直接冲到怪物窝旁边。到处都是僵尸和骷髅！", "keys": [{"w": "drove", "p": "/droʊv/", "zh": "驾驶"}], "phrases": [{"en": "drove the heavy tank straight to", "zh": "开着重型坦克直奔"}]}, {"img": "images/tank-1/page-7.jpg", "en": "BOOM! One shot from the cannon and monsters went flying everywhere! So satisfying!", "zh": "轰！一炮下去怪物直接炸飞一大片，太解压了！", "keys": [{"w": "shot", "p": "/ʃɑːt/", "zh": "射击；一炮"}], "phrases": [{"en": "One shot from the cannon", "zh": "大炮一发射击"}]}, {"img": "images/tank-1/page-8.jpg", "en": "The heavy tank charged right through! Monsters could not get anywhere near it!", "zh": "坦克横冲直撞！怪物根本近不了身！", "keys": [{"w": "charged", "p": "/tʃɑːrdʒd/", "zh": "冲锋；猛冲"}], "phrases": [{"en": "charged right through", "zh": "直接冲了过去"}]}, {"img": "images/tank-1/page-9.jpg", "en": "In no time, the whole monster nest was cleared. The player cheered inside the tank!", "zh": "几下就把整片怪物窝清干净了，他在坦克里开心地欢呼！", "keys": [{"w": "monster", "p": "/ˈmɒnstər/", "zh": "怪物"}], "phrases": [{"en": "In no time", "zh": "没过多久"}]}, {"img": "images/tank-1/page-10.jpg", "en": "No more hiding with a sword! Tanks make everything so much easier!", "zh": "再也不用拿剑躲躲藏藏了！有坦克就是不一样！", "keys": [{"w": "hiding", "p": "/ˈhaɪdɪŋ/", "zh": "躲藏"}], "phrases": [{"en": "No more hiding with a sword", "zh": "再也不用拿着剑躲躲藏藏了"}]}, {"img": "images/tank-1/page-11.jpg", "en": "Achievement unlocked! The player felt so proud. But this was just the beginning...", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}]}]};
 let stars = 0, stage = 0;
 
 // 星星背景
@@ -114,17 +108,18 @@ function nextStage(){ stage++; if(stage<STAGES.length) STAGES[stage](); }
 function renderIntro(){
   document.getElementById('stageArea').innerHTML = `
     <div class="story-intro">
-      <h2 style="color:#e17055;margin-bottom:16px">好饿的小蛇</h2>
-      <img src="images/covers/cover-snake.jpg" alt="snake">
-      <p>小蛇好饿好饿，他每天都会去找好吃的水果。<br>让我们一起帮助小蛇吧！</p>
+      <h3>Tank Battles Book 1</h3>
+<img src="/${STORY.cover}" alt="cover">
+      <p>和坦克大战·第一册一起学英语吧！</p>
       <button class="next-unit-btn" onclick="nextStage()" style="margin-top:20px">开始游戏 →</button>
     </div>`;
 }
 
 // 关卡1：听音选图
 function renderListenSelect(){
-  const q = VOCAB[Math.floor(Math.random()*5)];  // 前5个水果
-  const opts = shuffle([q, ...VOCAB.filter(v=>v.w!==q.w).slice(0,3)]);
+  const vocab = STORY.unitVocab.slice(0,5);
+  const q = vocab[Math.floor(Math.random()*vocab.length)];
+  const opts = shuffle([q, ...vocab.filter(v=>v.w!==q.w).slice(0,3)]);
   speakWord(q.w);
 
   document.getElementById('stageArea').innerHTML = `
@@ -139,7 +134,7 @@ function renderListenSelect(){
     <div class="options-grid">
       ${opts.map(o=>`
         <button class="opt-btn" onclick="checkAnswer(this,'${o.w}','${q.w}')">
-          <div style="font-size:40px">${o.emoji}</div>
+          <div style="font-size:40px">${wordToEmoji(o.w)}</div>
           <div style="margin-top:8px;font-size:14px;color:#aaa">${o.zh}</div>
         </button>
       `).join('')}
@@ -155,7 +150,7 @@ function checkAnswer(btn, chosen, correct){
   } else {
     btn.classList.add('wrong');
     document.querySelectorAll('.opt-btn').forEach(b=>{
-      if(b.textContent.includes(VOCAB.find(v=>v.w===correct).emoji)) b.classList.add('correct');
+      if(b.textContent.includes(wordToEmoji(correct))) b.classList.add('correct');
     });
     setTimeout(nextStage, 1800);
   }
@@ -163,7 +158,7 @@ function checkAnswer(btn, chosen, correct){
 
 // 关卡2：拖拽配对
 function renderDragMatch(){
-  const pairs = VOCAB.slice(0,3);
+  const pairs = STORY.unitVocab.slice(0,3);
   document.getElementById('stageArea').innerHTML = `
     <div class="stage-title">✋ 拖一拖，把单词和图片配对！</div>
     <div class="drag-area">
@@ -182,7 +177,7 @@ function renderDragMatch(){
                data-target="${p.w}"
                ondragover="event.preventDefault()"
                ondrop="dragDrop(event,'${p.w}')">
-            ${p.emoji}
+            ${wordToEmoji(p.w)}
           </div>
         `).join('')}
       </div>
@@ -197,7 +192,7 @@ function dragDrop(e, target){
   const zone = e.currentTarget;
   if(word === target && !zone.classList.contains('matched')){
     zone.classList.add('matched');
-    zone.innerHTML = `${VOCAB.find(v=>v.w===target).emoji}<br><span style="font-size:14px;color:#2ecc71">${word}</span>`;
+    zone.innerHTML = `${wordToEmoji(target)}<br><span style="font-size:14px;color:#2ecc71">${word}</span>`;
     document.querySelector(`[data-word="${word}"]`)?.remove();
     addStar(1); matched++;
     if(matched >= 3){ matched=0; setTimeout(nextStage,800); }
@@ -206,16 +201,16 @@ function dragDrop(e, target){
 
 // 关卡3：看图造句
 function renderSentenceBuild(){
-  const vocab = VOCAB.slice(0,5);
+  const vocab = STORY.unitVocab.slice(0,5);
   const target = vocab[Math.floor(Math.random()*vocab.length)];
   const distractors = shuffle(vocab.filter(v=>v.w!==target.w)).slice(0,3);
   const choices = shuffle([target, ...distractors]);
 
   document.getElementById('stageArea').innerHTML = `
     <div class="stage-title">✏️ 看图，选词填空！</div>
-    <div style="text-align:center;font-size:60px;margin:12px 0">${target.emoji}</div>
+    <div style="text-align:center;font-size:60px;margin:12px 0">${wordToEmoji(target.w)}</div>
     <div style="text-align:center;color:#e2e2e2;font-size:22px;margin:12px 0">
-      The snake ate the ___ .
+      I have one ___ .
     </div>
     <div class="options-grid">
       ${choices.map(c=>`
@@ -234,7 +229,7 @@ function renderFinish(){
       <div class="big-stars">${'⭐'.repeat(allStars)}${'☆'.repeat(3-allStars)}</div>
       <div class="finish-msg">太棒了！你得了 ${stars} 颗星！</div>
       <div style="color:#a8e6cf;font-size:16px;margin-bottom:20px">
-        ${stars>=3?'满分！你已经掌握这个故事了！':'继续加油，再挑战一次吧！'}
+        ${stars>=3?'满分！你已经掌握这个单元了！':'继续加油，再挑战一次吧！'}
       </div>
       <button class="next-unit-btn" onclick="location.href='../../index.html'">
         🏠 回到主页
@@ -256,6 +251,16 @@ function speakWord(word){
 }
 
 function shuffle(arr){ return arr.sort(()=>Math.random()-.5); }
+
+function wordToEmoji(w){
+  const map = {
+    car:'🚗', duck:'🦆', ball:'⚽', frog:'🐸', rabbit:'🐰',
+    cat:'🐱', dog:'🐶', bird:'🐦', fish:'🐟', tree:'🌳',
+    apple:'🍎', book:'📚', pen:'✏️', bag:'👜', hat:'🎩',
+    red:'🔴', yellow:'🟡', blue:'🔵', green:'🟢', pink:'🩷'
+  };
+  return map[w.toLowerCase()] || '❓';
+}
 
 // 启动
 STAGES[0]();

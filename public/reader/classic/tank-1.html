@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{STORY_TITLE}} — 朗读版</title>
+<title>Tank Battles Book 1 — 朗读版</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -242,14 +242,14 @@
 <body>
   <nav class="top-nav">
     <a href="../../" class="back-btn">← 返回首页</a>
-    <span class="title">{{STORY_TITLE}}</span>
+    <span class="title">Tank Battles Book 1</span>
     <span class="spacer"></span>
   </nav>
 
   <div class="main-content">
     <div class="reader-card">
       <div class="reader-header">
-        <h1>{{STORY_TITLE}}</h1>
+        <h1>Tank Battles Book 1</h1>
       </div>
 
       <div class="page-display">
@@ -292,8 +292,8 @@
   </div>
 
 <script>
-const PAGES = ##PAGES_JSON##;
-const GAME_URL = '##GAME_URL##';
+const PAGES = [{"img": "images/tank-1/page-1.jpg", "en": "In the world of blocks, a player had a big dream — to build tanks!", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}]}, {"img": "images/tank-1/page-2.jpg", "en": "He worked for days, placing blocks one by one. First, a heavy tank with thick iron armor!", "zh": "他捣鼓了好几天，一个方块一个方块地拼。第一辆，是皮糙肉厚的重型坦克！", "keys": [{"w": "placing", "p": "/ˈpleɪsɪŋ/", "zh": "放置"}], "phrases": [{"en": "worked for days", "zh": "捣鼓了好几天"}]}, {"img": "images/tank-1/page-3.jpg", "en": "Then a light tank that zooms across the plains super fast!", "zh": "然后是一辆轻型坦克，在平原上跑起来飞快！", "keys": [{"w": "light", "p": "/laɪt/", "zh": "轻的"}], "phrases": [{"en": "zooms across the plains", "zh": "飞快地穿过平原"}]}, {"img": "images/tank-1/page-4.jpg", "en": "And finally, a missile tank! When it fires, the missiles fly high with fiery trails!", "zh": "最后还造了一辆导弹坦克！发射的时候导弹拖着火焰飞出去，超炫酷！", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "最后"}], "phrases": [{"en": "missile tank", "zh": "导弹坦克"}]}, {"img": "images/tank-1/page-5.jpg", "en": "All three tanks lined up in the garage. The player could not wait any longer!", "zh": "三辆坦克停在车库里整整齐齐。他迫不及待要开出去浪了！", "keys": [{"w": "lined up", "p": "/laɪnd ʌp/", "zh": "排成一排"}], "phrases": [{"en": "lined up in the garage", "zh": "整齐地停在车库里"}]}, {"img": "images/tank-1/page-6.jpg", "en": "He drove the heavy tank straight to the monster nest. Zombies and skeletons were everywhere!", "zh": "他开着重型坦克直接冲到怪物窝旁边。到处都是僵尸和骷髅！", "keys": [{"w": "drove", "p": "/droʊv/", "zh": "驾驶"}], "phrases": [{"en": "drove the heavy tank straight to", "zh": "开着重型坦克直奔"}]}, {"img": "images/tank-1/page-7.jpg", "en": "BOOM! One shot from the cannon and monsters went flying everywhere! So satisfying!", "zh": "轰！一炮下去怪物直接炸飞一大片，太解压了！", "keys": [{"w": "shot", "p": "/ʃɑːt/", "zh": "射击；一炮"}], "phrases": [{"en": "One shot from the cannon", "zh": "大炮一发射击"}]}, {"img": "images/tank-1/page-8.jpg", "en": "The heavy tank charged right through! Monsters could not get anywhere near it!", "zh": "坦克横冲直撞！怪物根本近不了身！", "keys": [{"w": "charged", "p": "/tʃɑːrdʒd/", "zh": "冲锋；猛冲"}], "phrases": [{"en": "charged right through", "zh": "直接冲了过去"}]}, {"img": "images/tank-1/page-9.jpg", "en": "In no time, the whole monster nest was cleared. The player cheered inside the tank!", "zh": "几下就把整片怪物窝清干净了，他在坦克里开心地欢呼！", "keys": [{"w": "monster", "p": "/ˈmɒnstər/", "zh": "怪物"}], "phrases": [{"en": "In no time", "zh": "没过多久"}]}, {"img": "images/tank-1/page-10.jpg", "en": "No more hiding with a sword! Tanks make everything so much easier!", "zh": "再也不用拿剑躲躲藏藏了！有坦克就是不一样！", "keys": [{"w": "hiding", "p": "/ˈhaɪdɪŋ/", "zh": "躲藏"}], "phrases": [{"en": "No more hiding with a sword", "zh": "再也不用拿着剑躲躲藏藏了"}]}, {"img": "images/tank-1/page-11.jpg", "en": "Achievement unlocked! The player felt so proud. But this was just the beginning...", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}]}];
+const GAME_URL = '../game/classic/tank-1.html';
 let cur = 0;
 let currentSpeed = 1;
 let transVisible = false;
