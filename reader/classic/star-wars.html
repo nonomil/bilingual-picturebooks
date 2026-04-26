@@ -8,93 +8,141 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Nunito', sans-serif; background:#fffdf5; 
-         min-height:100vh; display:flex; flex-direction:column; align-items:center; }
+  html, body { height:100%; }
+  body { font-family: 'Nunito', sans-serif; background:#1a1a2e; 
+         display:flex; flex-direction:column; overflow:hidden; }
 
-  .reader-wrap { max-width:800px; width:100%; padding:16px; }
+  /* 顶部导航 */
+  .top-nav { position:fixed; top:0; left:0; right:0; z-index:100;
+             background:rgba(26,26,46,.95); backdrop-filter:blur(10px);
+             padding:12px 20px; display:flex; align-items:center; justify-content:space-between;
+             border-bottom:1px solid rgba(255,255,255,.1); }
+  .top-nav .title { color:#fff; font-size:18px; font-weight:600; }
+  .top-nav .back-btn { color:#fff; text-decoration:none; font-size:14px;
+                       opacity:.8; transition:opacity .2s; }
+  .top-nav .back-btn:hover { opacity:1; }
 
-  .page-img { width:100%; border-radius:16px; 
-              box-shadow:0 4px 20px rgba(0,0,0,.12); display:block; }
+  /* 主内容区 */
+  .main-content { flex:1; display:flex; flex-direction:column; 
+                  padding:70px 20px 180px; overflow-y:auto; }
 
-  .text-area { margin-top:16px; padding:16px; 
-               background:#fff; border-radius:12px;
-               box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  /* 全幅图片 */
+  .full-img-wrap { width:100%; max-width:700px; margin:0 auto 20px; }
+  .full-img { width:100%; border-radius:16px; 
+              box-shadow:0 8px 32px rgba(0,0,0,.3); display:block; }
 
-  .en-sentence { font-size:22px; line-height:1.8; color:#333; font-family:'Nunito',sans-serif; }
+  /* 文本区域 */
+  .text-section { max-width:700px; margin:0 auto; width:100%; }
+  .en-text { font-size:20px; line-height:1.8; color:#fff; 
+             background:rgba(255,255,255,.1); padding:16px; 
+             border-radius:12px; margin-bottom:12px; }
   .word { cursor:pointer; border-radius:4px; padding:0 2px;
-          transition: background .15s; font-family:'Nunito',sans-serif; }
-  .word:hover { background:#fff3b0; }
-  .word.speaking { background:#ffd166; }
+          transition: background .15s; display:inline; }
+  .word:hover { background:#ffd166; color:#000; }
+  .word.speaking { background:#ff6b6b; color:#fff; }
 
-  .word-tip { display:inline-block; font-size:13px; color:#888;
-              background:#f8f8f8; border-radius:6px;
-              padding:2px 8px; margin-left:4px; }
+  .zh-text { font-size:17px; color:rgba(255,255,255,.8); 
+             background:rgba(255,255,255,.05); padding:12px 16px; 
+             border-radius:10px; margin-bottom:16px; }
 
-  .zh-sentence { font-size:18px; color:#555; margin-top:14px; font-family:'Nunito',sans-serif; }
+  /* 词组区域 */
+  .phrase-section { margin-top:16px; }
+  .phrase-section .label { font-size:13px; color:#ffd166; margin-bottom:8px; }
+  .phrase-row { display:flex; flex-wrap:wrap; gap:8px; }
+  .phrase-card { background:rgba(255,209,102,.15); border:1px solid rgba(255,209,102,.3);
+                 border-radius:20px; padding:6px 14px; font-size:14px;
+                 cursor:pointer; transition:all .15s; }
+  .phrase-card:hover { background:rgba(255,209,102,.3); transform:scale(1.02); }
+  .phrase-card .pen { color:#ffd166; margin-right:6px; }
+  .phrase-card .pzh { color:rgba(255,255,255,.7); margin-left:6px; }
 
-  .vocab-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:16px; }
-  .vocab-card { background:#f8f9fa; border-radius:10px; 
-                padding:10px 14px; cursor:pointer;
-                transition: all .15s; min-width:180px; }
-  .vocab-card:hover { transform:scale(1.02); box-shadow:0 4px 12px rgba(0,0,0,.1); background:#fff; }
-  .vocab-card .vw { font-size:16px; font-weight:bold; color:#2980b9; margin-right:6px; }
-  .vocab-card .vp { font-size:13px; color:#888; }
-  .vocab-card .vz { font-size:14px; color:#555; }
-  .vocab-card .v-line { display:flex; align-items:baseline; gap:8px; margin-top:2px; }
-  .vocab-card .vph { font-size:12px; color:#666; border-top:1px solid #eee; margin-top:6px; padding-top:4px; }
-  .vocab-card .vph-en { color:#2980b9; }
+  /* 词汇卡片 - 底部悬浮 */
+  .vocab-bar { position:fixed; bottom:0; left:0; right:0; 
+               background:rgba(15,15,30,.98); backdrop-filter:blur(10px);
+               border-top:1px solid rgba(255,255,255,.1);
+               padding:16px 20px; max-height:160px; overflow-y:auto; }
+  .vocab-bar .bar-title { font-size:13px; color:#888; margin-bottom:10px; }
+  .vocab-row { display:flex; flex-wrap:wrap; gap:10px; }
+  .vocab-card { background:rgba(255,255,255,.08); border-radius:10px; 
+                padding:8px 12px; cursor:pointer;
+                transition: all .15s; min-width:150px; flex:1 1 calc(50% - 10px); }
+  .vocab-card:hover { background:rgba(255,255,255,.15); transform:scale(1.02); }
+  .vocab-card .vw { font-size:15px; font-weight:700; color:#4ecdc4; margin-right:6px; }
+  .vocab-card .vp { font-size:12px; color:#888; }
+  .vocab-card .vz { font-size:14px; color:#fff; margin-top:2px; }
+  .vocab-card .v-line { display:flex; align-items:baseline; gap:6px; }
 
-  .nav { display:flex; align-items:center; justify-content:space-between;
-         margin-top:20px; padding-bottom:24px; }
-  .nav-btn { background:#ff9f43; color:#fff; border:none;
-             border-radius:50px; padding:10px 28px; font-size:18px;
-             cursor:pointer; transition: opacity .15s; }
-  .nav-btn:disabled { opacity:.35; }
-  .page-indicator { font-size:16px; color:#aaa; }
+  /* 底部导航 */
+  .bottom-nav { position:fixed; bottom:160px; left:0; right:0;
+                display:flex; align-items:center; justify-content:space-between;
+                padding:0 20px; pointer-events:none; }
+  .nav-btn { background:rgba(255,255,255,.15); color:#fff; border:none;
+             border-radius:50px; padding:12px 24px; font-size:16px;
+             cursor:pointer; transition: all .15s; pointer-events:auto;
+             backdrop-filter:blur(10px); }
+  .nav-btn:hover { background:rgba(255,255,255,.25); }
+  .nav-btn:disabled { opacity:.3; pointer-events:none; }
+  .page-indicator { color:rgba(255,255,255,.6); font-size:14px; }
 
-  .progress-bar { width:100%; height:6px; background:#eee;
-                  border-radius:3px; margin-top:8px; }
-  .progress-fill { height:100%; background:#ff9f43; 
-                   border-radius:3px; transition:width .3s; }
+  /* 速度控制 */
+  .speed-bar { position:fixed; bottom:170px; right:20px;
+               background:rgba(0,0,0,.6); border-radius:20px; padding:6px 12px;
+               display:flex; align-items:center; gap:8px; z-index:50; }
+  .speed-bar label { color:#888; font-size:12px; }
+  .speed-bar select { background:rgba(255,255,255,.1); color:#fff; 
+                      border:none; border-radius:12px; padding:4px 8px; font-size:12px; }
 
-  .read-btn { background:#54a0ff; color:#fff; border:none;
-              border-radius:50px; padding:8px 16px; font-size:14px;
-              cursor:pointer; margin-right:8px; }
-  .read-btn:hover { background:#2980b9; }
-  .speed-select { background:#fff; color:#333; border:1px solid #ddd;
-                  border-radius:20px; padding:6px 12px; font-size:13px;
-                  cursor:pointer; margin-right:8px; }
-  .speed-select:hover { background:#f5f5f5; }
-
-  h2 { text-align:center; color:#e17055; margin:16px 0 8px; font-size:22px }
-  h2 small { display:block; font-size:16px; color:#888; font-weight:400; margin-top:4px; }
-  .unit-tag { text-align:center; color:#888; font-size:14px; margin-bottom:8px; }
+  .read-fab { position:fixed; bottom:220px; right:20px;
+              width:56px; height:56px; border-radius:50%;
+              background:linear-gradient(135deg, #ff6b6b, #ff8e53);
+              border:none; color:#fff; font-size:24px; cursor:pointer;
+              box-shadow:0 4px 20px rgba(255,107,107,.4);
+              z-index:50; transition:transform .2s; }
+  .read-fab:hover { transform:scale(1.1); }
 </style>
 </head>
 <body>
-<div class="reader-wrap">
-  <div class="unit-tag">Unit 1</div>
-  <h2>Star Wars<small>星球大战</small></h2>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-  <div id="pageArea" style="margin-top:16px"></div>
-  <div class="nav">
-    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <button class="read-btn" onclick="readCurrent()">🔊 朗读</button>
-      <span class="page-indicator" id="pageIndicator"></span>
+  <nav class="top-nav">
+    <a href="../../" class="back-btn">← 返回首页</a>
+    <span class="title">Star Wars</span>
+    <span></span>
+  </nav>
+
+  <div class="main-content">
+    <div class="full-img-wrap">
+      <img class="full-img" id="pageImg" src="" alt="">
     </div>
-    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
+    <div class="text-section">
+      <div class="en-text" id="enText"></div>
+      <div class="zh-text" id="zhText"></div>
+      <div class="phrase-section" id="phraseSection">
+        <div class="label">📚 词组</div>
+        <div class="phrase-row" id="phraseRow"></div>
+      </div>
+    </div>
   </div>
-  
-  <div id="speedControl" style="text-align:center;margin-top:12px;display:none;">
-    <label style="color:#888;font-size:13px;">语速：</label>
-    <select class="speed-select" id="speedSelect" onchange="changeSpeed()">
+
+  <div class="vocab-bar">
+    <div class="bar-title">💡 重点词汇（点击发音）</div>
+    <div class="vocab-row" id="vocabRow"></div>
+  </div>
+
+  <div class="speed-bar">
+    <label>语速</label>
+    <select id="speedSelect" onchange="changeSpeed()">
       <option value="0.7">慢速</option>
       <option value="1" selected>常速</option>
       <option value="1.3">快速</option>
     </select>
   </div>
-</div>
+
+  <button class="read-fab" onclick="readCurrent()">🔊</button>
+
+  <div class="bottom-nav">
+    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
+    <span class="page-indicator" id="pageIndicator"></span>
+    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
+  </div>
 
 <script>
 const PAGES = [{"img": "images/star-wars/star-wars/page-1.jpg", "en": "In a faraway galaxy, a brave little astronaut named Little Star flew his shiny blue spaceship through the stars. Today, he was about to have the greatest adventure of his life!", "zh": "在一个遥远的星系里，勇敢的小宇航员小星驾驶着他闪亮的蓝色飞船穿越星空。今天，他即将迎来人生中最伟大的冒险！", "keys": [{"w": "galaxy", "p": "/ˈɡæləksi/", "zh": "星系"}], "phrases": [{"en": "a distant galaxy", "zh": "遥远的星系"}]}, {"img": "images/star-wars/star-wars/page-2.jpg", "en": "Little Star flew past twinkling little stars. They sparkled like tiny diamonds scattered across the dark sky. He looked at the beautiful planets around him, wondering which way to go.", "zh": "小星飞过一闪一闪的小星星。它们像撒落在黑暗天空中的小钻石一样闪烁。他看着周围美丽的星球，想该往哪边走。", "keys": [{"w": "twinkle", "p": "/ˈtwɪŋkəl/", "zh": "闪烁"}], "phrases": [{"en": "twinkling stars", "zh": "一闪一闪的小星星"}]}, {"img": "images/star-wars/star-wars/page-3.jpg", "en": "Suddenly, a round little robot floated over! His name was Doudou, with glowing eyes and a bouncy body. He smiled and asked Little Star if he wanted to play Star Wars together.", "zh": "突然，一个圆滚滚的小机器人飘了过来！他叫豆豆，有着发光的眼睛和弹弹的身体。他微笑着问小星想不想一起玩星球大战。", "keys": [{"w": "suddenly", "p": "/ˈsʌdənli/", "zh": "突然地"}], "phrases": [{"en": "a round little robot", "zh": "一个圆滚滚的小机器人"}]}, {"img": "images/star-wars/star-wars/page-4.jpg", "en": "Sure! Let's play! said Little Star. Doudou started designing his own planet, and it would be the best planet ever! Little Star got his special weapons ready too. The big battle was about to begin!", "zh": "好呀！我们来玩！小星说。豆豆开始设计他自己的星球，这将是最棒的星球！小星也准备好了他的特殊武器。大战即将开始！", "keys": [{"w": "design", "p": "/dɪˈzaɪn/", "zh": "设计"}], "phrases": [{"en": "design his own planet", "zh": "设计他自己的星球"}]}, {"img": "images/star-wars/star-wars/page-5.jpg", "en": "Doudou created a magnificent crystal energy planet! Its shell was made of transparent crystal that could absorb star energy. He proudly said it was his Crystal Planet, and it could fire super laser beams!", "zh": "豆豆创造了一颗壮观的水晶能量星球！它的外壳是透明的水晶，能吸收恒星的能量。他骄傲地说这是他的水晶星球，能发射超强激光炮！", "keys": [{"w": "create", "p": "/kriˈeɪt/", "zh": "创造"}], "phrases": [{"en": "a magnificent crystal energy planet", "zh": "一颗壮观的水晶能量星球"}]}, {"img": "images/star-wars/star-wars/page-6.jpg", "en": "Whoosh! The Crystal Planet fired a bright laser beam! It was so powerful that it lit up the whole galaxy. Doudou laughed happily and told Little Star to try dodging it!", "zh": "嗖！水晶星球发射出一道明亮的激光！激光太强了，照亮了整个星系。豆豆开心地大笑，叫小星躲开试试！", "keys": [{"w": "bright", "p": "/braɪt/", "zh": "明亮的"}], "phrases": [{"en": "a bright laser beam", "zh": "一道明亮的激光"}]}, {"img": "images/star-wars/star-wars/page-7.jpg", "en": "But Little Star was very clever! He threw a tiny crystal bomb at the Crystal Planet. BOOM! The bomb hit the surface and cracked the crystal shell right open!", "zh": "但是小星非常聪明！他朝水晶星球扔出一颗小小的水晶炸弹。轰！炸弹击中了星球表面，在水晶外壳上炸出了一道大裂纹！", "keys": [{"w": "smart", "p": "/smɑːrt/", "zh": "聪明的"}], "phrases": [{"en": "throw a tiny crystal bomb", "zh": "扔出一颗小小的水晶炸弹"}]}, {"img": "images/star-wars/star-wars/page-8.jpg", "en": "The crack spread across the Crystal Planet like a spider web. Doudou was shocked! He cried that his beautiful planet was breaking apart. The crystal shell began to shatter piece by piece.", "zh": "裂纹像蜘蛛网一样在水晶星球上蔓延。豆豆大吃一惊！他大喊他美丽的星球要碎了。水晶外壳一点一点地开始碎裂。", "keys": [{"w": "spread", "p": "/spred/", "zh": "蔓延"}], "phrases": [{"en": "spread like a spider web", "zh": "像蜘蛛网一样蔓延"}]}, {"img": "images/star-wars/star-wars/page-9.jpg", "en": "But Doudou had a plan! He sent out hundreds of tiny repair drones. Bzzz! They flew to the cracks and started fixing the planet. Doudou proudly said his drones would fix everything!", "zh": "但是豆豆有办法！他派出成百上千个小小的修复无人机。嗡嗡嗡！它们飞到裂缝处开始修复星球。豆豆骄傲地说他的无人机会修好一切！", "keys": [{"w": "repair", "p": "/rɪˈper/", "zh": "修复"}], "phrases": [{"en": "hundreds of tiny repair drones", "zh": "成百上千个小小的修复无人机"}]}, {"img": "images/star-wars/star-wars/page-10.jpg", "en": "Now Doudou had a super surprise! The Crystal Planet transformed into a giant Space Whale! It was huge and shiny, with crystal fins and an enormous mouth. Doudou laughed and said his planet could transform!", "zh": "现在豆豆有一个超级惊喜！水晶星球变形成为一只巨大的星际巨鲸！它又大又闪亮，有着水晶鱼鳍和巨大的嘴巴。豆豆大笑着说他的星球可以变形！", "keys": [{"w": "surprise", "p": "/sərˈpraɪz/", "zh": "惊喜"}], "phrases": [{"en": "a super surprise", "zh": "一个超级惊喜"}]}, {"img": "images/star-wars/star-wars/page-11.jpg", "en": "The Space Whale opened its super big mouth, trying to suck in Little Star's stars! Whoosh! The stars started flying toward the whale's mouth. Doudou cheered for the stars to enter his energy furnace!", "zh": "星际巨鲸张开超级大的嘴巴，要把小星的小星星吸进来！呼！星星们开始飞向巨鲸的嘴巴。豆豆喊着让星星进入他的能量熔炉！", "keys": [{"w": "mouth", "p": "/maʊθ/", "zh": "嘴巴"}], "phrases": [{"en": "open its enormous mouth", "zh": "张开超级大的嘴巴"}]}, {"img": "images/star-wars/star-wars/page-12.jpg", "en": "Little Star had the best idea ever! He grabbed a bottle of Galaxy Bubble Bath, stuffed it with explosives, and lit it with a mini lighter. He threw the bubbly bomb right at the Space Whale!", "zh": "小星有了最棒的主意！他抓起一瓶银河系沐浴露，塞进炸药，用一个迷你打火机点燃。他把满是泡泡的炸弹扔向星际巨鲸！", "keys": [{"w": "idea", "p": "/aɪˈdiːə/", "zh": "主意"}], "phrases": [{"en": "the best idea", "zh": "最棒的主意"}]}, {"img": "images/star-wars/star-wars/page-13.jpg", "en": "BOOM! The Galaxy Bubble Bath bomb exploded! The Space Whale was covered in bubbles! Pop, pop, pop! Black smoke rose from its crystal body. Doudou cried that he was full of foam!", "zh": "轰！银河系沐浴露炸弹爆炸了！星际巨鲸现在满身都是泡泡！噗噗噗！黑烟从它的水晶身体上升起。豆豆大叫他全身都是泡沫！", "keys": [{"w": "explode", "p": "/ɪkˈsploʊd/", "zh": "爆炸"}], "phrases": [{"en": "galaxy bath bomb", "zh": "银河系沐浴露炸弹"}]}, {"img": "images/star-wars/star-wars/page-14.jpg", "en": "Don't worry! Doudou had a secret weapon too — super tiny nano repair robots! They were so small you couldn't even see them. They zoomed around the Space Whale fixing it fast. Doudou said his nano robots would save it!", "zh": "别担心！豆豆也有秘密武器，超小的纳米修复机器人！它们小到根本看不见。它们在星际巨鲸周围飞速修复。豆豆说他的纳米机器人会救他！", "keys": [{"w": "secret", "p": "/ˈsiːkrət/", "zh": "秘密的"}], "phrases": [{"en": "secret weapon", "zh": "秘密武器"}]}, {"img": "images/star-wars/star-wars/page-15.jpg", "en": "But Little Star didn't stop! He built the ultimate bomb — the biggest and strongest bomb in the whole universe! It glowed bright red and made all the nearby stars shake. He shouted it was his final strike!", "zh": "但是小星没有停下！他制作了终极炸弹，整个宇宙中最大最强的炸弹！它发出明亮的红光，连周围的星星都在震动。他喊着这是他的最后一击！", "keys": [{"w": "ultimate", "p": "/ˈʌltɪmət/", "zh": "终极的"}], "phrases": [{"en": "ultimate bomb", "zh": "终极炸弹"}]}, {"img": "images/star-wars/star-wars/page-16.jpg", "en": "KA-BOOM! The ultimate bomb hit the Space Whale. Poof! Nothing was left! Not even a tiny piece. Doudou's planet had completely vanished. Doudou whispered that it was incredible.", "zh": "轰隆！终极炸弹击中了星际巨鲸，噗！什么都不剩了！连一小块碎片都没有。豆豆的星球完全消失了。豆豆小声说太厉害了。", "keys": [{"w": "hit", "p": "/hɪt/", "zh": "击中"}], "phrases": [{"en": "hit the space whale", "zh": "击中了星际巨鲸"}]}, {"img": "images/star-wars/star-wars/page-17.jpg", "en": "But Doudou was a tough little robot! He collected all the scrap metal floating in space and built a brand new planet! It wasn't as shiny as before, but it was built with love and determination.", "zh": "但是豆豆是个坚强的小机器人！他收集太空中漂浮的所有废铁，建造了一个全新的星球！虽然没有以前那么闪亮，但它是用爱和决心建造的。", "keys": [{"w": "strong", "p": "/strɔːŋ/", "zh": "坚强的"}], "phrases": [{"en": "a tough little robot", "zh": "一个坚强的小机器人"}]}, {"img": "images/star-wars/star-wars/page-18.jpg", "en": "Little Star picked up a shield to give to Doudou. But oh no! He threw it too hard, and the shield flew straight at Doudou! Then he quickly followed with another attack!", "zh": "小星拿起一个保护盾想送给豆豆。但是哎呀！他扔得太用力，盾牌直接飞向了豆豆！然后他赶紧又来了一个报废攻击！", "keys": [{"w": "shield", "p": "/ʃiːld/", "zh": "盾牌"}], "phrases": [{"en": "protective shield", "zh": "保护盾"}]}, {"img": "images/star-wars/star-wars/page-19.jpg", "en": "CRACK! The shield shattered into pieces, and the new planet turned into a pile of scrap metal. Doudou raised his little robot arm and surrendered! He said Little Star's bombs were too powerful — he gave up!", "zh": "咔嚓！盾牌碎成碎片，新星球变成了一堆废铁。豆豆举起他的小机器人手臂投降了！他说小星的炸弹太厉害了，他认输！", "keys": [{"w": "shatter", "p": "/ˈʃætər/", "zh": "碎裂"}], "phrases": [{"en": "shattered into pieces", "zh": "碎成碎片"}]}, {"img": "images/star-wars/star-wars/page-20.jpg", "en": "Even though they had an epic battle, Little Star and Doudou were still the best of friends! They high-fived, laughed together, and shouted that this was the most fun Star Wars game ever!", "zh": "虽然他们打了一场史诗级的大战，但小星和豆豆还是最好的朋友！他们互相击掌，一起大笑，喊着这是最好玩的星球大战游戏！", "keys": [{"w": "epic", "p": "/ˈepɪk/", "zh": "史诗般的"}], "phrases": [{"en": "an epic battle", "zh": "一场史诗级的大战"}]}, {"img": "images/star-wars/star-wars/page-21.jpg", "en": "Little Star looked at the stars and had a new idea. He told Doudou they should go to Mars next time! Doudou's eyes lit up with excitement as he shouted — Mars, here we come!", "zh": "小星看着星星，有了新主意。他跟豆豆说下次去火星吧！豆豆的眼睛兴奋地发亮，喊着火星我们来了！", "keys": [{"w": "star", "p": "/stɑːr/", "zh": "星星"}], "phrases": [{"en": "a new idea", "zh": "新主意"}]}];
@@ -111,7 +159,6 @@ function getVoice(lang) {
   if (!voices.length) return null;
   
   if (lang === 'zh') {
-    // 中文：优先 Xiaoxiao（温暖女声）, Yunxi（阳光男声）
     const preferred = ['Xiaoxiao', 'Yunxi', 'Yunyang', 'Yunjian'];
     for (const p of preferred) {
       const v = voices.find(vo => vo.lang.startsWith('zh') && vo.name.includes(p));
@@ -119,7 +166,6 @@ function getVoice(lang) {
     }
     return voices.find(vo => vo.lang.startsWith('zh')) || null;
   } else {
-    // 英文：优先自然声音
     const preferred = ['Google', 'Microsoft', 'Samantha', 'Daniel', 'Karen', 'Apple', 'Amazon'];
     for (const p of preferred) {
       const v = voices.find(vo => vo.lang.startsWith('en') && vo.name.includes(p));
@@ -131,29 +177,44 @@ function getVoice(lang) {
 
 function renderPage(i) {
   const p = PAGES[i];
-  const words = p.en.split(' ').map((w, idx) =>
-    `<span class="word" id="w${idx}" onclick="showWordTip(this,'${w.replace(/'/g, "\\'")}')">${w}</span>`
-  ).join(' ');
-
+  
+  // 图片
+  document.getElementById('pageImg').src = '../../' + p.img;
+  
+  // 英文句子 - 单词可点击
+  const words = p.en.split(' ').map((w, idx) => {
+    const clean = w.replace(/[.,!?':;]/g, '');
+    return `<span class="word" onclick="speakWord('${clean}', this)">${w}</span>`;
+  }).join(' ');
+  document.getElementById('enText').innerHTML = words;
+  
+  // 中文
+  document.getElementById('zhText').textContent = p.zh;
+  
+  // 词组
+  const phrases = p.phrases || [];
+  if (phrases.length > 0) {
+    document.getElementById('phraseSection').style.display = 'block';
+    document.getElementById('phraseRow').innerHTML = phrases.map(ph => 
+      `<div class="phrase-card" onclick="speakPhrase('${ph.en.replace(/'/g, "\\'")}')">
+        <span class="pen">${ph.en}</span>
+        <span class="pzh">${ph.zh}</span>
+      </div>`
+    ).join('');
+  } else {
+    document.getElementById('phraseSection').style.display = 'none';
+  }
+  
+  // 词汇卡片
   const vocabCards = (p.keys || []).map(k =>
-    `<div class="vocab-card" onclick="speakWord('${k.w}')">
-      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span><span class="vz">${k.zh}</span></div>
-      <div class="vph"><span class="vph-en">${k.ph || k.w}</span> ${k.ph ? k.zh : ''}</div>
+    `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
+      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span></div>
+      <div class="vz">${k.zh}</div>
     </div>`
   ).join('');
-
-  // 如果没有ph字段，用中文解释代替
-  const vocabPhrases = (p.keys || []).map(k => k.ph || k.zh).join(', ');
-
-  document.getElementById('pageArea').innerHTML = `
-    <img class="page-img" src="../../${p.img}" alt="page ${i+1}" onerror="this.style.display='none'">
-    <div class="text-area">
-      <div class="en-sentence">${words}</div>
-      <div class="zh-sentence">${p.zh}</div>
-      <div class="vocab-row">${vocabCards}</div>
-    </div>`;
-
-  document.getElementById('progressFill').style.width = `${(i+1)/PAGES.length*100}%`;
+  document.getElementById('vocabRow').innerHTML = vocabCards;
+  
+  // 指示器
   document.getElementById('pageIndicator').textContent = `${i+1} / ${PAGES.length}`;
   document.getElementById('prevBtn').disabled = i === 0;
   document.getElementById('nextBtn').disabled = i === PAGES.length - 1;
@@ -163,65 +224,52 @@ function changePage(dir) {
   synth.cancel();
   cur = Math.max(0, Math.min(PAGES.length - 1, cur + dir));
   renderPage(cur);
+  window.scrollTo(0, 0);
 }
 
-// 随机高亮朗读
-let highlightTimer = null;
-let highlightRunning = false;
-
-function startRandomHighlight(wordCount, duration) {
-  highlightRunning = true;
-  const interval = duration / wordCount;
-  let idx = 0;
-  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-
-  function next() {
-    if (!highlightRunning) return;
-    document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-    if (wordCount > 0) {
-      const el = document.getElementById('w' + idx);
-      if (el) el.classList.add('speaking');
-    }
-    idx++;
-    if (idx < wordCount) {
-      highlightTimer = setTimeout(next, interval);
-    } else {
-      setTimeout(() => {
-        document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-        highlightRunning = false;
-      }, 500);
-    }
+// 点击单词发音
+function speakWord(word, el) {
+  synth.cancel();
+  if (el) {
+    document.querySelectorAll('.word').forEach(w => w.classList.remove('speaking'));
+    el.classList.add('speaking');
   }
-  next();
+  const utt = new SpeechSynthesisUtterance(word);
+  utt.lang = 'en-US';
+  utt.rate = currentSpeed * 0.9;
+  const v = getVoice('en');
+  if (v) utt.voice = v;
+  utt.onend = () => { if (el) el.classList.remove('speaking'); };
+  synth.speak(utt);
 }
 
+// 词组发音
+function speakPhrase(phrase) {
+  synth.cancel();
+  const utt = new SpeechSynthesisUtterance(phrase);
+  utt.lang = 'en-US';
+  utt.rate = currentSpeed;
+  const v = getVoice('en');
+  if (v) utt.voice = v;
+  synth.speak(utt);
+}
+
+// 整句朗读
 function readCurrent() {
   synth.cancel();
-  highlightRunning = false;
-  if (highlightTimer) clearTimeout(highlightTimer);
-  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-
   const p = PAGES[cur];
   
-  // 先读英文整句
   const enUtt = new SpeechSynthesisUtterance(p.en);
   enUtt.lang = 'en-US';
   enUtt.rate = currentSpeed;
-  enUtt.pitch = 1.0;
   const enVoice = getVoice('en');
   if (enVoice) enUtt.voice = enVoice;
   
-  // 估算朗读时间用于高亮
-  const estEnDuration = p.en.split(' ').length * 400; // ms per word
-  enUtt.onstart = () => startRandomHighlight(p.en.split(' ').length, estEnDuration * currentSpeed);
   enUtt.onend = () => {
-    highlightRunning = false;
-    // 再读中文
     if (p.zh) {
       const zhUtt = new SpeechSynthesisUtterance(p.zh);
       zhUtt.lang = 'zh-CN';
       zhUtt.rate = currentSpeed;
-      zhUtt.pitch = 1.0;
       const zhVoice = getVoice('zh');
       if (zhVoice) zhUtt.voice = zhVoice;
       synth.speak(zhUtt);
@@ -230,38 +278,18 @@ function readCurrent() {
   synth.speak(enUtt);
 }
 
-function showWordTip(el, word) {
-  speakWord(word);
-  if (el.querySelector('.word-tip')) { el.querySelector('.word-tip').remove(); return; }
-  const p = PAGES[cur];
-  const key = (p.keys || []).find(k => k.w.toLowerCase() === word.toLowerCase().replace(/[.,!?']/g,''));
-  if (key) {
-    const tip = document.createElement('span');
-    tip.className = 'word-tip';
-    tip.textContent = `${key.p} ${key.zh}`;
-    el.appendChild(tip);
-  }
-}
-
-function speakWord(word) {
-  synth.cancel();
-  highlightRunning = false;
-  const utt = new SpeechSynthesisUtterance(word);
-  utt.lang = 'en-US';
-  utt.rate = currentSpeed * 0.8;
-  const v = getVoice('en');
-  if (v) utt.voice = v;
-  synth.speak(utt);
-}
+// 键盘导航
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') changePage(-1);
+  if (e.key === 'ArrowRight') changePage(1);
+});
 
 renderPage(0);
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    // Load voices then auto-read
-    if (synth.getVoices().length > 0) readCurrent();
-    else synth.onvoiceschanged = () => setTimeout(readCurrent, 500);
-  }, 800);
-});
+// 页面加载后自动朗读
+setTimeout(() => {
+  if (synth.getVoices().length > 0) readCurrent();
+  else synth.onvoiceschanged = () => setTimeout(readCurrent, 500);
+}, 800);
 </script>
 </body>
 </html>
