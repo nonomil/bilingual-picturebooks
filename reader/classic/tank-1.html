@@ -41,9 +41,21 @@
   .word:hover { background:#ffd166; color:#000; }
   .word.speaking { background:#ff6b6b; color:#fff; }
 
-  .zh-text { font-size:17px; color:rgba(255,255,255,.8); 
-             background:rgba(255,255,255,.05); padding:12px 16px; 
-             border-radius:10px; margin-bottom:16px; }
+.zh-text { font-size:17px; color:rgba(255,255,255,.8); 
+            background:rgba(255,255,255,.05); padding:12px 16px; 
+            border-radius:10px; margin-bottom:16px; }
+
+  /* 词汇区域 */
+  .vocab-section { margin-top:16px; }
+  .vocab-section .label { font-size:13px; color:#4ecdc4; margin-bottom:8px; }
+  .vocab-row { display:flex; flex-wrap:wrap; gap:8px; }
+  .vocab-card { background:rgba(78,205,196,.15); border:1px solid rgba(78,205,196,.3);
+                border-radius:20px; padding:6px 14px; font-size:14px;
+                cursor:pointer; transition:all .15s; }
+  .vocab-card:hover { background:rgba(78,205,196,.3); transform:scale(1.02); }
+  .vocab-card .vw { font-weight:700; color:#4ecdc4; margin-right:6px; }
+  .vocab-card .vp { font-size:12px; color:#888; }
+  .vocab-card .vz { margin-left:6px; color:rgba(255,255,255,.7); }
 
   /* 词组区域 */
   .phrase-section { margin-top:16px; }
@@ -115,6 +127,14 @@
     <div class="text-section">
       <div class="en-text" id="enText"></div>
       <div class="zh-text" id="zhText"></div>
+      
+      <!-- 词汇区域 -->
+      <div class="vocab-section" id="vocabSection" style="display:none;">
+        <div class="label">💡 单词</div>
+        <div class="vocab-row" id="vocabRow"></div>
+      </div>
+      
+      <!-- 词组区域 -->
       <div class="phrase-section" id="phraseSection">
         <div class="label">📚 词组</div>
         <div class="phrase-row" id="phraseRow"></div>
@@ -145,7 +165,7 @@
   </div>
 
 <script>
-const PAGES = [{"img": "images/tank-1/tank-1/page-1.jpg", "en": "In the world of blocks, a player had a big dream — to build tanks!", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}]}, {"img": "images/tank-1/tank-1/page-2.jpg", "en": "He worked for days, placing blocks one by one. First, a heavy tank with thick iron armor!", "zh": "他捣鼓了好几天，一个方块一个方块地拼。第一辆，是皮糙肉厚的重型坦克！", "keys": [{"w": "placing", "p": "/ˈpleɪsɪŋ/", "zh": "放置"}], "phrases": [{"en": "worked for days", "zh": "捣鼓了好几天"}]}, {"img": "images/tank-1/tank-1/page-3.jpg", "en": "Then a light tank that zooms across the plains super fast!", "zh": "然后是一辆轻型坦克，在平原上跑起来飞快！", "keys": [{"w": "light", "p": "/laɪt/", "zh": "轻的"}], "phrases": [{"en": "zooms across the plains", "zh": "飞快地穿过平原"}]}, {"img": "images/tank-1/tank-1/page-4.jpg", "en": "And finally, a missile tank! When it fires, the missiles fly high with fiery trails!", "zh": "最后还造了一辆导弹坦克！发射的时候导弹拖着火焰飞出去，超炫酷！", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "最后"}], "phrases": [{"en": "missile tank", "zh": "导弹坦克"}]}, {"img": "images/tank-1/tank-1/page-5.jpg", "en": "All three tanks lined up in the garage. The player could not wait any longer!", "zh": "三辆坦克停在车库里整整齐齐。他迫不及待要开出去浪了！", "keys": [{"w": "lined up", "p": "/laɪnd ʌp/", "zh": "排成一排"}], "phrases": [{"en": "lined up in the garage", "zh": "整齐地停在车库里"}]}, {"img": "images/tank-1/tank-1/page-6.jpg", "en": "He drove the heavy tank straight to the monster nest. Zombies and skeletons were everywhere!", "zh": "他开着重型坦克直接冲到怪物窝旁边。到处都是僵尸和骷髅！", "keys": [{"w": "drove", "p": "/droʊv/", "zh": "驾驶"}], "phrases": [{"en": "drove the heavy tank straight to", "zh": "开着重型坦克直奔"}]}, {"img": "images/tank-1/tank-1/page-7.jpg", "en": "BOOM! One shot from the cannon and monsters went flying everywhere! So satisfying!", "zh": "轰！一炮下去怪物直接炸飞一大片，太解压了！", "keys": [{"w": "shot", "p": "/ʃɑːt/", "zh": "射击；一炮"}], "phrases": [{"en": "One shot from the cannon", "zh": "大炮一发射击"}]}, {"img": "images/tank-1/tank-1/page-8.jpg", "en": "The heavy tank charged right through! Monsters could not get anywhere near it!", "zh": "坦克横冲直撞！怪物根本近不了身！", "keys": [{"w": "charged", "p": "/tʃɑːrdʒd/", "zh": "冲锋；猛冲"}], "phrases": [{"en": "charged right through", "zh": "直接冲了过去"}]}, {"img": "images/tank-1/tank-1/page-9.jpg", "en": "In no time, the whole monster nest was cleared. The player cheered inside the tank!", "zh": "几下就把整片怪物窝清干净了，他在坦克里开心地欢呼！", "keys": [{"w": "monster", "p": "/ˈmɒnstər/", "zh": "怪物"}], "phrases": [{"en": "In no time", "zh": "没过多久"}]}, {"img": "images/tank-1/tank-1/page-10.jpg", "en": "No more hiding with a sword! Tanks make everything so much easier!", "zh": "再也不用拿剑躲躲藏藏了！有坦克就是不一样！", "keys": [{"w": "hiding", "p": "/ˈhaɪdɪŋ/", "zh": "躲藏"}], "phrases": [{"en": "No more hiding with a sword", "zh": "再也不用拿着剑躲躲藏藏了"}]}, {"img": "images/tank-1/tank-1/page-11.jpg", "en": "Achievement unlocked! The player felt so proud. But this was just the beginning...", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}]}];
+const PAGES = [{"img": "images/tank-1/page-1.jpg", "en": "In the world of blocks, a player had a big dream — to build tanks!", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}]}, {"img": "images/tank-1/page-2.jpg", "en": "He worked for days, placing blocks one by one. First, a heavy tank with thick iron armor!", "zh": "他捣鼓了好几天，一个方块一个方块地拼。第一辆，是皮糙肉厚的重型坦克！", "keys": [{"w": "placing", "p": "/ˈpleɪsɪŋ/", "zh": "放置"}], "phrases": [{"en": "worked for days", "zh": "捣鼓了好几天"}]}, {"img": "images/tank-1/page-3.jpg", "en": "Then a light tank that zooms across the plains super fast!", "zh": "然后是一辆轻型坦克，在平原上跑起来飞快！", "keys": [{"w": "light", "p": "/laɪt/", "zh": "轻的"}], "phrases": [{"en": "zooms across the plains", "zh": "飞快地穿过平原"}]}, {"img": "images/tank-1/page-4.jpg", "en": "And finally, a missile tank! When it fires, the missiles fly high with fiery trails!", "zh": "最后还造了一辆导弹坦克！发射的时候导弹拖着火焰飞出去，超炫酷！", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "最后"}], "phrases": [{"en": "missile tank", "zh": "导弹坦克"}]}, {"img": "images/tank-1/page-5.jpg", "en": "All three tanks lined up in the garage. The player could not wait any longer!", "zh": "三辆坦克停在车库里整整齐齐。他迫不及待要开出去浪了！", "keys": [{"w": "lined up", "p": "/laɪnd ʌp/", "zh": "排成一排"}], "phrases": [{"en": "lined up in the garage", "zh": "整齐地停在车库里"}]}, {"img": "images/tank-1/page-6.jpg", "en": "He drove the heavy tank straight to the monster nest. Zombies and skeletons were everywhere!", "zh": "他开着重型坦克直接冲到怪物窝旁边。到处都是僵尸和骷髅！", "keys": [{"w": "drove", "p": "/droʊv/", "zh": "驾驶"}], "phrases": [{"en": "drove the heavy tank straight to", "zh": "开着重型坦克直奔"}]}, {"img": "images/tank-1/page-7.jpg", "en": "BOOM! One shot from the cannon and monsters went flying everywhere! So satisfying!", "zh": "轰！一炮下去怪物直接炸飞一大片，太解压了！", "keys": [{"w": "shot", "p": "/ʃɑːt/", "zh": "射击；一炮"}], "phrases": [{"en": "One shot from the cannon", "zh": "大炮一发射击"}]}, {"img": "images/tank-1/page-8.jpg", "en": "The heavy tank charged right through! Monsters could not get anywhere near it!", "zh": "坦克横冲直撞！怪物根本近不了身！", "keys": [{"w": "charged", "p": "/tʃɑːrdʒd/", "zh": "冲锋；猛冲"}], "phrases": [{"en": "charged right through", "zh": "直接冲了过去"}]}, {"img": "images/tank-1/page-9.jpg", "en": "In no time, the whole monster nest was cleared. The player cheered inside the tank!", "zh": "几下就把整片怪物窝清干净了，他在坦克里开心地欢呼！", "keys": [{"w": "monster", "p": "/ˈmɒnstər/", "zh": "怪物"}], "phrases": [{"en": "In no time", "zh": "没过多久"}]}, {"img": "images/tank-1/page-10.jpg", "en": "No more hiding with a sword! Tanks make everything so much easier!", "zh": "再也不用拿剑躲躲藏藏了！有坦克就是不一样！", "keys": [{"w": "hiding", "p": "/ˈhaɪdɪŋ/", "zh": "躲藏"}], "phrases": [{"en": "No more hiding with a sword", "zh": "再也不用拿着剑躲躲藏藏了"}]}, {"img": "images/tank-1/page-11.jpg", "en": "Achievement unlocked! The player felt so proud. But this was just the beginning...", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}]}];
 let cur = 0;
 let currentSpeed = 1;
 const synth = window.speechSynthesis;
@@ -191,8 +211,23 @@ function renderPage(i) {
   // 中文
   document.getElementById('zhText').textContent = p.zh;
   
-  // 词组
+  // 词汇（如果有）放在词组前面
+  const keys = p.keys || [];
   const phrases = p.phrases || [];
+  
+  // 先显示词汇
+  if (keys.length > 0) {
+    document.getElementById('vocabSection').style.display = 'block';
+    document.getElementById('vocabRow').innerHTML = keys.map(k =>
+      `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
+        <span class="vw">${k.w}</span> <span class="vp">${k.p}</span> <span class="vz">${k.zh}</span>
+      </div>`
+    ).join('');
+  } else {
+    document.getElementById('vocabSection').style.display = 'none';
+  }
+  
+  // 词组
   if (phrases.length > 0) {
     document.getElementById('phraseSection').style.display = 'block';
     document.getElementById('phraseRow').innerHTML = phrases.map(ph => 
@@ -204,15 +239,6 @@ function renderPage(i) {
   } else {
     document.getElementById('phraseSection').style.display = 'none';
   }
-  
-  // 词汇卡片
-  const vocabCards = (p.keys || []).map(k =>
-    `<div class="vocab-card" onclick="speakWord('${k.w}', this)">
-      <div class="v-line"><span class="vw">${k.w}</span><span class="vp">${k.p}</span></div>
-      <div class="vz">${k.zh}</div>
-    </div>`
-  ).join('');
-  document.getElementById('vocabRow').innerHTML = vocabCards;
   
   // 指示器
   document.getElementById('pageIndicator').textContent = `${i+1} / ${PAGES.length}`;
