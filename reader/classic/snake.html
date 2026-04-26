@@ -55,9 +55,13 @@
                    border-radius:3px; transition:width .3s; }
 
   .read-btn { background:#54a0ff; color:#fff; border:none;
-              border-radius:50px; padding:8px 20px; font-size:16px;
+              border-radius:50px; padding:8px 16px; font-size:14px;
               cursor:pointer; margin-right:8px; }
   .read-btn:hover { background:#2980b9; }
+  .speed-select { background:#fff; color:#333; border:1px solid #ddd;
+                  border-radius:20px; padding:6px 12px; font-size:13px;
+                  cursor:pointer; margin-right:8px; }
+  .speed-select:hover { background:#f5f5f5; }
 
   h2 { text-align:center; color:#e17055; margin:16px 0 8px; font-size:22px }
   h2 small { display:block; font-size:16px; color:#888; font-weight:400; margin-top:4px; }
@@ -72,8 +76,13 @@
   <div id="pageArea" style="margin-top:16px"></div>
   <div class="nav">
     <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
-    <div>
+    <div style="display:flex;align-items:center;gap:8px;">
       <button class="read-btn" onclick="readCurrent()">🔊 朗读</button>
+      <select class="speed-select" id="speedSelect" onchange="changeSpeed()">
+        <option value="0.7">慢速</option>
+        <option value="1" selected>常速</option>
+        <option value="1.3">快速</option>
+      </select>
       <span class="page-indicator" id="pageIndicator"></span>
     </div>
     <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
@@ -83,7 +92,23 @@
 <script>
 const PAGES = [{"img": "images/covers/cover-snake.jpg", "en": "One sunny morning, a little snake wiggled along the path.", "zh": "一个阳光明媚的早晨，小蛇一扭一扭地在小路上散步。", "keys": [{"w": "wiggle", "p": "/ˈwɪɡl/", "zh": "一扭一扭地"}], "phrases": [{"en": "a bright, sunny morning", "zh": "一个阳光明媚的早晨"}]}, {"img": "snake/page-2.jpg", "en": "He saw a round, red apple. \"Guess what he did?\" Crunch, crunch! So yummy!", "zh": "他看到一个圆圆的红苹果。\"你猜他会怎么做？\" 他啊呜，啊呜，真好吃！", "keys": [{"w": "round", "p": "/raʊnd/", "zh": "圆圆的"}], "phrases": [{"en": "a round red apple", "zh": "一个圆圆的红苹果"}]}, {"img": "snake/page-3.jpg", "en": "The next day, the hungry little snake went for a walk again. He saw a curvy yellow banana. \"Guess what he did?\" Crunch, crunch! So yummy!", "zh": "第二天，好饿的小蛇又一扭一扭地去散步了。他看到一根弯弯的黄香蕉。\"你猜他会怎么做？\" 他啊呜，啊呜，真好吃！", "keys": [{"w": "banana", "p": "/bəˈnɑːnə/", "zh": "香蕉"}], "phrases": [{"en": "the next day", "zh": "第二天"}]}, {"img": "snake/page-4.jpg", "en": "On the third day, the hungry little snake went for a walk again. He saw a triangular rice ball. \"Guess what he did?\" Crunch, crunch! So yummy!", "zh": "第三天，好饿的小蛇又一扭一扭地去散步了。他看到一个三角形的小饭团。\"你猜他会怎么做？\" 他啊呜，啊呜，真好吃！", "keys": [{"w": "triangular", "p": "/traɪˈæŋɡjələr/", "zh": "三角形的"}], "phrases": [{"en": "the third day", "zh": "第三天"}]}, {"img": "snake/page-5.jpg", "en": "On the fourth day, the hungry little snake went for a walk again. He saw a big bunch of purple grapes. \"Guess what he did?\" Crunch, crunch! So yummy!", "zh": "第四天，好饿的小蛇又一扭一扭地去散步了。他看到一大串紫色的葡萄。\"你猜他会怎么做？\" 他啊呜，啊呜，真好吃！", "keys": [{"w": "bunch", "p": "/bʌntʃ/", "zh": "一串"}], "phrases": [{"en": "the fourth day", "zh": "第四天"}]}, {"img": "snake/page-6.jpg", "en": "On the fifth day, the hungry little snake went for a walk again. He saw a pointy pineapple. \"Guess what he did?\" Crunch, crunch! So yummy!", "zh": "第五天，好饿的小蛇又一扭一扭地去散步了。他看到一个尖尖的菠萝。\"你猜他会怎么做？\" 他啊呜，啊呜，真好吃！", "keys": [{"w": "pineapple", "p": "/ˈpaɪnæpl/", "zh": "菠萝"}], "phrases": [{"en": "the fifth day", "zh": "第五天"}]}, {"img": "snake/page-7.jpg", "en": "His tail is right here! He is a very happy, very full little snake.", "zh": "第六天，好饿的小蛇又一扭一扭地去散步了。他看到树上有许多红苹果。\"你猜他会怎么做？\" 小蛇一扭一扭地爬上树，然后张开大嘴！\"喔！啊呜，啊呜，真好吃！\"", "keys": [{"w": "tree", "p": "/triː/", "zh": "树"}], "phrases": [{"en": "many red apples on the tree", "zh": "树上有许多红苹果"}]}];
 let cur = 0;
+let currentSpeed = 1;
 const synth = window.speechSynthesis;
+
+function changeSpeed() {
+  currentSpeed = parseFloat(document.getElementById('speedSelect').value);
+}
+
+function getVoice(lang) {
+  const voices = synth.getVoices();
+  // Prefer natural voices: Google, Microsoft, Apple, Amazon
+  const preferred = ['Google', 'Microsoft', 'Apple', 'Amazon', 'Samantha', 'Daniel', 'Karen'];
+  for (const p of preferred) {
+    const v = voices.find(vo => vo.lang.startsWith(lang) && vo.name.includes(p));
+    if (v) return v;
+  }
+  return voices.find(vo => vo.lang.startsWith(lang)) || null;
+}
 
 function renderPage(i) {
   const p = PAGES[i];
@@ -117,22 +142,69 @@ function changePage(dir) {
   renderPage(cur);
 }
 
+// 随机高亮朗读
+let highlightTimer = null;
+let highlightRunning = false;
+
+function startRandomHighlight(wordCount, duration) {
+  highlightRunning = true;
+  const interval = duration / wordCount;
+  let idx = 0;
+  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+
+  function next() {
+    if (!highlightRunning) return;
+    document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+    if (wordCount > 0) {
+      const el = document.getElementById('w' + idx);
+      if (el) el.classList.add('speaking');
+    }
+    idx++;
+    if (idx < wordCount) {
+      highlightTimer = setTimeout(next, interval);
+    } else {
+      setTimeout(() => {
+        document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+        highlightRunning = false;
+      }, 500);
+    }
+  }
+  next();
+}
+
 function readCurrent() {
   synth.cancel();
+  highlightRunning = false;
+  if (highlightTimer) clearTimeout(highlightTimer);
+  document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
+
   const p = PAGES[cur];
-  const words = p.en.split(' ');
-  let idx = 0;
-  function speakNext() {
-    if (idx >= words.length) return;
-    document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-    const el = document.getElementById(`w${idx}`);
-    if (el) el.classList.add('speaking');
-    const utt = new SpeechSynthesisUtterance(words[idx]);
-    utt.lang = 'en-GB'; utt.rate = 0.8;
-    utt.onend = () => { idx++; speakNext(); };
-    synth.speak(utt);
-  }
-  speakNext();
+  
+  // 先读英文整句
+  const enUtt = new SpeechSynthesisUtterance(p.en);
+  enUtt.lang = 'en-US';
+  enUtt.rate = currentSpeed;
+  enUtt.pitch = 1.0;
+  const enVoice = getVoice('en');
+  if (enVoice) enUtt.voice = enVoice;
+  
+  // 估算朗读时间用于高亮
+  const estEnDuration = p.en.split(' ').length * 400; // ms per word
+  enUtt.onstart = () => startRandomHighlight(p.en.split(' ').length, estEnDuration * currentSpeed);
+  enUtt.onend = () => {
+    highlightRunning = false;
+    // 再读中文
+    if (p.zh) {
+      const zhUtt = new SpeechSynthesisUtterance(p.zh);
+      zhUtt.lang = 'zh-CN';
+      zhUtt.rate = currentSpeed;
+      zhUtt.pitch = 1.0;
+      const zhVoice = getVoice('zh');
+      if (zhVoice) zhUtt.voice = zhVoice;
+      synth.speak(zhUtt);
+    }
+  };
+  synth.speak(enUtt);
 }
 
 function showWordTip(el, word) {
@@ -150,12 +222,23 @@ function showWordTip(el, word) {
 
 function speakWord(word) {
   synth.cancel();
+  highlightRunning = false;
   const utt = new SpeechSynthesisUtterance(word);
-  utt.lang = 'en-GB'; utt.rate = 0.7;
+  utt.lang = 'en-US';
+  utt.rate = currentSpeed * 0.8;
+  const v = getVoice('en');
+  if (v) utt.voice = v;
   synth.speak(utt);
 }
 
 renderPage(0);
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    // Load voices then auto-read
+    if (synth.getVoices().length > 0) readCurrent();
+    else synth.onvoiceschanged = () => setTimeout(readCurrent, 500);
+  }, 800);
+});
 </script>
 </body>
 </html>
