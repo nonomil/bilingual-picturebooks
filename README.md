@@ -6,7 +6,23 @@
 
 ---
 
-## 📖 Stories
+## 📚 Story Fun 数字化绘本
+
+基于 Story Fun Starters 教材的数字化双语绘本，每个单元生成**两个版本**：
+
+| 版本 | 路径 | 功能 |
+|------|------|------|
+| 📖 朗读版 | `reader/{story_id}.html` | 逐词高亮朗读、点击查词、词汇卡片 |
+| 🎮 游戏版 | `game/{story_id}.html` | 听音选图、拖拽配对、看图造句 |
+
+**已发布单元：**
+- Unit 1: Pip's Adventures (皮普的冒险) — 10页
+  - 朗读版: https://nonomil.github.io/bilingual-picturebooks/reader/storyfun-1-adventures.html
+  - 游戏版: https://nonomil.github.io/bilingual-picturebooks/game/storyfun-1-adventures.html
+
+---
+
+## 📖 Stories（经典绘本）
 
 | # | Title | Feishu |
 |---|-------|--------|
