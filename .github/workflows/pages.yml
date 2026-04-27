@@ -1,0 +1,64 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare static site
+        run: |
+          set -e
+          mkdir -p _site
+
+          # 主页与静态资源
+          cp index.html _site/
+          cp -r data _site/
+          cp -r styles _site/
+          cp -r images _site/
+          cp -r audio _site/
+
+          # 生成后的阅读页与游戏页
+          if [ -d reader ]; then cp -r reader _site/; fi
+          if [ -d game ]; then cp -r game _site/; fi
+          if [ -d stories ]; then cp -r stories _site/; fi
+
+          # 保留 public 目录，便于排查和兼容已有路径
+          if [ -d public ]; then cp -r public _site/; fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
