@@ -7,22 +7,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css?v=4">
-  <link rel="icon" href="icons/icon-32.png">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#ff6b35">
 </head>
 <body>
   <div id="app"></div>
   <script src="data/stories.js?v=4"></script>
   <script src="data/tts.js?v=4"></script>
   <script src="data/app.js?v=4"></script>
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/bilingual-picturebooks/sw.js")
-    .then(r => console.log("SW registered"))
-    .catch(e => console.log("SW failed:", e));
-}
-</script>
 </body>
 </html>
