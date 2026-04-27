@@ -6,23 +6,149 @@
   <title>📚 双语绘本朗读</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/main.css?v=4">
   <link rel="icon" href="icons/icon-32.png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#ff6b35">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Nunito', sans-serif; background: #fffdf5; min-height: 100vh; }
+    .header {
+      background: linear-gradient(135deg, #ff9f43 0%, #feca57 100%);
+      padding: 40px 20px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(255,159,67,0.3);
+    }
+    .header h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+    .header p { font-size: 16px; opacity: 0.9; }
+    .tabs { display: flex; justify-content: center; gap: 8px; padding: 20px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .tab { padding: 10px 24px; border-radius: 50px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; background: #f5f5f5; color: #666; transition: all 0.2s; }
+    .tab.active { background: #ff9f43; color: #fff; }
+    .tab:hover:not(.active) { background: #ffe8d6; }
+    .section { display: none; padding: 24px 16px; max-width: 1400px; margin: 0 auto; }
+    .section.active { display: block; }
+    .section-title { font-size: 20px; color: #e17055; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .masonry { columns: 5 200px; column-gap: 16px; }
+    @media (max-width: 600px) {
+      .masonry { columns: 2 160px; }
+    }
+    @media (min-width: 1200px) {
+      .masonry { columns: 5; }
+    }
+    .card {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .card-img { width: 100%; display: block; background: #f0f0f0; }
+    .card-body { padding: 12px; }
+    .card-title { font-size: 14px; font-weight: 700; color: #333; margin-bottom: 4px; line-height: 1.3; }
+    .card-title-zh { font-size: 12px; color: #888; margin-bottom: 8px; }
+    .card-links { display: flex; gap: 6px; }
+    .card-link { flex: 1; padding: 6px 8px; border-radius: 8px; text-align: center; text-decoration: none; font-size: 12px; font-weight: 600; transition: opacity 0.2s; }
+    .card-link:hover { opacity: 0.8; }
+    .card-link.reader { background: #e8f4fd; color: #2e86de; }
+    .card-link.game { background: #fce4ec; color: #e84393; }
+    .card-badge { display: inline-block; padding: 2px 8px; background: #ffe8d6; color: #e17055; border-radius: 10px; font-size: 10px; font-weight: 600; margin-bottom: 6px; }
+    .storyfun-card {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      border: 2px solid #54a0ff;
+      transition: transform 0.3s;
+    }
+    .storyfun-card:hover { transform: translateY(-4px); }
+    .storyfun-header { background: #54a0ff; color: #fff; padding: 10px 14px; font-size: 12px; font-weight: 700; }
+    .storyfun-body { padding: 12px; }
+    .storyfun-unit { font-size: 11px; color: #54a0ff; font-weight: 700; text-transform: uppercase; }
+    .storyfun-title { font-size: 15px; font-weight: 700; color: #333; margin: 4px 0; }
+    .storyfun-title-zh { font-size: 12px; color: #888; margin-bottom: 8px; }
+    .storyfun-links { display: flex; gap: 6px; }
+    .storyfun-link { flex: 1; padding: 8px; border-radius: 8px; text-align: center; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .storyfun-link.reader { background: #e8f4fd; color: #2e86de; }
+    .storyfun-link.game { background: #fce4ec; color: #e84393; }
+    .footer { text-align: center; padding: 32px; color: #aaa; font-size: 13px; }
+  </style>
 </head>
 <body>
-  <div id="app"></div>
-  <script src="data/stories.js?v=4"></script>
-  <script src="data/tts.js?v=4"></script>
-  <script src="data/app.js?v=4"></script>
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/bilingual-picturebooks/sw.js")
-    .then(r => console.log("SW registered"))
-    .catch(e => console.log("SW failed:", e));
-}
-</script>
+  <div class="header">
+    <h1>📚 双语绘本朗读</h1>
+    <p>精选故事 · 地道英语 · 亲子共读</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('classic')">📖 经典绘本</button>
+    <button class="tab" onclick="showTab('storyfun')">🎮 Story Fun</button>
+  </div>
+
+  <div class="section active" id="classic-section">
+    <h2 class="section-title">📖 经典双语绘本</h2>
+    <div class="masonry" id="classic-grid"></div>
+  </div>
+
+  <div class="section" id="storyfun-section">
+    <h2 class="section-title">🎮 Story Fun 数字化教材</h2>
+    <div class="masonry" id="storyfun-grid"></div>
+  </div>
+
+  <div class="footer">© 2024 双语绘本 · Bilingual Picture Books</div>
+
+  <script src="data/stories.js"></script>
+  <script>
+    function showTab(tab) {
+      document.querySelectorAll('.tab').forEach((item) => item.classList.remove('active'));
+      document.querySelectorAll('.section').forEach((item) => item.classList.remove('active'));
+      document.querySelector(`.tab[onclick*="${tab}"]`).classList.add('active');
+      document.getElementById(tab + '-section').classList.add('active');
+    }
+
+    const classic_stories = STORIES.filter((story) => story.category !== 'storyfun');
+    document.getElementById('classic-grid').innerHTML = classic_stories.map((story) => `
+      <div class="card" onclick="location.href='reader/classic/${story.id}.html'">
+        <img class="card-img" src="${story.cover || ('images/covers/' + story.id + '.jpg')}" alt="${story.title}" loading="lazy">
+        <div class="card-body">
+          <div class="card-badge">${story.category || '原创'}</div>
+          <div class="card-title">${story.title}</div>
+          <div class="card-title-zh">${story.titleZh || ''}</div>
+          <div class="card-links">
+            <a class="card-link reader" href="reader/classic/${story.id}.html" onclick="event.stopPropagation()">📖 阅读</a>
+            <a class="card-link game" href="game/classic/${story.id}.html" onclick="event.stopPropagation()">🎮 游戏</a>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    const storyfun_stories = STORIES.filter((story) => story.category === 'storyfun');
+    document.getElementById('storyfun-grid').innerHTML = storyfun_stories.map((story) => `
+      <div class="storyfun-card">
+        <div class="storyfun-header">Unit ${story.unit || ''} · ${story.cefrLevel || ''}</div>
+        <div class="storyfun-body">
+          <div class="storyfun-unit">Story Fun Starters</div>
+          <div class="storyfun-title">${story.title}</div>
+          <div class="storyfun-title-zh">${story.titleZh || ''}</div>
+          <div class="storyfun-links">
+            <a class="storyfun-link reader" href="reader/storyfun/${story.id}.html">📖 朗读版</a>
+            <a class="storyfun-link game" href="game/storyfun/${story.id}.html">🎮 游戏版</a>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/bilingual-picturebooks/sw.js')
+        .then(() => console.log('SW registered'))
+        .catch((error) => console.log('SW failed:', error));
+    }
+  </script>
 </body>
 </html>
