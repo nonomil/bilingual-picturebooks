@@ -10,6 +10,8 @@ const App = {
   keyWordMap: [],
   highlightTimer: null,
   audioMode: localStorage.getItem('audioMode') || 'auto',  // auto, tts, audio
+  hideChineseTranslation: localStorage.getItem('hideChineseTranslation') === '1'
+    || localStorage.getItem('hideChinese') === 'true',
 
   init() {
     TTS.init().then(() => {
@@ -30,33 +32,86 @@ const App = {
     return introCount + readerCount;
   },
 
+  getStoryMeta(story) {
+    const bucket = this.getBucket(story);
+    const pageCount = this.getStoryPageCount(story);
+    const unitText = story.unit ? `Unit ${story.unit}` : '';
+    const levelText = story.cefrLevel ? `${story.cefrLevel}` : '';
+    return {
+      bucket,
+      pageCount,
+      unitText,
+      levelText,
+      readerUrl: `reader/${bucket}/${story.id}.html`,
+      gameUrl: `game/${bucket}/${story.id}.html`
+    };
+  },
+
+  renderStoryCard(story) {
+    const meta = this.getStoryMeta(story);
+    const badgeText = [story.category, meta.unitText, meta.levelText].filter(Boolean).join(' · ');
+    return `
+      <article class="story-card" data-reader-url="${meta.readerUrl}">
+        <a class="story-card-link" href="${meta.readerUrl}">
+          <img class="story-card-cover" src="${story.cover}" alt="${story.title}" loading="lazy" onerror="this.style.display='none'">
+          <div class="story-card-body">
+            <div class="story-card-badge">${badgeText || '双语绘本'}</div>
+            <h3 class="story-card-title">${story.title}</h3>
+            <p class="story-card-title-zh">${story.titleZh || ''}</p>
+            <div class="story-card-meta">
+              <span>${meta.pageCount} 页</span>
+            </div>
+          </div>
+        </a>
+        <div class="story-card-actions">
+          <a class="story-action reader" href="${meta.readerUrl}">阅读</a>
+          <a class="story-action game" href="${meta.gameUrl}">游戏</a>
+        </div>
+      </article>
+    `;
+  },
+
   setRate(r) {
     this.rate = r;
     document.getElementById('rate-display').textContent = r + 'x';
   },
 
   renderHome() {
+    const classicStories = STORIES.filter(story => this.getBucket(story) === 'classic');
+    const storyfunStories = STORIES.filter(story => this.getBucket(story) === 'storyfun');
     this.currentView = 'home';
     document.getElementById('app').innerHTML = `
       <div class="home">
-        <h1 class="home-title">📚 双语绘本朗读 <span class="settings-btn" onclick="App.showSettings()" title="设置">⚙️</span></h1>
-        <div class="category-grid" id="home-grid">
-          ${STORIES.map(s => `
-            <div class="category-card" data-story-id="${s.id}" data-reader-url="reader/${this.getBucket(s)}/${s.id}.html">
-              <img class="card-cover" src="${s.cover}" alt="${s.title}" onerror="this.style.display='none'">
-              <div class="card-info">
-                <div class="card-category">${s.category}</div>
-                <div class="card-title">${s.title}</div>
-                <div class="card-title-zh">${s.titleZh}</div>
-                <div class="card-pages">${this.getStoryPageCount(s)} 页</div>
-              </div>
-            </div>
-          `).join('')}
+        <div class="home-hero">
+          <h1 class="home-title">📚 双语绘本朗读 <button class="settings-btn" onclick="App.showSettings()" title="设置">⚙️</button></h1>
+          <p class="home-subtitle">多列瀑布卡片，直接进入阅读页或游戏页，选书更快。</p>
+        </div>
+        <section class="home-section">
+          <div class="home-section-head">
+            <h2 class="home-section-title">经典绘本</h2>
+            <span class="home-section-count">${classicStories.length} 本</span>
+          </div>
+          <div class="masonry-grid" id="classic-grid">
+            ${classicStories.map(story => this.renderStoryCard(story)).join('')}
+          </div>
+        </section>
+        <section class="home-section">
+          <div class="home-section-head">
+            <h2 class="home-section-title">Story Fun</h2>
+            <span class="home-section-count">${storyfunStories.length} 本</span>
+          </div>
+          <div class="masonry-grid" id="storyfun-grid">
+            ${storyfunStories.map(story => this.renderStoryCard(story)).join('')}
+          </div>
+        </section>
+        <div class="home-footer-note">
+          首页卡片默认进入三阶段阅读页，游戏入口保留在卡片底部。
         </div>
       </div>
     `;
-    document.getElementById('home-grid').addEventListener('click', e => {
-      const card = e.target.closest('.category-card');
+    document.querySelector('.home').addEventListener('click', e => {
+      if (e.target.closest('.story-action')) return;
+      const card = e.target.closest('.story-card');
       if (card && card.dataset.readerUrl) {
         window.location.href = card.dataset.readerUrl;
       }
@@ -201,6 +256,13 @@ const App = {
           <select id="zhVoiceSelect" class="voice-select"></select>
           <p class="setting-hint">选择更自然的中文语音</p>
         </div>
+        <div class="setting-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="hideChineseToggle" ${this.hideChineseTranslation ? 'checked' : ''}>
+            阅读页默认隐藏中文
+          </label>
+          <p class="setting-hint">默认关闭，方便孩子直接对照中英文；开启后可在阅读页里再显示中文。</p>
+        </div>
         <button class="settings-save" onclick="App.saveSettings()">保存</button>
         <button class="settings-close" onclick="this.closest('.settings-overlay').remove()">关闭</button>
       </div>
@@ -237,6 +299,10 @@ const App = {
       localStorage.setItem('zhVoiceName', voiceSelect.value);
       TTS.zhVoiceName = voiceSelect.value;
     }
+    const hideChineseToggle = document.getElementById('hideChineseToggle');
+    this.hideChineseTranslation = !!(hideChineseToggle && hideChineseToggle.checked);
+    localStorage.setItem('hideChineseTranslation', this.hideChineseTranslation ? '1' : '0');
+    localStorage.setItem('hideChinese', this.hideChineseTranslation ? 'true' : 'false');
     document.querySelector('.settings-overlay').remove();
   },
 

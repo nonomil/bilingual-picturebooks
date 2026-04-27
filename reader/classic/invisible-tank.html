@@ -7,230 +7,360 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family:'Nunito','PingFang SC','Microsoft YaHei',sans-serif;
-    background:linear-gradient(180deg,#fffaf2 0%,#fff5e8 100%);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    color:#2f2f2f;
+    font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(180deg, #fffaf2 0%, #fff5e8 100%);
+    color: #2f2f2f;
+    min-height: 100vh;
   }
-  .reader_wrap { width:100%; max-width:900px; padding:16px 14px 28px; }
+  .reader_wrap {
+    width: min(960px, calc(100% - 20px));
+    margin: 0 auto;
+    padding: 16px 0 28px;
+  }
   .page_head {
-    background:#fff;
-    border-radius:18px;
-    box-shadow:0 10px 28px rgba(0,0,0,.08);
-    padding:14px 16px;
-    margin-bottom:12px;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+    padding: 16px;
+    margin-bottom: 14px;
   }
   .page_head_top {
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
   }
-  .unit_tag { color:#8e8e8e; font-size:13px; margin-bottom:6px; }
-  .story_brand {
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    background:#f4f7ff;
-    color:#5c7cfa;
-    border-radius:999px;
-    font-size:12px;
-    font-weight:700;
-    padding:5px 10px;
+  .unit_tag {
+    color: #8f8174;
+    font-size: 13px;
+    margin-bottom: 6px;
   }
-  h2 { color:#e17055; font-size:24px; line-height:1.3; }
-  h2 small { display:block; color:#9b9b9b; font-size:16px; font-weight:500; margin-top:4px; }
+  h1 {
+    color: #e17055;
+    font-size: 26px;
+    line-height: 1.25;
+  }
+  h1 small {
+    display: block;
+    color: #8e8e8e;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
   .page_meta {
-    text-align:right;
-    min-width:112px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
   }
   .page_total {
-    color:#666;
-    font-size:13px;
-    font-weight:700;
-    margin-bottom:6px;
+    color: #736456;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: right;
   }
-  .translate_btn {
-    border:none;
-    background:#fff3d8;
-    color:#a26400;
-    border-radius:999px;
-    font-size:12px;
-    font-weight:700;
-    padding:8px 12px;
-    cursor:pointer;
+  .meta_actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
-  .progress_bar { width:100%; height:7px; background:#ececec; border-radius:999px; margin:12px 0 14px; overflow:hidden; }
-  .progress_fill { height:100%; background:linear-gradient(90deg,#ff9f43,#ffd166); transition:width .25s ease; }
+  .top_btn {
+    border: none;
+    border-radius: 999px;
+    background: #fff3d8;
+    color: #a26400;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  .top_btn.settings_btn {
+    background: #edf4ff;
+    color: #2e86de;
+  }
+  .progress_bar {
+    width: 100%;
+    height: 7px;
+    background: #ececec;
+    border-radius: 999px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+  .progress_fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff9f43, #ffd166);
+    transition: width .25s ease;
+  }
   .hero_img {
-    width:100%;
-    border-radius:18px;
-    box-shadow:0 8px 30px rgba(0,0,0,.12);
-    display:block;
-    background:#f3f3f3;
-    aspect-ratio:16/10;
-    object-fit:cover;
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 22px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    background: #f3f3f3;
   }
   .text_area {
-    margin-top:14px;
-    background:#fff;
-    border-radius:16px;
-    box-shadow:0 4px 18px rgba(0,0,0,.08);
-    padding:16px 14px 14px;
+    margin-top: 14px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    padding: 16px 14px;
+  }
+  .text_area.intro_mode {
+    background: linear-gradient(180deg, #fffef9 0%, #fff8ec 100%);
   }
   .text_toolbar {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:8px;
-    margin-bottom:12px;
-    flex-wrap:wrap;
-  }
-  .toolbar_tip {
-    color:#9a8f82;
-    font-size:12px;
-    font-weight:700;
-  }
-  .toolbar_actions {
-    display:flex;
-    align-items:center;
-    gap:8px;
-    flex-wrap:wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
   }
   .phase_badge {
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    border-radius:999px;
-    background:#fff4d9;
-    color:#9c6500;
-    font-size:12px;
-    font-weight:800;
-    padding:5px 10px;
-  }
-  .intro_note {
-    color:#8d7d68;
-    font-size:13px;
-    font-weight:700;
-  }
-  .en_sentence { font-size:25px; line-height:1.65; color:#2f2f2f; font-weight:700; }
-  .word {
-    display:inline;
-    border-radius:6px;
-    cursor:pointer;
-    padding:1px 2px;
-    transition:all .15s ease;
-  }
-  .word:hover { background:#fff3b0; }
-  .word.speaking { background:#ffd166; color:#3b2f0d; }
-  .word_tip {
-    display:inline-block;
-    margin-left:6px;
-    font-size:12px;
-    color:#666;
-    background:#f3f4f8;
-    border-radius:999px;
-    padding:2px 8px;
-  }
-  .zh_sentence {
-    margin-top:12px;
-    padding-top:12px;
-    border-top:1px dashed #ececec;
-    font-size:20px;
-    line-height:1.8;
-    color:#5d5d5d;
-  }
-  .zh_sentence.hidden { display:none; }
-  .zh_chunk {
-    border-radius:5px;
-    transition:background .12s ease;
-  }
-  .zh_chunk.speaking {
-    background:#ffe8bd;
-    color:#403014;
-  }
-  .lexicon { margin-top:14px; display:grid; gap:10px; }
-  .lex_row { display:flex; align-items:flex-start; gap:10px; flex-wrap:wrap; }
-  .lex_label {
-    min-width:54px;
-    text-align:center;
-    border-radius:999px;
-    font-size:12px;
-    font-weight:700;
-    color:#fff;
-    padding:4px 8px;
-  }
-  .lex_label.words { background:#54a0ff; }
-  .lex_label.phrases { background:#10ac84; }
-  .lex_items { flex:1; display:flex; flex-wrap:wrap; gap:8px; }
-  .lex_chip {
-    border-radius:999px;
-    padding:6px 12px;
-    border:1px solid #dde8ff;
-    background:#f4f8ff;
-    font-size:13px;
-    color:#2f3f60;
-    line-height:1.35;
-    cursor:pointer;
-    transition:all .15s ease;
-  }
-  .lex_chip:hover { transform:translateY(-1px); box-shadow:0 2px 8px rgba(0,0,0,.08); }
-  .lex_chip.words b { color:#1f6fd1; }
-  .lex_chip.phrases {
-    border-color:#c9f0e4;
-    background:#f1fffb;
-    color:#22524a;
-  }
-  .lex_chip.phrases b { color:#0c9b78; }
-  .lex_empty { font-size:13px; color:#989898; padding-top:7px; }
-  .text_area.intro_mode {
-    background:linear-gradient(180deg,#fffdf7 0%,#fff8ec 100%);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    background: #fff4d9;
+    color: #9c6500;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 6px 10px;
   }
   .intro_title {
-    color:#7d5d2e;
-    font-size:27px;
-    line-height:1.35;
-    font-weight:800;
-    margin-bottom:12px;
+    color: #7d5d2e;
+    font-size: 24px;
+    line-height: 1.35;
+    font-weight: 800;
+    margin-bottom: 12px;
   }
-  .intro_copy {
-    font-size:22px;
-    line-height:1.9;
-    color:#5f5141;
+  .en_sentence {
+    font-size: 28px;
+    line-height: 1.7;
+    color: #2f2f2f;
+    font-weight: 800;
+  }
+  .word {
+    display: inline;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 1px 3px;
+    transition: background .15s ease, color .15s ease;
+  }
+  .word:hover,
+  .word.speaking {
+    background: #ffd166;
+    color: #3b2f0d;
+  }
+  .zh_sentence {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed #ececec;
+    font-size: 22px;
+    line-height: 1.85;
+    color: #5d5d5d;
+  }
+  .zh_sentence.hidden {
+    display: none;
+  }
+  .zh_chunk {
+    border-radius: 6px;
+    transition: background .12s ease, color .12s ease;
+  }
+  .zh_chunk.speaking {
+    background: #ffe8bd;
+    color: #403014;
+  }
+  .lexicon {
+    margin-top: 16px;
+    display: grid;
+    gap: 10px;
+  }
+  .lex_row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .lex_label {
+    min-width: 54px;
+    text-align: center;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 8px;
+  }
+  .lex_label.words { background: #54a0ff; }
+  .lex_label.phrases { background: #10ac84; }
+  .lex_items {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .lex_chip {
+    border-radius: 999px;
+    padding: 7px 12px;
+    border: 1px solid #dde8ff;
+    background: #f4f8ff;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #2f3f60;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .lex_chip:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .lex_chip.words b { color: #1f6fd1; }
+  .lex_chip.phrases {
+    border-color: #c9f0e4;
+    background: #f1fffb;
+    color: #22524a;
+  }
+  .lex_chip.phrases b { color: #0c9b78; }
+  .lex_chip.speaking {
+    background: #ffd166;
+    border-color: #ffc94d;
+    color: #3b2f0d;
+    box-shadow: 0 6px 14px rgba(255, 184, 51, 0.24);
+  }
+  .lex_empty {
+    font-size: 13px;
+    color: #989898;
+    padding-top: 7px;
   }
   .nav {
-    margin-top:16px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:8px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav_center {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .btn {
-    border:none;
-    border-radius:999px;
-    cursor:pointer;
-    font-size:15px;
-    font-weight:700;
-    padding:10px 16px;
-    transition:opacity .15s ease, transform .15s ease;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 10px 16px;
+    transition: opacity .15s ease, transform .15s ease;
   }
-  .btn:disabled { opacity:.35; cursor:not-allowed; }
-  .btn:hover:not(:disabled) { transform:translateY(-1px); }
-  .btn.nav_btn { background:#ff9f43; color:#fff; min-width:108px; }
-  .btn.read_btn { background:#54a0ff; color:#fff; }
-  .btn.zh_btn { background:#f368e0; color:#fff; }
-  .btn.game_btn { background:#10ac84; color:#fff; display:none; }
-  .page_indicator { color:#969696; font-size:14px; }
+  .btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+  .btn:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+  }
+  .btn.nav_btn { background: #ff9f43; color: #fff; min-width: 108px; }
+  .btn.read_btn { background: #54a0ff; color: #fff; min-width: 110px; }
+  .btn.zh_btn { background: #f368e0; color: #fff; }
+  .btn.game_btn { background: #10ac84; color: #fff; display: none; }
+  .page_indicator {
+    color: #969696;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .settings_overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 18, 8, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    z-index: 999;
+  }
+  .settings_overlay.show {
+    display: flex;
+  }
+  .settings_panel {
+    width: min(420px, 100%);
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    padding: 20px 18px;
+  }
+  .settings_panel h3 {
+    font-size: 20px;
+    color: #2f2f2f;
+    margin-bottom: 12px;
+  }
+  .settings_group {
+    margin-bottom: 14px;
+  }
+  .settings_group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #53463b;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .settings_hint {
+    color: #8c7b6d;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 6px;
+  }
+  .settings_actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .settings_action {
+    flex: 1;
+    border: none;
+    border-radius: 999px;
+    min-height: 40px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .settings_action.save {
+    background: #ff9f43;
+    color: #fff;
+  }
+  .settings_action.close {
+    background: #f5f0ea;
+    color: #7d6d60;
+  }
   @media (max-width: 640px) {
-    .page_head_top { flex-direction:column; }
-    .page_meta { width:100%; text-align:left; }
-    .nav { flex-wrap:wrap; justify-content:center; }
-    .en_sentence { font-size:22px; }
-    .zh_sentence { font-size:18px; }
+    .reader_wrap {
+      width: min(100%, calc(100% - 12px));
+      padding-top: 10px;
+    }
+    .page_head_top {
+      flex-direction: column;
+    }
+    .page_meta {
+      width: 100%;
+      align-items: flex-start;
+    }
+    .meta_actions {
+      justify-content: flex-start;
+    }
+    .en_sentence { font-size: 23px; }
+    .zh_sentence { font-size: 19px; }
+    .nav {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 </style>
 </head>
@@ -240,27 +370,49 @@
     <div class="page_head_top">
       <div>
         <div class="unit_tag">分类：我的世界</div>
-        <div class="story_brand">📚 Minecraft Storybook Style</div>
-        <h2>Invisible Tank Mission<small>隐身战车奇袭</small></h2>
+        <h1>Invisible Tank Mission<small>隐身战车奇袭</small></h1>
       </div>
       <div class="page_meta">
         <div class="page_total" id="page_total"></div>
-        <button class="translate_btn" id="translate_toggle_btn" onclick="toggle_translation()">显示翻译</button>
+        <div class="meta_actions">
+          <button class="top_btn" id="translate_toggle_btn" onclick="toggle_translation()">中文开</button>
+          <button class="top_btn settings_btn" onclick="open_settings()">设置</button>
+        </div>
       </div>
     </div>
     <div class="progress_bar"><div class="progress_fill" id="progress_fill"></div></div>
   </div>
+
   <div id="page_area"></div>
+
   <div class="nav">
     <button class="btn nav_btn" id="prev_btn" onclick="change_page(-1)">← 上一页</button>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <button class="btn read_btn" onclick="read_current()">🔊 朗读</button>
+    <div class="nav_center">
+      <button class="btn read_btn" id="read_btn" onclick="toggle_reading()">🔊 朗读</button>
       <button class="btn zh_btn" onclick="read_chinese_only()">🈶 中文</button>
       <button class="btn game_btn" id="to_game_btn" onclick="goto_game()">🎮 去游戏</button>
       <span class="page_indicator" id="page_indicator"></span>
     </div>
     <button class="btn nav_btn" id="next_btn" onclick="change_page(1)">下一页 →</button>
   </div>
+</div>
+
+<div class="settings_overlay" id="settings_overlay" onclick="close_settings_on_overlay(event)">
+  <div class="settings_panel">
+    <h3>阅读设置</h3>
+    <div class="settings_group">
+      <label>
+        <input type="checkbox" id="hide_chinese_checkbox">
+        默认隐藏中文
+      </label>
+      <div class="settings_hint">默认关闭。开启后第二阶段中文默认隐藏，但仍可点击“中文开/关”切换。</div>
+    </div>
+    <div class="settings_actions">
+      <button class="settings_action save" onclick="save_reader_settings()">保存</button>
+      <button class="settings_action close" onclick="close_settings()">关闭</button>
+    </div>
+  </div>
+</div>
 
 <script>
 const STORY = {"id": "invisible-tank", "title": "Invisible Tank Mission", "titleZh": "隐身战车奇袭", "category": "我的世界", "cover": "images/covers/cover-invisible-tank.jpg", "pages": [{"img": "images/invisible-tank/page-1.jpg", "en": "A mysterious black tank that can turn invisible, ready for a secret mission.", "zh": "一辆神秘的黑色坦克，可以变得完全透明，准备执行秘密任务。", "keys": [{"w": "mysterious", "p": "/mɪˈstɪriəs/", "zh": "神秘的"}], "phrases": [{"en": "mysterious black tank", "zh": "神秘的黑色坦克"}], "title": ""}, {"img": "images/invisible-tank/page-2.jpg", "en": "Sneaky enemy trucks steal the glowing energy crystals hidden on the mountain top.", "zh": "偷偷摸摸的敌人卡车把藏在山顶的发光能量水晶偷走了！", "keys": [{"w": "sneaky", "p": "/ˈsniːki/", "zh": "鬼鬼祟祟的"}], "phrases": [{"en": "sneaky enemy trucks", "zh": "偷偷摸摸的敌人卡车"}], "title": ""}, {"img": "images/invisible-tank/page-3.jpg", "en": "The kid presses the glowing blue button — whoosh! The tank becomes completely invisible!", "zh": "小孩按下发光的蓝色按钮——嗖！坦克变得完全透明了！", "keys": [{"w": "press", "p": "/pres/", "zh": "按下"}], "phrases": [{"en": "glowing blue button", "zh": "发光的蓝色按钮"}], "title": ""}, {"img": "images/invisible-tank/page-4.jpg", "en": "The invisible tank follows the enemy convoy silently, not even the guard dogs notice it.", "zh": "隐身坦克悄悄跟在敌人车队后面，连敌人的侦查狗都没发现。", "keys": [{"w": "follows", "p": "/ˈfɑːloʊz/", "zh": "跟随"}], "phrases": [{"en": "follows the enemy convoy silently", "zh": "悄悄跟着敌人车队"}], "title": ""}, {"img": "images/invisible-tank/page-5.jpg", "en": "The invisible tank reaches the enemy camp. There are guards everywhere and tall watchtowers!", "zh": "隐身坦克到达敌人营地。到处都是卫兵和高高的瞭望塔！", "keys": [{"w": "reaches", "p": "/ˈriːtʃɪz/", "zh": "到达"}], "phrases": [{"en": "reaches the enemy camp", "zh": "到达敌人营地"}], "title": ""}, {"img": "images/invisible-tank/page-6.jpg", "en": "Twenty fake tanks appear around the enemy camp and the soldiers panic in confusion!", "zh": "敌人营地周围突然出现了二十辆一模一样的幻影坦克，士兵们吓得四处张望！", "keys": [{"w": "fake", "p": "/feɪk/", "zh": "假的"}], "phrases": [{"en": "appear around the enemy camp", "zh": "出现在敌人营地周围"}], "title": ""}, {"img": "images/invisible-tank/page-7.jpg", "en": "Tiny fly-sized cameras zip over to the enemy tanks and send back live video to the kid's screen.", "zh": "像苍蝇一样小的微型摄像头飞到敌人坦克上，把画面传回屏幕。", "keys": [{"w": "tiny", "p": "/ˈtaɪni/", "zh": "极小的"}], "phrases": [{"en": "fly-sized cameras", "zh": "像苍蝇一样小的摄像头"}], "title": ""}, {"img": "images/invisible-tank/page-8.jpg", "en": "The kid throws a special dart that flies straight into the enemy truck's energy core!", "zh": "小孩投出飞镖，精准命中敌人卡车的能量核心！", "keys": [{"w": "special", "p": "/ˈspeʃl/", "zh": "特殊的"}], "phrases": [{"en": "throws a special dart", "zh": "投出一枚特殊飞镖"}], "title": ""}, {"img": "images/invisible-tank/page-9.jpg", "en": "The dart hits the core — BOOM! The enemy truck's power shuts down completely!", "zh": "飞镖命中核心——轰！敌人卡车的动力彻底熄火了！", "keys": [{"w": "hits", "p": "/hɪts/", "zh": "击中"}], "phrases": [{"en": "hits the core", "zh": "击中核心"}], "title": ""}, {"img": "images/invisible-tank/page-10.jpg", "en": "A magnetic claw reaches out and zips the crystal boxes right into the invisible tank.", "zh": "磁力抓取爪伸出，嗖地一下把能量水晶吸了过来！", "keys": [{"w": "magnetic", "p": "/mæɡˈnetɪk/", "zh": "磁性的"}], "phrases": [{"en": "A magnetic claw reaches out", "zh": "一只磁力爪伸出来"}], "title": ""}, {"img": "images/invisible-tank/page-11.jpg", "en": "The magnetic claw grabs the second crystal too! Two down, one to go!", "zh": "磁力爪又抓到了第二个水晶！两个到手，还差一个！", "keys": [{"w": "grabs", "p": "/ɡræbz/", "zh": "抓住"}], "phrases": [{"en": "grabs the second crystal", "zh": "抓住第二个水晶"}], "title": ""}, {"img": "images/invisible-tank/page-12.jpg", "en": "The last enemy truck spots the floating crystals and sounds the alarm! WHEE-OOH WHEE-OOH!", "zh": "最后一辆敌人卡车发现了飘浮的水晶，拉响了警报！呜——呜——！", "keys": [{"w": "enemy", "p": "/ˈenəmi/", "zh": "敌人"}], "phrases": [{"en": "spots the floating crystals", "zh": "发现漂浮的水晶"}], "title": ""}, {"img": "images/invisible-tank/page-13.jpg", "en": "The enemy truck chases the invisible tank through the forest at full speed!", "zh": "敌人卡车全速追赶隐身坦克，在森林里疯狂穿梭！", "keys": [{"w": "chases", "p": "/ˈtʃeɪsɪz/", "zh": "追赶"}], "phrases": [{"en": "chases the invisible tank", "zh": "追赶隐身坦克"}], "title": ""}, {"img": "images/invisible-tank/page-14.jpg", "en": "An explosion sends Doubao the robot flying higher than the whole galaxy!", "zh": "一阵爆炸把豆包炸飞了，豆包飞得比银河系还高！", "keys": [{"w": "explosion", "p": "/ɪkˈspləʊʒən/", "zh": "爆炸"}], "phrases": [{"en": "An explosion sends Doubao flying", "zh": "一场爆炸把豆包炸飞了"}], "title": ""}, {"img": "images/invisible-tank/page-15.jpg", "en": "Doubao falls back down like a shooting star, yelling all the way!", "zh": "豆包像流星一样落下来，一路尖叫！", "keys": [{"w": "falls", "p": "/fɔːlz/", "zh": "掉落"}], "phrases": [{"en": "falls back down like a shooting star", "zh": "像流星一样落下来"}], "title": ""}, {"img": "images/invisible-tank/page-16.jpg", "en": "Doubao lands on the ground with a big BUMP and says 'Ouch, my bottom hurts!'", "zh": "豆包砰地坐到地上，哎呀，屁股好疼啊，摔了个屁股蹲！", "keys": [{"w": "lands", "p": "/lændz/", "zh": "着地"}], "phrases": [{"en": "lands on the ground with a big BUMP", "zh": "砰地坐到地上"}], "title": ""}, {"img": "images/invisible-tank/page-17.jpg", "en": "Doubao accidentally falls right in front of the enemy truck! The truck screeches to a halt!", "zh": "豆包正好摔在敌人卡车前面！卡车急刹车停了下来！", "keys": [{"w": "accidentally", "p": "/ˌæksɪˈdentəli/", "zh": "意外地"}], "phrases": [{"en": "accidentally falls right in front of the enemy truck", "zh": "正好摔在敌人卡车前面"}], "title": ""}, {"img": "images/invisible-tank/page-18.jpg", "en": "While the truck is stopped, the magnetic claw quickly grabs the last crystal!", "zh": "趁卡车停下，磁力爪迅速抓走了最后一个水晶！", "keys": [{"w": "stopped", "p": "/stɒpt/", "zh": "停下的"}], "phrases": [{"en": "while the truck is stopped", "zh": "趁卡车停下"}], "title": ""}, {"img": "images/invisible-tank/page-19.jpg", "en": "Doubao has a bouncy bottom pad and springs right back up, ready to keep fighting!", "zh": "豆包有弹性缓冲垫，一下子就弹了起来，继续战斗！", "keys": [{"w": "bouncy", "p": "/ˈbaʊnsi/", "zh": "有弹性的"}], "phrases": [{"en": "has a bouncy bottom pad", "zh": "有弹性缓冲垫"}], "title": ""}, {"img": "images/invisible-tank/page-20.jpg", "en": "The invisible tank activates full stealth and vanishes completely! The enemy trucks can't find it!", "zh": "隐身坦克开启全隐身模式，彻底消失！敌人卡车找不到它了！", "keys": [{"w": "activates", "p": "/ˈæktɪveɪts/", "zh": "启动"}], "phrases": [{"en": "activates full stealth", "zh": "开启全隐身模式"}], "title": ""}, {"img": "images/invisible-tank/page-21.jpg", "en": "The invisible tank carries the crystals home safely, with Doubao riding on top as a lookout.", "zh": "隐身坦克带着水晶安全回到基地，豆包坐在坦克顶上当侦查员。", "keys": [{"w": "carries", "p": "/ˈkæriz/", "zh": "运送"}], "phrases": [{"en": "carries the crystals home safely", "zh": "安全地把水晶带回基地"}], "title": ""}], "intro_cn_pages": [{"title": "隐身战车奇袭 · 故事开始", "img": "images/invisible-tank/page-1.jpg", "en": "", "zh": "一辆神秘的黑色坦克，可以变得完全透明，准备执行秘密任务。", "keys": [{"w": "mysterious", "p": "/mɪˈstɪriəs/", "zh": "神秘的"}], "phrases": [{"en": "mysterious black tank", "zh": "神秘的黑色坦克"}]}, {"title": "隐身战车奇袭 · 中间发生了什么", "img": "images/invisible-tank/page-11.jpg", "en": "", "zh": "磁力爪又抓到了第二个水晶！两个到手，还差一个！", "keys": [{"w": "grabs", "p": "/ɡræbz/", "zh": "抓住"}], "phrases": [{"en": "grabs the second crystal", "zh": "抓住第二个水晶"}]}, {"title": "隐身战车奇袭 · 故事结尾", "img": "images/invisible-tank/page-21.jpg", "en": "", "zh": "隐身坦克带着水晶安全回到基地，豆包坐在坦克顶上当侦查员。", "keys": [{"w": "carries", "p": "/ˈkæriz/", "zh": "运送"}], "phrases": [{"en": "carries the crystals home safely", "zh": "安全地把水晶带回基地"}]}], "reader_pages_simple_en": [{"title": "", "img": "images/invisible-tank/page-1.jpg", "en": "A mysterious black tank that can turn invisible, ready for a secret mission.", "zh": "一辆神秘的黑色坦克，可以变得完全透明，准备执行秘密任务。", "keys": [{"w": "mysterious", "p": "/mɪˈstɪriəs/", "zh": "神秘的"}], "phrases": [{"en": "mysterious black tank", "zh": "神秘的黑色坦克"}]}, {"title": "", "img": "images/invisible-tank/page-4.jpg", "en": "The invisible tank follows the enemy convoy silently, not even the guard dogs notice.", "zh": "隐身坦克悄悄跟在敌人车队后面，连敌人的侦查狗都没发现。", "keys": [{"w": "follows", "p": "/ˈfɑːloʊz/", "zh": "跟随"}], "phrases": [{"en": "follows the enemy convoy silently", "zh": "悄悄跟着敌人车队"}]}, {"title": "", "img": "images/invisible-tank/page-7.jpg", "en": "Tiny fly-sized cameras zip over to the enemy tanks and send back live video.", "zh": "像苍蝇一样小的微型摄像头飞到敌人坦克上，把画面传回屏幕。", "keys": [{"w": "tiny", "p": "/ˈtaɪni/", "zh": "极小的"}], "phrases": [{"en": "fly-sized cameras", "zh": "像苍蝇一样小的摄像头"}]}, {"title": "", "img": "images/invisible-tank/page-10.jpg", "en": "A magnetic claw reaches out and zips the crystal boxes right into the invisible.", "zh": "磁力抓取爪伸出，嗖地一下把能量水晶吸了过来！", "keys": [{"w": "magnetic", "p": "/mæɡˈnetɪk/", "zh": "磁性的"}], "phrases": [{"en": "A magnetic claw reaches out", "zh": "一只磁力爪伸出来"}]}, {"title": "", "img": "images/invisible-tank/page-12.jpg", "en": "The last enemy truck spots the floating crystals and sounds the alarm! WHEE-OOH WHEE-OOH!", "zh": "最后一辆敌人卡车发现了飘浮的水晶，拉响了警报！呜——呜——！", "keys": [{"w": "enemy", "p": "/ˈenəmi/", "zh": "敌人"}], "phrases": [{"en": "spots the floating crystals", "zh": "发现漂浮的水晶"}]}, {"title": "", "img": "images/invisible-tank/page-15.jpg", "en": "Doubao falls back down like a shooting star, yelling all the way!", "zh": "豆包像流星一样落下来，一路尖叫！", "keys": [{"w": "falls", "p": "/fɔːlz/", "zh": "掉落"}], "phrases": [{"en": "falls back down like a shooting star", "zh": "像流星一样落下来"}]}, {"title": "", "img": "images/invisible-tank/page-18.jpg", "en": "While the truck is stopped, the magnetic claw quickly grabs the last crystal!", "zh": "趁卡车停下，磁力爪迅速抓走了最后一个水晶！", "keys": [{"w": "stopped", "p": "/stɒpt/", "zh": "停下的"}], "phrases": [{"en": "while the truck is stopped", "zh": "趁卡车停下"}]}, {"title": "", "img": "images/invisible-tank/page-21.jpg", "en": "The invisible tank carries the crystals home safely, with Doubao riding on top as.", "zh": "隐身坦克带着水晶安全回到基地，豆包坐在坦克顶上当侦查员。", "keys": [{"w": "carries", "p": "/ˈkæriz/", "zh": "运送"}], "phrases": [{"en": "carries the crystals home safely", "zh": "安全地把水晶带回基地"}]}]};
@@ -285,15 +437,29 @@ if (!page_list.length) {
     phrases: [],
   });
 }
+
 let current_page = 0;
 let current_rate = 0.92;
 let is_reading = false;
-let translation_visible = false;
 let current_word_ranges = [];
 const synth = window.speechSynthesis;
 
+function get_hide_chinese_setting() {
+  if (localStorage.getItem('hideChineseTranslation') !== null) {
+    return localStorage.getItem('hideChineseTranslation') === '1';
+  }
+  return localStorage.getItem('hideChinese') === 'true';
+}
+
+let translation_visible = !get_hide_chinese_setting();
+
 function escape_for_attr(raw_text) {
-  return String(raw_text || '').replace(/'/g, "\\'");
+  return String(raw_text || '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
 
 function get_asset_src(raw_path) {
@@ -305,8 +471,10 @@ function get_asset_src(raw_path) {
 }
 
 function split_zh_chunks(zh_text) {
-  const source_text = String(zh_text || '');
-  return source_text.split(/(?<=[。！？；：,.!?])/).filter(Boolean);
+  return String(zh_text || '')
+    .split(/(?<=[。！？；：,.!?])/)
+    .map((chunk) => chunk.trim())
+    .filter(Boolean);
 }
 
 function build_word_tokens(en_text) {
@@ -326,20 +494,26 @@ function get_current_page() {
 }
 
 function get_section_label(page) {
-  if (page.section === 'intro') return '中文剧情导入';
-  return intro_pages.length ? '英文简版阅读' : '故事阅读';
+  if (page.section === 'intro') return '第一阶段 · 中文导入';
+  return intro_pages.length ? '第二阶段 · 英文阅读' : '阅读页';
+}
+
+function update_read_button() {
+  const read_btn = document.getElementById('read_btn');
+  if (!read_btn) return;
+  read_btn.textContent = is_reading ? '⏹ 停止' : '🔊 朗读';
 }
 
 function update_translation_ui() {
+  const page = get_current_page();
   const zh_box = document.getElementById('zh_sentence');
   const toggle_btn = document.getElementById('translate_toggle_btn');
-  const page = get_current_page();
-  if (!zh_box || !toggle_btn || !page) return;
+  if (!page || !zh_box || !toggle_btn) return;
   const is_intro = page.section === 'intro';
-  toggle_btn.style.display = is_intro ? 'none' : 'inline-block';
+  toggle_btn.style.display = is_intro ? 'none' : 'inline-flex';
   zh_box.classList.toggle('hidden', !is_intro && !translation_visible);
   if (!is_intro) {
-    toggle_btn.textContent = translation_visible ? '隐藏翻译' : '显示翻译';
+    toggle_btn.textContent = translation_visible ? '中文关' : '中文开';
   }
 }
 
@@ -352,53 +526,82 @@ function toggle_translation(force_visible) {
   update_translation_ui();
 }
 
+function open_settings() {
+  const overlay = document.getElementById('settings_overlay');
+  const checkbox = document.getElementById('hide_chinese_checkbox');
+  checkbox.checked = get_hide_chinese_setting();
+  overlay.classList.add('show');
+}
+
+function close_settings() {
+  document.getElementById('settings_overlay').classList.remove('show');
+}
+
+function close_settings_on_overlay(event) {
+  if (event.target.id === 'settings_overlay') {
+    close_settings();
+  }
+}
+
+function save_reader_settings() {
+  const hidden = document.getElementById('hide_chinese_checkbox').checked;
+  localStorage.setItem('hideChinese', hidden ? 'true' : 'false');
+  localStorage.setItem('hideChineseTranslation', hidden ? '1' : '0');
+  translation_visible = !hidden;
+  update_translation_ui();
+  close_settings();
+}
+
 function render_page(page_index) {
   const page = page_list[page_index];
   const is_intro = page.section === 'intro';
   const section_label = get_section_label(page);
+  const image_src = get_asset_src(page.img);
   current_word_ranges = is_intro ? [] : build_word_tokens(page.en || '');
+
   const words_html = current_word_ranges.map((item, idx) =>
-    `<span class="word" id="w_${idx}" onclick="show_word_tip(this,'${escape_for_attr(item.token)}')">${item.token}</span>`
+    `<span class="word" id="w_${idx}" onclick="speak_word_token(${idx})">${escape_for_attr(item.token)}</span>`
   ).join(' ');
+
   const zh_chunks = split_zh_chunks(page.zh || '');
   const zh_html = zh_chunks.map((chunk, idx) =>
-    `<span class="zh_chunk" id="zh_${idx}">${chunk}</span>`
+    `<span class="zh_chunk" id="zh_${idx}">${escape_for_attr(chunk)}</span>`
   ).join('');
-  const word_row_html = (page.keys || []).length ? (page.keys || []).map((item) =>
-    `<span class="lex_chip words" onclick="speak_word('${escape_for_attr(item.w || '')}')"><b>${item.w || ''}</b> ${item.p || ''} ${item.zh || ''}</span>`
-  ).join('') : '<span class="lex_empty">暂无重点单词</span>';
-  const phrase_row_html = (page.phrases || []).length ? (page.phrases || []).map((item) =>
-    `<span class="lex_chip phrases" onclick="speak_phrase('${escape_for_attr(item.en || '')}')"><b>${item.en || ''}</b> ${item.zh || ''}</span>`
-  ).join('') : '<span class="lex_empty">暂无重点词组</span>';
-  const intro_title_html = page.title ? `<div class="intro_title">${page.title}</div>` : '';
-  const intro_lexicon_html = ((page.keys || []).length || (page.phrases || []).length) ? `
+
+  const word_row_html = (page.keys || []).length
+    ? (page.keys || []).map((item, idx) =>
+      `<span class="lex_chip words" id="key_${idx}" onclick="manual_speak_word(${idx})"><b>${escape_for_attr(item.w || '')}</b> ${escape_for_attr(item.p || '')} ${escape_for_attr(item.zh || '')}</span>`
+    ).join('')
+    : '<span class="lex_empty">暂无重点单词</span>';
+
+  const phrase_row_html = (page.phrases || []).length
+    ? (page.phrases || []).map((item, idx) =>
+      `<span class="lex_chip phrases" id="phrase_${idx}" onclick="manual_speak_phrase(${idx})"><b>${escape_for_attr(item.en || '')}</b> ${escape_for_attr(item.zh || '')}</span>`
+    ).join('')
+    : '<span class="lex_empty">暂无重点词组</span>';
+
+  const intro_title_html = page.title ? `<div class="intro_title">${escape_for_attr(page.title)}</div>` : '';
+
+  document.getElementById('page_area').innerHTML = is_intro ? `
+    <img class="hero_img" src="${image_src}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
+    <div class="text_area intro_mode">
+      <div class="text_toolbar">
+        <div class="phase_badge">${section_label}</div>
+      </div>
+      ${intro_title_html}
+      <div class="zh_sentence" id="zh_sentence">${zh_html}</div>
       <div class="lexicon">
         <div class="lex_row"><span class="lex_label words">单词</span><div class="lex_items">${word_row_html}</div></div>
         <div class="lex_row"><span class="lex_label phrases">词组</span><div class="lex_items">${phrase_row_html}</div></div>
-      </div>` : '';
-
-  document.getElementById('page_area').innerHTML = is_intro ? `
-    <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
-    <div class="text_area intro_mode">
-      <div class="text_toolbar">
-        <div class="phase_badge">🧭 ${section_label}</div>
-        <div class="intro_note">先听中文剧情，先建立画面，再进入英文阅读。</div>
       </div>
-      ${intro_title_html}
-      <div class="intro_copy zh_sentence" id="zh_sentence">${zh_html}</div>
-      ${intro_lexicon_html}
     </div>` : `
-    <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
+    <img class="hero_img" src="${image_src}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
     <div class="text_area">
       <div class="text_toolbar">
-        <div class="phase_badge">📘 ${section_label}</div>
-        <div class="toolbar_actions">
-          <button class="translate_btn" onclick="toggle_translation()">${translation_visible ? '隐藏翻译' : '显示翻译'}</button>
-        </div>
+        <div class="phase_badge">${section_label}</div>
       </div>
-      <div class="toolbar_tip">点英文可听单词，点下方卡片可听单词和词组</div>
       <div class="en_sentence">${words_html}</div>
-      <div class="zh_sentence hidden" id="zh_sentence">${zh_html}</div>
+      <div class="zh_sentence" id="zh_sentence">${zh_html}</div>
       <div class="lexicon">
         <div class="lex_row"><span class="lex_label words">单词</span><div class="lex_items">${word_row_html}</div></div>
         <div class="lex_row"><span class="lex_label phrases">词组</span><div class="lex_items">${phrase_row_html}</div></div>
@@ -406,24 +609,39 @@ function render_page(page_index) {
     </div>`;
 
   document.getElementById('progress_fill').style.width = `${((page_index + 1) / page_list.length) * 100}%`;
-  document.getElementById('page_total').textContent = `${section_label} · 第 ${page_index + 1} 页，共 ${page_list.length} 页`;
+  document.getElementById('page_total').textContent = `${section_label} · 第 ${page_index + 1} 页 / 共 ${page_list.length} 页`;
   document.getElementById('page_indicator').textContent = `${page_index + 1} / ${page_list.length}`;
   document.getElementById('prev_btn').disabled = page_index === 0;
+
   const on_last_page = page_index === page_list.length - 1;
   const on_last_intro_page = intro_pages.length && page_index === intro_pages.length - 1;
-  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : (on_last_intro_page ? '进入英文阅读 →' : '下一页 →');
+  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : (on_last_intro_page ? '进入第二阶段 →' : '下一页 →');
   document.getElementById('to_game_btn').style.display = on_last_page ? 'inline-block' : 'none';
   update_translation_ui();
+  update_read_button();
 }
 
 function clear_highlight() {
   document.querySelectorAll('.word.speaking').forEach((el) => el.classList.remove('speaking'));
   document.querySelectorAll('.zh_chunk.speaking').forEach((el) => el.classList.remove('speaking'));
+  document.querySelectorAll('.lex_chip.speaking').forEach((el) => el.classList.remove('speaking'));
+}
+
+function stop_reading() {
+  is_reading = false;
+  clear_highlight();
+  if (synth) synth.cancel();
+  update_read_button();
 }
 
 function speak_utterance(text_value, lang_code, rate_value, on_boundary) {
   return new Promise((resolve) => {
-    const utterance = new SpeechSynthesisUtterance(text_value);
+    const safe_text = String(text_value || '').trim();
+    if (!safe_text || !synth) {
+      resolve();
+      return;
+    }
+    const utterance = new SpeechSynthesisUtterance(safe_text);
     utterance.lang = lang_code;
     utterance.rate = rate_value;
     utterance.pitch = 1;
@@ -435,11 +653,23 @@ function speak_utterance(text_value, lang_code, rate_value, on_boundary) {
 }
 
 function highlight_en_word(char_index) {
-  clear_highlight();
   const word_index = current_word_ranges.findIndex((item) => char_index >= item.start && char_index < item.end);
   if (word_index < 0) return;
+  clear_highlight();
   const active_word = document.getElementById(`w_${word_index}`);
   if (active_word) active_word.classList.add('speaking');
+}
+
+function highlight_zh_chunk(chunk_index) {
+  clear_highlight();
+  const chunk_el = document.getElementById(`zh_${chunk_index}`);
+  if (chunk_el) chunk_el.classList.add('speaking');
+}
+
+function highlight_lex_item(prefix, item_index) {
+  clear_highlight();
+  const target_el = document.getElementById(`${prefix}_${item_index}`);
+  if (target_el) target_el.classList.add('speaking');
 }
 
 async function speak_english_sentence(page) {
@@ -451,79 +681,127 @@ async function speak_english_sentence(page) {
 }
 
 async function speak_chinese_sentence(page) {
-  if (page.section !== 'intro') toggle_translation(true);
   const zh_chunks = split_zh_chunks(page.zh || '');
-  for (let i = 0; i < zh_chunks.length; i += 1) {
-    clear_highlight();
-    const current_chunk = document.getElementById(`zh_${i}`);
-    if (current_chunk) current_chunk.classList.add('speaking');
-    await speak_utterance(String(zh_chunks[i] || ''), 'zh-CN', current_rate);
+  for (let idx = 0; idx < zh_chunks.length; idx += 1) {
+    if (!is_reading) return;
+    highlight_zh_chunk(idx);
+    await speak_utterance(String(zh_chunks[idx] || ''), 'zh-CN', current_rate);
   }
+}
+
+async function speak_word_item(item, item_index) {
+  highlight_lex_item('key', item_index);
+  await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
+  if (!is_reading) return;
+  await speak_utterance(String(item.zh || ''), 'zh-CN', current_rate * 0.9);
+}
+
+async function speak_phrase_item(item, item_index) {
+  highlight_lex_item('phrase', item_index);
+  await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+  if (!is_reading) return;
+  await speak_utterance(String(item.zh || ''), 'zh-CN', current_rate * 0.88);
+}
+
+async function toggle_reading() {
+  if (is_reading) {
+    stop_reading();
+    return;
+  }
+  await read_current();
 }
 
 async function read_current() {
   if (is_reading) return;
-  is_reading = true;
-  synth.cancel();
-  clear_highlight();
   const page = get_current_page();
-  if (page.section === 'intro') {
-    await speak_chinese_sentence(page);
-  } else {
-    await speak_english_sentence(page);
-    clear_highlight();
-    await speak_chinese_sentence(page);
-    clear_highlight();
-    for (const item of (page.keys || [])) {
-      await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
+  is_reading = true;
+  if (synth) synth.cancel();
+  clear_highlight();
+  update_read_button();
+  try {
+    if (page.section === 'intro') {
+      await speak_chinese_sentence(page);
+    } else {
+      await speak_english_sentence(page);
+      if (!is_reading) return;
+      await speak_chinese_sentence(page);
+      if (!is_reading) return;
+      for (let idx = 0; idx < (page.keys || []).length; idx += 1) {
+        if (!is_reading) return;
+        await speak_word_item(page.keys[idx], idx);
+      }
+      for (let idx = 0; idx < (page.phrases || []).length; idx += 1) {
+        if (!is_reading) return;
+        await speak_phrase_item(page.phrases[idx], idx);
+      }
     }
-    for (const item of (page.phrases || [])) {
-      await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
-    }
+  } finally {
+    is_reading = false;
+    clear_highlight();
+    update_read_button();
   }
-  is_reading = false;
 }
 
 async function read_chinese_only() {
-  if (is_reading) return;
-  is_reading = true;
-  synth.cancel();
-  clear_highlight();
-  await speak_chinese_sentence(get_current_page());
-  clear_highlight();
-  is_reading = false;
-}
-
-function show_word_tip(target_el, word_text) {
-  speak_word(word_text);
-  const old_tip = target_el.querySelector('.word_tip');
-  if (old_tip) {
-    old_tip.remove();
+  if (is_reading) {
+    stop_reading();
     return;
   }
+  is_reading = true;
+  if (synth) synth.cancel();
+  clear_highlight();
+  update_read_button();
+  try {
+    await speak_chinese_sentence(get_current_page());
+  } finally {
+    is_reading = false;
+    clear_highlight();
+    update_read_button();
+  }
+}
+
+function sanitize_token(token) {
+  return String(token || '').replace(/^[^\w]+|[^\w]+$/g, '');
+}
+
+function speak_word_token(word_index) {
   const page = get_current_page();
-  if (page.section === 'intro') return;
-  const clean_word = String(word_text || '').toLowerCase().replace(/[.,!?'"“”]/g, '');
-  const found = (page.keys || []).find((item) => String(item.w || '').toLowerCase() === clean_word);
-  if (!found) return;
-  const tip = document.createElement('span');
-  tip.className = 'word_tip';
-  tip.textContent = `${found.p || ''} ${found.zh || ''}`.trim();
-  target_el.appendChild(tip);
+  const token_info = current_word_ranges[word_index];
+  if (!token_info) return;
+  stop_reading();
+  highlight_en_word(token_info.start);
+  const clean_token = sanitize_token(token_info.token);
+  speak_utterance(clean_token || token_info.token, 'en-US', current_rate * 0.85).then(() => {
+    clear_highlight();
+  });
 }
 
-function speak_word(word_text) {
-  if (!word_text) return;
-  synth.cancel();
-  clear_highlight();
-  speak_utterance(String(word_text), 'en-US', current_rate * 0.84);
+function manual_speak_word(item_index) {
+  const page = get_current_page();
+  const item = (page.keys || [])[item_index];
+  if (!item) return;
+  stop_reading();
+  is_reading = true;
+  update_read_button();
+  speak_word_item(item, item_index).finally(() => {
+    is_reading = false;
+    clear_highlight();
+    update_read_button();
+  });
 }
 
-function speak_phrase(phrase_text) {
-  if (!phrase_text) return;
-  synth.cancel();
-  clear_highlight();
-  speak_utterance(String(phrase_text), 'en-US', current_rate * 0.8);
+function manual_speak_phrase(item_index) {
+  const page = get_current_page();
+  const item = (page.phrases || [])[item_index];
+  if (!item) return;
+  stop_reading();
+  is_reading = true;
+  update_read_button();
+  speak_phrase_item(item, item_index).finally(() => {
+    is_reading = false;
+    clear_highlight();
+    update_read_button();
+  });
 }
 
 function goto_game() {
@@ -531,8 +809,7 @@ function goto_game() {
 }
 
 function change_page(direction) {
-  synth.cancel();
-  clear_highlight();
+  stop_reading();
   const on_last_page = current_page === page_list.length - 1;
   if (direction > 0 && on_last_page) {
     goto_game();
