@@ -1,269 +1,408 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pip's Adventures — 游戏版</title>
 <style>
-  body { font-family:'Nunito','Comic Sans MS',cursive; background:#1a1a2e;
-         min-height:100vh; display:flex; align-items:center; justify-content:center;
-         overflow:hidden; }
-
-  .starfield { position:fixed; inset:0; pointer-events:none; }
-
-  .game-card { background:#16213e; border-radius:24px;
-               padding:32px; max-width:700px; width:92%;
-               border:2px solid #0f3460; position:relative; z-index:1; }
-
-  .top-bar { display:flex; justify-content:space-between; 
-             align-items:center; margin-bottom:24px; }
-  .star-display { font-size:28px; }
-  .unit-title { color:#e2b96f; font-size:18px; }
-
-  .stage-title { color:#a8e6cf; font-size:22px; 
-                 margin-bottom:20px; text-align:center; }
-
-  .options-grid { display:grid; grid-template-columns:1fr 1fr;
-                  gap:16px; margin-top:16px; }
-  .opt-btn { background:#0f3460; color:#e2e2e2; border:2px solid #1a4a80;
-             border-radius:16px; padding:20px; font-size:18px; cursor:pointer;
-             transition: all .2s; text-align:center; }
-  .opt-btn:hover { border-color:#e2b96f; transform:scale(1.03); }
-  .opt-btn.correct { background:#2ecc71; border-color:#27ae60; color:#fff; }
-  .opt-btn.wrong   { background:#e74c3c; border-color:#c0392b; color:#fff; }
-
-  .drag-area { display:flex; gap:32px; justify-content:center; margin-top:24px; }
-  .drag-words { display:flex; flex-direction:column; gap:12px; }
-  .drag-item  { background:#0f3460; color:#e2e2e2; border-radius:12px;
-                padding:12px 24px; cursor:grab; font-size:18px;
-                border:2px solid transparent; transition:.2s; }
-  .drag-item:hover { border-color:#e2b96f; }
-  .drop-zones { display:flex; flex-direction:column; gap:12px; }
-  .drop-zone  { background:#0a2844; border:2px dashed #1a4a80;
-                border-radius:12px; padding:12px 24px; min-width:100px;
-                font-size:28px; text-align:center; }
-  .drop-zone.matched { border-color:#2ecc71; background:#0d3b1e; }
-
-  @keyframes starPop {
-    0%   { transform:scale(0) rotate(-20deg); opacity:0; }
-    60%  { transform:scale(1.3) rotate(10deg); opacity:1; }
-    100% { transform:scale(1) rotate(0); opacity:1; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Nunito','PingFang SC','Microsoft YaHei',sans-serif;
+    background:#1a1a2e;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    padding:12px;
   }
-  .star-pop { animation: starPop .5s ease-out forwards; }
-
-  .finish-page { text-align:center; }
-  .big-stars    { font-size:60px; letter-spacing:8px; }
-  .finish-msg   { color:#a8e6cf; font-size:22px; margin:20px 0; }
-  .next-unit-btn{ background:#e2b96f; color:#1a1a2e; border:none;
-                  border-radius:50px; padding:14px 40px; font-size:20px;
-                  cursor:pointer; font-weight:bold; margin-top:16px; }
-
-  .story-intro { text-align:center; margin-bottom:20px; }
-  .story-intro img { max-width:200px; border-radius:12px; margin:10px 0; }
-  .story-intro p { color:#e2e2e2; font-size:16px; line-height:1.6; }
-
-  h3 { color:#e17055; margin-bottom:16px; }
+  .starfield { position:fixed; inset:0; pointer-events:none; }
+  .game_card {
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:760px;
+    background:#16213e;
+    border:2px solid #0f3460;
+    border-radius:24px;
+    padding:20px;
+    box-shadow:0 16px 36px rgba(0,0,0,.28);
+  }
+  .top_bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; gap:8px; }
+  .unit_title { color:#f4c778; font-size:17px; font-weight:700; }
+  .star_display { color:#ffd166; font-size:24px; font-weight:800; }
+  .stage_title { color:#a8e6cf; font-size:22px; text-align:center; margin-bottom:14px; }
+  .options_grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:12px; }
+  .opt_btn {
+    border:2px solid #1f5187;
+    border-radius:14px;
+    background:#10365f;
+    color:#f2f7ff;
+    padding:14px 10px;
+    font-size:18px;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .opt_btn:hover { transform:translateY(-1px); border-color:#e2b96f; }
+  .opt_btn.correct { background:#2ecc71; border-color:#28a85e; color:#fff; }
+  .opt_btn.wrong { background:#e74c3c; border-color:#bf3a2f; color:#fff; }
+  .play_btn {
+    border:none;
+    background:#3e8ed8;
+    color:#fff;
+    border-radius:999px;
+    padding:10px 16px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+  }
+  .drag_area { display:flex; justify-content:center; align-items:flex-start; gap:14px; margin-top:12px; flex-wrap:wrap; }
+  .drag_words { display:flex; flex-direction:column; gap:10px; width:45%; min-width:220px; }
+  .drag_item {
+    background:#10365f;
+    color:#f2f7ff;
+    border:2px solid transparent;
+    border-radius:12px;
+    padding:10px 12px;
+    font-size:18px;
+    cursor:grab;
+  }
+  .drag_item:hover { border-color:#f1be67; }
+  .drop_zones { display:flex; flex-direction:column; gap:10px; width:45%; min-width:220px; }
+  .drop_zone {
+    background:#102944;
+    border:2px dashed #36689e;
+    border-radius:12px;
+    min-height:56px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#cde0f5;
+    font-size:16px;
+    text-align:center;
+    padding:8px;
+  }
+  .drop_zone.matched { border-color:#2ecc71; background:#124931; color:#eafff5; }
+  .story_intro { text-align:center; }
+  .story_intro img {
+    width:100%;
+    max-width:260px;
+    border-radius:14px;
+    margin:10px auto;
+    display:block;
+    background:#f4f4f4;
+    aspect-ratio:4/3;
+    object-fit:cover;
+  }
+  .story_intro p { color:#dce7f5; line-height:1.65; font-size:16px; margin:8px auto; max-width:620px; }
+  .action_btn {
+    border:none;
+    border-radius:999px;
+    padding:11px 18px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    margin-top:12px;
+    background:#e2b96f;
+    color:#1d2233;
+  }
+  .finish_page { text-align:center; }
+  .big_stars { font-size:52px; letter-spacing:6px; }
+  .finish_msg { margin-top:10px; color:#c6ffe6; font-size:22px; }
+  .finish_tip { margin-top:8px; color:#dbebfd; font-size:15px; }
+  .finish_links { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:14px; }
+  @keyframes star_pop {
+    0% { transform:scale(0.2); opacity:0.2; }
+    60% { transform:scale(1.18); opacity:1; }
+    100% { transform:scale(1); opacity:1; }
+  }
+  .star_pop { animation:star_pop .35s ease-out; }
 </style>
 </head>
 <body>
 <canvas class="starfield" id="starCanvas"></canvas>
-<div class="game-card">
-  <div class="top-bar">
-    <div class="unit-title">Pip's Adventures</div>
-    <div class="star-display"><span id="starCount">⭐ 0</span></div>
+<div class="game_card">
+  <div class="top_bar">
+    <div class="unit_title">Pip's Adventures</div>
+    <div class="star_display"><span id="star_count">⭐ 0</span></div>
   </div>
-  <div id="stageArea"></div>
+  <div id="stage_area"></div>
 </div>
 
 <script>
-const STORY = {"id": "storyfun-1-adventures", "title": "Pip's Adventures", "titleZh": "皮普的冒险", "category": "storyfun", "series": "Story Fun Starters", "unit": 1, "cefrLevel": "Pre-A1", "cover": "images/storyfun/pips-toybox/page-1.jpg", "unitVocab": [{"w": "car", "p": "/kɑ:/", "zh": "汽车", "color": "red", "num": 1}, {"w": "duck", "p": "/dʌk/", "zh": "鸭子", "color": "yellow", "num": 2}, {"w": "ball", "p": "/bɔ:l/", "zh": "球", "color": "blue", "num": 3}, {"w": "frog", "p": "/frɒg/", "zh": "青蛙", "color": "green", "num": 4}, {"w": "rabbit", "p": "/ˈræbɪt/", "zh": "兔子", "color": "pink", "num": 5}, {"w": "toy", "p": "/tɔɪ/", "zh": "玩具"}, {"w": "red", "p": "/rɛd/", "zh": "红色"}, {"w": "yellow", "p": "/ˈjɛloʊ/", "zh": "黄色"}, {"w": "blue", "p": "/blu:/", "zh": "蓝色"}, {"w": "green", "p": "/gri:n/", "zh": "绿色"}, {"w": "pink", "p": "/pɪŋk/", "zh": "粉色"}], "unitPatterns": ["I have a ___", "This is a ___", "I can see ___ ___"], "pages": [{"img": "images/storyfun/pips-toybox/page-1.jpg", "en": "Hello! I am Pip.", "zh": "你好！我是皮普。", "keys": [{"w": "hello", "p": "/həˈloʊ/", "zh": "你好"}]}, {"img": "images/storyfun/pips-toybox/page-2.jpg", "en": "I have a red car.", "zh": "我有一辆红色的汽车。", "keys": [{"w": "car", "p": "/kɑ:/", "zh": "汽车"}, {"w": "red", "p": "/rɛd/", "zh": "红色"}]}, {"img": "images/storyfun/pips-toybox/page-3.jpg", "en": "I have two yellow ducks.", "zh": "我有两只黄色的鸭子。", "keys": [{"w": "two", "p": "/tu:/", "zh": "二"}, {"w": "duck", "p": "/dʌk/", "zh": "鸭子"}]}, {"img": "images/storyfun/pips-toybox/page-4.jpg", "en": "I have three blue balls.", "zh": "我有三个蓝色的球。", "keys": [{"w": "three", "p": "/θri:/", "zh": "三"}, {"w": "ball", "p": "/bɔ:l/", "zh": "球"}]}, {"img": "images/storyfun/pips-toybox/page-5.jpg", "en": "I have four green frogs.", "zh": "我有四只绿色的青蛙。", "keys": [{"w": "four", "p": "/fɔ:/", "zh": "四"}, {"w": "frog", "p": "/frɒg/", "zh": "青蛙"}]}, {"img": "images/storyfun/pips-toybox/page-6.jpg", "en": "I have five pink rabbits.", "zh": "我有五只粉色的兔子。", "keys": [{"w": "five", "p": "/faɪv/", "zh": "五"}, {"w": "rabbit", "p": "/ˈræbɪt/", "zh": "兔子"}]}, {"img": "images/storyfun/pips-toybox/page-7.jpg", "en": "This is my toy box.", "zh": "这是我的玩具箱。", "keys": [{"w": "toy", "p": "/tɔɪ/", "zh": "玩具"}, {"w": "box", "p": "/bɒks/", "zh": "箱子"}]}, {"img": "images/storyfun/pips-toybox/page-8.jpg", "en": "I love my toys!", "zh": "我爱我的玩具！", "keys": [{"w": "love", "p": "/lʌv/", "zh": "爱"}]}, {"img": "images/storyfun/pips-toybox/page-9.jpg", "en": "Goodbye, toy box! See you tomorrow!", "zh": "再见，玩具箱！明天见！", "keys": [{"w": "goodbye", "p": "/gʊdˈbaɪ/", "zh": "再见"}]}, {"img": "images/storyfun/pips-toybox/page-10.jpg", "en": "The End.", "zh": "结束。", "keys": []}]};
-let stars = 0, stage = 0;
+const STORY = {"id": "storyfun-1-adventures", "title": "Pip's Adventures", "titleZh": "皮普的冒险", "category": "storyfun", "series": "Story Fun Starters", "unit": 1, "cefrLevel": "Pre-A1", "cover": "images/storyfun/pips-toybox/page-1.jpg", "unitVocab": [{"w": "car", "p": "/kɑ:/", "zh": "汽车", "color": "red", "num": 1}, {"w": "duck", "p": "/dʌk/", "zh": "鸭子", "color": "yellow", "num": 2}, {"w": "ball", "p": "/bɔ:l/", "zh": "球", "color": "blue", "num": 3}, {"w": "frog", "p": "/frɒg/", "zh": "青蛙", "color": "green", "num": 4}, {"w": "rabbit", "p": "/ˈræbɪt/", "zh": "兔子", "color": "pink", "num": 5}, {"w": "toy", "p": "/tɔɪ/", "zh": "玩具"}, {"w": "red", "p": "/rɛd/", "zh": "红色"}, {"w": "yellow", "p": "/ˈjɛloʊ/", "zh": "黄色"}, {"w": "blue", "p": "/blu:/", "zh": "蓝色"}, {"w": "green", "p": "/gri:n/", "zh": "绿色"}, {"w": "pink", "p": "/pɪŋk/", "zh": "粉色"}], "unitPatterns": ["I have a ___", "This is a ___", "I can see ___ ___"], "pages": [{"img": "images/storyfun/pips-toybox/page-1.jpg", "en": "Hello! I am Pip.", "zh": "你好！我是皮普。", "keys": [{"w": "hello", "p": "/həˈloʊ/", "zh": "你好"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-2.jpg", "en": "I have a red car.", "zh": "我有一辆红色的汽车。", "keys": [{"w": "car", "p": "/kɑ:/", "zh": "汽车"}, {"w": "red", "p": "/rɛd/", "zh": "红色"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-3.jpg", "en": "I have two yellow ducks.", "zh": "我有两只黄色的鸭子。", "keys": [{"w": "two", "p": "/tu:/", "zh": "二"}, {"w": "duck", "p": "/dʌk/", "zh": "鸭子"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-4.jpg", "en": "I have three blue balls.", "zh": "我有三个蓝色的球。", "keys": [{"w": "three", "p": "/θri:/", "zh": "三"}, {"w": "ball", "p": "/bɔ:l/", "zh": "球"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-5.jpg", "en": "I have four green frogs.", "zh": "我有四只绿色的青蛙。", "keys": [{"w": "four", "p": "/fɔ:/", "zh": "四"}, {"w": "frog", "p": "/frɒg/", "zh": "青蛙"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-6.jpg", "en": "I have five pink rabbits.", "zh": "我有五只粉色的兔子。", "keys": [{"w": "five", "p": "/faɪv/", "zh": "五"}, {"w": "rabbit", "p": "/ˈræbɪt/", "zh": "兔子"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-7.jpg", "en": "This is my toy box.", "zh": "这是我的玩具箱。", "keys": [{"w": "toy", "p": "/tɔɪ/", "zh": "玩具"}, {"w": "box", "p": "/bɒks/", "zh": "箱子"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-8.jpg", "en": "I love my toys!", "zh": "我爱我的玩具！", "keys": [{"w": "love", "p": "/lʌv/", "zh": "爱"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-9.jpg", "en": "Goodbye, toy box! See you tomorrow!", "zh": "再见，玩具箱！明天见！", "keys": [{"w": "goodbye", "p": "/gʊdˈbaɪ/", "zh": "再见"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-10.jpg", "en": "The End.", "zh": "结束。", "keys": [], "phrases": []}]};
+const reader_url = '../../reader/storyfun/storyfun-1-adventures.html';
+let stars = 0;
+let stage_index = 0;
+let drag_matched = 0;
 
-// 星星背景
 const canvas = document.getElementById('starCanvas');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-for(let i=0;i<120;i++){
-  ctx.fillStyle=`rgba(255,255,255,${Math.random()*0.6+0.1})`;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+for (let i = 0; i < 120; i += 1) {
+  ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.6 + 0.1})`;
   ctx.beginPath();
-  ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height,
-          Math.random()*1.5+0.5, 0, Math.PI*2);
+  ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 1.5 + 0.5, 0, Math.PI * 2);
   ctx.fill();
 }
 
-function addStar(n=1){
-  stars += n;
-  const el = document.getElementById('starCount');
-  el.textContent = `⭐ ${stars}`;
-  el.classList.remove('star-pop');
-  void el.offsetWidth;
-  el.classList.add('star-pop');
+function get_asset_src(raw_path) {
+  const path_text = String(raw_path || '').trim();
+  if (!path_text) return '';
+  if (path_text.startsWith('http://') || path_text.startsWith('https://')) return path_text;
+  if (path_text.startsWith('images/')) return '../../' + path_text;
+  return '../../images/' + path_text.replace(/^\/+/, '');
 }
 
-const STAGES = [renderIntro, renderListenSelect, renderDragMatch, renderSentenceBuild, renderFinish];
-
-function nextStage(){ stage++; if(stage<STAGES.length) STAGES[stage](); }
-
-// 故事介绍页
-function renderIntro(){
-  document.getElementById('stageArea').innerHTML = `
-    <div class="story-intro">
-      <h3>Pip's Adventures</h3>
-<img src="/${STORY.cover}" alt="cover">
-      <p>和皮普的冒险一起学英语吧！</p>
-      <button class="next-unit-btn" onclick="nextStage()" style="margin-top:20px">开始游戏 →</button>
-    </div>`;
+function shuffle(array_data) {
+  const list = [...array_data];
+  for (let i = list.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = list[i];
+    list[i] = list[j];
+    list[j] = temp;
+  }
+  return list;
 }
 
-// 关卡1：听音选图
-function renderListenSelect(){
-  const vocab = STORY.unitVocab.slice(0,5);
-  const q = vocab[Math.floor(Math.random()*vocab.length)];
-  const opts = shuffle([q, ...vocab.filter(v=>v.w!==q.w).slice(0,3)]);
-  speakWord(q.w);
-
-  document.getElementById('stageArea').innerHTML = `
-    <div class="stage-title">🎧 听一听，选出正确的图片！</div>
-    <div style="text-align:center;margin:12px 0">
-      <button onclick="speakWord('${q.w}')" 
-              style="background:#0f3460;color:#e2e2e2;border:none;border-radius:50px;
-                     padding:10px 24px;font-size:18px;cursor:pointer">
-        🔊 再听一次
-      </button>
-    </div>
-    <div class="options-grid">
-      ${opts.map(o=>`
-        <button class="opt-btn" onclick="checkAnswer(this,'${o.w}','${q.w}')">
-          <div style="font-size:40px">${wordToEmoji(o.w)}</div>
-          <div style="margin-top:8px;font-size:14px;color:#aaa">${o.zh}</div>
-        </button>
-      `).join('')}
-    </div>`;
+function normalize_word(raw_text) {
+  return String(raw_text || '').toLowerCase().replace(/[^a-z0-9'-]/g, '');
 }
 
-function checkAnswer(btn, chosen, correct){
-  document.querySelectorAll('.opt-btn').forEach(b=>b.onclick=null);
-  if(chosen===correct){
-    btn.classList.add('correct');
-    addStar(1);
-    setTimeout(nextStage, 1200);
-  } else {
-    btn.classList.add('wrong');
-    document.querySelectorAll('.opt-btn').forEach(b=>{
-      if(b.textContent.includes(wordToEmoji(correct))) b.classList.add('correct');
+function fallback_vocab() {
+  const map = new Map();
+  (STORY.pages || []).forEach((page) => {
+    (page.keys || []).forEach((item) => {
+      const key_text = normalize_word(item.w);
+      if (key_text && !map.has(key_text)) map.set(key_text, item);
     });
-    setTimeout(nextStage, 1800);
+  });
+  if (map.size === 0) {
+    (STORY.pages || []).forEach((page) => {
+      String(page.en || '').split(/\s+/).forEach((word) => {
+        const key_text = normalize_word(word);
+        if (key_text.length >= 3 && !map.has(key_text)) {
+          map.set(key_text, { w: key_text, p: '', zh: '' });
+        }
+      });
+    });
   }
+  return [...map.values()].slice(0, 8);
 }
 
-// 关卡2：拖拽配对
-function renderDragMatch(){
-  const pairs = STORY.unitVocab.slice(0,3);
-  document.getElementById('stageArea').innerHTML = `
-    <div class="stage-title">✋ 拖一拖，把单词和图片配对！</div>
-    <div class="drag-area">
-      <div class="drag-words" id="dragWords">
-        ${shuffle([...pairs]).map(p=>`
-          <div class="drag-item" draggable="true" 
-               data-word="${p.w}"
-               ondragstart="dragStart(event,'${p.w}')">
-            ${p.w}
-          </div>
-        `).join('')}
-      </div>
-      <div class="drop-zones">
-        ${pairs.map(p=>`
-          <div class="drop-zone" 
-               data-target="${p.w}"
-               ondragover="event.preventDefault()"
-               ondrop="dragDrop(event,'${p.w}')">
-            ${wordToEmoji(p.w)}
-          </div>
-        `).join('')}
-      </div>
+function fallback_phrases() {
+  const phrases = [];
+  (STORY.pages || []).forEach((page) => {
+    (page.phrases || []).forEach((item) => {
+      if (item.en) phrases.push(item);
+    });
+  });
+  if (phrases.length) return phrases.slice(0, 8);
+  return (STORY.pages || []).slice(0, 8).map((page) => {
+    const text = String(page.en || '');
+    const short_text = text.split(/[.!?]/)[0].trim();
+    return { en: short_text, zh: page.zh || '' };
+  }).filter((item) => item.en);
+}
+
+const vocab_pool = (STORY.unitVocab && STORY.unitVocab.length ? STORY.unitVocab : fallback_vocab()).slice(0, 8);
+const phrase_pool = fallback_phrases();
+
+function add_star(amount = 1) {
+  stars += amount;
+  const el = document.getElementById('star_count');
+  el.textContent = `⭐ ${stars}`;
+  el.classList.remove('star_pop');
+  void el.offsetWidth;
+  el.classList.add('star_pop');
+}
+
+function speak_en(text_value) {
+  if (!text_value) return;
+  speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(String(text_value));
+  utterance.lang = 'en-US';
+  utterance.rate = 0.84;
+  speechSynthesis.speak(utterance);
+}
+
+function word_to_emoji(word_text) {
+  const map = {
+    car:'🚗', duck:'🦆', ball:'⚽', frog:'🐸', rabbit:'🐰', cat:'🐱', dog:'🐶', bird:'🐦', fish:'🐟', tree:'🌳',
+    apple:'🍎', book:'📚', pen:'✏️', bag:'👜', hat:'🎩', red:'🔴', yellow:'🟡', blue:'🔵', green:'🟢', pink:'🩷',
+    airplane:'✈️', plane:'✈️', sky:'☁️', sword:'🗡️', dragon:'🐉', village:'🏠', hero:'🦸', river:'🌊', mountain:'⛰️'
+  };
+  return map[normalize_word(word_text)] || '🧩';
+}
+
+function next_stage() {
+  stage_index += 1;
+  if (stage_index < stages.length) stages[stage_index]();
+}
+
+function render_intro() {
+  document.getElementById('stage_area').innerHTML = `
+    <div class="story_intro">
+      <div class="stage_title">🎮 Pip's Adventures</div>
+      <img src="${get_asset_src(STORY.cover)}" alt="cover" onerror="this.style.objectFit='contain';this.style.background='#eee';">
+      <p>读完《皮普的冒险》后，通过小游戏巩固单词和词组吧！</p>
+      <button class="action_btn" onclick="next_stage()">开始游戏 →</button>
+    </div>`;
+}
+
+function render_listen_select() {
+  const quiz_pool = vocab_pool.length >= 4 ? vocab_pool : [...vocab_pool, ...vocab_pool].slice(0, 4);
+  const answer = quiz_pool[Math.floor(Math.random() * quiz_pool.length)];
+  const options = shuffle([answer, ...shuffle(quiz_pool.filter((v) => v.w !== answer.w)).slice(0, 3)]);
+  speak_en(answer.w);
+  document.getElementById('stage_area').innerHTML = `
+    <div class="stage_title">🎧 听一听，选出正确单词</div>
+    <div style="text-align:center;">
+      <button class="play_btn" onclick="speak_en('${String(answer.w || '').replace(/'/g, "\\'")}')">🔊 再听一次</button>
     </div>
-    <div id="dragMsg" style="text-align:center;color:#a8e6cf;margin-top:16px;font-size:18px"></div>`;
-}
-
-let matched = 0;
-function dragStart(e, word){ e.dataTransfer.setData('word', word); }
-function dragDrop(e, target){
-  const word = e.dataTransfer.getData('word');
-  const zone = e.currentTarget;
-  if(word === target && !zone.classList.contains('matched')){
-    zone.classList.add('matched');
-    zone.innerHTML = `${wordToEmoji(target)}<br><span style="font-size:14px;color:#2ecc71">${word}</span>`;
-    document.querySelector(`[data-word="${word}"]`)?.remove();
-    addStar(1); matched++;
-    if(matched >= 3){ matched=0; setTimeout(nextStage,800); }
-  }
-}
-
-// 关卡3：看图造句
-function renderSentenceBuild(){
-  const vocab = STORY.unitVocab.slice(0,5);
-  const target = vocab[Math.floor(Math.random()*vocab.length)];
-  const distractors = shuffle(vocab.filter(v=>v.w!==target.w)).slice(0,3);
-  const choices = shuffle([target, ...distractors]);
-
-  document.getElementById('stageArea').innerHTML = `
-    <div class="stage-title">✏️ 看图，选词填空！</div>
-    <div style="text-align:center;font-size:60px;margin:12px 0">${wordToEmoji(target.w)}</div>
-    <div style="text-align:center;color:#e2e2e2;font-size:22px;margin:12px 0">
-      I have one ___ .
-    </div>
-    <div class="options-grid">
-      ${choices.map(c=>`
-        <button class="opt-btn" onclick="checkAnswer(this,'${c.w}','${target.w}')">
-          ${c.w}
+    <div class="options_grid">
+      ${options.map((item) => `
+        <button class="opt_btn" onclick="check_choice(this,'${String(item.w || '').replace(/'/g, "\\'")}','${String(answer.w || '').replace(/'/g, "\\'")}')">
+          <div style="font-size:40px;">${word_to_emoji(item.w)}</div>
+          <div style="margin-top:6px;font-size:20px;font-weight:700;">${item.w || ''}</div>
+          <div style="margin-top:4px;font-size:13px;color:#c0d5f1;">${item.zh || ''}</div>
         </button>
       `).join('')}
     </div>`;
 }
 
-// 完成页
-function renderFinish(){
-  const allStars = Math.min(stars, 3);
-  document.getElementById('stageArea').innerHTML = `
-    <div class="finish-page">
-      <div class="big-stars">${'⭐'.repeat(allStars)}${'☆'.repeat(3-allStars)}</div>
-      <div class="finish-msg">太棒了！你得了 ${stars} 颗星！</div>
-      <div style="color:#a8e6cf;font-size:16px;margin-bottom:20px">
-        ${stars>=3?'满分！你已经掌握这个单元了！':'继续加油，再挑战一次吧！'}
+function check_choice(button, chosen, correct) {
+  document.querySelectorAll('.opt_btn').forEach((item) => { item.onclick = null; });
+  if (chosen === correct) {
+    button.classList.add('correct');
+    add_star(1);
+    setTimeout(next_stage, 1000);
+  } else {
+    button.classList.add('wrong');
+    document.querySelectorAll('.opt_btn').forEach((item) => {
+      if (item.textContent.toLowerCase().includes(String(correct).toLowerCase())) item.classList.add('correct');
+    });
+    setTimeout(next_stage, 1400);
+  }
+}
+
+function render_drag_match() {
+  const pair_list = shuffle(vocab_pool).slice(0, 3);
+  drag_matched = 0;
+  document.getElementById('stage_area').innerHTML = `
+    <div class="stage_title">✋ 拖一拖，单词配图片</div>
+    <div class="drag_area">
+      <div class="drag_words">
+        ${shuffle(pair_list).map((item) => `
+          <div class="drag_item" draggable="true" data-word="${item.w}" ondragstart="drag_start(event,'${item.w}')">
+            ${item.w}
+          </div>
+        `).join('')}
       </div>
-      <button class="next-unit-btn" onclick="location.href='../../index.html'">
-        🏠 回到主页
-      </button>
-      ${stars<3?`
-      <br><button class="next-unit-btn" style="background:#54a0ff;margin-top:12px"
-                  onclick="location.reload()">
-        🔄 再玩一次
-      </button>`:''}
+      <div class="drop_zones">
+        ${pair_list.map((item) => `
+          <div class="drop_zone"
+               data-target="${item.w}"
+               ondragover="event.preventDefault()"
+               ondrop="drag_drop(event,'${item.w}')">
+            ${word_to_emoji(item.w)}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:10px;color:#bcd8f4;font-size:14px;">把左侧单词拖到右侧正确图标</div>`;
+}
+
+function drag_start(event, word) {
+  event.dataTransfer.setData('word', word);
+}
+
+function drag_drop(event, target) {
+  event.preventDefault();
+  const zone = event.currentTarget;
+  if (zone.classList.contains('matched')) return;
+  const word = event.dataTransfer.getData('word');
+  if (word !== target) return;
+  zone.classList.add('matched');
+  zone.innerHTML = `${word_to_emoji(target)}<br><span style="font-size:13px;">${target}</span>`;
+  const source = document.querySelector(`.drag_item[data-word="${word}"]`);
+  if (source) source.remove();
+  drag_matched += 1;
+  add_star(1);
+  if (drag_matched >= 3) setTimeout(next_stage, 800);
+}
+
+function render_phrase_quiz() {
+  const usable = phrase_pool.length >= 4 ? phrase_pool : [...phrase_pool, ...phrase_pool].slice(0, 4);
+  const answer = usable[Math.floor(Math.random() * usable.length)];
+  const options = shuffle([answer, ...shuffle(usable.filter((item) => item.en !== answer.en)).slice(0, 3)]);
+  speak_en(answer.en);
+  document.getElementById('stage_area').innerHTML = `
+    <div class="stage_title">🧠 选出这句话的中文意思</div>
+    <div style="text-align:center;color:#f4f8ff;font-size:24px;font-weight:700;">${answer.en}</div>
+    <div style="text-align:center;margin-top:8px;">
+      <button class="play_btn" onclick="speak_en('${String(answer.en || '').replace(/'/g, "\\'")}')">🔊 读句子</button>
+    </div>
+    <div class="options_grid">
+      ${options.map((item) => `
+        <button class="opt_btn" onclick="check_phrase(this,'${String(item.zh || '').replace(/'/g, "\\'")}','${String(answer.zh || '').replace(/'/g, "\\'")}')">
+          ${item.zh || '(暂无中文释义)'}
+        </button>
+      `).join('')}
     </div>`;
 }
 
-// 工具函数
-function speakWord(word){
-  speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(word);
-  u.lang='en-GB'; u.rate=0.7;
-  speechSynthesis.speak(u);
+function check_phrase(button, chosen, correct) {
+  document.querySelectorAll('.opt_btn').forEach((item) => { item.onclick = null; });
+  if (chosen === correct) {
+    button.classList.add('correct');
+    add_star(1);
+  } else {
+    button.classList.add('wrong');
+    document.querySelectorAll('.opt_btn').forEach((item) => {
+      if (item.textContent.trim() === correct) item.classList.add('correct');
+    });
+  }
+  setTimeout(next_stage, 1200);
 }
 
-function shuffle(arr){ return arr.sort(()=>Math.random()-.5); }
-
-function wordToEmoji(w){
-  const map = {
-    car:'🚗', duck:'🦆', ball:'⚽', frog:'🐸', rabbit:'🐰',
-    cat:'🐱', dog:'🐶', bird:'🐦', fish:'🐟', tree:'🌳',
-    apple:'🍎', book:'📚', pen:'✏️', bag:'👜', hat:'🎩',
-    red:'🔴', yellow:'🟡', blue:'🔵', green:'🟢', pink:'🩷'
-  };
-  return map[w.toLowerCase()] || '❓';
+function render_finish() {
+  const max_star = 5;
+  const shown_star = Math.min(stars, max_star);
+  const star_row = '⭐'.repeat(shown_star) + '☆'.repeat(max_star - shown_star);
+  document.getElementById('stage_area').innerHTML = `
+    <div class="finish_page">
+      <div class="big_stars">${star_row}</div>
+      <div class="finish_msg">太棒了！你获得 ${stars} 颗星</div>
+      <div class="finish_tip">${stars >= 4 ? '表现超级棒，继续下一本吧！' : '已经很不错，再玩一次会更强！'}</div>
+      <div class="finish_links">
+        <button class="action_btn" onclick="location.href='../../index.html'">🏠 回到首页</button>
+        <button class="action_btn" style="background:#65a7e8;" onclick="location.reload()">🔄 再玩一次</button>
+        <button class="action_btn" style="background:#66d6af;" onclick="location.href=reader_url">📖 返回阅读</button>
+      </div>
+    </div>`;
 }
 
-// 启动
-STAGES[0]();
+const stages = [render_intro, render_listen_select, render_drag_match, render_phrase_quiz, render_finish];
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+if (vocab_pool.length < 2) {
+  document.getElementById('stage_area').innerHTML = `
+    <div class="finish_page">
+      <div class="finish_msg">当前故事词汇数据不足，先去阅读页学习吧</div>
+      <div class="finish_links">
+        <button class="action_btn" onclick="location.href=reader_url">📖 返回阅读</button>
+        <button class="action_btn" onclick="location.href='../../index.html'">🏠 回到首页</button>
+      </div>
+    </div>`;
+} else {
+  stages[0]();
+}
 </script>
 </body>
 </html>

@@ -1,173 +1,312 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Very Hungry Little Snake — 朗读版</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Nunito', 'Comic Sans MS', cursive; background:#fffdf5; 
-         min-height:100vh; display:flex; flex-direction:column; align-items:center; }
-
-  .reader-wrap { max-width:800px; width:100%; padding:16px; }
-
-  .page-img { width:100%; border-radius:16px; 
-              box-shadow:0 4px 20px rgba(0,0,0,.12); }
-
-  .text-area { margin-top:16px; padding:16px; 
-               background:#fff; border-radius:12px;
-               box-shadow:0 2px 8px rgba(0,0,0,.08); }
-
-  .en-sentence { font-size:24px; line-height:1.8; color:#333; }
-  .word { cursor:pointer; border-radius:4px; padding:0 2px;
-          transition: background .15s; }
+  body {
+    font-family:'Nunito','PingFang SC','Microsoft YaHei',sans-serif;
+    background:#fff9f2;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    color:#2f2f2f;
+  }
+  .reader_wrap { width:100%; max-width:900px; padding:16px 14px 28px; }
+  .unit_tag { text-align:center; color:#8e8e8e; font-size:13px; margin-bottom:6px; }
+  h2 { text-align:center; color:#e17055; font-size:24px; line-height:1.3; }
+  h2 small { display:block; color:#9b9b9b; font-size:16px; font-weight:500; margin-top:4px; }
+  .progress_bar { width:100%; height:7px; background:#ececec; border-radius:999px; margin:12px 0 14px; overflow:hidden; }
+  .progress_fill { height:100%; background:linear-gradient(90deg,#ff9f43,#ffd166); transition:width .25s ease; }
+  .hero_img {
+    width:100%;
+    border-radius:18px;
+    box-shadow:0 8px 30px rgba(0,0,0,.12);
+    display:block;
+    background:#f3f3f3;
+    aspect-ratio:16/10;
+    object-fit:cover;
+  }
+  .text_area {
+    margin-top:14px;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+    padding:16px 14px 14px;
+  }
+  .en_sentence { font-size:25px; line-height:1.65; color:#2f2f2f; font-weight:700; }
+  .word {
+    display:inline;
+    border-radius:6px;
+    cursor:pointer;
+    padding:1px 2px;
+    transition:all .15s ease;
+  }
   .word:hover { background:#fff3b0; }
-  .word.speaking { background:#ffd166; }
-
-  .word-tip { display:inline-block; font-size:13px; color:#888;
-              background:#f8f8f8; border-radius:6px;
-              padding:2px 8px; margin-left:4px; }
-
-  .zh-sentence { font-size:18px; color:#666; margin-top:12px;
-                 cursor:pointer; }
-  .zh-sentence.hidden { filter:blur(8px); user-select:none; }
-  .zh-sentence.hidden:hover { filter:blur(4px); }
-
-  .vocab-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
-  .vocab-card { background:#e8f4fd; border-radius:8px; 
-                padding:6px 12px; cursor:pointer;
-                transition: transform .15s; }
-  .vocab-card:hover { transform:scale(1.05); }
-  .vocab-card .vw { font-size:16px; font-weight:bold; color:#1a5276; }
-  .vocab-card .vp { font-size:12px; color:#888; }
-  .vocab-card .vz { font-size:14px; color:#555; margin-top:2px; }
-
-  .nav { display:flex; align-items:center; justify-content:space-between;
-         margin-top:20px; padding-bottom:24px; }
-  .nav-btn { background:#ff9f43; color:#fff; border:none;
-             border-radius:50px; padding:10px 28px; font-size:18px;
-             cursor:pointer; transition: opacity .15s; }
-  .nav-btn:disabled { opacity:.35; }
-  .page-indicator { font-size:16px; color:#aaa; }
-
-  .progress-bar { width:100%; height:6px; background:#eee;
-                  border-radius:3px; margin-top:8px; }
-  .progress-fill { height:100%; background:#ff9f43; 
-                   border-radius:3px; transition:width .3s; }
-
-  .read-btn { background:#54a0ff; color:#fff; border:none;
-              border-radius:50px; padding:8px 20px; font-size:16px;
-              cursor:pointer; margin-right:8px; }
-  .read-btn:hover { background:#2980b9; }
-
-  h2 { text-align:center; color:#e17055; margin:16px 0 8px; font-size:22px }
+  .word.speaking { background:#ffd166; color:#3b2f0d; }
+  .word_tip {
+    display:inline-block;
+    margin-left:6px;
+    font-size:12px;
+    color:#666;
+    background:#f3f4f8;
+    border-radius:999px;
+    padding:2px 8px;
+  }
+  .zh_sentence {
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px dashed #ececec;
+    font-size:20px;
+    line-height:1.8;
+    color:#5d5d5d;
+  }
+  .zh_chunk {
+    border-radius:5px;
+    transition:background .12s ease;
+  }
+  .zh_chunk.speaking {
+    background:#ffe8bd;
+    color:#403014;
+  }
+  .lexicon { margin-top:14px; display:grid; gap:10px; }
+  .lex_row { display:flex; align-items:flex-start; gap:10px; flex-wrap:wrap; }
+  .lex_label {
+    min-width:54px;
+    text-align:center;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+    color:#fff;
+    padding:4px 8px;
+  }
+  .lex_label.words { background:#54a0ff; }
+  .lex_label.phrases { background:#10ac84; }
+  .lex_items { flex:1; display:flex; flex-wrap:wrap; gap:8px; }
+  .lex_chip {
+    border-radius:999px;
+    padding:6px 12px;
+    border:1px solid #dde8ff;
+    background:#f4f8ff;
+    font-size:13px;
+    color:#2f3f60;
+    line-height:1.35;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .lex_chip:hover { transform:translateY(-1px); box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  .lex_chip.words b { color:#1f6fd1; }
+  .lex_chip.phrases {
+    border-color:#c9f0e4;
+    background:#f1fffb;
+    color:#22524a;
+  }
+  .lex_chip.phrases b { color:#0c9b78; }
+  .lex_empty { font-size:13px; color:#989898; padding-top:7px; }
+  .nav {
+    margin-top:16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+  }
+  .btn {
+    border:none;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:700;
+    padding:10px 16px;
+    transition:opacity .15s ease, transform .15s ease;
+  }
+  .btn:disabled { opacity:.35; cursor:not-allowed; }
+  .btn:hover:not(:disabled) { transform:translateY(-1px); }
+  .btn.nav_btn { background:#ff9f43; color:#fff; min-width:108px; }
+  .btn.read_btn { background:#54a0ff; color:#fff; }
+  .btn.game_btn { background:#10ac84; color:#fff; display:none; }
+  .page_indicator { color:#969696; font-size:14px; }
 </style>
 </head>
 <body>
-<div class="reader-wrap">
-  <h2>The Very Hungry Little Snake<br><small>好饿的小蛇</small></h2>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-  <div id="pageArea" style="margin-top:16px"></div>
+<div class="reader_wrap">
+  <div class="unit_tag">分类：宫西达也</div>
+  <h2>The Very Hungry Little Snake<small>好饿的小蛇</small></h2>
+  <div class="progress_bar"><div class="progress_fill" id="progress_fill"></div></div>
+  <div id="page_area"></div>
   <div class="nav">
-    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
-    <div>
-      <button class="read-btn" onclick="readCurrent()">🔊 朗读</button>
-      <span class="page-indicator" id="pageIndicator"></span>
+    <button class="btn nav_btn" id="prev_btn" onclick="change_page(-1)">← 上一页</button>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button class="btn read_btn" onclick="read_current()">🔊 朗读</button>
+      <button class="btn game_btn" id="to_game_btn" onclick="goto_game()">🎮 去游戏</button>
+      <span class="page_indicator" id="page_indicator"></span>
     </div>
-    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
+    <button class="btn nav_btn" id="next_btn" onclick="change_page(1)">下一页 →</button>
   </div>
 </div>
 
 <script>
-const PAGES = [
-  {en:"One sunny morning, a little snake wiggled along the path.",zh:"一个阳光明媚的早晨，小蛇一扭一扭地在小路上散步。",img:"images/snake/page-1.jpg",keys:[{w:"wiggle",p:"/ˈwɪɡl/",zh:"一扭一扭地爬行"}]},
-  {en:"He saw a round, red apple. 'Guess what he did?' Crunch, crunch! So yummy!",zh:"他看到一个圆圆的红苹果。"你猜他会怎么做？" 他啊呜，啊呜，真好吃！",img:"images/snake/page-2.jpg",keys:[{w:"round",p:"/raʊnd/",zh:"圆圆的"},{w:"crunch",p:"/krʌntʃ/",zh:"嘎嘣嘎嘣吃"}]},
-  {en:"The next day, the hungry little snake went for a walk again. He saw a curvy yellow banana.",zh:"第二天，好饿的小蛇又一扭一扭地去散步了。他看到一根弯弯的黄香蕉。",img:"images/snake/page-3.jpg",keys:[{w:"curvy",p:"/ˈkɜːvi/",zh:"弯弯的"}]},
-  {en:"On the third day, the hungry little snake went for a walk again. He saw a sweet strawberry.",zh:"第三天，好饿的小蛇又一扭一扭地去散步了。他看到一颗甜甜的草莓。",img:"images/snake/page-4.jpg",keys:[{w:"sweet",p:"/swiːt/",zh:"甜甜的"}]},
-  {en:"On the fourth day, the hungry little snake went for a walk again. He saw a big bunch of purple grapes.",zh:"第四天，好饿的小蛇又一扭一扭地去散步了。他看到一大串紫色的葡萄。",img:"images/snake/page-5.jpg",keys:[{w:"bunch",p:"/bʌntʃ/",zh:"一串"},{w:"purple",p:"/ˈpɜːpəl/",zh:"紫色的"}]},
-  {en:"On the fifth day, the hungry little snake went for a walk again. He saw a juicy orange.",zh:"第五天，好饿的小蛇又一扭一扭地去散步了。他看到一个多汁的橙子。",img:"images/snake/page-6.jpg",keys:[{w:"juicy",p:"/ˈdʒuːsi/",zh:"多汁的"}]},
-  {en:"But now his tummy hurt! Oh no! What should he do?",zh:"可是现在他的肚子好痛！哦不！该怎么办？",img:"images/snake/page-7.jpg",keys:[{w:"tummy",p:"/ˈtʌmi/",zh:"肚子"},{w:"hurt",p:"/hɜːt/",zh:"痛"}]},
-  {en:"He found a big green leaf. 'Guess what he did?' He ate the leaf and felt much better!",zh:"他找到一片大绿叶。"你猜他会怎么做？" 他吃了绿叶，感觉好多了！",img:"images/snake/page-8.jpg",keys:[{w:"leaf",p:"/liːf/",zh:"叶子"},{w:"better",p:"/ˈbetə/",zh:"好多了"}]},
-  {en:"The little snake was happy again. He went home to rest.",zh:"小蛇又开心起来了。他回家休息去了。",img:"images/snake/page-9.jpg",keys:[{w:"rest",p:"/rest/",zh:"休息"}]},
-  {en:"The End. See you next time!",zh:"结束了！下次见！",img:"images/snake/page-10.jpg",keys:[]}
-];
-
-let cur = 0;
+const pages_data = [{"img": "images/covers/cover-snake.jpg", "en": "One sunny morning, a little snake wiggled along the path.", "zh": "一个阳光明媚的早晨，小蛇一扭一扭地在小路上散步。", "keys": [{"w": "wiggle", "p": "/ˈwɪɡl/", "zh": "一扭一扭地"}], "phrases": [{"en": "a bright, sunny morning", "zh": "一个阳光明媚的早晨"}]}, {"img": "images/snake/page-2.jpg", "en": "He saw a round, red apple. \"Guess what he did?\" Crunch, crunch! So yummy!", "zh": "他看到一个圆圆的红苹果。\"你猜他会怎么做？\" 他啊呜，啊呜，真好吃！", "keys": [{"w": "round", "p": "/raʊnd/", "zh": "圆圆的"}], "phrases": [{"en": "a round red apple", "zh": "一个圆圆的红苹果"}]}, {"img": "images/snake/page-3.jpg", "en": "The next day, the hungry little snake went for a walk again. He saw a curvy yellow banana. \"Guess what he did?\" Crunch, crunch! So yummy!", "zh": "第二天，好饿的小蛇又一扭一扭地去散步了。他看到一根弯弯的黄香蕉。\"你猜他会怎么做？\" 他啊呜，啊呜，真好吃！", "keys": [{"w": "banana", "p": "/bəˈnɑːnə/", "zh": "香蕉"}], "phrases": [{"en": "the next day", "zh": "第二天"}]}, {"img": "images/snake/page-4.jpg", "en": "On the third day, the hungry little snake went for a walk again. He saw a triangular rice ball. \"Guess what he did?\" Crunch, crunch! So yummy!", "zh": "第三天，好饿的小蛇又一扭一扭地去散步了。他看到一个三角形的小饭团。\"你猜他会怎么做？\" 他啊呜，啊呜，真好吃！", "keys": [{"w": "triangular", "p": "/traɪˈæŋɡjələr/", "zh": "三角形的"}], "phrases": [{"en": "the third day", "zh": "第三天"}]}, {"img": "images/snake/page-5.jpg", "en": "On the fourth day, the hungry little snake went for a walk again. He saw a big bunch of purple grapes. \"Guess what he did?\" Crunch, crunch! So yummy!", "zh": "第四天，好饿的小蛇又一扭一扭地去散步了。他看到一大串紫色的葡萄。\"你猜他会怎么做？\" 他啊呜，啊呜，真好吃！", "keys": [{"w": "bunch", "p": "/bʌntʃ/", "zh": "一串"}], "phrases": [{"en": "the fourth day", "zh": "第四天"}]}, {"img": "images/snake/page-6.jpg", "en": "On the fifth day, the hungry little snake went for a walk again. He saw a pointy pineapple. \"Guess what he did?\" Crunch, crunch! So yummy!", "zh": "第五天，好饿的小蛇又一扭一扭地去散步了。他看到一个尖尖的菠萝。\"你猜他会怎么做？\" 他啊呜，啊呜，真好吃！", "keys": [{"w": "pineapple", "p": "/ˈpaɪnæpl/", "zh": "菠萝"}], "phrases": [{"en": "the fifth day", "zh": "第五天"}]}, {"img": "images/snake/page-7.jpg", "en": "His tail is right here! He is a very happy, very full little snake.", "zh": "第六天，好饿的小蛇又一扭一扭地去散步了。他看到树上有许多红苹果。\"你猜他会怎么做？\" 小蛇一扭一扭地爬上树，然后张开大嘴！\"喔！啊呜，啊呜，真好吃！\"", "keys": [{"w": "tree", "p": "/triː/", "zh": "树"}], "phrases": [{"en": "many red apples on the tree", "zh": "树上有许多红苹果"}]}];
+const game_url = '../../game/classic/snake.html';
+let current_page = 0;
+let current_rate = 0.92;
+let is_reading = false;
 const synth = window.speechSynthesis;
 
-function renderPage(i) {
-  const p = PAGES[i];
-  const words = p.en.split(' ').map((w, idx) =>
-    `<span class="word" id="w${idx}" onclick="showWordTip(this,'${w}')">${w}</span>`
+function escape_for_attr(raw_text) {
+  return String(raw_text || '').replace(/'/g, "\\'");
+}
+
+function get_asset_src(raw_path) {
+  const path_text = String(raw_path || '').trim();
+  if (!path_text) return '';
+  if (path_text.startsWith('http://') || path_text.startsWith('https://')) return path_text;
+  if (path_text.startsWith('images/')) return '../../' + path_text;
+  return '../../images/' + path_text.replace(/^\/+/, '');
+}
+
+function split_zh_chunks(zh_text) {
+  const source_text = String(zh_text || '');
+  return source_text.split(/(?<=[。！？；：,.!?])/).filter(Boolean);
+}
+
+function render_page(page_index) {
+  const page = pages_data[page_index];
+  const words_html = String(page.en || '').split(/\s+/).filter(Boolean).map((word_text, idx) =>
+    `<span class="word" id="w_${idx}" onclick="show_word_tip(this,'${escape_for_attr(word_text)}')">${word_text}</span>`
   ).join(' ');
-
-  const vocabCards = (p.keys || []).map(k =>
-    `<div class="vocab-card" onclick="speakWord('${k.w}')">
-      <div class="vw">${k.w}</div><div class="vp">${k.p}</div><div class="vz">${k.zh}</div>
-    </div>`
+  const zh_chunks = split_zh_chunks(page.zh || '');
+  const zh_html = zh_chunks.map((chunk, idx) =>
+    `<span class="zh_chunk" id="zh_${idx}">${chunk}</span>`
   ).join('');
+  const word_row_html = (page.keys || []).length ? (page.keys || []).map((item) =>
+    `<span class="lex_chip words" onclick="speak_word('${escape_for_attr(item.w || '')}')"><b>${item.w || ''}</b> ${item.p || ''} ${item.zh || ''}</span>`
+  ).join('') : '<span class="lex_empty">暂无重点单词</span>';
+  const phrase_row_html = (page.phrases || []).length ? (page.phrases || []).map((item) =>
+    `<span class="lex_chip phrases" onclick="speak_phrase('${escape_for_attr(item.en || '')}')"><b>${item.en || ''}</b> ${item.zh || ''}</span>`
+  ).join('') : '<span class="lex_empty">暂无重点词组</span>';
 
-  document.getElementById('pageArea').innerHTML = `
-    <img class="page-img" src="${p.img}" alt="page ${i+1}">
-    <div class="text-area">
-      <div class="en-sentence">${words}</div>
-      <div class="zh-sentence hidden" id="zhSent" onclick="this.classList.toggle('hidden')">
-        ${p.zh}&nbsp;<span style="font-size:12px;color:#bbb">（点击查看翻译）</span>
+  document.getElementById('page_area').innerHTML = `
+    <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
+    <div class="text_area">
+      <div class="en_sentence">${words_html}</div>
+      <div class="zh_sentence">${zh_html}</div>
+      <div class="lexicon">
+        <div class="lex_row"><span class="lex_label words">单词</span><div class="lex_items">${word_row_html}</div></div>
+        <div class="lex_row"><span class="lex_label phrases">词组</span><div class="lex_items">${phrase_row_html}</div></div>
       </div>
-      <div class="vocab-row">${vocabCards}</div>
     </div>`;
 
-  document.getElementById('progressFill').style.width = `${(i+1)/PAGES.length*100}%`;
-  document.getElementById('pageIndicator').textContent = `${i+1} / ${PAGES.length}`;
-  document.getElementById('prevBtn').disabled = i === 0;
-  document.getElementById('nextBtn').disabled = i === PAGES.length - 1;
+  document.getElementById('progress_fill').style.width = `${((page_index + 1) / pages_data.length) * 100}%`;
+  document.getElementById('page_indicator').textContent = `${page_index + 1} / ${pages_data.length}`;
+  document.getElementById('prev_btn').disabled = page_index === 0;
+  const on_last_page = page_index === pages_data.length - 1;
+  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : '下一页 →';
+  document.getElementById('to_game_btn').style.display = on_last_page ? 'inline-block' : 'none';
 }
 
-function changePage(dir) {
-  synth.cancel();
-  cur = Math.max(0, Math.min(PAGES.length - 1, cur + dir));
-  renderPage(cur);
+function clear_highlight() {
+  document.querySelectorAll('.word.speaking').forEach((el) => el.classList.remove('speaking'));
+  document.querySelectorAll('.zh_chunk.speaking').forEach((el) => el.classList.remove('speaking'));
 }
 
-function readCurrent() {
+function speak_utterance(text_value, lang_code, rate_value, on_boundary) {
+  return new Promise((resolve) => {
+    const utterance = new SpeechSynthesisUtterance(text_value);
+    utterance.lang = lang_code;
+    utterance.rate = rate_value;
+    utterance.pitch = 1;
+    if (on_boundary) utterance.onboundary = on_boundary;
+    utterance.onend = resolve;
+    utterance.onerror = resolve;
+    synth.speak(utterance);
+  });
+}
+
+async function read_current() {
+  if (is_reading) return;
+  is_reading = true;
   synth.cancel();
-  const p = PAGES[cur];
-  const words = p.en.split(' ');
-  let idx = 0;
-  function speakNext() {
-    if (idx >= words.length) return;
-    document.querySelectorAll('.word').forEach(el => el.classList.remove('speaking'));
-    const el = document.getElementById(`w${idx}`);
-    if (el) el.classList.add('speaking');
-    const utt = new SpeechSynthesisUtterance(words[idx]);
-    utt.lang = 'en-GB'; utt.rate = 0.8;
-    utt.onend = () => { idx++; speakNext(); };
-    synth.speak(utt);
+  clear_highlight();
+  const page = pages_data[current_page];
+  const words = String(page.en || '').split(/\s+/).filter(Boolean);
+  for (let i = 0; i < words.length; i += 1) {
+    clear_highlight();
+    const word_el = document.getElementById(`w_${i}`);
+    if (word_el) word_el.classList.add('speaking');
+    await speak_utterance(words[i], 'en-US', current_rate * 0.88);
   }
-  speakNext();
-}
-
-function showWordTip(el, word) {
-  speakWord(word);
-  if (el.querySelector('.word-tip')) { el.querySelector('.word-tip').remove(); return; }
-  const p = PAGES[cur];
-  const key = (p.keys || []).find(k => k.w.toLowerCase() === word.toLowerCase().replace(/[.,!?']/g,''));
-  if (key) {
-    const tip = document.createElement('span');
-    tip.className = 'word-tip';
-    tip.textContent = `${key.p} ${key.zh}`;
-    el.appendChild(tip);
+  clear_highlight();
+  const zh_chunks = split_zh_chunks(page.zh || '');
+  let zh_index = 0;
+  await speak_utterance(String(page.zh || ''), 'zh-CN', current_rate, () => {
+    clear_highlight();
+    const current_chunk = document.getElementById(`zh_${zh_index}`);
+    if (current_chunk) current_chunk.classList.add('speaking');
+    zh_index = Math.min(zh_index + 1, zh_chunks.length - 1);
+  });
+  clear_highlight();
+  for (const item of (page.keys || [])) {
+    await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
   }
+  for (const item of (page.phrases || [])) {
+    await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+  }
+  is_reading = false;
 }
 
-function speakWord(word) {
+function show_word_tip(target_el, word_text) {
+  speak_word(word_text);
+  const old_tip = target_el.querySelector('.word_tip');
+  if (old_tip) {
+    old_tip.remove();
+    return;
+  }
+  const page = pages_data[current_page];
+  const clean_word = String(word_text || '').toLowerCase().replace(/[.,!?'"“”]/g, '');
+  const found = (page.keys || []).find((item) => String(item.w || '').toLowerCase() === clean_word);
+  if (!found) return;
+  const tip = document.createElement('span');
+  tip.className = 'word_tip';
+  tip.textContent = `${found.p || ''} ${found.zh || ''}`.trim();
+  target_el.appendChild(tip);
+}
+
+function speak_word(word_text) {
+  if (!word_text) return;
   synth.cancel();
-  const utt = new SpeechSynthesisUtterance(word);
-  utt.lang = 'en-GB'; utt.rate = 0.7;
-  synth.speak(utt);
+  clear_highlight();
+  speak_utterance(String(word_text), 'en-US', current_rate * 0.84);
 }
 
-renderPage(0);
+function speak_phrase(phrase_text) {
+  if (!phrase_text) return;
+  synth.cancel();
+  clear_highlight();
+  speak_utterance(String(phrase_text), 'en-US', current_rate * 0.8);
+}
+
+function goto_game() {
+  window.location.href = game_url;
+}
+
+function change_page(direction) {
+  synth.cancel();
+  clear_highlight();
+  const on_last_page = current_page === pages_data.length - 1;
+  if (direction > 0 && on_last_page) {
+    goto_game();
+    return;
+  }
+  current_page = Math.max(0, Math.min(pages_data.length - 1, current_page + direction));
+  render_page(current_page);
+}
+
+render_page(0);
+window.addEventListener('load', () => {
+  setTimeout(() => { read_current(); }, 500);
+});
 </script>
 </body>
 </html>
