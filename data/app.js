@@ -17,6 +17,19 @@ const App = {
     });
   },
 
+  getBucket(story) {
+    const category = String((story && story.category) || '').toLowerCase();
+    return category === 'storyfun' ? 'storyfun' : 'classic';
+  },
+
+  getStoryPageCount(story) {
+    const introCount = Array.isArray(story.intro_cn_pages) ? story.intro_cn_pages.length : 0;
+    const readerCount = Array.isArray(story.reader_pages_simple_en) && story.reader_pages_simple_en.length
+      ? story.reader_pages_simple_en.length
+      : (Array.isArray(story.pages) ? story.pages.length : 0);
+    return introCount + readerCount;
+  },
+
   setRate(r) {
     this.rate = r;
     document.getElementById('rate-display').textContent = r + 'x';
@@ -29,13 +42,13 @@ const App = {
         <h1 class="home-title">📚 双语绘本朗读 <span class="settings-btn" onclick="App.showSettings()" title="设置">⚙️</span></h1>
         <div class="category-grid" id="home-grid">
           ${STORIES.map(s => `
-            <div class="category-card" data-story-id="${s.id}">
+            <div class="category-card" data-story-id="${s.id}" data-reader-url="reader/${this.getBucket(s)}/${s.id}.html">
               <img class="card-cover" src="${s.cover}" alt="${s.title}" onerror="this.style.display='none'">
               <div class="card-info">
                 <div class="card-category">${s.category}</div>
                 <div class="card-title">${s.title}</div>
                 <div class="card-title-zh">${s.titleZh}</div>
-                <div class="card-pages">${s.pages.length} 页</div>
+                <div class="card-pages">${this.getStoryPageCount(s)} 页</div>
               </div>
             </div>
           `).join('')}
@@ -44,8 +57,8 @@ const App = {
     `;
     document.getElementById('home-grid').addEventListener('click', e => {
       const card = e.target.closest('.category-card');
-      if (card && card.dataset.storyId) {
-        this.selectStory(card.dataset.storyId);
+      if (card && card.dataset.readerUrl) {
+        window.location.href = card.dataset.readerUrl;
       }
     });
   },

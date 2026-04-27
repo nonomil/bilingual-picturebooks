@@ -37,6 +37,9 @@ jobs:
           cp -r styles _site/
           cp -r images _site/
           cp -r audio _site/
+          if [ -f manifest.json ]; then cp manifest.json _site/; elif [ -f public/manifest.json ]; then cp public/manifest.json _site/; fi
+          if [ -f sw.js ]; then cp sw.js _site/; elif [ -f public/sw.js ]; then cp public/sw.js _site/; fi
+          if [ -d icons ]; then cp -r icons _site/; elif [ -d public/icons ]; then cp -r public/icons _site/; fi
 
           # 生成后的阅读页与游戏页
           if [ -d reader ]; then cp -r reader _site/; fi
