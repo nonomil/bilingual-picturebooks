@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tank Battles Book 1 — 朗读版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
@@ -99,6 +101,22 @@
     gap:8px;
     flex-wrap:wrap;
   }
+  .phase_badge {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    border-radius:999px;
+    background:#fff4d9;
+    color:#9c6500;
+    font-size:12px;
+    font-weight:800;
+    padding:5px 10px;
+  }
+  .intro_note {
+    color:#8d7d68;
+    font-size:13px;
+    font-weight:700;
+  }
   .en_sentence { font-size:25px; line-height:1.65; color:#2f2f2f; font-weight:700; }
   .word {
     display:inline;
@@ -169,6 +187,21 @@
   }
   .lex_chip.phrases b { color:#0c9b78; }
   .lex_empty { font-size:13px; color:#989898; padding-top:7px; }
+  .text_area.intro_mode {
+    background:linear-gradient(180deg,#fffdf7 0%,#fff8ec 100%);
+  }
+  .intro_title {
+    color:#7d5d2e;
+    font-size:27px;
+    line-height:1.35;
+    font-weight:800;
+    margin-bottom:12px;
+  }
+  .intro_copy {
+    font-size:22px;
+    line-height:1.9;
+    color:#5f5141;
+  }
   .nav {
     margin-top:16px;
     display:flex;
@@ -228,11 +261,30 @@
     </div>
     <button class="btn nav_btn" id="next_btn" onclick="change_page(1)">下一页 →</button>
   </div>
-</div>
 
 <script>
-const pages_data = [{"img": "images/tank-1/page-1.jpg", "en": "In the world of blocks, a player had a big dream — to build tanks!", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}]}, {"img": "images/tank-1/page-2.jpg", "en": "He worked for days, placing blocks one by one. First, a heavy tank with thick iron armor!", "zh": "他捣鼓了好几天，一个方块一个方块地拼。第一辆，是皮糙肉厚的重型坦克！", "keys": [{"w": "placing", "p": "/ˈpleɪsɪŋ/", "zh": "放置"}], "phrases": [{"en": "worked for days", "zh": "捣鼓了好几天"}]}, {"img": "images/tank-1/page-3.jpg", "en": "Then a light tank that zooms across the plains super fast!", "zh": "然后是一辆轻型坦克，在平原上跑起来飞快！", "keys": [{"w": "light", "p": "/laɪt/", "zh": "轻的"}], "phrases": [{"en": "zooms across the plains", "zh": "飞快地穿过平原"}]}, {"img": "images/tank-1/page-4.jpg", "en": "And finally, a missile tank! When it fires, the missiles fly high with fiery trails!", "zh": "最后还造了一辆导弹坦克！发射的时候导弹拖着火焰飞出去，超炫酷！", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "最后"}], "phrases": [{"en": "missile tank", "zh": "导弹坦克"}]}, {"img": "images/tank-1/page-5.jpg", "en": "All three tanks lined up in the garage. The player could not wait any longer!", "zh": "三辆坦克停在车库里整整齐齐。他迫不及待要开出去浪了！", "keys": [{"w": "lined up", "p": "/laɪnd ʌp/", "zh": "排成一排"}], "phrases": [{"en": "lined up in the garage", "zh": "整齐地停在车库里"}]}, {"img": "images/tank-1/page-6.jpg", "en": "He drove the heavy tank straight to the monster nest. Zombies and skeletons were everywhere!", "zh": "他开着重型坦克直接冲到怪物窝旁边。到处都是僵尸和骷髅！", "keys": [{"w": "drove", "p": "/droʊv/", "zh": "驾驶"}], "phrases": [{"en": "drove the heavy tank straight to", "zh": "开着重型坦克直奔"}]}, {"img": "images/tank-1/page-7.jpg", "en": "BOOM! One shot from the cannon and monsters went flying everywhere! So satisfying!", "zh": "轰！一炮下去怪物直接炸飞一大片，太解压了！", "keys": [{"w": "shot", "p": "/ʃɑːt/", "zh": "射击；一炮"}], "phrases": [{"en": "One shot from the cannon", "zh": "大炮一发射击"}]}, {"img": "images/tank-1/page-8.jpg", "en": "The heavy tank charged right through! Monsters could not get anywhere near it!", "zh": "坦克横冲直撞！怪物根本近不了身！", "keys": [{"w": "charged", "p": "/tʃɑːrdʒd/", "zh": "冲锋；猛冲"}], "phrases": [{"en": "charged right through", "zh": "直接冲了过去"}]}, {"img": "images/tank-1/page-9.jpg", "en": "In no time, the whole monster nest was cleared. The player cheered inside the tank!", "zh": "几下就把整片怪物窝清干净了，他在坦克里开心地欢呼！", "keys": [{"w": "monster", "p": "/ˈmɒnstər/", "zh": "怪物"}], "phrases": [{"en": "In no time", "zh": "没过多久"}]}, {"img": "images/tank-1/page-10.jpg", "en": "No more hiding with a sword! Tanks make everything so much easier!", "zh": "再也不用拿剑躲躲藏藏了！有坦克就是不一样！", "keys": [{"w": "hiding", "p": "/ˈhaɪdɪŋ/", "zh": "躲藏"}], "phrases": [{"en": "No more hiding with a sword", "zh": "再也不用拿着剑躲躲藏藏了"}]}, {"img": "images/tank-1/page-11.jpg", "en": "Achievement unlocked! The player felt so proud. But this was just the beginning...", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}]}];
+const STORY = {"id": "tank-1", "title": "Tank Battles Book 1", "titleZh": "坦克大战·第一册", "category": "我的世界", "cover": "images/covers/cover-tank-1.jpg", "pages": [{"img": "images/tank-1/page-1.jpg", "en": "In the world of blocks, a player had a big dream — to build tanks!", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}], "title": ""}, {"img": "images/tank-1/page-2.jpg", "en": "He worked for days, placing blocks one by one. First, a heavy tank with thick iron armor!", "zh": "他捣鼓了好几天，一个方块一个方块地拼。第一辆，是皮糙肉厚的重型坦克！", "keys": [{"w": "placing", "p": "/ˈpleɪsɪŋ/", "zh": "放置"}], "phrases": [{"en": "worked for days", "zh": "捣鼓了好几天"}], "title": ""}, {"img": "images/tank-1/page-3.jpg", "en": "Then a light tank that zooms across the plains super fast!", "zh": "然后是一辆轻型坦克，在平原上跑起来飞快！", "keys": [{"w": "light", "p": "/laɪt/", "zh": "轻的"}], "phrases": [{"en": "zooms across the plains", "zh": "飞快地穿过平原"}], "title": ""}, {"img": "images/tank-1/page-4.jpg", "en": "And finally, a missile tank! When it fires, the missiles fly high with fiery trails!", "zh": "最后还造了一辆导弹坦克！发射的时候导弹拖着火焰飞出去，超炫酷！", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "最后"}], "phrases": [{"en": "missile tank", "zh": "导弹坦克"}], "title": ""}, {"img": "images/tank-1/page-5.jpg", "en": "All three tanks lined up in the garage. The player could not wait any longer!", "zh": "三辆坦克停在车库里整整齐齐。他迫不及待要开出去浪了！", "keys": [{"w": "lined up", "p": "/laɪnd ʌp/", "zh": "排成一排"}], "phrases": [{"en": "lined up in the garage", "zh": "整齐地停在车库里"}], "title": ""}, {"img": "images/tank-1/page-6.jpg", "en": "He drove the heavy tank straight to the monster nest. Zombies and skeletons were everywhere!", "zh": "他开着重型坦克直接冲到怪物窝旁边。到处都是僵尸和骷髅！", "keys": [{"w": "drove", "p": "/droʊv/", "zh": "驾驶"}], "phrases": [{"en": "drove the heavy tank straight to", "zh": "开着重型坦克直奔"}], "title": ""}, {"img": "images/tank-1/page-7.jpg", "en": "BOOM! One shot from the cannon and monsters went flying everywhere! So satisfying!", "zh": "轰！一炮下去怪物直接炸飞一大片，太解压了！", "keys": [{"w": "shot", "p": "/ʃɑːt/", "zh": "射击；一炮"}], "phrases": [{"en": "One shot from the cannon", "zh": "大炮一发射击"}], "title": ""}, {"img": "images/tank-1/page-8.jpg", "en": "The heavy tank charged right through! Monsters could not get anywhere near it!", "zh": "坦克横冲直撞！怪物根本近不了身！", "keys": [{"w": "charged", "p": "/tʃɑːrdʒd/", "zh": "冲锋；猛冲"}], "phrases": [{"en": "charged right through", "zh": "直接冲了过去"}], "title": ""}, {"img": "images/tank-1/page-9.jpg", "en": "In no time, the whole monster nest was cleared. The player cheered inside the tank!", "zh": "几下就把整片怪物窝清干净了，他在坦克里开心地欢呼！", "keys": [{"w": "monster", "p": "/ˈmɒnstər/", "zh": "怪物"}], "phrases": [{"en": "In no time", "zh": "没过多久"}], "title": ""}, {"img": "images/tank-1/page-10.jpg", "en": "No more hiding with a sword! Tanks make everything so much easier!", "zh": "再也不用拿剑躲躲藏藏了！有坦克就是不一样！", "keys": [{"w": "hiding", "p": "/ˈhaɪdɪŋ/", "zh": "躲藏"}], "phrases": [{"en": "No more hiding with a sword", "zh": "再也不用拿着剑躲躲藏藏了"}], "title": ""}, {"img": "images/tank-1/page-11.jpg", "en": "Achievement unlocked! The player felt so proud. But this was just the beginning...", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}], "title": ""}], "intro_cn_pages": [{"title": "坦克大战·第一册 · 故事开始", "img": "images/tank-1/page-1.jpg", "en": "", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}]}, {"title": "坦克大战·第一册 · 中间发生了什么", "img": "images/tank-1/page-6.jpg", "en": "", "zh": "他开着重型坦克直接冲到怪物窝旁边。到处都是僵尸和骷髅！", "keys": [{"w": "drove", "p": "/droʊv/", "zh": "驾驶"}], "phrases": [{"en": "drove the heavy tank straight to", "zh": "开着重型坦克直奔"}]}, {"title": "坦克大战·第一册 · 故事结尾", "img": "images/tank-1/page-11.jpg", "en": "", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}]}], "reader_pages_simple_en": [{"title": "", "img": "images/tank-1/page-1.jpg", "en": "In the world of blocks, a player had a big dream — to build.", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}]}, {"title": "", "img": "images/tank-1/page-2.jpg", "en": "He worked for days, placing blocks one by one. First, a heavy tank with thick iron armor!", "zh": "他捣鼓了好几天，一个方块一个方块地拼。第一辆，是皮糙肉厚的重型坦克！", "keys": [{"w": "placing", "p": "/ˈpleɪsɪŋ/", "zh": "放置"}], "phrases": [{"en": "worked for days", "zh": "捣鼓了好几天"}]}, {"title": "", "img": "images/tank-1/page-4.jpg", "en": "And finally, a missile tank! When it fires, the missiles fly high with fiery trails!", "zh": "最后还造了一辆导弹坦克！发射的时候导弹拖着火焰飞出去，超炫酷！", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "最后"}], "phrases": [{"en": "missile tank", "zh": "导弹坦克"}]}, {"title": "", "img": "images/tank-1/page-5.jpg", "en": "All three tanks lined up in the garage. The player could not wait any longer!", "zh": "三辆坦克停在车库里整整齐齐。他迫不及待要开出去浪了！", "keys": [{"w": "lined up", "p": "/laɪnd ʌp/", "zh": "排成一排"}], "phrases": [{"en": "lined up in the garage", "zh": "整齐地停在车库里"}]}, {"title": "", "img": "images/tank-1/page-7.jpg", "en": "BOOM! One shot from the cannon and monsters went flying everywhere!", "zh": "轰！一炮下去怪物直接炸飞一大片，太解压了！", "keys": [{"w": "shot", "p": "/ʃɑːt/", "zh": "射击；一炮"}], "phrases": [{"en": "One shot from the cannon", "zh": "大炮一发射击"}]}, {"title": "", "img": "images/tank-1/page-8.jpg", "en": "The heavy tank charged right through! Monsters could not get anywhere near it!", "zh": "坦克横冲直撞！怪物根本近不了身！", "keys": [{"w": "charged", "p": "/tʃɑːrdʒd/", "zh": "冲锋；猛冲"}], "phrases": [{"en": "charged right through", "zh": "直接冲了过去"}]}, {"title": "", "img": "images/tank-1/page-10.jpg", "en": "No more hiding with a sword! Tanks make everything so much easier!", "zh": "再也不用拿剑躲躲藏藏了！有坦克就是不一样！", "keys": [{"w": "hiding", "p": "/ˈhaɪdɪŋ/", "zh": "躲藏"}], "phrases": [{"en": "No more hiding with a sword", "zh": "再也不用拿着剑躲躲藏藏了"}]}, {"title": "", "img": "images/tank-1/page-11.jpg", "en": "Achievement unlocked! The player felt so proud.", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}]}]};
+const legacy_pages = [{"img": "images/tank-1/page-1.jpg", "en": "In the world of blocks, a player had a big dream — to build tanks!", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}], "title": ""}, {"img": "images/tank-1/page-2.jpg", "en": "He worked for days, placing blocks one by one. First, a heavy tank with thick iron armor!", "zh": "他捣鼓了好几天，一个方块一个方块地拼。第一辆，是皮糙肉厚的重型坦克！", "keys": [{"w": "placing", "p": "/ˈpleɪsɪŋ/", "zh": "放置"}], "phrases": [{"en": "worked for days", "zh": "捣鼓了好几天"}], "title": ""}, {"img": "images/tank-1/page-3.jpg", "en": "Then a light tank that zooms across the plains super fast!", "zh": "然后是一辆轻型坦克，在平原上跑起来飞快！", "keys": [{"w": "light", "p": "/laɪt/", "zh": "轻的"}], "phrases": [{"en": "zooms across the plains", "zh": "飞快地穿过平原"}], "title": ""}, {"img": "images/tank-1/page-4.jpg", "en": "And finally, a missile tank! When it fires, the missiles fly high with fiery trails!", "zh": "最后还造了一辆导弹坦克！发射的时候导弹拖着火焰飞出去，超炫酷！", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "最后"}], "phrases": [{"en": "missile tank", "zh": "导弹坦克"}], "title": ""}, {"img": "images/tank-1/page-5.jpg", "en": "All three tanks lined up in the garage. The player could not wait any longer!", "zh": "三辆坦克停在车库里整整齐齐。他迫不及待要开出去浪了！", "keys": [{"w": "lined up", "p": "/laɪnd ʌp/", "zh": "排成一排"}], "phrases": [{"en": "lined up in the garage", "zh": "整齐地停在车库里"}], "title": ""}, {"img": "images/tank-1/page-6.jpg", "en": "He drove the heavy tank straight to the monster nest. Zombies and skeletons were everywhere!", "zh": "他开着重型坦克直接冲到怪物窝旁边。到处都是僵尸和骷髅！", "keys": [{"w": "drove", "p": "/droʊv/", "zh": "驾驶"}], "phrases": [{"en": "drove the heavy tank straight to", "zh": "开着重型坦克直奔"}], "title": ""}, {"img": "images/tank-1/page-7.jpg", "en": "BOOM! One shot from the cannon and monsters went flying everywhere! So satisfying!", "zh": "轰！一炮下去怪物直接炸飞一大片，太解压了！", "keys": [{"w": "shot", "p": "/ʃɑːt/", "zh": "射击；一炮"}], "phrases": [{"en": "One shot from the cannon", "zh": "大炮一发射击"}], "title": ""}, {"img": "images/tank-1/page-8.jpg", "en": "The heavy tank charged right through! Monsters could not get anywhere near it!", "zh": "坦克横冲直撞！怪物根本近不了身！", "keys": [{"w": "charged", "p": "/tʃɑːrdʒd/", "zh": "冲锋；猛冲"}], "phrases": [{"en": "charged right through", "zh": "直接冲了过去"}], "title": ""}, {"img": "images/tank-1/page-9.jpg", "en": "In no time, the whole monster nest was cleared. The player cheered inside the tank!", "zh": "几下就把整片怪物窝清干净了，他在坦克里开心地欢呼！", "keys": [{"w": "monster", "p": "/ˈmɒnstər/", "zh": "怪物"}], "phrases": [{"en": "In no time", "zh": "没过多久"}], "title": ""}, {"img": "images/tank-1/page-10.jpg", "en": "No more hiding with a sword! Tanks make everything so much easier!", "zh": "再也不用拿剑躲躲藏藏了！有坦克就是不一样！", "keys": [{"w": "hiding", "p": "/ˈhaɪdɪŋ/", "zh": "躲藏"}], "phrases": [{"en": "No more hiding with a sword", "zh": "再也不用拿着剑躲躲藏藏了"}], "title": ""}, {"img": "images/tank-1/page-11.jpg", "en": "Achievement unlocked! The player felt so proud. But this was just the beginning...", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}], "title": ""}];
 const game_url = '../../game/classic/tank-1.html';
+const intro_pages = Array.isArray(STORY.intro_cn_pages) ? STORY.intro_cn_pages : [];
+const reader_pages = Array.isArray(STORY.reader_pages_simple_en) && STORY.reader_pages_simple_en.length
+  ? STORY.reader_pages_simple_en
+  : (Array.isArray(STORY.pages) && STORY.pages.length ? STORY.pages : legacy_pages);
+const page_list = [
+  ...intro_pages.map((page) => ({ ...page, section: 'intro' })),
+  ...reader_pages.map((page) => ({ ...page, section: 'reader' })),
+];
+if (!page_list.length) {
+  page_list.push({
+    section: 'reader',
+    title: '',
+    img: '',
+    en: 'Content is coming soon.',
+    zh: '故事内容正在整理中。',
+    keys: [],
+    phrases: [],
+  });
+}
 let current_page = 0;
 let current_rate = 0.92;
 let is_reading = false;
@@ -269,12 +321,26 @@ function build_word_tokens(en_text) {
   });
 }
 
+function get_current_page() {
+  return page_list[current_page] || page_list[0];
+}
+
+function get_section_label(page) {
+  if (page.section === 'intro') return '中文剧情导入';
+  return intro_pages.length ? '英文简版阅读' : '故事阅读';
+}
+
 function update_translation_ui() {
   const zh_box = document.getElementById('zh_sentence');
   const toggle_btn = document.getElementById('translate_toggle_btn');
-  if (!zh_box || !toggle_btn) return;
-  zh_box.classList.toggle('hidden', !translation_visible);
-  toggle_btn.textContent = translation_visible ? '隐藏翻译' : '显示翻译';
+  const page = get_current_page();
+  if (!zh_box || !toggle_btn || !page) return;
+  const is_intro = page.section === 'intro';
+  toggle_btn.style.display = is_intro ? 'none' : 'inline-block';
+  zh_box.classList.toggle('hidden', !is_intro && !translation_visible);
+  if (!is_intro) {
+    toggle_btn.textContent = translation_visible ? '隐藏翻译' : '显示翻译';
+  }
 }
 
 function toggle_translation(force_visible) {
@@ -287,8 +353,10 @@ function toggle_translation(force_visible) {
 }
 
 function render_page(page_index) {
-  const page = pages_data[page_index];
-  current_word_ranges = build_word_tokens(page.en || '');
+  const page = page_list[page_index];
+  const is_intro = page.section === 'intro';
+  const section_label = get_section_label(page);
+  current_word_ranges = is_intro ? [] : build_word_tokens(page.en || '');
   const words_html = current_word_ranges.map((item, idx) =>
     `<span class="word" id="w_${idx}" onclick="show_word_tip(this,'${escape_for_attr(item.token)}')">${item.token}</span>`
   ).join(' ');
@@ -302,16 +370,33 @@ function render_page(page_index) {
   const phrase_row_html = (page.phrases || []).length ? (page.phrases || []).map((item) =>
     `<span class="lex_chip phrases" onclick="speak_phrase('${escape_for_attr(item.en || '')}')"><b>${item.en || ''}</b> ${item.zh || ''}</span>`
   ).join('') : '<span class="lex_empty">暂无重点词组</span>';
+  const intro_title_html = page.title ? `<div class="intro_title">${page.title}</div>` : '';
+  const intro_lexicon_html = ((page.keys || []).length || (page.phrases || []).length) ? `
+      <div class="lexicon">
+        <div class="lex_row"><span class="lex_label words">单词</span><div class="lex_items">${word_row_html}</div></div>
+        <div class="lex_row"><span class="lex_label phrases">词组</span><div class="lex_items">${phrase_row_html}</div></div>
+      </div>` : '';
 
-  document.getElementById('page_area').innerHTML = `
+  document.getElementById('page_area').innerHTML = is_intro ? `
+    <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
+    <div class="text_area intro_mode">
+      <div class="text_toolbar">
+        <div class="phase_badge">🧭 ${section_label}</div>
+        <div class="intro_note">先听中文剧情，先建立画面，再进入英文阅读。</div>
+      </div>
+      ${intro_title_html}
+      <div class="intro_copy zh_sentence" id="zh_sentence">${zh_html}</div>
+      ${intro_lexicon_html}
+    </div>` : `
     <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
     <div class="text_area">
       <div class="text_toolbar">
-        <div class="toolbar_tip">点英文可听单词，点下方卡片可听单词和词组</div>
+        <div class="phase_badge">📘 ${section_label}</div>
         <div class="toolbar_actions">
           <button class="translate_btn" onclick="toggle_translation()">${translation_visible ? '隐藏翻译' : '显示翻译'}</button>
         </div>
       </div>
+      <div class="toolbar_tip">点英文可听单词，点下方卡片可听单词和词组</div>
       <div class="en_sentence">${words_html}</div>
       <div class="zh_sentence hidden" id="zh_sentence">${zh_html}</div>
       <div class="lexicon">
@@ -320,12 +405,13 @@ function render_page(page_index) {
       </div>
     </div>`;
 
-  document.getElementById('progress_fill').style.width = `${((page_index + 1) / pages_data.length) * 100}%`;
-  document.getElementById('page_total').textContent = `第 ${page_index + 1} 页，共 ${pages_data.length} 页`;
-  document.getElementById('page_indicator').textContent = `${page_index + 1} / ${pages_data.length}`;
+  document.getElementById('progress_fill').style.width = `${((page_index + 1) / page_list.length) * 100}%`;
+  document.getElementById('page_total').textContent = `${section_label} · 第 ${page_index + 1} 页，共 ${page_list.length} 页`;
+  document.getElementById('page_indicator').textContent = `${page_index + 1} / ${page_list.length}`;
   document.getElementById('prev_btn').disabled = page_index === 0;
-  const on_last_page = page_index === pages_data.length - 1;
-  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : '下一页 →';
+  const on_last_page = page_index === page_list.length - 1;
+  const on_last_intro_page = intro_pages.length && page_index === intro_pages.length - 1;
+  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : (on_last_intro_page ? '进入英文阅读 →' : '下一页 →');
   document.getElementById('to_game_btn').style.display = on_last_page ? 'inline-block' : 'none';
   update_translation_ui();
 }
@@ -356,8 +442,7 @@ function highlight_en_word(char_index) {
   if (active_word) active_word.classList.add('speaking');
 }
 
-async function speak_english_sentence() {
-  const page = pages_data[current_page];
+async function speak_english_sentence(page) {
   await speak_utterance(String(page.en || ''), 'en-US', current_rate * 0.92, (event) => {
     if (typeof event.charIndex === 'number') {
       highlight_en_word(event.charIndex);
@@ -365,9 +450,9 @@ async function speak_english_sentence() {
   });
 }
 
-async function speak_chinese_sentence() {
-  toggle_translation(true);
-  const zh_chunks = split_zh_chunks(pages_data[current_page].zh || '');
+async function speak_chinese_sentence(page) {
+  if (page.section !== 'intro') toggle_translation(true);
+  const zh_chunks = split_zh_chunks(page.zh || '');
   for (let i = 0; i < zh_chunks.length; i += 1) {
     clear_highlight();
     const current_chunk = document.getElementById(`zh_${i}`);
@@ -381,16 +466,20 @@ async function read_current() {
   is_reading = true;
   synth.cancel();
   clear_highlight();
-  const page = pages_data[current_page];
-  await speak_english_sentence();
-  clear_highlight();
-  await speak_chinese_sentence();
-  clear_highlight();
-  for (const item of (page.keys || [])) {
-    await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
-  }
-  for (const item of (page.phrases || [])) {
-    await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+  const page = get_current_page();
+  if (page.section === 'intro') {
+    await speak_chinese_sentence(page);
+  } else {
+    await speak_english_sentence(page);
+    clear_highlight();
+    await speak_chinese_sentence(page);
+    clear_highlight();
+    for (const item of (page.keys || [])) {
+      await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
+    }
+    for (const item of (page.phrases || [])) {
+      await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+    }
   }
   is_reading = false;
 }
@@ -400,7 +489,7 @@ async function read_chinese_only() {
   is_reading = true;
   synth.cancel();
   clear_highlight();
-  await speak_chinese_sentence();
+  await speak_chinese_sentence(get_current_page());
   clear_highlight();
   is_reading = false;
 }
@@ -412,7 +501,8 @@ function show_word_tip(target_el, word_text) {
     old_tip.remove();
     return;
   }
-  const page = pages_data[current_page];
+  const page = get_current_page();
+  if (page.section === 'intro') return;
   const clean_word = String(word_text || '').toLowerCase().replace(/[.,!?'"“”]/g, '');
   const found = (page.keys || []).find((item) => String(item.w || '').toLowerCase() === clean_word);
   if (!found) return;
@@ -443,12 +533,12 @@ function goto_game() {
 function change_page(direction) {
   synth.cancel();
   clear_highlight();
-  const on_last_page = current_page === pages_data.length - 1;
+  const on_last_page = current_page === page_list.length - 1;
   if (direction > 0 && on_last_page) {
     goto_game();
     return;
   }
-  current_page = Math.max(0, Math.min(pages_data.length - 1, current_page + direction));
+  current_page = Math.max(0, Math.min(page_list.length - 1, current_page + direction));
   render_page(current_page);
 }
 

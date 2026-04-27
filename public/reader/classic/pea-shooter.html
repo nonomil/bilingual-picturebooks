@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Brave Pea Shooter — 朗读版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
@@ -99,6 +101,22 @@
     gap:8px;
     flex-wrap:wrap;
   }
+  .phase_badge {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    border-radius:999px;
+    background:#fff4d9;
+    color:#9c6500;
+    font-size:12px;
+    font-weight:800;
+    padding:5px 10px;
+  }
+  .intro_note {
+    color:#8d7d68;
+    font-size:13px;
+    font-weight:700;
+  }
   .en_sentence { font-size:25px; line-height:1.65; color:#2f2f2f; font-weight:700; }
   .word {
     display:inline;
@@ -169,6 +187,21 @@
   }
   .lex_chip.phrases b { color:#0c9b78; }
   .lex_empty { font-size:13px; color:#989898; padding-top:7px; }
+  .text_area.intro_mode {
+    background:linear-gradient(180deg,#fffdf7 0%,#fff8ec 100%);
+  }
+  .intro_title {
+    color:#7d5d2e;
+    font-size:27px;
+    line-height:1.35;
+    font-weight:800;
+    margin-bottom:12px;
+  }
+  .intro_copy {
+    font-size:22px;
+    line-height:1.9;
+    color:#5f5141;
+  }
   .nav {
     margin-top:16px;
     display:flex;
@@ -228,11 +261,30 @@
     </div>
     <button class="btn nav_btn" id="next_btn" onclick="change_page(1)">下一页 →</button>
   </div>
-</div>
 
 <script>
-const pages_data = [{"img": "images/pea-shooter/page-1.jpg", "en": "In a bright, sunny garden lived a tiny green Pea Shooter named Pip. He had big round eyes, a cheerful smile, and a little leaf on his head. Pip loved his garden home more than anything in the world.\n\nEvery morning, Pip would stretch his leaves and say, \"Today is going to be a great day!\"", "zh": "在一个明亮、阳光灿烂的花园里，住着一只绿色的小豌豆射手，名叫皮皮。他有一双圆圆的大眼睛，一个开心的笑容，头顶上还有一片小叶子。皮皮爱他的花园家园胜过世界上的一切。\n\n每天早上，皮皮都会伸伸他的叶子说：“今天一定会是个好日子！”", "keys": [{"w": "bright", "p": "/braɪt/", "zh": "明亮的"}], "phrases": [{"en": "a bright, sunny garden", "zh": "一个明亮、阳光灿烂的花园"}]}, {"img": "images/pea-shooter/page-2.jpg", "en": "One sunny morning, Pip decided to take a walk along the cobblestone path. The flowers waved at him as he passed. Butterflies danced around his head.\n\n\"What a wonderful day for a walk!\" Pip cheered, hopping along the path.", "zh": "一个阳光明媚的早晨，皮皮决定沿着鹅卵石小路散步。花朵们在他经过时向他挥手，蝴蝶在他头顶翩翩起舞。\n\n“散步的好天气！”皮皮欢呼着，沿着小路蹦蹦跳跳。", "keys": [{"w": "decide", "p": "/dɪˈsaɪd/", "zh": "决定"}], "phrases": [{"en": "take a walk along the cobblestone path", "zh": "沿着鹅卵石小路散步"}]}, {"img": "images/pea-shooter/page-3.jpg", "en": "Pip walked through the most beautiful part of the garden. Tall sunflowers stood like guards. Colorful mushrooms dotted the ground. Bees hummed happy songs.\n\n\"I love my garden so much,\" Pip whispered happily.", "zh": "皮皮走过花园中最美丽的地方。高高的向日葵像卫兵一样站着，五颜六色的蘑菇点缀着地面，蜜蜂哼着快乐的歌。\n\n“我太爱我的花园了，”皮皮幸福地低语。", "keys": [{"w": "beautiful", "p": "/ˈbjuːtəfəl/", "zh": "美丽的"}], "phrases": [{"en": "the most beautiful part of the garden", "zh": "花园中最美丽的地方"}]}, {"img": "images/pea-shooter/page-4.jpg", "en": "Suddenly, Pip heard a strange sound. THUMP. THUMP. THUMP. The ground began to shake. Dark clouds rolled in from nowhere.\n\n\"W-what was that?\" Pip's eyes grew wide with worry.", "zh": "突然，皮皮听到了一个奇怪的声音。咚。咚。咚。地面开始震动，乌云不知从哪里涌了上来。\n\n“那…那是什么？”皮皮的眼睛因担心而睁大了。", "keys": [{"w": "suddenly", "p": "/ˈsʌdənli/", "zh": "突然地"}], "phrases": [{"en": "a strange sound", "zh": "一个奇怪的声音"}]}, {"img": "images/pea-shooter/page-5.jpg", "en": "From behind the bushes stumbled a scary zombie! It had an orange traffic cone on its head and moved very slowly. But it kept coming closer and closer!\n\n\"A ZOMBIE!\" Pip gasped. His little body trembled with fear.", "zh": "从灌木丛后面踉跄地走出一个可怕的僵尸！它头上戴着一个橙色的路障，走得很慢，但一直越来越近！\n\n“僵尸！”皮皮倒吸一口气，他的小身体因恐惧而颤抖。", "keys": [{"w": "bush", "p": "/bʊʃ/", "zh": "灌木丛"}], "phrases": [{"en": "from behind the bushes", "zh": "从灌木丛后面"}]}, {"img": "images/pea-shooter/page-6.jpg", "en": "\"I must be brave!\" Pip shouted. He puffed up his cheeks and fired green peas at the zombie. PEW! PEW! PEW!\n\nThe peas flew through the air like tiny green bullets. \"Take THAT, you big bully!\"", "zh": "“我必须勇敢！”皮皮大喊。他鼓起腮帮子，向僵尸发射绿色豌豆。噗！噗！噗！\n\n豌豆像绿色的小子弹一样飞过空中。“接招吧，你这个大坏蛋！”", "keys": [{"w": "brave", "p": "/breɪv/", "zh": "勇敢的"}], "phrases": [{"en": "I must be brave", "zh": "我必须勇敢"}]}, {"img": "images/pea-shooter/page-7.jpg", "en": "But something terrible happened. The peas bounced right off the traffic cone! BING! BONG! PING! The zombie didn't even slow down.\n\n\"Oh no! My peas can't break through that cone!\" Pip cried in frustration.", "zh": "但可怕的事情发生了。豌豆直接从路障上弹开了！叮！当！乒！僵尸甚至没有放慢脚步。\n\n“哦不！我的豌豆打不穿那个路障！”皮皮沮丧地哭了。", "keys": [{"w": "terrible", "p": "/ˈterəbəl/", "zh": "可怕的"}], "phrases": [{"en": "bounced right off the traffic cone", "zh": "直接从路障上弹开了"}]}, {"img": "images/pea-shooter/page-8.jpg", "en": "Pip turned and ran as fast as his little legs could carry him. He zoomed past Cherry Bombs and Potato Mines, looking for help.\n\n\"I need to find someone who can help me!\" Pip panted as he ran.", "zh": "皮皮转身拼命地跑。他飞速经过樱桃炸弹和土豆地雷，到处寻找帮助。\n\n“我需要找到能帮我的人！”皮皮一边跑一边喘气。", "keys": [{"w": "turn", "p": "/tɜːrn/", "zh": "转身"}], "phrases": [{"en": "ran as fast as his little legs could carry him", "zh": "拼命地跑"}]}, {"img": "images/pea-shooter/page-9.jpg", "en": "Then Pip found his best friend — Sunny the Sunflower! Sunny had bright golden petals and a warm, kind smile. She always made everyone feel better.\n\n\"Sunny! I need your help! There's a zombie coming!\" Pip cried.", "zh": "然后皮皮找到了他最好的朋友——向日葵小阳！小阳有明亮金色的花瓣和温暖善良的笑容，她总是让每个人感觉好起来。\n\n“小阳！我需要你的帮助！有僵尸来了！”皮皮哭着说。", "keys": [{"w": "friend", "p": "/frend/", "zh": "朋友"}], "phrases": [{"en": "best friend", "zh": "最好的朋友"}]}, {"img": "images/pea-shooter/page-10.jpg", "en": "Sunny listened carefully and nodded. \"Don't worry, Pip. I know exactly what to do. We need to call someone very special — someone very HOT!\"\n\n\"Hot?\" Pip asked, confused. \"Who could help us with a zombie?\"", "zh": "小阳仔细听着，点了点头。“别担心，皮皮。我完全知道该怎么办。我们需要叫一个非常特别的人——一个非常火热的人！”\n\n“火热？”皮皮疑惑地问，“谁能帮我们对付僵尸？”", "keys": [{"w": "carefully", "p": "/ˈkerfəli/", "zh": "仔细地"}], "phrases": [{"en": "Don't worry", "zh": "别担心"}]}, {"img": "images/pea-shooter/page-11.jpg", "en": "Sunny closed her eyes and lifted her face to the sky. Her golden petals began to glow brighter and brighter. Magical golden sparkles swirled around her.\n\n\"I need to collect enough sunlight energy first,\" Sunny explained. The whole garden seemed to light up!", "zh": "小阳闭上眼睛，把脸朝向天空。她金色的花瓣开始越来越亮地发光，神奇的金色火花围绕着她旋转。\n\n“我需要先收集足够的阳光能量，”小阳解释道。整个花园似乎都亮了起来！", "keys": [{"w": "petal", "p": "/ˈpetl/", "zh": "花瓣"}], "phrases": [{"en": "lifted her face to the sky", "zh": "把脸朝向天空"}]}, {"img": "images/pea-shooter/page-12.jpg", "en": "One by one, beautiful golden orbs of sunlight floated from Sunny's petals. They sparkled like tiny suns, filling the air with warmth.\n\n\"Wow!\" Pip gasped. \"That's the most beautiful thing I've ever seen!\"", "zh": "一颗又一颗美丽的金色阳光球从小阳的花瓣中飘出。它们像小太阳一样闪耀，让空气中充满了温暖。\n\n“哇！”皮皮惊叹道，“这是我见过的最美丽的东西！”", "keys": [{"w": "orb", "p": "/ɔːrb/", "zh": "球体；光球"}], "phrases": [{"en": "golden orbs of sunlight", "zh": "金色的阳光球"}]}, {"img": "images/pea-shooter/page-13.jpg", "en": "But the zombie was getting closer! It was now at the edge of the garden. Sunny glowed even brighter, producing more and more sunlight.\n\n\"Hurry, Sunny!\" Pip urged. \"The zombie is almost here!\"", "zh": "但僵尸越来越近了！它现在已经到了花园的边缘。小阳发出更亮的光，产生越来越多的阳光。\n\n“快点，小阳！”皮皮催促道，“僵尸马上就到了！”", "keys": [{"w": "zombie", "p": "/ˈzɑːmbi/", "zh": "僵尸"}], "phrases": [{"en": "getting closer", "zh": "越来越近"}]}, {"img": "images/pea-shooter/page-14.jpg", "en": "Finally, a big pile of golden sunlight orbs gathered on the ground. Pip and Sunny cheered! They had enough energy now.\n\n\"We did it!\" Sunny smiled. \"Now, let me call our special friend...\"", "zh": "终于，一大堆金色阳光球聚集在地面上。皮皮和小阳欢呼起来！他们现在有足够的能量了。\n\n“我们做到了！”小阳微笑着说，“现在，让我叫我们特别的朋友...”", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "终于"}], "phrases": [{"en": "a big pile of golden sunlight orbs", "zh": "一大堆金色阳光球"}]}, {"img": "images/pea-shooter/page-15.jpg", "en": "Sunny gathered all the golden light together. She whispered magical words that made the ground rumble. The earth began to shake and crack.\n\n\"Who's coming?\" Pip asked nervously, clutching Sunny's stem.", "zh": "小阳把所有金色的光聚在一起，她低声念着魔法咒语，让地面发出隆隆声。大地开始震动和裂开。\n\n“谁要来了？”皮皮紧张地问，紧紧抓住小阳的茎。", "keys": [{"w": "whisper", "p": "/ˈwɪspər/", "zh": "低声说"}], "phrases": [{"en": "gathered all the golden light together", "zh": "把所有金色的光聚在一起"}]}, {"img": "images/pea-shooter/page-16.jpg", "en": "CRACK! BOOM! A GIANT red Jalapeno burst from the soil! He was enormous, fierce, and ON FIRE! Flames shot from his body like a volcano.\n\n\"WHO DARED TO WAKE ME UP?!\" Jalapeno roared. Pip stared in amazement.", "zh": "裂开！轰！一个巨大的红色火爆辣椒从土壤中冲了出来！他巨大、凶猛，而且全身着火！火焰像火山一样从他的身体喷射出来。\n\n“谁敢把我叫醒？！”火爆辣椒咆哮道。皮皮惊呆了。", "keys": [{"w": "giant", "p": "/ˈdʒaɪənt/", "zh": "巨大的"}], "phrases": [{"en": "burst from the soil", "zh": "从土壤中冲了出来"}]}, {"img": "images/pea-shooter/page-17.jpg", "en": "Jalapeno saw the zombie and his eyes blazed with anger. Red and orange flames erupted everywhere! The entire garden lit up in fiery colors.\n\n\"THAT zombie dared to threaten my garden? NOT ON MY WATCH!\" Jalapeno fumed.", "zh": "火爆辣椒看到了僵尸，他的眼睛因愤怒而燃烧。红色和橙色的火焰到处喷发！整个花园被火热的颜色照亮了。\n\n“那个僵尸敢威胁我的花园？绝不允许！”火爆辣椒怒气冲冲地说。", "keys": [{"w": "blaze", "p": "/bleɪz/", "zh": "熊熊燃烧"}], "phrases": [{"en": "his eyes blazed with anger", "zh": "他的眼睛因愤怒而燃烧"}]}, {"img": "images/pea-shooter/page-18.jpg", "en": "Jalapeno took a deep breath and WHOOSH — a massive wave of fire hit the Conehead Zombie! The traffic cone melted like butter. The zombie screamed and disappeared in a puff of smoke.\n\n\"AND STAY OUT!\" Jalapeno shouted triumphantly.", "zh": "火爆辣椒深吸一口气，呼——巨大的火焰波击中了路障僵尸！路障像黄油一样融化了。僵尸尖叫一声，在一缕烟雾中消失了。\n\n“滚远点！”火爆辣椒得意地喊道。", "keys": [{"w": "massive", "p": "/ˈmæsɪv/", "zh": "巨大的"}], "phrases": [{"en": "took a deep breath", "zh": "深吸一口气"}]}, {"img": "images/pea-shooter/page-19.jpg", "en": "Pip and Sunny cheered happily! Where the zombie had been, there was only a small puff of smoke. The garden was safe once more.\n\nJalapeno smiled, gave a thumbs up, and slowly sank back into the ground. \"Anytime, friends. Anytime.\"", "zh": "皮皮和小阳开心地欢呼！僵尸原来在的地方，只剩下一个小小的烟雾。花园再次安全了。\n\n火爆辣椒微笑着，竖起大拇指，慢慢沉回地面。“随时效劳，朋友们。”", "keys": [{"w": "cheer", "p": "/tʃɪr/", "zh": "欢呼"}], "phrases": [{"en": "cheered happily", "zh": "开心地欢呼"}]}];
+const STORY = {"id": "pea-shooter", "title": "The Brave Pea Shooter", "titleZh": "勇敢的豌豆射手", "category": "植物大战僵尸", "cover": "images/covers/cover-pea-shooter.jpg", "pages": [{"img": "images/pea-shooter/page-1.jpg", "en": "In a bright, sunny garden lived a tiny green Pea Shooter named Pip. He had big round eyes, a cheerful smile, and a little leaf on his head. Pip loved his garden home more than anything in the world.\n\nEvery morning, Pip would stretch his leaves and say, \"Today is going to be a great day!\"", "zh": "在一个明亮、阳光灿烂的花园里，住着一只绿色的小豌豆射手，名叫皮皮。他有一双圆圆的大眼睛，一个开心的笑容，头顶上还有一片小叶子。皮皮爱他的花园家园胜过世界上的一切。\n\n每天早上，皮皮都会伸伸他的叶子说：“今天一定会是个好日子！”", "keys": [{"w": "bright", "p": "/braɪt/", "zh": "明亮的"}], "phrases": [{"en": "a bright, sunny garden", "zh": "一个明亮、阳光灿烂的花园"}], "title": ""}, {"img": "images/pea-shooter/page-2.jpg", "en": "One sunny morning, Pip decided to take a walk along the cobblestone path. The flowers waved at him as he passed. Butterflies danced around his head.\n\n\"What a wonderful day for a walk!\" Pip cheered, hopping along the path.", "zh": "一个阳光明媚的早晨，皮皮决定沿着鹅卵石小路散步。花朵们在他经过时向他挥手，蝴蝶在他头顶翩翩起舞。\n\n“散步的好天气！”皮皮欢呼着，沿着小路蹦蹦跳跳。", "keys": [{"w": "decide", "p": "/dɪˈsaɪd/", "zh": "决定"}], "phrases": [{"en": "take a walk along the cobblestone path", "zh": "沿着鹅卵石小路散步"}], "title": ""}, {"img": "images/pea-shooter/page-3.jpg", "en": "Pip walked through the most beautiful part of the garden. Tall sunflowers stood like guards. Colorful mushrooms dotted the ground. Bees hummed happy songs.\n\n\"I love my garden so much,\" Pip whispered happily.", "zh": "皮皮走过花园中最美丽的地方。高高的向日葵像卫兵一样站着，五颜六色的蘑菇点缀着地面，蜜蜂哼着快乐的歌。\n\n“我太爱我的花园了，”皮皮幸福地低语。", "keys": [{"w": "beautiful", "p": "/ˈbjuːtəfəl/", "zh": "美丽的"}], "phrases": [{"en": "the most beautiful part of the garden", "zh": "花园中最美丽的地方"}], "title": ""}, {"img": "images/pea-shooter/page-4.jpg", "en": "Suddenly, Pip heard a strange sound. THUMP. THUMP. THUMP. The ground began to shake. Dark clouds rolled in from nowhere.\n\n\"W-what was that?\" Pip's eyes grew wide with worry.", "zh": "突然，皮皮听到了一个奇怪的声音。咚。咚。咚。地面开始震动，乌云不知从哪里涌了上来。\n\n“那…那是什么？”皮皮的眼睛因担心而睁大了。", "keys": [{"w": "suddenly", "p": "/ˈsʌdənli/", "zh": "突然地"}], "phrases": [{"en": "a strange sound", "zh": "一个奇怪的声音"}], "title": ""}, {"img": "images/pea-shooter/page-5.jpg", "en": "From behind the bushes stumbled a scary zombie! It had an orange traffic cone on its head and moved very slowly. But it kept coming closer and closer!\n\n\"A ZOMBIE!\" Pip gasped. His little body trembled with fear.", "zh": "从灌木丛后面踉跄地走出一个可怕的僵尸！它头上戴着一个橙色的路障，走得很慢，但一直越来越近！\n\n“僵尸！”皮皮倒吸一口气，他的小身体因恐惧而颤抖。", "keys": [{"w": "bush", "p": "/bʊʃ/", "zh": "灌木丛"}], "phrases": [{"en": "from behind the bushes", "zh": "从灌木丛后面"}], "title": ""}, {"img": "images/pea-shooter/page-6.jpg", "en": "\"I must be brave!\" Pip shouted. He puffed up his cheeks and fired green peas at the zombie. PEW! PEW! PEW!\n\nThe peas flew through the air like tiny green bullets. \"Take THAT, you big bully!\"", "zh": "“我必须勇敢！”皮皮大喊。他鼓起腮帮子，向僵尸发射绿色豌豆。噗！噗！噗！\n\n豌豆像绿色的小子弹一样飞过空中。“接招吧，你这个大坏蛋！”", "keys": [{"w": "brave", "p": "/breɪv/", "zh": "勇敢的"}], "phrases": [{"en": "I must be brave", "zh": "我必须勇敢"}], "title": ""}, {"img": "images/pea-shooter/page-7.jpg", "en": "But something terrible happened. The peas bounced right off the traffic cone! BING! BONG! PING! The zombie didn't even slow down.\n\n\"Oh no! My peas can't break through that cone!\" Pip cried in frustration.", "zh": "但可怕的事情发生了。豌豆直接从路障上弹开了！叮！当！乒！僵尸甚至没有放慢脚步。\n\n“哦不！我的豌豆打不穿那个路障！”皮皮沮丧地哭了。", "keys": [{"w": "terrible", "p": "/ˈterəbəl/", "zh": "可怕的"}], "phrases": [{"en": "bounced right off the traffic cone", "zh": "直接从路障上弹开了"}], "title": ""}, {"img": "images/pea-shooter/page-8.jpg", "en": "Pip turned and ran as fast as his little legs could carry him. He zoomed past Cherry Bombs and Potato Mines, looking for help.\n\n\"I need to find someone who can help me!\" Pip panted as he ran.", "zh": "皮皮转身拼命地跑。他飞速经过樱桃炸弹和土豆地雷，到处寻找帮助。\n\n“我需要找到能帮我的人！”皮皮一边跑一边喘气。", "keys": [{"w": "turn", "p": "/tɜːrn/", "zh": "转身"}], "phrases": [{"en": "ran as fast as his little legs could carry him", "zh": "拼命地跑"}], "title": ""}, {"img": "images/pea-shooter/page-9.jpg", "en": "Then Pip found his best friend — Sunny the Sunflower! Sunny had bright golden petals and a warm, kind smile. She always made everyone feel better.\n\n\"Sunny! I need your help! There's a zombie coming!\" Pip cried.", "zh": "然后皮皮找到了他最好的朋友——向日葵小阳！小阳有明亮金色的花瓣和温暖善良的笑容，她总是让每个人感觉好起来。\n\n“小阳！我需要你的帮助！有僵尸来了！”皮皮哭着说。", "keys": [{"w": "friend", "p": "/frend/", "zh": "朋友"}], "phrases": [{"en": "best friend", "zh": "最好的朋友"}], "title": ""}, {"img": "images/pea-shooter/page-10.jpg", "en": "Sunny listened carefully and nodded. \"Don't worry, Pip. I know exactly what to do. We need to call someone very special — someone very HOT!\"\n\n\"Hot?\" Pip asked, confused. \"Who could help us with a zombie?\"", "zh": "小阳仔细听着，点了点头。“别担心，皮皮。我完全知道该怎么办。我们需要叫一个非常特别的人——一个非常火热的人！”\n\n“火热？”皮皮疑惑地问，“谁能帮我们对付僵尸？”", "keys": [{"w": "carefully", "p": "/ˈkerfəli/", "zh": "仔细地"}], "phrases": [{"en": "Don't worry", "zh": "别担心"}], "title": ""}, {"img": "images/pea-shooter/page-11.jpg", "en": "Sunny closed her eyes and lifted her face to the sky. Her golden petals began to glow brighter and brighter. Magical golden sparkles swirled around her.\n\n\"I need to collect enough sunlight energy first,\" Sunny explained. The whole garden seemed to light up!", "zh": "小阳闭上眼睛，把脸朝向天空。她金色的花瓣开始越来越亮地发光，神奇的金色火花围绕着她旋转。\n\n“我需要先收集足够的阳光能量，”小阳解释道。整个花园似乎都亮了起来！", "keys": [{"w": "petal", "p": "/ˈpetl/", "zh": "花瓣"}], "phrases": [{"en": "lifted her face to the sky", "zh": "把脸朝向天空"}], "title": ""}, {"img": "images/pea-shooter/page-12.jpg", "en": "One by one, beautiful golden orbs of sunlight floated from Sunny's petals. They sparkled like tiny suns, filling the air with warmth.\n\n\"Wow!\" Pip gasped. \"That's the most beautiful thing I've ever seen!\"", "zh": "一颗又一颗美丽的金色阳光球从小阳的花瓣中飘出。它们像小太阳一样闪耀，让空气中充满了温暖。\n\n“哇！”皮皮惊叹道，“这是我见过的最美丽的东西！”", "keys": [{"w": "orb", "p": "/ɔːrb/", "zh": "球体；光球"}], "phrases": [{"en": "golden orbs of sunlight", "zh": "金色的阳光球"}], "title": ""}, {"img": "images/pea-shooter/page-13.jpg", "en": "But the zombie was getting closer! It was now at the edge of the garden. Sunny glowed even brighter, producing more and more sunlight.\n\n\"Hurry, Sunny!\" Pip urged. \"The zombie is almost here!\"", "zh": "但僵尸越来越近了！它现在已经到了花园的边缘。小阳发出更亮的光，产生越来越多的阳光。\n\n“快点，小阳！”皮皮催促道，“僵尸马上就到了！”", "keys": [{"w": "zombie", "p": "/ˈzɑːmbi/", "zh": "僵尸"}], "phrases": [{"en": "getting closer", "zh": "越来越近"}], "title": ""}, {"img": "images/pea-shooter/page-14.jpg", "en": "Finally, a big pile of golden sunlight orbs gathered on the ground. Pip and Sunny cheered! They had enough energy now.\n\n\"We did it!\" Sunny smiled. \"Now, let me call our special friend...\"", "zh": "终于，一大堆金色阳光球聚集在地面上。皮皮和小阳欢呼起来！他们现在有足够的能量了。\n\n“我们做到了！”小阳微笑着说，“现在，让我叫我们特别的朋友...”", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "终于"}], "phrases": [{"en": "a big pile of golden sunlight orbs", "zh": "一大堆金色阳光球"}], "title": ""}, {"img": "images/pea-shooter/page-15.jpg", "en": "Sunny gathered all the golden light together. She whispered magical words that made the ground rumble. The earth began to shake and crack.\n\n\"Who's coming?\" Pip asked nervously, clutching Sunny's stem.", "zh": "小阳把所有金色的光聚在一起，她低声念着魔法咒语，让地面发出隆隆声。大地开始震动和裂开。\n\n“谁要来了？”皮皮紧张地问，紧紧抓住小阳的茎。", "keys": [{"w": "whisper", "p": "/ˈwɪspər/", "zh": "低声说"}], "phrases": [{"en": "gathered all the golden light together", "zh": "把所有金色的光聚在一起"}], "title": ""}, {"img": "images/pea-shooter/page-16.jpg", "en": "CRACK! BOOM! A GIANT red Jalapeno burst from the soil! He was enormous, fierce, and ON FIRE! Flames shot from his body like a volcano.\n\n\"WHO DARED TO WAKE ME UP?!\" Jalapeno roared. Pip stared in amazement.", "zh": "裂开！轰！一个巨大的红色火爆辣椒从土壤中冲了出来！他巨大、凶猛，而且全身着火！火焰像火山一样从他的身体喷射出来。\n\n“谁敢把我叫醒？！”火爆辣椒咆哮道。皮皮惊呆了。", "keys": [{"w": "giant", "p": "/ˈdʒaɪənt/", "zh": "巨大的"}], "phrases": [{"en": "burst from the soil", "zh": "从土壤中冲了出来"}], "title": ""}, {"img": "images/pea-shooter/page-17.jpg", "en": "Jalapeno saw the zombie and his eyes blazed with anger. Red and orange flames erupted everywhere! The entire garden lit up in fiery colors.\n\n\"THAT zombie dared to threaten my garden? NOT ON MY WATCH!\" Jalapeno fumed.", "zh": "火爆辣椒看到了僵尸，他的眼睛因愤怒而燃烧。红色和橙色的火焰到处喷发！整个花园被火热的颜色照亮了。\n\n“那个僵尸敢威胁我的花园？绝不允许！”火爆辣椒怒气冲冲地说。", "keys": [{"w": "blaze", "p": "/bleɪz/", "zh": "熊熊燃烧"}], "phrases": [{"en": "his eyes blazed with anger", "zh": "他的眼睛因愤怒而燃烧"}], "title": ""}, {"img": "images/pea-shooter/page-18.jpg", "en": "Jalapeno took a deep breath and WHOOSH — a massive wave of fire hit the Conehead Zombie! The traffic cone melted like butter. The zombie screamed and disappeared in a puff of smoke.\n\n\"AND STAY OUT!\" Jalapeno shouted triumphantly.", "zh": "火爆辣椒深吸一口气，呼——巨大的火焰波击中了路障僵尸！路障像黄油一样融化了。僵尸尖叫一声，在一缕烟雾中消失了。\n\n“滚远点！”火爆辣椒得意地喊道。", "keys": [{"w": "massive", "p": "/ˈmæsɪv/", "zh": "巨大的"}], "phrases": [{"en": "took a deep breath", "zh": "深吸一口气"}], "title": ""}, {"img": "images/pea-shooter/page-19.jpg", "en": "Pip and Sunny cheered happily! Where the zombie had been, there was only a small puff of smoke. The garden was safe once more.\n\nJalapeno smiled, gave a thumbs up, and slowly sank back into the ground. \"Anytime, friends. Anytime.\"", "zh": "皮皮和小阳开心地欢呼！僵尸原来在的地方，只剩下一个小小的烟雾。花园再次安全了。\n\n火爆辣椒微笑着，竖起大拇指，慢慢沉回地面。“随时效劳，朋友们。”", "keys": [{"w": "cheer", "p": "/tʃɪr/", "zh": "欢呼"}], "phrases": [{"en": "cheered happily", "zh": "开心地欢呼"}], "title": ""}], "intro_cn_pages": [{"title": "勇敢的豌豆射手 · 故事开始", "img": "images/pea-shooter/page-1.jpg", "en": "", "zh": "在一个明亮、阳光灿烂的花园里，住着一只绿色的小豌豆射手，名叫皮皮。他有一双圆圆的大眼睛，一个开心的笑容，头顶上还有一片小叶子。", "keys": [{"w": "bright", "p": "/braɪt/", "zh": "明亮的"}], "phrases": [{"en": "a bright, sunny garden", "zh": "一个明亮、阳光灿烂的花园"}]}, {"title": "勇敢的豌豆射手 · 中间发生了什么", "img": "images/pea-shooter/page-10.jpg", "en": "", "zh": "小阳仔细听着，点了点头。“别担心，皮皮。", "keys": [{"w": "carefully", "p": "/ˈkerfəli/", "zh": "仔细地"}], "phrases": [{"en": "Don't worry", "zh": "别担心"}]}, {"title": "勇敢的豌豆射手 · 故事结尾", "img": "images/pea-shooter/page-19.jpg", "en": "", "zh": "皮皮和小阳开心地欢呼！僵尸原来在的地方，只剩下一个小小的烟雾。", "keys": [{"w": "cheer", "p": "/tʃɪr/", "zh": "欢呼"}], "phrases": [{"en": "cheered happily", "zh": "开心地欢呼"}]}], "reader_pages_simple_en": [{"title": "", "img": "images/pea-shooter/page-1.jpg", "en": "In a bright, sunny garden lived a tiny green Pea Shooter named Pip. He had big round eyes, a cheerful smile, and a little leaf on his.", "zh": "在一个明亮、阳光灿烂的花园里，住着一只绿色的小豌豆射手，名叫皮皮。他有一双圆圆的大眼睛，一个开心的笑容，头顶上还有一片小叶子。", "keys": [{"w": "bright", "p": "/braɪt/", "zh": "明亮的"}], "phrases": [{"en": "a bright, sunny garden", "zh": "一个明亮、阳光灿烂的花园"}]}, {"title": "", "img": "images/pea-shooter/page-4.jpg", "en": "Suddenly, Pip heard a strange sound. THUMP.", "zh": "突然，皮皮听到了一个奇怪的声音。咚。", "keys": [{"w": "suddenly", "p": "/ˈsʌdənli/", "zh": "突然地"}], "phrases": [{"en": "a strange sound", "zh": "一个奇怪的声音"}]}, {"title": "", "img": "images/pea-shooter/page-6.jpg", "en": "\"I must be brave!\" Pip shouted. He puffed up his cheeks and fired green peas at the zombie.", "zh": "“我必须勇敢！”皮皮大喊。", "keys": [{"w": "brave", "p": "/breɪv/", "zh": "勇敢的"}], "phrases": [{"en": "I must be brave", "zh": "我必须勇敢"}]}, {"title": "", "img": "images/pea-shooter/page-9.jpg", "en": "Then Pip found his best friend — Sunny the Sunflower! Sunny had bright golden petals and a warm, kind smile.", "zh": "然后皮皮找到了他最好的朋友——向日葵小阳！小阳有明亮金色的花瓣和温暖善良的笑容，她总是让每个人感觉好起来。", "keys": [{"w": "friend", "p": "/frend/", "zh": "朋友"}], "phrases": [{"en": "best friend", "zh": "最好的朋友"}]}, {"title": "", "img": "images/pea-shooter/page-11.jpg", "en": "Sunny closed her eyes and lifted her face to the sky. Her golden petals began to glow brighter and brighter.", "zh": "小阳闭上眼睛，把脸朝向天空。她金色的花瓣开始越来越亮地发光，神奇的金色火花围绕着她旋转。", "keys": [{"w": "petal", "p": "/ˈpetl/", "zh": "花瓣"}], "phrases": [{"en": "lifted her face to the sky", "zh": "把脸朝向天空"}]}, {"title": "", "img": "images/pea-shooter/page-14.jpg", "en": "Finally, a big pile of golden sunlight orbs gathered on the ground. Pip and Sunny cheered!", "zh": "终于，一大堆金色阳光球聚集在地面上。皮皮和小阳欢呼起来！", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "终于"}], "phrases": [{"en": "a big pile of golden sunlight orbs", "zh": "一大堆金色阳光球"}]}, {"title": "", "img": "images/pea-shooter/page-16.jpg", "en": "CRACK! BOOM!", "zh": "裂开！轰！", "keys": [{"w": "giant", "p": "/ˈdʒaɪənt/", "zh": "巨大的"}], "phrases": [{"en": "burst from the soil", "zh": "从土壤中冲了出来"}]}, {"title": "", "img": "images/pea-shooter/page-19.jpg", "en": "Pip and Sunny cheered happily! Where the zombie had been, there was only a small puff of smoke.", "zh": "皮皮和小阳开心地欢呼！僵尸原来在的地方，只剩下一个小小的烟雾。", "keys": [{"w": "cheer", "p": "/tʃɪr/", "zh": "欢呼"}], "phrases": [{"en": "cheered happily", "zh": "开心地欢呼"}]}]};
+const legacy_pages = [{"img": "images/pea-shooter/page-1.jpg", "en": "In a bright, sunny garden lived a tiny green Pea Shooter named Pip. He had big round eyes, a cheerful smile, and a little leaf on his head. Pip loved his garden home more than anything in the world.\n\nEvery morning, Pip would stretch his leaves and say, \"Today is going to be a great day!\"", "zh": "在一个明亮、阳光灿烂的花园里，住着一只绿色的小豌豆射手，名叫皮皮。他有一双圆圆的大眼睛，一个开心的笑容，头顶上还有一片小叶子。皮皮爱他的花园家园胜过世界上的一切。\n\n每天早上，皮皮都会伸伸他的叶子说：“今天一定会是个好日子！”", "keys": [{"w": "bright", "p": "/braɪt/", "zh": "明亮的"}], "phrases": [{"en": "a bright, sunny garden", "zh": "一个明亮、阳光灿烂的花园"}], "title": ""}, {"img": "images/pea-shooter/page-2.jpg", "en": "One sunny morning, Pip decided to take a walk along the cobblestone path. The flowers waved at him as he passed. Butterflies danced around his head.\n\n\"What a wonderful day for a walk!\" Pip cheered, hopping along the path.", "zh": "一个阳光明媚的早晨，皮皮决定沿着鹅卵石小路散步。花朵们在他经过时向他挥手，蝴蝶在他头顶翩翩起舞。\n\n“散步的好天气！”皮皮欢呼着，沿着小路蹦蹦跳跳。", "keys": [{"w": "decide", "p": "/dɪˈsaɪd/", "zh": "决定"}], "phrases": [{"en": "take a walk along the cobblestone path", "zh": "沿着鹅卵石小路散步"}], "title": ""}, {"img": "images/pea-shooter/page-3.jpg", "en": "Pip walked through the most beautiful part of the garden. Tall sunflowers stood like guards. Colorful mushrooms dotted the ground. Bees hummed happy songs.\n\n\"I love my garden so much,\" Pip whispered happily.", "zh": "皮皮走过花园中最美丽的地方。高高的向日葵像卫兵一样站着，五颜六色的蘑菇点缀着地面，蜜蜂哼着快乐的歌。\n\n“我太爱我的花园了，”皮皮幸福地低语。", "keys": [{"w": "beautiful", "p": "/ˈbjuːtəfəl/", "zh": "美丽的"}], "phrases": [{"en": "the most beautiful part of the garden", "zh": "花园中最美丽的地方"}], "title": ""}, {"img": "images/pea-shooter/page-4.jpg", "en": "Suddenly, Pip heard a strange sound. THUMP. THUMP. THUMP. The ground began to shake. Dark clouds rolled in from nowhere.\n\n\"W-what was that?\" Pip's eyes grew wide with worry.", "zh": "突然，皮皮听到了一个奇怪的声音。咚。咚。咚。地面开始震动，乌云不知从哪里涌了上来。\n\n“那…那是什么？”皮皮的眼睛因担心而睁大了。", "keys": [{"w": "suddenly", "p": "/ˈsʌdənli/", "zh": "突然地"}], "phrases": [{"en": "a strange sound", "zh": "一个奇怪的声音"}], "title": ""}, {"img": "images/pea-shooter/page-5.jpg", "en": "From behind the bushes stumbled a scary zombie! It had an orange traffic cone on its head and moved very slowly. But it kept coming closer and closer!\n\n\"A ZOMBIE!\" Pip gasped. His little body trembled with fear.", "zh": "从灌木丛后面踉跄地走出一个可怕的僵尸！它头上戴着一个橙色的路障，走得很慢，但一直越来越近！\n\n“僵尸！”皮皮倒吸一口气，他的小身体因恐惧而颤抖。", "keys": [{"w": "bush", "p": "/bʊʃ/", "zh": "灌木丛"}], "phrases": [{"en": "from behind the bushes", "zh": "从灌木丛后面"}], "title": ""}, {"img": "images/pea-shooter/page-6.jpg", "en": "\"I must be brave!\" Pip shouted. He puffed up his cheeks and fired green peas at the zombie. PEW! PEW! PEW!\n\nThe peas flew through the air like tiny green bullets. \"Take THAT, you big bully!\"", "zh": "“我必须勇敢！”皮皮大喊。他鼓起腮帮子，向僵尸发射绿色豌豆。噗！噗！噗！\n\n豌豆像绿色的小子弹一样飞过空中。“接招吧，你这个大坏蛋！”", "keys": [{"w": "brave", "p": "/breɪv/", "zh": "勇敢的"}], "phrases": [{"en": "I must be brave", "zh": "我必须勇敢"}], "title": ""}, {"img": "images/pea-shooter/page-7.jpg", "en": "But something terrible happened. The peas bounced right off the traffic cone! BING! BONG! PING! The zombie didn't even slow down.\n\n\"Oh no! My peas can't break through that cone!\" Pip cried in frustration.", "zh": "但可怕的事情发生了。豌豆直接从路障上弹开了！叮！当！乒！僵尸甚至没有放慢脚步。\n\n“哦不！我的豌豆打不穿那个路障！”皮皮沮丧地哭了。", "keys": [{"w": "terrible", "p": "/ˈterəbəl/", "zh": "可怕的"}], "phrases": [{"en": "bounced right off the traffic cone", "zh": "直接从路障上弹开了"}], "title": ""}, {"img": "images/pea-shooter/page-8.jpg", "en": "Pip turned and ran as fast as his little legs could carry him. He zoomed past Cherry Bombs and Potato Mines, looking for help.\n\n\"I need to find someone who can help me!\" Pip panted as he ran.", "zh": "皮皮转身拼命地跑。他飞速经过樱桃炸弹和土豆地雷，到处寻找帮助。\n\n“我需要找到能帮我的人！”皮皮一边跑一边喘气。", "keys": [{"w": "turn", "p": "/tɜːrn/", "zh": "转身"}], "phrases": [{"en": "ran as fast as his little legs could carry him", "zh": "拼命地跑"}], "title": ""}, {"img": "images/pea-shooter/page-9.jpg", "en": "Then Pip found his best friend — Sunny the Sunflower! Sunny had bright golden petals and a warm, kind smile. She always made everyone feel better.\n\n\"Sunny! I need your help! There's a zombie coming!\" Pip cried.", "zh": "然后皮皮找到了他最好的朋友——向日葵小阳！小阳有明亮金色的花瓣和温暖善良的笑容，她总是让每个人感觉好起来。\n\n“小阳！我需要你的帮助！有僵尸来了！”皮皮哭着说。", "keys": [{"w": "friend", "p": "/frend/", "zh": "朋友"}], "phrases": [{"en": "best friend", "zh": "最好的朋友"}], "title": ""}, {"img": "images/pea-shooter/page-10.jpg", "en": "Sunny listened carefully and nodded. \"Don't worry, Pip. I know exactly what to do. We need to call someone very special — someone very HOT!\"\n\n\"Hot?\" Pip asked, confused. \"Who could help us with a zombie?\"", "zh": "小阳仔细听着，点了点头。“别担心，皮皮。我完全知道该怎么办。我们需要叫一个非常特别的人——一个非常火热的人！”\n\n“火热？”皮皮疑惑地问，“谁能帮我们对付僵尸？”", "keys": [{"w": "carefully", "p": "/ˈkerfəli/", "zh": "仔细地"}], "phrases": [{"en": "Don't worry", "zh": "别担心"}], "title": ""}, {"img": "images/pea-shooter/page-11.jpg", "en": "Sunny closed her eyes and lifted her face to the sky. Her golden petals began to glow brighter and brighter. Magical golden sparkles swirled around her.\n\n\"I need to collect enough sunlight energy first,\" Sunny explained. The whole garden seemed to light up!", "zh": "小阳闭上眼睛，把脸朝向天空。她金色的花瓣开始越来越亮地发光，神奇的金色火花围绕着她旋转。\n\n“我需要先收集足够的阳光能量，”小阳解释道。整个花园似乎都亮了起来！", "keys": [{"w": "petal", "p": "/ˈpetl/", "zh": "花瓣"}], "phrases": [{"en": "lifted her face to the sky", "zh": "把脸朝向天空"}], "title": ""}, {"img": "images/pea-shooter/page-12.jpg", "en": "One by one, beautiful golden orbs of sunlight floated from Sunny's petals. They sparkled like tiny suns, filling the air with warmth.\n\n\"Wow!\" Pip gasped. \"That's the most beautiful thing I've ever seen!\"", "zh": "一颗又一颗美丽的金色阳光球从小阳的花瓣中飘出。它们像小太阳一样闪耀，让空气中充满了温暖。\n\n“哇！”皮皮惊叹道，“这是我见过的最美丽的东西！”", "keys": [{"w": "orb", "p": "/ɔːrb/", "zh": "球体；光球"}], "phrases": [{"en": "golden orbs of sunlight", "zh": "金色的阳光球"}], "title": ""}, {"img": "images/pea-shooter/page-13.jpg", "en": "But the zombie was getting closer! It was now at the edge of the garden. Sunny glowed even brighter, producing more and more sunlight.\n\n\"Hurry, Sunny!\" Pip urged. \"The zombie is almost here!\"", "zh": "但僵尸越来越近了！它现在已经到了花园的边缘。小阳发出更亮的光，产生越来越多的阳光。\n\n“快点，小阳！”皮皮催促道，“僵尸马上就到了！”", "keys": [{"w": "zombie", "p": "/ˈzɑːmbi/", "zh": "僵尸"}], "phrases": [{"en": "getting closer", "zh": "越来越近"}], "title": ""}, {"img": "images/pea-shooter/page-14.jpg", "en": "Finally, a big pile of golden sunlight orbs gathered on the ground. Pip and Sunny cheered! They had enough energy now.\n\n\"We did it!\" Sunny smiled. \"Now, let me call our special friend...\"", "zh": "终于，一大堆金色阳光球聚集在地面上。皮皮和小阳欢呼起来！他们现在有足够的能量了。\n\n“我们做到了！”小阳微笑着说，“现在，让我叫我们特别的朋友...”", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "终于"}], "phrases": [{"en": "a big pile of golden sunlight orbs", "zh": "一大堆金色阳光球"}], "title": ""}, {"img": "images/pea-shooter/page-15.jpg", "en": "Sunny gathered all the golden light together. She whispered magical words that made the ground rumble. The earth began to shake and crack.\n\n\"Who's coming?\" Pip asked nervously, clutching Sunny's stem.", "zh": "小阳把所有金色的光聚在一起，她低声念着魔法咒语，让地面发出隆隆声。大地开始震动和裂开。\n\n“谁要来了？”皮皮紧张地问，紧紧抓住小阳的茎。", "keys": [{"w": "whisper", "p": "/ˈwɪspər/", "zh": "低声说"}], "phrases": [{"en": "gathered all the golden light together", "zh": "把所有金色的光聚在一起"}], "title": ""}, {"img": "images/pea-shooter/page-16.jpg", "en": "CRACK! BOOM! A GIANT red Jalapeno burst from the soil! He was enormous, fierce, and ON FIRE! Flames shot from his body like a volcano.\n\n\"WHO DARED TO WAKE ME UP?!\" Jalapeno roared. Pip stared in amazement.", "zh": "裂开！轰！一个巨大的红色火爆辣椒从土壤中冲了出来！他巨大、凶猛，而且全身着火！火焰像火山一样从他的身体喷射出来。\n\n“谁敢把我叫醒？！”火爆辣椒咆哮道。皮皮惊呆了。", "keys": [{"w": "giant", "p": "/ˈdʒaɪənt/", "zh": "巨大的"}], "phrases": [{"en": "burst from the soil", "zh": "从土壤中冲了出来"}], "title": ""}, {"img": "images/pea-shooter/page-17.jpg", "en": "Jalapeno saw the zombie and his eyes blazed with anger. Red and orange flames erupted everywhere! The entire garden lit up in fiery colors.\n\n\"THAT zombie dared to threaten my garden? NOT ON MY WATCH!\" Jalapeno fumed.", "zh": "火爆辣椒看到了僵尸，他的眼睛因愤怒而燃烧。红色和橙色的火焰到处喷发！整个花园被火热的颜色照亮了。\n\n“那个僵尸敢威胁我的花园？绝不允许！”火爆辣椒怒气冲冲地说。", "keys": [{"w": "blaze", "p": "/bleɪz/", "zh": "熊熊燃烧"}], "phrases": [{"en": "his eyes blazed with anger", "zh": "他的眼睛因愤怒而燃烧"}], "title": ""}, {"img": "images/pea-shooter/page-18.jpg", "en": "Jalapeno took a deep breath and WHOOSH — a massive wave of fire hit the Conehead Zombie! The traffic cone melted like butter. The zombie screamed and disappeared in a puff of smoke.\n\n\"AND STAY OUT!\" Jalapeno shouted triumphantly.", "zh": "火爆辣椒深吸一口气，呼——巨大的火焰波击中了路障僵尸！路障像黄油一样融化了。僵尸尖叫一声，在一缕烟雾中消失了。\n\n“滚远点！”火爆辣椒得意地喊道。", "keys": [{"w": "massive", "p": "/ˈmæsɪv/", "zh": "巨大的"}], "phrases": [{"en": "took a deep breath", "zh": "深吸一口气"}], "title": ""}, {"img": "images/pea-shooter/page-19.jpg", "en": "Pip and Sunny cheered happily! Where the zombie had been, there was only a small puff of smoke. The garden was safe once more.\n\nJalapeno smiled, gave a thumbs up, and slowly sank back into the ground. \"Anytime, friends. Anytime.\"", "zh": "皮皮和小阳开心地欢呼！僵尸原来在的地方，只剩下一个小小的烟雾。花园再次安全了。\n\n火爆辣椒微笑着，竖起大拇指，慢慢沉回地面。“随时效劳，朋友们。”", "keys": [{"w": "cheer", "p": "/tʃɪr/", "zh": "欢呼"}], "phrases": [{"en": "cheered happily", "zh": "开心地欢呼"}], "title": ""}];
 const game_url = '../../game/classic/pea-shooter.html';
+const intro_pages = Array.isArray(STORY.intro_cn_pages) ? STORY.intro_cn_pages : [];
+const reader_pages = Array.isArray(STORY.reader_pages_simple_en) && STORY.reader_pages_simple_en.length
+  ? STORY.reader_pages_simple_en
+  : (Array.isArray(STORY.pages) && STORY.pages.length ? STORY.pages : legacy_pages);
+const page_list = [
+  ...intro_pages.map((page) => ({ ...page, section: 'intro' })),
+  ...reader_pages.map((page) => ({ ...page, section: 'reader' })),
+];
+if (!page_list.length) {
+  page_list.push({
+    section: 'reader',
+    title: '',
+    img: '',
+    en: 'Content is coming soon.',
+    zh: '故事内容正在整理中。',
+    keys: [],
+    phrases: [],
+  });
+}
 let current_page = 0;
 let current_rate = 0.92;
 let is_reading = false;
@@ -269,12 +321,26 @@ function build_word_tokens(en_text) {
   });
 }
 
+function get_current_page() {
+  return page_list[current_page] || page_list[0];
+}
+
+function get_section_label(page) {
+  if (page.section === 'intro') return '中文剧情导入';
+  return intro_pages.length ? '英文简版阅读' : '故事阅读';
+}
+
 function update_translation_ui() {
   const zh_box = document.getElementById('zh_sentence');
   const toggle_btn = document.getElementById('translate_toggle_btn');
-  if (!zh_box || !toggle_btn) return;
-  zh_box.classList.toggle('hidden', !translation_visible);
-  toggle_btn.textContent = translation_visible ? '隐藏翻译' : '显示翻译';
+  const page = get_current_page();
+  if (!zh_box || !toggle_btn || !page) return;
+  const is_intro = page.section === 'intro';
+  toggle_btn.style.display = is_intro ? 'none' : 'inline-block';
+  zh_box.classList.toggle('hidden', !is_intro && !translation_visible);
+  if (!is_intro) {
+    toggle_btn.textContent = translation_visible ? '隐藏翻译' : '显示翻译';
+  }
 }
 
 function toggle_translation(force_visible) {
@@ -287,8 +353,10 @@ function toggle_translation(force_visible) {
 }
 
 function render_page(page_index) {
-  const page = pages_data[page_index];
-  current_word_ranges = build_word_tokens(page.en || '');
+  const page = page_list[page_index];
+  const is_intro = page.section === 'intro';
+  const section_label = get_section_label(page);
+  current_word_ranges = is_intro ? [] : build_word_tokens(page.en || '');
   const words_html = current_word_ranges.map((item, idx) =>
     `<span class="word" id="w_${idx}" onclick="show_word_tip(this,'${escape_for_attr(item.token)}')">${item.token}</span>`
   ).join(' ');
@@ -302,16 +370,33 @@ function render_page(page_index) {
   const phrase_row_html = (page.phrases || []).length ? (page.phrases || []).map((item) =>
     `<span class="lex_chip phrases" onclick="speak_phrase('${escape_for_attr(item.en || '')}')"><b>${item.en || ''}</b> ${item.zh || ''}</span>`
   ).join('') : '<span class="lex_empty">暂无重点词组</span>';
+  const intro_title_html = page.title ? `<div class="intro_title">${page.title}</div>` : '';
+  const intro_lexicon_html = ((page.keys || []).length || (page.phrases || []).length) ? `
+      <div class="lexicon">
+        <div class="lex_row"><span class="lex_label words">单词</span><div class="lex_items">${word_row_html}</div></div>
+        <div class="lex_row"><span class="lex_label phrases">词组</span><div class="lex_items">${phrase_row_html}</div></div>
+      </div>` : '';
 
-  document.getElementById('page_area').innerHTML = `
+  document.getElementById('page_area').innerHTML = is_intro ? `
+    <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
+    <div class="text_area intro_mode">
+      <div class="text_toolbar">
+        <div class="phase_badge">🧭 ${section_label}</div>
+        <div class="intro_note">先听中文剧情，先建立画面，再进入英文阅读。</div>
+      </div>
+      ${intro_title_html}
+      <div class="intro_copy zh_sentence" id="zh_sentence">${zh_html}</div>
+      ${intro_lexicon_html}
+    </div>` : `
     <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
     <div class="text_area">
       <div class="text_toolbar">
-        <div class="toolbar_tip">点英文可听单词，点下方卡片可听单词和词组</div>
+        <div class="phase_badge">📘 ${section_label}</div>
         <div class="toolbar_actions">
           <button class="translate_btn" onclick="toggle_translation()">${translation_visible ? '隐藏翻译' : '显示翻译'}</button>
         </div>
       </div>
+      <div class="toolbar_tip">点英文可听单词，点下方卡片可听单词和词组</div>
       <div class="en_sentence">${words_html}</div>
       <div class="zh_sentence hidden" id="zh_sentence">${zh_html}</div>
       <div class="lexicon">
@@ -320,12 +405,13 @@ function render_page(page_index) {
       </div>
     </div>`;
 
-  document.getElementById('progress_fill').style.width = `${((page_index + 1) / pages_data.length) * 100}%`;
-  document.getElementById('page_total').textContent = `第 ${page_index + 1} 页，共 ${pages_data.length} 页`;
-  document.getElementById('page_indicator').textContent = `${page_index + 1} / ${pages_data.length}`;
+  document.getElementById('progress_fill').style.width = `${((page_index + 1) / page_list.length) * 100}%`;
+  document.getElementById('page_total').textContent = `${section_label} · 第 ${page_index + 1} 页，共 ${page_list.length} 页`;
+  document.getElementById('page_indicator').textContent = `${page_index + 1} / ${page_list.length}`;
   document.getElementById('prev_btn').disabled = page_index === 0;
-  const on_last_page = page_index === pages_data.length - 1;
-  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : '下一页 →';
+  const on_last_page = page_index === page_list.length - 1;
+  const on_last_intro_page = intro_pages.length && page_index === intro_pages.length - 1;
+  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : (on_last_intro_page ? '进入英文阅读 →' : '下一页 →');
   document.getElementById('to_game_btn').style.display = on_last_page ? 'inline-block' : 'none';
   update_translation_ui();
 }
@@ -356,8 +442,7 @@ function highlight_en_word(char_index) {
   if (active_word) active_word.classList.add('speaking');
 }
 
-async function speak_english_sentence() {
-  const page = pages_data[current_page];
+async function speak_english_sentence(page) {
   await speak_utterance(String(page.en || ''), 'en-US', current_rate * 0.92, (event) => {
     if (typeof event.charIndex === 'number') {
       highlight_en_word(event.charIndex);
@@ -365,9 +450,9 @@ async function speak_english_sentence() {
   });
 }
 
-async function speak_chinese_sentence() {
-  toggle_translation(true);
-  const zh_chunks = split_zh_chunks(pages_data[current_page].zh || '');
+async function speak_chinese_sentence(page) {
+  if (page.section !== 'intro') toggle_translation(true);
+  const zh_chunks = split_zh_chunks(page.zh || '');
   for (let i = 0; i < zh_chunks.length; i += 1) {
     clear_highlight();
     const current_chunk = document.getElementById(`zh_${i}`);
@@ -381,16 +466,20 @@ async function read_current() {
   is_reading = true;
   synth.cancel();
   clear_highlight();
-  const page = pages_data[current_page];
-  await speak_english_sentence();
-  clear_highlight();
-  await speak_chinese_sentence();
-  clear_highlight();
-  for (const item of (page.keys || [])) {
-    await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
-  }
-  for (const item of (page.phrases || [])) {
-    await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+  const page = get_current_page();
+  if (page.section === 'intro') {
+    await speak_chinese_sentence(page);
+  } else {
+    await speak_english_sentence(page);
+    clear_highlight();
+    await speak_chinese_sentence(page);
+    clear_highlight();
+    for (const item of (page.keys || [])) {
+      await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
+    }
+    for (const item of (page.phrases || [])) {
+      await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+    }
   }
   is_reading = false;
 }
@@ -400,7 +489,7 @@ async function read_chinese_only() {
   is_reading = true;
   synth.cancel();
   clear_highlight();
-  await speak_chinese_sentence();
+  await speak_chinese_sentence(get_current_page());
   clear_highlight();
   is_reading = false;
 }
@@ -412,7 +501,8 @@ function show_word_tip(target_el, word_text) {
     old_tip.remove();
     return;
   }
-  const page = pages_data[current_page];
+  const page = get_current_page();
+  if (page.section === 'intro') return;
   const clean_word = String(word_text || '').toLowerCase().replace(/[.,!?'"“”]/g, '');
   const found = (page.keys || []).find((item) => String(item.w || '').toLowerCase() === clean_word);
   if (!found) return;
@@ -443,12 +533,12 @@ function goto_game() {
 function change_page(direction) {
   synth.cancel();
   clear_highlight();
-  const on_last_page = current_page === pages_data.length - 1;
+  const on_last_page = current_page === page_list.length - 1;
   if (direction > 0 && on_last_page) {
     goto_game();
     return;
   }
-  current_page = Math.max(0, Math.min(pages_data.length - 1, current_page + direction));
+  current_page = Math.max(0, Math.min(page_list.length - 1, current_page + direction));
   render_page(current_page);
 }
 

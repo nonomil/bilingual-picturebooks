@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pip's Adventures — 朗读版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
@@ -99,6 +101,22 @@
     gap:8px;
     flex-wrap:wrap;
   }
+  .phase_badge {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    border-radius:999px;
+    background:#fff4d9;
+    color:#9c6500;
+    font-size:12px;
+    font-weight:800;
+    padding:5px 10px;
+  }
+  .intro_note {
+    color:#8d7d68;
+    font-size:13px;
+    font-weight:700;
+  }
   .en_sentence { font-size:25px; line-height:1.65; color:#2f2f2f; font-weight:700; }
   .word {
     display:inline;
@@ -169,6 +187,21 @@
   }
   .lex_chip.phrases b { color:#0c9b78; }
   .lex_empty { font-size:13px; color:#989898; padding-top:7px; }
+  .text_area.intro_mode {
+    background:linear-gradient(180deg,#fffdf7 0%,#fff8ec 100%);
+  }
+  .intro_title {
+    color:#7d5d2e;
+    font-size:27px;
+    line-height:1.35;
+    font-weight:800;
+    margin-bottom:12px;
+  }
+  .intro_copy {
+    font-size:22px;
+    line-height:1.9;
+    color:#5f5141;
+  }
   .nav {
     margin-top:16px;
     display:flex;
@@ -229,17 +262,29 @@
     <button class="btn nav_btn" id="next_btn" onclick="change_page(1)">下一页 →</button>
   </div>
 
-  <button class="read-fab" onclick="readCurrent()">🔊</button>
-
-  <div class="bottom-nav">
-    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← 上一页</button>
-    <span class="page-indicator" id="pageIndicator"></span>
-    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一页 →</button>
-  </div>
-
 <script>
-const pages_data = [{"img": "images/storyfun/pips-toybox/page-1.jpg", "en": "Hello! I am Pip.", "zh": "你好！我是皮普。", "keys": [{"w": "hello", "p": "/həˈloʊ/", "zh": "你好"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-2.jpg", "en": "I have a red car.", "zh": "我有一辆红色的汽车。", "keys": [{"w": "car", "p": "/kɑ:/", "zh": "汽车"}, {"w": "red", "p": "/rɛd/", "zh": "红色"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-3.jpg", "en": "I have two yellow ducks.", "zh": "我有两只黄色的鸭子。", "keys": [{"w": "two", "p": "/tu:/", "zh": "二"}, {"w": "duck", "p": "/dʌk/", "zh": "鸭子"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-4.jpg", "en": "I have three blue balls.", "zh": "我有三个蓝色的球。", "keys": [{"w": "three", "p": "/θri:/", "zh": "三"}, {"w": "ball", "p": "/bɔ:l/", "zh": "球"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-5.jpg", "en": "I have four green frogs.", "zh": "我有四只绿色的青蛙。", "keys": [{"w": "four", "p": "/fɔ:/", "zh": "四"}, {"w": "frog", "p": "/frɒg/", "zh": "青蛙"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-6.jpg", "en": "I have five pink rabbits.", "zh": "我有五只粉色的兔子。", "keys": [{"w": "five", "p": "/faɪv/", "zh": "五"}, {"w": "rabbit", "p": "/ˈræbɪt/", "zh": "兔子"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-7.jpg", "en": "This is my toy box.", "zh": "这是我的玩具箱。", "keys": [{"w": "toy", "p": "/tɔɪ/", "zh": "玩具"}, {"w": "box", "p": "/bɒks/", "zh": "箱子"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-8.jpg", "en": "I love my toys!", "zh": "我爱我的玩具！", "keys": [{"w": "love", "p": "/lʌv/", "zh": "爱"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-9.jpg", "en": "Goodbye, toy box! See you tomorrow!", "zh": "再见，玩具箱！明天见！", "keys": [{"w": "goodbye", "p": "/gʊdˈbaɪ/", "zh": "再见"}], "phrases": []}, {"img": "images/storyfun/pips-toybox/page-10.jpg", "en": "The End.", "zh": "结束。", "keys": [], "phrases": []}];
+const STORY = {"id": "storyfun-1-adventures", "title": "Pip's Adventures", "titleZh": "皮普的冒险", "category": "storyfun", "series": "Story Fun Starters", "unit": 1, "cefrLevel": "Pre-A1", "cover": "images/storyfun/pips-toybox/page-1.jpg", "unitVocab": [{"w": "car", "p": "/kɑ:/", "zh": "汽车", "color": "red", "num": 1}, {"w": "duck", "p": "/dʌk/", "zh": "鸭子", "color": "yellow", "num": 2}, {"w": "ball", "p": "/bɔ:l/", "zh": "球", "color": "blue", "num": 3}, {"w": "frog", "p": "/frɒg/", "zh": "青蛙", "color": "green", "num": 4}, {"w": "rabbit", "p": "/ˈræbɪt/", "zh": "兔子", "color": "pink", "num": 5}, {"w": "toy", "p": "/tɔɪ/", "zh": "玩具"}, {"w": "red", "p": "/rɛd/", "zh": "红色"}, {"w": "yellow", "p": "/ˈjɛloʊ/", "zh": "黄色"}, {"w": "blue", "p": "/blu:/", "zh": "蓝色"}, {"w": "green", "p": "/gri:n/", "zh": "绿色"}, {"w": "pink", "p": "/pɪŋk/", "zh": "粉色"}], "unitPatterns": ["I have a ___", "This is a ___", "I can see ___ ___"], "pages": [{"img": "images/storyfun/pips-toybox/page-1.jpg", "en": "Hello! I am Pip.", "zh": "你好！我是皮普。", "keys": [{"w": "hello", "p": "/həˈloʊ/", "zh": "你好"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-2.jpg", "en": "I have a red car.", "zh": "我有一辆红色的汽车。", "keys": [{"w": "car", "p": "/kɑ:/", "zh": "汽车"}, {"w": "red", "p": "/rɛd/", "zh": "红色"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-3.jpg", "en": "I have two yellow ducks.", "zh": "我有两只黄色的鸭子。", "keys": [{"w": "two", "p": "/tu:/", "zh": "二"}, {"w": "duck", "p": "/dʌk/", "zh": "鸭子"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-4.jpg", "en": "I have three blue balls.", "zh": "我有三个蓝色的球。", "keys": [{"w": "three", "p": "/θri:/", "zh": "三"}, {"w": "ball", "p": "/bɔ:l/", "zh": "球"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-5.jpg", "en": "I have four green frogs.", "zh": "我有四只绿色的青蛙。", "keys": [{"w": "four", "p": "/fɔ:/", "zh": "四"}, {"w": "frog", "p": "/frɒg/", "zh": "青蛙"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-6.jpg", "en": "I have five pink rabbits.", "zh": "我有五只粉色的兔子。", "keys": [{"w": "five", "p": "/faɪv/", "zh": "五"}, {"w": "rabbit", "p": "/ˈræbɪt/", "zh": "兔子"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-7.jpg", "en": "This is my toy box.", "zh": "这是我的玩具箱。", "keys": [{"w": "toy", "p": "/tɔɪ/", "zh": "玩具"}, {"w": "box", "p": "/bɒks/", "zh": "箱子"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-8.jpg", "en": "I love my toys!", "zh": "我爱我的玩具！", "keys": [{"w": "love", "p": "/lʌv/", "zh": "爱"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-9.jpg", "en": "Goodbye, toy box! See you tomorrow!", "zh": "再见，玩具箱！明天见！", "keys": [{"w": "goodbye", "p": "/gʊdˈbaɪ/", "zh": "再见"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-10.jpg", "en": "The End.", "zh": "结束。", "keys": [], "title": "", "phrases": []}], "intro_cn_pages": [{"title": "皮普的冒险 · 故事开始", "img": "images/storyfun/pips-toybox/page-1.jpg", "en": "", "zh": "你好！我是皮普。", "keys": [{"w": "hello", "p": "/həˈloʊ/", "zh": "你好"}], "phrases": []}, {"title": "皮普的冒险 · 中间发生了什么", "img": "images/storyfun/pips-toybox/page-5.jpg", "en": "", "zh": "我有四只绿色的青蛙。", "keys": [{"w": "four", "p": "/fɔ:/", "zh": "四"}, {"w": "frog", "p": "/frɒg/", "zh": "青蛙"}], "phrases": []}, {"title": "皮普的冒险 · 故事结尾", "img": "images/storyfun/pips-toybox/page-10.jpg", "en": "", "zh": "结束。", "keys": [], "phrases": []}], "reader_pages_simple_en": [{"title": "", "img": "images/storyfun/pips-toybox/page-1.jpg", "en": "Hello! I am Pip.", "zh": "你好！我是皮普。", "keys": [{"w": "hello", "p": "/həˈloʊ/", "zh": "你好"}], "phrases": []}, {"title": "", "img": "images/storyfun/pips-toybox/page-2.jpg", "en": "I have a red car.", "zh": "我有一辆红色的汽车。", "keys": [{"w": "car", "p": "/kɑ:/", "zh": "汽车"}, {"w": "red", "p": "/rɛd/", "zh": "红色"}], "phrases": []}, {"title": "", "img": "images/storyfun/pips-toybox/page-4.jpg", "en": "I have three blue balls.", "zh": "我有三个蓝色的球。", "keys": [{"w": "three", "p": "/θri:/", "zh": "三"}, {"w": "ball", "p": "/bɔ:l/", "zh": "球"}], "phrases": []}, {"title": "", "img": "images/storyfun/pips-toybox/page-5.jpg", "en": "I have four green frogs.", "zh": "我有四只绿色的青蛙。", "keys": [{"w": "four", "p": "/fɔ:/", "zh": "四"}, {"w": "frog", "p": "/frɒg/", "zh": "青蛙"}], "phrases": []}, {"title": "", "img": "images/storyfun/pips-toybox/page-6.jpg", "en": "I have five pink rabbits.", "zh": "我有五只粉色的兔子。", "keys": [{"w": "five", "p": "/faɪv/", "zh": "五"}, {"w": "rabbit", "p": "/ˈræbɪt/", "zh": "兔子"}], "phrases": []}, {"title": "", "img": "images/storyfun/pips-toybox/page-7.jpg", "en": "This is my toy box.", "zh": "这是我的玩具箱。", "keys": [{"w": "toy", "p": "/tɔɪ/", "zh": "玩具"}, {"w": "box", "p": "/bɒks/", "zh": "箱子"}], "phrases": []}, {"title": "", "img": "images/storyfun/pips-toybox/page-9.jpg", "en": "Goodbye, toy box! See you tomorrow!", "zh": "再见，玩具箱！明天见！", "keys": [{"w": "goodbye", "p": "/gʊdˈbaɪ/", "zh": "再见"}], "phrases": []}, {"title": "", "img": "images/storyfun/pips-toybox/page-10.jpg", "en": "The End.", "zh": "结束。", "keys": [], "phrases": []}]};
+const legacy_pages = [{"img": "images/storyfun/pips-toybox/page-1.jpg", "en": "Hello! I am Pip.", "zh": "你好！我是皮普。", "keys": [{"w": "hello", "p": "/həˈloʊ/", "zh": "你好"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-2.jpg", "en": "I have a red car.", "zh": "我有一辆红色的汽车。", "keys": [{"w": "car", "p": "/kɑ:/", "zh": "汽车"}, {"w": "red", "p": "/rɛd/", "zh": "红色"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-3.jpg", "en": "I have two yellow ducks.", "zh": "我有两只黄色的鸭子。", "keys": [{"w": "two", "p": "/tu:/", "zh": "二"}, {"w": "duck", "p": "/dʌk/", "zh": "鸭子"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-4.jpg", "en": "I have three blue balls.", "zh": "我有三个蓝色的球。", "keys": [{"w": "three", "p": "/θri:/", "zh": "三"}, {"w": "ball", "p": "/bɔ:l/", "zh": "球"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-5.jpg", "en": "I have four green frogs.", "zh": "我有四只绿色的青蛙。", "keys": [{"w": "four", "p": "/fɔ:/", "zh": "四"}, {"w": "frog", "p": "/frɒg/", "zh": "青蛙"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-6.jpg", "en": "I have five pink rabbits.", "zh": "我有五只粉色的兔子。", "keys": [{"w": "five", "p": "/faɪv/", "zh": "五"}, {"w": "rabbit", "p": "/ˈræbɪt/", "zh": "兔子"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-7.jpg", "en": "This is my toy box.", "zh": "这是我的玩具箱。", "keys": [{"w": "toy", "p": "/tɔɪ/", "zh": "玩具"}, {"w": "box", "p": "/bɒks/", "zh": "箱子"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-8.jpg", "en": "I love my toys!", "zh": "我爱我的玩具！", "keys": [{"w": "love", "p": "/lʌv/", "zh": "爱"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-9.jpg", "en": "Goodbye, toy box! See you tomorrow!", "zh": "再见，玩具箱！明天见！", "keys": [{"w": "goodbye", "p": "/gʊdˈbaɪ/", "zh": "再见"}], "title": "", "phrases": []}, {"img": "images/storyfun/pips-toybox/page-10.jpg", "en": "The End.", "zh": "结束。", "keys": [], "title": "", "phrases": []}];
 const game_url = '../../game/storyfun/storyfun-1-adventures.html';
+const intro_pages = Array.isArray(STORY.intro_cn_pages) ? STORY.intro_cn_pages : [];
+const reader_pages = Array.isArray(STORY.reader_pages_simple_en) && STORY.reader_pages_simple_en.length
+  ? STORY.reader_pages_simple_en
+  : (Array.isArray(STORY.pages) && STORY.pages.length ? STORY.pages : legacy_pages);
+const page_list = [
+  ...intro_pages.map((page) => ({ ...page, section: 'intro' })),
+  ...reader_pages.map((page) => ({ ...page, section: 'reader' })),
+];
+if (!page_list.length) {
+  page_list.push({
+    section: 'reader',
+    title: '',
+    img: '',
+    en: 'Content is coming soon.',
+    zh: '故事内容正在整理中。',
+    keys: [],
+    phrases: [],
+  });
+}
 let current_page = 0;
 let current_rate = 0.92;
 let is_reading = false;
@@ -276,12 +321,26 @@ function build_word_tokens(en_text) {
   });
 }
 
+function get_current_page() {
+  return page_list[current_page] || page_list[0];
+}
+
+function get_section_label(page) {
+  if (page.section === 'intro') return '中文剧情导入';
+  return intro_pages.length ? '英文简版阅读' : '故事阅读';
+}
+
 function update_translation_ui() {
   const zh_box = document.getElementById('zh_sentence');
   const toggle_btn = document.getElementById('translate_toggle_btn');
-  if (!zh_box || !toggle_btn) return;
-  zh_box.classList.toggle('hidden', !translation_visible);
-  toggle_btn.textContent = translation_visible ? '隐藏翻译' : '显示翻译';
+  const page = get_current_page();
+  if (!zh_box || !toggle_btn || !page) return;
+  const is_intro = page.section === 'intro';
+  toggle_btn.style.display = is_intro ? 'none' : 'inline-block';
+  zh_box.classList.toggle('hidden', !is_intro && !translation_visible);
+  if (!is_intro) {
+    toggle_btn.textContent = translation_visible ? '隐藏翻译' : '显示翻译';
+  }
 }
 
 function toggle_translation(force_visible) {
@@ -294,8 +353,10 @@ function toggle_translation(force_visible) {
 }
 
 function render_page(page_index) {
-  const page = pages_data[page_index];
-  current_word_ranges = build_word_tokens(page.en || '');
+  const page = page_list[page_index];
+  const is_intro = page.section === 'intro';
+  const section_label = get_section_label(page);
+  current_word_ranges = is_intro ? [] : build_word_tokens(page.en || '');
   const words_html = current_word_ranges.map((item, idx) =>
     `<span class="word" id="w_${idx}" onclick="show_word_tip(this,'${escape_for_attr(item.token)}')">${item.token}</span>`
   ).join(' ');
@@ -309,16 +370,33 @@ function render_page(page_index) {
   const phrase_row_html = (page.phrases || []).length ? (page.phrases || []).map((item) =>
     `<span class="lex_chip phrases" onclick="speak_phrase('${escape_for_attr(item.en || '')}')"><b>${item.en || ''}</b> ${item.zh || ''}</span>`
   ).join('') : '<span class="lex_empty">暂无重点词组</span>';
+  const intro_title_html = page.title ? `<div class="intro_title">${page.title}</div>` : '';
+  const intro_lexicon_html = ((page.keys || []).length || (page.phrases || []).length) ? `
+      <div class="lexicon">
+        <div class="lex_row"><span class="lex_label words">单词</span><div class="lex_items">${word_row_html}</div></div>
+        <div class="lex_row"><span class="lex_label phrases">词组</span><div class="lex_items">${phrase_row_html}</div></div>
+      </div>` : '';
 
-  document.getElementById('page_area').innerHTML = `
+  document.getElementById('page_area').innerHTML = is_intro ? `
+    <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
+    <div class="text_area intro_mode">
+      <div class="text_toolbar">
+        <div class="phase_badge">🧭 ${section_label}</div>
+        <div class="intro_note">先听中文剧情，先建立画面，再进入英文阅读。</div>
+      </div>
+      ${intro_title_html}
+      <div class="intro_copy zh_sentence" id="zh_sentence">${zh_html}</div>
+      ${intro_lexicon_html}
+    </div>` : `
     <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
     <div class="text_area">
       <div class="text_toolbar">
-        <div class="toolbar_tip">点英文可听单词，点下方卡片可听单词和词组</div>
+        <div class="phase_badge">📘 ${section_label}</div>
         <div class="toolbar_actions">
           <button class="translate_btn" onclick="toggle_translation()">${translation_visible ? '隐藏翻译' : '显示翻译'}</button>
         </div>
       </div>
+      <div class="toolbar_tip">点英文可听单词，点下方卡片可听单词和词组</div>
       <div class="en_sentence">${words_html}</div>
       <div class="zh_sentence hidden" id="zh_sentence">${zh_html}</div>
       <div class="lexicon">
@@ -327,12 +405,13 @@ function render_page(page_index) {
       </div>
     </div>`;
 
-  document.getElementById('progress_fill').style.width = `${((page_index + 1) / pages_data.length) * 100}%`;
-  document.getElementById('page_total').textContent = `第 ${page_index + 1} 页，共 ${pages_data.length} 页`;
-  document.getElementById('page_indicator').textContent = `${page_index + 1} / ${pages_data.length}`;
+  document.getElementById('progress_fill').style.width = `${((page_index + 1) / page_list.length) * 100}%`;
+  document.getElementById('page_total').textContent = `${section_label} · 第 ${page_index + 1} 页，共 ${page_list.length} 页`;
+  document.getElementById('page_indicator').textContent = `${page_index + 1} / ${page_list.length}`;
   document.getElementById('prev_btn').disabled = page_index === 0;
-  const on_last_page = page_index === pages_data.length - 1;
-  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : '下一页 →';
+  const on_last_page = page_index === page_list.length - 1;
+  const on_last_intro_page = intro_pages.length && page_index === intro_pages.length - 1;
+  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : (on_last_intro_page ? '进入英文阅读 →' : '下一页 →');
   document.getElementById('to_game_btn').style.display = on_last_page ? 'inline-block' : 'none';
   update_translation_ui();
 }
@@ -363,8 +442,7 @@ function highlight_en_word(char_index) {
   if (active_word) active_word.classList.add('speaking');
 }
 
-async function speak_english_sentence() {
-  const page = pages_data[current_page];
+async function speak_english_sentence(page) {
   await speak_utterance(String(page.en || ''), 'en-US', current_rate * 0.92, (event) => {
     if (typeof event.charIndex === 'number') {
       highlight_en_word(event.charIndex);
@@ -372,9 +450,9 @@ async function speak_english_sentence() {
   });
 }
 
-async function speak_chinese_sentence() {
-  toggle_translation(true);
-  const zh_chunks = split_zh_chunks(pages_data[current_page].zh || '');
+async function speak_chinese_sentence(page) {
+  if (page.section !== 'intro') toggle_translation(true);
+  const zh_chunks = split_zh_chunks(page.zh || '');
   for (let i = 0; i < zh_chunks.length; i += 1) {
     clear_highlight();
     const current_chunk = document.getElementById(`zh_${i}`);
@@ -388,16 +466,20 @@ async function read_current() {
   is_reading = true;
   synth.cancel();
   clear_highlight();
-  const page = pages_data[current_page];
-  await speak_english_sentence();
-  clear_highlight();
-  await speak_chinese_sentence();
-  clear_highlight();
-  for (const item of (page.keys || [])) {
-    await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
-  }
-  for (const item of (page.phrases || [])) {
-    await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+  const page = get_current_page();
+  if (page.section === 'intro') {
+    await speak_chinese_sentence(page);
+  } else {
+    await speak_english_sentence(page);
+    clear_highlight();
+    await speak_chinese_sentence(page);
+    clear_highlight();
+    for (const item of (page.keys || [])) {
+      await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
+    }
+    for (const item of (page.phrases || [])) {
+      await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+    }
   }
   is_reading = false;
 }
@@ -407,7 +489,7 @@ async function read_chinese_only() {
   is_reading = true;
   synth.cancel();
   clear_highlight();
-  await speak_chinese_sentence();
+  await speak_chinese_sentence(get_current_page());
   clear_highlight();
   is_reading = false;
 }
@@ -419,7 +501,8 @@ function show_word_tip(target_el, word_text) {
     old_tip.remove();
     return;
   }
-  const page = pages_data[current_page];
+  const page = get_current_page();
+  if (page.section === 'intro') return;
   const clean_word = String(word_text || '').toLowerCase().replace(/[.,!?'"“”]/g, '');
   const found = (page.keys || []).find((item) => String(item.w || '').toLowerCase() === clean_word);
   if (!found) return;
@@ -450,12 +533,12 @@ function goto_game() {
 function change_page(direction) {
   synth.cancel();
   clear_highlight();
-  const on_last_page = current_page === pages_data.length - 1;
+  const on_last_page = current_page === page_list.length - 1;
   if (direction > 0 && on_last_page) {
     goto_game();
     return;
   }
-  current_page = Math.max(0, Math.min(pages_data.length - 1, current_page + direction));
+  current_page = Math.max(0, Math.min(page_list.length - 1, current_page + direction));
   render_page(current_page);
 }
 

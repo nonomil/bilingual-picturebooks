@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tank Battles Book 2 — 朗读版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
@@ -99,6 +101,22 @@
     gap:8px;
     flex-wrap:wrap;
   }
+  .phase_badge {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    border-radius:999px;
+    background:#fff4d9;
+    color:#9c6500;
+    font-size:12px;
+    font-weight:800;
+    padding:5px 10px;
+  }
+  .intro_note {
+    color:#8d7d68;
+    font-size:13px;
+    font-weight:700;
+  }
   .en_sentence { font-size:25px; line-height:1.65; color:#2f2f2f; font-weight:700; }
   .word {
     display:inline;
@@ -169,6 +187,21 @@
   }
   .lex_chip.phrases b { color:#0c9b78; }
   .lex_empty { font-size:13px; color:#989898; padding-top:7px; }
+  .text_area.intro_mode {
+    background:linear-gradient(180deg,#fffdf7 0%,#fff8ec 100%);
+  }
+  .intro_title {
+    color:#7d5d2e;
+    font-size:27px;
+    line-height:1.35;
+    font-weight:800;
+    margin-bottom:12px;
+  }
+  .intro_copy {
+    font-size:22px;
+    line-height:1.9;
+    color:#5f5141;
+  }
   .nav {
     margin-top:16px;
     display:flex;
@@ -228,11 +261,30 @@
     </div>
     <button class="btn nav_btn" id="next_btn" onclick="change_page(1)">下一页 →</button>
   </div>
-</div>
 
 <script>
-const pages_data = [{"img": "images/tank-2/page-1.jpg", "en": "The player built a special tank base with walls, turrets, and redstone cannons!", "zh": "他专门建了一个坦克阵地，有围墙、炮台，还有红石大炮！", "keys": [{"w": "built", "p": "/bɪlt/", "zh": "建造了"}], "phrases": [{"en": "special tank base", "zh": "特殊的坦克基地"}]}, {"img": "images/tank-2/page-2.jpg", "en": "All the tanks were parked neatly. Heavy, light, and missile tanks ready for action!", "zh": "所有坦克整整齐齐停在里面。重型、轻型、导弹坦克随时待命！", "keys": [{"w": "parked", "p": "/pɑːrkt/", "zh": "停放的"}], "phrases": [{"en": "parked neatly", "zh": "整整齐齐停放"}]}, {"img": "images/tank-2/page-3.jpg", "en": "Redstone cannons surrounded the base to stop any monsters from sneaking in!", "zh": "阵地周围摆满了红石大炮，防止怪物偷袭！", "keys": [{"w": "surrounded", "p": "/səˈraʊndɪd/", "zh": "包围"}], "phrases": [{"en": "surrounded the base", "zh": "包围了基地"}]}, {"img": "images/tank-2/page-4.jpg", "en": "Night fell. A huge wave of monsters appeared from the darkness!", "zh": "夜幕降临。一大群怪物从黑暗中涌了出来！", "keys": [{"w": "night", "p": "/naɪt/", "zh": "夜晚"}], "phrases": [{"en": "Night fell", "zh": "夜幕降临"}]}, {"img": "images/tank-2/page-5.jpg", "en": "Among them were Warden Sentinels — big, tough, and super scary!", "zh": "怪物里面还有几只循声守卫，又大又凶，超可怕！", "keys": [{"w": "among", "p": "/əˈmʌŋ/", "zh": "在……中间"}], "phrases": [{"en": "Among them were", "zh": "其中还有"}]}, {"img": "images/tank-2/page-6.jpg", "en": "The player jumped into the nearest tank and started the engine!", "zh": "他赶紧跳进最近的坦克，发动引擎！", "keys": [{"w": "jumped", "p": "/dʒʌmpt/", "zh": "跳进"}], "phrases": [{"en": "jumped into the nearest tank", "zh": "跳进最近的坦克"}]}, {"img": "images/tank-2/page-7.jpg", "en": "Luckily, Iron Golems were nearby and joined the battle!", "zh": "还好旁边有铁傀儡，马上加入战斗！", "keys": [{"w": "luckily", "p": "/ˈlʌkɪli/", "zh": "幸运地"}], "phrases": [{"en": "Luckily", "zh": "幸运的是"}]}, {"img": "images/tank-2/page-8.jpg", "en": "Iron Golem blocked the front, taking all the hits. What a tough guy!", "zh": "铁傀儡在前面扛伤害，什么打过来都不怕。太硬了！", "keys": [{"w": "blocked", "p": "/blɒkt/", "zh": "阻挡"}], "phrases": [{"en": "blocked the front", "zh": "挡在前面"}]}, {"img": "images/tank-2/page-9.jpg", "en": "The Warden Sentinel had too much health! Normal cannonballs barely scratched it!", "zh": "循声守卫血太厚，普通炮弹根本打不动！", "keys": [{"w": "health", "p": "/helθ/", "zh": "生命值；健康"}], "phrases": [{"en": "too much health", "zh": "血量太厚"}]}, {"img": "images/tank-2/page-10.jpg", "en": "Quick, switch to the missile tank! One missile took away half its health!", "zh": "赶紧换导弹坦克！一发导弹下去直接打掉大半血！", "keys": [{"w": "switch", "p": "/swɪtʃ/", "zh": "切换"}], "phrases": [{"en": "switch to the missile tank", "zh": "换成导弹坦克"}]}, {"img": "images/tank-2/page-11.jpg", "en": "Monsters were surrounding them! Time to back up and keep shooting!", "zh": "差点被怪物包围！赶紧操控坦克边退边射击！", "keys": [{"w": "monsters", "p": "/ˈmɒn.stərz/", "zh": "怪物"}], "phrases": [{"en": "were surrounding them", "zh": "正在包围他们"}]}, {"img": "images/tank-2/page-12.jpg", "en": "Thanks to the tank's thick armor, it could handle the damage while fighting back!", "zh": "靠着坦克厚厚的装甲硬扛伤害，一边扛一边打回去！", "keys": [{"w": "thick", "p": "/θɪk/", "zh": "厚的"}], "phrases": [{"en": "thick armor", "zh": "厚厚的装甲"}]}, {"img": "images/tank-2/page-13.jpg", "en": "The Iron Golem and tank worked together perfectly. The base was saved!", "zh": "铁傀儡和坦克完美配合，终于守住了阵地！", "keys": [{"w": "worked together", "p": "/wɜːrkt təˈɡeð.ər/", "zh": "合作"}], "phrases": [{"en": "worked together perfectly", "zh": "完美配合"}]}];
+const STORY = {"id": "tank-2", "title": "Tank Battles Book 2", "titleZh": "坦克大战·第二册", "category": "我的世界", "cover": "images/covers/cover-tank-2.jpg", "pages": [{"img": "images/tank-2/page-1.jpg", "en": "The player built a special tank base with walls, turrets, and redstone cannons!", "zh": "他专门建了一个坦克阵地，有围墙、炮台，还有红石大炮！", "keys": [{"w": "built", "p": "/bɪlt/", "zh": "建造了"}], "phrases": [{"en": "special tank base", "zh": "特殊的坦克基地"}], "title": ""}, {"img": "images/tank-2/page-2.jpg", "en": "All the tanks were parked neatly. Heavy, light, and missile tanks ready for action!", "zh": "所有坦克整整齐齐停在里面。重型、轻型、导弹坦克随时待命！", "keys": [{"w": "parked", "p": "/pɑːrkt/", "zh": "停放的"}], "phrases": [{"en": "parked neatly", "zh": "整整齐齐停放"}], "title": ""}, {"img": "images/tank-2/page-3.jpg", "en": "Redstone cannons surrounded the base to stop any monsters from sneaking in!", "zh": "阵地周围摆满了红石大炮，防止怪物偷袭！", "keys": [{"w": "surrounded", "p": "/səˈraʊndɪd/", "zh": "包围"}], "phrases": [{"en": "surrounded the base", "zh": "包围了基地"}], "title": ""}, {"img": "images/tank-2/page-4.jpg", "en": "Night fell. A huge wave of monsters appeared from the darkness!", "zh": "夜幕降临。一大群怪物从黑暗中涌了出来！", "keys": [{"w": "night", "p": "/naɪt/", "zh": "夜晚"}], "phrases": [{"en": "Night fell", "zh": "夜幕降临"}], "title": ""}, {"img": "images/tank-2/page-5.jpg", "en": "Among them were Warden Sentinels — big, tough, and super scary!", "zh": "怪物里面还有几只循声守卫，又大又凶，超可怕！", "keys": [{"w": "among", "p": "/əˈmʌŋ/", "zh": "在……中间"}], "phrases": [{"en": "Among them were", "zh": "其中还有"}], "title": ""}, {"img": "images/tank-2/page-6.jpg", "en": "The player jumped into the nearest tank and started the engine!", "zh": "他赶紧跳进最近的坦克，发动引擎！", "keys": [{"w": "jumped", "p": "/dʒʌmpt/", "zh": "跳进"}], "phrases": [{"en": "jumped into the nearest tank", "zh": "跳进最近的坦克"}], "title": ""}, {"img": "images/tank-2/page-7.jpg", "en": "Luckily, Iron Golems were nearby and joined the battle!", "zh": "还好旁边有铁傀儡，马上加入战斗！", "keys": [{"w": "luckily", "p": "/ˈlʌkɪli/", "zh": "幸运地"}], "phrases": [{"en": "Luckily", "zh": "幸运的是"}], "title": ""}, {"img": "images/tank-2/page-8.jpg", "en": "Iron Golem blocked the front, taking all the hits. What a tough guy!", "zh": "铁傀儡在前面扛伤害，什么打过来都不怕。太硬了！", "keys": [{"w": "blocked", "p": "/blɒkt/", "zh": "阻挡"}], "phrases": [{"en": "blocked the front", "zh": "挡在前面"}], "title": ""}, {"img": "images/tank-2/page-9.jpg", "en": "The Warden Sentinel had too much health! Normal cannonballs barely scratched it!", "zh": "循声守卫血太厚，普通炮弹根本打不动！", "keys": [{"w": "health", "p": "/helθ/", "zh": "生命值；健康"}], "phrases": [{"en": "too much health", "zh": "血量太厚"}], "title": ""}, {"img": "images/tank-2/page-10.jpg", "en": "Quick, switch to the missile tank! One missile took away half its health!", "zh": "赶紧换导弹坦克！一发导弹下去直接打掉大半血！", "keys": [{"w": "switch", "p": "/swɪtʃ/", "zh": "切换"}], "phrases": [{"en": "switch to the missile tank", "zh": "换成导弹坦克"}], "title": ""}, {"img": "images/tank-2/page-11.jpg", "en": "Monsters were surrounding them! Time to back up and keep shooting!", "zh": "差点被怪物包围！赶紧操控坦克边退边射击！", "keys": [{"w": "monsters", "p": "/ˈmɒn.stərz/", "zh": "怪物"}], "phrases": [{"en": "were surrounding them", "zh": "正在包围他们"}], "title": ""}, {"img": "images/tank-2/page-12.jpg", "en": "Thanks to the tank's thick armor, it could handle the damage while fighting back!", "zh": "靠着坦克厚厚的装甲硬扛伤害，一边扛一边打回去！", "keys": [{"w": "thick", "p": "/θɪk/", "zh": "厚的"}], "phrases": [{"en": "thick armor", "zh": "厚厚的装甲"}], "title": ""}, {"img": "images/tank-2/page-13.jpg", "en": "The Iron Golem and tank worked together perfectly. The base was saved!", "zh": "铁傀儡和坦克完美配合，终于守住了阵地！", "keys": [{"w": "worked together", "p": "/wɜːrkt təˈɡeð.ər/", "zh": "合作"}], "phrases": [{"en": "worked together perfectly", "zh": "完美配合"}], "title": ""}], "intro_cn_pages": [{"title": "坦克大战·第二册 · 故事开始", "img": "images/tank-2/page-1.jpg", "en": "", "zh": "他专门建了一个坦克阵地，有围墙、炮台，还有红石大炮！", "keys": [{"w": "built", "p": "/bɪlt/", "zh": "建造了"}], "phrases": [{"en": "special tank base", "zh": "特殊的坦克基地"}]}, {"title": "坦克大战·第二册 · 中间发生了什么", "img": "images/tank-2/page-7.jpg", "en": "", "zh": "还好旁边有铁傀儡，马上加入战斗！", "keys": [{"w": "luckily", "p": "/ˈlʌkɪli/", "zh": "幸运地"}], "phrases": [{"en": "Luckily", "zh": "幸运的是"}]}, {"title": "坦克大战·第二册 · 故事结尾", "img": "images/tank-2/page-13.jpg", "en": "", "zh": "铁傀儡和坦克完美配合，终于守住了阵地！", "keys": [{"w": "worked together", "p": "/wɜːrkt təˈɡeð.ər/", "zh": "合作"}], "phrases": [{"en": "worked together perfectly", "zh": "完美配合"}]}], "reader_pages_simple_en": [{"title": "", "img": "images/tank-2/page-1.jpg", "en": "The player built a special tank base with walls, turrets, and redstone cannons!", "zh": "他专门建了一个坦克阵地，有围墙、炮台，还有红石大炮！", "keys": [{"w": "built", "p": "/bɪlt/", "zh": "建造了"}], "phrases": [{"en": "special tank base", "zh": "特殊的坦克基地"}]}, {"title": "", "img": "images/tank-2/page-3.jpg", "en": "Redstone cannons surrounded the base to stop any monsters from sneaking in!", "zh": "阵地周围摆满了红石大炮，防止怪物偷袭！", "keys": [{"w": "surrounded", "p": "/səˈraʊndɪd/", "zh": "包围"}], "phrases": [{"en": "surrounded the base", "zh": "包围了基地"}]}, {"title": "", "img": "images/tank-2/page-4.jpg", "en": "Night fell. A huge wave of monsters appeared from the darkness!", "zh": "夜幕降临。一大群怪物从黑暗中涌了出来！", "keys": [{"w": "night", "p": "/naɪt/", "zh": "夜晚"}], "phrases": [{"en": "Night fell", "zh": "夜幕降临"}]}, {"title": "", "img": "images/tank-2/page-6.jpg", "en": "The player jumped into the nearest tank and started the engine!", "zh": "他赶紧跳进最近的坦克，发动引擎！", "keys": [{"w": "jumped", "p": "/dʒʌmpt/", "zh": "跳进"}], "phrases": [{"en": "jumped into the nearest tank", "zh": "跳进最近的坦克"}]}, {"title": "", "img": "images/tank-2/page-8.jpg", "en": "Iron Golem blocked the front, taking all the hits. What a tough guy!", "zh": "铁傀儡在前面扛伤害，什么打过来都不怕。太硬了！", "keys": [{"w": "blocked", "p": "/blɒkt/", "zh": "阻挡"}], "phrases": [{"en": "blocked the front", "zh": "挡在前面"}]}, {"title": "", "img": "images/tank-2/page-10.jpg", "en": "Quick, switch to the missile tank! One missile took away half its health!", "zh": "赶紧换导弹坦克！一发导弹下去直接打掉大半血！", "keys": [{"w": "switch", "p": "/swɪtʃ/", "zh": "切换"}], "phrases": [{"en": "switch to the missile tank", "zh": "换成导弹坦克"}]}, {"title": "", "img": "images/tank-2/page-11.jpg", "en": "Monsters were surrounding them! Time to back up and keep shooting!", "zh": "差点被怪物包围！赶紧操控坦克边退边射击！", "keys": [{"w": "monsters", "p": "/ˈmɒn.stərz/", "zh": "怪物"}], "phrases": [{"en": "were surrounding them", "zh": "正在包围他们"}]}, {"title": "", "img": "images/tank-2/page-13.jpg", "en": "The Iron Golem and tank worked together perfectly. The base was saved!", "zh": "铁傀儡和坦克完美配合，终于守住了阵地！", "keys": [{"w": "worked together", "p": "/wɜːrkt təˈɡeð.ər/", "zh": "合作"}], "phrases": [{"en": "worked together perfectly", "zh": "完美配合"}]}]};
+const legacy_pages = [{"img": "images/tank-2/page-1.jpg", "en": "The player built a special tank base with walls, turrets, and redstone cannons!", "zh": "他专门建了一个坦克阵地，有围墙、炮台，还有红石大炮！", "keys": [{"w": "built", "p": "/bɪlt/", "zh": "建造了"}], "phrases": [{"en": "special tank base", "zh": "特殊的坦克基地"}], "title": ""}, {"img": "images/tank-2/page-2.jpg", "en": "All the tanks were parked neatly. Heavy, light, and missile tanks ready for action!", "zh": "所有坦克整整齐齐停在里面。重型、轻型、导弹坦克随时待命！", "keys": [{"w": "parked", "p": "/pɑːrkt/", "zh": "停放的"}], "phrases": [{"en": "parked neatly", "zh": "整整齐齐停放"}], "title": ""}, {"img": "images/tank-2/page-3.jpg", "en": "Redstone cannons surrounded the base to stop any monsters from sneaking in!", "zh": "阵地周围摆满了红石大炮，防止怪物偷袭！", "keys": [{"w": "surrounded", "p": "/səˈraʊndɪd/", "zh": "包围"}], "phrases": [{"en": "surrounded the base", "zh": "包围了基地"}], "title": ""}, {"img": "images/tank-2/page-4.jpg", "en": "Night fell. A huge wave of monsters appeared from the darkness!", "zh": "夜幕降临。一大群怪物从黑暗中涌了出来！", "keys": [{"w": "night", "p": "/naɪt/", "zh": "夜晚"}], "phrases": [{"en": "Night fell", "zh": "夜幕降临"}], "title": ""}, {"img": "images/tank-2/page-5.jpg", "en": "Among them were Warden Sentinels — big, tough, and super scary!", "zh": "怪物里面还有几只循声守卫，又大又凶，超可怕！", "keys": [{"w": "among", "p": "/əˈmʌŋ/", "zh": "在……中间"}], "phrases": [{"en": "Among them were", "zh": "其中还有"}], "title": ""}, {"img": "images/tank-2/page-6.jpg", "en": "The player jumped into the nearest tank and started the engine!", "zh": "他赶紧跳进最近的坦克，发动引擎！", "keys": [{"w": "jumped", "p": "/dʒʌmpt/", "zh": "跳进"}], "phrases": [{"en": "jumped into the nearest tank", "zh": "跳进最近的坦克"}], "title": ""}, {"img": "images/tank-2/page-7.jpg", "en": "Luckily, Iron Golems were nearby and joined the battle!", "zh": "还好旁边有铁傀儡，马上加入战斗！", "keys": [{"w": "luckily", "p": "/ˈlʌkɪli/", "zh": "幸运地"}], "phrases": [{"en": "Luckily", "zh": "幸运的是"}], "title": ""}, {"img": "images/tank-2/page-8.jpg", "en": "Iron Golem blocked the front, taking all the hits. What a tough guy!", "zh": "铁傀儡在前面扛伤害，什么打过来都不怕。太硬了！", "keys": [{"w": "blocked", "p": "/blɒkt/", "zh": "阻挡"}], "phrases": [{"en": "blocked the front", "zh": "挡在前面"}], "title": ""}, {"img": "images/tank-2/page-9.jpg", "en": "The Warden Sentinel had too much health! Normal cannonballs barely scratched it!", "zh": "循声守卫血太厚，普通炮弹根本打不动！", "keys": [{"w": "health", "p": "/helθ/", "zh": "生命值；健康"}], "phrases": [{"en": "too much health", "zh": "血量太厚"}], "title": ""}, {"img": "images/tank-2/page-10.jpg", "en": "Quick, switch to the missile tank! One missile took away half its health!", "zh": "赶紧换导弹坦克！一发导弹下去直接打掉大半血！", "keys": [{"w": "switch", "p": "/swɪtʃ/", "zh": "切换"}], "phrases": [{"en": "switch to the missile tank", "zh": "换成导弹坦克"}], "title": ""}, {"img": "images/tank-2/page-11.jpg", "en": "Monsters were surrounding them! Time to back up and keep shooting!", "zh": "差点被怪物包围！赶紧操控坦克边退边射击！", "keys": [{"w": "monsters", "p": "/ˈmɒn.stərz/", "zh": "怪物"}], "phrases": [{"en": "were surrounding them", "zh": "正在包围他们"}], "title": ""}, {"img": "images/tank-2/page-12.jpg", "en": "Thanks to the tank's thick armor, it could handle the damage while fighting back!", "zh": "靠着坦克厚厚的装甲硬扛伤害，一边扛一边打回去！", "keys": [{"w": "thick", "p": "/θɪk/", "zh": "厚的"}], "phrases": [{"en": "thick armor", "zh": "厚厚的装甲"}], "title": ""}, {"img": "images/tank-2/page-13.jpg", "en": "The Iron Golem and tank worked together perfectly. The base was saved!", "zh": "铁傀儡和坦克完美配合，终于守住了阵地！", "keys": [{"w": "worked together", "p": "/wɜːrkt təˈɡeð.ər/", "zh": "合作"}], "phrases": [{"en": "worked together perfectly", "zh": "完美配合"}], "title": ""}];
 const game_url = '../../game/classic/tank-2.html';
+const intro_pages = Array.isArray(STORY.intro_cn_pages) ? STORY.intro_cn_pages : [];
+const reader_pages = Array.isArray(STORY.reader_pages_simple_en) && STORY.reader_pages_simple_en.length
+  ? STORY.reader_pages_simple_en
+  : (Array.isArray(STORY.pages) && STORY.pages.length ? STORY.pages : legacy_pages);
+const page_list = [
+  ...intro_pages.map((page) => ({ ...page, section: 'intro' })),
+  ...reader_pages.map((page) => ({ ...page, section: 'reader' })),
+];
+if (!page_list.length) {
+  page_list.push({
+    section: 'reader',
+    title: '',
+    img: '',
+    en: 'Content is coming soon.',
+    zh: '故事内容正在整理中。',
+    keys: [],
+    phrases: [],
+  });
+}
 let current_page = 0;
 let current_rate = 0.92;
 let is_reading = false;
@@ -269,12 +321,26 @@ function build_word_tokens(en_text) {
   });
 }
 
+function get_current_page() {
+  return page_list[current_page] || page_list[0];
+}
+
+function get_section_label(page) {
+  if (page.section === 'intro') return '中文剧情导入';
+  return intro_pages.length ? '英文简版阅读' : '故事阅读';
+}
+
 function update_translation_ui() {
   const zh_box = document.getElementById('zh_sentence');
   const toggle_btn = document.getElementById('translate_toggle_btn');
-  if (!zh_box || !toggle_btn) return;
-  zh_box.classList.toggle('hidden', !translation_visible);
-  toggle_btn.textContent = translation_visible ? '隐藏翻译' : '显示翻译';
+  const page = get_current_page();
+  if (!zh_box || !toggle_btn || !page) return;
+  const is_intro = page.section === 'intro';
+  toggle_btn.style.display = is_intro ? 'none' : 'inline-block';
+  zh_box.classList.toggle('hidden', !is_intro && !translation_visible);
+  if (!is_intro) {
+    toggle_btn.textContent = translation_visible ? '隐藏翻译' : '显示翻译';
+  }
 }
 
 function toggle_translation(force_visible) {
@@ -287,8 +353,10 @@ function toggle_translation(force_visible) {
 }
 
 function render_page(page_index) {
-  const page = pages_data[page_index];
-  current_word_ranges = build_word_tokens(page.en || '');
+  const page = page_list[page_index];
+  const is_intro = page.section === 'intro';
+  const section_label = get_section_label(page);
+  current_word_ranges = is_intro ? [] : build_word_tokens(page.en || '');
   const words_html = current_word_ranges.map((item, idx) =>
     `<span class="word" id="w_${idx}" onclick="show_word_tip(this,'${escape_for_attr(item.token)}')">${item.token}</span>`
   ).join(' ');
@@ -302,16 +370,33 @@ function render_page(page_index) {
   const phrase_row_html = (page.phrases || []).length ? (page.phrases || []).map((item) =>
     `<span class="lex_chip phrases" onclick="speak_phrase('${escape_for_attr(item.en || '')}')"><b>${item.en || ''}</b> ${item.zh || ''}</span>`
   ).join('') : '<span class="lex_empty">暂无重点词组</span>';
+  const intro_title_html = page.title ? `<div class="intro_title">${page.title}</div>` : '';
+  const intro_lexicon_html = ((page.keys || []).length || (page.phrases || []).length) ? `
+      <div class="lexicon">
+        <div class="lex_row"><span class="lex_label words">单词</span><div class="lex_items">${word_row_html}</div></div>
+        <div class="lex_row"><span class="lex_label phrases">词组</span><div class="lex_items">${phrase_row_html}</div></div>
+      </div>` : '';
 
-  document.getElementById('page_area').innerHTML = `
+  document.getElementById('page_area').innerHTML = is_intro ? `
+    <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
+    <div class="text_area intro_mode">
+      <div class="text_toolbar">
+        <div class="phase_badge">🧭 ${section_label}</div>
+        <div class="intro_note">先听中文剧情，先建立画面，再进入英文阅读。</div>
+      </div>
+      ${intro_title_html}
+      <div class="intro_copy zh_sentence" id="zh_sentence">${zh_html}</div>
+      ${intro_lexicon_html}
+    </div>` : `
     <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
     <div class="text_area">
       <div class="text_toolbar">
-        <div class="toolbar_tip">点英文可听单词，点下方卡片可听单词和词组</div>
+        <div class="phase_badge">📘 ${section_label}</div>
         <div class="toolbar_actions">
           <button class="translate_btn" onclick="toggle_translation()">${translation_visible ? '隐藏翻译' : '显示翻译'}</button>
         </div>
       </div>
+      <div class="toolbar_tip">点英文可听单词，点下方卡片可听单词和词组</div>
       <div class="en_sentence">${words_html}</div>
       <div class="zh_sentence hidden" id="zh_sentence">${zh_html}</div>
       <div class="lexicon">
@@ -320,12 +405,13 @@ function render_page(page_index) {
       </div>
     </div>`;
 
-  document.getElementById('progress_fill').style.width = `${((page_index + 1) / pages_data.length) * 100}%`;
-  document.getElementById('page_total').textContent = `第 ${page_index + 1} 页，共 ${pages_data.length} 页`;
-  document.getElementById('page_indicator').textContent = `${page_index + 1} / ${pages_data.length}`;
+  document.getElementById('progress_fill').style.width = `${((page_index + 1) / page_list.length) * 100}%`;
+  document.getElementById('page_total').textContent = `${section_label} · 第 ${page_index + 1} 页，共 ${page_list.length} 页`;
+  document.getElementById('page_indicator').textContent = `${page_index + 1} / ${page_list.length}`;
   document.getElementById('prev_btn').disabled = page_index === 0;
-  const on_last_page = page_index === pages_data.length - 1;
-  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : '下一页 →';
+  const on_last_page = page_index === page_list.length - 1;
+  const on_last_intro_page = intro_pages.length && page_index === intro_pages.length - 1;
+  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : (on_last_intro_page ? '进入英文阅读 →' : '下一页 →');
   document.getElementById('to_game_btn').style.display = on_last_page ? 'inline-block' : 'none';
   update_translation_ui();
 }
@@ -356,8 +442,7 @@ function highlight_en_word(char_index) {
   if (active_word) active_word.classList.add('speaking');
 }
 
-async function speak_english_sentence() {
-  const page = pages_data[current_page];
+async function speak_english_sentence(page) {
   await speak_utterance(String(page.en || ''), 'en-US', current_rate * 0.92, (event) => {
     if (typeof event.charIndex === 'number') {
       highlight_en_word(event.charIndex);
@@ -365,9 +450,9 @@ async function speak_english_sentence() {
   });
 }
 
-async function speak_chinese_sentence() {
-  toggle_translation(true);
-  const zh_chunks = split_zh_chunks(pages_data[current_page].zh || '');
+async function speak_chinese_sentence(page) {
+  if (page.section !== 'intro') toggle_translation(true);
+  const zh_chunks = split_zh_chunks(page.zh || '');
   for (let i = 0; i < zh_chunks.length; i += 1) {
     clear_highlight();
     const current_chunk = document.getElementById(`zh_${i}`);
@@ -381,16 +466,20 @@ async function read_current() {
   is_reading = true;
   synth.cancel();
   clear_highlight();
-  const page = pages_data[current_page];
-  await speak_english_sentence();
-  clear_highlight();
-  await speak_chinese_sentence();
-  clear_highlight();
-  for (const item of (page.keys || [])) {
-    await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
-  }
-  for (const item of (page.phrases || [])) {
-    await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+  const page = get_current_page();
+  if (page.section === 'intro') {
+    await speak_chinese_sentence(page);
+  } else {
+    await speak_english_sentence(page);
+    clear_highlight();
+    await speak_chinese_sentence(page);
+    clear_highlight();
+    for (const item of (page.keys || [])) {
+      await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
+    }
+    for (const item of (page.phrases || [])) {
+      await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+    }
   }
   is_reading = false;
 }
@@ -400,7 +489,7 @@ async function read_chinese_only() {
   is_reading = true;
   synth.cancel();
   clear_highlight();
-  await speak_chinese_sentence();
+  await speak_chinese_sentence(get_current_page());
   clear_highlight();
   is_reading = false;
 }
@@ -412,7 +501,8 @@ function show_word_tip(target_el, word_text) {
     old_tip.remove();
     return;
   }
-  const page = pages_data[current_page];
+  const page = get_current_page();
+  if (page.section === 'intro') return;
   const clean_word = String(word_text || '').toLowerCase().replace(/[.,!?'"“”]/g, '');
   const found = (page.keys || []).find((item) => String(item.w || '').toLowerCase() === clean_word);
   if (!found) return;
@@ -443,12 +533,12 @@ function goto_game() {
 function change_page(direction) {
   synth.cancel();
   clear_highlight();
-  const on_last_page = current_page === pages_data.length - 1;
+  const on_last_page = current_page === page_list.length - 1;
   if (direction > 0 && on_last_page) {
     goto_game();
     return;
   }
-  current_page = Math.max(0, Math.min(pages_data.length - 1, current_page + direction));
+  current_page = Math.max(0, Math.min(page_list.length - 1, current_page + direction));
   render_page(current_page);
 }
 

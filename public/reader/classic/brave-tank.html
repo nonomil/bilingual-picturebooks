@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Brave Little Tank — 朗读版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
@@ -99,6 +101,22 @@
     gap:8px;
     flex-wrap:wrap;
   }
+  .phase_badge {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    border-radius:999px;
+    background:#fff4d9;
+    color:#9c6500;
+    font-size:12px;
+    font-weight:800;
+    padding:5px 10px;
+  }
+  .intro_note {
+    color:#8d7d68;
+    font-size:13px;
+    font-weight:700;
+  }
   .en_sentence { font-size:25px; line-height:1.65; color:#2f2f2f; font-weight:700; }
   .word {
     display:inline;
@@ -169,6 +187,21 @@
   }
   .lex_chip.phrases b { color:#0c9b78; }
   .lex_empty { font-size:13px; color:#989898; padding-top:7px; }
+  .text_area.intro_mode {
+    background:linear-gradient(180deg,#fffdf7 0%,#fff8ec 100%);
+  }
+  .intro_title {
+    color:#7d5d2e;
+    font-size:27px;
+    line-height:1.35;
+    font-weight:800;
+    margin-bottom:12px;
+  }
+  .intro_copy {
+    font-size:22px;
+    line-height:1.9;
+    color:#5f5141;
+  }
   .nav {
     margin-top:16px;
     display:flex;
@@ -228,11 +261,30 @@
     </div>
     <button class="btn nav_btn" id="next_btn" onclick="change_page(1)">下一页 →</button>
   </div>
-</div>
 
 <script>
-const pages_data = [{"img": "images/brave-tank/page-2.jpg", "en": "In a beautiful valley, there lived a brave little tank named Little Steel.", "zh": "在一片美丽的山谷里，住着一辆勇敢的小坦克，名叫小钢。", "keys": [{"w": "beautiful", "p": "/ˈbjuːtɪfəl/", "zh": "美丽的"}], "phrases": [{"en": "in a beautiful valley", "zh": "在一片美丽的山谷里"}]}, {"img": "images/brave-tank/page-3.jpg", "en": "Welcome to Tank Town, where all kinds of tanks live happily together!", "zh": "欢迎来到坦克小镇，各种各样的坦克快乐地生活在这里！", "keys": [{"w": "welcome", "p": "/ˈwelkəm/", "zh": "欢迎"}], "phrases": [{"en": "Welcome to Tank Town", "zh": "欢迎来到坦克小镇"}]}, {"img": "images/brave-tank/page-4.jpg", "en": "Little Steel was the smallest tank in town, with a tiny cannon and a big heart.", "zh": "小钢是镇上最小的坦克，炮管短短的，却有一颗大大的心。", "keys": [{"w": "smallest", "p": "/ˈsmɔːlɪst/", "zh": "最小的"}], "phrases": [{"en": "the smallest tank in town", "zh": "镇上最小的坦克"}]}, {"img": "images/brave-tank/page-5.jpg", "en": "“I want to be a hero!” Little Steel practiced his brave face in the mirror every day.", "zh": "“我要成为英雄！”小钢每天都对着镜子练习勇敢的表情。", "keys": [{"w": "hero", "p": "/ˈhɪroʊ/", "zh": "英雄"}], "phrases": [{"en": "I want to be a hero", "zh": "我要成为英雄"}]}, {"img": "images/brave-tank/page-6.jpg", "en": "Every year, Tank Town held the Brave Contest — a big adventure race!", "zh": "坦克小镇每年都会举办勇士大赛——一场大型冒险比赛！", "keys": [{"w": "year", "p": "/jɪr/", "zh": "年"}], "phrases": [{"en": "Every year", "zh": "每年"}]}, {"img": "images/brave-tank/page-7.jpg", "en": "“I’m joining!” said Little Steel. The big tanks all laughed. “You? Little you?”", "zh": "“我要参加！”小钢说。大坦克们都笑了。“你？小小的你？”", "keys": [{"w": "join", "p": "/dʒɔɪn/", "zh": "参加"}], "phrases": [{"en": "I’m joining", "zh": "我要参加"}]}, {"img": "images/brave-tank/page-8.jpg", "en": "Grandpa Armor patted Little Steel gently. “A true hero is not the biggest, but the bravest.”", "zh": "铁甲爷爷轻轻拍了拍小钢。“真正的英雄不是最大的，而是最勇敢的。”", "keys": [{"w": "grandpa", "p": "/ˈɡrændpɑː/", "zh": "爷爷"}], "phrases": [{"en": "patted Little Steel gently", "zh": "轻轻拍了拍小钢"}]}, {"img": "images/brave-tank/page-9.jpg", "en": "Little Steel teamed up with his best friends — steady Big Iron and fast Lightning!", "zh": "小钢找到了最好的朋友——稳重的大铁和快速的闪电，组成了一支队伍！", "keys": [{"w": "teamed up", "p": "/tiːmd ʌp/", "zh": "组队；合作"}], "phrases": [{"en": "teamed up with his best friends", "zh": "和他最好的朋友组队"}]}, {"img": "images/brave-tank/page-10.jpg", "en": "The race was on! Teams had to cross the desert, the forest, and climb the mountain!", "zh": "比赛开始了！队伍要穿越沙漠、森林，还要爬上山顶！", "keys": [{"w": "race", "p": "/reɪs/", "zh": "比赛"}], "phrases": [{"en": "The race was on", "zh": "比赛开始了"}]}, {"img": "images/brave-tank/page-11.jpg", "en": "The desert was so hot! Big Iron got stuck in the sand. “Don’t worry, I’ll help!”", "zh": "沙漠好热！大铁陷进沙子里了。“别急，我来帮你！”", "keys": [{"w": "hot", "p": "/hɑːt/", "zh": "炎热的"}], "phrases": [{"en": "so hot", "zh": "非常热"}]}, {"img": "images/brave-tank/page-12.jpg", "en": "The forest was full of big trees. “Follow me!” Lightning zipped through the narrow paths.", "zh": "森林里到处是大树。“跟我来！”闪电灵活地穿过小路。", "keys": [{"w": "forest", "p": "/ˈfɔːrɪst/", "zh": "森林"}], "phrases": [{"en": "full of big trees", "zh": "到处是大树"}]}, {"img": "images/brave-tank/page-13.jpg", "en": "A wide river blocked the way! There was no bridge. “How do we cross?” everyone worried.", "zh": "一条大河挡住了去路！没有桥。“怎么过去呢？”大家都愁了。", "keys": [{"w": "river", "p": "/ˈrɪvər/", "zh": "河流"}], "phrases": [{"en": "blocked the way", "zh": "挡住了去路"}]}, {"img": "images/brave-tank/page-14.jpg", "en": "“I have an idea!” Little Steel pointed at a fallen tree. “We can make a bridge!”", "zh": "“我有办法！”小钢指着倒下的大树。“我们可以搭一座桥！”", "keys": [{"w": "idea", "p": "/aɪˈdiːə/", "zh": "主意；想法"}], "phrases": [{"en": "I have an idea", "zh": "我有办法"}]}, {"img": "images/brave-tank/page-15.jpg", "en": "The log bridge held! Big Iron went first, then Lightning zoomed across. Little Steel crossed carefully and safely.", "zh": "树桥很稳！大铁先过，闪电忮地跑过，小钢小心翼翼地安全过了河。", "keys": [{"w": "log", "p": "/lɔːɡ/", "zh": "原木；木头"}], "phrases": [{"en": "The log bridge held", "zh": "树桥很稳"}]}, {"img": "images/brave-tank/page-16.jpg", "en": "Near the top, Red Thunder’s team blocked the path with big rocks! “You can’t win now!”", "zh": "快到山顶了！红雷的队伍用大石头挡住了路！“你们赢不了啦！”", "keys": [{"w": "top", "p": "/tɑːp/", "zh": "顶部；山顶"}], "phrases": [{"en": "blocked the path with big rocks", "zh": "用大石头挡住了路"}]}, {"img": "images/brave-tank/page-17.jpg", "en": "“There’s a gap under the rocks! I’m the smallest — I can squeeze through!” said Little Steel.", "zh": "“石头下面有缝隙！我最小，我可以钻过去！”小钢说。", "keys": [{"w": "gap", "p": "/ɡæp/", "zh": "缝隙；空隙"}], "phrases": [{"en": "There’s a gap under the rocks", "zh": "石头下面有缝隙"}]}, {"img": "images/brave-tank/page-18.jpg", "en": "Little Steel reached the top first and grabbed the golden flag! “We won!”", "zh": "小钢第一个到达山顶，拿到了金色旗帜！“我们赢了！”", "keys": [{"w": "reached", "p": "/riːtʃt/", "zh": "到达"}], "phrases": [{"en": "reached the top first", "zh": "第一个到达山顶"}]}, {"img": "images/brave-tank/page-19.jpg", "en": "On the way down, Red Thunder was trapped in a landslide! “Help me!” he cried.", "zh": "下山路上，红雷被困在滑坡里！“救命！”他喊道。", "keys": [{"w": "trapped", "p": "/træpt/", "zh": "被困住的"}], "phrases": [{"en": "On the way down", "zh": "下山路上"}]}, {"img": "images/brave-tank/page-19.jpg", "en": "Big Iron pulled with a rope, Lightning moved rocks, and Little Steel pushed from below. Together, they saved Red Thunder!", "zh": "大铁用绳子拉，闪电搬石头，小钢从下面顶。大家一起救出了红雷！", "keys": [{"w": "rope", "p": "/roʊp/", "zh": "绳子"}], "phrases": [{"en": "pulled with a rope", "zh": "用绳子拉"}]}];
+const STORY = {"id": "brave-tank", "title": "The Brave Little Tank", "titleZh": "勇敢的小坦克", "category": "原创", "cover": "images/covers/cover-brave-tank.jpg", "pages": [{"img": "images/brave-tank/page-2.jpg", "en": "In a beautiful valley, there lived a brave little tank named Little Steel.", "zh": "在一片美丽的山谷里，住着一辆勇敢的小坦克，名叫小钢。", "keys": [{"w": "beautiful", "p": "/ˈbjuːtɪfəl/", "zh": "美丽的"}], "phrases": [{"en": "in a beautiful valley", "zh": "在一片美丽的山谷里"}], "title": ""}, {"img": "images/brave-tank/page-3.jpg", "en": "Welcome to Tank Town, where all kinds of tanks live happily together!", "zh": "欢迎来到坦克小镇，各种各样的坦克快乐地生活在这里！", "keys": [{"w": "welcome", "p": "/ˈwelkəm/", "zh": "欢迎"}], "phrases": [{"en": "Welcome to Tank Town", "zh": "欢迎来到坦克小镇"}], "title": ""}, {"img": "images/brave-tank/page-4.jpg", "en": "Little Steel was the smallest tank in town, with a tiny cannon and a big heart.", "zh": "小钢是镇上最小的坦克，炮管短短的，却有一颗大大的心。", "keys": [{"w": "smallest", "p": "/ˈsmɔːlɪst/", "zh": "最小的"}], "phrases": [{"en": "the smallest tank in town", "zh": "镇上最小的坦克"}], "title": ""}, {"img": "images/brave-tank/page-5.jpg", "en": "“I want to be a hero!” Little Steel practiced his brave face in the mirror every day.", "zh": "“我要成为英雄！”小钢每天都对着镜子练习勇敢的表情。", "keys": [{"w": "hero", "p": "/ˈhɪroʊ/", "zh": "英雄"}], "phrases": [{"en": "I want to be a hero", "zh": "我要成为英雄"}], "title": ""}, {"img": "images/brave-tank/page-6.jpg", "en": "Every year, Tank Town held the Brave Contest — a big adventure race!", "zh": "坦克小镇每年都会举办勇士大赛——一场大型冒险比赛！", "keys": [{"w": "year", "p": "/jɪr/", "zh": "年"}], "phrases": [{"en": "Every year", "zh": "每年"}], "title": ""}, {"img": "images/brave-tank/page-7.jpg", "en": "“I’m joining!” said Little Steel. The big tanks all laughed. “You? Little you?”", "zh": "“我要参加！”小钢说。大坦克们都笑了。“你？小小的你？”", "keys": [{"w": "join", "p": "/dʒɔɪn/", "zh": "参加"}], "phrases": [{"en": "I’m joining", "zh": "我要参加"}], "title": ""}, {"img": "images/brave-tank/page-8.jpg", "en": "Grandpa Armor patted Little Steel gently. “A true hero is not the biggest, but the bravest.”", "zh": "铁甲爷爷轻轻拍了拍小钢。“真正的英雄不是最大的，而是最勇敢的。”", "keys": [{"w": "grandpa", "p": "/ˈɡrændpɑː/", "zh": "爷爷"}], "phrases": [{"en": "patted Little Steel gently", "zh": "轻轻拍了拍小钢"}], "title": ""}, {"img": "images/brave-tank/page-9.jpg", "en": "Little Steel teamed up with his best friends — steady Big Iron and fast Lightning!", "zh": "小钢找到了最好的朋友——稳重的大铁和快速的闪电，组成了一支队伍！", "keys": [{"w": "teamed up", "p": "/tiːmd ʌp/", "zh": "组队；合作"}], "phrases": [{"en": "teamed up with his best friends", "zh": "和他最好的朋友组队"}], "title": ""}, {"img": "images/brave-tank/page-10.jpg", "en": "The race was on! Teams had to cross the desert, the forest, and climb the mountain!", "zh": "比赛开始了！队伍要穿越沙漠、森林，还要爬上山顶！", "keys": [{"w": "race", "p": "/reɪs/", "zh": "比赛"}], "phrases": [{"en": "The race was on", "zh": "比赛开始了"}], "title": ""}, {"img": "images/brave-tank/page-11.jpg", "en": "The desert was so hot! Big Iron got stuck in the sand. “Don’t worry, I’ll help!”", "zh": "沙漠好热！大铁陷进沙子里了。“别急，我来帮你！”", "keys": [{"w": "hot", "p": "/hɑːt/", "zh": "炎热的"}], "phrases": [{"en": "so hot", "zh": "非常热"}], "title": ""}, {"img": "images/brave-tank/page-12.jpg", "en": "The forest was full of big trees. “Follow me!” Lightning zipped through the narrow paths.", "zh": "森林里到处是大树。“跟我来！”闪电灵活地穿过小路。", "keys": [{"w": "forest", "p": "/ˈfɔːrɪst/", "zh": "森林"}], "phrases": [{"en": "full of big trees", "zh": "到处是大树"}], "title": ""}, {"img": "images/brave-tank/page-13.jpg", "en": "A wide river blocked the way! There was no bridge. “How do we cross?” everyone worried.", "zh": "一条大河挡住了去路！没有桥。“怎么过去呢？”大家都愁了。", "keys": [{"w": "river", "p": "/ˈrɪvər/", "zh": "河流"}], "phrases": [{"en": "blocked the way", "zh": "挡住了去路"}], "title": ""}, {"img": "images/brave-tank/page-14.jpg", "en": "“I have an idea!” Little Steel pointed at a fallen tree. “We can make a bridge!”", "zh": "“我有办法！”小钢指着倒下的大树。“我们可以搭一座桥！”", "keys": [{"w": "idea", "p": "/aɪˈdiːə/", "zh": "主意；想法"}], "phrases": [{"en": "I have an idea", "zh": "我有办法"}], "title": ""}, {"img": "images/brave-tank/page-15.jpg", "en": "The log bridge held! Big Iron went first, then Lightning zoomed across. Little Steel crossed carefully and safely.", "zh": "树桥很稳！大铁先过，闪电忮地跑过，小钢小心翼翼地安全过了河。", "keys": [{"w": "log", "p": "/lɔːɡ/", "zh": "原木；木头"}], "phrases": [{"en": "The log bridge held", "zh": "树桥很稳"}], "title": ""}, {"img": "images/brave-tank/page-16.jpg", "en": "Near the top, Red Thunder’s team blocked the path with big rocks! “You can’t win now!”", "zh": "快到山顶了！红雷的队伍用大石头挡住了路！“你们赢不了啦！”", "keys": [{"w": "top", "p": "/tɑːp/", "zh": "顶部；山顶"}], "phrases": [{"en": "blocked the path with big rocks", "zh": "用大石头挡住了路"}], "title": ""}, {"img": "images/brave-tank/page-17.jpg", "en": "“There’s a gap under the rocks! I’m the smallest — I can squeeze through!” said Little Steel.", "zh": "“石头下面有缝隙！我最小，我可以钻过去！”小钢说。", "keys": [{"w": "gap", "p": "/ɡæp/", "zh": "缝隙；空隙"}], "phrases": [{"en": "There’s a gap under the rocks", "zh": "石头下面有缝隙"}], "title": ""}, {"img": "images/brave-tank/page-18.jpg", "en": "Little Steel reached the top first and grabbed the golden flag! “We won!”", "zh": "小钢第一个到达山顶，拿到了金色旗帜！“我们赢了！”", "keys": [{"w": "reached", "p": "/riːtʃt/", "zh": "到达"}], "phrases": [{"en": "reached the top first", "zh": "第一个到达山顶"}], "title": ""}, {"img": "images/brave-tank/page-19.jpg", "en": "On the way down, Red Thunder was trapped in a landslide! “Help me!” he cried.", "zh": "下山路上，红雷被困在滑坡里！“救命！”他喊道。", "keys": [{"w": "trapped", "p": "/træpt/", "zh": "被困住的"}], "phrases": [{"en": "On the way down", "zh": "下山路上"}], "title": ""}, {"img": "images/brave-tank/page-19.jpg", "en": "Big Iron pulled with a rope, Lightning moved rocks, and Little Steel pushed from below. Together, they saved Red Thunder!", "zh": "大铁用绳子拉，闪电搬石头，小钢从下面顶。大家一起救出了红雷！", "keys": [{"w": "rope", "p": "/roʊp/", "zh": "绳子"}], "phrases": [{"en": "pulled with a rope", "zh": "用绳子拉"}], "title": ""}], "intro_cn_pages": [{"title": "勇敢的小坦克 · 故事开始", "img": "images/brave-tank/page-2.jpg", "en": "", "zh": "在一片美丽的山谷里，住着一辆勇敢的小坦克，名叫小钢。", "keys": [{"w": "beautiful", "p": "/ˈbjuːtɪfəl/", "zh": "美丽的"}], "phrases": [{"en": "in a beautiful valley", "zh": "在一片美丽的山谷里"}]}, {"title": "勇敢的小坦克 · 中间发生了什么", "img": "images/brave-tank/page-11.jpg", "en": "", "zh": "沙漠好热！大铁陷进沙子里了。", "keys": [{"w": "hot", "p": "/hɑːt/", "zh": "炎热的"}], "phrases": [{"en": "so hot", "zh": "非常热"}]}, {"title": "勇敢的小坦克 · 故事结尾", "img": "images/brave-tank/page-19.jpg", "en": "", "zh": "大铁用绳子拉，闪电搬石头，小钢从下面顶。大家一起救出了红雷！", "keys": [{"w": "rope", "p": "/roʊp/", "zh": "绳子"}], "phrases": [{"en": "pulled with a rope", "zh": "用绳子拉"}]}], "reader_pages_simple_en": [{"title": "", "img": "images/brave-tank/page-2.jpg", "en": "In a beautiful valley, there lived a brave little tank named Little Steel.", "zh": "在一片美丽的山谷里，住着一辆勇敢的小坦克，名叫小钢。", "keys": [{"w": "beautiful", "p": "/ˈbjuːtɪfəl/", "zh": "美丽的"}], "phrases": [{"en": "in a beautiful valley", "zh": "在一片美丽的山谷里"}]}, {"title": "", "img": "images/brave-tank/page-5.jpg", "en": "“I want to be a hero!” Little Steel practiced his brave face in the.", "zh": "“我要成为英雄！”小钢每天都对着镜子练习勇敢的表情。", "keys": [{"w": "hero", "p": "/ˈhɪroʊ/", "zh": "英雄"}], "phrases": [{"en": "I want to be a hero", "zh": "我要成为英雄"}]}, {"title": "", "img": "images/brave-tank/page-7.jpg", "en": "“I’m joining!” said Little Steel. The big tanks all laughed.", "zh": "“我要参加！”小钢说。", "keys": [{"w": "join", "p": "/dʒɔɪn/", "zh": "参加"}], "phrases": [{"en": "I’m joining", "zh": "我要参加"}]}, {"title": "", "img": "images/brave-tank/page-10.jpg", "en": "The race was on! Teams had to cross the desert, the forest, and climb the mountain!", "zh": "比赛开始了！队伍要穿越沙漠、森林，还要爬上山顶！", "keys": [{"w": "race", "p": "/reɪs/", "zh": "比赛"}], "phrases": [{"en": "The race was on", "zh": "比赛开始了"}]}, {"title": "", "img": "images/brave-tank/page-12.jpg", "en": "The forest was full of big trees. “Follow me!” Lightning zipped through the narrow paths.", "zh": "森林里到处是大树。“跟我来！", "keys": [{"w": "forest", "p": "/ˈfɔːrɪst/", "zh": "森林"}], "phrases": [{"en": "full of big trees", "zh": "到处是大树"}]}, {"title": "", "img": "images/brave-tank/page-15.jpg", "en": "The log bridge held! Big Iron went first, then Lightning zoomed across.", "zh": "树桥很稳！大铁先过，闪电忮地跑过，小钢小心翼翼地安全过了河。", "keys": [{"w": "log", "p": "/lɔːɡ/", "zh": "原木；木头"}], "phrases": [{"en": "The log bridge held", "zh": "树桥很稳"}]}, {"title": "", "img": "images/brave-tank/page-17.jpg", "en": "“There’s a gap under the rocks! I’m the smallest — I can squeeze through!” said Little Steel.", "zh": "“石头下面有缝隙！我最小，我可以钻过去！", "keys": [{"w": "gap", "p": "/ɡæp/", "zh": "缝隙；空隙"}], "phrases": [{"en": "There’s a gap under the rocks", "zh": "石头下面有缝隙"}]}, {"title": "", "img": "images/brave-tank/page-19.jpg", "en": "Big Iron pulled with a rope, Lightning moved rocks, and Little Steel pushed from. Together, they saved Red Thunder!", "zh": "大铁用绳子拉，闪电搬石头，小钢从下面顶。大家一起救出了红雷！", "keys": [{"w": "rope", "p": "/roʊp/", "zh": "绳子"}], "phrases": [{"en": "pulled with a rope", "zh": "用绳子拉"}]}]};
+const legacy_pages = [{"img": "images/brave-tank/page-2.jpg", "en": "In a beautiful valley, there lived a brave little tank named Little Steel.", "zh": "在一片美丽的山谷里，住着一辆勇敢的小坦克，名叫小钢。", "keys": [{"w": "beautiful", "p": "/ˈbjuːtɪfəl/", "zh": "美丽的"}], "phrases": [{"en": "in a beautiful valley", "zh": "在一片美丽的山谷里"}], "title": ""}, {"img": "images/brave-tank/page-3.jpg", "en": "Welcome to Tank Town, where all kinds of tanks live happily together!", "zh": "欢迎来到坦克小镇，各种各样的坦克快乐地生活在这里！", "keys": [{"w": "welcome", "p": "/ˈwelkəm/", "zh": "欢迎"}], "phrases": [{"en": "Welcome to Tank Town", "zh": "欢迎来到坦克小镇"}], "title": ""}, {"img": "images/brave-tank/page-4.jpg", "en": "Little Steel was the smallest tank in town, with a tiny cannon and a big heart.", "zh": "小钢是镇上最小的坦克，炮管短短的，却有一颗大大的心。", "keys": [{"w": "smallest", "p": "/ˈsmɔːlɪst/", "zh": "最小的"}], "phrases": [{"en": "the smallest tank in town", "zh": "镇上最小的坦克"}], "title": ""}, {"img": "images/brave-tank/page-5.jpg", "en": "“I want to be a hero!” Little Steel practiced his brave face in the mirror every day.", "zh": "“我要成为英雄！”小钢每天都对着镜子练习勇敢的表情。", "keys": [{"w": "hero", "p": "/ˈhɪroʊ/", "zh": "英雄"}], "phrases": [{"en": "I want to be a hero", "zh": "我要成为英雄"}], "title": ""}, {"img": "images/brave-tank/page-6.jpg", "en": "Every year, Tank Town held the Brave Contest — a big adventure race!", "zh": "坦克小镇每年都会举办勇士大赛——一场大型冒险比赛！", "keys": [{"w": "year", "p": "/jɪr/", "zh": "年"}], "phrases": [{"en": "Every year", "zh": "每年"}], "title": ""}, {"img": "images/brave-tank/page-7.jpg", "en": "“I’m joining!” said Little Steel. The big tanks all laughed. “You? Little you?”", "zh": "“我要参加！”小钢说。大坦克们都笑了。“你？小小的你？”", "keys": [{"w": "join", "p": "/dʒɔɪn/", "zh": "参加"}], "phrases": [{"en": "I’m joining", "zh": "我要参加"}], "title": ""}, {"img": "images/brave-tank/page-8.jpg", "en": "Grandpa Armor patted Little Steel gently. “A true hero is not the biggest, but the bravest.”", "zh": "铁甲爷爷轻轻拍了拍小钢。“真正的英雄不是最大的，而是最勇敢的。”", "keys": [{"w": "grandpa", "p": "/ˈɡrændpɑː/", "zh": "爷爷"}], "phrases": [{"en": "patted Little Steel gently", "zh": "轻轻拍了拍小钢"}], "title": ""}, {"img": "images/brave-tank/page-9.jpg", "en": "Little Steel teamed up with his best friends — steady Big Iron and fast Lightning!", "zh": "小钢找到了最好的朋友——稳重的大铁和快速的闪电，组成了一支队伍！", "keys": [{"w": "teamed up", "p": "/tiːmd ʌp/", "zh": "组队；合作"}], "phrases": [{"en": "teamed up with his best friends", "zh": "和他最好的朋友组队"}], "title": ""}, {"img": "images/brave-tank/page-10.jpg", "en": "The race was on! Teams had to cross the desert, the forest, and climb the mountain!", "zh": "比赛开始了！队伍要穿越沙漠、森林，还要爬上山顶！", "keys": [{"w": "race", "p": "/reɪs/", "zh": "比赛"}], "phrases": [{"en": "The race was on", "zh": "比赛开始了"}], "title": ""}, {"img": "images/brave-tank/page-11.jpg", "en": "The desert was so hot! Big Iron got stuck in the sand. “Don’t worry, I’ll help!”", "zh": "沙漠好热！大铁陷进沙子里了。“别急，我来帮你！”", "keys": [{"w": "hot", "p": "/hɑːt/", "zh": "炎热的"}], "phrases": [{"en": "so hot", "zh": "非常热"}], "title": ""}, {"img": "images/brave-tank/page-12.jpg", "en": "The forest was full of big trees. “Follow me!” Lightning zipped through the narrow paths.", "zh": "森林里到处是大树。“跟我来！”闪电灵活地穿过小路。", "keys": [{"w": "forest", "p": "/ˈfɔːrɪst/", "zh": "森林"}], "phrases": [{"en": "full of big trees", "zh": "到处是大树"}], "title": ""}, {"img": "images/brave-tank/page-13.jpg", "en": "A wide river blocked the way! There was no bridge. “How do we cross?” everyone worried.", "zh": "一条大河挡住了去路！没有桥。“怎么过去呢？”大家都愁了。", "keys": [{"w": "river", "p": "/ˈrɪvər/", "zh": "河流"}], "phrases": [{"en": "blocked the way", "zh": "挡住了去路"}], "title": ""}, {"img": "images/brave-tank/page-14.jpg", "en": "“I have an idea!” Little Steel pointed at a fallen tree. “We can make a bridge!”", "zh": "“我有办法！”小钢指着倒下的大树。“我们可以搭一座桥！”", "keys": [{"w": "idea", "p": "/aɪˈdiːə/", "zh": "主意；想法"}], "phrases": [{"en": "I have an idea", "zh": "我有办法"}], "title": ""}, {"img": "images/brave-tank/page-15.jpg", "en": "The log bridge held! Big Iron went first, then Lightning zoomed across. Little Steel crossed carefully and safely.", "zh": "树桥很稳！大铁先过，闪电忮地跑过，小钢小心翼翼地安全过了河。", "keys": [{"w": "log", "p": "/lɔːɡ/", "zh": "原木；木头"}], "phrases": [{"en": "The log bridge held", "zh": "树桥很稳"}], "title": ""}, {"img": "images/brave-tank/page-16.jpg", "en": "Near the top, Red Thunder’s team blocked the path with big rocks! “You can’t win now!”", "zh": "快到山顶了！红雷的队伍用大石头挡住了路！“你们赢不了啦！”", "keys": [{"w": "top", "p": "/tɑːp/", "zh": "顶部；山顶"}], "phrases": [{"en": "blocked the path with big rocks", "zh": "用大石头挡住了路"}], "title": ""}, {"img": "images/brave-tank/page-17.jpg", "en": "“There’s a gap under the rocks! I’m the smallest — I can squeeze through!” said Little Steel.", "zh": "“石头下面有缝隙！我最小，我可以钻过去！”小钢说。", "keys": [{"w": "gap", "p": "/ɡæp/", "zh": "缝隙；空隙"}], "phrases": [{"en": "There’s a gap under the rocks", "zh": "石头下面有缝隙"}], "title": ""}, {"img": "images/brave-tank/page-18.jpg", "en": "Little Steel reached the top first and grabbed the golden flag! “We won!”", "zh": "小钢第一个到达山顶，拿到了金色旗帜！“我们赢了！”", "keys": [{"w": "reached", "p": "/riːtʃt/", "zh": "到达"}], "phrases": [{"en": "reached the top first", "zh": "第一个到达山顶"}], "title": ""}, {"img": "images/brave-tank/page-19.jpg", "en": "On the way down, Red Thunder was trapped in a landslide! “Help me!” he cried.", "zh": "下山路上，红雷被困在滑坡里！“救命！”他喊道。", "keys": [{"w": "trapped", "p": "/træpt/", "zh": "被困住的"}], "phrases": [{"en": "On the way down", "zh": "下山路上"}], "title": ""}, {"img": "images/brave-tank/page-19.jpg", "en": "Big Iron pulled with a rope, Lightning moved rocks, and Little Steel pushed from below. Together, they saved Red Thunder!", "zh": "大铁用绳子拉，闪电搬石头，小钢从下面顶。大家一起救出了红雷！", "keys": [{"w": "rope", "p": "/roʊp/", "zh": "绳子"}], "phrases": [{"en": "pulled with a rope", "zh": "用绳子拉"}], "title": ""}];
 const game_url = '../../game/classic/brave-tank.html';
+const intro_pages = Array.isArray(STORY.intro_cn_pages) ? STORY.intro_cn_pages : [];
+const reader_pages = Array.isArray(STORY.reader_pages_simple_en) && STORY.reader_pages_simple_en.length
+  ? STORY.reader_pages_simple_en
+  : (Array.isArray(STORY.pages) && STORY.pages.length ? STORY.pages : legacy_pages);
+const page_list = [
+  ...intro_pages.map((page) => ({ ...page, section: 'intro' })),
+  ...reader_pages.map((page) => ({ ...page, section: 'reader' })),
+];
+if (!page_list.length) {
+  page_list.push({
+    section: 'reader',
+    title: '',
+    img: '',
+    en: 'Content is coming soon.',
+    zh: '故事内容正在整理中。',
+    keys: [],
+    phrases: [],
+  });
+}
 let current_page = 0;
 let current_rate = 0.92;
 let is_reading = false;
@@ -269,12 +321,26 @@ function build_word_tokens(en_text) {
   });
 }
 
+function get_current_page() {
+  return page_list[current_page] || page_list[0];
+}
+
+function get_section_label(page) {
+  if (page.section === 'intro') return '中文剧情导入';
+  return intro_pages.length ? '英文简版阅读' : '故事阅读';
+}
+
 function update_translation_ui() {
   const zh_box = document.getElementById('zh_sentence');
   const toggle_btn = document.getElementById('translate_toggle_btn');
-  if (!zh_box || !toggle_btn) return;
-  zh_box.classList.toggle('hidden', !translation_visible);
-  toggle_btn.textContent = translation_visible ? '隐藏翻译' : '显示翻译';
+  const page = get_current_page();
+  if (!zh_box || !toggle_btn || !page) return;
+  const is_intro = page.section === 'intro';
+  toggle_btn.style.display = is_intro ? 'none' : 'inline-block';
+  zh_box.classList.toggle('hidden', !is_intro && !translation_visible);
+  if (!is_intro) {
+    toggle_btn.textContent = translation_visible ? '隐藏翻译' : '显示翻译';
+  }
 }
 
 function toggle_translation(force_visible) {
@@ -287,8 +353,10 @@ function toggle_translation(force_visible) {
 }
 
 function render_page(page_index) {
-  const page = pages_data[page_index];
-  current_word_ranges = build_word_tokens(page.en || '');
+  const page = page_list[page_index];
+  const is_intro = page.section === 'intro';
+  const section_label = get_section_label(page);
+  current_word_ranges = is_intro ? [] : build_word_tokens(page.en || '');
   const words_html = current_word_ranges.map((item, idx) =>
     `<span class="word" id="w_${idx}" onclick="show_word_tip(this,'${escape_for_attr(item.token)}')">${item.token}</span>`
   ).join(' ');
@@ -302,16 +370,33 @@ function render_page(page_index) {
   const phrase_row_html = (page.phrases || []).length ? (page.phrases || []).map((item) =>
     `<span class="lex_chip phrases" onclick="speak_phrase('${escape_for_attr(item.en || '')}')"><b>${item.en || ''}</b> ${item.zh || ''}</span>`
   ).join('') : '<span class="lex_empty">暂无重点词组</span>';
+  const intro_title_html = page.title ? `<div class="intro_title">${page.title}</div>` : '';
+  const intro_lexicon_html = ((page.keys || []).length || (page.phrases || []).length) ? `
+      <div class="lexicon">
+        <div class="lex_row"><span class="lex_label words">单词</span><div class="lex_items">${word_row_html}</div></div>
+        <div class="lex_row"><span class="lex_label phrases">词组</span><div class="lex_items">${phrase_row_html}</div></div>
+      </div>` : '';
 
-  document.getElementById('page_area').innerHTML = `
+  document.getElementById('page_area').innerHTML = is_intro ? `
+    <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
+    <div class="text_area intro_mode">
+      <div class="text_toolbar">
+        <div class="phase_badge">🧭 ${section_label}</div>
+        <div class="intro_note">先听中文剧情，先建立画面，再进入英文阅读。</div>
+      </div>
+      ${intro_title_html}
+      <div class="intro_copy zh_sentence" id="zh_sentence">${zh_html}</div>
+      ${intro_lexicon_html}
+    </div>` : `
     <img class="hero_img" src="${get_asset_src(page.img)}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
     <div class="text_area">
       <div class="text_toolbar">
-        <div class="toolbar_tip">点英文可听单词，点下方卡片可听单词和词组</div>
+        <div class="phase_badge">📘 ${section_label}</div>
         <div class="toolbar_actions">
           <button class="translate_btn" onclick="toggle_translation()">${translation_visible ? '隐藏翻译' : '显示翻译'}</button>
         </div>
       </div>
+      <div class="toolbar_tip">点英文可听单词，点下方卡片可听单词和词组</div>
       <div class="en_sentence">${words_html}</div>
       <div class="zh_sentence hidden" id="zh_sentence">${zh_html}</div>
       <div class="lexicon">
@@ -320,12 +405,13 @@ function render_page(page_index) {
       </div>
     </div>`;
 
-  document.getElementById('progress_fill').style.width = `${((page_index + 1) / pages_data.length) * 100}%`;
-  document.getElementById('page_total').textContent = `第 ${page_index + 1} 页，共 ${pages_data.length} 页`;
-  document.getElementById('page_indicator').textContent = `${page_index + 1} / ${pages_data.length}`;
+  document.getElementById('progress_fill').style.width = `${((page_index + 1) / page_list.length) * 100}%`;
+  document.getElementById('page_total').textContent = `${section_label} · 第 ${page_index + 1} 页，共 ${page_list.length} 页`;
+  document.getElementById('page_indicator').textContent = `${page_index + 1} / ${page_list.length}`;
   document.getElementById('prev_btn').disabled = page_index === 0;
-  const on_last_page = page_index === pages_data.length - 1;
-  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : '下一页 →';
+  const on_last_page = page_index === page_list.length - 1;
+  const on_last_intro_page = intro_pages.length && page_index === intro_pages.length - 1;
+  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : (on_last_intro_page ? '进入英文阅读 →' : '下一页 →');
   document.getElementById('to_game_btn').style.display = on_last_page ? 'inline-block' : 'none';
   update_translation_ui();
 }
@@ -356,8 +442,7 @@ function highlight_en_word(char_index) {
   if (active_word) active_word.classList.add('speaking');
 }
 
-async function speak_english_sentence() {
-  const page = pages_data[current_page];
+async function speak_english_sentence(page) {
   await speak_utterance(String(page.en || ''), 'en-US', current_rate * 0.92, (event) => {
     if (typeof event.charIndex === 'number') {
       highlight_en_word(event.charIndex);
@@ -365,9 +450,9 @@ async function speak_english_sentence() {
   });
 }
 
-async function speak_chinese_sentence() {
-  toggle_translation(true);
-  const zh_chunks = split_zh_chunks(pages_data[current_page].zh || '');
+async function speak_chinese_sentence(page) {
+  if (page.section !== 'intro') toggle_translation(true);
+  const zh_chunks = split_zh_chunks(page.zh || '');
   for (let i = 0; i < zh_chunks.length; i += 1) {
     clear_highlight();
     const current_chunk = document.getElementById(`zh_${i}`);
@@ -381,16 +466,20 @@ async function read_current() {
   is_reading = true;
   synth.cancel();
   clear_highlight();
-  const page = pages_data[current_page];
-  await speak_english_sentence();
-  clear_highlight();
-  await speak_chinese_sentence();
-  clear_highlight();
-  for (const item of (page.keys || [])) {
-    await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
-  }
-  for (const item of (page.phrases || [])) {
-    await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+  const page = get_current_page();
+  if (page.section === 'intro') {
+    await speak_chinese_sentence(page);
+  } else {
+    await speak_english_sentence(page);
+    clear_highlight();
+    await speak_chinese_sentence(page);
+    clear_highlight();
+    for (const item of (page.keys || [])) {
+      await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
+    }
+    for (const item of (page.phrases || [])) {
+      await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+    }
   }
   is_reading = false;
 }
@@ -400,7 +489,7 @@ async function read_chinese_only() {
   is_reading = true;
   synth.cancel();
   clear_highlight();
-  await speak_chinese_sentence();
+  await speak_chinese_sentence(get_current_page());
   clear_highlight();
   is_reading = false;
 }
@@ -412,7 +501,8 @@ function show_word_tip(target_el, word_text) {
     old_tip.remove();
     return;
   }
-  const page = pages_data[current_page];
+  const page = get_current_page();
+  if (page.section === 'intro') return;
   const clean_word = String(word_text || '').toLowerCase().replace(/[.,!?'"“”]/g, '');
   const found = (page.keys || []).find((item) => String(item.w || '').toLowerCase() === clean_word);
   if (!found) return;
@@ -443,12 +533,12 @@ function goto_game() {
 function change_page(direction) {
   synth.cancel();
   clear_highlight();
-  const on_last_page = current_page === pages_data.length - 1;
+  const on_last_page = current_page === page_list.length - 1;
   if (direction > 0 && on_last_page) {
     goto_game();
     return;
   }
-  current_page = Math.max(0, Math.min(pages_data.length - 1, current_page + direction));
+  current_page = Math.max(0, Math.min(page_list.length - 1, current_page + direction));
   render_page(current_page);
 }
 

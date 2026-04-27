@@ -30,6 +30,7 @@
   }
   .top_bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; gap:8px; }
   .unit_title { color:#f4c778; font-size:17px; font-weight:700; }
+  .unit_title small { display:block; color:#b8cae6; font-size:12px; font-weight:600; margin-top:4px; }
   .star_display { color:#ffd166; font-size:24px; font-weight:800; }
   .stage_title { color:#a8e6cf; font-size:22px; text-align:center; margin-bottom:14px; }
   .options_grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:12px; }
@@ -110,6 +111,21 @@
   .big_stars { font-size:52px; letter-spacing:6px; }
   .finish_msg { margin-top:10px; color:#c6ffe6; font-size:22px; }
   .finish_tip { margin-top:8px; color:#dbebfd; font-size:15px; }
+  .review_strip {
+    margin-top:14px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
+  }
+  .review_chip {
+    border-radius:999px;
+    background:#10365f;
+    color:#ecf5ff;
+    border:1px solid #2a5f96;
+    padding:6px 10px;
+    font-size:13px;
+  }
   .finish_links { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:14px; }
   @keyframes star_pop {
     0% { transform:scale(0.2); opacity:0.2; }
@@ -123,14 +139,14 @@
 <canvas class="starfield" id="starCanvas"></canvas>
 <div class="game_card">
   <div class="top_bar">
-    <div class="unit_title">Tank Battles Book 1</div>
+    <div class="unit_title">Tank Battles Book 1<small>坦克大战·第一册</small></div>
     <div class="star_display"><span id="star_count">⭐ 0</span></div>
   </div>
   <div id="stage_area"></div>
 </div>
 
 <script>
-const STORY = {"id": "tank-1", "title": "Tank Battles Book 1", "titleZh": "坦克大战·第一册", "category": "我的世界", "cover": "images/covers/cover-tank-1.jpg", "pages": [{"img": "images/tank-1/page-1.jpg", "en": "In the world of blocks, a player had a big dream — to build tanks!", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}]}, {"img": "images/tank-1/page-2.jpg", "en": "He worked for days, placing blocks one by one. First, a heavy tank with thick iron armor!", "zh": "他捣鼓了好几天，一个方块一个方块地拼。第一辆，是皮糙肉厚的重型坦克！", "keys": [{"w": "placing", "p": "/ˈpleɪsɪŋ/", "zh": "放置"}], "phrases": [{"en": "worked for days", "zh": "捣鼓了好几天"}]}, {"img": "images/tank-1/page-3.jpg", "en": "Then a light tank that zooms across the plains super fast!", "zh": "然后是一辆轻型坦克，在平原上跑起来飞快！", "keys": [{"w": "light", "p": "/laɪt/", "zh": "轻的"}], "phrases": [{"en": "zooms across the plains", "zh": "飞快地穿过平原"}]}, {"img": "images/tank-1/page-4.jpg", "en": "And finally, a missile tank! When it fires, the missiles fly high with fiery trails!", "zh": "最后还造了一辆导弹坦克！发射的时候导弹拖着火焰飞出去，超炫酷！", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "最后"}], "phrases": [{"en": "missile tank", "zh": "导弹坦克"}]}, {"img": "images/tank-1/page-5.jpg", "en": "All three tanks lined up in the garage. The player could not wait any longer!", "zh": "三辆坦克停在车库里整整齐齐。他迫不及待要开出去浪了！", "keys": [{"w": "lined up", "p": "/laɪnd ʌp/", "zh": "排成一排"}], "phrases": [{"en": "lined up in the garage", "zh": "整齐地停在车库里"}]}, {"img": "images/tank-1/page-6.jpg", "en": "He drove the heavy tank straight to the monster nest. Zombies and skeletons were everywhere!", "zh": "他开着重型坦克直接冲到怪物窝旁边。到处都是僵尸和骷髅！", "keys": [{"w": "drove", "p": "/droʊv/", "zh": "驾驶"}], "phrases": [{"en": "drove the heavy tank straight to", "zh": "开着重型坦克直奔"}]}, {"img": "images/tank-1/page-7.jpg", "en": "BOOM! One shot from the cannon and monsters went flying everywhere! So satisfying!", "zh": "轰！一炮下去怪物直接炸飞一大片，太解压了！", "keys": [{"w": "shot", "p": "/ʃɑːt/", "zh": "射击；一炮"}], "phrases": [{"en": "One shot from the cannon", "zh": "大炮一发射击"}]}, {"img": "images/tank-1/page-8.jpg", "en": "The heavy tank charged right through! Monsters could not get anywhere near it!", "zh": "坦克横冲直撞！怪物根本近不了身！", "keys": [{"w": "charged", "p": "/tʃɑːrdʒd/", "zh": "冲锋；猛冲"}], "phrases": [{"en": "charged right through", "zh": "直接冲了过去"}]}, {"img": "images/tank-1/page-9.jpg", "en": "In no time, the whole monster nest was cleared. The player cheered inside the tank!", "zh": "几下就把整片怪物窝清干净了，他在坦克里开心地欢呼！", "keys": [{"w": "monster", "p": "/ˈmɒnstər/", "zh": "怪物"}], "phrases": [{"en": "In no time", "zh": "没过多久"}]}, {"img": "images/tank-1/page-10.jpg", "en": "No more hiding with a sword! Tanks make everything so much easier!", "zh": "再也不用拿剑躲躲藏藏了！有坦克就是不一样！", "keys": [{"w": "hiding", "p": "/ˈhaɪdɪŋ/", "zh": "躲藏"}], "phrases": [{"en": "No more hiding with a sword", "zh": "再也不用拿着剑躲躲藏藏了"}]}, {"img": "images/tank-1/page-11.jpg", "en": "Achievement unlocked! The player felt so proud. But this was just the beginning...", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}]}]};
+const STORY = {"id": "tank-1", "title": "Tank Battles Book 1", "titleZh": "坦克大战·第一册", "category": "我的世界", "cover": "images/covers/cover-tank-1.jpg", "pages": [{"img": "images/tank-1/page-1.jpg", "en": "In the world of blocks, a player had a big dream — to build tanks!", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}], "title": ""}, {"img": "images/tank-1/page-2.jpg", "en": "He worked for days, placing blocks one by one. First, a heavy tank with thick iron armor!", "zh": "他捣鼓了好几天，一个方块一个方块地拼。第一辆，是皮糙肉厚的重型坦克！", "keys": [{"w": "placing", "p": "/ˈpleɪsɪŋ/", "zh": "放置"}], "phrases": [{"en": "worked for days", "zh": "捣鼓了好几天"}], "title": ""}, {"img": "images/tank-1/page-3.jpg", "en": "Then a light tank that zooms across the plains super fast!", "zh": "然后是一辆轻型坦克，在平原上跑起来飞快！", "keys": [{"w": "light", "p": "/laɪt/", "zh": "轻的"}], "phrases": [{"en": "zooms across the plains", "zh": "飞快地穿过平原"}], "title": ""}, {"img": "images/tank-1/page-4.jpg", "en": "And finally, a missile tank! When it fires, the missiles fly high with fiery trails!", "zh": "最后还造了一辆导弹坦克！发射的时候导弹拖着火焰飞出去，超炫酷！", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "最后"}], "phrases": [{"en": "missile tank", "zh": "导弹坦克"}], "title": ""}, {"img": "images/tank-1/page-5.jpg", "en": "All three tanks lined up in the garage. The player could not wait any longer!", "zh": "三辆坦克停在车库里整整齐齐。他迫不及待要开出去浪了！", "keys": [{"w": "lined up", "p": "/laɪnd ʌp/", "zh": "排成一排"}], "phrases": [{"en": "lined up in the garage", "zh": "整齐地停在车库里"}], "title": ""}, {"img": "images/tank-1/page-6.jpg", "en": "He drove the heavy tank straight to the monster nest. Zombies and skeletons were everywhere!", "zh": "他开着重型坦克直接冲到怪物窝旁边。到处都是僵尸和骷髅！", "keys": [{"w": "drove", "p": "/droʊv/", "zh": "驾驶"}], "phrases": [{"en": "drove the heavy tank straight to", "zh": "开着重型坦克直奔"}], "title": ""}, {"img": "images/tank-1/page-7.jpg", "en": "BOOM! One shot from the cannon and monsters went flying everywhere! So satisfying!", "zh": "轰！一炮下去怪物直接炸飞一大片，太解压了！", "keys": [{"w": "shot", "p": "/ʃɑːt/", "zh": "射击；一炮"}], "phrases": [{"en": "One shot from the cannon", "zh": "大炮一发射击"}], "title": ""}, {"img": "images/tank-1/page-8.jpg", "en": "The heavy tank charged right through! Monsters could not get anywhere near it!", "zh": "坦克横冲直撞！怪物根本近不了身！", "keys": [{"w": "charged", "p": "/tʃɑːrdʒd/", "zh": "冲锋；猛冲"}], "phrases": [{"en": "charged right through", "zh": "直接冲了过去"}], "title": ""}, {"img": "images/tank-1/page-9.jpg", "en": "In no time, the whole monster nest was cleared. The player cheered inside the tank!", "zh": "几下就把整片怪物窝清干净了，他在坦克里开心地欢呼！", "keys": [{"w": "monster", "p": "/ˈmɒnstər/", "zh": "怪物"}], "phrases": [{"en": "In no time", "zh": "没过多久"}], "title": ""}, {"img": "images/tank-1/page-10.jpg", "en": "No more hiding with a sword! Tanks make everything so much easier!", "zh": "再也不用拿剑躲躲藏藏了！有坦克就是不一样！", "keys": [{"w": "hiding", "p": "/ˈhaɪdɪŋ/", "zh": "躲藏"}], "phrases": [{"en": "No more hiding with a sword", "zh": "再也不用拿着剑躲躲藏藏了"}], "title": ""}, {"img": "images/tank-1/page-11.jpg", "en": "Achievement unlocked! The player felt so proud. But this was just the beginning...", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}], "title": ""}], "intro_cn_pages": [{"title": "坦克大战·第一册 · 故事开始", "img": "images/tank-1/page-1.jpg", "en": "", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}]}, {"title": "坦克大战·第一册 · 中间发生了什么", "img": "images/tank-1/page-6.jpg", "en": "", "zh": "他开着重型坦克直接冲到怪物窝旁边。到处都是僵尸和骷髅！", "keys": [{"w": "drove", "p": "/droʊv/", "zh": "驾驶"}], "phrases": [{"en": "drove the heavy tank straight to", "zh": "开着重型坦克直奔"}]}, {"title": "坦克大战·第一册 · 故事结尾", "img": "images/tank-1/page-11.jpg", "en": "", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}]}], "reader_pages_simple_en": [{"title": "", "img": "images/tank-1/page-1.jpg", "en": "In the world of blocks, a player had a big dream — to build.", "zh": "在方块的世界里，有一个玩家有一个大梦想——造坦克！", "keys": [{"w": "world", "p": "/wɝːld/", "zh": "世界"}], "phrases": [{"en": "In the world of blocks", "zh": "在方块的世界里"}]}, {"title": "", "img": "images/tank-1/page-2.jpg", "en": "He worked for days, placing blocks one by one. First, a heavy tank with thick iron armor!", "zh": "他捣鼓了好几天，一个方块一个方块地拼。第一辆，是皮糙肉厚的重型坦克！", "keys": [{"w": "placing", "p": "/ˈpleɪsɪŋ/", "zh": "放置"}], "phrases": [{"en": "worked for days", "zh": "捣鼓了好几天"}]}, {"title": "", "img": "images/tank-1/page-4.jpg", "en": "And finally, a missile tank! When it fires, the missiles fly high with fiery trails!", "zh": "最后还造了一辆导弹坦克！发射的时候导弹拖着火焰飞出去，超炫酷！", "keys": [{"w": "finally", "p": "/ˈfaɪnəli/", "zh": "最后"}], "phrases": [{"en": "missile tank", "zh": "导弹坦克"}]}, {"title": "", "img": "images/tank-1/page-5.jpg", "en": "All three tanks lined up in the garage. The player could not wait any longer!", "zh": "三辆坦克停在车库里整整齐齐。他迫不及待要开出去浪了！", "keys": [{"w": "lined up", "p": "/laɪnd ʌp/", "zh": "排成一排"}], "phrases": [{"en": "lined up in the garage", "zh": "整齐地停在车库里"}]}, {"title": "", "img": "images/tank-1/page-7.jpg", "en": "BOOM! One shot from the cannon and monsters went flying everywhere!", "zh": "轰！一炮下去怪物直接炸飞一大片，太解压了！", "keys": [{"w": "shot", "p": "/ʃɑːt/", "zh": "射击；一炮"}], "phrases": [{"en": "One shot from the cannon", "zh": "大炮一发射击"}]}, {"title": "", "img": "images/tank-1/page-8.jpg", "en": "The heavy tank charged right through! Monsters could not get anywhere near it!", "zh": "坦克横冲直撞！怪物根本近不了身！", "keys": [{"w": "charged", "p": "/tʃɑːrdʒd/", "zh": "冲锋；猛冲"}], "phrases": [{"en": "charged right through", "zh": "直接冲了过去"}]}, {"title": "", "img": "images/tank-1/page-10.jpg", "en": "No more hiding with a sword! Tanks make everything so much easier!", "zh": "再也不用拿剑躲躲藏藏了！有坦克就是不一样！", "keys": [{"w": "hiding", "p": "/ˈhaɪdɪŋ/", "zh": "躲藏"}], "phrases": [{"en": "No more hiding with a sword", "zh": "再也不用拿着剑躲躲藏藏了"}]}, {"title": "", "img": "images/tank-1/page-11.jpg", "en": "Achievement unlocked! The player felt so proud.", "zh": "成就感直接拉满！但这只是开始...", "keys": [{"w": "achievement", "p": "/əˈtʃiːvmənt/", "zh": "成就"}], "phrases": [{"en": "Achievement unlocked", "zh": "成就解锁"}]}]};
 const reader_url = '../../reader/classic/tank-1.html';
 let stars = 0;
 let stage_index = 0;
@@ -246,7 +262,7 @@ function render_intro() {
     <div class="story_intro">
       <div class="stage_title">🎮 Tank Battles Book 1</div>
       <img src="${get_asset_src(STORY.cover)}" alt="cover" onerror="this.style.objectFit='contain';this.style.background='#eee';">
-      <p>读完《坦克大战·第一册》后，通过小游戏巩固单词和词组吧！</p>
+      <p>读完《坦克大战·第一册》后，通过听音选词、拖拽配对和句意判断三个小游戏巩固单词和词组吧！</p>
       <button class="action_btn" onclick="next_stage()">开始游戏 →</button>
     </div>`;
 }
@@ -371,11 +387,13 @@ function render_finish() {
   const max_star = 5;
   const shown_star = Math.min(stars, max_star);
   const star_row = '⭐'.repeat(shown_star) + '☆'.repeat(max_star - shown_star);
+  const review_words = vocab_pool.slice(0, 4).map((item) => `<span class="review_chip">${item.w || ''}${item.zh ? ` · ${item.zh}` : ''}</span>`).join('');
   document.getElementById('stage_area').innerHTML = `
     <div class="finish_page">
       <div class="big_stars">${star_row}</div>
       <div class="finish_msg">太棒了！你获得 ${stars} 颗星</div>
       <div class="finish_tip">${stars >= 4 ? '表现超级棒，继续下一本吧！' : '已经很不错，再玩一次会更强！'}</div>
+      <div class="review_strip">${review_words}</div>
       <div class="finish_links">
         <button class="action_btn" onclick="location.href='../../index.html'">🏠 回到首页</button>
         <button class="action_btn" style="background:#65a7e8;" onclick="location.reload()">🔄 再玩一次</button>

@@ -30,6 +30,7 @@
   }
   .top_bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; gap:8px; }
   .unit_title { color:#f4c778; font-size:17px; font-weight:700; }
+  .unit_title small { display:block; color:#b8cae6; font-size:12px; font-weight:600; margin-top:4px; }
   .star_display { color:#ffd166; font-size:24px; font-weight:800; }
   .stage_title { color:#a8e6cf; font-size:22px; text-align:center; margin-bottom:14px; }
   .options_grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:12px; }
@@ -110,6 +111,21 @@
   .big_stars { font-size:52px; letter-spacing:6px; }
   .finish_msg { margin-top:10px; color:#c6ffe6; font-size:22px; }
   .finish_tip { margin-top:8px; color:#dbebfd; font-size:15px; }
+  .review_strip {
+    margin-top:14px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
+  }
+  .review_chip {
+    border-radius:999px;
+    background:#10365f;
+    color:#ecf5ff;
+    border:1px solid #2a5f96;
+    padding:6px 10px;
+    font-size:13px;
+  }
   .finish_links { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:14px; }
   @keyframes star_pop {
     0% { transform:scale(0.2); opacity:0.2; }
@@ -123,7 +139,7 @@
 <canvas class="starfield" id="starCanvas"></canvas>
 <div class="game_card">
   <div class="top_bar">
-    <div class="unit_title">Steve vs The Wither</div>
+    <div class="unit_title">Steve vs The Wither<small>史蒂夫大战凋零</small></div>
     <div class="star_display"><span id="star_count">⭐ 0</span></div>
   </div>
   <div id="stage_area"></div>
@@ -246,7 +262,7 @@ function render_intro() {
     <div class="story_intro">
       <div class="stage_title">🎮 Steve vs The Wither</div>
       <img src="${get_asset_src(STORY.cover)}" alt="cover" onerror="this.style.objectFit='contain';this.style.background='#eee';">
-      <p>读完《史蒂夫大战凋零》后，通过小游戏巩固单词和词组吧！</p>
+      <p>读完《史蒂夫大战凋零》后，通过听音选词、拖拽配对和句意判断三个小游戏巩固单词和词组吧！</p>
       <button class="action_btn" onclick="next_stage()">开始游戏 →</button>
     </div>`;
 }
@@ -371,11 +387,13 @@ function render_finish() {
   const max_star = 5;
   const shown_star = Math.min(stars, max_star);
   const star_row = '⭐'.repeat(shown_star) + '☆'.repeat(max_star - shown_star);
+  const review_words = vocab_pool.slice(0, 4).map((item) => `<span class="review_chip">${item.w || ''}${item.zh ? ` · ${item.zh}` : ''}</span>`).join('');
   document.getElementById('stage_area').innerHTML = `
     <div class="finish_page">
       <div class="big_stars">${star_row}</div>
       <div class="finish_msg">太棒了！你获得 ${stars} 颗星</div>
       <div class="finish_tip">${stars >= 4 ? '表现超级棒，继续下一本吧！' : '已经很不错，再玩一次会更强！'}</div>
+      <div class="review_strip">${review_words}</div>
       <div class="finish_links">
         <button class="action_btn" onclick="location.href='../../index.html'">🏠 回到首页</button>
         <button class="action_btn" style="background:#65a7e8;" onclick="location.reload()">🔄 再玩一次</button>
