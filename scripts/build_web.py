@@ -61,8 +61,27 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
     pages = copied.get("pages", [])
     for page in pages:
         page["img"] = normalize_image_path(page.get("img", ""))
+        page.setdefault("title", "")
         page.setdefault("keys", [])
         page.setdefault("phrases", [])
+    intro_pages = copied.get("intro_cn_pages", [])
+    for page in intro_pages:
+        page["img"] = normalize_image_path(page.get("img", ""))
+        page.setdefault("title", "")
+        page.setdefault("en", "")
+        page.setdefault("zh", "")
+        page.setdefault("keys", [])
+        page.setdefault("phrases", [])
+    reader_pages = copied.get("reader_pages_simple_en", [])
+    for page in reader_pages:
+        page["img"] = normalize_image_path(page.get("img", ""))
+        page.setdefault("title", "")
+        page.setdefault("en", "")
+        page.setdefault("zh", "")
+        page.setdefault("keys", [])
+        page.setdefault("phrases", [])
+    copied.setdefault("intro_cn_pages", intro_pages)
+    copied.setdefault("reader_pages_simple_en", reader_pages)
     return copied
 
 
@@ -82,6 +101,7 @@ def render_reader_html(template_text: str, story: dict[str, Any], bucket: str) -
         .replace("{{STORY_TITLE}}", str(title))
         .replace("{{STORY_TITLE_ZH}}", str(title_zh))
         .replace("{{UNIT_TAG}}", unit_tag)
+        .replace("{{STORY_JSON}}", json.dumps(story, ensure_ascii=False))
         .replace("{{PAGES_JSON}}", json.dumps(story.get("pages", []), ensure_ascii=False))
         .replace("{{GAME_URL}}", game_url)
     )

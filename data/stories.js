@@ -491,6 +491,208 @@ const STORIES = [
     "titleZh": "史蒂夫大战凋零",
     "category": "我的世界",
     "cover": "images/covers/cover-minecraft.jpg",
+    "intro_cn_pages": [
+      {
+        "title": "乌云压下来，危险来了",
+        "img": "images/minecraft/page-4.jpg",
+        "zh": "原本安静的村庄，忽然被黑云盖住了。地面开始震动，远处传来可怕的吼声。史蒂夫知道，凋零来了，大家都需要他的帮助。",
+        "keys": [
+          {
+            "w": "danger",
+            "p": "/ˈdeɪndʒər/",
+            "zh": "危险"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "dark clouds",
+            "zh": "乌云"
+          }
+        ]
+      },
+      {
+        "title": "史蒂夫造了一架天空骑士",
+        "img": "images/minecraft/page-7.jpg",
+        "zh": "史蒂夫没有慌张。他觉得要从天空迎战凋零，于是日夜赶工，造出了一架红色双翼飞机。他给这架飞机取名叫“天空骑士”。",
+        "keys": [
+          {
+            "w": "airplane",
+            "p": "/ˈerpleɪn/",
+            "zh": "飞机"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "Sky Knight",
+            "zh": "天空骑士"
+          }
+        ]
+      },
+      {
+        "title": "最后一箭，守护村庄",
+        "img": "images/minecraft/page-20.jpg",
+        "zh": "空中的战斗越来越激烈，史蒂夫的飞机也受了伤。可他没有放弃，因为他知道身后就是自己的村庄。最后，他用最强的一箭，朝凋零射去。",
+        "keys": [
+          {
+            "w": "protect",
+            "p": "/prəˈtekt/",
+            "zh": "保护"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "save the village",
+            "zh": "守护村庄"
+          }
+        ]
+      }
+    ],
+    "reader_pages_simple_en": [
+      {
+        "img": "images/minecraft/page-3.jpg",
+        "en": "Steve lived in a quiet village. He loved building new things.",
+        "zh": "史蒂夫住在一个安静的村庄里。他喜欢建造新东西。",
+        "keys": [
+          {
+            "w": "build",
+            "p": "/bɪld/",
+            "zh": "建造"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "quiet village",
+            "zh": "安静的村庄"
+          }
+        ]
+      },
+      {
+        "img": "images/minecraft/page-4.jpg",
+        "en": "One day, the sky turned dark. The Wither was coming.",
+        "zh": "有一天，天空变黑了。凋零来了。",
+        "keys": [
+          {
+            "w": "dark",
+            "p": "/dɑːrk/",
+            "zh": "黑暗的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "the sky turned dark",
+            "zh": "天空变黑了"
+          }
+        ]
+      },
+      {
+        "img": "images/minecraft/page-7.jpg",
+        "en": "Steve built a red airplane. He called it Sky Knight.",
+        "zh": "史蒂夫造了一架红色飞机。他叫它天空骑士。",
+        "keys": [
+          {
+            "w": "airplane",
+            "p": "/ˈerpleɪn/",
+            "zh": "飞机"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "called it Sky Knight",
+            "zh": "叫它天空骑士"
+          }
+        ]
+      },
+      {
+        "img": "images/minecraft/page-9.jpg",
+        "en": "Steve flew into the sky. He looked for the Wither.",
+        "zh": "史蒂夫飞上了天空。他去寻找凋零。",
+        "keys": [
+          {
+            "w": "fly",
+            "p": "/flaɪ/",
+            "zh": "飞"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "into the sky",
+            "zh": "飞上天空"
+          }
+        ]
+      },
+      {
+        "img": "images/minecraft/page-12.jpg",
+        "en": "The Wither was huge. It had three scary heads.",
+        "zh": "凋零很巨大。它有三个可怕的头。",
+        "keys": [
+          {
+            "w": "huge",
+            "p": "/hjuːdʒ/",
+            "zh": "巨大的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "three heads",
+            "zh": "三个头"
+          }
+        ]
+      },
+      {
+        "img": "images/minecraft/page-13.jpg",
+        "en": "The Wither shot skulls. Steve moved left and right.",
+        "zh": "凋零发射骷髅。史蒂夫左右躲闪。",
+        "keys": [
+          {
+            "w": "skull",
+            "p": "/skʌl/",
+            "zh": "骷髅"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "left and right",
+            "zh": "左右"
+          }
+        ]
+      },
+      {
+        "img": "images/minecraft/page-17.jpg",
+        "en": "Steve used his bow. His bright arrows hit the Wither.",
+        "zh": "史蒂夫拿起弓。他明亮的箭击中了凋零。",
+        "keys": [
+          {
+            "w": "arrow",
+            "p": "/ˈæroʊ/",
+            "zh": "箭"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "hit the Wither",
+            "zh": "击中凋零"
+          }
+        ]
+      },
+      {
+        "img": "images/minecraft/page-20.jpg",
+        "en": "Steve had one arrow left. He used it to save the village.",
+        "zh": "史蒂夫只剩下一支箭了。他用它拯救了村庄。",
+        "keys": [
+          {
+            "w": "save",
+            "p": "/seɪv/",
+            "zh": "拯救"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "save the village",
+            "zh": "拯救村庄"
+          }
+        ]
+      }
+    ],
     "pages": [
       {
         "img": "images/minecraft/page-2.jpg",
