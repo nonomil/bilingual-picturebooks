@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bilingual-books-v3';
+const CACHE_NAME = 'bilingual-books-v4';
 
 // 需要缓存的资源（图片和音频在首次访问时按需缓存）
 const PRECACHE = [

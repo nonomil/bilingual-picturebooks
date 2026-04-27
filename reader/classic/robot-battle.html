@@ -68,18 +68,19 @@
     justify-content: flex-end;
   }
   .top_btn {
-    border: none;
+    border: 1px solid #f1e3cf;
     border-radius: 999px;
-    background: #fff3d8;
-    color: #a26400;
+    background: #fffaf3;
+    color: #8b6b47;
     font-size: 12px;
     font-weight: 800;
     padding: 8px 12px;
     cursor: pointer;
   }
   .top_btn.settings_btn {
-    background: #edf4ff;
-    color: #2e86de;
+    background: #f6f8fb;
+    border-color: #dde6f2;
+    color: #5d7188;
   }
   .progress_bar {
     width: 100%;
@@ -112,25 +113,6 @@
   }
   .text_area.intro_mode {
     background: linear-gradient(180deg, #fffef9 0%, #fff8ec 100%);
-  }
-  .text_toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-  }
-  .phase_badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    border-radius: 999px;
-    background: #fff4d9;
-    color: #9c6500;
-    font-size: 12px;
-    font-weight: 800;
-    padding: 6px 10px;
   }
   .intro_title {
     color: #7d5d2e;
@@ -267,9 +249,9 @@
     opacity: .35;
     cursor: not-allowed;
   }
-  .btn.nav_btn { background: #ff9f43; color: #fff; min-width: 108px; }
-  .btn.read_btn { background: #54a0ff; color: #fff; min-width: 110px; }
-  .btn.zh_btn { background: #f368e0; color: #fff; }
+  .btn.nav_btn { background: #f8f2ea; color: #8f6c4d; min-width: 108px; border: 1px solid #eadccf; }
+  .btn.read_btn { background: #54a0ff; color: #fff; min-width: 128px; font-size: 16px; padding: 12px 20px; box-shadow: 0 8px 18px rgba(84,160,255,0.24); }
+  .btn.zh_btn { background: #fff; color: #7a5d45; border: 1px solid #eadccf; }
   .btn.game_btn { background: #10ac84; color: #fff; display: none; }
   .page_indicator {
     color: #969696;
@@ -375,7 +357,7 @@
       <div class="page_meta">
         <div class="page_total" id="page_total"></div>
         <div class="meta_actions">
-          <button class="top_btn" id="translate_toggle_btn" onclick="toggle_translation()">中文开</button>
+          <button class="top_btn" id="translate_toggle_btn" onclick="toggle_translation()">隐藏中文</button>
           <button class="top_btn settings_btn" onclick="open_settings()">设置</button>
         </div>
       </div>
@@ -388,8 +370,8 @@
   <div class="nav">
     <button class="btn nav_btn" id="prev_btn" onclick="change_page(-1)">← 上一页</button>
     <div class="nav_center">
-      <button class="btn read_btn" id="read_btn" onclick="toggle_reading()">🔊 朗读</button>
-      <button class="btn zh_btn" onclick="read_chinese_only()">🈶 中文</button>
+      <button class="btn read_btn" id="read_btn" onclick="toggle_reading()">🔊 开始朗读</button>
+      <button class="btn zh_btn" onclick="read_chinese_only()">听中文</button>
       <button class="btn game_btn" id="to_game_btn" onclick="goto_game()">🎮 去游戏</button>
       <span class="page_indicator" id="page_indicator"></span>
     </div>
@@ -405,7 +387,7 @@
         <input type="checkbox" id="hide_chinese_checkbox">
         默认隐藏中文
       </label>
-      <div class="settings_hint">默认关闭。开启后第二阶段中文默认隐藏，但仍可点击“中文开/关”切换。</div>
+      <div class="settings_hint">默认关闭。开启后中文默认隐藏，但仍可点击上方按钮切换。</div>
     </div>
     <div class="settings_actions">
       <button class="settings_action save" onclick="save_reader_settings()">保存</button>
@@ -493,15 +475,10 @@ function get_current_page() {
   return page_list[current_page] || page_list[0];
 }
 
-function get_section_label(page) {
-  if (page.section === 'intro') return '第一阶段 · 中文导入';
-  return intro_pages.length ? '第二阶段 · 英文阅读' : '阅读页';
-}
-
 function update_read_button() {
   const read_btn = document.getElementById('read_btn');
   if (!read_btn) return;
-  read_btn.textContent = is_reading ? '⏹ 停止' : '🔊 朗读';
+  read_btn.textContent = is_reading ? '⏹ 停止朗读' : '🔊 开始朗读';
 }
 
 function update_translation_ui() {
@@ -513,7 +490,7 @@ function update_translation_ui() {
   toggle_btn.style.display = is_intro ? 'none' : 'inline-flex';
   zh_box.classList.toggle('hidden', !is_intro && !translation_visible);
   if (!is_intro) {
-    toggle_btn.textContent = translation_visible ? '中文关' : '中文开';
+    toggle_btn.textContent = translation_visible ? '隐藏中文' : '显示中文';
   }
 }
 
@@ -555,7 +532,6 @@ function save_reader_settings() {
 function render_page(page_index) {
   const page = page_list[page_index];
   const is_intro = page.section === 'intro';
-  const section_label = get_section_label(page);
   const image_src = get_asset_src(page.img);
   current_word_ranges = is_intro ? [] : build_word_tokens(page.en || '');
 
@@ -585,9 +561,6 @@ function render_page(page_index) {
   document.getElementById('page_area').innerHTML = is_intro ? `
     <img class="hero_img" src="${image_src}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
     <div class="text_area intro_mode">
-      <div class="text_toolbar">
-        <div class="phase_badge">${section_label}</div>
-      </div>
       ${intro_title_html}
       <div class="zh_sentence" id="zh_sentence">${zh_html}</div>
       <div class="lexicon">
@@ -597,9 +570,6 @@ function render_page(page_index) {
     </div>` : `
     <img class="hero_img" src="${image_src}" alt="page ${page_index + 1}" onerror="this.style.objectFit='contain';this.style.background='#eee';">
     <div class="text_area">
-      <div class="text_toolbar">
-        <div class="phase_badge">${section_label}</div>
-      </div>
       <div class="en_sentence">${words_html}</div>
       <div class="zh_sentence" id="zh_sentence">${zh_html}</div>
       <div class="lexicon">
@@ -609,13 +579,13 @@ function render_page(page_index) {
     </div>`;
 
   document.getElementById('progress_fill').style.width = `${((page_index + 1) / page_list.length) * 100}%`;
-  document.getElementById('page_total').textContent = `${section_label} · 第 ${page_index + 1} 页 / 共 ${page_list.length} 页`;
+  document.getElementById('page_total').textContent = `第 ${page_index + 1} 页 / 共 ${page_list.length} 页`;
   document.getElementById('page_indicator').textContent = `${page_index + 1} / ${page_list.length}`;
   document.getElementById('prev_btn').disabled = page_index === 0;
 
   const on_last_page = page_index === page_list.length - 1;
-  const on_last_intro_page = intro_pages.length && page_index === intro_pages.length - 1;
-  document.getElementById('next_btn').textContent = on_last_page ? '完成并去游戏 →' : (on_last_intro_page ? '进入第二阶段 →' : '下一页 →');
+  document.getElementById('next_btn').textContent = on_last_page ? '已经读完' : '下一页 →';
+  document.getElementById('next_btn').disabled = on_last_page;
   document.getElementById('to_game_btn').style.display = on_last_page ? 'inline-block' : 'none';
   update_translation_ui();
   update_read_button();
@@ -632,6 +602,10 @@ function stop_reading() {
   clear_highlight();
   if (synth) synth.cancel();
   update_read_button();
+}
+
+function wait_between(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function speak_utterance(text_value, lang_code, rate_value, on_boundary) {
@@ -686,6 +660,10 @@ async function speak_chinese_sentence(page) {
     if (!is_reading) return;
     highlight_zh_chunk(idx);
     await speak_utterance(String(zh_chunks[idx] || ''), 'zh-CN', current_rate);
+    if (!is_reading) return;
+    if (idx < zh_chunks.length - 1) {
+      await wait_between(220);
+    }
   }
 }
 
@@ -693,12 +671,16 @@ async function speak_word_item(item, item_index) {
   highlight_lex_item('key', item_index);
   await speak_utterance(String(item.w || ''), 'en-US', current_rate * 0.85);
   if (!is_reading) return;
+  await wait_between(260);
+  if (!is_reading) return;
   await speak_utterance(String(item.zh || ''), 'zh-CN', current_rate * 0.9);
 }
 
 async function speak_phrase_item(item, item_index) {
   highlight_lex_item('phrase', item_index);
   await speak_utterance(String(item.en || ''), 'en-US', current_rate * 0.82);
+  if (!is_reading) return;
+  await wait_between(260);
   if (!is_reading) return;
   await speak_utterance(String(item.zh || ''), 'zh-CN', current_rate * 0.88);
 }
@@ -724,15 +706,27 @@ async function read_current() {
     } else {
       await speak_english_sentence(page);
       if (!is_reading) return;
+      await wait_between(700);
+      if (!is_reading) return;
       await speak_chinese_sentence(page);
+      if (!is_reading) return;
+      await wait_between(850);
       if (!is_reading) return;
       for (let idx = 0; idx < (page.keys || []).length; idx += 1) {
         if (!is_reading) return;
         await speak_word_item(page.keys[idx], idx);
+        if (!is_reading) return;
+        if (idx < (page.keys || []).length - 1 || (page.phrases || []).length) {
+          await wait_between(420);
+        }
       }
       for (let idx = 0; idx < (page.phrases || []).length; idx += 1) {
         if (!is_reading) return;
         await speak_phrase_item(page.phrases[idx], idx);
+        if (!is_reading) return;
+        if (idx < (page.phrases || []).length - 1) {
+          await wait_between(420);
+        }
       }
     }
   } finally {
@@ -812,7 +806,6 @@ function change_page(direction) {
   stop_reading();
   const on_last_page = current_page === page_list.length - 1;
   if (direction > 0 && on_last_page) {
-    goto_game();
     return;
   }
   current_page = Math.max(0, Math.min(page_list.length - 1, current_page + direction));
