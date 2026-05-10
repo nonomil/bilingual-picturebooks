@@ -1,4 +1,5 @@
 # 设计花园
+
 画出形状算周长
 
-[IMAGE: activity] Design a garden fence: draw shape and calculate perimeter, bw
+![page-14](./img/page-14.png)

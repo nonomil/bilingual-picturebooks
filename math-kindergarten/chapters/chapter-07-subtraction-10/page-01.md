@@ -1,4 +1,5 @@
 # 🎮 第7关
+
 药水实验
 
-[IMAGE: scene] Steve in brewing stand room, colorful potions on shelves, pixel art
+![page-01](./img/page-01.png)

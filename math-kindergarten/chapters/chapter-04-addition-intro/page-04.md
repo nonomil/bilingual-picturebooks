@@ -1,4 +1,5 @@
 # "加"就是把东西
+
 合在一起数
 
-[IMAGE: character] Alex showing plus sign gesture with arms, blocks on table, pixel art
+![page-04](./img/page-04.png)

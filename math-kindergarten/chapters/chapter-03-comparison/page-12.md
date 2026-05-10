@@ -1,4 +1,5 @@
 # 填一填
+
 > < 还是 = ？
 
-[IMAGE: activity] Draw greater/less/equal signs between pairs of Minecraft item groups, bw
+![page-12](./img/page-12.png)

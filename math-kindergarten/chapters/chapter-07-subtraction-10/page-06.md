@@ -1,4 +1,5 @@
 # 练一练
+
 10减几？
 
-[IMAGE: activity] Subtraction from 10 practice: fill in answers, Minecraft themed, bw
+![page-06](./img/page-06.png)

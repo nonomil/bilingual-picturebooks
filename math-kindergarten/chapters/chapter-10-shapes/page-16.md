@@ -1,4 +1,5 @@
 # 分一分
+
 按形状分类
 
-[IMAGE: activity] Shape sorting: sort Minecraft items by shape into groups, bw
+![page-16](./img/page-16.png)

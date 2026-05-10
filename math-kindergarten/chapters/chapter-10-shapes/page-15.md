@@ -1,4 +1,5 @@
 # 接着画
+
 □△□△__ __
 
-[IMAGE: activity] Shape pattern: continue the pattern of shapes, bw
+![page-15](./img/page-15.png)

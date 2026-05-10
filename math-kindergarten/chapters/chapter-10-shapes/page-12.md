@@ -1,4 +1,5 @@
 # 剪一剪，拼一拼
+
 用图形建城堡
 
-[IMAGE: activity] Cut out shapes and build a Minecraft castle, bw
+![page-12](./img/page-12.png)

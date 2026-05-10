@@ -1,4 +1,5 @@
 # 圈一圈
+
 哪组更多？
 
-[IMAGE: activity] Circle the group with more items, three pairs of Minecraft item groups, bw
+![page-06](./img/page-06.png)
