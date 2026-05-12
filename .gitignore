@@ -6,3 +6,5 @@ tmp/
 public/images/
 release-key.jks
 audio_deploy/
+bak/
+*.log
