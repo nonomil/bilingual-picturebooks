@@ -189,6 +189,10 @@ body {
   background: #eefbf6;
   color: #10ac84;
 }
+.story-action.learn {
+  background: #fef3e0;
+  color: #e17055;
+}
 .home-footer-note {
   text-align: center;
   color: #99806e;

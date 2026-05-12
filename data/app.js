@@ -66,6 +66,7 @@ const App = {
         <div class="story-card-actions">
           <a class="story-action reader" href="${meta.readerUrl}">阅读</a>
           <a class="story-action game" href="${meta.gameUrl}">游戏</a>
+          <a class="story-action learn" href="/bilingual-picturebooks/reader/learn/index.html?id=${story.id}">学习</a>
         </div>
       </article>
     `;

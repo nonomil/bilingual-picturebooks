@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>🎴 绘本单词卡 - 学习模式</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  /* ===== Top Bar ===== */
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .top-bar h1 {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+  .top-bar h1 span { color: #fbbf24; }
+  .top-actions { display: flex; gap: 8px; align-items: center; }
+  .top-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .top-btn:hover, .top-btn.active {
+    background: rgba(251,191,36,0.2);
+    border-color: #fbbf24;
+    color: #fbbf24;
+  }
+  .top-btn.active { background: rgba(251,191,36,0.25); }
+
+  /* ===== Story Selector ===== */
+  .picker-wrap {
+    padding: 12px 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .picker-wrap select {
+    flex: 1;
+    min-width: 180px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+  .picker-wrap select option { background: #1a1a2e; color: #fff; }
+  .mode-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .mode-badge.word { background: rgba(52,211,153,0.2); color: #34d399; }
+  .mode-badge.sentence { background: rgba(96,165,250,0.2); color: #60a5fa; }
+
+  /* ===== Progress ===== */
+  .progress-bar {
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    margin: 0 16px 4px;
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    border-radius: 99px;
+    transition: width 0.35s ease;
+  }
+  .counter {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  /* ===== Card ===== */
+  .card-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    min-height: calc(100vh - 240px);
+  }
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .card.fade-out {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+
+  /* Card Image */
+  .card-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #1e293b;
+    overflow: hidden;
+  }
+  .card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .card-img-wrap .fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    opacity: 0.3;
+    background: linear-gradient(135deg, #334155, #1e293b);
+  }
+
+  /* Story Title Badge */
+  .card-story-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.3px;
+  }
+  .card-type-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+  }
+  .card-type-tag.word { background: rgba(52,211,153,0.3); color: #6ee7b7; }
+  .card-type-tag.sentence { background: rgba(96,165,250,0.3); color: #93c5fd; }
+
+  /* Card Body */
+  .card-body {
+    padding: 20px 20px 16px;
+  }
+  .card-en {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: #fbbf24;
+    margin-bottom: 8px;
+    min-height: 2.7em;
+    word-break: break-word;
+  }
+  .card-en .highlight {
+    color: #fff;
+    background: rgba(251,191,36,0.15);
+    padding: 0 4px;
+    border-radius: 4px;
+  }
+  .card-zh {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    min-height: 1.5em;
+    transition: opacity 0.3s;
+    margin-bottom: 6px;
+  }
+  .card-zh.hidden { opacity: 0; }
+  .card-phonetic {
+    font-size: 14px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 500;
+    font-style: italic;
+    min-height: 1.2em;
+  }
+
+  /* Word Mode Extra */
+  .card-word-extra {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .card-word-extra .story-ref {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.05);
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+
+  /* ===== Controls ===== */
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 16px 16px;
+    flex-wrap: wrap;
+  }
+  .ctrl-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 20px;
+    border-radius: 16px;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.15s;
+    min-width: 56px;
+  }
+  .ctrl-btn:active { transform: scale(0.94); }
+  .ctrl-btn.speak {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #1a1a2e;
+    flex: 1;
+    max-width: 200px;
+  }
+  .ctrl-btn.speak:hover { background: linear-gradient(135deg, #fcd34d, #fbbf24); }
+  .ctrl-btn.prev, .ctrl-btn.next {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 20px;
+    width: 52px;
+    min-width: 52px;
+    padding: 12px 0;
+  }
+  .ctrl-btn.prev:hover, .ctrl-btn.next:hover { background: rgba(255,255,255,0.15); }
+  .ctrl-btn.shuffle {
+    background: rgba(251,191,36,0.12);
+    color: #fbbf24;
+  }
+  .ctrl-btn.shuffle:hover { background: rgba(251,191,36,0.2); }
+  .ctrl-btn.lang {
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+  }
+  .ctrl-btn.lang.showing { color: #60a5fa; background: rgba(96,165,250,0.12); }
+
+  /* ===== Bottom Tools ===== */
+  .bottom-tools {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 16px 24px;
+    flex-wrap: wrap;
+  }
+  .tool-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .tool-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+  .tool-btn.active {
+    background: rgba(251,191,36,0.15);
+    border-color: rgba(251,191,36,0.3);
+    color: #fbbf24;
+  }
+
+  /* ===== Empty State ===== */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    color: rgba(255,255,255,0.4);
+  }
+  .empty-state .icon { font-size: 64px; margin-bottom: 16px; }
+  .empty-state h3 { font-size: 20px; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+  .empty-state p { font-size: 14px; max-width: 300px; line-height: 1.6; }
+
+  /* ===== All Words View ===== */
+  .all-words-view {
+    padding: 16px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .all-words-view .word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+  }
+  .all-words-view .word-chip {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .all-words-view .word-chip:hover {
+    background: rgba(251,191,36,0.1);
+    border-color: rgba(251,191,36,0.2);
+  }
+  .all-words-view .word-chip .w-en { font-weight: 700; color: #fbbf24; font-size: 15px; }
+  .all-words-view .word-chip .w-zh { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 480px) {
+    .card-en { font-size: 20px; }
+    .card-body { padding: 16px 16px 12px; }
+    .ctrl-btn { padding: 10px 16px; font-size: 13px; }
+    .ctrl-btn.prev, .ctrl-btn.next { width: 46px; min-width: 46px; }
+  }
+</style>
+</head>
+<body>
+<script src="../../data/stories.js?v=8"></script>
+
+<div class="top-bar">
+  <h1>🎴 <span>单词卡</span></h1>
+  <div class="top-actions">
+    <button class="top-btn" onclick="location.href='../..'" title="返回首页">🏠</button>
+    <button class="top-btn" id="modeToggle" onclick="App.toggleMode()">📖 语句</button>
+    <button class="top-btn" id="viewToggle" onclick="App.toggleView()">📋 总表</button>
+  </div>
+</div>
+
+<div class="picker-wrap">
+  <select id="storySelect" onchange="App.selectStory(this.value)"></select>
+  <span class="mode-badge word" id="modeBadge">🔤 单词</span>
+</div>
+
+<div class="progress-bar">
+  <div class="progress-fill" id="progressFill" style="width:0%"></div>
+</div>
+<div class="counter" id="counter">—</div>
+
+<div id="cardStage" class="card-stage">
+  <div class="empty-state">
+    <div class="icon">📚</div>
+    <h3>选择一本绘本开始学习</h3>
+    <p>单词模式：浏览所有重点词汇<br>语句模式：按句子逐句学习</p>
+  </div>
+</div>
+
+<div class="controls" id="controls" style="display:none">
+  <button class="ctrl-btn prev" onclick="App.prev()">◀</button>
+  <button class="ctrl-btn speak" onclick="App.speak()">🔊 朗读</button>
+  <button class="ctrl-btn next" onclick="App.next()">▶</button>
+  <button class="ctrl-btn shuffle" onclick="App.shuffle()" title="随机">🎲</button>
+  <button class="ctrl-btn lang" id="langBtn" onclick="App.toggleChinese()" title="显示中文">中文</button>
+</div>
+
+<div class="bottom-tools" id="bottomTools" style="display:none">
+  <button class="tool-btn" id="autoPlayBtn" onclick="App.toggleAutoPlay()">▶ 自动播放</button>
+</div>
+
+<div id="allWordsView" class="all-words-view" style="display:none"></div>
+
+<script>
+// ====== Data ======
+// stories.js is loaded globally as STORIES
+const App = {
+  stories: [],
+  story: null,
+  cards: [],
+  index: 0,
+  mode: 'word',       // 'word' | 'sentence'
+  showChinese: true,
+  autoPlay: false,
+  autoTimer: null,
+  shuffled: false,
+  originalOrder: [],
+
+  init() {
+    this.stories = window.STORIES || [];
+    if (!this.stories.length) {
+      document.querySelector('.empty-state h3').textContent = '⚠️ 数据加载失败';
+      document.querySelector('.empty-state p').textContent = '请确认 stories.js 已正确加载';
+      return;
+    }
+    this.populateSelect();
+    // Check for ?id= query param
+    const params = new URLSearchParams(window.location.search);
+    const targetId = params.get('id');
+    let target;
+    if (targetId) {
+      target = this.stories.find(s => s.id === targetId);
+    }
+    if (!target) {
+      target = this.stories.find(s => this.hasKeys(s)) || this.stories[0];
+    }
+    if (target) {
+      this.story = target;
+      document.getElementById('storySelect').value = target.id;
+      this.buildCards();
+    }
+  },
+
+  hasKeys(story) {
+    return (story.pages || []).some(p => (p.keys || []).length > 0);
+  },
+
+  populateSelect() {
+    const sel = document.getElementById('storySelect');
+    sel.innerHTML = this.stories.map(s =>
+      `<option value="${s.id}">${s.titleZh || s.title}</option>`
+    ).join('');
+  },
+
+  selectStory(id) {
+    this.story = this.stories.find(s => s.id === id);
+    if (!this.story) return;
+    this.buildCards();
+  },
+
+  buildCards() {
+    if (!this.story) return;
+    this.cards = [];
+    this.shuffled = false;
+
+    if (this.mode === 'word') {
+      // Word mode: extract all key vocabulary
+      (this.story.pages || []).forEach((page, pi) => {
+        (page.keys || []).forEach(k => {
+          this.cards.push({
+            type: 'word',
+            img: page.img,
+            en: k.w,
+            zh: k.zh,
+            phonetic: k.p || '',
+            sentence: page.en,
+            sentenceZh: page.zh,
+            pageIdx: pi,
+            storyTitle: this.story.titleZh || this.story.title
+          });
+        });
+      });
+      // Also collect phrases
+      (this.story.pages || []).forEach((page, pi) => {
+        (page.phrases || []).forEach(ph => {
+          this.cards.push({
+            type: 'phrase',
+            img: page.img,
+            en: ph.en,
+            zh: ph.zh,
+            phonetic: '',
+            sentence: page.en,
+            sentenceZh: page.zh,
+            pageIdx: pi,
+            storyTitle: this.story.titleZh || this.story.title
+          });
+        });
+      });
+    } else {
+      // Sentence mode: each page's EN/ZH pair
+      (this.story.pages || []).forEach((page, pi) => {
+        this.cards.push({
+          type: 'sentence',
+          img: page.img,
+          en: page.en,
+          zh: page.zh,
+          phonetic: '',
+          pageIdx: pi,
+          storyTitle: this.story.titleZh || this.story.title,
+          keys: page.keys || []
+        });
+      });
+    }
+
+    this.originalOrder = this.cards.map((_, i) => i);
+    this.index = 0;
+    this.stopAutoPlay();
+    this.render();
+  },
+
+  toggleMode() {
+    this.mode = this.mode === 'word' ? 'sentence' : 'word';
+    document.getElementById('modeToggle').textContent = this.mode === 'word' ? '📖 语句' : '🔤 单词';
+    document.getElementById('modeBadge').textContent = this.mode === 'word' ? '🔤 单词' : '📖 语句';
+    document.getElementById('modeBadge').className = 'mode-badge ' + this.mode;
+    this.buildCards();
+  },
+
+  toggleView() {
+    const cardStage = document.getElementById('cardStage');
+    const controls = document.getElementById('controls');
+    const bottomTools = document.getElementById('bottomTools');
+    const allView = document.getElementById('allWordsView');
+    const btn = document.getElementById('viewToggle');
+
+    if (allView.style.display === 'block') {
+      allView.style.display = 'none';
+      cardStage.style.display = 'flex';
+      controls.style.display = 'flex';
+      bottomTools.style.display = 'flex';
+      btn.textContent = '📋 总表';
+    } else {
+      this.renderAllWords(allView);
+      cardStage.style.display = 'none';
+      controls.style.display = 'none';
+      bottomTools.style.display = 'none';
+      allView.style.display = 'block';
+      btn.textContent = '🎴 卡片';
+    }
+  },
+
+  renderAllWords(container) {
+    if (!this.story) return;
+    const pages = this.story.pages || [];
+    let html = '<h2 style="font-size:18px;margin-bottom:12px;color:rgba(255,255,255,0.6)">📋 全部重点词汇</h2><div class="word-grid">';
+    const seen = new Set();
+    pages.forEach((page, pi) => {
+      (page.keys || []).forEach(k => {
+        const key = k.w.toLowerCase();
+        if (seen.has(key)) return;
+        seen.add(key);
+        html += `<div class="word-chip" onclick="App.speakWord('${k.w.replace(/'/g,"\\'")}')">
+          <div class="w-en">${k.w}</div>
+          <div class="w-zh">${k.zh} ${k.p || ''}</div>
+        </div>`;
+      });
+    });
+    html += '</div>';
+    container.innerHTML = html;
+  },
+
+  render() {
+    const stage = document.getElementById('cardStage');
+    const controls = document.getElementById('controls');
+    const bottomTools = document.getElementById('bottomTools');
+    const fill = document.getElementById('progressFill');
+    const counter = document.getElementById('counter');
+
+    if (!this.cards.length) {
+      stage.innerHTML = `<div class="empty-state">
+        <div class="icon">📭</div>
+        <h3>这本绘本没有词汇数据</h3>
+        <p>换一本试试</p>
+      </div>`;
+      controls.style.display = 'none';
+      bottomTools.style.display = 'none';
+      return;
+    }
+
+    controls.style.display = 'flex';
+    bottomTools.style.display = 'flex';
+    const card = this.cards[this.index];
+    const total = this.cards.length;
+    const pct = ((this.index + 1) / total * 100).toFixed(1);
+    fill.style.width = pct + '%';
+    counter.textContent = `${this.index + 1} / ${total}`;
+
+    // Build card HTML
+    let imgHtml = '';
+    if (card.img) {
+      imgHtml = `<img src="../../${card.img}" alt="" onerror="this.parentNode.querySelector('.fallback').style.display='flex';this.style.display='none'">`;
+    }
+    const fallbackEmoji = card.type === 'word' ? '🔤' : card.type === 'phrase' ? '💬' : '📖';
+    imgHtml += `<div class="fallback" style="display:none">${fallbackEmoji}</div>`;
+
+    // English text with highlight for word mode
+    let enHtml = card.en;
+    if (card.type === 'word' && card.sentence) {
+      // Highlight the word in the sentence
+      const regex = new RegExp('(' + card.en.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+      enHtml = card.sentence.replace(regex, '<span class="highlight">$1</span>');
+    }
+
+    // Word mode: show phonetic + story reference
+    let extraHtml = '';
+    if (card.type === 'word') {
+      extraHtml = `<div class="card-word-extra">
+        <span class="story-ref">📖 ${card.storyTitle}</span>
+        ${card.phonetic ? `<span class="story-ref">${card.phonetic}</span>` : ''}
+      </div>`;
+    }
+    // Phrase mode: show phrase below the sentence
+    if (card.type === 'phrase') {
+      extraHtml = `<div class="card-word-extra">
+        <span class="story-ref">💬 常用短语</span>
+        <span class="story-ref">📖 ${card.storyTitle}</span>
+      </div>`;
+    }
+
+    // Sentence mode: show key words below
+    let keysHtml = '';
+    if (card.type === 'sentence' && card.keys && card.keys.length) {
+      keysHtml = `<div class="card-word-extra">
+        ${card.keys.map(k => `<span class="story-ref" style="cursor:pointer" onclick="event.stopPropagation();App.speakWord('${k.w.replace(/'/g,"\\'")}')">🔤 ${k.w} ${k.zh}</span>`).join('')}
+      </div>`;
+    }
+
+    // Chinese visibility
+    const zhHidden = this.showChinese ? '' : 'hidden';
+
+    const typeLabel = card.type === 'word' ? '🔤 单词' : card.type === 'phrase' ? '💬 短语' : '📖 语句';
+    const typeClass = card.type === 'word' ? 'word' : 'sentence';
+
+    stage.innerHTML = `
+      <div class="card" id="mainCard">
+        <div class="card-img-wrap">
+          ${imgHtml}
+          <span class="card-story-tag">${this.story.titleZh || this.story.title}</span>
+          <span class="card-type-tag ${typeClass}">${typeLabel}</span>
+        </div>
+        <div class="card-body">
+          <div class="card-en">${enHtml}</div>
+          <div class="card-zh ${zhHidden}" id="cardZh">${card.zh}</div>
+          ${card.type === 'word' || card.type === 'phrase' ? `<div class="card-phonetic">${card.phonetic || ''}</div>` : ''}
+          ${extraHtml}
+          ${keysHtml}
+        </div>
+      </div>
+    `;
+  },
+
+  next() {
+    if (!this.cards.length) return;
+    if (this.index < this.cards.length - 1) {
+      this.index++;
+      this.render();
+    }
+  },
+
+  prev() {
+    if (!this.cards.length) return;
+    if (this.index > 0) {
+      this.index--;
+      this.render();
+    }
+  },
+
+  shuffle() {
+    if (!this.cards.length) return;
+    // Fisher-Yates
+    for (let i = this.cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
+    }
+    this.shuffled = true;
+    this.index = 0;
+    this.render();
+  },
+
+  speak() {
+    if (!this.cards.length) return;
+    const card = this.cards[this.index];
+    let text = '';
+    if (card.type === 'word') {
+      text = card.en;
+    } else if (card.type === 'phrase') {
+      text = card.en;
+    } else {
+      // Sentence mode: speak the EN sentence
+      text = card.en;
+    }
+    this.doSpeak(text);
+  },
+
+  speakWord(word) {
+    this.doSpeak(word);
+  },
+
+  doSpeak(text) {
+    if (!text || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'en-US';
+    utter.rate = 0.85;
+    utter.pitch = 1.0;
+    // Try to find a good English voice
+    const voices = window.speechSynthesis.getVoices();
+    const preferred = voices.find(v => v.lang.startsWith('en') && v.name.includes('Samantha'))
+      || voices.find(v => v.lang.startsWith('en-US'))
+      || voices.find(v => v.lang.startsWith('en'));
+    if (preferred) utter.voice = preferred;
+    window.speechSynthesis.speak(utter);
+  },
+
+  toggleChinese() {
+    this.showChinese = !this.showChinese;
+    const btn = document.getElementById('langBtn');
+    const zh = document.getElementById('cardZh');
+    if (zh) {
+      zh.classList.toggle('hidden');
+    }
+    btn.classList.toggle('showing');
+    btn.textContent = this.showChinese ? '中文 ✓' : '中文 ✗';
+  },
+
+  toggleAutoPlay() {
+    this.autoPlay = !this.autoPlay;
+    const btn = document.getElementById('autoPlayBtn');
+    if (this.autoPlay) {
+      btn.textContent = '⏸ 暂停';
+      btn.classList.add('active');
+      this.startAutoPlay();
+    } else {
+      btn.textContent = '▶ 自动播放';
+      btn.classList.remove('active');
+      this.stopAutoPlay();
+    }
+  },
+
+  startAutoPlay() {
+    this.stopAutoPlay();
+    this.autoTimer = setInterval(() => {
+      // Speak first
+      this.speak();
+      // Then advance after delay
+      setTimeout(() => {
+        if (this.index < this.cards.length - 1) {
+          this.index++;
+          this.render();
+        } else {
+          this.stopAutoPlay();
+          document.getElementById('autoPlayBtn').textContent = '▶ 自动播放';
+          document.getElementById('autoPlayBtn').classList.remove('active');
+          this.autoPlay = false;
+        }
+      }, 2000);
+    }, 4000);
+  },
+
+  stopAutoPlay() {
+    if (this.autoTimer) {
+      clearInterval(this.autoTimer);
+      this.autoTimer = null;
+    }
+  },
+
+  // Keyboard nav
+  handleKey(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); this.next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); this.prev(); }
+  }
+};
+
+// Init on load
+document.addEventListener('DOMContentLoaded', () => App.init());
+document.addEventListener('keydown', (e) => App.handleKey(e));
+// Re-init voice list
+window.speechSynthesis && window.speechSynthesis.getVoices();
+</script>
+</body>
+</html>
