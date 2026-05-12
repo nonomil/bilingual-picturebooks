@@ -118,8 +118,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 16px;
-    min-height: calc(100vh - 240px);
+    padding: 8px 16px 4px;
+    min-height: calc(100vh - 260px);
   }
   .card {
     width: 100%;
@@ -360,6 +360,44 @@
   .all-words-view .word-chip .w-en { font-weight: 700; color: #fbbf24; font-size: 15px; }
   .all-words-view .word-chip .w-zh { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
 
+  /* ===== Swipe Hint ===== */
+  .swipe-hint {
+    text-align: center;
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    padding: 4px 0 0;
+    transition: opacity 0.5s;
+  }
+
+  /* ===== Card animations ===== */
+  .card.slide-in { animation: slideIn 0.3s ease-out; }
+  .card.slide-out { animation: slideOut 0.2s ease-in; }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(40px) scale(0.97); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
+  }
+  @keyframes slideOut {
+    from { opacity: 1; transform: translateX(0) scale(1); }
+    to { opacity: 0; transform: translateX(-40px) scale(0.97); }
+  }
+
+  /* ===== Auto-play countdown ===== */
+  .countdown-ring {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(251,191,36,0.2);
+    border-top-color: #fbbf24;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ===== No data state improvement ===== */
+  .empty-state .sub { font-size: 12px; opacity: 0.5; margin-top: 8px; }
+
   /* ===== Responsive ===== */
   @media (max-width: 480px) {
     .card-en { font-size: 20px; }
@@ -404,7 +442,8 @@
   <button class="ctrl-btn speak" onclick="App.speak()">🔊 朗读</button>
   <button class="ctrl-btn next" onclick="App.next()">▶</button>
   <button class="ctrl-btn shuffle" onclick="App.shuffle()" title="随机">🎲</button>
-  <button class="ctrl-btn lang" id="langBtn" onclick="App.toggleChinese()" title="显示中文">中文</button>
+  <button class="ctrl-btn lang" id="langBtn" onclick="App.toggleChinese()" title="显示中文">中文 ✓</button>
+  <button class="ctrl-btn lang" id="zhSpeakBtn" onclick="App.speakChinese()" title="听中文">🔊 听中文</button>
 </div>
 
 <div class="bottom-tools" id="bottomTools" style="display:none">
@@ -653,6 +692,10 @@ const App = {
     const typeLabel = card.type === 'word' ? '🔤 单词' : card.type === 'phrase' ? '💬 短语' : '📖 语句';
     const typeClass = card.type === 'word' ? 'word' : 'sentence';
 
+    const swipeHint = this.cards.length > 1
+      ? '<div class="swipe-hint">👆 左右滑动切换</div>'
+      : '';
+
     stage.innerHTML = `
       <div class="card" id="mainCard">
         <div class="card-img-wrap">
@@ -668,7 +711,45 @@ const App = {
           ${keysHtml}
         </div>
       </div>
+      ${swipeHint}
     `;
+
+    // Slide-in animation
+    requestAnimationFrame(() => {
+      const el = document.getElementById('mainCard');
+      if (el) el.classList.add('slide-in');
+    });
+
+    // Bind swipe gestures
+    this.bindSwipe();
+  },
+
+  // ====== Touch Swipe ======
+  _swipe: { startX: 0, startY: 0, startTime: 0 },
+
+  bindSwipe() {
+    const el = document.getElementById('mainCard');
+    if (!el) return;
+    const self = this;
+    // Remove old listeners
+    const clone = el.cloneNode(true);
+    el.parentNode.replaceChild(clone, el);
+    clone.addEventListener('touchstart', function(e) {
+      const t = e.touches[0];
+      self._swipe.startX = t.clientX;
+      self._swipe.startY = t.clientY;
+      self._swipe.startTime = Date.now();
+    }, { passive: true });
+    clone.addEventListener('touchend', function(e) {
+      const t = e.changedTouches[0];
+      const dx = t.clientX - self._swipe.startX;
+      const dy = t.clientY - self._swipe.startY;
+      const dt = Date.now() - self._swipe.startTime;
+      if (Math.abs(dx) > Math.abs(dy) * 1.5 && (dt < 300 || Math.abs(dx) > 50)) {
+        if (dx < -40) self.next();
+        if (dx > 40) self.prev();
+      }
+    }, { passive: true });
   },
 
   next() {
@@ -714,16 +795,22 @@ const App = {
     this.doSpeak(text);
   },
 
+  speakChinese() {
+    if (!this.cards.length) return;
+    const card = this.cards[this.index];
+    if (card.zh) this.doSpeak(card.zh, 'zh-CN');
+  },
+
   speakWord(word) {
     this.doSpeak(word);
   },
 
-  doSpeak(text) {
+  doSpeak(text, lang) {
     if (!text || !window.speechSynthesis) return;
     window.speechSynthesis.cancel();
     const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = 'en-US';
-    utter.rate = 0.85;
+    utter.lang = lang || 'en-US';
+    utter.rate = lang === 'zh-CN' ? 0.9 : 0.85;
     utter.pitch = 1.0;
     // Try to find a good English voice
     const voices = window.speechSynthesis.getVoices();
@@ -749,7 +836,7 @@ const App = {
     this.autoPlay = !this.autoPlay;
     const btn = document.getElementById('autoPlayBtn');
     if (this.autoPlay) {
-      btn.textContent = '⏸ 暂停';
+      btn.innerHTML = '<span class="countdown-ring"></span> 播放中';
       btn.classList.add('active');
       this.startAutoPlay();
     } else {
@@ -761,29 +848,37 @@ const App = {
 
   startAutoPlay() {
     this.stopAutoPlay();
-    this.autoTimer = setInterval(() => {
-      // Speak first
-      this.speak();
-      // Then advance after delay
-      setTimeout(() => {
-        if (this.index < this.cards.length - 1) {
-          this.index++;
-          this.render();
-        } else {
-          this.stopAutoPlay();
-          document.getElementById('autoPlayBtn').textContent = '▶ 自动播放';
-          document.getElementById('autoPlayBtn').classList.remove('active');
-          this.autoPlay = false;
-        }
-      }, 2000);
-    }, 4000);
+    this.autoPlayStep();
+  },
+
+  autoPlayStep() {
+    if (!this.autoPlay) return;
+    this.speak();
+    const btn = document.getElementById('autoPlayBtn');
+    let cd = 3;
+    btn.innerHTML = `<span class="countdown-ring"></span> ${cd}s`;
+    const cdTimer = setInterval(() => {
+      cd--;
+      if (cd > 0) btn.innerHTML = `<span class="countdown-ring"></span> ${cd}s`;
+      else clearInterval(cdTimer);
+    }, 1000);
+    this.autoTimer = setTimeout(() => {
+      if (!this.autoPlay) return;
+      if (this.index < this.cards.length - 1) {
+        this.index++;
+        this.render();
+        this.autoPlayStep();
+      } else {
+        this.autoPlay = false;
+        const b = document.getElementById('autoPlayBtn');
+        b.textContent = '▶ 自动播放';
+        b.classList.remove('active');
+      }
+    }, 3500);
   },
 
   stopAutoPlay() {
-    if (this.autoTimer) {
-      clearInterval(this.autoTimer);
-      this.autoTimer = null;
-    }
+    if (this.autoTimer) { clearTimeout(this.autoTimer); this.autoTimer = null; }
   },
 
   // Keyboard nav
