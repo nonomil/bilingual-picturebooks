@@ -7,7 +7,7 @@ set -e
 LOG="/tmp/gen_cron.log"
 PYTHON=/home/deploy/camoufox-env/bin/python3
 SCRIPT=/home/deploy/bilingual-picturebooks/scripts/gen_batch.py
-DISPLAY=:99
+export DISPLAY=:99
 
 echo "=== $(date '+%Y-%m-%d %H:%M:%S') ===" >> "$LOG"
 
