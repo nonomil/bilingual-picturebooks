@@ -135,7 +135,29 @@ Grandma smiles: "Because our family is in it."
 ```
    The cat is ON the RUG. 🐱🟫
    I give the dog a HUG. 🐶🤗
-   Running home is FUN! 🏃🏠🎉
+
+---
+
+> 📐 **CEFR Level:** Pre-A1 | **对标:** 英语课标一级·听说·日常问候与基础词汇
+
+### ⚠️ Common Mistakes
+
+| ❌ Wrong | ✅ Right |
+|----------|---------|
+| "I is Steve" | **"I am Steve"** — "I" always uses "am" |
+| "What your name?" | **"What's your name?"** — need "is" |
+| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
+| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
+
+### 🧠 Think About It
+1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
+2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+
+## 🔗 Cross-Curricular Links
+数学第1-2课教数字 → 英语同步numbers & counting
+语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
+
+Running home is FUN! 🏃🏠🎉
 ```
 
 <img src="./img/chapter-06-ext-en/page-03.png" width="480" alt="Minecraft cozy wooden house with flowers, cat on step, chimney smoke, grandma smiling, warm home"/>

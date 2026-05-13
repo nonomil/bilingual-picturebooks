@@ -4,6 +4,28 @@
 - Write your OWN complete story
 - Showcase all you have learned
 - Celebrate 24 lessons of English
+
+---
+
+> 📐 **CEFR Level:** A1 | **对标:** 英语课标一级·阅读·简单绘本故事理解
+
+### ⚠️ Common Mistakes
+
+| ❌ Wrong | ✅ Right |
+|----------|---------|
+| "He don't like it" | **"He doesn't like it"** — he/she/it uses doesn't |
+| "There is many blocks" | **"There are many blocks"** — many = plural = are |
+| "Can you help me?" "Yes, I help" | **"Yes, I can"** or **"Yes, I will help you"** |
+| Reading word by word, not in phrases | Read in **meaning chunks**: "Steve walked / into the cave / and saw a light" |
+
+### 🧠 Think About It
+1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
+2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
+
+## 🔗 Cross-Curricular Links
+语文第20课教短句阅读 → 英语同步简单故事阅读
+数学第23课教应用题 → 英语阅读能力帮助理解数学题
+
 - 🎉 You are an English reader!
 
 ---

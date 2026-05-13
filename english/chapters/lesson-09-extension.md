@@ -407,6 +407,27 @@ Sort the words:
 
 ---
 
+---
+
+> 📐 **CEFR Level:** Pre-A1 | **对标:** 英语课标一级·听说·主题词汇（动物/身体/食物/天气/服装）
+
+### ⚠️ Common Mistakes
+
+| ❌ Wrong | ✅ Right |
+|----------|---------|
+| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
+| "It's rain" | **"It's raining"** — use -ing for actions happening now |
+| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
+| "The dog big" | **"The dog is big"** — need "is" (be verb) |
+
+### 🧠 Think About It
+1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
+2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+
+## 🔗 Cross-Curricular Links
+语文第15课教食物汉字 → 英语同步food words
+数学第18课教比较 → 英语big/small/long/short配套
+
 ## 🏆 Challenge — Picnic Master!
 
 **Level 1: Food from A to Z 🔤**
