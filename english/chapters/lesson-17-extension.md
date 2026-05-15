@@ -179,16 +179,15 @@ New words:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "She go to school" | **"She goes to school"** — he/she/it + verb+s |
-| "I'm go to the village" | **"I'm going to the village"** — am/is/are + verb-ing |
-| "He is in the bus" | **"He is on the bus"** — on for vehicles, in for buildings |
-| "I feeled happy" | **"I felt happy"** — irregular past: feel→felt |
-
+| "I go to school by the bus" | **"I go to school by bus"** — by + 交通工具（无 the/a） |
+| "I am in the bus" | **"I am on the bus"** — 在交通工具上用 on（on the bus/train/plane） |
+| "The car go on the road" | **"The car goes on the road"** — 第三人称单数 + s |
+| "He fly the plane" | **"He flies the plane"** — 辅音 + y 结尾 → 变 i + es: fly → flies |
 ### 🧠 Think About It
 1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
 2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
 
 ## 🔗 Cross-Curricular Links
-语文第17课教方向与时间 → 英语同步方位词和时间表达
-数学第16课教钟表 → 英语"What time is it?"配套
-
+地理：世界各大洲 + 你坐什么交通工具去？（"I take a plane to America"）英文讨论 + 中文认知
+科学：为什么船浮在水上？飞机为什么能飞？英文关键词（float, fly, wing）+ 中文深入
+数学第19课简单统计：统计全班同学怎么来上学（walk/bus/car/bike），画英文柱状图

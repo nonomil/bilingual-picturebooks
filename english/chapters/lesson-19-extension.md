@@ -165,16 +165,15 @@ New WH words:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "He don't like it" | **"He doesn't like it"** — he/she/it uses doesn't |
-| "There is many blocks" | **"There are many blocks"** — many = plural = are |
-| "Can you help me?" "Yes, I help" | **"Yes, I can"** or **"Yes, I will help you"** |
-| Reading word by word, not in phrases | Read in **meaning chunks**: "Steve walked / into the cave / and saw a light" |
-
+| "Where you live?" | **"Where do you live?"** — WH 问句需要助动词 do/does |
+| "What you doing?" | **"What are you doing?"** — 现在进行时 = am/is/are + -ing |
+| "Who is she? She is my friend." vs "Who is he?" | **不要混淆 he/she！** 中文"他/她"同音，英语不一样 |
+| "How many years do you have?" | **"How old are you?"** — 年龄用 How old，不是 How many years |
 ### 🧠 Think About It
 1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
 2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
 
 ## 🔗 Cross-Curricular Links
-语文第20课教短句阅读 → 英语同步简单故事阅读
-数学第23课教应用题 → 英语阅读能力帮助理解数学题
-
+科学探究：用 WH 问题做科学观察（"What do you see? Why did it change? How can we test it?"）
+语文第20课短句阅读：中英双语读故事 + WH 问题阅读理解（"Who is the main character? Where does the story happen?"）
+批判性思维：学会问好问题是学习的第一步——中英文提问练习

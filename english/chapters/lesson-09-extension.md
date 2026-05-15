@@ -415,19 +415,18 @@ Sort the words:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
-| "It's rain" | **"It's raining"** — use -ing for actions happening now |
-| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
-| "The dog big" | **"The dog is big"** — need "is" (be verb) |
-
+| "I want some breads" | **"I want some bread"** — bread 不可数，永远不加 -s |
+| "Give me a milk" | **"Give me some milk"** — milk 不可数，用 "some" |
+| "I like eat apple" | **"I like to eat apples"** — like + to + verb, 且吃苹果泛指吃这一类 |
+| "Let's make a sandwich" vs "Let's make soup" | **"Let's make a sandwich" / "Let's make some soup"** — 可数用 a/an，不可数用 some |
 ### 🧠 Think About It
 1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
 2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
 
 ## 🔗 Cross-Curricular Links
-语文第15课教食物汉字 → 英语同步food words
-数学第18课教比较 → 英语big/small/long/short配套
-
+健康：MyPlate 食物分类（fruits, vegetables, grains, protein, dairy）— 英文分类 + 中文讨论
+数学第4课 5 以内加法：用食物做加法（"3 cookies + 2 cookies = 5 cookies!"）双语计算
+语文第15课食物汉字："苹果、香蕉、牛奶、面包" vs "apple, banana, milk, bread" 去超市双语认字
 ## 🏆 Challenge — Picnic Master!
 
 **Level 1: Food from A to Z 🔤**

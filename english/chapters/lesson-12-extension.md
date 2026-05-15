@@ -325,16 +325,15 @@ New words:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
-| "It's rain" | **"It's raining"** — use -ing for actions happening now |
-| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
-| "The dog big" | **"The dog is big"** — need "is" (be verb) |
-
+| "I put on my shoes" (already wearing them) | **"I wear my shoes"** — put on = 穿上的动作，wear = 穿着的状态 |
+| "I need a socks" | **"I need socks"** — socks 是复数（一双袜子 = a pair of socks） |
+| "This is me coat" | **"This is my coat"** — my = 我的，me = 我（宾语） |
+| "I put on a scarf" (发音 /skɑːrf/ 读成 /skɑːf/) | **scarf /skɑːrf/** — 注意结尾的 /f/ 音，不是 /rf/ |
 ### 🧠 Think About It
 1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
 2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
 
 ## 🔗 Cross-Curricular Links
-语文第15课教食物汉字 → 英语同步food words
-数学第18课教比较 → 英语big/small/long/short配套
-
+生活技能：根据天气选衣服（"It's cold. I need a coat and scarf."）英文衣物搭配 + 中文讨论
+美术：设计一套四季服装，英文标注每一件（spring outfit, winter outfit）
+数学第16课：认钟表 + 穿衣时间（"I put on my coat at 8 o'clock"）中英双语时间表达

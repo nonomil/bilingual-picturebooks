@@ -434,19 +434,18 @@ Write the word for each arrow:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
-| "It's rain" | **"It's raining"** — use -ing for actions happening now |
-| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
-| "The dog big" | **"The dog is big"** — need "is" (be verb) |
-
+| "Touch you nose" | **"Touch your nose"** — your = 你的，you = 你 |
+| "I can run with my foots" | **"I can run with my feet"** — foot → feet (irregular!) |
+| "I have tow eye" | **"I have two eyes"** — two (2) ≠ to ≠ too! |
+| "I touch my heads" | **"I touch my head"** — you have ONE head, no -s |
 ### 🧠 Think About It
 1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
 2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
 
 ## 🔗 Cross-Curricular Links
-语文第15课教食物汉字 → 英语同步food words
-数学第18课教比较 → 英语big/small/long/short配套
-
+体育：Simon Says 英文版 — "Touch your nose! Clap your hands!" 身体部位动作反应游戏
+科学：五感探索（eyes see, ears hear, nose smells, hands touch）— 英文标注感官动词
+语文第8课身体汉字："头、眼、耳、鼻、手、脚" vs "head, eyes, ears, nose, hands, feet" 双语对照
 ## 🏆 Challenge — Body Master!
 
 **Level 1: Body Part Word Search 🔍**

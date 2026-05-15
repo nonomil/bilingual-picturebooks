@@ -362,45 +362,18 @@ Design your own toy:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
-| "It's rain" | **"It's raining"** — use -ing for actions happening now |
-| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
-| "The dog big" | **"The dog is big"** — need "is" (be verb) |
-
+| "I can to make a kite" | **"I can make a kite"** — can 后面直接跟动词，不加 to |
+| "Me can build it" | **"I can build it"** — "I" 当主语，"me" 当宾语 |
+| "Let's building a puzzle" | **"Let's build a puzzle"** — Let's + 动词原形 |
+| "This is a toy. I like it. It fun." | **"It is fun"** — 别忘 be 动词！ |
 ### 🧠 Think About It
 1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
 2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
 
 ## 🔗 Cross-Curricular Links
-语文第15课教食物汉字 → 英语同步food words
-数学第18课教比较 → 英语big/small/long/short配套
-
-**Level 2: Design Challenge 🎨**
-
-Invent a NEW toy! Draw it and describe:
-
-```
-   My New Toy: The _______
-   
-   What does it do?
-   _______
-   
-   Why will kids love it?
-   _______
-```
-
-**Level 3: Toy Maker's Story ✏️**
-
-```
-   If I were a toy maker, I would make...
-   
-   First, a _______ for children who _______.
-   Second, a _______ for children who _______.
-   And my favorite: a _______ for _______.
-   
-   Because every child needs a toy that makes them smile!
-```
-
+手工：用回收材料做一个玩具，英文写制作步骤（"Step 1: Cut the paper."），中文描述创意
+数学第17课图形拼搭：用正方形、三角形拼玩具（"Let's build with squares!"）英文形状词汇
+语文第9课："玩具、书、笔" vs "toy, book, pencil" 整理书包双语物品卡
 ---
 
 ## 📊 Extension Summary

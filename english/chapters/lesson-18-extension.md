@@ -110,20 +110,20 @@ Fill in your certificate:
 
 > 📐 **CEFR Level:** Pre-A1 / A1 | **对标:** 英语课标一级·听说·动作/地点/感受/时间表达
 
-### ⚠️ Common Mistakes
+### ⚠️ Common Mistakes — Top 5 Carnival Review
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "She go to school" | **"She goes to school"** — he/she/it + verb+s |
-| "I'm go to the village" | **"I'm going to the village"** — am/is/are + verb-ing |
-| "He is in the bus" | **"He is on the bus"** — on for vehicles, in for buildings |
-| "I feeled happy" | **"I felt happy"** — irregular past: feel→felt |
-
+| "I have 3 book" | **"I have 3 books"** — 复数加 -s（L3-L6 最高频错误） |
+| "He go to the park" | **"He goes to the park"** — 第三人称单数 + s（L7-L12 最高频错误） |
+| "I goed to school yesterday" | **"I went to school yesterday"** — go → went 不规则（L13-L17 新学） |
+| "There is many animals" | **"There are many animals"** — many = 复数 = are |
+| "I can to swim" | **"I can swim"** — 情态动词后不加 to |
 ### 🧠 Think About It
 1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
 2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
 
 ## 🔗 Cross-Curricular Links
-语文第17课教方向与时间 → 英语同步方位词和时间表达
-数学第16课教钟表 → 英语"What time is it?"配套
-
+全科项目：设计一个"英文单词嘉年华"——每个游戏站代表一科（数单词站=Math，动物站=Science，颜色站=Art）
+数学：统计你学会了多少个英文单词（160个！画成长条图）
+语文：汉字量 vs 英文词量对比（你学了几个汉字？几个英文词？）双语学习成果展

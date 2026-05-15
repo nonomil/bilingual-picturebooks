@@ -42,47 +42,18 @@ After Steve's birthday, the class decides: "Let's plan a party for the whole sch
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "He don't like it" | **"He doesn't like it"** — he/she/it uses doesn't |
-| "There is many blocks" | **"There are many blocks"** — many = plural = are |
-| "Can you help me?" "Yes, I help" | **"Yes, I can"** or **"Yes, I will help you"** |
-| Reading word by word, not in phrases | Read in **meaning chunks**: "Steve walked / into the cave / and saw a light" |
-
+| "I wish you happy birthday" | **"I wish you a happy birthday"** — wish someone a + 名词 |
+| "Let's celebrate" vs "Let's to celebrate" | **"Let's celebrate"** — Let's + 动词原形 |
+| "The balloon red" | **"The red balloon"** — 形容词在名词前面！ |
+| "I give you a gift" vs "I gift you" | **"I give you a gift"** — gift 是名词，不是动词（give = 动词） |
 ### 🧠 Think About It
 1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
 2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
 
 ## 🔗 Cross-Curricular Links
-语文第20课教短句阅读 → 英语同步简单故事阅读
-数学第23课教应用题 → 英语阅读能力帮助理解数学题
-
-🎉 Party Planning
-   
-   What kind of party? → End-of-year party! 🎓
-   Where? → School playground! 🏫
-   When? → Next Friday! 📅
-   Who to invite? → EVERYONE! 👫👬👭
-```
-
-```
-   I-N-V-I-T-E → invite ✉️
-   C-E-L-E-B-R-A-T-E → celebrate 🎊
-   B-A-L-L-O-O-N → balloon 🎈
-   C-A-R-D → card 💌
-   W-I-S-H → wish ⭐
-```
-
-> "First, we make invitation **cards**!"
-
-Everyone draws colorful cards. "You are **invited** to the End-of-Year Party!"
-
-> "Then, we blow up **balloons**!"
-
-Red, blue, green, yellow balloons fill the classroom.
-
-> "And we make a **wish** tree. Everyone writes their wish on a card and hangs it!"
-
-<img src="./img/chapter-21-ext-en/page-01.png" width="480" alt="Minecraft class planning party, making invitation cards, blowing balloons, wish tree with hanging cards"/>
-
+数学：派对策划（"8 friends, 8 cupcakes = 1 each"）用英文做派对数学
+美术：设计派对邀请卡，英文写时间、地点、活动（"Please come to my party! It's on Saturday at 3pm!"）
+社会：不同国家的生日习俗（piñata, cake, long noodles）英文介绍 + 中文讨论
 ---
 
 ## Page 2: Party Time! 🎊

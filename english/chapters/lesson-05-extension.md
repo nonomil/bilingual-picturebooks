@@ -295,19 +295,18 @@ Make a sentence with one: "I can ___."
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I is Steve" | **"I am Steve"** — "I" always uses "am" |
-| "What your name?" | **"What's your name?"** — need "is" |
-| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
-| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
-
+| "I have 3 banana" | **"I have 3 bananas"** — numbers >1 need plural -s |
+| "How much apples do you have?" | **"How many apples?"** — many for countable things |
+| "Give me a water" | **"Give me some water"** — uncountable things use "some", not "a" |
+| "I have six apple and two orange" | **"I have six apples and two oranges"** — every noun needs plural |
 ### 🧠 Think About It
 1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
 2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
 
 ## 🔗 Cross-Curricular Links
-数学第1-2课教数字 → 英语同步numbers & counting
-语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
-
+数学第1-5课认识数字 1-10 + 5 以内加法：用英文数水果做加法（"Three apples + two apples = five apples!"）
+语文第3课数字汉字："一二三四五六七" vs "one two three..." 双语数字配对游戏
+生活技能：去商店用英文数零钱（"I have six coins!"），中英双语购物清单
 ## 🏆 Challenge — Number Explorer Level 2!
 
 **🔢 Task 1: Count Your Fingers**

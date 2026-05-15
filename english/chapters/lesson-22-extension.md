@@ -116,21 +116,18 @@ New words:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "He don't like it" | **"He doesn't like it"** — he/she/it uses doesn't |
-| "There is many blocks" | **"There are many blocks"** — many = plural = are |
-| "Can you help me?" "Yes, I help" | **"Yes, I can"** or **"Yes, I will help you"** |
-| Reading word by word, not in phrases | Read in **meaning chunks**: "Steve walked / into the cave / and saw a light" |
-
+| "The cow give milk" | **"The cow gives milk"** — 第三人称单数 + s |
+| "We get milk from cow" | **"We get milk from cows"** — 泛指时用复数 |
+| "Sheep gives wool" (one sheep) vs "Sheep give wool" (many sheep) | **Sheep 单复数同形！** 一只羊=one sheep，很多羊=many sheep |
+| "The hen lay eggs everyday" | **"The hen lays eggs every day"** — he/she/it + s, everyday(adj)≠every day(adv) |
 ### 🧠 Think About It
 1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
 2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
 
 ## 🔗 Cross-Curricular Links
-语文第20课教短句阅读 → 英语同步简单故事阅读
-数学第23课教应用题 → 英语阅读能力帮助理解数学题
-
-> **Total words: 200** 🎉
-
+科学：从农场到餐桌（Farm to Table）——牛奶怎么来的？鸡蛋怎么来的？英文流程图 + 中文讨论
+数学第15课认识钱币：卖农产品算账（"One egg costs 2 yuan. How much for 5 eggs?"）英文应用题
+语文第22课："农场、牛奶、鸡蛋、羊毛" vs "farm, milk, egg, wool" 农场主题双语词卡
 ---
 
 <img src="./img/chapter-22-ext-en/page-03.png" width="480" alt="Farm extension flashcards: milk egg wool hay barn, ow/oa sound block, 200 words milestone"/>

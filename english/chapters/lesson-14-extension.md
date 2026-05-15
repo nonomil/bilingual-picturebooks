@@ -192,58 +192,18 @@ At the end of the day, the whole street has a party in the park!
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "She go to school" | **"She goes to school"** — he/she/it + verb+s |
-| "I'm go to the village" | **"I'm going to the village"** — am/is/are + verb-ing |
-| "He is in the bus" | **"He is on the bus"** — on for vehicles, in for buildings |
-| "I feeled happy" | **"I felt happy"** — irregular past: feel→felt |
-
+| "I go to the school every day" | **"I go to school every day"** — go to school/hospital/church（无 the）是"去上学/看病/做礼拜" |
+| "There is many shops in my town" | **"There are many shops"** — many + 复数 = are |
+| "I live in the China" | **"I live in China"** — 国家名前一般不加 the |
+| "The shop is in the street" (UK) vs "on the street" (US) | **Both OK!** — UK 用 in the street，US 用 on the street |
 ### 🧠 Think About It
 1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
 2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
 
 ## 🔗 Cross-Curricular Links
-语文第17课教方向与时间 → 英语同步方位词和时间表达
-数学第16课教钟表 → 英语"What time is it?"配套
-
-🎉 Neighborhood Party:
-   
-   Place: the PARK 🌳
-   Food: from the SHOP and FARM 🏪🐄
-   Books to share: from the LIBRARY 📚
-   Fun: everyone from our STREET! 🛣️
-```
-
-All the neighbors bring something. The baker brings bread. The farmer brings apples. The librarian brings storybooks.
-
-Steve and Alex proudly show their town map to everyone.
-
-> "This is our town!" says Steve, pointing to every place.
-
-> "Home, school, park, shop, library, hospital, farm, zoo — we visited them all!"
-
-The mayor of the town comes over. "What a wonderful map! May we hang it in the library?"
-
-Steve and Alex look at each other and grin. "YES!"
-
-```
-   🏘️ Our Town:
-   
-   Small but full of life,
-   Every street, every place,
-   Is part of our big story.
-```
-
-**Sight word review:**
-```
-   We went THERE — to every place!
-   The flowers are PRETTY — in the park.
-   PLEASE come to our party!
-   RIDE your bike down the street.
-   It rained, BUT we still had fun!
-```
-
-<img src="./img/chapter-14-ext-en/page-05.png" width="480" alt="Minecraft neighborhood party in park, all neighbors bringing food and books, Steve and Alex showing map, mayor admiring, party atmosphere"/>
-
+社会：画一张社区地图，英文标注所有地点（library, hospital, park, shop, school）
+数学第20课位置与方向：用英文方位词描述路径（"Go straight, turn left at the park"）
+语文第14课地点汉字："学校、公园、商店、家" vs "school, park, shop, home" 双语社区探索
 ---
 
 ## 📝 Practice

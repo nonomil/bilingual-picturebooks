@@ -165,27 +165,18 @@ The monster waves its hand. A giant **rainbow** appears over the village.
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I is Steve" | **"I am Steve"** — "I" always uses "am" |
-| "What your name?" | **"What's your name?"** — need "is" |
-| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
-| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
-
+| "The car red" | **"The red car"** — color comes BEFORE the thing in English |
+| "a orange" | **"an orange"** — vowel sound = "an" |
+| "I like the blue" (when talking about the color) | **"I like blue"** — no "the" for general color names |
+| "The sky is blew" | **"The sky is blue"** — blue (color) ≠ blew (past of blow) |
 ### 🧠 Think About It
 1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
 2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
 
 ## 🔗 Cross-Curricular Links
-数学第1-2课教数字 → 英语同步numbers & counting
-语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
-
-> "I can make rainbows now!" 🎉
-
-From that day on, the Color Monster lives in the village. Every time it rains, it makes a huge rainbow.
-
-> "Gray is okay too," says the monster. "Gray clouds bring rain. Rain brings rainbows. Gray is part of the story."
-
-<img src="./img/chapter-04-ext-en/page-07.png" width="480" alt="Colorful happy monster making a giant rainbow over the village, villagers cheering"/>
-
+美术：用红黄蓝三原色调出橙绿紫（red + yellow = orange），英文标注每种颜色
+数学第3课比大小：用彩色方块比较多少（"More red blocks!" / "Fewer blue blocks!"）
+语文第2课基本笔画：汉字"红黄蓝绿"的笔画与英文 color words 对照书写
 ---
 
 ## Page 8: Let's Make a Color Book! 📒

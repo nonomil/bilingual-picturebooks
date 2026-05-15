@@ -118,42 +118,18 @@ Alex says: "Tuesday — library day! I love books!"
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "She go to school" | **"She goes to school"** — he/she/it + verb+s |
-| "I'm go to the village" | **"I'm going to the village"** — am/is/are + verb-ing |
-| "He is in the bus" | **"He is on the bus"** — on for vehicles, in for buildings |
-| "I feeled happy" | **"I felt happy"** — irregular past: feel→felt |
-
+| "I go to school on Monday" | **正确！** "on Monday" 用 on，但很多小朋友写成 "in Monday" |
+| "Today is monday" | **"Today is Monday"** — 星期几的首字母永远大写 |
+| "Yesterday I go to the park" | **"Yesterday I went to the park"** — go → went (过去式) |
+| "I will go tomorrow" vs "I am going tomorrow" | **Both OK!** — 近期的计划可以用现在进行时表将来 |
 ### 🧠 Think About It
 1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
 2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
 
 ## 🔗 Cross-Curricular Links
-语文第17课教方向与时间 → 英语同步方位词和时间表达
-数学第16课教钟表 → 英语"What time is it?"配套
-
-🎉 Weekend:
-   
-   📅 Saturday — play all day!
-   📅 Sunday — family day
-```
-
-> "On Saturday, I sleep late. No morning bell!"
-
-Steve tells everyone his Saturday: "I play soccer, ride my bike, and visit the park."
-
-> "On Sunday, my family has a big lunch together. Then we rest for Monday."
-
-**Sight word review:**
-```
-   I ATE pancakes on Sunday morning.
-   I will BE at the park on Saturday.
-   We have FOUR days of school.
-   I GET up late on weekends.
-   Monday comes SOON — but Saturday comes sooner!
-```
-
-<img src="./img/chapter-16-ext-en/page-03.png" width="480" alt="Minecraft Saturday play day Steve playing soccer riding bike, Sunday family lunch, weekend fun activities"/>
-
+数学：日历 + 月份（"How many Mondays in May?"）用英文做一周计划表
+生活技能：做一张英文 weekly schedule（"Monday: swimming, Wednesday: art class"）
+语文第16课时间汉字："今天、明天、昨天、星期" vs "today, tomorrow, yesterday, week" 双语日历
 ---
 
 ## Page 4: The Week Story 📖

@@ -441,19 +441,18 @@ Read and write:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
-| "It's rain" | **"It's raining"** — use -ing for actions happening now |
-| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
-| "The dog big" | **"The dog is big"** — need "is" (be verb) |
-
+| "I see 3 pig" | **"I see 3 pigs"** — add -s for plurals |
+| "The cow say moo" | **"The cow says moo"** — he/she/it needs verb + s |
+| "I have two foots" | **"I have two feet"** — foot → feet (irregular!) |
+| "It's sound like baa" | **"It sounds like baa"** — no 's after it in present tense: "It sounds" not "It's sounds" |
 ### 🧠 Think About It
 1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
 2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
 
 ## 🔗 Cross-Curricular Links
-语文第15课教食物汉字 → 英语同步food words
-数学第18课教比较 → 英语big/small/long/short配套
-
+科学：农场动物吃什么？（Cows eat grass → 草食动物，pigs eat everything → 杂食动物）英文讨论 + 中文认知
+数学第3课分类：数每种动物有几只，画柱状图（3 cows, 5 hens → 哪种最多？）
+语文第7课动物汉字：牛、羊、马、鸡、猪 vs cow, sheep, horse, hen, pig 双语动物卡片
 ## 🏆 Challenge — Farm Explorer!
 
 **Level 1: Word Scramble 🧩**

@@ -85,32 +85,18 @@ The teacher gives Steve and Alex a "Storm Helper" award.
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "He don't like it" | **"He doesn't like it"** — he/she/it uses doesn't |
-| "There is many blocks" | **"There are many blocks"** — many = plural = are |
-| "Can you help me?" "Yes, I help" | **"Yes, I can"** or **"Yes, I will help you"** |
-| Reading word by word, not in phrases | Read in **meaning chunks**: "Steve walked / into the cave / and saw a light" |
-
+| "The storm is come!" | **"The storm is coming!"** — 正在发生 = am/is/are + -ing |
+| "We must to go home" | **"We must go home"** — must 后不加 to |
+| "I was scared. The storm was scared." (about the storm) | **"The storm was scary"** — scared = 感到害怕的，scary = 令人害怕的 |
+| "It rained yesterday" (correct!) vs "It rained strong" | **"It rained hard"** — 形容雨大用 hard/heavily，不用 strong |
 ### 🧠 Think About It
 1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
 2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
 
 ## 🔗 Cross-Curricular Links
-语文第20课教短句阅读 → 英语同步简单故事阅读
-数学第23课教应用题 → 英语阅读能力帮助理解数学题
-
-🏅 Storm Helper Award
-   
-   For being BRAVE 😤
-   and helping friends stay SAFE 🛡️
-   during the big storm!
-```
-
-> "Thank you," says Steve. "We **have** learned that friends make everything better — even big storms."
-
-> "And now we know **where** to find shelter," adds Alex. "The farmer's hut — **our** safe place!"
-
-<img src="./img/chapter-20-ext-en/page-02.png" width="480" alt="Minecraft farmer at school, Storm Helper award ceremony, Steve and Alex receiving award, class clapping"/>
-
+科学：雷雨是怎么形成的？闪电和打雷（lightning and thunder）英文名词 + 中文原理讲解
+安全教育：恶劣天气安全守则（"Stay inside! Stay away from windows!"）中英双语安全手册
+语文第20课：描写天气的成语（倾盆大雨、电闪雷鸣）vs 英文 weather vocabulary 对比
 ---
 
 ## 📝 Practice

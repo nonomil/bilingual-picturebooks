@@ -9,25 +9,24 @@
 
 > 📐 **CEFR Level:** A1 | **对标:** 英语课标一级·阅读·简单绘本故事理解
 
-### ⚠️ Common Mistakes
+### ⚠️ Common Mistakes — Final Top 5 Check
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "He don't like it" | **"He doesn't like it"** — he/she/it uses doesn't |
-| "There is many blocks" | **"There are many blocks"** — many = plural = are |
-| "Can you help me?" "Yes, I help" | **"Yes, I can"** or **"Yes, I will help you"** |
-| Reading word by word, not in phrases | Read in **meaning chunks**: "Steve walked / into the cave / and saw a light" |
-
+| 复数 -s 遗忘 | **Every time you say "two ___" or "three ___" → add -s!** |
+| 第三人称 -s 遗忘 | **He/She/It → verb + s! Always!** |
+| be 动词缺失 | **"I happy" → "I am happy" / "It big" → "It is big"** |
+| WH 问句缺助动词 | **"Where you go?" → "Where do you go?" / "What you doing?" → "What are you doing?"** |
+| 不规则过去式乱造 | **go→went, see→saw, run→ran, feel→felt, say→said** — 这些要背！ |
 ### 🧠 Think About It
 1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
 2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
 
 ## 🔗 Cross-Curricular Links
-语文第20课教短句阅读 → 英语同步简单故事阅读
-数学第23课教应用题 → 英语阅读能力帮助理解数学题
-
-- 🎉 You are an English reader!
-
+全科项目：创作一本自己的双语绘本——英文写故事 + 中文翻译 + 自己画插图
+数学：统计你在 24 课中学了多少个英文单词、多少个句型——做成"学习成长图"
+语文：中英双语阅读能力对比——你现在能读多长的英文故事？多长的中文故事？
+庆祝：举办"Minecraft English Festival"——展示自己的绘本，用英文介绍故事！
 ---
 
 ## ✏️ Your Story — The Final Challenge

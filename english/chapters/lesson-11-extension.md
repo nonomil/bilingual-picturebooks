@@ -288,19 +288,18 @@ They hang their drawings on the wall. Four seasons, four pictures, four stories.
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
-| "It's rain" | **"It's raining"** — use -ing for actions happening now |
-| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
-| "The dog big" | **"The dog is big"** — need "is" (be verb) |
-
+| "In winter, it snow" | **"In winter, it snows"** — it = 第三人称单数，动词加 -s |
+| "I like summer. In summer hot." | **"In summer, it is hot"** — 必须有 be 动词 |
+| "The snow it is cold" | **"The snow is cold"** — 一个主语就够了 |
+| "In the spring, flowers bloom" vs "In spring..." | **Both OK!** — "in spring" 更常用，"in the spring" 也对 |
 ### 🧠 Think About It
 1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
 2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
 
 ## 🔗 Cross-Curricular Links
-语文第15课教食物汉字 → 英语同步food words
-数学第18课教比较 → 英语big/small/long/short配套
-
+科学：四季为什么变化？（地球绕太阳转 → tilt → seasons）英文简单解释 + 中文深入讨论
+数学第18课比较：比较四季温度（"Summer is hotter than winter"）英文比较句
+语文第11课天气汉字："春夏秋冬" vs "spring, summer, fall, winter" 四季双语诗
 ## 🏆 Challenge — Season Master!
 
 **Level 1: Season Sorting 📦**

@@ -215,19 +215,18 @@ up / is / The sun  →  ___ ___ ___
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I is Steve" | **"I am Steve"** — "I" always uses "am" |
-| "What your name?" | **"What's your name?"** — need "is" |
-| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
-| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
-
+| "I have a apple" | **"I have an apple"** — use "an" before a/e/i/o/u sounds |
+| "This is N. It say /n/" | **"This is N. It says /n/"** — letter name ≠ letter sound |
+| "I have two apple" | **"I have two apples"** — add -s for more than one |
+| "Z is /zee/" (UK) or "Z is /zed/" (US confused) | **"Z is /zee/" (US) or /zed/ (UK)** — both are correct! |
 ### 🧠 Think About It
 1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
 2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
 
 ## 🔗 Cross-Curricular Links
-数学第1-2课教数字 → 英语同步numbers & counting
-语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
-
+语文第1课教象形字：英语字母 A 来自牛头𓃾（aleph），B 来自房子（beth）→ 一起画字母演变图
+数学第1-2课数字 1-10：用英文数字标签给 Minecraft 方块编号，中英双语数方块
+Sound Block: N-Z 字母发音与拼音声母对比（n/n/, l/l/, s/s/ — 中英同音！）
 ## 🎯 Page 8: Challenge — I Can Read!
 
 Read these sentences out loud!

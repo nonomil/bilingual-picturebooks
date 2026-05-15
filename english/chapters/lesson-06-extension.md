@@ -144,24 +144,18 @@ Grandma smiles: "Because our family is in it."
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I is Steve" | **"I am Steve"** — "I" always uses "am" |
-| "What your name?" | **"What's your name?"** — need "is" |
-| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
-| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
-
+| "Him is my dad" | **"He is my dad"** — "he" is the subject, "him" is the object |
+| "I love she" | **"I love her"** — after the verb, use object form |
+| "She my mom" | **"She is my mom"** — never skip the be verb (am/is/are) |
+| "This is my family. They is nice." | **"They are nice"** — they/we/you → are; he/she/it → is |
 ### 🧠 Think About It
 1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
 2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
 
 ## 🔗 Cross-Curricular Links
-数学第1-2课教数字 → 英语同步numbers & counting
-语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
-
-Running home is FUN! 🏃🏠🎉
-```
-
-<img src="./img/chapter-06-ext-en/page-03.png" width="480" alt="Minecraft cozy wooden house with flowers, cat on step, chimney smoke, grandma smiling, warm home"/>
-
+社会：画一张 family tree，用英文标注每个家人（"This is my grandma."），中文标注对应称呼
+数学第3课分类：把家人按年龄、性别分类（big/small, old/young），用英文描述
+语文第6课家庭汉字："爸爸、妈妈、哥哥、姐姐" vs "dad, mom, brother, sister" 双语配对
 ---
 
 ## Page 4: The Family Pet 🐱

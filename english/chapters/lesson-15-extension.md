@@ -286,16 +286,15 @@ New words:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "She go to school" | **"She goes to school"** — he/she/it + verb+s |
-| "I'm go to the village" | **"I'm going to the village"** — am/is/are + verb-ing |
-| "He is in the bus" | **"He is on the bus"** — on for vehicles, in for buildings |
-| "I feeled happy" | **"I felt happy"** — irregular past: feel→felt |
-
+| "I feeled happy" | **"I felt happy"** — feel → felt (不规则过去式) |
+| "I am feel sad" | **"I feel sad"** — feel 本身就是动词，不需要 am |
+| "She angry" | **"She is angry"** — 形容词前面必须有 be 动词 |
+| "I am boring" (when you feel bored) | **"I am bored"** — boring = 令人无聊的，bored = 感到无聊的 |
 ### 🧠 Think About It
 1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
 2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
 
 ## 🔗 Cross-Curricular Links
-语文第17课教方向与时间 → 英语同步方位词和时间表达
-数学第16课教钟表 → 英语"What time is it?"配套
-
+社会情感学习(SEL)：情绪颜色轮盘（red=angry, blue=sad, yellow=happy）英文标注 + 中文讨论"你什么时候感到brave？"
+美术：画"Feelings Rainbow"——每种颜色代表一种情绪，英文写下"I feel [brave] when I [try new things]"
+语文第15课情感汉字：喜怒哀乐 vs happy, angry, sad, joyful 中英情绪日记
