@@ -195,22 +195,22 @@ Lion, moon — all bright!
 
 > 📐 **CEFR Level:** Pre-A1 | **对标:** 英语课标一级·听说·日常问候与基础词汇
 
-### ⚠️ Common Mistakes
+### ⚠️ Common Mistakes (Extension)
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I is Steve" | **"I am Steve"** — "I" always uses "am" |
-| "What your name?" | **"What's your name?"** — need "is" |
-| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
-| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
+| Saying "A, B, C, D" without knowing which is which | Practice matching: **A is for Apple, B is for Ball, C is for Cat** |
+| Mixing up lowercase "b" and "d" | **b** has a belly on the right; **d** has a belly on the left |
+| Writing "E" with extra lines | **E** has 4 strokes: one vertical, three horizontal |
+| Forgetting that letters have sounds | Every letter has a name AND a sound: **A says /æ/** |
 
-### 🧠 Think About It
-1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
-2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+### 🧠 Think About It (Extension)
+1. **Observation**: Uppercase and lowercase letters look different (A vs a). Why do we need two forms of the same letter?
+2. **What if**: What if the English alphabet only had 10 letters instead of 26? Which letters would you keep?
 
-## 🔗 Cross-Curricular Links
-数学第1-2课教数字 → 英语同步numbers & counting
-语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
+## 🔗 Cross-Curricular Links (Extension)
+数学第2课教认识11-20 → 英语同步练习字母顺序（A=1, B=2, C=3...）
+语文第2课教基本笔画 → 英语字母也有笔顺（先写哪一笔），对比学习提升书写能力
 
 ## 🎯 Page 8: Challenge — I Can Read!
 

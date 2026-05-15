@@ -135,22 +135,22 @@ Act out this conversation with a friend (or with yourself!):
 
 > 📐 **CEFR Level:** Pre-A1 | **对标:** 英语课标一级·听说·日常问候与基础词汇
 
-### ⚠️ Common Mistakes
+### ⚠️ Common Mistakes (Extension)
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I is Steve" | **"I am Steve"** — "I" always uses "am" |
-| "What your name?" | **"What's your name?"** — need "is" |
-| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
-| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
+| Saying "Goodnight" as one word too early | **"Good night"** is two words, said before bed |
+| Mixing up "Good afternoon" and "Good evening" | **Afternoon** = after 12:00 noon until ~6pm; **Evening** = after 6pm |
+| Answering "How are you?" with "I'm fine" even when tired | It's OK to say **"I'm tired"** or **"I'm happy"** — be honest! |
+| Forgetting "thank you" after "I'm fine" | Politeness matters: **"I'm fine, thank you!"** |
 
-### 🧠 Think About It
-1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
-2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+### 🧠 Think About It (Extension)
+1. **Observation**: In many cultures, people ask "How are you?" as a greeting but don't expect a long answer. Why might this be?
+2. **What if**: What if English used different greetings for morning, afternoon, and night — like some languages do? How would you design a new greeting?
 
-## 🔗 Cross-Curricular Links
-数学第1-2课教数字 → 英语同步numbers & counting
-语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
+## 🔗 Cross-Curricular Links (Extension)
+语文第3课教"你我他" → 英语同步学习 "I, you, he, she, we, they"
+数学第4课教加法 → 英语数数练习：one apple + two apples = three apples
 
 ## 🎯 Page 7: Challenge — All Day Greeting
 
