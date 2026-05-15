@@ -3,4 +3,5 @@
 cd /home/deploy/bilingual-picturebooks
 export DISPLAY=:99
 export PATH="/home/deploy/.local/bin:$PATH"
-python3 scripts/gen_chinese.py >> scripts/gen_cron_chinese.log 2>&1
+PYTHON=/home/deploy/camoufox-env/bin/python3
+$PYTHON scripts/gen_chinese.py >> scripts/gen_cron_chinese.log 2>&1
