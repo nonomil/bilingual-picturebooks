@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Batch Gemini image gen for Chinese (语文) — reuses same infrastructure as math."""
-import sys, os, time, json, base64, pyotp
+"""Batch Gemini image gen for Chinese (语文)."""
+import sys, os, time, json, base64, pyotp, re
 from pathlib import Path
 from camoufox.sync_api import Camoufox
 
-# Same accounts as math
 ACCOUNTS = [
     {"email": "BellkisMares@gmail.com", "pass": "2fr5svqe3", "totp": "mbggtjvtr7rvhda3bv6xib26c7eghmkr"},
     {"email": "ripmysleeves@yahoo.com", "pass": "wangdana123@", "totp": "muoto4uznefcobgb5rcdno6j4dn7hgho"},
@@ -15,9 +14,12 @@ BATCH_SIZE = 5
 MAX_RETRIES = 3
 FAIL_STREAK_LIMIT = 3
 AI_STUDIO = "https://aistudio.google.com/prompts/new_chat?model=gemini-2.5-flash-image"
-BASE_DIR = Path("/home/deploy/bilingual-picturebooks/chinese-language/chapters/img")
+IMG_DIR = Path("/home/deploy/bilingual-picturebooks/chinese-language/chapters/img")
+CHAPTERS_DIR = Path("/home/deploy/bilingual-picturebooks/chinese-language/chapters")
 STATE = Path("/home/deploy/bilingual-picturebooks/scripts/gen_state_chinese.json")
 SLEEP = 30
+
+STYLE = "Minecraft pixel art style, bright and warm colors, clean composition, Chinese language learning, 640x480"
 
 def load():
     today = time.strftime("%Y-%m-%d")
@@ -35,52 +37,177 @@ def save(s):
     STATE.parent.mkdir(parents=True, exist_ok=True)
     STATE.write_text(json.dumps(s, indent=2))
 
-def get_pending(state):
-    """Find all missing images across Chinese chapters."""
-    import re
+def get_pending():
+    """Find all missing images across Chinese chapters. Returns list of (dirname, filename, key)."""
+    s = load()
     pending = []
-    chapters_dir = BASE_DIR.parent
-    
-    for fpath in sorted(chapters_dir.glob("*.md")):
+    for fpath in sorted(CHAPTERS_DIR.glob("*.md")):
         name = fpath.stem
         content = fpath.read_text()
         refs = re.findall(r'<img src="([^"]+)"', content)
         for ref in refs:
-            full_path = (chapters_dir / ref.lstrip('./')).resolve()
-            full_path = full_path.absolute()
-            # key for state
-            img_key = f"{name}/{full_path.name}"
-            if img_key in state.get("done", {}):
-                continue
-            if img_key in state.get("failed", {}):
-                continue
-            pending.append((name, full_path, ref))
+            # ref is like "./img/chapter-02/page-01.png"
+            ref_path = ref.lstrip('./')
+            full = (CHAPTERS_DIR / ref_path).resolve()
+            if not full.exists() or full.stat().st_size < 1000:
+                key = f"{name}/{full.name}"
+                if key in s.get("done", {}): continue
+                if s.get("failed", {}).get(key, 0) >= MAX_RETRIES: continue
+                # Determine target directory (e.g., chapter-02)
+                m = re.search(r'(chapter-\d+[^/]*)', ref_path)
+                tgt_dir = m.group(1) if m else "unknown"
+                pending.append((tgt_dir, full.name, key))
     return pending
 
-def prompt_for(chapter_name, filename):
-    """Generate appropriate prompt based on chapter content."""
-    ch_num = filename.split('-')[1] if '-' in filename else "1"
-    is_ext = "ext" in filename
-    
-    style = "Minecraft pixel art style, bright and warm colors, clean composition, 640x480"
-    
-    if is_ext:
-        return f"Chinese language learning activity illustration for lesson {chapter_name}, {style}"
-    else:
-        return f"Chinese language learning scene for lesson {chapter_name}, {style}"
+def prompts_probe(ch_name, fname):
+    """Generate Gemini prompt from chapter content context."""
+    is_ext = "ext" in ch_name or "ext" in fname
+    ctx = "extension activity" if is_ext else "lesson page"
+    ch_meta = ch_name.replace("-ext", " (extension)")
+    return f"Chinese language learning illustration for {ch_meta}: {fname}, {STYLE}"
 
-# Reuse login, navigate_to_chat, send_prompt, extract_image from gen_batch.py
-# (identical functions, omitted for brevity — copy from gen_batch.py)
+def dismiss(page):
+    try:
+        page.evaluate("() => { document.querySelectorAll('.cdk-overlay-backdrop').forEach(e => e.remove()); for(const b of document.querySelectorAll('button')){ const t = b.textContent.trim(); if(['Dismiss','Got it','Accept','Close','Continue'].includes(t)) b.click(); } }")
+    except: pass
+
+def login(page, acct):
+    e, p, k = acct["email"], acct["pass"], acct["totp"]
+    print(f"  Login: {e}...")
+    page.goto("https://accounts.google.com/", wait_until="domcontentloaded")
+    time.sleep(5); dismiss(page); time.sleep(1)
+    if not page.evaluate('() => !!document.querySelector(\'input[type="email"]\')'):
+        print("  Already in"); return
+    page.evaluate(f'()=>{{const i=document.querySelector(\'input[type="email"]\'); if(i)i.value="{e}";i.dispatchEvent(new Event("input",{{bubbles:!0}}))}}')
+    time.sleep(1)
+    page.evaluate('()=>{for(const b of document.querySelectorAll("button")){if(b.textContent.includes("Next")&&b.offsetParent){b.click();return}}}')
+    time.sleep(5)
+    page.evaluate(f'()=>{{const i=document.querySelector(\'input[type="password"]\'); if(i)i.value="{p}";i.dispatchEvent(new Event("input",{{bubbles:!0}}))}}')
+    time.sleep(1)
+    page.evaluate('()=>{for(const b of document.querySelectorAll("button")){if(b.textContent.includes("Next")&&b.offsetParent){b.click();return}}}')
+    time.sleep(5)
+    code = pyotp.TOTP(k).now()
+    page.evaluate(f'()=>{{const i=document.querySelector(\'input[type="tel"], input[autocomplete="one-time-code"]\'); if(i)i.value="{code}";i.dispatchEvent(new Event("input",{{bubbles:!0}}))}}')
+    time.sleep(1)
+    page.evaluate('()=>{for(const b of document.querySelectorAll("button")){if(b.textContent.includes("Next")&&b.offsetParent){b.click();return}}}')
+    time.sleep(6); print("  OK")
+
+def navigate_to_chat(page):
+    page.goto(AI_STUDIO, wait_until="domcontentloaded")
+    time.sleep(8); dismiss(page); time.sleep(2)
+    tas = page.evaluate('() => document.querySelectorAll("textarea").length')
+    if tas == 0:
+        page.evaluate("() => { for(const el of document.querySelectorAll('.category-card,button,a,[role=button]')){ if(el.textContent.includes('Image')&&el.offsetParent){el.click();break} } }")
+        time.sleep(6)
+
+def send_prompt(page, prompt):
+    page.evaluate("(p) => { const tas = document.querySelectorAll('textarea'); for (let i = tas.length-1; i >= 0; i--) { const ta = tas[i]; if (ta.offsetParent) { ta.value = p; ta.dispatchEvent(new Event('input',{bubbles:true})); ta.dispatchEvent(new Event('change',{bubbles:true})); return; } } }", prompt)
+    time.sleep(2)
+    page.evaluate("()=>{ for(const b of document.querySelectorAll('button')){ if((b.textContent.includes('Run')||b.textContent.includes('Send'))&&b.offsetParent){b.click();return} } }")
+
+def extract_image(page):
+    start = time.time()
+    while time.time() - start < 90:
+        time.sleep(3)
+        src = page.evaluate("()=>{ const imgs=document.querySelectorAll('img.loaded-image,img[class*=\"loaded\"],img[src*=\"blob:\"]'); for(let i=imgs.length-1;i>=0;i--){ if(imgs[i].naturalWidth>100&&imgs[i].src&&imgs[i].src.startsWith('blob:')) return imgs[i].src } return null }")
+        if src:
+            time.sleep(2)
+            b64 = page.evaluate("async(u)=>{ const r=await fetch(u); const b=await r.blob(); return new Promise(res=>{ const rd=new FileReader(); rd.onloadend=()=>res(rd.result); rd.readAsDataURL(b) }) }", src)
+            if b64 and 'base64,' in b64:
+                d = base64.b64decode(b64.split('base64,')[1])
+                if len(d) > 100000: return d
+            return None
+    return None
+
+def generate(page, prompt, is_first=False):
+    if is_first: navigate_to_chat(page)
+    send_prompt(page, prompt)
+    return extract_image(page)
 
 def main():
-    state = load()
-    pending = get_pending(state)
-    print(f"Chinese: {len(pending)} images pending")
-    if not pending:
-        print("All done!")
-        return
-    # process in batches using same browser flow as gen_batch.py
-    # ... (will use login/navigate/send_prompt/extract_image)
+    s = load()
+    
+    # Scan for pending images
+    work = []
+    for tgt_dir, fname, key in get_pending():
+        out_dir = IMG_DIR / tgt_dir
+        out_dir.mkdir(parents=True, exist_ok=True)
+        work.append((tgt_dir, fname, prompts_probe(tgt_dir, fname), key, out_dir))
+    
+    if not work:
+        print("All Chinese images done!"); save(s); return
+    
+    print(f"Chinese pending: {len(work)} images")
+    
+    usages = s["account_usage"]
+    acct = min(ACCOUNTS, key=lambda a: usages.get(a["email"], 0))
+    fail_streak = 0
+    idx = 0
+    
+    while idx < len(work):
+        if usages.get(acct["email"], 0) >= MAX_PER_ACCOUNT:
+            remaining = [a for a in ACCOUNTS if usages.get(a["email"], 0) < MAX_PER_ACCOUNT]
+            if not remaining: print("All accounts exhausted!"); save(s); return
+            acct = min(remaining, key=lambda a: usages.get(a["email"], 0))
+            print(f"Switched to {acct['email']}")
+        
+        try:
+            with Camoufox(headless=True, humanize=False, proxy={'server': 'socks5://127.0.0.1:10809'}, geoip=True,
+                          firefox_user_prefs={"dom.ipc.processCount": 1}) as browser:
+                page = browser.new_page()
+                login(page, acct)
+                time.sleep(2)
+                
+                is_first = True
+                for batch_i in range(BATCH_SIZE):
+                    if idx >= len(work): break
+                    tgt_dir, fname, prompt, key, out_dir = work[idx]
+                    user_cnt = usages.get(acct["email"], 0)
+                    if user_cnt >= MAX_PER_ACCOUNT: break
+                    idx += 1
+                    
+                    fails = s.get("failed", {}).get(key, 0)
+                    bat_tag = "FIRST" if is_first else f"BAT+{batch_i}"
+                    print(f"[{idx}/{len(work)}] {tgt_dir}/{fname} ({acct['email'][:8]}..., {bat_tag}, att:{fails+1})")
+                    
+                    try:
+                        data = generate(page, prompt, is_first=is_first)
+                        is_first = False
+                    except Exception as e:
+                        print(f"  -> BROW ERR: {e}"); data = None; break
+                    
+                    if data and len(data) > 100000:
+                        (out_dir / fname).write_bytes(data)
+                        s["done"][key] = True; s["failed"].pop(key, None)
+                        usages[acct["email"]] = user_cnt + 1
+                        fail_streak = 0
+                        print(f"  -> {len(data)//1024}KB ✓ ({usages[acct['email']]}/{MAX_PER_ACCOUNT})")
+                    else:
+                        s["failed"][key] = fails + 1
+                        fail_streak += 1
+                        tag = "GIVEUP" if fails+1 >= MAX_RETRIES else f"TRY:{fails+1}/{MAX_RETRIES}"
+                        print(f"  -> FAIL ({tag})")
+                        if fail_streak >= FAIL_STREAK_LIMIT:
+                            print(f"  -> Fail streak {fail_streak}, switching account...")
+                            usages[acct["email"]] = 999
+                            fail_streak = 0
+                            break
+                    
+                    save(s)
+                    if idx < len(work): time.sleep(SLEEP)
+        except Exception as e:
+            print(f"Browser start fail: {e}, retry 10s..."); time.sleep(10)
+            bf = s.get("browser_fails", {})
+            bf[acct["email"]] = bf.get(acct["email"], 0) + 1
+            if bf[acct["email"]] >= 2:
+                usages[acct["email"]] = 999
+                print(f"  [!] Blacklisted {acct['email']}")
+            acct = min(ACCOUNTS, key=lambda a: usages.get(a["email"], 0))
+        time.sleep(5)
+    
+    done = len(s["done"]); gv = sum(1 for v in s.get("failed",{}).values() if v >= MAX_RETRIES)
+    pend = sum(1 for v in s.get("failed",{}).values() if v < MAX_RETRIES)
+    print(f"\nCN Done:{done} Pending:{pend} Giveup:{gv}")
 
 if __name__ == "__main__":
     main()
