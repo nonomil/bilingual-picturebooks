@@ -38,33 +38,31 @@ def save(s):
     STATE.write_text(json.dumps(s, indent=2))
 
 def get_pending():
-    """Find all missing images across Chinese chapters. Returns list of (dirname, filename, key)."""
+    """Find all missing images across Chinese chapters. Returns list of (dirname, fname, prompt, key, out_dir)."""
     s = load()
     pending = []
     for fpath in sorted(CHAPTERS_DIR.glob("*.md")):
         name = fpath.stem
         content = fpath.read_text()
-        refs = re.findall(r'<img src="([^"]+)"', content)
-        for ref in refs:
-            # ref is like "./img/chapter-02/page-01.png"
+        refs = re.findall(r'<img src="([^"]+)"[^>]*alt="([^"]*)"', content)
+        for ref, alt in refs:
             ref_path = ref.lstrip('./')
             full = (CHAPTERS_DIR / ref_path).resolve()
             if not full.exists() or full.stat().st_size < 1000:
                 key = f"{name}/{full.name}"
                 if key in s.get("done", {}): continue
                 if s.get("failed", {}).get(key, 0) >= MAX_RETRIES: continue
-                # Determine target directory (e.g., chapter-02)
                 m = re.search(r'(chapter-\d+[^/]*)', ref_path)
                 tgt_dir = m.group(1) if m else "unknown"
-                pending.append((tgt_dir, full.name, key))
+                # Build prompt from alt text or fallback
+                if alt:
+                    prompt = f"{alt}, Minecraft pixel art, bright colors, 640x480, kid-friendly illustration"
+                else:
+                    prompt = f"Chinese language learning illustration for {tgt_dir}: {full.name}, Minecraft pixel art style, bright and warm colors, clean composition, 640x480"
+                out_dir = IMG_DIR / tgt_dir
+                out_dir.mkdir(parents=True, exist_ok=True)
+                pending.append((tgt_dir, full.name, prompt, key, out_dir))
     return pending
-
-def prompts_probe(ch_name, fname):
-    """Generate Gemini prompt from chapter content context."""
-    is_ext = "ext" in ch_name or "ext" in fname
-    ctx = "extension activity" if is_ext else "lesson page"
-    ch_meta = ch_name.replace("-ext", " (extension)")
-    return f"Chinese language learning illustration for {ch_meta}: {fname}, {STYLE}"
 
 def dismiss(page):
     try:
@@ -127,12 +125,8 @@ def generate(page, prompt, is_first=False):
 def main():
     s = load()
     
-    # Scan for pending images
-    work = []
-    for tgt_dir, fname, key in get_pending():
-        out_dir = IMG_DIR / tgt_dir
-        out_dir.mkdir(parents=True, exist_ok=True)
-        work.append((tgt_dir, fname, prompts_probe(tgt_dir, fname), key, out_dir))
+    # Scan for pending images — get_pending returns 5-tuples with prompt built from alt text
+    work = [t for t in get_pending()]
     
     if not work:
         print("All Chinese images done!"); save(s); return
