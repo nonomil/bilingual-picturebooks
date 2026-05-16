@@ -120,8 +120,8 @@ Fill in your certificate:
 | "There is many animals" | **"There are many animals"** — many = 复数 = are |
 | "I can to swim" | **"I can swim"** — 情态动词后不加 to |
 ### 🧠 Think About It
-1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
-2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
+1. **Most Useful**: You learned 160+ English words. If you had to pick one as "the most useful word ever", which word would win? Why?
+2. **Create**: If you invented a carnival game that uses English words, what would the game be called and how would someone play it?
 
 ## 🔗 Cross-Curricular Links
 全科项目：设计一个"英文单词嘉年华"——每个游戏站代表一科（数单词站=Math，动物站=Science，颜色站=Art）

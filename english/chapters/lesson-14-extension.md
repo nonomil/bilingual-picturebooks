@@ -197,8 +197,8 @@ At the end of the day, the whole street has a party in the park!
 | "I live in the China" | **"I live in China"** — 国家名前一般不加 the |
 | "The shop is in the street" (UK) vs "on the street" (US) | **Both OK!** — UK 用 in the street，US 用 on the street |
 ### 🧠 Think About It
-1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
-2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
+1. **Places**: If your neighborhood had a zoo, a library, and a park nearby, which would Steve and Alex visit first? Answer in English.
+2. **Design**: If you could add one new building to your neighborhood, what would it be? Describe it in English (size, color, what's inside).
 
 ## 🔗 Cross-Curricular Links
 社会：画一张社区地图，英文标注所有地点（library, hospital, park, shop, school）

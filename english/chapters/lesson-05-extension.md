@@ -300,8 +300,8 @@ Make a sentence with one: "I can ___."
 | "Give me a water" | **"Give me some water"** — uncountable things use "some", not "a" |
 | "I have six apple and two orange" | **"I have six apples and two oranges"** — every noun needs plural |
 ### 🧠 Think About It
-1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
-2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+1. **Names**: Why is 11 called "eleven" and not "one-teen"? Why does 13 (thirteen) sound different from 3 (three)?
+2. **What if**: If you could only count to 5 in English, how would you describe having 100 blocks? What words would you invent?
 
 ## 🔗 Cross-Curricular Links
 数学第1-5课认识数字 1-10 + 5 以内加法：用英文数水果做加法（"Three apples + two apples = five apples!"）

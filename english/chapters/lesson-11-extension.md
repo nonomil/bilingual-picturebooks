@@ -293,8 +293,8 @@ They hang their drawings on the wall. Four seasons, four pictures, four stories.
 | "The snow it is cold" | **"The snow is cold"** — 一个主语就够了 |
 | "In the spring, flowers bloom" vs "In spring..." | **Both OK!** — "in spring" 更常用，"in the spring" 也对 |
 ### 🧠 Think About It
-1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
-2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+1. **Favorite**: If you had to live in just one season forever, which would you pick? Use English to explain your choice.
+2. **What if**: What if there were five seasons instead of four? What would the fifth season be called in English, and what weather would it have?
 
 ## 🔗 Cross-Curricular Links
 科学：四季为什么变化？（地球绕太阳转 → tilt → seasons）英文简单解释 + 中文深入讨论

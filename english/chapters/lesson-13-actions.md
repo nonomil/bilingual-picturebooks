@@ -427,18 +427,20 @@ And they did.
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "She go to school" | **"She goes to school"** — he/she/it + verb+s |
-| "I'm go to the village" | **"I'm going to the village"** — am/is/are + verb-ing |
-| "He is in the bus" | **"He is on the bus"** — on for vehicles, in for buildings |
-| "I feeled happy" | **"I felt happy"** — irregular past: feel→felt |
+| "She go to school" | **"She goes to school"** — he/she/it + verb+s (中文没有动词变位，英文有！) |
+| "I'm go to the village" | **"I'm going to the village"** — am/is/are + verb-ing (正在做) |
+| "He runned fast" | **"He ran fast"** — run→ran (不规则过去式，不是加-ed) |
+| "I can to swim" | **"I can swim"** — can 后面不加 to（超级英雄规则！） |
 
 ### 🧠 Think About It
-1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
-2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
+1. **PE/Sports**: Why do we warm up before running? What happens if you run fast without warming up?
+2. **What if**: What if there was a "Freeze" action in the story — where everyone had to freeze mid-action for one whole minute? What funny poses would you see?
 
 ## 🔗 Cross-Curricular Links
-语文第17课教方向与时间 → 英语同步方位词和时间表达
-数学第16课教钟表 → 英语"What time is it?"配套
+**体育**：学校运动会英文指令（"On your marks... Get set... GO!"）练习动作动词
+**数学第18课比较**：fast/faster/fastest 用比赛排名（"Alex ran 5 seconds faster than Tom!"）双语比较级
+**语文第13课动作汉字**："跑、跳、游、走、坐" vs "run, jump, swim, walk, sit" 动作猜词游戏
+**音乐**：用身体打节奏（clap-stomp-pat）配合-ing进行时歌谣，英文边做边说
 
 ## 🏆 Challenge — Action Star!
 

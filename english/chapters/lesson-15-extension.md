@@ -291,8 +291,8 @@ New words:
 | "She angry" | **"She is angry"** — 形容词前面必须有 be 动词 |
 | "I am boring" (when you feel bored) | **"I am bored"** — boring = 令人无聊的，bored = 感到无聊的 |
 ### 🧠 Think About It
-1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
-2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
+1. **Colors**: If happy = yellow and sad = blue, what color would "brave" be? What color would "curious" be? Draw them and explain in English.
+2. **What if**: What if people could see each other's feelings as a glowing color above their head? How would that change how we treat each other?
 
 ## 🔗 Cross-Curricular Links
 社会情感学习(SEL)：情绪颜色轮盘（red=angry, blue=sad, yellow=happy）英文标注 + 中文讨论"你什么时候感到brave？"

@@ -47,8 +47,8 @@ After Steve's birthday, the class decides: "Let's plan a party for the whole sch
 | "The balloon red" | **"The red balloon"** — 形容词在名词前面！ |
 | "I give you a gift" vs "I gift you" | **"I give you a gift"** — gift 是名词，不是动词（give = 动词） |
 ### 🧠 Think About It
-1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
-2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
+1. **Party**: What makes a party fun — decorations, games, food, or friends? Rank them from most to least important and explain in English.
+2. **Plan**: If you could plan a party with only 3 things total, what three things would you choose to make everyone happy?
 
 ## 🔗 Cross-Curricular Links
 数学：派对策划（"8 friends, 8 cupcakes = 1 each"）用英文做派对数学

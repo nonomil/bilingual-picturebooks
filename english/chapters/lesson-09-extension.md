@@ -420,8 +420,8 @@ Sort the words:
 | "I like eat apple" | **"I like to eat apples"** — like + to + verb, 且吃苹果泛指吃这一类 |
 | "Let's make a sandwich" vs "Let's make soup" | **"Let's make a sandwich" / "Let's make some soup"** — 可数用 a/an，不可数用 some |
 ### 🧠 Think About It
-1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
-2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+1. **Count vs Measure**: Some food is countable (apple → 2 apples), some is not (bread, milk). How do you ask for bread in English if you cannot say "one bread"?
+2. **Plan**: If you could only pack 5 foods for a picnic, what would you choose? Use English words for all of them.
 
 ## 🔗 Cross-Curricular Links
 健康：MyPlate 食物分类（fruits, vegetables, grains, protein, dairy）— 英文分类 + 中文讨论

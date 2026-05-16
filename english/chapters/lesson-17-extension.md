@@ -184,8 +184,8 @@ New words:
 | "The car go on the road" | **"The car goes on the road"** — 第三人称单数 + s |
 | "He fly the plane" | **"He flies the plane"** — 辅音 + y 结尾 → 变 i + es: fly → flies |
 ### 🧠 Think About It
-1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
-2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
+1. **Choose**: If you could ride only one kind of transport forever (car, bus, train, boat, plane, or bike), which would you pick? Explain in English.
+2. **What if**: If teleportation was invented tomorrow, would people still use bikes and buses? What would happen to transport vocabulary?
 
 ## 🔗 Cross-Curricular Links
 地理：世界各大洲 + 你坐什么交通工具去？（"I take a plane to America"）英文讨论 + 中文认知

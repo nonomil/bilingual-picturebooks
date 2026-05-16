@@ -289,16 +289,18 @@ Sight words:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "He don't like it" | **"He doesn't like it"** — he/she/it uses doesn't |
-| "There is many blocks" | **"There are many blocks"** — many = plural = are |
-| "Can you help me?" "Yes, I help" | **"Yes, I can"** or **"Yes, I will help you"** |
-| Reading word by word, not in phrases | Read in **meaning chunks**: "Steve walked / into the cave / and saw a light" |
+| "He don't like it" | **"He doesn't like it"** — he/she/it + doesn't (不是 don't) |
+| "Ginger was lost" → "Where she was?" | **"Where WAS she?"** — wh-question 要把 was/are/is 提前 |
+| "We finded her" | **"We found her"** — find→found (不规则过去式，不是 finded) |
+| Reading word by word without expression | Read in **meaning chunks**: "Steve walked / into the cave / and saw a light" |
 
 ### 🧠 Think About It
-1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
-2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
+1. **Storytelling**: Why do stories have a beginning, middle, and end? What would "The Lost Cat" be like without the middle part?
+2. **What if**: What if Ginger the cat could talk? What would she say about being stuck in the tree?
 
 ## 🔗 Cross-Curricular Links
-语文第20课教短句阅读 → 英语同步简单故事阅读
-数学第23课教应用题 → 英语阅读能力帮助理解数学题
+**语文第20课短句阅读**：读英文故事复述情节（first→then→finally）中英双语故事结构图
+**数学第22课图形与空间**：画故事地图（cat's home → tree → park → home）用英文标注路径
+**美术**：画"The Lost Cat"四格漫画（each box = one story part），英文配对话气泡
+**社会情感**：讨论"当朋友需要帮助时我们该怎么做"，英文表达"I can help you"
 

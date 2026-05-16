@@ -271,18 +271,19 @@ ___ I G  →  (P)
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I is Steve" | **"I am Steve"** — "I" always uses "am" |
-| "What your name?" | **"What's your name?"** — need "is" |
-| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
-| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
+| "I have a orange" | **"I have an orange"** — O is a vowel → "an" |
+| "This is my a book" | **"This is my book"** — my + 名词，不加 a/an |
+| Confusing N and M in writing | **N** = two sticks (down-up); **M** = two mountains (up-down-up-down) |
+| Writing Z backwards (like N) | **Z** = three lines: → then ↘️ then → (like a lightning bolt ⚡) |
 
 ### 🧠 Think About It
-1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
-2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+1. **Pattern**: N to Z — you learned 13 more letters! What's your favorite letter shape and why?
+2. **What if**: If you could invent a new letter, what would it look like and what sound would it make?
 
 ## 🔗 Cross-Curricular Links
-数学第1-2课教数字 → 英语同步numbers & counting
-语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
+**语文第1-2课象形字+基本笔画**：英文字母N来自鱼(nun)，O来自眼睛(ayin) — 字母象形起源与汉字对比
+**数学第1课数字1-10**：数一数N-Z有几个元音(O, U)几个辅音，双语分类
+**音乐**：唱完整ABC歌，用Minecraft音符盒伴奏，中英双语字母节奏
 
 ## 🎯 Page 11: Challenge — ABC Treasure Chest
 

@@ -295,18 +295,19 @@ Story words:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "He don't like it" | **"He doesn't like it"** — he/she/it uses doesn't |
-| "There is many blocks" | **"There are many blocks"** — many = plural = are |
-| "Can you help me?" "Yes, I help" | **"Yes, I can"** or **"Yes, I will help you"** |
-| Reading word by word, not in phrases | Read in **meaning chunks**: "Steve walked / into the cave / and saw a light" |
+| "She gift me a pencil" | **"She gave me a pencil"** — gift is a noun, give/gave is the verb |
+| "Six candle on the cake" | **"Six candles on the cake"** — add -s for plural after numbers > 1 |
+| "I very happy at the party" | **"I am very happy at the party"** — English needs the verb "to be" (am/is/are) |
+| "The children singed the song" | **"The children sang the song"** — sing→sang is irregular |
 
 ### 🧠 Think About It
-1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
-2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
+1. **Surprise**: Steve felt sad in the morning because he thought everyone forgot his birthday. Why do surprise parties make you feel sad before happy?
+2. **Gratitude**: Steve said the best gift was having friends like Alex, Tom, Lily, and Mia. What is the best gift you can give someone without spending money?
 
 ## 🔗 Cross-Curricular Links
-语文第20课教短句阅读 → 英语同步简单故事阅读
-数学第23课教应用题 → 英语阅读能力帮助理解数学题
+数学第15课教20以内加减法 → 英语用生日蛋糕蜡烛练习 counting，用年龄做加减法
+美术第19课教手工 → 英语制作生日贺卡并用英文写祝福语
+音乐第11课教节奏 → 英语学唱生日歌并理解每句歌词的意思
 
 - [ ] party 🎉 — fun gathering
 - [ ] sing 🎵 — make music with voice

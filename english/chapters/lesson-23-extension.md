@@ -144,8 +144,8 @@ New words:
 | "In the end, they find the treasure" | **"In the end, they found the treasure"** — find → found |
 | "The story has 3 part: beginning, middle, end" | **"The story has 3 parts"** — 复数加 -s |
 ### 🧠 Think About It
-1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
-2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
+1. **Start**: Why do so many English stories begin with "Once upon a time"? Do Chinese stories have a similar opening phrase?
+2. **Create**: Write the first two sentences of your own English story. Who is in it? Where does it begin? What happens first?
 
 ## 🔗 Cross-Curricular Links
 语文写作：用中文讲一个故事，再用英文改写——对比两种语言讲故事的方式有何不同

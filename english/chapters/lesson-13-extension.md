@@ -256,8 +256,8 @@ After eating, they all **stand** up for a group picture.
 | "I can to win!" | **"I can win!"** — 情态动词后不加 to |
 | "I am more fast than you" | **"I am faster than you"** — 短形容词直接加 -er，不用 more |
 ### 🧠 Think About It
-1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
-2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
+1. **Winning**: In the race, Steve came first and Alex came second. Is it better to win or to try your best? Why does your answer matter?
+2. **What if**: What if there was a sport where everyone always won? Would it still be fun, or would it be boring? Use English to explain.
 
 ## 🔗 Cross-Curricular Links
 体育：学校运动会英文播报（"On your marks... Get set... GO!"）练习动作动词

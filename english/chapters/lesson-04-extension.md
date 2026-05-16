@@ -170,8 +170,8 @@ The monster waves its hand. A giant **rainbow** appears over the village.
 | "I like the blue" (when talking about the color) | **"I like blue"** — no "the" for general color names |
 | "The sky is blew" | **"The sky is blue"** — blue (color) ≠ blew (past of blow) |
 ### 🧠 Think About It
-1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
-2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+1. **Mix**: Red + yellow = orange. Blue + yellow = green. What new color would you invent, and what English name would you give it?
+2. **Words**: Why does the color go BEFORE the thing in English ("a red apple") but AFTER in Chinese (红苹果)? Which order makes more sense to you?
 
 ## 🔗 Cross-Curricular Links
 美术：用红黄蓝三原色调出橙绿紫（red + yellow = orange），英文标注每种颜色

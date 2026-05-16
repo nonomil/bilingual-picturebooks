@@ -348,18 +348,20 @@ Read and tap for each sound:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I is Steve" | **"I am Steve"** — "I" always uses "am" |
-| "What your name?" | **"What's your name?"** — need "is" |
-| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
-| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
+| "Him is my dad" | **"He is my dad"** — "he" is the subject (主语), "him" is the object (宾语) |
+| "I love she" | **"I love her"** — after the verb (love), use object form: her |
+| "She my mom" | **"She is my mom"** — never skip the be verb in English (中文可以说"她我妈妈"，英文必须加"is") |
+| "My family is nice. They is nice too." | **"They are nice"** — they/we/you → "are", he/she/it → "is" |
 
 ### 🧠 Think About It
-1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
-2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+1. **Social Studies**: Every family is different — big, small, with pets, without pets. What makes YOUR family special?
+2. **What if**: What if Steve's family lived in a different Minecraft biome (desert, ice plains, jungle)? How would their home be different?
 
 ## 🔗 Cross-Curricular Links
-数学第1-2课教数字 → 英语同步numbers & counting
-语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
+**社会**：画 family tree，英文标注家人（"This is my grandma"），中文标注中文称呼对照
+**数学第3课分类**：按年龄/性别给家人分类（big/small, old/young），英文描述成员特征
+**语文第6课家庭汉字**："爸爸、妈妈、哥哥、姐姐" vs "dad, mom, brother, sister" 汉字笔画英文配对
+**美术**：用Minecraft方块拼家人的像素头像，英文写"My ___ is made of ___ blocks"
 
 | fun | f - u - n | fun! 🎉 |
 | bun | b - u - n | bun! 🍞 |

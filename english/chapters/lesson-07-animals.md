@@ -407,18 +407,20 @@ Read and circle the /k/ sound:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
-| "It's rain" | **"It's raining"** — use -ing for actions happening now |
-| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
-| "The dog big" | **"The dog is big"** — need "is" (be verb) |
+| "I see 3 cat" | **"I see 3 cats"** — numbers + plural -s (一只猫→两只猫，英文要加s) |
+| "The dog can run fast. He run fast." | **"The dog runs fast"** — he/she/it + verb+s |
+| "A bird can to fly" | **"A bird can fly"** — can 后面不加 to，超级英雄规则 |
+| "I has a rabbit" | **"I have a rabbit"** — I/you/we/they → have; he/she/it → has |
 
 ### 🧠 Think About It
-1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
-2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+1. **Science**: Why do different animals make different sounds? (Cat meows, dog barks, duck quacks — each animal's mouth is shaped differently!)
+2. **What if**: What if animals could talk in English? What would the cat say to the dog in the Animal Forest?
 
 ## 🔗 Cross-Curricular Links
-语文第15课教食物汉字 → 英语同步food words
-数学第18课教比较 → 英语big/small/long/short配套
+**科学**：动物分类——宠物/农场/野生动物（pet/farm/wild），英文分类 + 中文讨论动物特点
+**数学第5课数数1-10**：数每种动物有几只（"5 little ducks! 2 big cats!"）双语数数和比较
+**语文第7课动物汉字**："猫狗鸟鱼兔鸭" vs "cat, dog, bird, fish, rabbit, duck" 动物双语闪卡
+**音乐**：模仿动物叫声编成节奏（"Meow-meow, woof-woof, quack-quack!"）英文动物声音拟声词
 
 ## 🏆 Challenge — Animal Explorer!
 

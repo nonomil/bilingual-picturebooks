@@ -282,16 +282,17 @@ Sight words:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "He don't like it" | **"He doesn't like it"** — he/she/it uses doesn't |
-| "There is many blocks" | **"There are many blocks"** — many = plural = are |
-| "Can you help me?" "Yes, I help" | **"Yes, I can"** or **"Yes, I will help you"** |
-| Reading word by word, not in phrases | Read in **meaning chunks**: "Steve walked / into the cave / and saw a light" |
+| "I finded the key in the garden" | **"I found the key in the garden"** — find→found is irregular |
+| "Inside the chest have many books" | **"Inside the chest there were many books"** — use there is/are/were for existence |
+| "The key can opened the stone door" | **"The key can open the stone door"** — no past tense or -ing after can |
+| "We was reading the old stories together" | **"We were reading the old stories together"** — we + were (not was) |
 
 ### 🧠 Think About It
-1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
-2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
+1. **Treasure**: The treasure was books of old stories, not gold or jewels. Why are stories valuable even after hundreds of years?
+2. **Maps**: If you made a treasure map for your best friend, what landmarks would you include from your town or village?
 
 ## 🔗 Cross-Curricular Links
-语文第20课教短句阅读 → 英语同步简单故事阅读
-数学第23课教应用题 → 英语阅读能力帮助理解数学题
+语文第19课教古诗词 → 英语讨论 why old stories matter：stories preserve history and culture
+地理第18课教方向 → 英语读地图词汇：north/south/east/west, landmarks, paths
+道德与法治第16课教分享 → 英语讨论 sharing knowledge：real treasure is what you share with others
 

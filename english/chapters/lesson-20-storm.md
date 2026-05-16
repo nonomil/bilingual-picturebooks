@@ -315,16 +315,17 @@ Sight words:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "He don't like it" | **"He doesn't like it"** — he/she/it uses doesn't |
-| "There is many blocks" | **"There are many blocks"** — many = plural = are |
-| "Can you help me?" "Yes, I help" | **"Yes, I can"** or **"Yes, I will help you"** |
-| Reading word by word, not in phrases | Read in **meaning chunks**: "Steve walked / into the cave / and saw a light" |
+| "The storm was more stronger" | **"The storm was stronger"** — stronger already means "more strong", no double comparative |
+| "I am scare of thunder" | **"I am scared of thunder"** — scare is a verb, scared is the adjective |
+| "The wind blowed the trees" | **"The wind blew the trees"** — blow→blew is irregular |
+| "We goed to the hut for safety" | **"We went to the hut for safety"** — go→went is irregular |
 
 ### 🧠 Think About It
-1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
-2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
+1. **Feelings**: Alex was scared during the storm. What helped her feel better? What do you do when you feel scared or worried?
+2. **Science**: Lightning flashes first, then thunder comes later. Why? What could you count to know how far away the storm is?
 
 ## 🔗 Cross-Curricular Links
-语文第20课教短句阅读 → 英语同步简单故事阅读
-数学第23课教应用题 → 英语阅读能力帮助理解数学题
+科学第18课教天气 → 英语学习暴风雨的形成：wind/rain/thunder/lightning 的关系
+道德与法治第12课教安全 → 英语讨论storm safety：finding shelter, helping others
+美术第20课教色彩 → 英语比较 dark storm clouds vs beautiful rainbow colors
 

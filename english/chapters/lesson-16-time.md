@@ -370,18 +370,20 @@ The clock tower chimed twelve times. It was noon — **afternoon** was beginning
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "She go to school" | **"She goes to school"** — he/she/it + verb+s |
-| "I'm go to the village" | **"I'm going to the village"** — am/is/are + verb-ing |
-| "He is in the bus" | **"He is on the bus"** — on for vehicles, in for buildings |
-| "I feeled happy" | **"I felt happy"** — irregular past: feel→felt |
+| "I am go to school in the morning" | **"I go to school in the morning"** — 不要 am 和 go 连用 |
+| "I have eat breakfast" | **"I ate breakfast"** — 过去用 "ate" (eat→ate) |
+| "In night I sleep" | **"At night I sleep"** — 在晚上用 "at night"，不是 "in night" |
+| "Tomorrow I go to zoo" | **"Tomorrow I will go to the zoo"** — 说将来要用 will |
 
 ### 🧠 Think About It
-1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
-2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
+1. **Astronomy**: Why does the sun rise in the morning and set at night? (Simple: Earth spins around!)
+2. **What if**: What if the Mixed-Up Clock broke time completely — morning happened at midnight? What would you do?
 
 ## 🔗 Cross-Curricular Links
-语文第17课教方向与时间 → 英语同步方位词和时间表达
-数学第16课教钟表 → 英语"What time is it?"配套
+**数学第16课认钟表**：英文整点表达（"It's 8 o'clock. Time for school!"）双语时间配对
+**科学**：白天黑夜为什么交替？（地球自转）英文关键词 + 中文讲解
+**语文第5课时间汉字**："早上、下午、晚上" vs "morning, afternoon, night" 双语时间表
+**社会**：制作"My Day"时间表，英文写活动+中文备注，整点认钟
 
 ## 🏆 Challenge — Time Master!
 

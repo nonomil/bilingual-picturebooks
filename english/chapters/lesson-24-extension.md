@@ -19,8 +19,8 @@
 | WH 问句缺助动词 | **"Where you go?" → "Where do you go?" / "What you doing?" → "What are you doing?"** |
 | 不规则过去式乱造 | **go→went, see→saw, run→ran, feel→felt, say→said** — 这些要背！ |
 ### 🧠 Think About It
-1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
-2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
+1. **Reflect**: Look back through all 24 lessons. Which story or lesson was your favorite? Use English to describe one scene you remember.
+2. **Create**: If you wrote a picture book about your own adventure learning English, what would the English title be? What would the first page say?
 
 ## 🔗 Cross-Curricular Links
 全科项目：创作一本自己的双语绘本——英文写故事 + 中文翻译 + 自己画插图

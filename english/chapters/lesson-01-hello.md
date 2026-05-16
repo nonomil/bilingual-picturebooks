@@ -154,16 +154,17 @@ I am fine, goodbye to you!
 |----------|---------|
 | "I is Steve" | **"I am Steve"** — "I" always uses "am" |
 | "What your name?" | **"What's your name?"** — need "is" |
-| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
-| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
+| Forgetting the question mark in "How are you" | **"How are you?"** — English questions need ? at the end |
+| Saying "Goodbye" when you just arrived | Use **"Hello"** when arriving, **"Goodbye"** when leaving |
 
 ### 🧠 Think About It
-1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
-2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+1. **Observation**: Steve says "Hello!" to Bob, and Bob says "Hello!" back. Why do we repeat the same word in greetings?
+2. **What if**: What if Steve met a villager who only spoke a different language? How could he say "Hello" without words?
 
 ## 🔗 Cross-Curricular Links
-数学第1-2课教数字 → 英语同步numbers & counting
-语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
+**数学**：用计分板统计 "How many friends did Steve greet? 1, 2, 3..." 双语数数（one friend, two friends...）
+**语文**："你叫什么名字？" vs "What's your name?" 双语自我介绍对比，画自画像配双语名字标签
+**社会**：世界各地打招呼方式（握手、鞠躬、挥手），英文标注每种方式 + 中文讨论文化差异
 
 ## 🎯 Page 8: Challenge — Village Greetings
 

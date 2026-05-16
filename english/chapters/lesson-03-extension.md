@@ -220,8 +220,8 @@ up / is / The sun  →  ___ ___ ___
 | "I have two apple" | **"I have two apples"** — add -s for more than one |
 | "Z is /zee/" (UK) or "Z is /zed/" (US confused) | **"Z is /zee/" (US) or /zed/ (UK)** — both are correct! |
 ### 🧠 Think About It
-1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
-2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+1. **What if**: What if the alphabet went backward — Z, Y, X... instead of A, B, C? How would that change how we learn to read?
+2. **Sounds**: Some English letters have different sounds in different words (c = /k/ or /s/). Which letter from N-Z surprised you the most?
 
 ## 🔗 Cross-Curricular Links
 语文第1课教象形字：英语字母 A 来自牛头𓃾（aleph），B 来自房子（beth）→ 一起画字母演变图

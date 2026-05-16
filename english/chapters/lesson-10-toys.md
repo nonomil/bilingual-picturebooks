@@ -457,18 +457,20 @@ Stick out your tongue and say:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
-| "It's rain" | **"It's raining"** — use -ing for actions happening now |
-| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
-| "The dog big" | **"The dog is big"** — need "is" (be verb) |
+| "This is a my ball" | **"This is my ball"** — my 和 a 不能一起用；my 已经指明所属 |
+| "I have two book" | **"I have two books"** — numbers + plural -s |
+| "This pencil is me pencil" | **"This pencil is my pencil"** — my (我的) ≠ me (我) |
+| "Put away it" | **"Put it away"** — 代词(it)放在动词和away中间 |
 
 ### 🧠 Think About It
-1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
-2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+1. **Social Skills**: Why do we share toys with friends? How does it feel when someone shares with you?
+2. **What if**: What if the Lost Pencil could talk? What story would it tell about its day?
 
 ## 🔗 Cross-Curricular Links
-语文第15课教食物汉字 → 英语同步food words
-数学第18课教比较 → 英语big/small/long/short配套
+**手工**：用回收材料做玩具，英文写步骤（"Step 1: Cut the paper. Step 2: Glue the wheels."）
+**数学第17课图形拼搭**：用积木/方块拼玩具，英文认形状（"I used 3 squares and 1 circle!"）
+**语文第9课物品汉字**："玩具、书、笔、球" vs "toy, book, pencil, ball" 整理书包双语物品卡
+**社会**：讨论"旧玩具新主人"——分享和交换的快乐，英文简单表达"This toy is for you"
 
 ## 🏆 Challenge — Toy Master!
 

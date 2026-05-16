@@ -433,18 +433,20 @@ The Enderman waves goodbye and teleports away — but first, he grabs one more a
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
-| "It's rain" | **"It's raining"** — use -ing for actions happening now |
-| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
-| "The dog big" | **"The dog is big"** — need "is" (be verb) |
+| "I like apple" (talking about apples in general) | **"I like apples"** — 泛指一类东西用复数 |
+| "Give me a milk" | **"Give me some milk"** — milk 不可数，用 "some" |
+| "I want eat cake" | **"I want TO eat cake"** — want + TO + verb |
+| "The apple red" | **"The apple is red"** — 别忘了 be 动词 (is/am/are) |
 
 ### 🧠 Think About It
-1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
-2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+1. **Nutrition**: Why do we need to eat different kinds of food? What does each food give our body?
+2. **What if**: What if the Hungry Enderman only ate ONE type of food? What would happen to him?
 
 ## 🔗 Cross-Curricular Links
-语文第15课教食物汉字 → 英语同步food words
-数学第18课教比较 → 英语big/small/long/short配套
+**健康**：MyPlate食物分类（fruits, vegetables, grains, protein, dairy）英文分类 + 中文讨论营养
+**数学第4课加法**：用食物做加法（"3 apples + 2 bananas = 5 fruits!"）双语计算
+**语文第15课食物汉字**："苹果、香蕉、牛奶、面包" vs "apple, banana, milk, bread" 去超市双语认字
+**科学**：食物从哪里来？（Milk from cows, eggs from hens, bread from wheat）英文简单食物链
 
 ## 🏆 Challenge — Food Explorer!
 

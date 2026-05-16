@@ -171,18 +171,19 @@
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "She go to school" | **"She goes to school"** — he/she/it + verb+s |
-| "I'm go to the village" | **"I'm going to the village"** — am/is/are + verb-ing |
-| "He is in the bus" | **"He is on the bus"** — on for vehicles, in for buildings |
-| "I feeled happy" | **"I felt happy"** — irregular past: feel→felt |
+| "I runned in the race" | **"I ran in the race"** — run→ran is irregular, not run + ed |
+| "On Monday I wake up and eat breakfast" (in past story) | **"On Monday I woke up and ate breakfast"** — keep past tense for past events |
+| "He was tired and she was tired too" → too long | **"They were both tired"** — combine subjects for natural English |
+| "Yesterday I go to the zoo" | **"Yesterday I went to the zoo"** — yesterday signals past tense |
 
 ### 🧠 Think About It
-1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
-2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
+1. **Order**: The story goes Monday→Tuesday→...→Sunday. Why do week stories usually start on Monday? Could a story start on Sunday instead?
+2. **Choice**: If you could spend one day with Steve and Alex from this big story, which day's adventure would you join? What would you do together?
 
 ## 🔗 Cross-Curricular Links
-语文第17课教方向与时间 → 英语同步方位词和时间表达
-数学第16课教钟表 → 英语"What time is it?"配套
+语文第15课教记叙文顺序 → 英语故事按时间顺序叙述（first/next/then/finally）
+数学第16课教星期和日历 → 英语掌握一周七天的顺序和表达
+体育第12课教运动会 → 英语Sports Day的动作词汇和比赛描述
 
 ## Page 6: Friday — Sports Day 🏅
 

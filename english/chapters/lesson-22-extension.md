@@ -121,8 +121,8 @@ New words:
 | "Sheep gives wool" (one sheep) vs "Sheep give wool" (many sheep) | **Sheep 单复数同形！** 一只羊=one sheep，很多羊=many sheep |
 | "The hen lay eggs everyday" | **"The hen lays eggs every day"** — he/she/it + s, everyday(adj)≠every day(adv) |
 ### 🧠 Think About It
-1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
-2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
+1. **Job**: Which farm job would be the hardest — feeding pigs, collecting eggs from hens, or brushing a horse? Use English words to explain your choice.
+2. **What if**: What if farm animals could vote on how the farm is run? What would the cow vote for? What would the hen ask for?
 
 ## 🔗 Cross-Curricular Links
 科学：从农场到餐桌（Farm to Table）——牛奶怎么来的？鸡蛋怎么来的？英文流程图 + 中文讨论

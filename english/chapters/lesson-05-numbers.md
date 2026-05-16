@@ -297,18 +297,19 @@ Read these words. Tap for each sound:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I is Steve" | **"I am Steve"** — "I" always uses "am" |
-| "What your name?" | **"What's your name?"** — need "is" |
-| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
-| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
+| "I have 3 apple" | **"I have 3 apples"** — numbers > 1 need plural -s |
+| "One, two, three" skipping four | Practice slowly: **one-two-three-four-five** (tap each finger!) |
+| Confusing "two" and "to" | **two** = 数字2; **to** = 方向(去). Two chickens go to the farm |
+| Counting too fast and missing numbers | Say each number slowly: **O-N-E, T-W-O, T-H-R-E-E...** |
 
 ### 🧠 Think About It
-1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
-2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+1. **Math**: Why do we count "one, two, three" in order? What happens if we skip a number?
+2. **What if**: What if people had only 3 fingers on each hand? How would we count differently?
 
 ## 🔗 Cross-Curricular Links
-数学第1-2课教数字 → 英语同步numbers & counting
-语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
+**数学第1-5课数字1-10 + 5以内加法**：用农场动物做加法（"3 cows + 2 cows = 5 cows"）英中双语计算
+**语文第3课数字汉字**："一二三四五" vs "one, two, three, four, five" 双语数字配对卡
+**体育**：跳房子数数（Hopscotch），每格用英文说数字，中文数步数
 
 ## 🏆 Challenge — Number Explorer!
 

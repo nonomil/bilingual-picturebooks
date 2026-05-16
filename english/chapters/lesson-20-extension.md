@@ -90,8 +90,8 @@ The teacher gives Steve and Alex a "Storm Helper" award.
 | "I was scared. The storm was scared." (about the storm) | **"The storm was scary"** — scared = 感到害怕的，scary = 令人害怕的 |
 | "It rained yesterday" (correct!) vs "It rained strong" | **"It rained hard"** — 形容雨大用 hard/heavily，不用 strong |
 ### 🧠 Think About It
-1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
-2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
+1. **Brave**: The farmer helped Steve and Alex during the storm. Does being brave mean you are never scared, or that you help even when you ARE scared?
+2. **Prepare**: What 5 things would you put in an emergency kit for a storm? Describe each one in English (blanket, flashlight, water, food, radio).
 
 ## 🔗 Cross-Curricular Links
 科学：雷雨是怎么形成的？闪电和打雷（lightning and thunder）英文名词 + 中文原理讲解

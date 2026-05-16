@@ -448,18 +448,20 @@ Read and complete:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
-| "It's rain" | **"It's raining"** — use -ing for actions happening now |
-| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
-| "The dog big" | **"The dog is big"** — need "is" (be verb) |
+| "Touch you nose" | **"Touch your nose"** — your (你的) ≠ you (你) |
+| "I have 2 foot" | **"I have 2 feet"** — foot → feet is irregular (不规则变化) |
+| "My hands is big" | **"My hands are big"** — plural = are! (hands → are) |
+| "I has two eyes" | **"I have two eyes"** — I/you/we/they → have |
 
 ### 🧠 Think About It
-1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
-2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+1. **Biology**: Why do we have two eyes but only one nose? What would be different if we had two noses?
+2. **What if**: What if the Mixed-Up Monster mixed up YOUR body parts? Which mix-up would be the funniest?
 
 ## 🔗 Cross-Curricular Links
-语文第15课教食物汉字 → 英语同步food words
-数学第18课教比较 → 英语big/small/long/short配套
+**体育**：Simon Says英文版——"Touch your nose! Clap your hands!" 身体部位反应游戏
+**科学**：五感探索（Eyes see, ears hear, nose smells, hands touch）英文标注感官动词
+**数学第4课5以内加减**：数身体部位（"2 eyes + 1 nose = 3 face parts"）双语加减
+**语文第8课身体汉字**："头、眼、耳、鼻、手、脚" vs "head, eyes, ears, nose, hands, feet" 双语身体图
 
 ## 🏆 Challenge — Body Explorer!
 

@@ -244,18 +244,19 @@ Come and learn your ABCs with me!
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I is Steve" | **"I am Steve"** — "I" always uses "am" |
-| "What your name?" | **"What's your name?"** — need "is" |
-| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
-| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
+| "I see apple" → missing "an" | **"I see an apple"** — use "an" before vowels (a, e, i, o, u) |
+| "It is a apple" | **"It is an apple"** — apple starts with vowel sound → "an" |
+| Mixing lowercase b and d | **b** has belly on right; **d** has belly on left — bed = b+ed, the word "bed" looks like a bed! |
+| Saying letter names instead of sounds | **A says /a/ not "ay"** — use the SOUND, not the name, when reading words |
 
 ### 🧠 Think About It
-1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
-2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+1. **Pattern**: A is for Apple. B is for Ball. Why do we match letters to words? Could we match them to pictures instead?
+2. **What if**: What if the alphabet only had 10 letters? Which letters would you keep and why?
 
 ## 🔗 Cross-Curricular Links
-数学第1-2课教数字 → 英语同步numbers & counting
-语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
+**语文第1课象形字**：英语字母A来自牛头𓃾（aleph），B来自房子（beth）→ 画字母演变对比图
+**数学第2课数字11-20**：用字母顺序编号（A=1, B=2, C=3...）双语音序游戏
+**美术**：用Minecraft方块搭建字母A-M，英文认字母 + 中文说形状
 
 ## 🎯 Page 11: Challenge — Alphabet Path
 

@@ -312,18 +312,20 @@ The rainbow has ___ colors.
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I is Steve" | **"I am Steve"** — "I" always uses "am" |
-| "What your name?" | **"What's your name?"** — need "is" |
-| Pronouncing "th" as "s" or "z" | **"th" = tongue between teeth** (this, that, three) |
-| "Goodbye" said too fast like "g'bai" | Say clearly: **Good-bye** (two parts) |
+| "The car red" | **"The red car"** — color comes BEFORE the thing in English (不同于中文"红色的车") |
+| "a orange" | **"an orange"** — vowel sound before "o" = "an" |
+| "I like the blue" (talking about the color itself) | **"I like blue"** — no "the" for general colors |
+| "The sky is blew" | **"The sky is blue"** — blue (颜色) ≠ blew (blow的过去式) |
 
 ### 🧠 Think About It
-1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
-2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+1. **Science**: Why is the sky blue? Why is grass green? (Simple: sun + air = blue; plants + sun = green)
+2. **What if**: What if the Color Monster only liked ONE color? Which color would you teach him first and why?
 
 ## 🔗 Cross-Curricular Links
-数学第1-2课教数字 → 英语同步numbers & counting
-语文第1课教象形字 → 英语字母演变故事（A来自牛头𓃾）
+**美术**：用红黄蓝三原色调出橙绿紫（red + yellow = orange），英文标注颜色名称
+**数学第3课比大小**：用彩色方块比较多与少（"More red blocks than blue blocks!"）双语比较句
+**语文第2课基本笔画**：汉字"红黄蓝绿"的笔画 vs 英文 color words 拼写对比
+**科学**：彩虹为什么有七种颜色？（水滴折射光线）简单英文 + 中文深入讨论
 
 ## 🏆 Challenge — Color Quest!
 

@@ -446,8 +446,8 @@ Read and write:
 | "I have two foots" | **"I have two feet"** — foot → feet (irregular!) |
 | "It's sound like baa" | **"It sounds like baa"** — no 's after it in present tense: "It sounds" not "It's sounds" |
 ### 🧠 Think About It
-1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
-2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+1. **Sounds**: A rooster says "cock-a-doodle-doo" in English but "gē gē gē" (咯咯咯) in Chinese. Why do animal sounds differ so much between languages?
+2. **What if**: If farm animals could talk for one day, which animal would have the most interesting story to tell in English?
 
 ## 🔗 Cross-Curricular Links
 科学：农场动物吃什么？（Cows eat grass → 草食动物，pigs eat everything → 杂食动物）英文讨论 + 中文认知

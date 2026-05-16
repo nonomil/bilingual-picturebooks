@@ -278,16 +278,17 @@ Sight words:
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "He don't like it" | **"He doesn't like it"** — he/she/it uses doesn't |
-| "There is many blocks" | **"There are many blocks"** — many = plural = are |
-| "Can you help me?" "Yes, I help" | **"Yes, I can"** or **"Yes, I will help you"** |
-| Reading word by word, not in phrases | Read in **meaning chunks**: "Steve walked / into the cave / and saw a light" |
+| "My grandpa have a farm" | **"My grandpa has a farm"** — he/she/it + has (not have) |
+| "I see five sheeps in the field" | **"I see five sheep in the field"** — sheep is the same in singular and plural |
+| "I can to ride the horse" | **"I can ride the horse"** — no "to" after can, must, will |
+| "The cow say moo every morning" | **"The cow says moo every morning"** — he/she/it + verb+s |
 
 ### 🧠 Think About It
-1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
-2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
+1. **Sounds**: In English a cow says "moo", but in Chinese a cow says "mōu" (哞). Why do animal sounds differ between languages? What sound does a rooster make in English vs Chinese?
+2. **Work**: Grandpa said hard work doesn't feel like work when you love it. What is something you love doing so much it doesn't feel like work?
 
 ## 🔗 Cross-Curricular Links
-语文第20课教短句阅读 → 英语同步简单故事阅读
-数学第23课教应用题 → 英语阅读能力帮助理解数学题
+科学第17课教动物 → 英语学习 farm animals 特征对比：milk/eggs/wool/meat
+数学第14课教数数 → 英语练习数鸡蛋、量饲料、比较动物大小
+劳动第10课教农业 → 英语了解农民日常工作：feed the animals, clean the barn, collect eggs
 

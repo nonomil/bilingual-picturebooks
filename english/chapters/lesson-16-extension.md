@@ -123,8 +123,8 @@ Alex says: "Tuesday — library day! I love books!"
 | "Yesterday I go to the park" | **"Yesterday I went to the park"** — go → went (过去式) |
 | "I will go tomorrow" vs "I am going tomorrow" | **Both OK!** — 近期的计划可以用现在进行时表将来 |
 ### 🧠 Think About It
-1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
-2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
+1. **Names**: Monday = Moon Day, Saturday = Saturn's Day. Why are some English days named after things in the sky and ancient gods?
+2. **What if**: What if there were 8 days in a week? What would you name the new day in English, and what would people do on it?
 
 ## 🔗 Cross-Curricular Links
 数学：日历 + 月份（"How many Mondays in May?"）用英文做一周计划表

@@ -384,18 +384,20 @@ Everyone takes turns. Laughter fills the classroom.
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "She go to school" | **"She goes to school"** — he/she/it + verb+s |
-| "I'm go to the village" | **"I'm going to the village"** — am/is/are + verb-ing |
-| "He is in the bus" | **"He is on the bus"** — on for vehicles, in for buildings |
-| "I feeled happy" | **"I felt happy"** — irregular past: feel→felt |
+| "I feeled happy" | **"I felt happy"** — feel→felt (不规则过去式，不是加 -ed) |
+| "I am feel sad" | **"I feel sad"** — feel 本身就是动词，不需要 am |
+| "She angry" | **"She is angry"** — 形容词前面必须有 be 动词 (is/am/are) |
+| "I am boring" (when you feel bored) | **"I am bored"** — boring = 令人无聊的，bored = 感到无聊的 |
 
 ### 🧠 Think About It
-1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
-2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
+1. **SEL (Social-Emotional Learning)**: What can you do when you feel angry or scared? Can you think of three ways to feel calm?
+2. **What if**: What if feelings were Minecraft potions? What color would a "calm potion" be? What about a "brave potion"?
 
 ## 🔗 Cross-Curricular Links
-语文第17课教方向与时间 → 英语同步方位词和时间表达
-数学第16课教钟表 → 英语"What time is it?"配套
+**社会情感学习(SEL)**：情绪颜色轮盘（red=angry, blue=sad, yellow=happy）英文标注，中文讨论"你什么时候feel brave？"
+**美术**：画Feelings Rainbow——每种颜色代表一种情绪，英文写名字
+**语文第15课情感汉字**："喜怒哀乐" vs "happy, angry, sad, joyful" 双语情绪日记
+**音乐**：用不同节奏表达情绪（fast=loud=angry, slow=soft=calm）英文描述情绪与音乐的关系
 
 ## 🏆 Challenge — Feelings Expert!
 

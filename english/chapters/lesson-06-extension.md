@@ -149,8 +149,8 @@ Grandma smiles: "Because our family is in it."
 | "She my mom" | **"She is my mom"** — never skip the be verb (am/is/are) |
 | "This is my family. They is nice." | **"They are nice"** — they/we/you → are; he/she/it → is |
 ### 🧠 Think About It
-1. **Observation**: In English, we say "Hello!" but in Chinese we say "你好！" Why do different languages have different greetings?
-2. **What if**: What if English had no alphabet letters — every word was a picture like ancient Egyptian? How would you write "cat"?
+1. **Names**: In English, "uncle" can mean 叔叔, 伯伯, or 舅舅. How does English show which side of the family someone is on? Does it matter?
+2. **What if**: What if every family member was called by their first name instead of their title (Mom, Dad, Grandpa)? How would it feel different?
 
 ## 🔗 Cross-Curricular Links
 社会：画一张 family tree，用英文标注每个家人（"This is my grandma."），中文标注对应称呼

@@ -367,8 +367,8 @@ Design your own toy:
 | "Let's building a puzzle" | **"Let's build a puzzle"** — Let's + 动词原形 |
 | "This is a toy. I like it. It fun." | **"It is fun"** — 别忘 be 动词！ |
 ### 🧠 Think About It
-1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
-2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+1. **Skills**: Toys can teach skills — puzzles teach thinking, balls teach throwing. What skill does your favorite toy teach you?
+2. **Design**: If you designed a toy that helps kids learn English, what would it do? Describe it using English words you know.
 
 ## 🔗 Cross-Curricular Links
 手工：用回收材料做一个玩具，英文写制作步骤（"Step 1: Cut the paper."），中文描述创意

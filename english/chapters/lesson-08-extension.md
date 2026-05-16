@@ -439,8 +439,8 @@ Write the word for each arrow:
 | "I have tow eye" | **"I have two eyes"** — two (2) ≠ to ≠ too! |
 | "I touch my heads" | **"I touch my head"** — you have ONE head, no -s |
 ### 🧠 Think About It
-1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
-2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+1. **Why**: Why do we have two eyes, two ears, and two hands — but only one nose and one mouth? What would change if we had three eyes?
+2. **What if**: What if humans had a tail? Where would it be? What color? How would you describe it in English?
 
 ## 🔗 Cross-Curricular Links
 体育：Simon Says 英文版 — "Touch your nose! Clap your hands!" 身体部位动作反应游戏

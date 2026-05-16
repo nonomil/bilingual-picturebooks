@@ -170,8 +170,8 @@ New WH words:
 | "Who is she? She is my friend." vs "Who is he?" | **不要混淆 he/she！** 中文"他/她"同音，英语不一样 |
 | "How many years do you have?" | **"How old are you?"** — 年龄用 How old，不是 How many years |
 ### 🧠 Think About It
-1. **Story**: In "The Lost Cat", why does Alex feel sad? What clues in the story tell you about her feelings?
-2. **What if**: What if the treasure map in the last story was written in a language nobody could read? How would Steve and Alex solve the problem?
+1. **Questions**: "Who" is for people, "Where" is for places, "When" is for times, "Why" is for reasons. Which question word do you use the most? Why?
+2. **What if**: What if you could only ask "why" questions all day? What would you learn about your family, your school, or the world?
 
 ## 🔗 Cross-Curricular Links
 科学探究：用 WH 问题做科学观察（"What do you see? Why did it change? How can we test it?"）

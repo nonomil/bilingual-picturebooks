@@ -402,18 +402,20 @@ From that day on, Puffy was the happiest rain cloud in the sky. When you see a l
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
-| "It's rain" | **"It's raining"** — use -ing for actions happening now |
-| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
-| "The dog big" | **"The dog is big"** — need "is" (be verb) |
+| "It's rain" | **"It's raining"** or **"It is rainy"** — 描述正在下雨用 -ing |
+| "The sky is cloud" | **"The sky is cloudy"** — cloud (名词) → cloudy (形容词) |
+| "The wind blow" | **"The wind blows"** — it/he/she + verb+s |
+| "I am cold. I want hot." | **"I want to be hot"** or **"I want warm weather"** — hot 是形容词，要与be动词连用 |
 
 ### 🧠 Think About It
-1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
-2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+1. **Science**: Why does rain fall? Where does the water come from? (Simple: water goes up → makes clouds → falls as rain)
+2. **What if**: What if Puffy the Cloud got angry instead of sad? What kind of weather would he make?
 
 ## 🔗 Cross-Curricular Links
-语文第15课教食物汉字 → 英语同步food words
-数学第18课教比较 → 英语big/small/long/short配套
+**科学**：水循环简单版——蒸发→凝结→降水（evaporation, condensation, precipitation），英文关键词+中文讨论
+**数学第5课数数**：数雨滴/雪花/云朵（"I count 5 white clouds and 3 dark clouds!"）双语天气观察
+**语文第11课天气汉字**："晴、雨、云、风、雪" vs "sunny, rainy, cloudy, windy, snowy" 双语天气日历
+**美术**：画四种天气场景，英文标注"It is sunny/rainy/cloudy/snowy"，中文写天气特点
 
 ## 🏆 Challenge — Weather Explorer!
 

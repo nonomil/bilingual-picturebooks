@@ -392,18 +392,19 @@ Draw lines to fix the table!
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "She go to school" | **"She goes to school"** — he/she/it + verb+s |
-| "I'm go to the village" | **"I'm going to the village"** — am/is/are + verb-ing |
-| "He is in the bus" | **"He is on the bus"** — on for vehicles, in for buildings |
-| "I feeled happy" | **"I felt happy"** — irregular past: feel→felt |
+| "I by bus go to school" | **"I go to school by bus"** — English word order: subject + verb + place + method |
+| "He ride a bike" | **"He rides a bike"** — he/she/it + verb+s |
+| "I drive a bike" | **"I ride a bike"** — ride for bikes/horses, drive for cars/trucks |
+| "She go to home" | **"She goes home"** — no preposition needed with home, + he/she/it verb+s |
 
 ### 🧠 Think About It
-1. **Pattern**: "I walk → I walked" but "I go → I went, I see → I saw". Why are some past tense words so different?
-2. **What if**: If Steve could only use 10 English words to survive in the Minecraft village, which 10 would he pick?
+1. **Why?**: Why do we say "get ON the bus" and "get ON the train" but "get IN the car"? What is different about these vehicles?
+2. **Create**: If you could invent a new kind of transport for your town, what would it be? How would it move? Describe it in English.
 
 ## 🔗 Cross-Curricular Links
-语文第17课教方向与时间 → 英语同步方位词和时间表达
-数学第16课教钟表 → 英语"What time is it?"配套
+数学第16课教速度 → 英语比较不同交通工具的速度（car vs bus vs plane vs bike）
+科学第18课教机械 → 英语学习车轮/螺旋桨/机翼如何让交通工具移动
+美术第19课教设计 → 英语画出并描述自己设计的未来交通工具
 
 ## 🏆 Challenge — Transport Explorer!
 

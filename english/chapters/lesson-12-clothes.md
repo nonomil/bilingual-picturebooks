@@ -241,18 +241,20 @@ The dress is pink with little white flowers. The girl twirls — the dress spins
 
 | ❌ Wrong | ✅ Right |
 |----------|---------|
-| "I like apple" (singular) | **"I like apples"** — when talking about things in general, use plural |
-| "It's rain" | **"It's raining"** — use -ing for actions happening now |
-| "I have 3 foot" | **"I have 3 feet"** — irregular plural: foot→feet |
-| "The dog big" | **"The dog is big"** — need "is" (be verb) |
+| "I put on my shoes" (already wearing them) | **"I wear my shoes"** — put on = 穿的动作; wear = 穿着的状态 |
+| "I need a shoes" | **"I need shoes"** — shoes 是复数，不用 a；要说 a pair of shoes |
+| "This is me coat" | **"This is my coat"** — my (我的) ≠ me (我) |
+| "I have a scarfs" | **"I have a scarf"** — one scarf, two scarves (f→ves!) |
 
 ### 🧠 Think About It
-1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
-2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+1. **Life Skills**: Why do we wear different clothes in different weather? What would happen if you wore a coat on a hot day?
+2. **What if**: What if the clothes in The Mixed-Up Closet could talk back to Steve? What would the hat say about being on feet?
 
 ## 🔗 Cross-Curricular Links
-语文第15课教食物汉字 → 英语同步food words
-数学第18课教比较 → 英语big/small/long/short配套
+**生活技能**：根据天气选衣服（"It's cold. I need a coat and scarf."）英文衣物搭配 + 中文讨论
+**美术**：设计一套四季服装，英文标注每件（"Spring: jacket. Summer: shorts. Fall: sweater. Winter: coat."）
+**数学第16课认钟表**：穿衣时间表达（"I put on my coat at 8 o'clock"）双语时间
+**语文第12课服装汉字**："衬衫、裤子、鞋子、帽子" vs "shirt, pants, shoes, hat" 双语穿衣卡片
 
 - for parties and special days 🎉
 ```

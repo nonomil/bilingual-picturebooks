@@ -330,8 +330,8 @@ New words:
 | "This is me coat" | **"This is my coat"** — my = 我的，me = 我（宾语） |
 | "I put on a scarf" (发音 /skɑːrf/ 读成 /skɑːf/) | **scarf /skɑːrf/** — 注意结尾的 /f/ 音，不是 /rf/ |
 ### 🧠 Think About It
-1. **Pattern**: "Cat→cats, dog→dogs" but "mouse→mice, child→children". Why do some words change differently?
-2. **What if**: What if English weather words were all Minecraft-style? Instead of "sunny", you'd say "torch-bright". Can you create 3 more?
+1. **Weather**: You check the weather before dressing. What English weather word means you need a raincoat? What word means you need a scarf?
+2. **What if**: What if you could only wear one color of clothes for a whole year? Which color would keep you happiest through all the seasons?
 
 ## 🔗 Cross-Curricular Links
 生活技能：根据天气选衣服（"It's cold. I need a coat and scarf."）英文衣物搭配 + 中文讨论
