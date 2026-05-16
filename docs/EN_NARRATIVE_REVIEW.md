@@ -33,8 +33,16 @@ Upgraded from generic "语文+数学" pairs to 3-subject concrete activities:
 
 Extensions already had middle-depth CC links — no changes needed.
 
-### Image Alt Text
-Already descriptive with Steve/Alex placement, emotions, and setting. No enhancement needed.
+### Image Alt Text & Illustration Standards (v2 enhancement)
+Alt text was already descriptive with Steve/Alex placement, emotions, and setting.
+
+**Added illustration style constants to gen_english.py** (per IMAGE_PROMPT_GUIDE.md):
+- `STYLE_MAIN` — base Minecraft pixel art style for all English images
+- `CHAR_STEVE` / `CHAR_ALEX` — character expression dictionaries (curious/adventurous Steve, warm/helpful Alex)
+- Composition constants: `COMPOSITION_CENTERED`, `COMPOSITION_RULE_OF_THIRDS`, `COMPOSITION_EYE_LEVEL`, `COMPOSITION_HIGH_ANGLE`
+- Page-specific guidance: `PAGE_COVER` (full-bleed cinematic), `PAGE_STORY` (rule-of-thirds narrative), `PAGE_ACTIVITY` (clean centered), `PAGE_VOCABULARY` (isolated subject)
+- `build_prompt()` function with `detect_page_type()` — auto-selects style by alt text keywords (activity/practice/vocabulary vs. story/cover)
+- Prompt now includes character expression + composition + page-type rules dynamically
 
 ### Story Arcs
 Base lessons contain complete narrative arcs (beginning → middle → end). Extensions are supplementary activities. No structural changes needed.

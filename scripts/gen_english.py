@@ -19,6 +19,81 @@ CHAPTERS_DIR = Path("/home/deploy/bilingual-picturebooks/english/chapters")
 STATE = Path("/home/deploy/bilingual-picturebooks/scripts/gen_state_english.json")
 SLEEP = 30
 
+# ============================================================
+# Illustration style constants (per IMAGE_PROMPT_GUIDE.md)
+# ============================================================
+
+# Base Minecraft pixel art style for all English lesson images
+STYLE_MAIN = "Minecraft pixel art style, bright and warm colors, clean composition, English language learning, 640x480"
+
+# Character description map — use these in prompts for consistent depiction
+CHAR_STEVE = {
+    "default": "Steve (blue shirt, dark pants, brown hair), curious expression",
+    "happy": "Steve (blue shirt, dark pants, brown hair), happy excited expression",
+    "thinking": "Steve (blue shirt, dark pants, brown hair), thoughtful curious expression",
+    "adventurous": "Steve (blue shirt, dark pants, brown hair), adventurous brave expression",
+}
+
+CHAR_ALEX = {
+    "default": "Alex (orange shirt, jeans, red hair), warm friendly expression",
+    "happy": "Alex (orange shirt, jeans, red hair), warm smiling expression",
+    "helpful": "Alex (orange shirt, jeans, red hair), helpful encouraging expression",
+    "teaching": "Alex (orange shirt, jeans, red hair), patient teaching expression",
+}
+
+# Scene composition rules
+COMPOSITION_CENTERED = "centered composition, subject occupies 40-60 percent of frame"
+COMPOSITION_RULE_OF_THIRDS = "rule of thirds composition, character offset to left or right"
+COMPOSITION_EYE_LEVEL = "eye-level perspective, warm approachable angle"
+COMPOSITION_HIGH_ANGLE = "slightly high angle view, showing full scene layout"
+
+# Page-specific guidance
+PAGE_COVER = "full-bleed cover illustration, title space reserved, cinematic composition, welcoming adventurous atmosphere"
+PAGE_STORY = "cinematic scene composition, Steve and Alex in action, narrative moment, warm lighting, dynamic but clear"
+PAGE_ACTIVITY = "clean centered composition, simple layout focused on learning task, high clarity, minimal background distraction"
+PAGE_VOCABULARY = "white background, vocabulary item clearly visible, isolated subject, clean educational layout"
+
+def detect_page_type(alt: str, fname: str) -> str:
+    """Classify image by page type based on alt text and filename."""
+    alt_lower = alt.lower() if alt else ""
+    fname_lower = fname.lower()
+
+    # Cover detection
+    if "cover" in fname_lower or "cover" in alt_lower:
+        return "cover"
+
+    # Activity/practice detection
+    if any(kw in alt_lower for kw in ["activity", "practice", "exercise", "draw",
+                                       "color", "trace", "match", "connect",
+                                       "write", "circle", "fill"]):
+        return "activity"
+
+    # Vocabulary / isolated item detection
+    if any(kw in alt_lower for kw in ["vocabulary", "word", "sight word", "flashcard",
+                                       "isolated", "item"]):
+        return "vocabulary"
+
+    # Default: story/scene
+    return "story"
+
+
+def build_prompt(alt: str, tgt_dir: str, fname: str) -> str:
+    """Build an illustration prompt using alt text + page-specific style rules."""
+    page_type = detect_page_type(alt, fname)
+
+    if alt:
+        if page_type == "cover":
+            return f"{alt}, Minecraft pixel art, {PAGE_COVER}, {STYLE_MAIN}"
+        elif page_type == "activity":
+            return f"{alt}, Minecraft pixel art, {PAGE_ACTIVITY}, bright colors, kid-friendly illustration, 640x480"
+        elif page_type == "vocabulary":
+            return f"{alt}, Minecraft pixel art, {PAGE_VOCABULARY}, {STYLE_MAIN}"
+        else:
+            return f"{alt}, Minecraft pixel art, {PAGE_STORY}, Steve and Alex, bright warm colors, 640x480, kid-friendly illustration"
+    else:
+        return f"English learning illustration for {tgt_dir}: {fname}, {STYLE_MAIN}"
+
+
 def load():
     today = time.strftime("%Y-%m-%d")
     if STATE.exists():
@@ -51,10 +126,7 @@ def get_pending():
                 if s.get("failed", {}).get(key, 0) >= MAX_RETRIES: continue
                 m = re.search(r'(chapter-\d+[^/]*)', ref_path)
                 tgt_dir = m.group(1) if m else "unknown"
-                if alt:
-                    prompt = f"{alt}, Minecraft pixel art, white background, bright colors, 640x480, kid-friendly illustration"
-                else:
-                    prompt = f"English learning illustration for {tgt_dir}: {full.name}, Minecraft pixel art, white background, bright colors, 640x480"
+                prompt = build_prompt(alt, tgt_dir, full.name)
                 out_dir = IMG_DIR / tgt_dir
                 out_dir.mkdir(parents=True, exist_ok=True)
                 pending.append((tgt_dir, full.name, prompt, key, out_dir))
