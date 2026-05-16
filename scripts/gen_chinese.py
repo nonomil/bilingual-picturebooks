@@ -19,7 +19,16 @@ CHAPTERS_DIR = Path("/home/deploy/bilingual-picturebooks/chinese-language/chapte
 STATE = Path("/home/deploy/bilingual-picturebooks/scripts/gen_state_chinese.json")
 SLEEP = 30
 
-STYLE = "Minecraft pixel art style, bright and warm colors, clean composition, Chinese language learning, 640x480"
+# Default Minecraft pixel art style for standard lesson images
+STYLE_MAIN = "Minecraft pixel art style, bright and warm colors, clean composition, Chinese language learning, 640x480"
+
+# Classical Chinese painting style for poetry (古诗) images
+# Uses traditional 国画/gongbi aesthetic with warm muted classical palette
+STYLE_POEM = "Traditional Chinese ink wash painting (水墨画) style, gongbi technique (工笔), classical Chinese art, warm muted colors (vermilion 朱砂红, mineral green 松石绿, gamboge 藤黄, ink black 墨色), calligraphic text aesthetic, Minecraft characters (Steve/Alex) depicted in traditional Chinese painting style, polished refined brushwork, serene and poetic atmosphere, elegant composition, 640x480"
+
+# Classical Chinese art style with richer colors for ancient story content (神话传说、成语故事)
+# Similar to STYLE_POEM but with more vibrant storytelling colors
+STYLE_ANCIENT = "Traditional Chinese classical painting style, rich storytelling colors, warm vibrant palette, gongbi technique (工笔), ink wash with color accents, Minecraft characters (Steve/Alex) in ancient Chinese setting, narrative scene with depth, polished detailed brushwork, Chinese mythology aesthetic, 640x480"
 
 def load():
     today = time.strftime("%Y-%m-%d")
@@ -44,6 +53,11 @@ def get_pending():
     for fpath in sorted(CHAPTERS_DIR.glob("*.md")):
         name = fpath.stem
         content = fpath.read_text()
+
+        # Detect if chapter contains poetry or ancient story sections
+        has_poem_corner = "古诗角" in content
+        has_ancient_content = "神话传说" in content or "成语故事" in content
+
         refs = re.findall(r'<img src="([^"]+)"[^>]*alt="([^"]*)"', content)
         for ref, alt in refs:
             ref_path = ref.lstrip('./')
@@ -54,11 +68,26 @@ def get_pending():
                 if s.get("failed", {}).get(key, 0) >= MAX_RETRIES: continue
                 m = re.search(r'(chapter-\d+[^/]*)', ref_path)
                 tgt_dir = m.group(1) if m else "unknown"
-                # Build prompt from alt text or fallback
+
+                # Classify image type: poem, ancient, or standard
+                is_poem = "poem-line" in full.name or has_poem_corner
+                is_ancient = has_ancient_content and not is_poem
+
                 if alt:
-                    prompt = f"{alt}, Minecraft pixel art, bright colors, 640x480, kid-friendly illustration"
+                    if is_poem:
+                        prompt = f"{STYLE_POEM} {alt} — Chinese classical painting style, Minecraft characters in traditional Chinese art, serene atmosphere"
+                    elif is_ancient:
+                        prompt = f"{STYLE_ANCIENT} {alt} — Chinese classical art style with richer storytelling"
+                    else:
+                        prompt = f"{alt}, Minecraft pixel art, bright colors, 640x480, kid-friendly illustration"
                 else:
-                    prompt = f"Chinese language learning illustration for {tgt_dir}: {full.name}, Minecraft pixel art style, bright and warm colors, clean composition, 640x480"
+                    if is_poem:
+                        prompt = f"Chinese poem illustration for {tgt_dir}: {full.name}, {STYLE_POEM}"
+                    elif is_ancient:
+                        prompt = f"Chinese ancient story illustration for {tgt_dir}: {full.name}, {STYLE_ANCIENT}"
+                    else:
+                        prompt = f"Chinese language learning illustration for {tgt_dir}: {full.name}, Minecraft pixel art style, bright and warm colors, clean composition, 640x480"
+
                 out_dir = IMG_DIR / tgt_dir
                 out_dir.mkdir(parents=True, exist_ok=True)
                 pending.append((tgt_dir, full.name, prompt, key, out_dir))
