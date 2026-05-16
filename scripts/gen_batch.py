@@ -131,7 +131,7 @@ def main():
     
     # Build work list (filter done + max-retries)
     work = []
-    for ch in range(13, 25):
+    for ch in range(1, 25):
         out_dir = BASE_DIR / f"chapter-{ch}"
         out_dir.mkdir(parents=True, exist_ok=True)
         for fname, prompt in prompts(ch):
