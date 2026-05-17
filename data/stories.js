@@ -4612,6 +4612,2251 @@ const STORIES = [
       {"img": "images/storyfun/pips-toybox/page-9.jpg", "en": "Goodbye, toy box! See you tomorrow!", "zh": "再见，玩具箱！明天见！", "keys": [{"w": "goodbye", "p": "/gʊdˈbaɪ/", "zh": "再见"}]},
       {"img": "images/storyfun/pips-toybox/page-10.jpg", "en": "The End.", "zh": "结束。", "keys": []}
     ]
+  },
+  {
+    "id": "gruffalo",
+    "title": "The Gruffalo",
+    "titleZh": "咕噜牛",
+    "category": "经典绘本",
+    "cover": "images/gruffalo/cover.jpg",
+    "pages": [
+      {
+        "img": "images/gruffalo/page-1.jpg",
+        "en": "A mouse took a stroll through the deep dark wood. A fox saw the mouse, and the mouse looked good.",
+        "zh": "一只小老鼠在密林深处散步。狐狸看见了小老鼠，觉得它看起来很好吃。",
+        "keys": [
+          {
+            "w": "stroll",
+            "p": "/stroʊl/",
+            "zh": "散步"
+          },
+          {
+            "w": "deep dark wood",
+            "p": "/diːp dɑːrk wʊd/",
+            "zh": "密林深处"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "took a stroll",
+            "zh": "散了个步"
+          },
+          {
+            "en": "looked good",
+            "zh": "看起来很好吃"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-2.jpg",
+        "en": "\"Where are you going to, little brown mouse? Come and have lunch in my underground house.\"",
+        "zh": "\"你上哪儿去呀，小棕鼠？到我的地洞里来吃午饭吧。\"",
+        "keys": [
+          {
+            "w": "underground",
+            "p": "/ˌʌndərˈɡraʊnd/",
+            "zh": "地下的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "come and have lunch",
+            "zh": "来吃午饭吧"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-3.jpg",
+        "en": "\"It's terribly kind of you, Fox, but no — I'm going to have lunch with a gruffalo.\"",
+        "zh": "\"狐狸，你真好，不过不用了——我要和一只咕噜牛一起吃午饭。\"",
+        "keys": [
+          {
+            "w": "terribly",
+            "p": "/ˈterəbli/",
+            "zh": "非常，极其"
+          },
+          {
+            "w": "gruffalo",
+            "p": "/ɡrəˈfɑːloʊ/",
+            "zh": "咕噜牛"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "terribly kind",
+            "zh": "非常好心"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-4.jpg",
+        "en": "\"A gruffalo? What's a gruffalo?\" \"A gruffalo! Why, didn't you know? He has terrible tusks, and terrible claws, and terrible teeth in his terrible jaws.\"",
+        "zh": "\"咕噜牛？咕噜牛是什么？\" \"咕噜牛！什么，你不知道？他有可怕的獠牙，可怕的爪子，还有可怕的牙齿在可怕的大嘴里。\"",
+        "keys": [
+          {
+            "w": "tusks",
+            "p": "/tʌsks/",
+            "zh": "獠牙"
+          },
+          {
+            "w": "claws",
+            "p": "/klɔːz/",
+            "zh": "爪子"
+          },
+          {
+            "w": "jaws",
+            "p": "/dʒɔːz/",
+            "zh": "嘴巴，颌"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "terrible tusks",
+            "zh": "可怕的獠牙"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-5.jpg",
+        "en": "\"Where are you meeting him?\" \"Here, by these rocks. And his favourite food is roasted fox!\"",
+        "zh": "\"你在哪儿见他？\" \"就在这儿，岩石旁边。他最喜欢的食物就是烤狐狸！\"",
+        "keys": [
+          {
+            "w": "roasted",
+            "p": "/ˈroʊstɪd/",
+            "zh": "烤的"
+          },
+          {
+            "w": "meeting",
+            "p": "/ˈmiːtɪŋ/",
+            "zh": "见面，会面"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "favourite food",
+            "zh": "最喜欢的食物"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-6.jpg",
+        "en": "\"Goodbye, little mouse!\" And away fox sped. \"Silly old Fox! Doesn't he know, there's no such thing as a gruffalo!\"",
+        "zh": "\"再见，小老鼠！\"狐狸飞快地跑走了。\"傻老狐狸！他难道不知道，世界上根本没有咕噜牛这种东西！\"",
+        "keys": [
+          {
+            "w": "sped",
+            "p": "/sped/",
+            "zh": "飞快地跑（speed的过去式）"
+          },
+          {
+            "w": "silly",
+            "p": "/ˈsɪli/",
+            "zh": "傻的，愚蠢的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "no such thing",
+            "zh": "没有这种东西"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-7.jpg",
+        "en": "On went the mouse through the deep dark wood. An owl saw the mouse, and the mouse looked good.",
+        "zh": "小老鼠继续在密林深处走。猫头鹰看见了小老鼠，觉得它看起来很好吃。",
+        "keys": [
+          {
+            "w": "owl",
+            "p": "/aʊl/",
+            "zh": "猫头鹰"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "on went",
+            "zh": "继续往前走"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-8.jpg",
+        "en": "\"Where are you going to, little brown mouse? Come and have tea in my treetop house.\"",
+        "zh": "\"你上哪儿去呀，小棕鼠？到我的树顶小屋来喝茶吧。\"",
+        "keys": [
+          {
+            "w": "treetop",
+            "p": "/ˈtriːtɒp/",
+            "zh": "树顶"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "treetop house",
+            "zh": "树顶小屋"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-9.jpg",
+        "en": "\"It's terribly kind of you, Owl, but no — I'm going to have tea with a gruffalo.\"",
+        "zh": "\"猫头鹰，你真好，不过不用了——我要和一只咕噜牛一起喝茶。\"",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/gruffalo/page-10.jpg",
+        "en": "\"A gruffalo? What's a gruffalo?\" \"A gruffalo! Why, didn't you know? His knuckles are terribly tough, and his toes are terribly tough. And his poisonous wart is at the end of his nose.\"",
+        "zh": "\"咕噜牛？咕噜牛是什么？\" \"咕噜牛！什么，你不知道？他的指节又粗又硬，脚趾又粗又硬。他鼻子上还长着有毒的疙瘩。\"",
+        "keys": [
+          {
+            "w": "knuckles",
+            "p": "/ˈnʌkəlz/",
+            "zh": "指节"
+          },
+          {
+            "w": "tough",
+            "p": "/tʌf/",
+            "zh": "粗硬的"
+          },
+          {
+            "w": "poisonous",
+            "p": "/ˈpɔɪzənəs/",
+            "zh": "有毒的"
+          },
+          {
+            "w": "wart",
+            "p": "/wɔːrt/",
+            "zh": "疣，疙瘩"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "at the end of his nose",
+            "zh": "在他的鼻尖上"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-11.jpg",
+        "en": "\"Where are you meeting him?\" \"Here, by this stream. And his favourite food is roasted owl!\"",
+        "zh": "\"你在哪儿见他？\" \"就在这儿，小溪边。他最喜欢的食物就是烤猫头鹰！\"",
+        "keys": [
+          {
+            "w": "stream",
+            "p": "/striːm/",
+            "zh": "小溪"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "roasted owl",
+            "zh": "烤猫头鹰"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-12.jpg",
+        "en": "\"Goodbye, little mouse!\" And away owl flew. \"Silly old Owl! Doesn't he know, there's no such thing as a gruffalo!\"",
+        "zh": "\"再见，小老鼠！\"猫头鹰飞走了。\"傻老猫头鹰！难道不知道世界上根本没有咕噜牛这种东西吗！\"",
+        "keys": [
+          {
+            "w": "flew",
+            "p": "/fluː/",
+            "zh": "飞走了（fly的过去式）"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/gruffalo/page-13.jpg",
+        "en": "On went the mouse through the deep dark wood. A snake saw the mouse, and the mouse looked good.",
+        "zh": "小老鼠继续在密林深处走。一条蛇看见了小老鼠，觉得它看起来很好吃。",
+        "keys": [
+          {
+            "w": "snake",
+            "p": "/sneɪk/",
+            "zh": "蛇"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/gruffalo/page-14.jpg",
+        "en": "\"Where are you going to, little brown mouse? Come and have dinner in my logpile house.\"",
+        "zh": "\"你上哪儿去呀，小棕鼠？到我的木桩小屋来吃晚饭吧。\"",
+        "keys": [
+          {
+            "w": "logpile",
+            "p": "/ˈlɒɡpaɪl/",
+            "zh": "木桩堆"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "have dinner",
+            "zh": "吃晚饭"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-15.jpg",
+        "en": "\"It's terribly kind of you, Snake, but no — I'm going to have dinner with a gruffalo.\"",
+        "zh": "\"蛇，你真好，不过不用了——我要和一只咕噜牛一起吃晚饭。\"",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/gruffalo/page-16.jpg",
+        "en": "\"A gruffalo? What's a gruffalo?\" \"A gruffalo! Why, didn't you know? His eyes are like orange fire, his tongue is a long black knife. And the back of the gruffalo is covered with prickles!\"",
+        "zh": "\"咕噜牛？咕噜牛是什么？\" \"咕噜牛！什么，你不知道？他的眼睛像橘红色的火焰，舌头是又长又黑的刀。他的背上长满了刺！\"",
+        "keys": [
+          {
+            "w": "prickles",
+            "p": "/ˈprɪkəlz/",
+            "zh": "刺，倒刺"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "covered with",
+            "zh": "覆盖着，长满了"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-17.jpg",
+        "en": "\"Where are you meeting him?\" \"Here, by this lake. And his favourite food is roasted snake!\"",
+        "zh": "\"你在哪儿见他？\" \"就在这儿，湖边。他最喜欢的食物就是烤蛇！\"",
+        "keys": [
+          {
+            "w": "lake",
+            "p": "/leɪk/",
+            "zh": "湖"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/gruffalo/page-18.jpg",
+        "en": "\"Goodbye, little mouse!\" And away snake slid. \"Silly old Snake! Doesn't he know, there's no such thing as a gruffalo...?\"",
+        "zh": "\"再见，小老鼠！\"蛇溜走了。\"傻老蛇！难道不知道世界上根本没有咕噜牛这种东西……吗？\"",
+        "keys": [
+          {
+            "w": "slid",
+            "p": "/slɪd/",
+            "zh": "滑走了（slide的过去式）"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/gruffalo/page-19.jpg",
+        "en": "\"OH!\" cried the mouse. \"A gruffalo! His terrible tusks, and terrible claws, and terrible teeth in his terrible jaws!\"",
+        "zh": "\"哦！\"小老鼠叫了起来。\"真有咕噜牛！他可怕的獠牙，可怕的爪子，还有可怕的牙齿！\"",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/gruffalo/page-20.jpg",
+        "en": "\"Good!\" said the gruffalo. \"My favourite food!\" \"I'm the scariest creature in this deep dark wood. So don't eat me, Gruffalo. All the animals are afraid of me!\"",
+        "zh": "\"太好了！\"咕噜牛说。\"我最喜欢的食物！\" \"我是这片密林里最吓人的动物。所以别吃我，咕噜牛。所有动物都怕我！\"",
+        "keys": [
+          {
+            "w": "scariest",
+            "p": "/ˈskeriɪst/",
+            "zh": "最吓人的（scary的最高级）"
+          },
+          {
+            "w": "creature",
+            "p": "/ˈkriːtʃər/",
+            "zh": "动物，生物"
+          },
+          {
+            "w": "afraid",
+            "p": "/əˈfreɪd/",
+            "zh": "害怕的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "the scariest creature",
+            "zh": "最吓人的动物"
+          },
+          {
+            "en": "afraid of",
+            "zh": "害怕……"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-21.jpg",
+        "en": "\"Huh!\" said the gruffalo. \"Walk behind me. Show me how scared they are!\"",
+        "zh": "\"哼！\"咕噜牛说。\"跟在我后面。让我看看他们有多怕你！\"",
+        "keys": [
+          {
+            "w": "behind",
+            "p": "/bɪˈhaɪnd/",
+            "zh": "在……后面"
+          },
+          {
+            "w": "scared",
+            "p": "/skerd/",
+            "zh": "害怕的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "walk behind me",
+            "zh": "跟在我后面"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-22.jpg",
+        "en": "Mouse said, \"Snake! Fox! Owl! Look at this! A gruffalo! He has terrible claws!...\" And oh how they ran!",
+        "zh": "小老鼠说：\"蛇！狐狸！猫头鹰！你们看这个！一只咕噜牛！他有可怕的爪子！……\" 他们跑得飞快！",
+        "keys": [],
+        "phrases": [
+          {
+            "en": "oh how they ran",
+            "zh": "他们跑得好快啊"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-23.jpg",
+        "en": "\"Well, Gruffalo,\" said the mouse. \"They were scared of you! Now my tummy is rumbling. I think I'll have... gruffalo crumble!\"",
+        "zh": "\"怎么样，咕噜牛。\"小老鼠说。\"他们都怕你！现在我的肚子咕咕叫了。我想我要……吃咕噜牛肉碎！\"",
+        "keys": [
+          {
+            "w": "tummy",
+            "p": "/ˈtʌmi/",
+            "zh": "肚子"
+          },
+          {
+            "w": "rumbling",
+            "p": "/ˈrʌmblɪŋ/",
+            "zh": "咕咕响的"
+          },
+          {
+            "w": "crumble",
+            "p": "/ˈkrʌmbəl/",
+            "zh": "脆皮碎（一种甜点）"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "my tummy is rumbling",
+            "zh": "我的肚子咕咕叫了"
+          }
+        ]
+      },
+      {
+        "img": "images/gruffalo/page-24.jpg",
+        "en": "The gruffalo ran. And that is how the clever mouse escaped the deep dark wood, and the gruffalo, and the snake, the owl, and the fox too!",
+        "zh": "咕噜牛跑走了。聪明的小老鼠就是这样逃脱了密林深处，逃过了咕噜牛，还有蛇、猫头鹰和狐狸！",
+        "keys": [
+          {
+            "w": "clever",
+            "p": "/ˈklevər/",
+            "zh": "聪明的"
+          },
+          {
+            "w": "escaped",
+            "p": "/ɪˈskeɪpt/",
+            "zh": "逃脱了"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "and that is how",
+            "zh": "这就是……的方式"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pigeon-bus",
+    "title": "Don't Let the Pigeon Drive the Bus",
+    "titleZh": "别让鸽子开巴士",
+    "category": "Mo Willems",
+    "cover": "images/pigeon-bus/cover.jpg",
+    "pages": [
+      {
+        "img": "images/pigeon-bus/page-1.jpg",
+        "en": "Hi! I'm the bus driver. Listen, I have to leave for a little while. Can you watch things for me? Great! Just don't let the pigeon drive the bus!",
+        "zh": "嗨！我是巴士司机。听着，我得离开一小会儿。你能帮我看着吗！太好了！记住——别让鸽子开巴士！",
+        "keys": [
+          {
+            "w": "bus driver",
+            "p": "/bʌs ˈdraɪvər/",
+            "zh": "巴士司机"
+          },
+          {
+            "w": "leave",
+            "p": "/liːv/",
+            "zh": "离开"
+          },
+          {
+            "w": "watch",
+            "p": "/wɒtʃ/",
+            "zh": "照看，看着"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "for a little while",
+            "zh": "一小会儿"
+          },
+          {
+            "en": "just don't let",
+            "zh": "千万别让……"
+          }
+        ]
+      },
+      {
+        "img": "images/pigeon-bus/page-2.jpg",
+        "en": "I'm the pigeon! Let me drive the bus!",
+        "zh": "我是鸽子！让我开巴士吧！",
+        "keys": [
+          {
+            "w": "pigeon",
+            "p": "/ˈpɪdʒɪn/",
+            "zh": "鸽子"
+          },
+          {
+            "w": "drive",
+            "p": "/draɪv/",
+            "zh": "驾驶，开车"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "let me drive",
+            "zh": "让我开吧"
+          }
+        ]
+      },
+      {
+        "img": "images/pigeon-bus/page-3.jpg",
+        "en": "Please? I'll be careful!",
+        "zh": "求你了？我会小心的！",
+        "keys": [
+          {
+            "w": "please",
+            "p": "/pliːz/",
+            "zh": "请，求你了"
+          },
+          {
+            "w": "careful",
+            "p": "/ˈkerfl/",
+            "zh": "小心的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "I'll be careful",
+            "zh": "我会小心的"
+          }
+        ]
+      },
+      {
+        "img": "images/pigeon-bus/page-4.jpg",
+        "en": "I tell you what: I'll just steer.",
+        "zh": "我跟你说：我就扶一下方向盘。",
+        "keys": [
+          {
+            "w": "steer",
+            "p": "/stɪr/",
+            "zh": "驾驶，掌方向盘"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "I tell you what",
+            "zh": "我跟你说啊"
+          }
+        ]
+      },
+      {
+        "img": "images/pigeon-bus/page-5.jpg",
+        "en": "My cousin drives a bus almost every day! True story!",
+        "zh": "我表哥几乎每天都开巴士！真的！",
+        "keys": [
+          {
+            "w": "cousin",
+            "p": "/ˈkʌzən/",
+            "zh": "表兄弟/姐妹"
+          },
+          {
+            "w": "almost",
+            "p": "/ˈɔːlmoʊst/",
+            "zh": "几乎，差不多"
+          },
+          {
+            "w": "true story",
+            "p": "/truː ˈstɔːri/",
+            "zh": "真事"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "almost every day",
+            "zh": "几乎每天"
+          },
+          {
+            "en": "true story",
+            "zh": "真的，不骗你"
+          }
+        ]
+      },
+      {
+        "img": "images/pigeon-bus/page-6.jpg",
+        "en": "I bet your mom would let me drive.",
+        "zh": "我打赌你妈妈肯定让我开。",
+        "keys": [
+          {
+            "w": "bet",
+            "p": "/bet/",
+            "zh": "打赌"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "I bet",
+            "zh": "我敢打赌"
+          }
+        ]
+      },
+      {
+        "img": "images/pigeon-bus/page-7.jpg",
+        "en": "What's the big deal?!",
+        "zh": "有什么大不了的嘛！？",
+        "keys": [
+          {
+            "w": "big deal",
+            "p": "/bɡɡ diːl/",
+            "zh": "大事，了不起的事"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "what's the big deal",
+            "zh": "有什么大不了的"
+          }
+        ]
+      },
+      {
+        "img": "images/pigeon-bus/page-8.jpg",
+        "en": "It's just a bus!!",
+        "zh": "不就一辆巴士嘛！！",
+        "keys": [
+          {
+            "w": "just",
+            "p": "/dʒʌst/",
+            "zh": "仅仅，只是"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/pigeon-bus/page-9.jpg",
+        "en": "I have dreams, you know! I wanna be a bus driver!",
+        "zh": "我也有梦想的好不好！我想当巴士司机！",
+        "keys": [
+          {
+            "w": "dreams",
+            "p": "/driːmz/",
+            "zh": "梦想"
+          },
+          {
+            "w": "wanna",
+            "p": "/ˈwɒnə/",
+            "zh": "想要（want to的口语）"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "I have dreams",
+            "zh": "我也有梦想"
+          }
+        ]
+      },
+      {
+        "img": "images/pigeon-bus/page-10.jpg",
+        "en": "Fine. I'll be your best friend.",
+        "zh": "好吧。我当你最好的朋友。",
+        "keys": [
+          {
+            "w": "fine",
+            "p": "/faɪn/",
+            "zh": "好吧，行"
+          },
+          {
+            "w": "best friend",
+            "p": "/best frend/",
+            "zh": "最好的朋友"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "best friend",
+            "zh": "最好的朋友"
+          }
+        ]
+      },
+      {
+        "img": "images/pigeon-bus/page-11.jpg",
+        "en": "How 'bout I give you five bucks?",
+        "zh": "要不我给你五块钱？",
+        "keys": [
+          {
+            "w": "bucks",
+            "p": "/bʌks/",
+            "zh": "块钱（口语）"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "how 'bout",
+            "zh": "……怎么样？"
+          }
+        ]
+      },
+      {
+        "img": "images/pigeon-bus/page-12.jpg",
+        "en": "LET ME DRIVE THE BUS!!!",
+        "zh": "让我开巴士！！！",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/pigeon-bus/page-13.jpg",
+        "en": "I'm never gonna get to drive the bus.",
+        "zh": "我再也开不成巴士了。",
+        "keys": [
+          {
+            "w": "never",
+            "p": "/ˈnevər/",
+            "zh": "永远不，绝不"
+          },
+          {
+            "w": "gonna",
+            "p": "/ˈɡɔːnə/",
+            "zh": "将要（going to的口语）"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "never gonna",
+            "zh": "再也不会"
+          }
+        ]
+      },
+      {
+        "img": "images/pigeon-bus/page-14.jpg",
+        "en": "Hey... I've got an idea. Let's play a game!",
+        "zh": "嘿……我有个主意。我们来玩游戏吧！",
+        "keys": [
+          {
+            "w": "idea",
+            "p": "/aɪˈdiːə/",
+            "zh": "主意，想法"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "I've got an idea",
+            "zh": "我有个主意"
+          }
+        ]
+      },
+      {
+        "img": "images/pigeon-bus/page-15.jpg",
+        "en": "Hey, is that a duck driving the bus?! Hey!!!",
+        "zh": "嘿，那是不是一只鸭子在开巴士？！嘿！！！",
+        "keys": [
+          {
+            "w": "duck",
+            "p": "/dʌk/",
+            "zh": "鸭子"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "is that...",
+            "zh": "那是……吗？"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "knuffle-bunny",
+    "title": "Knuffle Bunny",
+    "titleZh": "古纳什小兔",
+    "category": "Mo Willems",
+    "cover": "images/knuffle-bunny/cover.jpg",
+    "pages": [
+      {
+        "img": "images/knuffle-bunny/page-1.jpg",
+        "en": "Not so long ago, before she could even speak words, Trixie went on an errand with her daddy.",
+        "zh": "不久以前，在翠西还不会说话的年纪，她和爸爸一起出去办事。",
+        "keys": [
+          {
+            "w": "errand",
+            "p": "/ˈerənd/",
+            "zh": "差事，跑腿"
+          },
+          {
+            "w": "daddy",
+            "p": "/ˈdædi/",
+            "zh": "爸爸"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "went on an errand",
+            "zh": "出去办件事"
+          }
+        ]
+      },
+      {
+        "img": "images/knuffle-bunny/page-2.jpg",
+        "en": "Trixie and her daddy went down the block, through the park, past the school, and into the Laundromat.",
+        "zh": "翠西和爸爸走过街区，穿过公园，经过学校，来到了洗衣店。",
+        "keys": [
+          {
+            "w": "block",
+            "p": "/blɒk/",
+            "zh": "街区"
+          },
+          {
+            "w": "Laundromat",
+            "p": "/ˈlɔːndrəmæt/",
+            "zh": "自助洗衣店"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "went down the block",
+            "zh": "沿着街区走"
+          }
+        ]
+      },
+      {
+        "img": "images/knuffle-bunny/page-3.jpg",
+        "en": "Trixie helped her daddy put the laundry into the machine.",
+        "zh": "翠西帮爸爸把衣服放进洗衣机里。",
+        "keys": [
+          {
+            "w": "laundry",
+            "p": "/ˈlɔːndri/",
+            "zh": "要洗的衣物"
+          },
+          {
+            "w": "machine",
+            "p": "/məˈʃiːn/",
+            "zh": "机器"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/knuffle-bunny/page-4.jpg",
+        "en": "She even put the money into the machine.",
+        "zh": "她甚至还把硬币投进了机器。",
+        "keys": [
+          {
+            "w": "money",
+            "p": "/ˈmʌni/",
+            "zh": "钱"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/knuffle-bunny/page-5.jpg",
+        "en": "Then they left.",
+        "zh": "然后他们就离开了。",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/knuffle-bunny/page-6.jpg",
+        "en": "And a block and a half later... Trixie realized something.",
+        "zh": "走了一个半街区后……翠西发现了一件事。",
+        "keys": [
+          {
+            "w": "realized",
+            "p": "/ˈriːəlaɪzd/",
+            "zh": "意识到，发现"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a block and a half later",
+            "zh": "走了一个半街区之后"
+          }
+        ]
+      },
+      {
+        "img": "images/knuffle-bunny/page-7.jpg",
+        "en": "\"Aggle flaggle klabble!\" \"That's right,\" said her daddy. \"We're going home.\"",
+        "zh": "\"啊咕啦咕呱呱！\" \"没错，\"爸爸说。\"我们回家。\"",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/knuffle-bunny/page-8.jpg",
+        "en": "\"Aggle flaggle klabble!\" \"Don't worry,\" said her daddy. \"We're not going to see the whole wide world. We're just going home.\"",
+        "zh": "\"啊咕啦咕呱呱！\" \"别担心，\"爸爸说。\"我们不是去看大千世界。我们只是回家。\"",
+        "keys": [
+          {
+            "w": "whole wide world",
+            "p": "/hoʊl waɪd wɜːrld/",
+            "zh": "整个广阔的世界"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "the whole wide world",
+            "zh": "整个大千世界"
+          }
+        ]
+      },
+      {
+        "img": "images/knuffle-bunny/page-9.jpg",
+        "en": "Trixie's daddy tried to soothe her. But Trixie was inconsolable.",
+        "zh": "翠西的爸爸想安抚她。但翠西哭得停不下来。",
+        "keys": [
+          {
+            "w": "soothe",
+            "p": "/suːð/",
+            "zh": "安抚"
+          },
+          {
+            "w": "inconsolable",
+            "p": "/ˌɪnkənˈsoʊləbəl/",
+            "zh": "哭个不停的，无法安慰的"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/knuffle-bunny/page-10.jpg",
+        "en": "\"AGGLE FLAGGLE KLABBLE!\" \"Trixie,\" said her daddy. \"Please don't make such a fuss.\"",
+        "zh": "\"啊咕啦咕呱呱！\" \"翠西，\"爸爸说。\"别这么闹了。\"",
+        "keys": [
+          {
+            "w": "fuss",
+            "p": "/fʌs/",
+            "zh": "吵闹，小题大做"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "make a fuss",
+            "zh": "大吵大闹"
+          }
+        ]
+      },
+      {
+        "img": "images/knuffle-bunny/page-11.jpg",
+        "en": "Her mommy asked, \"Where's Knuffle Bunny?\"",
+        "zh": "妈妈问：\"古纳什小兔呢？\"",
+        "keys": [
+          {
+            "w": "Knuffle Bunny",
+            "p": "/ˈnʌfəl ˈbʌni/",
+            "zh": "古纳什小兔"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/knuffle-bunny/page-12.jpg",
+        "en": "They ran down the block, through the park, past the school, and back into the Laundromat.",
+        "zh": "他们跑过街区，穿过公园，经过学校，冲回洗衣店。",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/knuffle-bunny/page-13.jpg",
+        "en": "And there, in the washing machine, was Knuffle Bunny!",
+        "zh": "就在那儿，在洗衣机里，是古纳什小兔！",
+        "keys": [
+          {
+            "w": "washing machine",
+            "p": "/ˈwɒʃɪŋ məˈʃiːn/",
+            "zh": "洗衣机"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/knuffle-bunny/page-14.jpg",
+        "en": "Trixie hugged Knuffle Bunny and her daddy and her mommy. And that was the first time Trixie ever said a word.",
+        "zh": "翠西紧紧抱住了古纳什小兔，抱住了爸爸和妈妈。这是翠西第一次说出一个词。",
+        "keys": [
+          {
+            "w": "hugged",
+            "p": "/hʌɡd/",
+            "zh": "拥抱了"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "the first time",
+            "zh": "第一次"
+          }
+        ]
+      },
+      {
+        "img": "images/knuffle-bunny/page-15.jpg",
+        "en": "\"Knuffle Bunny!\"",
+        "zh": "\"古纳什小兔！\"",
+        "keys": [],
+        "phrases": []
+      }
+    ]
+  },
+  {
+    "id": "pete-cat",
+    "title": "Pete the Cat: I Love My White Shoes",
+    "titleZh": "皮特猫：我爱我的白鞋子",
+    "category": "Eric Litwin",
+    "cover": "images/pete-cat/cover.jpg",
+    "pages": [
+      {
+        "img": "images/pete-cat/page-1.jpg",
+        "en": "Pete the Cat was walking down the street in his brand new white shoes.",
+        "zh": "皮特猫穿着他的崭新的白鞋子在大街上走着。",
+        "keys": [
+          {
+            "w": "brand new",
+            "p": "/brænd nuː/",
+            "zh": "崭新的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "walking down the street",
+            "zh": "走在大街上"
+          }
+        ]
+      },
+      {
+        "img": "images/pete-cat/page-2.jpg",
+        "en": "Pete loved his white shoes so much, he sang a song: \"I love my white shoes, I love my white shoes...\"",
+        "zh": "皮特太爱他的白鞋子了，他唱起了歌：\"我爱我的白鞋子，我爱我的白鞋子……\"",
+        "keys": [
+          {
+            "w": "sang",
+            "p": "/sæŋ/",
+            "zh": "唱歌（sing的过去式）"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/pete-cat/page-3.jpg",
+        "en": "Oh no! Pete stepped in a large pile of strawberries. What color did it turn his shoes?",
+        "zh": "哦不！皮特踩进了一大堆草莓里。他的鞋子变成了什么颜色？",
+        "keys": [
+          {
+            "w": "stepped",
+            "p": "/stept/",
+            "zh": "踩到（step的过去式）"
+          },
+          {
+            "w": "pile",
+            "p": "/paɪl/",
+            "zh": "堆"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "oh no!",
+            "zh": "哦不！（表示糟糕）"
+          }
+        ]
+      },
+      {
+        "img": "images/pete-cat/page-4.jpg",
+        "en": "RED! Did Pete cry? Goodness, no! He kept walking along and singing his song. \"I love my red shoes, I love my red shoes...\"",
+        "zh": "红色！皮特哭了吗？天哪，没有！他继续一边走一边唱着歌。\"我爱我的红鞋子，我爱我的红鞋子……\"",
+        "keys": [
+          {
+            "w": "goodness",
+            "p": "/ˈɡʊdnəs/",
+            "zh": "天哪，老天"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "kept walking along",
+            "zh": "继续走"
+          }
+        ]
+      },
+      {
+        "img": "images/pete-cat/page-5.jpg",
+        "en": "Oh no! Pete stepped in a large pile of blueberries. What color did it turn his shoes?",
+        "zh": "哦不！皮特踩进了一大堆蓝莓里。他的鞋子变成了什么颜色？",
+        "keys": [
+          {
+            "w": "blueberries",
+            "p": "/ˈbluːberiz/",
+            "zh": "蓝莓"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/pete-cat/page-6.jpg",
+        "en": "BLUE! Did Pete cry? Goodness, no! He kept walking along and singing his song. \"I love my blue shoes, I love my blue shoes...\"",
+        "zh": "蓝色！皮特哭了吗？天哪，没有！他继续边走边唱：\"我爱我的蓝鞋子，我爱我的蓝鞋子……\"",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/pete-cat/page-7.jpg",
+        "en": "Oh no! Pete stepped in a large puddle of mud. What color did it turn his shoes?",
+        "zh": "哦不！皮特踩进了一大滩泥巴里。他的鞋子变成了什么颜色？",
+        "keys": [
+          {
+            "w": "puddle",
+            "p": "/ˈpʌdəl/",
+            "zh": "水坑，泥坑"
+          },
+          {
+            "w": "mud",
+            "p": "/mʌd/",
+            "zh": "泥巴"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/pete-cat/page-8.jpg",
+        "en": "BROWN! Did Pete cry? Goodness, no! He kept walking along and singing his song. \"I love my brown shoes, I love my brown shoes...\"",
+        "zh": "棕色！皮特哭了吗？天哪，没有！他继续边走边唱：\"我爱我的棕鞋子，我爱我的棕鞋子……\"",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/pete-cat/page-9.jpg",
+        "en": "Oh no! Pete stepped in a bucket of water. What happened to his shoes?",
+        "zh": "哦不！皮特踩进了一桶水里。他的鞋子怎么了？",
+        "keys": [
+          {
+            "w": "bucket",
+            "p": "/ˈbʌkɪt/",
+            "zh": "桶"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/pete-cat/page-10.jpg",
+        "en": "They were all wet. But they were still shoes. Did Pete cry? Goodness, no! He kept walking along and singing his song.",
+        "zh": "全湿了。但它们毕竟还是鞋子。皮特哭了吗？天哪，没有！他继续边走边唱。",
+        "keys": [
+          {
+            "w": "wet",
+            "p": "/wet/",
+            "zh": "湿的"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/pete-cat/page-11.jpg",
+        "en": "\"I love my wet shoes, I love my wet shoes...\"",
+        "zh": "\"我爱我的湿鞋子，我爱我的湿鞋子……\"",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/pete-cat/page-12.jpg",
+        "en": "The moral of Pete's story is: No matter what you step in, keep walking along and singing your song. Because it's all good.",
+        "zh": "皮特的故事告诉我们：不管你踩到了什么，继续前进，继续唱你的歌。因为一切都会好起来的。",
+        "keys": [
+          {
+            "w": "moral",
+            "p": "/ˈmɔːrəl/",
+            "zh": "寓意，道理"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "no matter what",
+            "zh": "不管什么"
+          },
+          {
+            "en": "it's all good",
+            "zh": "一切都会好的"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "little-critter",
+    "title": "Little Critter: Just a Kite",
+    "titleZh": "小怪物：放风筝",
+    "category": "Mercer Mayer",
+    "cover": "images/little-critter/cover.jpg",
+    "pages": [
+      {
+        "img": "images/little-critter/page-1.jpg",
+        "en": "I wanted a kite. I got a kite.",
+        "zh": "我想要一个风筝。我得到了一个风筝。",
+        "keys": [
+          {
+            "w": "kite",
+            "p": "/kaɪt/",
+            "zh": "风筝"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "I wanted... I got...",
+            "zh": "我想要……我得到了……"
+          }
+        ]
+      },
+      {
+        "img": "images/little-critter/page-2.jpg",
+        "en": "\"Can I fly it now?\" I asked. \"It's a kiting kite,\" said Dad. \"We need to put it together.\"",
+        "zh": "\"我现在可以放了吗？\"我问。\"这是个风筝风筝，\"爸爸说。\"我们先把它组装起来。\"",
+        "keys": [
+          {
+            "w": "kiting",
+            "p": "/ˈkaɪtɪŋ/",
+            "zh": "放风筝的"
+          },
+          {
+            "w": "fly",
+            "p": "/flaɪ/",
+            "zh": "放飞"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "put it together",
+            "zh": "把它组装起来"
+          }
+        ]
+      },
+      {
+        "img": "images/little-critter/page-3.jpg",
+        "en": "I put the sticks together. Dad tied the strings. I put on the stickers. The kite looked good.",
+        "zh": "我把骨架拼好。爸爸系好绳子。我贴上贴纸。风筝看起来真棒。",
+        "keys": [
+          {
+            "w": "sticks",
+            "p": "/stɪks/",
+            "zh": "棍子，骨架"
+          },
+          {
+            "w": "tied",
+            "p": "/taɪd/",
+            "zh": "系好，绑好"
+          },
+          {
+            "w": "strings",
+            "p": "/strɪŋz/",
+            "zh": "绳子"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/little-critter/page-4.jpg",
+        "en": "\"Let's fly it!\" I said. We went outside. Dad held the kite. I held the string. \"Run!\" said Dad.",
+        "zh": "\"我们放吧！\"我说。我们到外面。爸爸举着风筝，我拿着线。\"跑！\"爸爸说。",
+        "keys": [],
+        "phrases": [
+          {
+            "en": "let's fly it",
+            "zh": "我们来放吧"
+          }
+        ]
+      },
+      {
+        "img": "images/little-critter/page-5.jpg",
+        "en": "I ran. The kite went up. Then it came down. \"Try again,\" said Dad. I ran again. The kite went up. Then it came down again.",
+        "zh": "我跑起来。风筝飞起来了。然后又掉下来了。\"再试一次，\"爸爸说。我又跑起来。风筝又飞起来了。然后又掉下来了。",
+        "keys": [],
+        "phrases": [
+          {
+            "en": "went up",
+            "zh": "升起来了"
+          },
+          {
+            "en": "came down",
+            "zh": "掉下来了"
+          }
+        ]
+      },
+      {
+        "img": "images/little-critter/page-6.jpg",
+        "en": "A dog chased the kite. The kite got a hole. \"Oh no!\" I said. \"I can fix it,\" said Dad. He taped the hole.",
+        "zh": "一只狗追风筝。风筝破了一个洞。\"哦不！\"我说。\"我能修好，\"爸爸说。他用胶带贴住了洞。",
+        "keys": [
+          {
+            "w": "chased",
+            "p": "/tʃeɪst/",
+            "zh": "追赶"
+          },
+          {
+            "w": "hole",
+            "p": "/hoʊl/",
+            "zh": "洞"
+          },
+          {
+            "w": "fix",
+            "p": "/fɪks/",
+            "zh": "修理"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "got a hole",
+            "zh": "破了个洞"
+          }
+        ]
+      },
+      {
+        "img": "images/little-critter/page-7.jpg",
+        "en": "We tried again. The kite went up. It went higher and higher. \"It's flying!\" I said.",
+        "zh": "我们又试了一次。风筝升起来了。越飞越高。\"飞起来了！\"我说。",
+        "keys": [
+          {
+            "w": "higher",
+            "p": "/ˈhaɪər/",
+            "zh": "更高的（high的比较级）"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "higher and higher",
+            "zh": "越来越高"
+          }
+        ]
+      },
+      {
+        "img": "images/little-critter/page-8.jpg",
+        "en": "The string broke. The kite flew away. \"Oh no!\" I said. \"I am sorry, Little Critter,\" said Dad.",
+        "zh": "绳子断了。风筝飞走了。\"哦不！\"我说。\"对不起，小怪物，\"爸爸说。",
+        "keys": [
+          {
+            "w": "broke",
+            "p": "/broʊk/",
+            "zh": "断了（break的过去式）"
+          },
+          {
+            "w": "flew away",
+            "p": "/fluː əˈweɪ/",
+            "zh": "飞走了"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "flew away",
+            "zh": "飞走了"
+          }
+        ]
+      },
+      {
+        "img": "images/little-critter/page-9.jpg",
+        "en": "\"That's okay,\" I said. \"We can get another one. I am just having a day with my dad.\"",
+        "zh": "\"没关系，\"我说。\"我们可以再买一个。我只是想和爸爸在一起一天。\"",
+        "keys": [],
+        "phrases": [
+          {
+            "en": "having a day with...",
+            "zh": "和……待在一起一天"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "wild-things",
+    "title": "Where the Wild Things Are",
+    "titleZh": "野兽出没的地方",
+    "category": "Maurice Sendak",
+    "cover": "images/wild-things/cover.jpg",
+    "pages": [
+      {
+        "img": "images/wild-things/page-1.jpg",
+        "en": "The night Max wore his wolf suit and made mischief of one kind and another.",
+        "zh": "那天晚上，麦克斯穿上他的狼外套，搞了这样那样的恶作剧。",
+        "keys": [
+          {
+            "w": "wolf suit",
+            "p": "/wʊlf suːt/",
+            "zh": "狼外套"
+          },
+          {
+            "w": "mischief",
+            "p": "/ˈmɪstʃɪf/",
+            "zh": "恶作剧，捣蛋"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "made mischief",
+            "zh": "捣蛋，搞恶作剧"
+          }
+        ]
+      },
+      {
+        "img": "images/wild-things/page-2.jpg",
+        "en": "His mother called him \"WILD THING!\" and Max said \"I'LL EAT YOU UP!\" so he was sent to bed without eating anything.",
+        "zh": "妈妈叫他\"小野兽！\"麦克斯说\"我要把你吃掉！\"于是他没吃晚饭就被关进了房间。",
+        "keys": [
+          {
+            "w": "wild thing",
+            "p": "/waɪld θɪŋ/",
+            "zh": "小野兽"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "sent to bed",
+            "zh": "被罚上床睡觉"
+          }
+        ]
+      },
+      {
+        "img": "images/wild-things/page-3.jpg",
+        "en": "That very night in Max's room a forest grew.",
+        "zh": "就在那天晚上，麦克斯的房间里长出了一片森林。",
+        "keys": [
+          {
+            "w": "forest",
+            "p": "/ˈfɔːrɪst/",
+            "zh": "森林"
+          },
+          {
+            "w": "grew",
+            "p": "/ɡruː/",
+            "zh": "生长（grow的过去式）"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "that very night",
+            "zh": "就在那天晚上"
+          }
+        ]
+      },
+      {
+        "img": "images/wild-things/page-4.jpg",
+        "en": "And grew and grew until his ceiling hung with vines and the walls became the world all around.",
+        "zh": "长啊，长啊，直到天花板上挂满了藤蔓，墙壁变成了周围的世界。",
+        "keys": [
+          {
+            "w": "ceiling",
+            "p": "/ˈsiːlɪŋ/",
+            "zh": "天花板"
+          },
+          {
+            "w": "vines",
+            "p": "/vaɪnz/",
+            "zh": "藤蔓"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "hung with vines",
+            "zh": "挂满了藤蔓"
+          }
+        ]
+      },
+      {
+        "img": "images/wild-things/page-5.jpg",
+        "en": "And an ocean tumbled by with a private boat for Max, and he sailed off through night and day and in and out of weeks and almost over a year to where the wild things are.",
+        "zh": "一片海洋翻滚而来，为麦克斯送来了一条小船，他日夜航行，一周又一周，几乎一整年，终于来到了野兽出没的地方。",
+        "keys": [
+          {
+            "w": "ocean",
+            "p": "/ˈoʊʃən/",
+            "zh": "海洋"
+          },
+          {
+            "w": "tumbled",
+            "p": "/ˈtʌmbəld/",
+            "zh": "翻滚而来"
+          },
+          {
+            "w": "private",
+            "p": "/ˈpraɪvət/",
+            "zh": "私人的"
+          },
+          {
+            "w": "sailed",
+            "p": "/seɪld/",
+            "zh": "航行"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "through night and day",
+            "zh": "日夜不停地"
+          },
+          {
+            "en": "in and out of weeks",
+            "zh": "一周又一周"
+          }
+        ]
+      },
+      {
+        "img": "images/wild-things/page-6.jpg",
+        "en": "And when he came to the place where the wild things are, they roared their terrible roars and gnashed their terrible teeth and rolled their terrible eyes and showed their terrible claws.",
+        "zh": "当他来到野兽出没的地方，它们发出可怕的吼声，磨着可怕的牙齿，转着可怕的眼睛，伸出可怕的爪子。",
+        "keys": [
+          {
+            "w": "roared",
+            "p": "/rɔːrd/",
+            "zh": "吼叫"
+          },
+          {
+            "w": "gnashed",
+            "p": "/næʃt/",
+            "zh": "磨（牙）"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "terrible roars",
+            "zh": "可怕的吼叫声"
+          }
+        ]
+      },
+      {
+        "img": "images/wild-things/page-7.jpg",
+        "en": "\"BE STILL!\" Max said and tamed them with the magic trick of staring into all their yellow eyes without blinking once. And they were frightened and called him the most wild thing of all.",
+        "zh": "\"不许动！\"麦克斯说，用魔法般的眼神——一眨不眨地盯住它们所有的黄眼睛——驯服了它们。它们害怕了，说他是全世界最野的野兽。",
+        "keys": [
+          {
+            "w": "tamed",
+            "p": "/teɪmd/",
+            "zh": "驯服"
+          },
+          {
+            "w": "blinking",
+            "p": "/ˈblɪŋkɪŋ/",
+            "zh": "眨眼睛"
+          },
+          {
+            "w": "frightened",
+            "p": "/ˈfraɪtnd/",
+            "zh": "害怕的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "be still",
+            "zh": "别动，停下来"
+          }
+        ]
+      },
+      {
+        "img": "images/wild-things/page-8.jpg",
+        "en": "\"And now,\" cried Max, \"let the wild rumpus start!\"",
+        "zh": "\"现在，\"麦克斯喊道，\"让野兽狂欢开始吧！\"",
+        "keys": [
+          {
+            "w": "rumpus",
+            "p": "/ˈrʌmpəs/",
+            "zh": "喧闹，狂欢"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "let the wild rumpus start",
+            "zh": "让狂欢开始吧"
+          }
+        ]
+      },
+      {
+        "img": "images/wild-things/page-9.jpg",
+        "en": "(The wild rumpus - Max and the wild things dance and swing through the jungle.)",
+        "zh": "（野兽狂欢——麦克斯和野兽们在丛林里跳舞、荡来荡去。）",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/wild-things/page-10.jpg",
+        "en": "(The wild rumpus continues - they all climb trees and howl at the moon.)",
+        "zh": "（狂欢继续——它们爬上树梢，对着月亮嚎叫。）",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/wild-things/page-11.jpg",
+        "en": "(The wild rumpus - Max rides on the king's shoulders.)",
+        "zh": "（狂欢——麦克斯骑在野兽王的肩膀上。）",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/wild-things/page-12.jpg",
+        "en": "\"Now stop!\" Max said and sent the wild things off to bed without their supper.",
+        "zh": "\"现在停下！\"麦克斯说，没给野兽们吃晚饭就让它们上床睡觉了。",
+        "keys": [
+          {
+            "w": "stop",
+            "p": "/stɒp/",
+            "zh": "停下"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/wild-things/page-13.jpg",
+        "en": "And Max the king of all wild things was lonely and wanted to be where someone loved him best of all. Then all around from far away across the world he smelled good things to eat so he gave up being king of where the wild things are.",
+        "zh": "麦克斯，所有野兽的王，感到孤独了，他想回到有人最爱他的地方。这时，从遥远的世界另一边飘来了好吃的香味，于是他放弃了做野兽国的王。",
+        "keys": [
+          {
+            "w": "lonely",
+            "p": "/ˈloʊnli/",
+            "zh": "孤独的"
+          },
+          {
+            "w": "gave up",
+            "p": "/ɡeɪv ʌp/",
+            "zh": "放弃"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "loved him best of all",
+            "zh": "最爱他的人"
+          }
+        ]
+      },
+      {
+        "img": "images/wild-things/page-14.jpg",
+        "en": "But the wild things cried, \"Oh please don't go—we'll eat you up—we love you so!\" And Max said, \"No!\"",
+        "zh": "但野兽们喊道：\"哦，请别走——我们要把你吃掉——我们好爱你！\"麦克斯说：\"不！\"",
+        "keys": [],
+        "phrases": [
+          {
+            "en": "we love you so",
+            "zh": "我们好爱你"
+          }
+        ]
+      },
+      {
+        "img": "images/wild-things/page-15.jpg",
+        "en": "The wild things made their terrible roars and gnashed their terrible teeth and rolled their terrible eyes and showed their terrible claws, but Max stepped into his private boat and waved goodbye.",
+        "zh": "野兽们发出可怕的吼声，磨着可怕的牙齿，转着可怕的眼睛，伸出可怕的爪子，但麦克斯踏上了他的小船，挥手告别。",
+        "keys": [
+          {
+            "w": "waved",
+            "p": "/weɪvd/",
+            "zh": "挥（手）"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "waved goodbye",
+            "zh": "挥手告别"
+          }
+        ]
+      },
+      {
+        "img": "images/wild-things/page-16.jpg",
+        "en": "And he sailed back through night and day and in and out of weeks and almost over a year.",
+        "zh": "他又日夜航行，一周又一周，几乎一整年。",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/wild-things/page-17.jpg",
+        "en": "And he found his supper waiting for him.",
+        "zh": "他回到房间，发现晚饭正等着他。",
+        "keys": [
+          {
+            "w": "supper",
+            "p": "/ˈsʌpər/",
+            "zh": "晚餐"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/wild-things/page-18.jpg",
+        "en": "And it was still hot.",
+        "zh": "而且，还是热的。",
+        "keys": [],
+        "phrases": []
+      }
+    ]
+  },
+  {
+    "id": "winnie-witch",
+    "title": "Winnie the Witch",
+    "titleZh": "女巫温妮",
+    "category": "Valerie Thomas",
+    "cover": "images/winnie-witch/cover.jpg",
+    "pages": [
+      {
+        "img": "images/winnie-witch/page-1.jpg",
+        "en": "Winnie the Witch lived in a black house. The house was black on the outside and black on the inside. The carpets were black. The chairs were black. The bed was black. Even the bathroom was black.",
+        "zh": "女巫温妮住在一座黑房子里。房子外面是黑的，里面也是黑的。地毯是黑的。椅子是黑的。床是黑的。连浴室都是黑的。",
+        "keys": [
+          {
+            "w": "witch",
+            "p": "/wɪtʃ/",
+            "zh": "女巫"
+          },
+          {
+            "w": "carpet",
+            "p": "/ˈkɑːrpɪt/",
+            "zh": "地毯"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "on the outside",
+            "zh": "在外面"
+          },
+          {
+            "en": "on the inside",
+            "zh": "在里面"
+          }
+        ]
+      },
+      {
+        "img": "images/winnie-witch/page-2.jpg",
+        "en": "Winnie lived in her black house with her cat, Wilbur. Wilbur was a black cat. That was the problem.",
+        "zh": "温妮和她的猫威尔伯住在黑房子里。威尔伯是一只黑猫。这就是问题所在。",
+        "keys": [
+          {
+            "w": "problem",
+            "p": "/ˈprɒbləm/",
+            "zh": "问题"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "that was the problem",
+            "zh": "问题就在这里"
+          }
+        ]
+      },
+      {
+        "img": "images/winnie-witch/page-3.jpg",
+        "en": "When Wilbur sat on a chair with his eyes open, Winnie could see him. She could see his eyes. But when Wilbur closed his eyes and went to sleep, Winnie couldn't see him at all. She would sit on him.",
+        "zh": "威尔伯睁着眼睛坐在椅子上时，温妮能看到他。她能看到他的眼睛。但威尔伯一闭眼睡觉，温妮就完全看不见他了。她就会一屁股坐到威尔伯身上。",
+        "keys": [
+          {
+            "w": "closed",
+            "p": "/kloʊzd/",
+            "zh": "闭上"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "at all",
+            "zh": "完全（不）"
+          },
+          {
+            "en": "sit on him",
+            "zh": "坐到他身上"
+          }
+        ]
+      },
+      {
+        "img": "images/winnie-witch/page-4.jpg",
+        "en": "So Winnie waved her magic wand and said, \"ABRACADABRA!\"",
+        "zh": "于是温妮挥舞她的魔法棒，念道：\"阿布拉卡达布拉！\"",
+        "keys": [
+          {
+            "w": "magic wand",
+            "p": "/ˈmædʒɪk wɒnd/",
+            "zh": "魔法棒"
+          },
+          {
+            "w": "abracadabra",
+            "p": "/ˌæbrəkəˈdæbrə/",
+            "zh": "阿布拉卡达布拉（咒语）"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/winnie-witch/page-5.jpg",
+        "en": "Wilbur was no longer a black cat. He was a bright green cat! Now Winnie could see Wilbur wherever he went.",
+        "zh": "威尔伯不再是一只黑猫了。他成了一只亮绿色的猫！现在不管威尔伯去哪儿，温妮都能看见他。",
+        "keys": [
+          {
+            "w": "no longer",
+            "p": "/noʊ ˈlɔːŋɡər/",
+            "zh": "不再"
+          },
+          {
+            "w": "bright",
+            "p": "/braɪt/",
+            "zh": "明亮的，鲜艳的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "no longer",
+            "zh": "不再"
+          }
+        ]
+      },
+      {
+        "img": "images/winnie-witch/page-6.jpg",
+        "en": "But Wilbur went outside. He sat on the grass. Winnie rushed out on her bicycle and BANG! She crashed into him. She could not see him when he sat on the grass.",
+        "zh": "但威尔伯跑到了外面。他坐在草地上。温妮骑着自行车冲出来，砰！撞到了他。威尔伯坐在草地上时她又看不见他了。",
+        "keys": [
+          {
+            "w": "rushed",
+            "p": "/rʌʃt/",
+            "zh": "冲出去"
+          },
+          {
+            "w": "crashed",
+            "p": "/kræʃt/",
+            "zh": "撞上"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "crashed into",
+            "zh": "撞上了"
+          }
+        ]
+      },
+      {
+        "img": "images/winnie-witch/page-7.jpg",
+        "en": "So Winnie waved her magic wand again and said, \"ABRACADABRA!\" Now Wilbur was a green cat with a red head, a red body, and a red tail! A very stripy cat.",
+        "zh": "于是温妮又挥舞魔法棒，念道：\"阿布拉卡达布拉！\"现在威尔伯变成了一只绿猫，但有着红脑袋、红身体和红尾巴！一只非常花哨的猫。",
+        "keys": [
+          {
+            "w": "tail",
+            "p": "/teɪl/",
+            "zh": "尾巴"
+          },
+          {
+            "w": "stripy",
+            "p": "/ˈstraɪpi/",
+            "zh": "条纹的，花哨的"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/winnie-witch/page-8.jpg",
+        "en": "Winnie could see Wilbur wherever he went. But Wilbur was very unhappy. He looked silly. The birds looked at him and laughed. Wilbur was sad.",
+        "zh": "不管威尔伯去哪儿温妮都能看见他了。但威尔伯很不开心。他看起来傻极了。鸟儿们都看着他笑。威尔伯很难过。",
+        "keys": [
+          {
+            "w": "unhappy",
+            "p": "/ʌnˈhæpi/",
+            "zh": "不开心的"
+          },
+          {
+            "w": "silly",
+            "p": "/ˈsɪli/",
+            "zh": "傻乎乎的"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/winnie-witch/page-9.jpg",
+        "en": "Winnie was sad too. She loved Wilbur. \"I'll make you happy again,\" she said.",
+        "zh": "温妮也很难过。她爱威尔伯。\"我会让你重新开心的，\"她说。",
+        "keys": [],
+        "phrases": [
+          {
+            "en": "make you happy",
+            "zh": "让你开心"
+          }
+        ]
+      },
+      {
+        "img": "images/winnie-witch/page-10.jpg",
+        "en": "She waved her magic wand and shouted, \"ABRACADABRA!\" Wilbur was a black cat again. Then Winnie waved her wand five more times.",
+        "zh": "她挥舞魔法棒，喊道：\"阿布拉卡达布拉！\"威尔伯又变回了一只黑猫。然后温妮又挥舞了五次魔法棒。",
+        "keys": [
+          {
+            "w": "shouted",
+            "p": "/ˈʃaʊtɪd/",
+            "zh": "大喊"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/winnie-witch/page-11.jpg",
+        "en": "The house was no longer black. The roof was red. The walls were yellow. The door was green. The chairs were pink. The carpet was white with colorful flowers. The bed was blue. The bathroom was green and gold.",
+        "zh": "房子不再是黑色的了。屋顶是红的，墙是黄的，门是绿的，椅子是粉的，地毯是白色带彩色花朵的，床是蓝色的，浴室是绿色和金色的。",
+        "keys": [
+          {
+            "w": "roof",
+            "p": "/ruːf/",
+            "zh": "屋顶"
+          },
+          {
+            "w": "colorful",
+            "p": "/ˈkʌlərfəl/",
+            "zh": "彩色的"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/winnie-witch/page-12.jpg",
+        "en": "So now Winnie can always see Wilbur. Even when he sits on the stairs with his eyes closed. And Wilbur is happy. Because the stairs are blue and pink and yellow and green and red and white. What a wonderful house!",
+        "zh": "现在温妮总能看见威尔伯了。就算他闭着眼睛坐在楼梯上也看得见。威尔伯很开心。因为楼梯是蓝色、粉色、黄色、绿色、红色和白色的。多么美妙的房子啊！",
+        "keys": [
+          {
+            "w": "stairs",
+            "p": "/sterz/",
+            "zh": "楼梯"
+          },
+          {
+            "w": "wonderful",
+            "p": "/ˈwʌndərfəl/",
+            "zh": "美妙的，精彩的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "what a wonderful house",
+            "zh": "多么美妙的房子啊"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "crayons-quit",
+    "title": "The Day the Crayons Quit",
+    "titleZh": "蜡笔罢工的一天",
+    "category": "Drew Daywalt",
+    "cover": "images/crayons-quit/cover.jpg",
+    "pages": [
+      {
+        "img": "images/crayons-quit/page-1.jpg",
+        "en": "One day in class, Duncan went to take out his crayons. Instead of his crayons, he found a stack of letters with his name on them.",
+        "zh": "一天在课堂上，邓肯拿出他的蜡笔盒。但里面不是蜡笔，而是一叠写着他名字的信。",
+        "keys": [
+          {
+            "w": "stack",
+            "p": "/stæk/",
+            "zh": "一叠，一摞"
+          },
+          {
+            "w": "letter",
+            "p": "/ˈletər/",
+            "zh": "信"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "instead of",
+            "zh": "而不是"
+          }
+        ]
+      },
+      {
+        "img": "images/crayons-quit/page-2.jpg",
+        "en": "Dear Duncan, It's me, Red. I work harder than anyone else. I have to color all the fire engines, apples, Santas, and hearts. I'm tired. I need a rest! Your overworked friend, Red Crayon",
+        "zh": "亲爱的邓肯，我是红色。我比任何蜡笔都辛苦。消防车、苹果、圣诞老人、爱心——全是我来画。我太累了。我需要休息！你过度工作的朋友，红色蜡笔",
+        "keys": [
+          {
+            "w": "fire engine",
+            "p": "/ˈfaɪər endʒɪn/",
+            "zh": "消防车"
+          },
+          {
+            "w": "overworked",
+            "p": "/ˌoʊvərˈwɜːrkt/",
+            "zh": "过度工作的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "harder than anyone else",
+            "zh": "比任何人都辛苦"
+          }
+        ]
+      },
+      {
+        "img": "images/crayons-quit/page-3.jpg",
+        "en": "Dear Duncan, I love it when you color with me. But I hate it when you color OUTSIDE THE LINES! It's so messy! Your neatly frustrated friend, Purple Crayon",
+        "zh": "亲爱的邓肯，我喜欢你用我涂色。但我讨厌你涂到线外面！太乱了！你爱整洁又很沮丧的朋友，紫色蜡笔",
+        "keys": [
+          {
+            "w": "outside the lines",
+            "p": "/ˌaʊtˈsaɪd ðə laɪnz/",
+            "zh": "线外面"
+          },
+          {
+            "w": "messy",
+            "p": "/ˈmesi/",
+            "zh": "乱糟糟的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "outside the lines",
+            "zh": "出界了，涂到线外"
+          }
+        ]
+      },
+      {
+        "img": "images/crayons-quit/page-4.jpg",
+        "en": "Dear Duncan, I am tired of being called \"Light Brown\" or \"Dark Tan\". I am BEIGE! I am always the last crayon, the one you use the least. I am BORED! Your bored friend, Beige Crayon",
+        "zh": "亲爱的邓肯，我受够了被叫做\"浅棕色\"或\"深褐色\"。我是米色！我永远是最后一支蜡笔，你用最少的那支。我太无聊了！你无聊的朋友，米色蜡笔",
+        "keys": [
+          {
+            "w": "beige",
+            "p": "/beɪʒ/",
+            "zh": "米色"
+          },
+          {
+            "w": "bored",
+            "p": "/bɔːrd/",
+            "zh": "无聊的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "tired of",
+            "zh": "受够了，厌烦"
+          }
+        ]
+      },
+      {
+        "img": "images/crayons-quit/page-5.jpg",
+        "en": "Dear Duncan, I don't want to be a coloring crayon anymore. I'm tired of coloring such BIG things. Elephants, whales, rhinos, hippos... Do you have any small things I can color? Your worn-out friend, Gray Crayon",
+        "zh": "亲爱的邓肯，我不想再做涂色蜡笔了。我厌倦了涂那么大的东西。大象、鲸鱼、犀牛、河马……你有没有小一点的东西给我涂？你疲惫不堪的朋友，灰色蜡笔",
+        "keys": [
+          {
+            "w": "worn-out",
+            "p": "/ˌwɔːrn ˈaʊt/",
+            "zh": "筋疲力尽的"
+          },
+          {
+            "w": "whale",
+            "p": "/weɪl/",
+            "zh": "鲸鱼"
+          },
+          {
+            "w": "rhino",
+            "p": "/ˈraɪnoʊ/",
+            "zh": "犀牛"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "such BIG things",
+            "zh": "这么大的东西"
+          }
+        ]
+      },
+      {
+        "img": "images/crayons-quit/page-6.jpg",
+        "en": "Dear Duncan, I feel empty. I am a white crayon. I have no purpose. The paper is already white. I have no friend. Your colorless friend, White Crayon",
+        "zh": "亲爱的邓肯，我觉得好空虚。我是一支白色蜡笔。我没有用处。纸本来就是白的。我没有朋友。你无色的朋友，白色蜡笔",
+        "keys": [
+          {
+            "w": "empty",
+            "p": "/ˈempti/",
+            "zh": "空虚的，空的"
+          },
+          {
+            "w": "purpose",
+            "p": "/ˈpɜːrpəs/",
+            "zh": "用处，目的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "no purpose",
+            "zh": "没有用处"
+          }
+        ]
+      },
+      {
+        "img": "images/crayons-quit/page-7.jpg",
+        "en": "Dear Duncan, I am the color of outlines. But I am tired of just being an OUTLINE. I want to color a whole page! A black dog. A black cat. A black hole! Your outline friend, Black Crayon",
+        "zh": "亲爱的邓肯，我是轮廓的颜色。但我厌倦了只做轮廓。我想涂满一整页！一只黑狗。一只黑猫。一个黑洞！你用来画轮廓的朋友，黑色蜡笔",
+        "keys": [
+          {
+            "w": "outline",
+            "p": "/ˈaʊtlaɪn/",
+            "zh": "轮廓，描边"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "a whole page",
+            "zh": "一整页"
+          }
+        ]
+      },
+      {
+        "img": "images/crayons-quit/page-8.jpg",
+        "en": "Dear Duncan, I'm writing from the bottom of the couch. Yellow and Orange always get picked for the sun. No one ever picks me for the sun. A green sun? Is it possible? Your sunny friend, Green Crayon",
+        "zh": "亲爱的邓肯，我在沙发底下给你写信。黄色和橙色总是被选去画太阳。从来没人选我画太阳。绿色的太阳？这有可能吗？你阳光的朋友，绿色蜡笔",
+        "keys": [],
+        "phrases": [
+          {
+            "en": "picked for the sun",
+            "zh": "被选中画太阳"
+          }
+        ]
+      },
+      {
+        "img": "images/crayons-quit/page-9.jpg",
+        "en": "Dear Duncan, We are writing together. Orange says the sun is ORANGE. I say the sun is YELLOW. We are STUCK. We quit! P.S. We are not speaking to each other. Yellow and Orange Crayon",
+        "zh": "亲爱的邓肯，我们一起写信。橙色说太阳是橙色的。我说太阳是黄色的。我们吵不拢。我们不干了！附注：我们现在互不理睬。黄色和橙色蜡笔",
+        "keys": [
+          {
+            "w": "stuck",
+            "p": "/stʌk/",
+            "zh": "卡住了，僵持不下"
+          },
+          {
+            "w": "quit",
+            "p": "/kwɪt/",
+            "zh": "辞职，不干了"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/crayons-quit/page-10.jpg",
+        "en": "Dear Duncan, I am the color of the sky and the ocean. But I am short. I am worn down to the stump. Please give me a rest. Your short friend, Blue Crayon",
+        "zh": "亲爱的邓肯，我是天空和大海的颜色。但我变得好短。我已经被磨到只剩一小截了。请让我休息一下。你短小的朋友，蓝色蜡笔",
+        "keys": [
+          {
+            "w": "stump",
+            "p": "/stʌmp/",
+            "zh": "残段，剩下的一小截"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "worn down to the stump",
+            "zh": "被磨到只剩一小截了"
+          }
+        ]
+      },
+      {
+        "img": "images/crayons-quit/page-11.jpg",
+        "en": "Dear Duncan, I am not a color just for girls! You never use me for anything. Perhaps you could use me for a monster? A pink dinosaur? A pink cow? I want to do more. Your underused friend, Pink Crayon",
+        "zh": "亲爱的邓肯，我不是只给女孩子用的颜色！你从来不用我画任何东西。也许你可以用我来画怪兽？一只粉红色恐龙？一头粉红色奶牛？我想做更多事。你未被充分利用的朋友，粉色蜡笔",
+        "keys": [
+          {
+            "w": "underused",
+            "p": "/ˌʌndərˈjuːzd/",
+            "zh": "未被充分使用的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "not just for...",
+            "zh": "不只是为了……"
+          }
+        ]
+      },
+      {
+        "img": "images/crayons-quit/page-12.jpg",
+        "en": "Dear Duncan, Why did you peel off my paper? I am BARE and NAKED! I am too embarrassed to come out of the box! I want my paper back. Your naked friend, Peach Crayon P.S. The other crayons won't even look at me.",
+        "zh": "亲爱的邓肯，你为什么剥掉了我的纸？我光溜溜的，一丝不挂！我太害羞了都不敢从盒子里出来！我要我的纸回来。你一丝不挂的朋友，桃色蜡笔。附注：其他蜡笔都不愿意看我。",
+        "keys": [
+          {
+            "w": "peel off",
+            "p": "/piːl ɒf/",
+            "zh": "剥掉"
+          },
+          {
+            "w": "bare",
+            "p": "/ber/",
+            "zh": "光溜溜的"
+          },
+          {
+            "w": "embarrassed",
+            "p": "/ɪmˈbærəst/",
+            "zh": "尴尬的，害羞的"
+          }
+        ],
+        "phrases": []
+      },
+      {
+        "img": "images/crayons-quit/page-13.jpg",
+        "en": "Duncan looked at the letters. He read every single one. He wanted to make all his crayons happy.",
+        "zh": "邓肯看着这些信。他一封一封地读完了。他想让所有蜡笔都开心起来。",
+        "keys": [],
+        "phrases": [
+          {
+            "en": "every single one",
+            "zh": "每一个"
+          }
+        ]
+      },
+      {
+        "img": "images/crayons-quit/page-14.jpg",
+        "en": "So Duncan did something special. He took out a big piece of paper and drew a picture using all the crayons.",
+        "zh": "于是邓肯做了一件特别的事。他拿出一张大纸，画了一幅画，用上了所有蜡笔。",
+        "keys": [
+          {
+            "w": "special",
+            "p": "/ˈspeʃəl/",
+            "zh": "特别的"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "something special",
+            "zh": "一件特别的事"
+          }
+        ]
+      },
+      {
+        "img": "images/crayons-quit/page-15.jpg",
+        "en": "He colored a green sun. A pink elephant. A blue whale. A red fire engine. A purple dinosaur. A white rabbit in the snow. A black cat. A gray mouse. An orange rainbow. A yellow sky. A peach face. A beige turkey.",
+        "zh": "他画了一个绿色的太阳。一只粉色的大象。一头蓝色的鲸鱼。一辆红色的消防车。一只紫色的恐龙。雪地里一只白色的兔子。一只黑猫。一只灰色老鼠。一道橙色的彩虹。一片黄色的天空。一张桃色的脸。一只米色的火鸡。",
+        "keys": [],
+        "phrases": []
+      },
+      {
+        "img": "images/crayons-quit/page-16.jpg",
+        "en": "When Duncan was finished, his teacher gave him a gold star for coloring so carefully. And he was allowed to use his crayons again. The End.",
+        "zh": "邓肯画完以后，老师因为他涂色认真给了他一颗金星。他又可以继续用他的蜡笔了。故事讲完了。",
+        "keys": [
+          {
+            "w": "gold star",
+            "p": "/ɡoʊld stɑːr/",
+            "zh": "金星，奖励"
+          }
+        ],
+        "phrases": [
+          {
+            "en": "was allowed to",
+            "zh": "被允许做……"
+          }
+        ]
+      }
+    ]
   }
-
 ];
