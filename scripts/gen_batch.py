@@ -12,8 +12,8 @@ ACCOUNTS = [
 ]
 MAX_PER_ACCOUNT = 999
 BATCH_SIZE = 20
-MAX_RETRIES = 3
-FAIL_STREAK_LIMIT = 3  # switch account after N consecutive fails
+MAX_RETRIES = 5
+FAIL_STREAK_LIMIT = 6  # switch account after N consecutive fails
 AI_STUDIO = "https://aistudio.google.com/prompts/new_chat?model=gemini-2.5-flash-image"
 BASE_DIR = Path("/home/deploy/bilingual-picturebooks/math-kindergarten/images")
 STATE = Path("/home/deploy/bilingual-picturebooks/scripts/gen_state.json")
@@ -118,9 +118,8 @@ def extract_image(page):
             return None
     return None
 
-def generate(page, prompt, is_first=False):
-    if is_first:
-        navigate_to_chat(page)
+def generate(page, prompt):
+    navigate_to_chat(page)
     send_prompt(page, prompt)
     return extract_image(page)
 
@@ -166,7 +165,6 @@ def main():
                 login(page, acct)
                 time.sleep(2)
                 
-                is_first = True
                 for batch_i in range(BATCH_SIZE):
                     if idx >= len(work): break
                     ch, fname, prompt, key = work[idx]
@@ -176,12 +174,10 @@ def main():
                     
                     fails = s.get("failed", {}).get(key, 0)
                     pfx = acct["email"][:8]
-                    bat_tag = "FIRST" if is_first else f"BAT+{batch_i}"
-                    print(f"[{idx}/{len(work)}] ch{ch}/{fname} ({pfx}..., {bat_tag}, att:{fails+1})")
+                    print(f"[{idx}/{len(work)}] ch{ch}/{fname} ({pfx}..., att:{fails+1})")
                     
                     try:
-                        data = generate(page, prompt, is_first=is_first)
-                        is_first = False
+                        data = generate(page, prompt)
                     except Exception as e:
                         print(f"  -> BROW ERR: {e}"); data = None; break  # restart browser
                     
@@ -190,6 +186,7 @@ def main():
                         s["done"][key] = True; s["failed"].pop(key, None)
                         usages[acct["email"]] = user_cnt + 1
                         fail_streak = 0
+                        s["browser_fails"][acct["email"]] = 0
                         print(f"  -> {len(data)//1024}KB ✓ ({usages[acct['email']]}/{MAX_PER_ACCOUNT})")
                     else:
                         s["failed"][key] = fails + 1
@@ -209,7 +206,7 @@ def main():
             bf = s.get("browser_fails", {})
             bf[acct["email"]] = bf.get(acct["email"], 0) + 1
             # Blacklist account after 2 browser-level failures
-            if bf[acct["email"]] >= 2:
+            if bf[acct["email"]] >= 5:
                 usages[acct["email"]] = 999  # mark exhausted
                 print(f"  [!] Blacklisted {acct['email']} after {bf[acct['email']]} browser fails")
             # Re-pick least-used account on browser failure
